@@ -165,6 +165,7 @@
         .beeru-nav-bar .nav-bar-member {
             width: 75px;
             position: relative;
+            right: 20px;
         }
 
         /* 右上角小圖們 手機版 改位置 */
@@ -387,6 +388,7 @@
             height: 10vh;
             max-height: 85px;
             position: fixed;
+            z-index: 997;
             bottom: 0;
             background-color: #fff;
             border-top: 3px solid var(--gold);
