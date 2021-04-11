@@ -1,0 +1,88 @@
+/* -------------------輪播Banner------------------ */
+
+        .product-banner {
+            height: 70vh;
+            max-height: 780px;
+            padding-top: 30px;
+        }
+
+        .product-banner-pic {
+            height: 70vh;
+            max-height: 780px;
+            background: url(../../images/products/Heart\ of\ Darkness-01.png) no-repeat 82% center;
+            /* position: relative;
+            z-index: 10; */
+        }
+
+        .product-banner-pic::after {
+            content: '';
+            display: block;
+            width: 40%;
+            height: 40%;
+            background: url(../../images/common/deco-draw-01.svg) no-repeat;
+            position: absolute;
+            top: 5%;
+        }
+
+        .product-banner-pic::before {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 50%;
+            position: absolute;
+            z-index: -1;
+            top: 35%;
+            left: 35%;
+            background: url(../../images/common/deco-draw-02.svg)no-repeat;
+
+        }
+
+        .product-banner-intro {
+            height: fit-content;
+        }
+
+
+        .product-banner-intro p:nth-of-type(1) {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 4rem;
+            font-weight: bold;
+        }
+        .product-banner-intro span {
+            margin-top: -20px;
+            display: block;
+        }
+
+        .product-banner-intro p:nth-of-type(2) {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 2.4rem;
+            font-weight: bold;
+        }
+
+        .product-banner-intro p:nth-of-type(3) {
+            margin: 10px 0 25px;
+        }
+
+        .product-banner-intro::before {
+            content: '';
+            display: block;
+            width: 65%;
+            height: 75%;
+            position: absolute;
+            z-index: -1;
+            right: -2%;
+            bottom: -45%;
+            background: url(../../images/common/deco-draw-03.svg) no-repeat;
+        }
+
+/* ----------------了解更多---------------------- */
+
+
+
+/* ------------------全部商品區塊---------------- */
+
+.select-product-wrap {
+    width: 100%;
+    height: 200vh;
+    background-color: #fff;
+    border-top: 30px solid var(--gold);
+}
