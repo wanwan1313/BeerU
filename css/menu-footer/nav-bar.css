@@ -391,8 +391,8 @@
             bottom: 0;
             background-color: #fff;
             border-top: 3px solid var(--gold);
-            color: rgb(94, 94, 94);
-            font-size: 2.6rem;
+            color: rgb(71, 71, 71);
+            font-size: 3.6rem;
             letter-spacing: 2.3rem;
             z-index: 997;
             box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.15);
@@ -400,6 +400,7 @@
 
         .beer-warning p:nth-of-type(1) {
             position: relative;
+            margin-right: 8%;
         }
 
 
@@ -420,7 +421,7 @@
         /* 手機版 改字大小跟間距 */
     @media (max-width: 991px) {
         .beer-warning {
-            font-size: 1.8rem;
+            font-size: 2rem;
             letter-spacing: 0.2rem;
         }
 
