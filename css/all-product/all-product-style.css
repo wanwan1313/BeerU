@@ -7,9 +7,10 @@
         }
 
         .product-banner-pic {
-            height: 70vh;
+            height: 60vh;
             max-height: 780px;
             background: url(../../images/products/Heart\ of\ Darkness-01.png) no-repeat 82% center;
+            background-size: contain;
             /* position: relative;
             z-index: 10; */
         }
@@ -18,7 +19,9 @@
             content: '';
             display: block;
             width: 40%;
+            min-width: 350px;
             height: 40%;
+            min-height: 240px;
             background: url(../../images/common/deco-draw-01.svg) no-repeat;
             position: absolute;
             top: 5%;
@@ -28,11 +31,13 @@
             content: '';
             display: block;
             width: 60%;
+            min-width: 500px;
             height: 50%;
+            min-height: 280px;
             position: absolute;
             z-index: -1;
             top: 35%;
-            left: 35%;
+            left: 40%;
             background: url(../../images/common/deco-draw-02.svg)no-repeat;
 
         }
@@ -70,7 +75,7 @@
             position: absolute;
             z-index: -1;
             right: 2%;
-            bottom: -45%;
+            bottom: -40%;
             background: url(../../images/common/deco-draw-03.svg) no-repeat;
         }
 
