@@ -7,24 +7,34 @@
         }
 
         .product-banner-pic {
-            height: 60vh;
-            max-height: 780px;
-            background: url(../../images/products/Heart\ of\ Darkness-01.png) no-repeat 82% center;
+            height: 65vh;
+            max-height: 760px;
             background-size: contain;
-            /* position: relative;
-            z-index: 10; */
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 30px;
+        }
+
+        .product-banner-pic img {
+            width: 150px;
+            height: 90%;
+            min-height: 380px;
+            object-fit: contain;
+            
         }
 
         .product-banner-pic::after {
             content: '';
             display: block;
-            width: 40%;
+            width: 42%;
             min-width: 350px;
-            height: 40%;
+            height: 42%;
             min-height: 240px;
             background: url(../../images/common/deco-draw-01.svg) no-repeat;
             position: absolute;
             top: 5%;
+            left: 5%;
         }
 
         .product-banner-pic::before {
@@ -37,13 +47,16 @@
             position: absolute;
             z-index: -1;
             top: 35%;
-            left: 40%;
+            left: 48%;
             background: url(../../images/common/deco-draw-02.svg)no-repeat;
 
         }
 
         .product-banner-intro {
-            height: fit-content;
+            height: 65vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
 
@@ -71,11 +84,13 @@
             content: '';
             display: block;
             width: 65%;
-            height: 75%;
+            min-width: 240px;
+            height: 45%;
+            min-height: 280px;
             position: absolute;
             z-index: -1;
-            right: 2%;
-            bottom: -40%;
+            right: -10%;
+            bottom: -20px;
             background: url(../../images/common/deco-draw-03.svg) no-repeat;
         }
 
@@ -149,7 +164,7 @@
         .select-product-wrap {
             width: 100%;
             background-color: #fff;
-            border-top: 30px solid var(--gold);
+            border-top: 25px solid var(--gold);
         }
 
         .product-select {
