@@ -8,16 +8,7 @@ body,html{
 }
 
 
-.navbar{
-    margin: 0;
-    padding: 0;
-    height: 75px;
-    width: 1080px
-}
 
-.navbar img {
-    width: 100%;
-}
 .LandingPage{
     height: 100vh;
 }
