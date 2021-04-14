@@ -1,0 +1,84 @@
+*{
+    /* outline: solid 1px white; */
+}
+body,html{
+    margin: 0;
+    padding: 0;
+    background-color: #163D50;
+}
+
+
+.navbar{
+    margin: 0;
+    padding: 0;
+    height: 75px;
+    width: 1080px
+}
+
+.navbar img {
+    width: 100%;
+}
+.LandingPage{
+    height: 100vh;
+}
+
+.LandingPage_warp{
+    display: flex;
+    margin: 0 auto;
+    width: 90%;
+    justify-content: space-between;
+    align-items: flex-end;
+    
+}
+.colum{
+   width: 65px;
+}
+
+.colum img{
+    width: 100%;
+}
+
+
+.DOOR{
+    width: 350px;
+    background-image: url('../images/common/door-2.png');
+    background-size: cover;
+
+}
+.DOOR img{
+    width: 100%
+}
+
+
+.door_outside{
+    position: relative;
+    /* transform: translateX(300px); */
+}
+
+.doorSign_warp {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* object-position: 50% 50%; */
+ 
+}
+
+.doorSign_warp p:nth-of-type(1){
+
+}
+
+:nth-child(){
+    
+}
+
+
+
+
+
+
+
+
+
+
