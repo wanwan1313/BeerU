@@ -1,5 +1,5 @@
 *{
-    /* outline: solid 1px white; */
+    outline: solid 1px white;
 }
 body,html{
     margin: 0;
@@ -142,17 +142,18 @@ body,html{
       display: flex;
       position: relative;
       width: 100%;
-      justify-content: space-between;
+      justify-content: center;
       margin-top: -60px;
   }
 
 
 .flag{
-    width: 60%;
+    width: 800px;
+    overflow: hidden;
 }
 
 .flag img{
-    width: 100%;
+    /* width: 100%; */
 }
 
 .LOGO_Filter{
