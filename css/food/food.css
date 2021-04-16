@@ -1,0 +1,111 @@
+.food-wrap {
+    height: 70vh;
+}
+
+
+/* 天使+蓋子圖檔 */
+.angel-img-wrap
+{
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* 盤子圖檔 */
+.plate-img-wrap
+{
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 現在我想來點 */
+.food-left-text h2 {
+    color: var(--gold);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+
+/* 餐酒搭配 */
+ /* 圈圈圖案 */
+ .food-title {
+    background: url(../../images/common/h1_4_w.svg) no-repeat center center;
+    background-size: contain;
+  
+
+}
+
+/* 標題文字 */
+.food-title p {
+    color: var(--white);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 左邊雕飾 */
+.food-title p::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_left.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+
+/* 右邊雕飾 */
+.food-title p::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right:0;
+    transform: translate(115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_right.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 手機版 改字和雕飾大小*/
+@media (max-width: 991px) {
+.food-title p {
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    text-indent:0.8rem;
+}
+
+.food-title p::before {
+    width: 60px;
+    height: 32%;
+
+}
+
+.food-title p::after {
+    width: 60px;
+    height: 32%;
+
+}
+
+
+}
