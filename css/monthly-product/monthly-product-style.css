@@ -1,0 +1,227 @@
+.monthly-product-wrap {
+    height: 70vh;
+    background-color: #fff;
+}
+
+/* -------------------輪播Banner------------------ */
+
+.monthly-product-banner{
+    height: 70vh;
+    max-height: 780px;
+    padding-top: 30px;
+}
+
+.monthly-product-main{
+        height: 70vh;
+        max-height: 780px;
+        background: url(../../images/glori_images/may_product.png) no-repeat center center;
+        background-size: contain;
+
+    }
+
+
+.monthly-product-intro {
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+        /* 圈圈圖案 */
+        .monthly-title {
+            background: url(../../images/common/h1_4_b.svg) no-repeat center center;
+            background-size: contain;
+
+        }
+
+        /* 標題文字 */
+
+        h1 {
+            color: var(--blue);
+            font-family: 'Noto Serif TC', serif;
+            font-weight: bold;
+            font-size: 3.0rem;
+            letter-spacing: 0.75rem;
+            text-indent:1.2rem;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: var(--blue);
+            font-family: 'Noto Serif TC', serif;
+            font-weight: bold;
+            font-size: 2.2rem;
+            letter-spacing: 0.5rem;
+            text-indent:1.2rem;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .monthly-title p {
+            color: var(--blue);
+            font-family: 'Noto Serif TC', serif;
+            font-weight: bold;
+            font-size: 3.6rem;
+            letter-spacing: 1.2rem;
+            text-indent:1.2rem;
+            width: fit-content;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* 左邊雕飾 */
+        .monthly-title p::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-115%, -50%);
+            width: 150px;
+            height: 50%;
+            background: url(../../images/common/h1_ear_left_b.svg) no-repeat center center;
+            background-size: contain;
+
+        }
+
+
+        /* 右邊雕飾 */
+        .monthly-title p::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            right:0;
+            transform: translate(115%, -50%);
+            width: 150px;
+            height: 50%;
+            background: url(../../images/common/h1_ear_right_b.svg) no-repeat center center;
+            background-size: contain;
+
+        }
+
+        /* 手機版 改字和雕飾大小*/
+    @media (max-width: 991px) {
+        .monthly-title p {
+            font-size: 2.4rem;
+            letter-spacing: 0.8rem;
+            text-indent:0.8rem;
+        }
+
+        .monthly-title p::before {
+            width: 60px;
+            height: 32%;
+
+        }
+
+        .monthly-title p::after {
+            width: 60px;
+            height: 32%;
+
+        }
+
+
+    }
+
+
+
+
+
+/* ----------------了解更多---------------------- */
+
+.know-more {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 5%;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
+}
+
+.know-more::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+.know-more::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+
+.know-more:hover {
+    transform: scale(1.1,1.1);
+}
+
+.know-more:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+.know-more:hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+/* ------------------全部商品區塊---------------- */
+
+.select-product-wrap {
+    width: 100%;
+    background-color: #fff;
+    border-top: 25px solid var(--gold);
+}
+
+.product-select {
+    background-color: var(--blue);
+    height: 200vh;
+}
+
+/* 商品展示區塊 */
+.product-show-title {
+    color: var(--blue);
+    font-size: 2.6rem;
+    font-family:'Noto Serif TC', serif;
+    font-weight: bold;
+    text-align: center;
+    width: 75%;
+    min-width: 700px;
+    border: 1.5px solid var(--blue);
+    margin: 40px auto;
+}
+
+
+
+
+
+
+
