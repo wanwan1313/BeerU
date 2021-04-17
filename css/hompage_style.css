@@ -1,5 +1,5 @@
 *{
-    /* outline: solid 1px white; */
+    outline: solid 1px white;
 }
 body,html{
     margin: 0;
@@ -10,8 +10,18 @@ body,html{
 
 
 .LandingPage{
-    background-image: url('../images/common/截圖\ 2021-04-13\ 下午5.25.34.jpg');
-    height: 100vh;
+    background-image: url('../images/common/BG-texture\ v1.jpg');
+    height:calc(100vh - 85px);
+    overflow: hidden;
+}
+
+
+.LandingPage::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 10vh;
+    max-height: 85px;
 }
 
 .LandingPage_warp{
@@ -23,7 +33,7 @@ body,html{
     
 }
 .colum{
-   width: 65px;
+   width: 82px;
 }
 
 .colum img{
@@ -32,7 +42,7 @@ body,html{
 
 
 .DOOR{
-    width: 350px;
+    width: 380px;
     background-image: url('../images/common/door-2.png');
     background-size: cover;
 
@@ -42,15 +52,22 @@ body,html{
 }
 
 
+.pip_push{
+    position: absolute;
+    width: 150px;
+    transform: translate(-120px, 300px) ;
+
+}
+
 .door_outside{
     position: relative;
-    /* transform: translateX(300px); */
+    transform: translateX(300px);
 }
 
 .doorSign_warp {
     position: absolute;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 30px;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -97,7 +114,7 @@ body,html{
 
   .button_warp{
     position: absolute;
-    margin-top: 220px;
+    margin-top: 200px;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -108,6 +125,7 @@ body,html{
      width: 60px;
      height: 40px;
      border-radius: 10px;
+     margin: auto 5px;
      background-color: transparent;
      color: var(--gold);
      border: solid 1px var(--gold);
@@ -122,6 +140,9 @@ body,html{
 
   }
   .home_bg {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       width: 100%;
       height: calc(100vh - 85px);
       background: url("../images/common/Homepage_background.png") center center no-repeat;
@@ -143,7 +164,8 @@ body,html{
       position: relative;
       width: 100%;
       justify-content: center;
-      margin-top: -120px;
+      margin-top: -100px;
+   
   }
 
 
@@ -166,18 +188,35 @@ body,html{
 
    
 }
+
+
 .LOGO_Filter img{
     width: 100%;
 }
 
+.pip_pick{
+    position: absolute;
+    width: 100px;
+    transform: rotate(30deg) translate(110px,5px);
+    
+    
+}
+
 .Woman_warp{
     display: flex;
+    
     justify-content: center;
-    /* margin-top: -95px; */
+
+    /* transform: translateY(-20px); */
+    
+  
+    
+    
 }
 
 .woman{
-    margin: auto 30px;
+    
+    margin: auto 35px;
     width: 180px;
 }
 
@@ -191,11 +230,40 @@ body,html{
 .woman03{
     width: 250px;
     margin-top: 1px;
+    transform: translateX(25px);
 }
 
 .INTRO{
     height: 100vh;
 }
+
+
+.title-wrap{
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.h1-title{
+    position: relative;
+    margin: auto 15px;
+}
+
+.h1-title h1{
+    position: absolute;
+    top: 20%;
+    left: 3%;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 40px;
+    letter-spacing: 15px;
+    text-indent:1.2rem;
+}
+.h1-ear{
+    width: 150px;
+}
+
+
 
 
 
