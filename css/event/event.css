@@ -1,0 +1,269 @@
+   /* 試飲會 */
+   /* 間距以margin-bottom(大標30，內文5，row 10，button 20)為主，其餘使用全域 */
+   /* button長度125 */
+
+   /* 0 */
+   .event {
+       /* 文字 */
+       font-family: 'Noto Serif TC', serif;
+   }
+
+   .event i{
+       margin-right:.25rem;
+   }
+   .container {
+    padding:0;
+   }
+/*  */
+
+/* 1 */
+   /* 首圖banner */
+   
+   .event .event-banner {
+       height: 55vh;
+       width: 100%;
+       overflow: hidden;
+       position: relative;
+       line-height: 1.5;
+       letter-spacing: .25rem;
+   }
+   
+   .event .event-banner img {
+       min-width: 1200px;
+       max-width: 1600px;
+       /* 圖片置中 */
+       display: block;
+       margin: auto;
+       /*  */
+       opacity: .25;
+       transform: scale(1.5);
+       /* 圖片置底 */
+       position: absolute;
+       bottom: 30%;
+       /*  */
+   }
+   
+   .event .event-banner p {
+       /* 文字 */
+       color: var(--gold);
+       font-size: 3.5rem;
+       font-weight: bold;
+       /* 位置 */
+       margin-left: 15%;
+       margin-top: 20vh;
+       /* top: 30%; */
+       /* left: 20% */
+   }
+   /* 精選活動 */
+   
+   .event .event-content {
+       line-height: 1.5;
+       letter-spacing: .25rem;
+   }
+   
+   .event .event-content .title {
+       margin: auto;
+       margin-bottom: 30px;
+   }
+   /* 加不了線><? */
+   
+   .event .event-content .title p {
+       font-family: 'Noto Serif TC', serif;
+       font-size: 2.5rem;
+       font-weight: 600;
+       position: relative;
+       width: fit-content;
+   }
+   
+   .event .event-content .title p::before {
+       content: '';
+       display: block;
+       position: absolute;
+       background: url(../../images/common/ear_left.svg) 0 0 no-repeat;
+       width: 18px;
+       height: 18px;
+       left: -25%;
+       bottom: 23%;
+       /* content: "";flex: 1 1;border-bottom: 1px solid white;margin: auto;margin-right: 5px; */
+   }
+   
+   .event .event-content .title p::after {
+       content: '';
+       display: block;
+       position: absolute;
+       background: url(../../images/common/ear-right.svg) 0 0 no-repeat;
+       width: 18px;
+       height: 18px;
+       right: -30%;
+       bottom: 23%;
+       /* content: "";flex: 1 1;border-bottom: 1px solid white;margin: auto;margin-left: 5px;*/
+   }
+   
+   .event .event-content .card {
+       min-height: 330px;
+       margin: auto;
+       margin-bottom: 30px;   
+       width: 90%;
+       font-family: noto-sans;
+       color: #888;
+       letter-spacing: .1rem;
+       font-size: 1.4rem;
+   }
+/* 活動圖片 */
+   .event .event-content .card .card-banner {
+    height:fit-content;
+}
+.event .event-content .card .card-banner img{
+    height:100%;
+    min-height: 335px;
+    object-fit: cover;
+    
+    }
+/* 活動內容 */
+   .event .event-content  .card .card-content {
+    padding:15px;
+    list-style: none;
+       }
+       .event .event-content .card .card-content .container {
+        padding: 15px;
+                   }
+
+                   .event .event-content .card .card-content .container .row{
+                       margin-bottom: 10px;
+                    padding-left:15px;
+                    padding-right: 15px; 
+
+                   }
+/* 時間，地點 */
+       .event .event-content .card .card-content .container .row:nth-of-type(1) {
+white-space: nowrap;
+           }
+   .event .event-content .card .card-content .time {
+color:#aaa;
+   }
+   .event .event-content .card .card-content .location {
+    color:var(--gold);
+       }
+/* 標題，簡介 */
+       .event .event-content .card .card-content .intro p:nth-of-type(1){color:var(--gold);
+        font-weight: bold;
+        font-size: 2rem;
+        text-align: justify;
+        margin-bottom: 5px;
+       }
+       .event .event-content .card .card-content .intro p:nth-of-type(2){
+        text-align: justify;
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+       }
+/* 剩餘名額，瀏覽人次 */
+.event .event-content .card .card-content .container .row:nth-of-type(3){
+    margin-bottom: 40px;
+}
+.event .event-content .card .card-content .quota{
+           color:var(--red);
+       }
+       .event .event-content .card .card-content .review{
+        width:75px;
+        color:white;
+        background-color: #000;
+        text-align: center;
+        opacity: .75;
+        border-radius: 5px;
+        padding: 1px;
+    }
+
+    /* 按鈕：加入關注，立即報名 */
+       .event .event-content .card .card-content .container .row:nth-of-type(4) {
+        font-family: 'Noto Serif TC', serif;
+        padding:0;
+        margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+        .event .event-content .card .card-content .container .row:nth-of-type(4) {
+        margin-bottom: 55px;
+        }
+        }
+
+
+.event .event-content .card .card-content .focus, .event .event-content .card .card-content .event-button{
+    padding: 5px;
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 1.25;
+    text-align: center;
+    border:1px solid var(--gold);
+    white-space: nowrap;
+     }
+
+       .event .event-content .card .card-content .focus{
+           color:var(--gold);  
+       }
+       .event .event-content .card .card-content .focus:hover{
+        color:white;
+        background-color: var(--gold);  
+    }
+       .event .event-content .card .card-content .event-button{
+           color: white;
+           background-color: var(--gold);
+    }
+    .event .event-content .card .card-content .event-button:hover{
+        color: var(--gold);
+        background-color: transparent;
+ }
+
+ .event .event-content .card .card-deco{
+     width: 90%;
+     position: relative;  
+ }
+ @media (min-width: 768px) {
+    .event .event-content .card .card-deco {
+transform: rotate(270deg) translateY(25px);
+    }
+    }
+    @media (min-width: 1024px) {
+        .event .event-content .card .card-deco {
+    transform: rotate(270deg) translateY(36px);
+        }
+        }
+ .event .event-content .card .card-deco .line{
+     white:100%;
+    color:var(--blue);
+    white-space: nowrap;
+    overflow: hidden;
+    margin:auto;
+    letter-spacing: .75rem;
+    position: absolute;
+    bottom: 35px;
+    left:50%;
+    transform: translateX(-50%);
+ }
+ .event .event-content .card .card-deco .cut{
+     position: absolute;
+     bottom: -1px;
+     left:50%;
+     transform: translateX(-50%);
+    width:50px;
+    height:25px;
+    margin: auto;
+    overflow: hidden;
+}
+
+ .event .event-content .card .card-deco .cut .circle{
+     background-color: var(--blue);
+     width:50px;
+     height:50px;
+     border-radius: 50% ;
+     margin: auto;
+ }
+
+
+
+   
+   ;
+   ;
+   ;
+   ;
+   ;
+   ;
+   ;

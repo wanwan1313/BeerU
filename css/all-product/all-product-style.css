@@ -1,193 +1,189 @@
 /* -------------------輪播Banner------------------ */
 
-        .product-banner {
-            height: 70vh;
-            max-height: 780px;
-            padding-top: 30px;
-        }
+.product-banner {
+    height: 70vh;
+    max-height: 780px;
+    padding-top: 30px;
+}
 
-        .product-banner-pic {
-            height: 65vh;
-            max-height: 760px;
-            background-size: contain;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding-right: 30px;
-        }
+.product-banner-pic {
+    height: 65vh;
+    max-height: 760px;
+    background-size: contain;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 30px;
+}
 
-        .product-banner-pic img {
-            width: 150px;
-            height: 90%;
-            min-height: 380px;
-            object-fit: contain;
-            
-        }
+.product-banner-pic img {
+    width: 150px;
+    height: 90%;
+    min-height: 380px;
+    object-fit: contain;
+}
 
-        .product-banner-pic::after {
-            content: '';
-            display: block;
-            width: 42%;
-            min-width: 350px;
-            height: 42%;
-            min-height: 240px;
-            background: url(../../images/common/deco-draw-01.svg) no-repeat;
-            position: absolute;
-            top: 5%;
-            left: 5%;
-        }
+.product-banner-pic::after {
+    content: '';
+    display: block;
+    width: 42%;
+    min-width: 350px;
+    height: 42%;
+    min-height: 240px;
+    background: url(../../images/common/deco-draw-01.svg) no-repeat;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
 
-        .product-banner-pic::before {
-            content: '';
-            display: block;
-            width: 60%;
-            min-width: 500px;
-            height: 50%;
-            min-height: 280px;
-            position: absolute;
-            z-index: -1;
-            top: 35%;
-            left: 48%;
-            background: url(../../images/common/deco-draw-02.svg)no-repeat;
+.product-banner-pic::before {
+    content: '';
+    display: block;
+    width: 60%;
+    min-width: 500px;
+    height: 50%;
+    min-height: 280px;
+    position: absolute;
+    z-index: -1;
+    top: 35%;
+    left: 48%;
+    background: url(../../images/common/deco-draw-02.svg)no-repeat;
+}
 
-        }
+.product-banner-intro {
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-        .product-banner-intro {
-            height: 65vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+.product-banner-intro p:nth-of-type(1) {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 4rem;
+    font-weight: bold;
+}
 
+.product-banner-intro span {
+    margin-top: -20px;
+    display: block;
+}
 
-        .product-banner-intro p:nth-of-type(1) {
-            font-family: 'Noto Serif TC', serif;
-            font-size: 4rem;
-            font-weight: bold;
-        }
-        .product-banner-intro span {
-            margin-top: -20px;
-            display: block;
-        }
+.product-banner-intro p:nth-of-type(2) {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2.4rem;
+    font-weight: bold;
+}
 
-        .product-banner-intro p:nth-of-type(2) {
-            font-family: 'Noto Serif TC', serif;
-            font-size: 2.4rem;
-            font-weight: bold;
-        }
+.product-banner-intro p:nth-of-type(3) {
+    margin: 10px 0 25px;
+}
 
-        .product-banner-intro p:nth-of-type(3) {
-            margin: 10px 0 25px;
-        }
+.product-banner-intro::before {
+    content: '';
+    display: block;
+    width: 65%;
+    min-width: 240px;
+    height: 45%;
+    min-height: 280px;
+    position: absolute;
+    z-index: -1;
+    right: -10%;
+    bottom: -20px;
+    background: url(../../images/common/deco-draw-03.svg) no-repeat;
+}
 
-        .product-banner-intro::before {
-            content: '';
-            display: block;
-            width: 65%;
-            min-width: 240px;
-            height: 45%;
-            min-height: 280px;
-            position: absolute;
-            z-index: -1;
-            right: -10%;
-            bottom: -20px;
-            background: url(../../images/common/deco-draw-03.svg) no-repeat;
-        }
 
 /* ----------------了解更多---------------------- */
 
-        .know-more {
-            font-family: 'Noto Serif TC', serif;
-            font-size: 2rem;
-            font-weight: bold;
-            margin-left: 5%;
-            position: relative;
-            width: fit-content;
-            transition: .5s;
-        }
+.know-more {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 5%;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
+}
 
-        .know-more::before {
-            content: '';
-            display: block;
-            position: absolute;
-            background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
-            width: 18px;
-            height: 18px;
-            left: -25%;
-            bottom: 23%;
-            opacity: 1;
-            transition: .3s;
-        }
-        .know-more::after {
-            content: '';
-            display: block;
-            position: absolute;
-            background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
-            width: 18px;
-            height: 18px;
-            right: -33%;
-            bottom: 23%;
-            opacity: 1;
-            transition: .3s;
-        }
+.know-more::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
 
-        .know-more:hover {
-            transform: scale(1.1,1.1);
-        }
+.know-more::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
 
-        .know-more:hover::after {
-            content: '';
-            display: block;
-            position: absolute;
-            background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
-            width: 18px;
-            height: 18px;
-            right: -33%;
-            bottom: 23%;
-            opacity: 0;
-        }
+.know-more:hover {
+    transform: scale(1.1, 1.1);
+}
 
-        .know-more:hover::before {
-            content: '';
-            display: block;
-            position: absolute;
-            background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
-            width: 18px;
-            height: 18px;
-            left: -25%;
-            bottom: 23%;
-            opacity: 0;
-        }
+.know-more:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+.know-more:hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 0;
+}
+
 
 /* ------------------全部商品區塊---------------- */
 
-        .select-product-wrap {
-            width: 100%;
-            background-color: #fff;
-            border-top: 25px solid var(--gold);
-        }
+.select-product-wrap {
+    width: 100%;
+    background-color: #fff;
+    border-top: 25px solid var(--gold);
+}
 
-        .product-select {
-            background-color: var(--blue);
-            height: 200vh;
-        }
-
-        /* 商品展示區塊 */
-        .product-show-title {
-            color: var(--blue);
-            font-size: 2.6rem;
-            font-family:'Noto Serif TC', serif;
-            font-weight: bold;
-            text-align: center;
-            width: 75%;
-            min-width: 700px;
-            border: 1.5px solid var(--blue);
-            margin: 40px auto;
-        }
-
-        
+.product-select {
+    background-color: var(--blue);
+    height: 200vh;
+}
 
 
+/* 商品展示區塊 */
 
-
-
+.product-show-title {
+    color: var(--blue);
+    font-size: 2.6rem;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    text-align: center;
+    width: 75%;
+    min-width: 700px;
+    border: 1.5px solid var(--blue);
+    margin: 40px auto;
+}

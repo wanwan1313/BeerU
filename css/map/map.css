@@ -1,0 +1,8 @@
+.map .worldMap{
+    width: 100%;
+    /* max-width: 1300px; */
+    height: 100vh;
+    margin-top:30px;
+    background-color:red;
+
+}
