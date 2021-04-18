@@ -410,6 +410,10 @@ body,html{
  
 }
 
+.Beer-type{
+    margin-top: 60px;
+}
+
 .title-wrap h3{
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
