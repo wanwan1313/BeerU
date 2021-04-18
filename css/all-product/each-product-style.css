@@ -102,13 +102,14 @@
         }
 
         .intro-content {
-            width: fit-content;
-            max-width: 530px;
+            width: 100%;
+            max-width: 480px;
             margin: 0 auto;
         }
 
         /* 產品名稱 */
         .pro-name {
+            width: fit-content;
             font-family: 'Noto Serif TC', serif;
             font-size: 2.6rem;
             font-weight: bold;
@@ -135,9 +136,8 @@
 
         /* 產品介紹 */
         .intro-text {
-            margin: 6% 0;
+            margin: 5% 0;
             width: 90%;
-            max-width: 530px;
             font-size: 1.7rem;
         }
 
@@ -217,14 +217,12 @@
 
         /* 產品關鍵字 */
         .product-key {
-            width: 100%;
-            max-width: 530px;
-            margin-top: 6%;
+            margin-top: 5%;
             text-align: center;
         }
 
         .key-content {
-            margin-right: 25px;
+            margin-right: 20px;
         }
 
         .title {
