@@ -1,5 +1,5 @@
 *{
-    outline: solid 1px white;
+    /* outline: solid 1px white; */
 }
 body,html{
     margin: 0;
@@ -255,9 +255,10 @@ body,html{
 .h1-title{
     position: relative;
     margin: auto 15px;
+    width: 300px;
 }
 
-.h1-title h1{
+.Brew-school-title h1{
     position: absolute;
     top: 20%;
     left: 3%;
@@ -517,6 +518,67 @@ body,html{
     background: url("../images/common/ear_right_yellow.svg") 0 0 no-repeat;
  
 }
+
+.hand{
+    position: absolute;
+    transform: translate(-30px,-120px);
+    width: 300px;
+}
+
+.type-color{
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.drop{
+    margin: 0 32px;
+    width: 45px;
+  
+}
+
+.BeerU-colllection{
+    margin-top: 120px;
+}
+.BeerU-colllection-title h1{
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 45px;
+    letter-spacing: 23px;
+    position: absolute;
+    text-indent:1.2rem;
+    top: 20%;
+    left: 4%;
+}
+
+.colllection-items{
+    margin-top: 40px;
+}
+.item-flag{
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    width: 40px;
+
+    transform: rotate(-10deg) translate(0px,20px);
+}
+.item-img{
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    width: 150px;
+}
+
+.item-intro h4{
+    font-family: 'Noto Sans TC', serif;
+    font-weight: Medium;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+
+
+
 
 
 
