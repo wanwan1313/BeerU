@@ -580,6 +580,186 @@ body,html{
 }
 
 
+.dot-wrap{
+  
+  
+    margin: 0 auto;  
+}
+
+.dot-wrap span{
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #fff;
+
+}
+.dot-wrap span:nth-of-type(1){
+  
+    background-color: var(--yellow);
+
+}
+
+.feature{
+    margin-top: 30px;
+}
+
+.feature01{
+    
+    width: 540px;
+    height: 350px;
+    float: right;
+    background-image: url('../images/Links/feature01.jpg') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.feature02{
+    
+    width: 540px;
+    height: 350px;
+    float: left;
+    background-image: url('../images/Links/feature02.jpg') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.feature03{
+    
+    width: 540px;
+    height: 350px;
+    float: right;
+    background-image: url('../images/Links/feature03.jpg') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.feature04{
+   
+    width: 540px;
+    height: 350px;
+    float: left;
+    background-image: url('../images/Links/feature04.jpg') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.feature-content{
+   
+    position: absolute;
+    width: 540px;
+    height: 80px;
+    bottom: 0px;
+    background: linear-gradient(to right ,#000 0% , transparent 100% );
+}
+
+.feature-content p{
+    font-family: 'Noto Serif TC', serif;
+    font-size: 35px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.feature-content:hover{
+    
+    background: linear-gradient(to right ,#b69564 0% , transparent 100% );
+
+}
+
+
+.BeerU-legend{
+    margin-top: 120px;
+}
+.BeerU-legend-title h1{
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 45px;
+    letter-spacing: 23px;
+    position: absolute;
+    text-indent:1.2rem;
+    top: 20%;
+    left: 4%;
+}
+
+.legned-story{
+    margin-top: 50px;
+}
+
+.legned {
+    margin: 0 auto;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    border: solid 1px var(--yellow)
+    
+
+}
+
+.legned h3{
+     font-family: 'Noto Serif TC', serif;
+     letter-spacing: 5px;
+     line-height: 50px;
+     margin-top: 10px;
+     font-size: 30px;
+     text-align: center;
+     color: var(--yellow);
+}
+
+.legned-content{
+    width: 250px;
+    word-break:break-alll;
+    margin: 0 auto;
+    
+}
+
+.pipi{
+    margin-top: 80px;
+}
+
+.clouds{
+    height: 500px;
+    background-image: url("../images/common/clouds.svg");
+    background-repeat: no-repeat;
+    background-position:center;
+}
+.pipi-left{
+    justify-content: center;
+    align-items: center;
+}
+
+.pipi-name h3{
+    
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    line-height: 1.25;
+    font-size: 35px;
+
+}
+
+.pipi-name h3:nth-of-type(2){
+    margin-top: 25px;
+    color:#b69564;
+}
+
+.pipi-img{
+    width: 200px;
+}
+
+
+.pipi-intro p{
+    width: 250px;
+    word-break: keep-all;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
