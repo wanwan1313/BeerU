@@ -40,7 +40,7 @@
 </head>
 
 <body>
-
+    <!-- navbar -->
     <header class="beeru-nav-bar">
         <div class="container">
             <div
@@ -83,7 +83,7 @@
         </div>
     </header>
     <div class="header"></div>
-
+    <!-- dont drink -->
     <section class="beer-warning d-flex align-items-center">
         <div class="container">
             <div class="row justify-content-center  align-items-center">
@@ -92,100 +92,88 @@
             </div>
         </div>
     </section>
+
+    <!-- event品飲會 -->
     <section class="event">
-        <!-- title -->
-        <div class="container">
+        <!--1. title -->
+        <div class="col-12 member-title mt-5 ">
+            <p>品飲會</p>
+        </div>
+
+        <!-- 2.banner -->
+        <div class="container-fluid event-banner" >
+            <!-- 2.1.底圖 -->
+            <img src="../images/event/SVG/event-banner-bgc.svg" alt="">
+            <!-- 2.2標題+動畫 -->
+            <div class="row justify-content-center align-items-center">
+                <!-- 大標 -->
+                <p class='col-10 col-lg-3 order-2 order-lg-1'>給我<br>一杯酒的時間...</p>
+                <!-- 動畫 -->
+                <div class='col-12 col-lg-3 order-1 order-lg-2'>缺：小天使酒杯乾杯動畫</div>
+            </div>
+        </div>
+
+        <!-- 3.content -->
+        <div class="container event-content">
+            <!-- 3.1.title -->
             <div class="row">
-                <div class="col-12 member-title mt-5 ">
-                    <p>品飲會</p>
+                <div class='title'>
+                    <p>精選活動</p>
                 </div>
             </div>
-        </div>
-
-        <!-- banner -->
-        <div class="event-banner">
-            <!-- 底圖 -->
-            <img src="../../images/event/SVG/event-banner-bgc.svg" alt="">
-            <!-- 標題 -->
-            <div class="container">
-                <div class="row">
-                    <p>給我<br>一杯酒的時間...</p>
+            <!-- 3.2.event-card -->
+            <div class="row align-items-center justify-content-around event-card">
+                <!-- 3.2.1.banner -->
+                <div class='card-banner col-12 col-lg-6 pd0'>
+                    <img  src="../images/event/event-open.jpeg" alt="">
                 </div>
-                <!-- 缺：小天使酒杯乾杯動畫 -->
-            </div>
-        </div>
-        <!-- content -->
-        <div class="event-content">
-            <div class="container">
-                <div class="row">
-                    <div class='title'>
-                        <p>精選活動</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="container">
-                        <div class="row align-items-center justify-content-around">
-                            <!-- banner -->
-                            <div class='card-banner col-sm-12 col-md-6'><img src="../images/event/event-open.jpeg"
-                                    alt=""></div>
-                            <!-- content -->
-                            <div class="card-content col-sm-12 col-md-5">
-                                <div class="container">
-                                    <!-- 時間,地區 -->
-                                    <div class="row justify-content-between">
-                                        <li class='time'><i class="far fa-clock"></i>2021-05-14(五) 13:00~17:00</li>
-                                        <li class='location'><i class="fas fa-map-marker-alt"></i>台北市</li>
-                                    </div>
-                                    <!-- 標題 -->
-                                    <div class='intro'>
-                                        <p>藏酒『嚐酒會』四月『啤酒不簡單』</p>
-                                        <p>人們可以在BLISS享受精釀啤酒、新式雞尾酒及各國美食， 在觀看現場DJ、樂團與舞蹈表演的同時，還能參加有趣的活動。 享受休閒，夏日體驗，幸福實現!
-                                        </p>
-                                    </div>
-                                    <!--剩餘名額,瀏覽人次 -->
-                                    <div class="row justify-content-between">
-                                        <li class='quota'>剩餘名額：0</li>
-                                        <li class='review'><i class="far fa-eye"></i>
-                                            1,234</li>
-                                    </div>
-                                    <!-- 加入關注,立即報名 -->
-                                    <div class="row justify-content-between">
-                                        <a href="" class='col-6'>
-                                            <div class='focus'><i class="fas fa-plus"></i>加入關注</div>
-                                        </a>
-                                        <a href="" class='col-6'>
-                                            <div class='event-button'>立即報名</div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- card-deco -->
-                            <div class='card-deco col-sm-12 col-md-1'>
-                                <!-- <div class="container"> -->
-                                    <div class='line'>
-                                        --------------------------------------------------------------------------------
-                                    </div>
-                                    <!-- <div class='line'></div> -->
-                                    <div class='cut'>
-                                        <div class='circle'></div>
-                                    </div>
-                                <!-- </div> -->
-                            </div>
+                <!-- 3.2.2.content -->
+                <div class="col-12 col-lg-5 card-content">
+                        <!-- 時間+地區 -->
+                        <div class="row justify-content-between">
+                            <li class='time'><i class="far fa-clock"></i>2021-05-14(五) 13:00~17:00</li>
+                            <li class='location'><i class="fas fa-map-marker-alt"></i>台北市</li>
                         </div>
+                        <!-- 標題+簡介 -->
+                        <div class='intro'>
+                            <p>藏酒『嚐酒會』四月『啤酒不簡單』</p>
+                            <p>人們可以在BLISS享受精釀啤酒、新式雞尾酒及各國美食， 在觀看現場DJ、樂團與舞蹈表演的同時，還能參加有趣的活動。 享受休閒，夏日體驗，幸福實現!
+                            </p>
+                        </div>
+                        <!--剩餘名額+瀏覽人次 -->
+                        <div class="row justify-content-between">
+                            <li class='quota'>剩餘名額：0</li>
+                            <li class='review'><i class="far fa-eye"></i>
+                                1,234</li>
+                        </div>
+                        <!-- 加入關注+立即報名 -->
+                        <div class="row justify-content-between">
+                            <a href="" class='col-6'>
+                                <div class='focus'><i class="fas fa-plus"></i>加入關注</div>
+                            </a>
+                            <a href="" class='col-6'>
+                                <div class='event-button'>立即報名</div>
+                            </a>
+                        </div>
+                </div>
+                <!-- 3.2.3.card-deco -->
+                <div class='card-deco col-12 col-lg-1'>
+                    <!-- <div class="container"> -->
+                    <div class='line'>
+                        --------------------------------------------------------------------------------
                     </div>
-                </div>
-                <div class="card">
-
-                </div>
-                <div class="card">
-
+                    <!-- <div class='line'></div> -->
+                    <div class='cut'>
+                        <div class='circle'></div>
+                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
-
     </section>
 
+
+    
     <footer>
         <div class="footer-brand d-none d-md-block">
             <p>brand</p>
@@ -205,9 +193,6 @@
             <p>Copyright© 2021 BEERU. All Rights Reserved</p>
         </div>
     </footer>
-
-
-
 
     <!-- 各種CDN -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
