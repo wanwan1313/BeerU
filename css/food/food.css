@@ -1,6 +1,7 @@
 .food-wrap {
-    height: 70vh;
+    height: 80vh;
 }
+
 
 
 /* 天使+蓋子圖檔 */
@@ -34,13 +35,11 @@
 
 
 
-/* 餐酒搭配 */
+/* title:餐酒搭配 */
  /* 圈圈圖案 */
  .food-title {
     background: url(../../images/common/h1_4_w.svg) no-repeat center center;
     background-size: contain;
-  
-
 }
 
 /* 標題文字 */
@@ -87,8 +86,70 @@
 
 }
 
+/*文字介紹 -餐酒搭配  */
+.food-right-text  {
+   width: 70%;
+   margin: 0 auto;
+   margin-top: 10%;
+}
+
+.food-right-text h2 {
+    color: var(--white);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 2.4rem;
+    line-height: 4.2rem;
+    letter-spacing: 1rem;
+    text-indent:1.2rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+
 /* 手機版 改字和雕飾大小*/
 @media (max-width: 991px) {
+
+    .food-wrap {
+        height: 100vh;
+    }
+
+    .food-banner.container {
+        display: block;
+    }
+
+    .food-intro {
+        /* width: 80%; */
+    
+    }
+
+    .angel-img-wrap
+    {
+        width: 70%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .food-right-text  {
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 5%;
+     }
+
+    /* 現在我想來點 */
+    .food-left-text h2 {
+    font-weight: bold;
+    font-size: 2.0rem;
+    list-style: none;
+    line-height: 2.8rem;
+    letter-spacing: 1.0rem;
+    text-indent:1.2rem;
+    text-align: center;
+
+}
+
 .food-title p {
     font-size: 2.4rem;
     letter-spacing: 0.8rem;
@@ -107,5 +168,12 @@
 
 }
 
-
+.food-right-text h2 {
+    color: var(--white);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+text-align: center;
+}
 }
