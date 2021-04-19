@@ -86,7 +86,7 @@
 
 }
 
-/*文字介紹 -餐酒搭配  */
+/*intro-餐酒搭配 */
 .food-right-text  {
    width: 70%;
    margin: 0 auto;
@@ -99,44 +99,97 @@
     font-weight: bold;
     font-size: 2.4rem;
     line-height: 4.2rem;
-    letter-spacing: 1rem;
-    text-indent:1.2rem;
+    letter-spacing: 0.8rem;
+    /* text-indent:1.2rem; */
     margin: 0 auto;
-    text-align: center;
+    text-align: justify;
+}
+/* span:pariage */
+.mariage {
+    font-family: 'Noto Sans TC', sans-serif;
+    letter-spacing: 0.5rem;
+
 }
 
+.food-rule {
+    margin-top: 100px;
+}
+
+/* title:啤酒與美食搭配三大原則 */
+
+.rule-title-line h1 {
+    font-family: 'Noto Serif TC', serif;
+    color: var(--gold);
+    text-align: center;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    max-width: 990px;
+    margin: 0 auto;
+    position: relative;
+}
+.rule-title-line h2 {
+    font-family: 'Noto Serif TC', serif;
+    color: var(--gold);
+    text-align: center;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    max-width: 990px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.rule-title-line h1::before {
+    content: '';
+    display: block;
+    width: 350px;
+    height: 2px;
+    background: var(--gold);;
+    left: 0;
+    top: 50%;
+    position: absolute;
+}
+
+.rule-title-line h1::after {
+    content: '';
+    display: block;
+    width: 350px;
+    height: 2px;
+    background:var(--gold);;
+    right: 0;
+    top: 50%;
+    position: absolute;
+
+}
 
 
 /* 手機版 改字和雕飾大小*/
 @media (max-width: 991px) {
 
     .food-wrap {
-        height: 100vh;
+        height: 200vh;
     }
 
     .food-banner.container {
         display: block;
     }
 
-    .food-intro {
-        /* width: 80%; */
-    
-    }
-
+/*天使大小調整*/
     .angel-img-wrap
     {
-        width: 70%;
+        width: 80%;
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
-
-
-    .food-right-text  {
-        width: 70%;
-        margin: 0 auto;
-        margin-top: 5%;
-     }
+/*盤子大小調整 */
+    .plate-img-wrap
+    {
+        width: 80%;
+    }
 
     /* 現在我想來點 */
     .food-left-text h2 {
@@ -144,9 +197,9 @@
     font-size: 2.0rem;
     list-style: none;
     line-height: 2.8rem;
-    letter-spacing: 1.0rem;
+    letter-spacing: 0.6rem;
     text-indent:1.2rem;
-    text-align: center;
+    text-align: center ;
 
 }
 
@@ -167,13 +220,18 @@
     height: 32%;
 
 }
+/*intro-餐酒搭配 */
+.food-right-text  {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10%;
+ }
 
 .food-right-text h2 {
-    color: var(--white);
-    font-family: 'Noto Serif TC', serif;
-    font-weight: bold;
     font-size: 1.8rem;
     line-height: 2.6rem;
-text-align: center;
+   text-align: justify;
 }
+
+
 }
