@@ -1,27 +1,44 @@
 .monthly-product-wrap {
-    height: 70vh;
+    height: 80vh;
     background-color: #fff;
 }
 
 /* -------------------輪播Banner------------------ */
 
 .monthly-product-banner{
-    height: 70vh;
+    height: 80vh;
     max-height: 780px;
     padding-top: 30px;
+    position: relative;
+    background-color: #fff;
 }
 
+.marble::before{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    background: url(../../images/glori_images/lemon_bg.png) no-repeat center center;
+}
+
+.monthly-product-wrap .marble{
+    
+    background:url(../../images/glori_images/marble_top.png) no-repeat center bottom;
+    background-size: 100%;
+    z-index: 1;
+}
 .monthly-product-main{
         height: 70vh;
         max-height: 780px;
         background: url(../../images/glori_images/may_product.png) no-repeat center center;
         background-size: contain;
-
     }
 
-
 .monthly-product-intro {
-    height: 65vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
