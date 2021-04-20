@@ -1,3 +1,14 @@
+/* 顏色 */
+.blue{
+    color:var(--blue);      
+}
+    .red{
+    color:var(--red);      
+}
+    .aaa{
+ color:#aaa;
+}
+
 /* 加入關注.btn_attention */
 .btn_attention {
     white-space: nowrap;
@@ -104,6 +115,24 @@
     color: var(--gold);
     border: 1.5px solid var(--gold);
 }
+.return{
+    background-color: white;
+    color: var(--gold);
+    border: 1.5px solid var(--gold);
+}
+.return:hover{
+    background-color: transparent;
+    color: var(--gold);
+    border: 1.5px solid var(--gold);
+}
+
+.calender{
+    font-family: 'Noto Sans TC',sans-serif;
+    font-weight: normal;
+    transform:scale(.7);
+    padding-left:10px;
+    padding-right:10px;
+}
 
 /* 了解更多know-more */
 .know-more {
@@ -205,6 +234,14 @@
     color: var(--red);
 }
 
+/* 分享按鈕 */
+.fb, .line, .share{
+    margin-left:15px;
+}
+.share {
+    font-size: 1.9rem;
+ }
 
 
+ /* title */
 
