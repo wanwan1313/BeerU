@@ -277,6 +277,7 @@
     /* ////////啤女精選////////*/
    
     .feature02{
+   
         background-position: right 2px  top 0px;
     }
 
@@ -306,7 +307,9 @@
       
         margin-top: 50px
     }
-
+    .pipi-name{
+        padding: 15px;
+    }
 
     
     .pipi-intro p{
