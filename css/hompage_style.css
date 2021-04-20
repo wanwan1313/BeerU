@@ -784,6 +784,10 @@ body,html{
 }
 
 
+.pipi-intro p span{
+    color: var(--yellow);
+}
+
 
 
 
