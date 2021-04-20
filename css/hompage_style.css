@@ -769,6 +769,7 @@ body,html{
 
 
 .pipi-intro p{
+    padding: 15px;
      font-family: 'Noto Serif TC', serif;
      letter-spacing: 5px;
     font-weight: bold;
