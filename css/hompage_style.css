@@ -1,5 +1,5 @@
 *{
-    /* outline: solid 1px white; */
+    outline: solid 1px white;
 }
 body,html{
     margin: 0;
@@ -30,9 +30,11 @@ body,html{
     width: 90%;
     justify-content: space-between;
     align-items: flex-end;
+    height:calc(100vh - 85px);
     
 }
 .colum{
+   /* display: none; */
    width: 82px;
    height:calc(100vh - 85px);
 }
@@ -50,6 +52,7 @@ body,html{
 
 
 .DOOR{
+    margin: 0 auto;
     width: 380px;
     background-image: url('../images/common/door-2.png');
     background-size: cover;
@@ -69,7 +72,7 @@ body,html{
 
 .door_outside{
     position: relative;
-    transform: translateX(300px);
+    transform: translateX(150px);
 }
 
 .doorSign_warp {
@@ -172,12 +175,15 @@ body,html{
       position: relative;
       width: 100%;
       justify-content: center;
+      align-items: center;
       margin-top: -100px;
    
   }
 
 
 .flag{
+    position: relative;
+    
     width: 1000px;
     overflow: hidden;
 }
@@ -188,13 +194,12 @@ body,html{
 
 .LOGO_Filter{
     position: absolute;
+    z-index: 99;
     width: 500px;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    margin-top: 25px;
-
-   
+    margin-top: 25px;   
 }
 
 
@@ -247,8 +252,9 @@ body,html{
 
 
 .title-wrap{
+    width: 100%;
     display: flex;
-    margin: 0 auto;
+    justify-content: center;
     align-items: center;
 }
 
@@ -449,9 +455,16 @@ body,html{
 
 }
 
+.type-intro-content{
+    width: 400px;
+
+}
+
+
 .type-intro-title{
     align-items: center;
 }
+
 .type-intro-title h3{ 
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
@@ -470,7 +483,15 @@ body,html{
 
 }
 
+.colorDot {
+    display: none;
+}
+
+
+
+
 .type-intro-text p{
+    word-break: break-all;
     font-family: 'Noto Sans TC', serif;
     font-size: 16px;
     letter-spacing: 0.1rem;
@@ -525,18 +546,18 @@ body,html{
 
 .hand{
     position: absolute;
-    transform: translate(-30px,-120px);
-    width: 300px;
+    transform: translate(-30px,-200px);
+    width: 20%;
 }
 
 .type-color{
-    margin: 0 auto;
+    justify-content: center;  
     margin-top: 50px;
 }
 
 .drop{
-    margin: 0 32px;
-    width: 45px;
+    margin: 0 30px;
+    width: 4%
   
 }
 
@@ -600,54 +621,52 @@ body,html{
 
 }
 
-.feature{
-    margin-top: 30px;
+
+.feature-wrap{
+   
+    display: flex;
+    justify-content: center;
 }
 
-.feature01{
-    
+
+.feature{
+    position: relative;
+    margin: 15px 15px;
     width: 540px;
     height: 350px;
-    float: right;
+}
+
+
+.feature01{
     background-image: url('../images/Links/feature01.jpg') ;
     background-size: cover;
     background-repeat: no-repeat;
 }
 .feature02{
     
-    width: 540px;
-    height: 350px;
-    float: left;
     background-image: url('../images/Links/feature02.jpg') ;
     background-size: cover;
     background-repeat: no-repeat;
 }
 .feature03{
-    
-    width: 540px;
-    height: 350px;
-    float: right;
     background-image: url('../images/Links/feature03.jpg') ;
     background-size: cover;
     background-repeat: no-repeat;
+  
 }
 .feature04{
-   
-    width: 540px;
-    height: 350px;
-    float: left;
     background-image: url('../images/Links/feature04.jpg') ;
     background-size: cover;
     background-repeat: no-repeat;
-}
+} 
 
 
 .feature-content{
    
     position: absolute;
-    width: 540px;
-    height: 80px;
+    width: 100%;
     bottom: 0px;
+    left: 0px;
     background: linear-gradient(to right ,#000 0% , transparent 100% );
 }
 
@@ -656,6 +675,7 @@ body,html{
     font-size: 35px;
     font-weight: bold;
     margin-left: 20px;
+  
 }
 
 .feature-content:hover{
@@ -715,14 +735,17 @@ body,html{
 }
 
 .clouds{
-    height: 500px;
+    height: 400px;
     background-image: url("../images/common/clouds.svg");
     background-repeat: no-repeat;
     background-position:center;
 }
+
+
 .pipi-left{
     justify-content: center;
     align-items: center;
+    margin-top: 80px
 }
 
 .pipi-name h3{
@@ -746,8 +769,17 @@ body,html{
 
 
 .pipi-intro p{
-    width: 250px;
-    word-break: keep-all;
+     font-family: 'Noto Serif TC', serif;
+     letter-spacing: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 80px;
+    width: 400px;
+    word-break: break-all;
+    
+    border: solid 2px var(--gold);
+
+    border-radius: 10px;
 }
 
 

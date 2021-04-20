@@ -1,0 +1,307 @@
+@media (max-width: 991px) {
+
+/* ///////Landingpage/////////*/
+   .LandingPage{
+       height:calc(100vh - 80px);
+    }
+
+    .colum{
+        display: none;
+     }
+
+     .DOOR{
+        width: 300px;
+        margin-bottom: 100px;
+        border-bottom: solid 0.3px var(--gold);
+    
+        
+    }
+
+    .door_outside{
+        border-bottom: solid 0.3px var(--gold);
+    }
+    
+    .doorSign_warp h1:nth-of-type(1){
+        font-size: 34px;
+        font-family: 'Noto Serif TC';
+        font-weight: SemiBold;
+            
+    }
+
+    .doorSign_warp p{
+        font-family: 'Noto Sans TC';
+        color: #E9BF85;
+        font-size: 14px;
+    }
+
+
+  .doorSign_warp h1:nth-of-type(2){
+    margin-top: 15px;
+    transform:  translateX(10px);
+    color: #E9BF85;
+    font-size: 20px;
+    font-weight: bold;
+
+ }
+
+ .button_warp{
+    margin-top: 180px;
+  }
+
+  .pip_push{
+    position: absolute;
+    width: 150px;
+    transform: translate(-120px, 220px) ;
+
+   }
+
+
+   /* ////////Homepage////////// */
+
+   .home{
+    height:calc(100vh - 80px);
+   }
+
+   .home_bg{
+    height:calc(100vh - 80px);
+   }
+
+
+   .Logo_wrap{
+    margin-top: 50px;
+   }
+
+   .flag_L{
+    transform: scale(3) translateX(-60px);
+   } 
+
+   .flag_R{
+    transform: scale(3) translateX(65px);
+   } 
+
+
+   .LOGO_Filter{
+    z-index: 5;
+    width: 400px;
+    margin-top: 10px;
+
+    }
+
+    
+   .pip_pick{
+    position: absolute;
+    width: 60px;
+    transform: rotate(30deg) translate(110px,5px);
+    
+    
+    }
+
+
+    .Woman_warp{
+       display: none;
+    }
+
+    
+    /* ////////精釀小學堂///////// */
+
+    .h1-title{
+        margin: auto 8px;
+        width: 230px;
+
+    }
+    .h1-ear{
+        width: 80px;
+    } 
+
+    .Brew-school-title h1{
+        top: 24%;
+        left: 5px;
+        font-size: 24px;
+    }
+
+
+    .brew-beer-left{
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .brew-beer-img{
+        margin: 0 auto;
+        width: 150px;
+    } 
+
+    .title-txt{
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .content-txt{
+        margin-top: 0;
+    }
+    .content-txt h6{
+        margin-bottom: 20px;
+    }
+
+    .content-txt h6:nth-of-type(3){
+        margin: 20px 0;
+        color:var(--yellow);
+    }
+
+    .content-txt h6:nth-of-type(4){
+        margin:20px 0;
+       
+    }
+    .category-middle{
+        display: none;
+    }
+
+    .bussiness-beer-right{
+        text-align: center;
+        flex-direction: column-reverse;
+    }
+    
+
+    /* ///////Beer-type///////// */
+    .type-forward{
+        display: none;
+    }
+
+    .type-backward{
+        display: none;
+    }
+
+    .type-intro{
+        flex-direction: column;
+    }
+
+    .hand{
+        display: none;
+    }
+
+    .type-intro-img{
+        width: 100px;
+        margin: 0 auto;
+    }
+    
+    
+    .type-intro-title h3{
+        margin: 0 auto;
+    }
+
+    .type-intro-title:before{
+        content: '';
+        display: none;
+         /* width: 30px;
+        height: 30px;
+        background: url('../images/common/dot-1.svg');
+       transform: translateX(50px); */
+    } 
+
+    .type-intro-text {
+        margin: 0 auto;
+        width: 300px;
+    }
+
+    .type-intro-text p{
+        font-size: 14px;
+    }
+
+    .more-btn02 {
+        margin-right: 15px;
+    }
+
+
+    .type-colorDot{
+        /* width: 400px; */
+        margin-top: 30px;
+        justify-content: space-evenly;
+    }
+    .colorDot {
+        display: block;
+        width: 30px;
+    }
+
+    .drop {
+        display: none;
+    }
+
+    /* ///////啤女精選///////// */
+
+
+    .BeerU-colllection{
+        margin-top: 0px;
+    }
+
+    .BeerU-colllection-title h1{
+        top: 18px;
+        left: 10px;
+        letter-spacing: 19px;
+        font-size: 28px;
+    }
+
+    .colllection-items{
+        margin-top: 20px;
+    }
+    
+    .item:nth-of-type(2) {
+        display: none;
+
+    }
+    .item:nth-of-type(3) {
+        display: none;
+
+    }
+    .item:nth-of-type(4) {
+        display: none;
+
+    }
+
+
+    /* ////////啤女精選////////*/
+   
+    .feature02{
+        background-position: right 2px  top 0px;
+    }
+
+
+
+    /* ////////啤女傳說/////// */
+
+    .BeerU-legend{
+        margin-top: 20px;
+    }
+
+    .BeerU-legend-title h1{
+        top: 15px;
+        left: 12px;
+        font-size: 32px;
+        letter-spacing: 13px;
+
+    }
+    .clouds{
+        height: 500px;
+    }
+    .pipi{
+      
+        margin-top: 0
+    }
+    .pipi-left{
+      
+        margin-top: 50px
+    }
+
+
+    
+    .pipi-intro p{
+        width: 350px;
+        margin: 0 auto;
+        letter-spacing: 3px;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+
+
+
+
+}
