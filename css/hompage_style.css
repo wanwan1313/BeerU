@@ -72,7 +72,7 @@ body,html{
 
 .door_outside{
     position: relative;
-    transform: translateX(150px);
+    /* transform: translateX(150px); */
 }
 
 .doorSign_warp {

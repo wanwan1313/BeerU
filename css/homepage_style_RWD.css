@@ -129,10 +129,19 @@
         margin: 0 auto;
         width: 150px;
     } 
+    
+    .brew-beer-intro{
+        border-bottom: none;
+    }
+
+    .bussiness-beer-intro{
+        border-bottom: none;
+    }
 
     .title-txt{
         margin: 0 auto;
         text-align: center;
+        
     }
 
     .content-txt{
@@ -141,7 +150,11 @@
     .content-txt h6{
         margin-bottom: 20px;
     }
-
+     
+    .content-txt h6:nth-of-type(1){
+    
+       margin-top: 20px;
+    }
     .content-txt h6:nth-of-type(3){
         margin: 20px 0;
         color:var(--yellow);
@@ -156,6 +169,7 @@
     }
 
     .bussiness-beer-right{
+        margin-top: 40px;
         text-align: center;
         flex-direction: column-reverse;
     }
