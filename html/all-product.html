@@ -30,6 +30,7 @@
     <script src="../js/menu-footer/nav-bar.js" defer></script>
 
     <link rel="stylesheet" href="../css/all-product/all-product-style.css">
+    <script src="../js/all-products/all-products.js" defer></script>
 
 </head>
 
@@ -64,8 +65,8 @@
                 <ul class="nav-bar-member list-unstyled d-flex ">
                     <input type="text" id="search" name="search" class="search-bar" placeholder="找啤酒">
                     <li class="search"><i class="fas fa-search"></i></li>
-                    <li class="user-login"><a href=""><img src="../images/common/icon_member.svg" alt=""></a></li>
                     <li class="shopping-cart"><a href=""><img src="../images/common/icon_shopbag.svg" alt=""></a></li>
+                    <li class="user-login"><a href=""><img src="../images/common/icon_member.svg" alt=""></a></li>
                 </ul>
             </div>
         </div>
@@ -83,33 +84,731 @@
     </section>
 
     <section class="all-product">
+        <!-- 輪播Banner -->
         <div class="product-banner d-none d-lg-block">
             <div class="container">
                 <div class="row ">
                     <div class="product-banner-01  d-flex align-items-center">
-                        <div class="col-7 product-banner-pic"><img src="../images/products/Heart of Darkness-01.png" alt=""></div>
+                        <div class="col-7 product-banner-pic"><img src="../images/products/Heart of Darkness-01.png"
+                                alt=""></div>
                         <div class="col-4 product-banner-intro">
                             <p>奧斯陸 Oslo<span>血橙印度淡愛爾</span></p>
                             <p>Blood Orange IPA</p>
-                            <p>這是一款果香味濃郁，相當易飲的美式西岸IPA。使用了滿滿的 Mandarina Bavaria & Cascade 啤酒花，加上帶點甜味的血橙果汁。啤酒花跟血橙的搭配將讓你一飲而盡!</p>
-                            <a href=""><div class="know-more">了解更多</div></a>
+                            <p>這是一款果香味濃郁，相當易飲的美式西岸IPA。使用了滿滿的 Mandarina Bavaria & Cascade
+                                啤酒花，加上帶點甜味的血橙果汁。啤酒花跟血橙的搭配將讓你一飲而盡!</p>
+                            <a href="">
+                                <div class="know-more">了解更多</div>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- 全部商品選擇 -->
         <div class="select-product-wrap ">
             <div class="container-fluid">
-                <div class="row show">
-                    <div class="col-lg-3 d-none d-lg-block product-select "></div>
+                <div class="row ">
+
+                    <!-- 左邊分類區塊 -->
+                    <div class="col-lg-2 d-none d-lg-block product-select ">
+
+                        <!-- 產品類別 -->
+                        <div class="product-category">
+                            <div class="category-title">
+                                <p>商品分類</p>
+                            </div>
+                            <div class="category">
+                                <div class="category-item category-1 hot-beer">
+                                    <a href="">
+                                        <div class="category-name0 d-flex justify-content-between">
+                                            <p>熱門商品</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="category-item category-2 beer-country">
+                                    <div class="category-name d-flex justify-content-between">
+                                        <p>國家/產地</p>
+                                        <div><i class="fas fa-chevron-down"></i></i></div>
+                                    </div>
+                                    <div class="category-sub-item-warp">
+                                        <div class="category-sub-item"><a href="">美國</a></div>
+                                        <div class="category-sub-item"><a href="">德國</a></div>
+                                        <div class="category-sub-item"><a href="">法國</a></div>
+                                        <div class="category-sub-item"><a href="">英國</a></div>
+                                        <div class="category-sub-item"><a href="">丹麥</a></div>
+                                        <div class="category-sub-item"><a href="">挪威</a></div>
+                                        <div class="category-sub-item"><a href="">澳洲</a></div>
+                                        <div class="category-sub-item"><a href="">瑞典</a></div>
+                                        <div class="category-sub-item"><a href="">比利時</a></div>
+                                        <div class="category-sub-item"><a href="">俄羅斯</a></div>
+                                        <div class="category-sub-item"><a href="">紐西蘭</a></div>
+                                        <div class="category-sub-item"><a href="">義大利</a></div>
+                                        <div class="category-sub-item"><a href="">新加坡</a></div>
+                                        <div class="category-sub-item"><a href="">越南</a></div>
+                                        <div class="category-sub-item"><a href="">日本</a></div>
+                                    </div>
+                                    <!-- 算高度用 -->
+                                    <div class="category-sub-item-warp0">
+                                        <div class="category-sub-item"><a href="">美國</a></div>
+                                        <div class="category-sub-item"><a href="">德國</a></div>
+                                        <div class="category-sub-item"><a href="">法國</a></div>
+                                        <div class="category-sub-item"><a href="">英國</a></div>
+                                        <div class="category-sub-item"><a href="">丹麥</a></div>
+                                        <div class="category-sub-item"><a href="">挪威</a></div>
+                                        <div class="category-sub-item"><a href="">澳洲</a></div>
+                                        <div class="category-sub-item"><a href="">瑞典</a></div>
+                                        <div class="category-sub-item"><a href="">比利時</a></div>
+                                        <div class="category-sub-item"><a href="">俄羅斯</a></div>
+                                        <div class="category-sub-item"><a href="">紐西蘭</a></div>
+                                        <div class="category-sub-item"><a href="">義大利</a></div>
+                                        <div class="category-sub-item"><a href="">新加坡</a></div>
+                                        <div class="category-sub-item"><a href="">越南</a></div>
+                                        <div class="category-sub-item"><a href="">日本</a></div>
+                                    </div>
+                                </div>
+                                <div class="category-item category-3 beer-type">
+                                    <div class="category-name d-flex justify-content-between">
+                                        <p>酒色/類型</p>
+                                        <div><i class="fas fa-chevron-down"></i></div>
+                                    </div>
+                                    <div class="category-sub-item-warp">
+                                        <div class="items">
+                                            <div class="category-sub-item"><a href="">白啤酒</a></div>
+                                            <div class="category-sub-item"><a href="">淡色拉格</a></div>
+                                            <div class="category-sub-item"><a href="">印度淡艾爾</a></div>
+                                            <div class="category-sub-item"><a href="">皮爾森啤酒</a></div>
+                                            <div class="category-sub-item"><a href="">德國小麥啤酒</a></div>
+                                            <div class="category-sub-item"><a href="">淡色艾爾</a></div>
+                                            <div class="category-sub-item"><a href="">勃克啤酒</a></div>
+                                            <div class="category-sub-item"><a href="">波特啤酒</a></div>
+                                            <div class="category-sub-item"><a href="">司陶特</a></div>
+                                        </div>
+                                    </div>
+                                    <!-- 算高度用 -->
+                                    <div class="category-sub-item-warp0">
+                                        <div class="category-sub-item"><a href="">白啤酒</a></div>
+                                        <div class="category-sub-item"><a href="">淡色拉格</a></div>
+                                        <div class="category-sub-item"><a href="">印度淡艾爾</a></div>
+                                        <div class="category-sub-item"><a href="">皮爾森啤酒</a></div>
+                                        <div class="category-sub-item"><a href="">德國小麥啤酒</a></div>
+                                        <div class="category-sub-item"><a href="">淡色艾爾</a></div>
+                                        <div class="category-sub-item"><a href="">勃克啤酒</a></div>
+                                        <div class="category-sub-item"><a href="">波特啤酒</a></div>
+                                        <div class="category-sub-item"><a href="">司陶特</a></div>
+                                    </div>
+                                </div>
+                                <div class="category-item category-4 beer-brand">
+                                    <div class="category-name d-flex justify-content-between">
+                                        <p>酒廠</p>
+                                        <div><i class="fas fa-chevron-down"></i></div>
+                                    </div>
+                                    <div class="category-sub-item-warp">
+                                        <div class="category-sub-item"><a href="">米凱勒無酒精啤酒</a></div>
+                                        <div class="category-sub-item"><a href="">源流</a></div>
+                                        <div class="category-sub-item"><a href="">琳德曼</a></div>
+                                        <div class="category-sub-item"><a href="">富勒</a></div>
+                                        <div class="category-sub-item"><a href="">寇森東修道院</a></div>
+                                        <div class="category-sub-item"><a href="">女皇爵</a></div>
+                                        <div class="category-sub-item"><a href="">大野狼</a></div>
+                                        <div class="category-sub-item"><a href="">迷情海岸</a></div>
+                                        <div class="category-sub-item"><a href="">TOPA TOPA</a></div>
+                                        <div class="category-sub-item"><a href="">摩登時代</a></div>
+                                        <div class="category-sub-item"><a href="">布魯里</a></div>
+                                        <div class="category-sub-item"><a href="">煙霧之城</a></div>
+                                        <div class="category-sub-item"><a href="">富樂</a></div>
+                                        <div class="category-sub-item"><a href="">奧斯陸</a></div>
+                                        <div class="category-sub-item"><a href="">酵母男孩</a></div>
+                                        <div class="category-sub-item"><a href="">八號鐵絲</a></div>
+                                        <div class="category-sub-item"><a href="">黑暗之心</a></div>
+                                        <div class="category-sub-item"><a href="">釀酒島主</a></div>
+                                        <div class="category-sub-item"><a href="">唵密尼波羅</a></div>
+                                        <div class="category-sub-item"><a href="">齊瓦雷</a></div>
+                                        <div class="category-sub-item"><a href="">韋恩雪弗</a></div>
+                                        <div class="category-sub-item"><a href="">艾因格</a></div>
+                                        <div class="category-sub-item"><a href="">美人魚</a></div>
+                                        <div class="category-sub-item"><a href="">月亮狗</a></div>
+                                    </div>
+                                    <!-- 算高度用 -->
+                                    <div class="category-sub-item-warp0">
+                                        <div class="category-sub-item"><a href="">米凱勒無酒精啤酒</a></div>
+                                        <div class="category-sub-item"><a href="">源流</a></div>
+                                        <div class="category-sub-item"><a href="">琳德曼</a></div>
+                                        <div class="category-sub-item"><a href="">富勒</a></div>
+                                        <div class="category-sub-item"><a href="">寇森東修道院</a></div>
+                                        <div class="category-sub-item"><a href="">女皇爵</a></div>
+                                        <div class="category-sub-item"><a href="">大野狼</a></div>
+                                        <div class="category-sub-item"><a href="">迷情海岸</a></div>
+                                        <div class="category-sub-item"><a href="">TOPA TOPA</a></div>
+                                        <div class="category-sub-item"><a href="">摩登時代</a></div>
+                                        <div class="category-sub-item"><a href="">布魯里</a></div>
+                                        <div class="category-sub-item"><a href="">煙霧之城</a></div>
+                                        <div class="category-sub-item"><a href="">富樂</a></div>
+                                        <div class="category-sub-item"><a href="">奧斯陸</a></div>
+                                        <div class="category-sub-item"><a href="">酵母男孩</a></div>
+                                        <div class="category-sub-item"><a href="">八號鐵絲</a></div>
+                                        <div class="category-sub-item"><a href="">黑暗之心</a></div>
+                                        <div class="category-sub-item"><a href="">釀酒島主</a></div>
+                                        <div class="category-sub-item"><a href="">唵密尼波羅</a></div>
+                                        <div class="category-sub-item"><a href="">齊瓦雷</a></div>
+                                        <div class="category-sub-item"><a href="">韋恩雪弗</a></div>
+                                        <div class="category-sub-item"><a href="">艾因格</a></div>
+                                        <div class="category-sub-item"><a href="">美人魚</a></div>
+                                        <div class="category-sub-item"><a href="">月亮狗</a></div>
+                                    </div>
+                                </div>
+                                <div class="category-item category-5 beer-merch">
+                                    <div class="category-name d-flex justify-content-between">
+                                        <p>啤酒周邊</p>
+                                        <div><i class="fas fa-chevron-down"></i></div>
+                                    </div>
+                                    <div class="category-sub-item-warp">
+                                        <div class="category-sub-item"><a href="">啤酒杯</a></div>
+                                    </div>
+                                    <!-- 算高度用 -->
+                                    <div class="category-sub-item-warp0">
+                                        <div class="category-sub-item"><a href="">啤酒杯</a></div>
+                                    </div>
+                                </div>
+                                <div class="category-item category-6 all-beer">
+                                    <a href="">
+                                        <div class="category-name0 d-flex justify-content-between">
+                                            <p>全部商品</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 產品篩選 -->
+                        <div class="product-filter">
+                            <div class="filter-title">
+                                <p>商品篩選</p>
+                            </div>
+                            <div class="filter">
+                                <div class="filter-item filter-price">
+                                    <div class="filter-name d-flex justify-content-between">
+                                        <p>價格</p>
+                                    </div>
+                                    <div class="filter-sub-item-warp">
+                                        <label for="price-filter-100">
+                                            <input type="checkbox" id="price-filter-100" name="price-filter"
+                                                value="100"><span>100元以下</span>
+                                        </label><br>
+                                        <label for="price-filter-100-150">
+                                            <input type="checkbox" id="price-filter-100-150" name="price-filter"
+                                                value="100-150"><span>100元-150元</span><br>
+                                        </label>
+                                        <label for="price-filter-150-200">
+                                            <input type="checkbox" id="price-filter-150-200" name="price-filter"
+                                                value="150-200"><span>151元-200元</span><br>
+                                        </label>
+                                        <label for="price-filter-200-300">
+                                            <input type="checkbox" id="price-filter-200-300" name="price-filter"
+                                                value="200-300"><span>201元-300元</span><br>
+                                        </label>
+                                        <label for="price-filter-300-500">
+                                            <input type="checkbox" id="price-filter-300-500" name="price-filter"
+                                                value="300-500"><span>300元-500元</span><br>
+                                        </label>
+                                        <label for="price-filter-500">
+                                            <input type="checkbox" id="price-filter-500" name="price-filter"
+                                                value="500"><span>500元以上</span><br>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="filter-item filter-abv">
+                                    <div class="filter-name d-flex justify-content-between">
+                                        <p>酒精濃度</p>
+                                    </div>
+                                    <div class="filter-sub-item-warp">
+                                        <label for="abv-filter-4">
+                                            <input type="checkbox" id="abv-filter-4" name="abv-filter"
+                                                value="4"><span>低於4%</span>
+                                        </label><br>
+                                        <label for="abv-filter-4-6">
+                                            <input type="checkbox" id="abv-filter-4-6" name="abv-filter"
+                                                value="4-6"><span>4%-6%</span><br>
+                                        </label>
+                                        <label for="abv-filter-6-8">
+                                            <input type="checkbox" id="abv-filter-6-8" name="abv-filter"
+                                                value="6-8"><span>6%-8%</span><br>
+                                        </label>
+                                        <label for="abv-filter-8-10">
+                                            <input type="checkbox" id="abv-filter-8-10" name="abv-filter"
+                                                value="8-10"><span>8%-10%</span><br>
+                                        </label>
+                                        <label for="abv-filter-10">
+                                            <input type="checkbox" id="abv-filter-10" name="abv-filter"
+                                                value="10"><span>高於10%</span><br>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- 右邊商品區塊 -->
                     <div class="col-12 col-lg-9 product-show">
+                        <!-- 大標 -->
                         <div class="product-show-title">
-                            <p>“ 在啤女，你可以找到一瓶最適合你的精釀啤酒！”</p>
+                            <p>“ 在啤女，你可以找到<span>一瓶最適合你的精釀啤酒！”</span></p>
+                        </div>
+                        <!-- 標籤/排序/搜尋 -->
+                        <div class="product-header d-flex">
+
+                            <!-- 標籤 -->
+                            <div class="col-12 col-lg-6 d-flex align-items-center flex-column flex-lg-row justify-content-center justify-content-lg-start">
+                                <div class="product-tag d-flex align-items-center">
+                                    <div class="tagpic"><img src="../images/country/flag_belgium_square.svg" alt=""></div>
+                                    <p>#比利時啤酒</p>
+                                </div>
+
+                                <!-- 加入關注按鈕 -->
+                                <button class="btn_attention"><i class="fas fa-plus"></i>加入關注</button>
+                                <!-- <button class="btn_attention_active"><i class="fas fa-check"></i>已關注</button> -->
+                            </div>
+
+
+                            <!-- 排序和搜尋 -->
+                            <div class="col-lg-6 d-none d-lg-block product-func d-lg-flex align-items-lg-center justify-content-lg-end">
+
+                                <!-- 排序 -->
+                                <div class="sort">
+                                    <form action="" id="sort">
+                                        <select name="sort-option" id="sort-option" class="sort-option">
+                                            <option value="new">最新上架商品</option>
+                                            <option value="priceup">價格 (由低至高)</option>
+                                            <option value="pricedown">價格 (由高至低)</option>
+                                            <option value="abvup">酒精濃度 (由低至高)</option>
+                                            <option value="abvdown">酒精濃度 (由高至低)</option>
+                                        </select>
+                                    </form>
+                                </div>
+
+                                <!-- 搜尋 -->
+                                <div class="p_search">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" class="search2" placeholder="搜尋啤酒">
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- 商品排列 -->
+                        <div class="product-arrang d-flex justify-content-around flex-wrap">
+                            <!-- 單支商品 -->
+                            <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                                <div class="beer-product">
+                                    <div class="pro-pic">
+                                        <!-- 商品圖 -->
+                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <!-- 標籤 -->
+                                        <div class="new-label">
+                                            <p>NEW</p>
+                                        </div>
+                                        <!-- <div class="hot-label">
+                                            <p>HOT</p>
+                                        </div> -->
+
+                                        <!-- 國家圖片 -->
+                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg"
+                                                alt=""></div>
+
+                                        <!-- 收藏按鈕 -->
+                                        <div class="collect">
+                                            <button class="btn_collect"><i class="far fa-heart"></i></button>
+                                            <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                        </div>
+                                    </div>
+
+                                    <!-- 商品介紹 -->
+                                    <div class="pro-intro d-flex flex-column justify-content-between">
+                                        <!-- 商品名稱 -->
+                                        <div class="p-name">
+                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
+                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                        </div>
+                                        <!-- 購買 -->
+                                        <div class="p-buy d-flex flex-wrap">
+                                            <!-- 選擇數量 -->
+                                            <div class="col-12 quantity d-flex justify-content-between">
+                                                <div class="minus"><i class="fas fa-minus"></i></div>
+                                                <input type="text" class="buy-number" value="1">
+                                                <div class="plus"><i class="fas fa-plus"></i></div>
+                                            </div>
+                                            <!-- 價格 -->
+                                            <div class="col-5 p-price">
+                                                <p id="p-price"><span>NT</span>$85</p>
+                                            </div>
+                                            <!-- 加入購物車按鈕 -->
+                                            <button class="col-7 add-cart"><i
+                                                    class="fas fa-shopping-bag"></i>加入購物車</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                                <div class="beer-product">
+                                    <div class="pro-pic">
+                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <!-- <div class="new-label">
+                                            <p>NEW</p>
+                                        </div> -->
+                                        <div class="hot-label">
+                                            <p>HOT</p>
+                                        </div>
+                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg"
+                                                alt=""></div>
+                                        <div class="collect">
+                                            <!-- <button class="btn_collect"><i class="far fa-heart"></i></button> -->
+                                            <button class="btn_collect_active"><i class="fas fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="pro-intro d-flex flex-column justify-content-between">
+                                        <div class="p-name">
+                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
+                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                        </div>
+                                        <div class="p-buy d-flex flex-wrap">
+                                            <div class="col-12 quantity d-flex justify-content-between">
+                                                <div class="minus"><i class="fas fa-minus"></i></div>
+                                                <input type="text" class="buy-number" value="1">
+                                                <div class="plus"><i class="fas fa-plus"></i></div>
+                                            </div>
+                                            <div class="col-5 p-price">
+                                                <p id="p-price"><span>NT</span>$85</p>
+                                            </div>
+                                            <button class="col-7 add-cart"><i
+                                                    class="fas fa-shopping-bag"></i>加入購物車</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                                <div class="beer-product">
+                                    <div class="pro-pic">
+                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <div class="new-label">
+                                            <p>NEW</p>
+                                        </div>
+                                        <!-- <div class="hot-label">
+                                            <p>HOT</p>
+                                        </div> -->
+                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg"
+                                                alt=""></div>
+                                        <div class="collect">
+                                            <button class="btn_collect"><i class="far fa-heart"></i></button>
+                                            <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                        </div>
+                                    </div>
+                                    <div class="pro-intro d-flex flex-column justify-content-between">
+                                        <div class="p-name">
+                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
+                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                        </div>
+                                        <div class="p-buy d-flex flex-wrap">
+                                            <div class="col-12 quantity d-flex justify-content-between">
+                                                <div class="minus"><i class="fas fa-minus"></i></div>
+                                                <input type="text" class="buy-number" value="1">
+                                                <div class="plus"><i class="fas fa-plus"></i></div>
+                                            </div>
+                                            <div class="col-5 p-price">
+                                                <p id="p-price"><span>NT</span>$85</p>
+                                            </div>
+                                            <button class="col-7 add-cart"><i
+                                                    class="fas fa-shopping-bag"></i>加入購物車</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                                <div class="beer-product">
+                                    <div class="pro-pic">
+                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <div class="new-label">
+                                            <p>NEW</p>
+                                        </div>
+                                        <!-- <div class="hot-label">
+                                            <p>HOT</p>
+                                        </div> -->
+                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg"
+                                                alt=""></div>
+                                        <div class="collect">
+                                            <button class="btn_collect"><i class="far fa-heart"></i></button>
+                                            <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                        </div>
+                                    </div>
+                                    <div class="pro-intro d-flex flex-column justify-content-between">
+                                        <div class="p-name">
+                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
+                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                        </div>
+                                        <div class="p-buy d-flex flex-wrap">
+                                            <div class="col-12 quantity d-flex justify-content-between">
+                                                <div class="minus"><i class="fas fa-minus"></i></div>
+                                                <input type="text" class="buy-number" value="1">
+                                                <div class="plus"><i class="fas fa-plus"></i></div>
+                                            </div>
+                                            <div class="col-5 p-price">
+                                                <p id="p-price"><span>NT</span>$85</p>
+                                            </div>
+                                            <button class="col-7 add-cart"><i
+                                                    class="fas fa-shopping-bag"></i>加入購物車</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                                <div class="beer-product">
+                                    <div class="pro-pic">
+                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <div class="new-label">
+                                            <p>NEW</p>
+                                        </div>
+                                        <!-- <div class="hot-label">
+                                            <p>HOT</p>
+                                        </div> -->
+                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg"
+                                                alt=""></div>
+                                        <div class="collect">
+                                            <button class="btn_collect"><i class="far fa-heart"></i></button>
+                                            <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                        </div>
+                                    </div>
+                                    <div class="pro-intro d-flex flex-column justify-content-between">
+                                        <div class="p-name">
+                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
+                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                        </div>
+                                        <div class="p-buy d-flex flex-wrap">
+                                            <div class="col-12 quantity d-flex justify-content-between">
+                                                <div class="minus"><i class="fas fa-minus"></i></div>
+                                                <input type="text" class="buy-number" value="1">
+                                                <div class="plus"><i class="fas fa-plus"></i></div>
+                                            </div>
+                                            <div class="col-5 p-price">
+                                                <p id="p-price"><span>NT</span>$85</p>
+                                            </div>
+                                            <button class="col-7 add-cart"><i
+                                                    class="fas fa-shopping-bag"></i>加入購物車</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                                <div class="beer-product">
+                                    <div class="pro-pic">
+                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <div class="new-label">
+                                            <p>NEW</p>
+                                        </div>
+                                        <!-- <div class="hot-label">
+                                            <p>HOT</p>
+                                        </div> -->
+                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg"
+                                                alt=""></div>
+                                        <div class="collect">
+                                            <button class="btn_collect"><i class="far fa-heart"></i></button>
+                                            <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                        </div>
+                                    </div>
+                                    <div class="pro-intro d-flex flex-column justify-content-between">
+                                        <div class="p-name">
+                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
+                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                        </div>
+                                        <div class="p-buy d-flex flex-wrap">
+                                            <div class="col-12 quantity d-flex justify-content-between">
+                                                <div class="minus"><i class="fas fa-minus"></i></div>
+                                                <input type="text" class="buy-number" value="1">
+                                                <div class="plus"><i class="fas fa-plus"></i></div>
+                                            </div>
+                                            <div class="col-5 p-price">
+                                                <p id="p-price"><span>NT</span>$85</p>
+                                            </div>
+                                            <button class="col-7 add-cart"><i
+                                                    class="fas fa-shopping-bag"></i>加入購物車</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                                <div class="beer-product">
+                                    <div class="pro-pic">
+                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <div class="new-label">
+                                            <p>NEW</p>
+                                        </div>
+                                        <!-- <div class="hot-label">
+                                            <p>HOT</p>
+                                        </div> -->
+                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg"
+                                                alt=""></div>
+                                        <div class="collect">
+                                            <button class="btn_collect"><i class="far fa-heart"></i></button>
+                                            <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                        </div>
+                                    </div>
+                                    <div class="pro-intro d-flex flex-column justify-content-between">
+                                        <div class="p-name">
+                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
+                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                        </div>
+                                        <div class="p-buy d-flex flex-wrap">
+                                            <div class="col-12 quantity d-flex justify-content-between">
+                                                <div class="minus"><i class="fas fa-minus"></i></div>
+                                                <input type="text" class="buy-number" value="1">
+                                                <div class="plus"><i class="fas fa-plus"></i></div>
+                                            </div>
+                                            <div class="col-5 p-price">
+                                                <p id="p-price"><span>NT</span>$85</p>
+                                            </div>
+                                            <button class="col-7 add-cart"><i
+                                                    class="fas fa-shopping-bag"></i>加入購物車</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                                <div class="beer-product">
+                                    <div class="pro-pic">
+                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <div class="new-label">
+                                            <p>NEW</p>
+                                        </div>
+                                        <!-- <div class="hot-label">
+                                            <p>HOT</p>
+                                        </div> -->
+                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg"
+                                                alt=""></div>
+                                        <div class="collect">
+                                            <button class="btn_collect"><i class="far fa-heart"></i></button>
+                                            <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                        </div>
+                                    </div>
+                                    <div class="pro-intro d-flex flex-column justify-content-between">
+                                        <div class="p-name">
+                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
+                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                        </div>
+                                        <div class="p-buy d-flex flex-wrap">
+                                            <div class="col-12 quantity d-flex justify-content-between">
+                                                <div class="minus"><i class="fas fa-minus"></i></div>
+                                                <input type="text" class="buy-number" value="1">
+                                                <div class="plus"><i class="fas fa-plus"></i></div>
+                                            </div>
+                                            <div class="col-5 p-price">
+                                                <p id="p-price"><span>NT</span>$85</p>
+                                            </div>
+                                            <button class="col-7 add-cart"><i
+                                                    class="fas fa-shopping-bag"></i>加入購物車</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                                <div class="beer-product">
+                                    <div class="pro-pic">
+                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <div class="new-label">
+                                            <p>NEW</p>
+                                        </div>
+                                        <!-- <div class="hot-label">
+                                            <p>HOT</p>
+                                        </div> -->
+                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg"
+                                                alt=""></div>
+                                        <div class="collect">
+                                            <button class="btn_collect"><i class="far fa-heart"></i></button>
+                                            <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                        </div>
+                                    </div>
+                                    <div class="pro-intro d-flex flex-column justify-content-between">
+                                        <div class="p-name">
+                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
+                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                        </div>
+                                        <div class="p-buy d-flex flex-wrap">
+                                            <div class="col-12 quantity d-flex justify-content-between">
+                                                <div class="minus"><i class="fas fa-minus"></i></div>
+                                                <input type="text" class="buy-number" value="1">
+                                                <div class="plus"><i class="fas fa-plus"></i></div>
+                                            </div>
+                                            <div class="col-5 p-price">
+                                                <p id="p-price"><span>NT</span>$85</p>
+                                            </div>
+                                            <button class="col-7 add-cart"><i
+                                                    class="fas fa-shopping-bag"></i>加入購物車</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 頁碼 -->
+                        <div class="product-pages d-flex justify-content-center">
+                            <a href=""><button class="btn_page page-first" ><i
+                                        class="fas fa-angle-double-left"></i></button></a>
+                            <a href=""><button class="btn_page page-prev"><i class="fas fa-angle-left"></i></button></a>
+                            <div class="pages-show ">
+                                <div class="pages d-flex">
+                                    <a href="">
+                                        <p class="page">1</p>
+                                    </a>
+                                    <a href="">
+                                        <p class="page">2</p>
+                                    </a>
+                                    <a href="">
+                                        <p class="page">3</p>
+                                    </a>
+                                    <a href="">
+                                        <p class="page">4</p>
+                                    </a>
+                                    <a href="">
+                                        <p class="page">5</p>
+                                    </a>
+                                    <a href="">
+                                        <p class="page">6</p>
+                                    </a>
+                                    <a href="">
+                                        <p class="page">7</p>
+                                    </a>
+                                    <a href="">
+                                        <p class="page">8</p>
+                                    </a>
+                                    <a href="">
+                                        <p class="page">9</p>
+                                    </a>
+                                    <a href="">
+                                        <p class="page">10</p>
+                                    </a>
+                                    <a href="">
+                                        <p class="page">11</p>
+                                    </a>
+                                    <a href="">
+                                        <p class="page">12</p>
+                                    </a>
+                                    <a href="">
+                                        <p class="page">13</p>
+                                    </a>
+                                    <a href="">
+                                        <p class="page">14</p>
+                                    </a>
+                                    <a href="">
+                                        <p class="page">15</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href=""><button class="btn_page page-next"><i
+                                        class="fas fa-angle-right"></i></button></a>
+                            <a href=""><button class="btn_page page-last"><i
+                                        class="fas fa-angle-double-right"></i></button></a>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </section>
 
