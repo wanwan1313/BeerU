@@ -69,6 +69,8 @@
        margin: auto;
        margin-bottom: 30px;
        position: relative;
+       /* overflow: hidden; */
+       /* width:100%; */
    }
    /* title-line */
    .event .event-content .title:before {
@@ -76,13 +78,15 @@
     display: block;
     position: absolute;
     background-color: white;
-    width:50vw;
+    width:37.5vw;
+    max-width: 495px;
     height:1px;
     left: 135px;
     bottom: 46%;
 }
 @media (max-width: 992px) {
     .event .event-content .title:before {
+        width:36vw;
         left: 120px;
     }
     }
@@ -91,13 +95,15 @@
     display: block;
     position: absolute;
     background-color: white;
-    width:50vw;
+    width:37.5vw;
+    max-width: 495px;
     height:1px;
     right:135px;
     bottom: 46%;
 }
 @media (max-width: 992px) {
     .event .event-content .title:after {
+        width:36vw;
         right: 120px;
     }
     }
@@ -135,21 +141,24 @@
    .event .event-content .event-card {
        min-height: 280px;
        margin: auto;
-       margin-bottom: 30px;   
+       margin-bottom: 30px;
+       max-width: 1150px;   
        width: 90%;
        font-family: 'Noto Sans TC', sans-serif;
        color: #888;
        letter-spacing: .1rem;
        font-size: 1.4rem;
        background-color: white;
+       /* box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4); */
    }
 /* banner */
    .card-banner {
-
+/* min-width: 320px; */
 }
 
 /* content */
    .event .event-content .event-card .card-content {
+       margin-top: 15px;
     padding:15px;
     list-style: none;
        }
@@ -205,9 +214,9 @@ color:#aaa;
         padding:0;
         margin-bottom: 20px;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 991px) {
         .event .event-content .event-card .card-content .container .row:nth-of-type(4) {
-        margin-bottom: 55px;
+        margin-bottom: 70px;
         }
         }
 
@@ -229,36 +238,34 @@ color:#aaa;
         background-color: var(--gold);  
     }
        .event .event-content .event-card .card-content .event-button{
+        border:1px solid var(--blue);
            color: white;
-           background-color: var(--gold);
+           background-color: var(--blue);
     }
     .event .event-content .event-card .card-content .event-button:hover{
-        color: var(--gold);
+        border:1px solid var(--blue);
+        color: var(--blue);
         background-color: transparent;
  }
 
  /*card-deco */
- .event .event-content .event-card .card-deco{
+ .event .event-content .event-card .card-deco-phone{
      width: 90%;
-     position: relative;  
+     height:50px;
+     position: relative;
+     overflow: hidden;  
  }
-    @media (min-width: 992px) {
-        .event .event-content .event-card .card-deco {
-    transform: rotate(270deg) translateY(36px);
-        }
-        }
- .event .event-content .event-card .card-deco .line{
-    color:var(--blue);
-    white-space: nowrap;
-    overflow: hidden;
-    margin:auto;
-    letter-spacing: .75rem;
+
+ .event .event-content .event-card .card-deco-phone .line{
+    width: 100%;
+    height:50px;
     position: absolute;
-    bottom: 35px;
     left:50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) scaleX(3.5);
+    border-top:1px dashed var(--blue);
+
  }
- .event .event-content .event-card .card-deco .cut{
+ .event .event-content .event-card .card-deco-phone .cut{
      position: absolute;
      bottom: -1px;
      left:50%;
@@ -269,17 +276,50 @@ color:#aaa;
     overflow: hidden;
 }
 
- .event .event-content .event-card .card-deco .cut .circle{
+ .event .event-content .event-card .card-deco-phone .cut .circle{
      background-color: var(--blue);
      width:50px;
      height:50px;
      border-radius: 50% ;
      margin: auto;
  }
-   ;
-   ;
-   ;
-   ;
-   ;
-   ;
-   ;
+
+ @media (min-width: 992px) {
+
+    .card-deco-phone{
+        display: none;
+    }
+    .card-deco-pc{
+        display:block;
+        min-width: 100px;
+        height: 100px;
+        position: relative;
+        transform: rotate(270deg) translateY(20px);
+    }
+   
+    .card-deco-pc .line{
+       width: 100%;
+       height:50px;
+       position: absolute;
+       left:50%;
+       transform: translateX(-50%) scaleX(3.5);
+       border-top:1px dashed var(--blue);
+   
+    }
+    .card-deco-pc .cut{
+        position: absolute;
+        bottom: -1px;
+        left:50%;
+        transform: translateX(-50%)translateY(-20px);
+       width:50px;
+       height:25px;
+       margin: auto;
+       overflow: hidden;
+   }
+   .card-deco-pc .cut .circle{
+        background-color: var(--blue);
+        width:50px;
+        height:50px;
+        border-radius: 50% ;
+        margin: auto;
+    }}
