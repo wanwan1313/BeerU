@@ -185,6 +185,7 @@
     }
 
     .type-intro{
+        
         flex-direction: column;
     }
 
@@ -193,6 +194,7 @@
     }
 
     .type-intro-img{
+       
         width: 100px;
         margin: 0 auto;
     }
@@ -221,12 +223,13 @@
     }
 
     .more-btn02 {
-        margin-right: 15px;
+        margin-right: 55px;
     }
 
 
     .type-colorDot{
-        /* width: 400px; */
+        width: 300px;
+        margin: 0 auto;
         margin-top: 30px;
         justify-content: space-evenly;
     }
