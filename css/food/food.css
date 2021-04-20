@@ -7,26 +7,33 @@
     width: 100%;
 }
 
-.rule-wrap {
-    height: 80vh;
-}
-.food-rule {
-    height: 80vh;
-    width: 100%;    
+
+h1 {
+    font-family: 'Noto Serif TC', serif;
+    color: var(--gold);
+    text-align: center;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+
 }
 
 /* 天使+蓋子圖檔 */
 .angel-img-wrap
 {
-    width: 70%;
+    width: 60%;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
+
+.food-left-text{
+    display: none;
+}
 /* 盤子圖檔 */
 .plate-img-wrap
 {
-    width: 70%;
+    width: 65%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -110,7 +117,7 @@
     font-weight: bold;
     font-size: 2.4rem;
     line-height: 4.2rem;
-    letter-spacing: 0.8rem;
+    /* letter-spacing: 0.8rem; */
     /* text-indent:1.2rem; */
     margin: 0 auto;
     text-align: justify;
@@ -119,15 +126,16 @@
 .mariage {
     font-family: 'Noto Sans TC', sans-serif;
     letter-spacing: 0.5rem;
-
 }
 
+
+/* 文字置中:酒搭配三大原則 */
 .food-rule {
-    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* title:啤酒與美食搭配三大原則 */
-
+/* 文字大+線:酒搭配三大原則 */
 .rule-title-line h1 {
     font-family: 'Noto Serif TC', serif;
     color: var(--gold);
@@ -159,7 +167,7 @@
     width: 350px;
     height: 2px;
     background: var(--gold);;
-    left: 0;
+    left: 100%;
     top: 50%;
     position: absolute;
 }
@@ -170,23 +178,128 @@
     width: 350px;
     height: 2px;
     background:var(--gold);;
-    right: 0;
+    right: 100%;
     top: 50%;
     position: absolute;
+}
+
+/* 文字三大原則 */
+
+.rules-content{
+    margin-top: 10%;
+}
+
+.rules {
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: solid 1px var(--gold);
+    position:relative
+    
+
+}
+
+/* 三項原則 */
+
+.rules h3{
+     font-family: 'Noto Serif TC', serif;
+     line-height: 4.8rem;
+     color: var(--gold);
+     font-weight: bold;
+     font-size: 3.6rem;
+     letter-spacing: 1.2rem;
+     margin: 0;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     -ms-transform: translate(-50%, -50%);
+     transform: translate(-50%, -50%);
+
+}
+
+.rules-inner{
+    width: 60%;
+    word-break:break-all;
+    margin: 0 auto;
+    
+}
+
+.rules-inner p {
+    color: var(--white);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: regular;
+    font-size: 2.0rem;
+    line-height: 3.8rem;
+    /* letter-spacing: 0.5rem; */
+    margin: 0 auto;
+    text-align: justify;
 
 }
 
 
+/* 動畫:手 */
+.hand{
+    transform: translate(20px,-700px);
+    width: 600px;
+    position: absolute;
+}
+
+.beer-type {
+    margin-bottom: 10%;
+}
+
+/* 酒杯banner */
+   .glass-banner{
+    width: 100%; 
+}
+
+   .glass-banner img {
+       min-width: 800px;
+       max-width: 1000px;
+       /* 圖片置中 */
+       display: block;
+       margin:0 auto;
+       margin-bottom: 60px;
+       /* opacity: .25; */
+       transform: scale(1.5);
+       /* position: absolute; */
+     
+   }
+
+/* 酒滴 drop */
+.type-color{
+    margin: 0;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.drop{
+    margin: 0 60px 200px 0;
+    width: 60px;
+  
+}
+
+
+
 /* 手機版 改字和雕飾大小*/
 @media (max-width: 991px) {
-
-    .food-wrap {
-        /* height: 200vh; */
-    }
+.food-banner, .food-wrap {
+    height: auto;
+    margin-bottom: 10%;
+}
 
     .food-banner.container {
         display: block;
     }
+
+    .rule-wrap.container {
+        display: block;
+    }
+
 
 /*天使大小調整*/
     .angel-img-wrap
@@ -242,6 +355,66 @@
     font-size: 1.8rem;
     line-height: 2.6rem;
    text-align: justify;
+}
+
+
+/* title:啤酒與美食搭配三大原則 */
+.rule-title-line {
+    
+}
+
+.rule-title-line h1 {
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    text-indent:1.2rem;
+}
+
+.rule-title-line h2 {
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    text-indent:1.2rem;
+}
+
+.rule-title-line h1::before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    left: 10%;
+}
+
+.rule-title-line h1::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    right: 10%;
+}
+
+.beer-type .title-line{
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    text-indent: 1.2rem;
+
+}
+
+.glass-banner img {
+    min-width: 100px;
+    max-width: 300px;
+    /* 圖片置中 */
+    display: block;
+    margin:0 auto;
+    /* opacity: .25; */
+    transform: scale(1.2);
+    /* 圖片置底
+    position: absolute;
+   top: 30%; */
+}
+/*手 */
+.hand{
+    transform: translate(-30px,-100px);
+    width: 200px;
+    position: absolute;
 }
 
 
