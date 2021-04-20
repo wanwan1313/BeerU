@@ -546,7 +546,7 @@ body,html{
 
 .hand{
     position: absolute;
-    transform: translate(-30px,-200px);
+    transform: translate(-30px,-155px);
     width: 20%;
 }
 
