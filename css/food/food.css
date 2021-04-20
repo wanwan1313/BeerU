@@ -2,7 +2,18 @@
     height: 80vh;
 }
 
+.food-banner {
+    height: 80vh;
+    width: 100%;
+}
 
+.rule-wrap {
+    height: 80vh;
+}
+.food-rule {
+    height: 80vh;
+    width: 100%;    
+}
 
 /* 天使+蓋子圖檔 */
 .angel-img-wrap
@@ -170,7 +181,7 @@
 @media (max-width: 991px) {
 
     .food-wrap {
-        height: 200vh;
+        /* height: 200vh; */
     }
 
     .food-banner.container {
