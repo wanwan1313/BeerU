@@ -1,0 +1,271 @@
+body{
+    background-color: var(--blue);
+}
+.newbie-wrap {
+    height: 80vh;
+    position: relative;
+}
+
+.pipi{
+    position: absolute;
+    background-image: url(../../images/glori_images/pipi-hat.svg);
+}
+
+.left-crystal-bg{
+    height: 80vh;
+    position: relative;
+    background-image: url(../../images/glori_images/crystal.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    justify-content: center;
+}
+
+.crystal{
+    position: absolute;
+    background-size: contain;
+}
+.right-info{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+    /* 新手入門介紹 */
+        .newbie-intro {
+            margin: 5% 0;
+            width: 60%;
+            font-size: 1.7rem;
+            text-align: justify;
+            font-family: "Noto Sans TC", sans-serif;
+            font-weight: 400;
+            font-size: 1.6rem;
+            color: #fff;
+            letter-spacing: 0.1rem;
+            line-height: 3rem;
+        }
+
+     /* 標題 */
+        .newbie-wrap .caption {
+                    font-family:'Noto Serif TC', serif;
+                    font-size: 3.0rem;
+                    font-weight: bold;
+                    color: var(--gold);
+                    margin-top: -20px;
+                }
+
+        /* 手機版 */
+    @media (max-width: 991px) {
+
+        .right-info{
+            justify-content: space-evenly;
+            margin: 0 auto;
+        }
+
+        .newbie-intro {
+            display: none;
+        }
+
+        .newbie-wrap .caption {
+            font-family:'Noto Serif TC', serif;
+            font-size: 2.4rem;
+            font-weight: bold;
+            color: var(--gold);
+        }
+    }
+
+        /* 圈圈圖案 */
+        .newbie-title {
+            background: url(../../images/common/h1_4_w.svg) no-repeat center left;
+            background-size: contain;
+
+        }
+
+        /* 標題文字 */
+        .newbie-title p {
+            color: #fff;
+            font-family: 'Noto Serif TC', serif;
+            font-weight: bold;
+            font-size: 3.6rem;
+            letter-spacing: 1.2rem;
+            text-indent:1.2rem;
+            width: fit-content;
+            margin-left: 6px;
+            position: relative;
+        }
+
+        /* 右邊雕飾 */
+        .newbie-title p::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            right:0;
+            transform: translate(115%, -50%);
+            width: 300px;
+            height: 50%;
+            background: url(../../images/common/line.svg) no-repeat center left;
+            background-size: cover;
+            overflow: hidden;
+
+        }
+
+        /* 手機版 改字和雕飾大小*/
+    @media (max-width: 991px) {
+
+        .newbie-title p {
+            font-size: 2.4rem;
+            letter-spacing: 0.8rem;
+            text-indent:0.8rem;
+        }
+
+        .newbie-title p::after {
+            width: 180px;
+            height: 50%;
+
+        }
+
+    }
+
+
+/* 收藏按鈕 */
+
+/* 桌機版 */
+@media (min-width: 992px) {
+.e-product-intro  .collect {
+    position: absolute;
+    top: 17%;
+    right: 10%;
+}
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+.e-product-intro  .collect {
+    position: absolute;
+    bottom: 30px;
+    right: 15px;
+}
+}
+
+/* 加入收藏 */
+.btn_collect2 {
+    font-family:'Noto Serif TC', serif;
+    color: var(--red);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    background-color:rgba(255, 255, 255, 0.459);
+    border: 1.5px solid var(--red);
+    cursor: pointer;
+    transition: .3s;
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+ .btn_collect2{
+    border: 1px solid var(--red);
+    letter-spacing: 0rem;
+    font-size: 1.4rem;
+    }
+}
+
+.btn_collect2 i, .btn_collect2_active i {
+    margin: 5px;
+}
+
+.btn_collect2:hover {
+    background-color: var(--red);
+    color: #fff;
+}
+
+/* 已收藏 */
+.btn_collect2_active {
+    font-family:'Noto Serif TC', serif;
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    background-color: var(--red);
+    border: 1.5px solid var(--red);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn_collect2_active:hover {
+    background-color: #fff;
+    color: var(--red);
+}
+
+
+/* ----------------了解更多---------------------- */
+
+.know-more {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 5%;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
+}
+
+.know-more::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+.know-more::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+
+.know-more:hover {
+    transform: scale(1.1,1.1);
+}
+
+.know-more:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+.know-more:hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
