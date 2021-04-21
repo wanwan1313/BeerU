@@ -27,14 +27,17 @@
     <link rel="stylesheet" href="../css/menu-footer/footer.css">
     <!-- 首頁CSS -->
     <link rel="stylesheet" href="../css/hompage_style.css">   
-    <link rel="stylesheet" href="../css/homepage_style_RWD.css">   
+    <link rel="stylesheet" href="../css/homepage_style_RWD.css"> 
+    <link rel="stylesheet" href="../css/homepage_animation.css"> 
+    
+    
 
     <!-- js -->
     <script src="../js/menu-footer/nav-bar.js" defer></script>
 
     <style>
         .header {
-            height: 0;
+            /* height: 0; */
             /* landingpage 不要高度 */
         }
     </style>
@@ -45,7 +48,7 @@
 <body>
    
     <!-- navbar -->
-<header class="beeru-nav-bar">
+<header class="beeru-nav-bar" id="beeru-nav-bar">
         <div class="container">
             <div
                 class="row  flex-column flex-lg-row align-items-center justify-content-lg-between align-items-lg-start">
@@ -95,7 +98,7 @@
     </section>
 
    <!-- Landingpage門 -->
-     <section class="LandingPage">
+     <section class="LandingPage" id="LandingPage">
         <div class="LandingPage_warp">
             <div class="colum colum01">
                 <img src="../images/common/door_deco.svg" alt="">
@@ -103,7 +106,7 @@
             <div class="DOOR door_inside">
                 <div class="door_outside">
                     
-                    <div class="pip_push">
+                    <div class="pip_push" id="pipi01">
                         <img src="../images/common/pipi-push.svg" alt="">
                     </div>
                     <img src="../images/common/door-1.svg" alt="">
@@ -118,8 +121,8 @@
                         <h1>年滿18歲嗎？</h1>
                     </div>
                     <div class="button_warp">
-                        <button class="btn01 btn-yes">是</button>
-                        <button class="btn01 btn-no">否</button>
+                        <button class="btn01 btn-yes" id="YES">是</button>
+                        <button class="btn01 btn-no" id="NO">否</button>
 
                     </div>
                 </div>    
@@ -129,14 +132,15 @@
             </div>
         </div>
     </section>    
-
-
+    
+ <!-- 內容開始    -->
+<div class="content-wrap" id="content-wrap">
+    
     <!-- 首頁 -->
-
     <section class="home">
         <div class="home_bg ">
 
-            <div class="Logo_wrap">
+            <div class="Logo_wrap animate__animated animate__slideInDown">
                 <div class=" flag flag_L">
                     <img src="../images/common/flag_L_V3.png" alt="">
                 </div>
@@ -283,7 +287,7 @@
         </div>
     </section>
 
-
+    <!-- 經典精釀啤酒種類 -->
     <section class="Beer-type">
     <div class="container">
         <div class="row">
@@ -392,6 +396,7 @@
     </div>
    </section>
 
+   <!-- 啤女精選 -->
    <section class="BeerU-colllection">
        <div class="container">
            <div class="row">
@@ -474,6 +479,7 @@
        </div>
    </section>
 
+   <!-- 啤女功能  -->
    <section class="BeerU-feature mt-5">
        <div class="container">
            <div class="row feature-wrap ">
@@ -511,6 +517,7 @@
 
    </section>
 
+   <!-- 啤女傳說 -->
    <section class="BeerU-legend"> 
        <div class="container">
            <div class="row">
@@ -559,6 +566,7 @@
        </div>
    </section>
 
+   <!-- 啤啤 -->
    <section class="pipi">
        <div class="container clouds">
            <div class="row pipi-wrap">
@@ -583,16 +591,13 @@
        </div>
    </section>
       
-    
    
-
-  
-
-
+</div>
+<!-- 內容結束 -->
 
 
     <!-- footer -->
-    <footer>
+    <footer id="footer">
         <div class="footer-brand d-none d-md-block">
             <p>brand</p>
             <div class="brand-logos"><img src="../images/brands/brand_logos.svg" alt=""></div>
@@ -636,7 +641,14 @@
  crossorigin="anonymous"></script>
 
 
+ <script src="../js/Homepage.js"></script>
+
+
 <script>
+
+
+
+
         
 </script>
 </body>
