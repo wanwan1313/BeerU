@@ -6,24 +6,37 @@ body{
     position: relative;
 }
 
-.pipi{
-    position: absolute;
-    background-image: url(../../images/glori_images/pipi-hat.svg);
-}
-
 .left-crystal-bg{
     height: 80vh;
     position: relative;
+    background-image: url(../../images/glori_images/beer-candles.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: bottom;
+    justify-content: center;
+    bottom: 0;
+}
+
+/* .crystal{
     background-image: url(../../images/glori_images/crystal.png);
+    position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
     justify-content: center;
+} */
+
+.pipi{
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    background-image: url(../../images/glori_images/pipi-hat.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 20px;
+    right: 0;
+    
 }
 
-.crystal{
-    position: absolute;
-    background-size: contain;
-}
 .right-info{
     height: 80vh;
     display: flex;
@@ -31,7 +44,7 @@ body{
     justify-content: center;
 }
     /* 新手入門介紹 */
-        .newbie-intro {
+        .newbie-intro-txt {
             margin: 5% 0;
             width: 60%;
             font-size: 1.7rem;
@@ -50,29 +63,42 @@ body{
                     font-size: 3.0rem;
                     font-weight: bold;
                     color: var(--gold);
-                    margin-top: -20px;
+                    margin-top: -10px;
                 }
 
         /* 手機版 */
     @media (max-width: 991px) {
 
+
         .right-info{
+            overflow: hidden;
             justify-content: space-evenly;
+            margin: 0 auto;
+            text-align: center;
+            position: absolute;
+            top: 40%;
+            height: auto;
+        }
+
+        .right-info .enter-btn{
             margin: 0 auto;
         }
 
-        .newbie-intro {
+        .newbie-intro-txt {
             display: none;
         }
 
-        .newbie-wrap .caption {
+        .newbie-wrap .caption-txts{
+            margin-top: 30px;
+        }
+
+        .newbie-wrap .caption{
             font-family:'Noto Serif TC', serif;
             font-size: 2.4rem;
             font-weight: bold;
             color: var(--gold);
         }
-    }
-
+}
         /* 圈圈圖案 */
         .newbie-title {
             background: url(../../images/common/h1_4_w.svg) no-repeat center left;
@@ -112,15 +138,20 @@ body{
         /* 手機版 改字和雕飾大小*/
     @media (max-width: 991px) {
 
+        .newbie-title{
+            margin: 0 auto;
+        }
+
         .newbie-title p {
             font-size: 2.4rem;
             letter-spacing: 0.8rem;
             text-indent:0.8rem;
+            margin: 0 auto;
         }
 
         .newbie-title p::after {
-            width: 180px;
-            height: 50%;
+            width: 90%;
+            height: 40%;
 
         }
 
@@ -203,10 +234,18 @@ body{
     font-family: 'Noto Serif TC', serif;
     font-size: 2rem;
     font-weight: bold;
-    margin-left: 5%;
+    /* margin-left: 5%; */
     position: relative;
     width: fit-content;
     transition: .5s;
+    right: -20px;
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+    .know-more{
+        right: 0;
+    }
 }
 
 .know-more::before {
