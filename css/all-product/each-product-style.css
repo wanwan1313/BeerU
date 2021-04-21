@@ -342,6 +342,7 @@
 
         .e-product-intro .key-content {
             margin-right: 20px;
+            margin-bottom: 20px;
         }
 
         .e-product-intro .title {
@@ -566,17 +567,30 @@
             min-width: 200px;
             max-width: 250px;
             background-color: #fff;
-            margin: 0 auto ;
+            margin: 0 auto;
             height: 200px;
             padding: 10px;
             border-radius: 20px;
             position: relative;
         }
 
-        .related-p .pro-pic > img {
+        .related-p .pro-pic:hover .beer-pic {
+            opacity: .7;
+        }
+
+        .related-p .pro-pic .beer-pic {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            transition: .6s;
+        }
+
+        /* 標籤 */
+
+        .related-p .label {
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         /* new標籤 */
@@ -587,22 +601,18 @@
             width: 40px;
             background-color: var(--blue);
             border-radius: 5px;
-            position: absolute;
-            top: 0;
-            left: 0;   
+            margin-bottom: 5px;
         }
 
          /* hot標籤 */
-        .related-p .hot-label {
+         .related-p .hot-label {
             font-size: 1.3rem;
             font-weight: 600;
             text-align: center;
             width: 40px;
             background-color: var(--red);
             border-radius: 5px;
-            position: absolute;
-            top: 0;
-            left: 0;
+            margin-bottom: 5px;
         }
 
         /* 國家圖片 */
@@ -671,8 +681,16 @@
     }
 
         /* 品名 */
+        .related-p .p-name {
+            transition: .6s;
+        }
+
+        .related-p .p-name:hover .p-name-c{
+            color: var(--yellow);
+        }
         .related-p .p-name-c {
             line-height: 2rem;
+            transition: .6s;
             
         }
         .related-p .p-name-e {

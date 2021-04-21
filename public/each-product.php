@@ -1,93 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include __DIR__ . '../../php/common/config.php' ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>單一商品頁</title>
-    <!-- reset -->
-    <link rel="stylesheet" href="../css/reset.css">
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap"
-        rel="stylesheet">
-    <!-- FOA -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
-    <!-- style -->
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/menu-footer/nav-bar.css">
-    <link rel="stylesheet" href="../css/menu-footer/footer.css">
+<!-- 需要置換的變數們 -->
+<?php
 
-    <!-- js -->
-    <script src="../js/menu-footer/nav-bar.js" defer></script>
+$page_title = '啤女-世界精釀啤酒專賣';
 
+$psid = isset($_GET['psid']) ? intval(isset($_GET['psid'])) : NULL ;
 
-    <link rel="stylesheet" href="../css/all-product/each-product-style.css">
+$p_SQL = "SELECT * FROM `products` WHERE `sid` = $psid";
+$row = $pdo -> query($p_SQL) -> fetch();
+?>
+
+<?php include __DIR__ . '../../php/common/html-head.php' ?>
+<!-- 這裡插入要放在head的東西 -->
+<!-- 包含自己的css和js -->
+
+<link rel="stylesheet" href="../css/all-product/each-product-style.css">
 
 
 
+<?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<div class="mobile-menu">
+<?php include __DIR__ . '../../php/common/category.php' ?>
+</div>
+<!-- 這裡開始寫html -->
 
-</head>
-
-<body>
-
-    <header class="beeru-nav-bar">
-        <div class="container">
-            <div
-                class="row  flex-column flex-lg-row align-items-center justify-content-lg-between align-items-lg-start">
-                <div class="trigger"><span></span></div>
-                <a href="">
-                    <div class="nav-bar-logo"><img src="../images/logo/logo_beeru_white.svg" alt=""></div>
-                </a>
-                <ul class="nav-bar-list list-unstyled d-flex justify-content-around">
-                    <li class="nav-item"><a href="">本月主打</a></li>
-                    <li class="nav-item"><a href="">新手入門</a></li>
-                    <li class="nav-item">啤酒指南
-                        <ul class="nav-sub-menu list-unstyled">
-                            <li class="nav-sub-menu-item"><a href=""></a>啤酒地圖</a></li>
-                            <li class="nav-sub-menu-item"><a href="">餐酒搭配</a></li>
-                            <li class="nav-sub-menu-item"><a href="">風味輪</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">啤酒活動
-                        <ul class="nav-sub-menu list-unstyled">
-                            <li class="nav-sub-menu-item"><a href="">預約試飲會</a></li>
-                            <li class="nav-sub-menu-item"><a href="">募資計畫</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item d-none d-lg-block"><a href="">全部商品</a></li>
-                </ul>
-                <ul class="nav-bar-member list-unstyled d-flex ">
-                    <input type="text" id="search" name="search" class="search-bar" placeholder="找啤酒">
-                    <li class="search"><i class="fas fa-search"></i></li>
-                    <li class="shopping-cart"><a href=""><img src="../images/common/icon_shopbag.svg" alt=""></a></li>
-                    <li class="user-login"><a href=""><img src="../images/common/icon_member.svg" alt=""></a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
-    <div class="header"></div>
-
-    <section class="beer-warning d-flex align-items-center">
-        <div class="container">
-            <div class="row justify-content-center  align-items-center">
-                <p>禁止酒駕</p>
-                <p>酒後不開車 安全有保障</p>
-            </div>
-        </div>
-
-    </section>
-
-
-    <section class="each-product">
+<section class="each-product">
 
             <!-- 麵包屑 -->
             <div class="beeru-breadcrumb d-none d-lg-block">
@@ -99,11 +37,11 @@
                     <!-- 左邊圖片 -->
                     <div class="col-12 col-lg-6 product-pic d-flex justify-content-center align-items-center">
                         <div class="pro-name-m d-lg-none">
-                            <p class="c-name-m">奧斯陸．血橙印度淡愛爾</p>
-                            <p class="e-name-m">Oslo．Blood Orange IPA</p>
+                            <p class="c-name-m"><?= $row['c_name']?></p>
+                            <p class="e-name-m"><?= $row['e_name']?></p>
                         </div>
                         <div class="pic">
-                            <img src="../images/products/Heart of Darkness-01.png" alt="">
+                            <img src="../images/products/<?= $row['pic']?>" alt="">
                         </div>
                         <!-- 收藏按鈕 -->
                         <div class="collect">
@@ -120,16 +58,16 @@
                             <!-- 產品名稱 -->
                             <div class="pro-name">
                                 <div class="country d-flex align-items-center">
-                                    <p>挪威</p>
-                                    <img class="c-pic" src="../images/country/flag_norway_circle.svg" alt="">
+                                    <p><?= $row['country_sid']?></p>
+                                    <img class="c-pic" src="../images/country/<?= $row['country_pic']?>" alt="">
                                 </div>
-                                <p class="c-name d-none d-lg-block">奧斯陸．血橙印度淡愛爾</p>
-                                <p class="e-name d-none d-lg-block">Oslo．Blood Orange IPA</p>
+                                <p class="c-name d-none d-lg-block"><?= $row['c_name']?></p>
+                                <p class="e-name d-none d-lg-block"><?= $row['e_name']?></p>
                             </div>
 
                             <!-- 產品介紹文字 -->
                             <div class="intro-text">
-                                <p>這是一款果香味濃郁，相當易飲的美式西岸IPA。使用了滿滿的 Mandarina Bavaria & Cascade 啤酒花，加上帶點甜味的血橙果汁。啤酒花跟血橙的搭配將讓你一飲而盡!</p>
+                                <p><?= $row['intro']?></p>
                             </div>
 
                             <!-- 購買 -->
@@ -142,7 +80,7 @@
                                 </div>
                                 <!-- 價格 -->
                                 <div class="col-5 p-price">
-                                    <p id="p-price"><span>NT</span>$85</p>
+                                    <p class="price"><span>NT</span>$<?= $row['price']?></p>
                                 </div>
                                 <!-- 加入購物車按鈕 -->
                                 <button class="col-7 add-cart"><i class="fas fa-shopping-bag"></i>加入購物車</button>
@@ -152,19 +90,19 @@
                             <div class="product-key d-flex flex-wrap">
                                 <div class="key-content d-flex flex-lg-column ">
                                     <div class="title"><p>類型</p></div>
-                                    <p class="content type">IPA</p>
+                                    <p class="content type"><?= $row['type_name']?></p>
                                 </div>
                                 <div class="key-content d-flex flex-lg-column">
                                     <div class="title"><p>風味</p></div>
-                                    <p class="content flavor">果香</p>
+                                    <p class="content flavor"><?= $row['flavor']?></p>
                                 </div>
                                 <div class="key-content d-flex flex-lg-column ">
                                     <div class="title"><p>容量</p></div>
-                                    <p class="content capacity">330ml</p>
+                                    <p class="content capacity"><?= $row['capacity']?></p>
                                 </div>
                                 <div class="key-content d-flex flex-lg-column">
                                     <div class="title-4"><p>酒精濃度</p></div>
-                                    <p class="content abv">6.2%</p>
+                                    <p class="content abv"><?= $row['abv']?>%</p>
                                 </div>
                             </div>
                         </div>
@@ -644,51 +582,22 @@
             </div>
 
 
-            
-
-            
-
 
     </section>
 
 
 
 
-    <footer>
-        <div class="footer-brand d-none d-md-block">
-            <p>brand</p>
-            <div class="brand-logos"><img src="../images/brands/brand_logos.svg" alt=""></div>
-        </div>
-        <div class="footer-share">
-            <p>share</p>
-            <div class="sns-logos d-flex justify-content-center">
-                <div class="sns-logo-icon f-fb "><img src="../images/common/icon_fb.svg" alt=""></div>
-                <div class="sns-logo-icon f-email "><img src="../images/common/icon_email.svg" alt=""></div>
-                <div class="sns-logo-icon f-ig "><img src="../images/common/icon_ig.svg" alt=""></div>
-                <div class="sns-logo-icon f-twitter "><img src="../images/common/icon_twitter.svg" alt=""></div>
-                <div class="sns-logo-icon f-line "><img src="../images/common/icon_line.svg" alt=""></div>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>Copyright© 2021 BEERU. All Rights Reserved</p>
-        </div>
-    </footer>
 
 
 
 
-    <!-- 各種CDN -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-        crossorigin="anonymous"></script>
+<?php include __DIR__ . '../../php/common/html-body-footer.php' ?>
+<?php include __DIR__ . '../../php/common/script.php' ?>
+<!-- 這裡開始寫jQuery或JS -->
 
+<script>
 
+</script>
 
-</body>
-
-</html>
+<?php include __DIR__ . '../../php/common/html-end.php' ?>
