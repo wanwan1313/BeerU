@@ -44,7 +44,6 @@ $(document).ready(function(){
                 $('.header').removeClass('nav-headerOut');
                 $('#beeru-nav-bar').removeClass('OUT');
                 $('#LandingPage').removeClass('IN'); 
-
                 $('#footer').removeClass('OUT')
                 $('#LandingPage').fadeOut();
 

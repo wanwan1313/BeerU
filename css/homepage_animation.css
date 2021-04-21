@@ -30,7 +30,8 @@
 
 
 .Door-ZoomOut{
-    transform: scale(2);
+    transform: scale(2) translateY(-50px);
+
     opacity: 0;
 }
 
