@@ -862,14 +862,15 @@
         
         /* 分數啤酒 */
         .beer-score-icon {
-            width: 100px;
-            margin-right: 20px;
+            margin-right: 27.5px;
+            margin-left: 7.5px;
         }
 
         /* 手機版 改間距 */
     @media (max-width: 991px) {
         .beer-score-icon {
             margin-right: 0;
+            margin-left: 0;
             margin-bottom: 5px;
         }
     }
@@ -877,6 +878,11 @@
             width: 11px;
             height: 35px;
             margin: 0 3px;
+        }
+
+        /* 留言文字 */
+        .comment-text {
+            line-height: 2.2rem;
         }
 
         

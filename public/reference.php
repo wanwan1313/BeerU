@@ -21,6 +21,9 @@ $page_title = '啤女BeerU';
 </style>
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<div class="mobile-menu">
+<?php include __DIR__ . '../../php/common/category.php' ?>
+</div>
 <!-- 這裡開始寫html -->
 
 <!-- 空白內容 開始寫之後請刪除以下div -->

@@ -175,15 +175,16 @@
 
         /* -------------分類&篩選區塊------------ */
 
+
+        /* 桌機版 */ 
+    @media (min-width: 992px) { 
         .all-product .product-select {
             background-color: var(--blue);
             padding: 90px 0 0;
         }
 
-        /* ---------商品分類----------- */
-
-        /* 標題 */
-        .all-product .category-title, .filter-title {
+         /* ---------商品篩選----------- */
+         .all-product .filter-title {
             font-family:'Noto Serif TC', serif;
             font-size: 2.2rem;
             font-weight: bold;
@@ -191,13 +192,18 @@
             padding-bottom: 20px;
             border-bottom: 2px solid var(--gold);
         }
-        .all-product .category-title p, .filter-title p {
+
+        .all-product .filter-title i {
+            display: none;
+        }
+
+        .all-product .filter-title p {
             position: relative;
             width: fit-content;
             margin: 0 auto;
         }
 
-        .all-product .category-title p::before, .filter-title p::before {
+        .all-product .filter-title p::before {
             content: '';
             display: block;
             background: url(../../images/common/icon-beer.svg) no-repeat center center;
@@ -209,81 +215,12 @@
         }
 
         /* 分類內容區域 */
-        .all-product .category, .all-product .filter {
-            width: 50%;
+        .all-product .filter {
             min-width: 150px;
             max-width: 180px;
             margin: 0 auto 50px;
         }
 
-        /* 分類項目名稱 */
-        .all-product .category-name, .all-product .category-name0 {
-            margin: 20px 0 5px;
-            font-family:'Noto Serif TC', serif;
-            font-size: 2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: .5s;
-            position: relative;
-            user-select: none;
-        }
-
-        .all-product .category-name:hover , .all-product .category-name0:hover {
-            color: var(--gold);
-        }
-
-        .all-product .category-name::after, .all-product .category-name0::after {
-            content: '';
-            display: block;
-            background-color: var(--gold);
-            width: 0;
-            height: 0.5px;
-            position: absolute;
-            bottom: 0;
-            transition: .5s;
-        }
-
-        .all-product .category-name:hover::after, .all-product .category-name0:hover::after {
-            width: 100%;
-        }
-
-        .all-product .category-name-on::after {
-            content: '';
-            display: block;
-            background-color: #fff;
-            width: 100%;
-            height: 0.5px;
-            position: absolute;
-            bottom: 0;
-            transition: .5s;
-        }
-
-        /* 分類子項目 */
-        .all-product .category-sub-item-warp0 {
-            display: none;
-        }
-        .all-product .category-sub-item-warp  {
-            width: fit-content;
-            height: 0;
-            overflow: hidden;
-            padding-left: 15px;
-            transition: .5s;
-        }
-
-        .all-product .category-sub-item-warp-on {
-            height: auto;
-        }
-
-        .all-product .category-sub-item {
-            cursor: pointer;
-            transition: .5s;
-        }
-        .all-product .category-sub-item:hover {
-            color: var(--gold);
-        }
-
-         /* ---------商品篩選----------- */
-        
          /* 篩選項目名稱 */
          .all-product .filter-name {
             margin: 20px 0 5px;
@@ -311,6 +248,11 @@
             user-select: none;
             position: relative;
          }
+
+         .all-product .filter-sub-item-warp input[type=checkbox]:checked+span {
+            color: var(--gold);
+         }
+
          .all-product .filter-sub-item-warp input[type=checkbox]+span::before {
              content: '';
              display: block;
@@ -340,14 +282,159 @@
          .all-product .filter-sub-item-warp input[type=checkbox]+span:hover {
             color: var(--gold);
          }
+    } 
+        /* 手機版 */ 
+    @media (max-width: 991px) { 
+        .all-product .product-select {
+            background-color: var(--blue);
+            position: fixed;
+            z-index: 500;
+            width: 86%;
+            height: 60vh;
+            min-height: 450px;
+            top: 20%;
+            left: 0;
+            transition: .5s;
+            transform: translateX(-100.5%);
+        }
+
+        .all-product .product-select.on {
+            transform: translateX(0)
+        }
+
+        .all-product .fixed-btn {
+            width: 16%;
+            height: 12%;
+            position: absolute;
+            background-color: var(--blue);
+            top: 0;
+            right: -13%;
+            border-radius: 0 8px 8px 0;
+            text-align: right;
+            padding-right: 4px;
+        }
+
+        .all-product .fixed-btn::after {
+            content: '';
+            display: block;
+            width: 65%;
+            height: 2px;
+            background-color: var(--gold);
+            position: absolute;
+            right: 4px;
+            top: 27px;
+        }
+
+    
+
+         /* ---------商品排序(手機板)----------- */
+         .all-product .mobile-sort-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-top: 5%;
+        }
+
+        .all-product .mobile-sort-item {
+            width: fit-content;
+            margin: 5px auto;
+        }
+
+
+         /* ---------商品篩選----------- */
+         .all-product .filter-title {
+            font-size: 2.5rem;
+            text-align: center;
+            border-top: 2px solid var(--gold);
+            margin-top: 8%;
+        }
+
+        .all-product .filter-title p {
+            display: none;
+        }
+
+
+        /* 分類內容區域 */
+        .all-product .filter {
+            width: 100%;
+            justify-content: center;
+        }
+        
+
+        .all-product .filter-price {
+            width: 55%;
+        }
+
+        .all-product .filter-abv {
+            width: 45%;
+        }
+
+         /* 篩選項目名稱 */
+         .all-product .filter-name {
+            font-family:'Noto Serif TC', serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            border-bottom: 0.5px solid #fff;
+         }
+
+         /* 篩選子項目 */
+         .all-product .filter-sub-item-warp {
+            width: fit-content;
+            height: fit-content;
+            padding-left: 15px;
+         }
+
+         .all-product .filter-sub-item-warp input[type=checkbox] {
+            display: none;
+         }
+
+         .all-product .filter-sub-item-warp input[type=checkbox]+span {
+            margin-left: 5px;
+            cursor: pointer;
+            transition: .5s;
+            user-select: none;
+            position: relative;
+            font-size: 1.5rem;
+         }
+         .all-product .filter-sub-item-warp input[type=checkbox]:checked+span {
+            color: var(--gold);
+         }
+
+         .all-product .filter-sub-item-warp input[type=checkbox]+span::before {
+             content: '';
+             display: block;
+             width: 15px;
+             height: 15px;
+             position: absolute;
+             top: 50%;
+             transform: translateY(-50%);
+             left: -20px;
+             border: 1.5px solid var(--gold);
+             border-radius: 50%;
+         }
+
+         .all-product .filter-sub-item-warp input[type=checkbox]:checked+span::after {
+             content: '';
+             display: block;
+             width: 6px;
+             height: 6px;
+             position: absolute;
+             top: 50%;
+             transform: translateY(-50%);
+             left: -16px;
+             background-color: #fff;
+             border-radius: 50%;
+         }
+
+        
+    }
+        
 
 
 
 
 
 
-
-        /* -------------商品展示區塊------------- */
+/* --------------------------商品展示區塊--------------------------- */
         /* slogan */
 
 
@@ -728,7 +815,7 @@
         }
 
 
-        /* ---------頁碼-------------- */
+        /* ---------------頁碼-------------- */
 
         /* 區域大小 */
         /* 桌機版 */
