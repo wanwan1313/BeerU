@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="<?= WEB_ROOT ?>/css/common.css">
     <link rel="stylesheet" href="<?= WEB_ROOT ?>/css/menu-footer/nav-bar.css">
     <link rel="stylesheet" href="<?= WEB_ROOT ?>/css/menu-footer/footer.css">
+    <link rel="stylesheet" href="<?= WEB_ROOT ?>/css/category.css">
+    
 
     <!-- js -->
     <script src="<?= WEB_ROOT ?>/js/menu-footer/nav-bar.js" defer></script>
