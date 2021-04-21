@@ -624,6 +624,7 @@
             margin-bottom: 50px;
 
         }
+
         
         /* 商品圖片 */
         .all-product .pro-pic {
@@ -638,10 +639,23 @@
             position: relative;
         }
 
-        .all-product .pro-pic > img {
+        .all-product .pro-pic:hover .beer-pic {
+            opacity: .7;
+        }
+
+        .all-product .pro-pic .beer-pic {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            transition: .6s;
+        }
+
+        /* 標籤 */
+
+        .all-product .label {
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         /* new標籤 */
@@ -652,9 +666,7 @@
             width: 40px;
             background-color: var(--blue);
             border-radius: 5px;
-            position: absolute;
-            top: 0;
-            left: 0;   
+            margin-bottom: 5px;
         }
 
          /* hot標籤 */
@@ -665,9 +677,7 @@
             width: 40px;
             background-color: var(--red);
             border-radius: 5px;
-            position: absolute;
-            top: 0;
-            left: 0;
+            margin-bottom: 5px;
         }
 
         /* 國家圖片 */
@@ -724,9 +734,11 @@
             border-radius: 10px;
             margin: -20px auto 0;
             padding: 40px 20px 15px;
-            height: 200px;
+            height: 210px;
 
         }
+
+
 
         /* 手機版 改高度*/
     @media (max-width: 991px) {
@@ -736,8 +748,17 @@
     }
 
         /* 品名 */
+        .all-product .p-name {
+            transition: .6s;
+        }
+
+        .all-product .p-name:hover .p-name-c{
+            color: var(--yellow);
+        }
+
         .all-product .p-name-c {
             line-height: 2rem;
+            transition: .6s;
             
         }
         .all-product .p-name-e {
