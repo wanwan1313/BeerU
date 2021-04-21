@@ -64,6 +64,10 @@
 
    .home_bg{
     height:calc(100vh - 80px);
+    background-size: cover;
+    background: url("../images/common/工作區域\ 3.png") center center no-repeat;
+    
+    
    }
 
 
@@ -93,8 +97,53 @@
     width: 60px;
     transform: rotate(30deg) translate(110px,5px);
     
+    }
+
+ 
+    .RWD-button-wrap .row{
+        
+        display: flex;
+        justify-content: center;
+       
+    }
+
+    .RWD-button{
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 100px;
+        margin: 0px 25px;
+        margin-bottom: 20px;
+        
     
     }
+    .RWD-button img{
+        margin: 0 auto;
+        width: 40px;
+    }
+
+    .icon02 img{
+        margin-left: 30px;
+        width: 55px;
+    }
+    .icon03 img{
+        width: 50px;
+    }
+    .icon04 img{
+        width: 30px;
+    }
+
+    .RWD-button h3{
+        font-family: 'Noto Serif TC', serif;
+        margin-top: 5px;
+        letter-spacing: 3px;
+        font-size: 20px;
+         text-align: center;
+    }
+
+    
+   
+
+
 
 
     .Woman_warp{
@@ -194,8 +243,8 @@
     }
 
     .type-intro-img{
-       
-        width: 100px;
+        width: 100%;
+        max-width: 100px;
         margin: 0 auto;
     }
     
@@ -223,7 +272,7 @@
     }
 
     .more-btn02 {
-        margin-right: 55px;
+        justify-content: center;
     }
 
 

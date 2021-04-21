@@ -89,7 +89,7 @@ body,html{
 .doorSign_warp h1:nth-of-type(1){
     font-size: 40px;
     font-family: 'Noto Serif TC';
-    font-weight: SemiBold;
+    font-weight: Bold;
     
 
 
@@ -213,6 +213,11 @@ body,html{
     transform: rotate(30deg) translate(110px,5px);
     
     
+}
+
+
+.RWD-button-wrap .row{
+    display: none;
 }
 
 .Woman_warp{
@@ -451,17 +456,20 @@ body,html{
 }
 
 .type-intro-img{
-    width: 160px;
+    width: 100%;
+    max-width: 160px;
 
 }
 
 .type-intro-content{
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
 
 }
 
 
 .type-intro-title{
+    width: 100%;
     align-items: center;
 }
 
