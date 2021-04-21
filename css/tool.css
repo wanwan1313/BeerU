@@ -9,6 +9,10 @@
  color:#aaa;
 }
 
+/*文字 */
+.lh15{
+    line-height:1.5;
+}
 /* 加入關注.btn_attention */
 .btn_attention {
     white-space: nowrap;

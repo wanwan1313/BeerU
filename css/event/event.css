@@ -11,13 +11,6 @@
    .event i{
        margin-right:.25rem;
    }
-
-   .pd0{
-       padding: 0;
-   }
-
-
-
 /*  */
 
 /* 1 */
@@ -202,7 +195,6 @@ color:#aaa;
 .event .event-content .event-card .card-content .quota{
     white-space: nowrap;
     font-family: 'Noto Sans TC', sans-serif;
-           /* color:var(--blue); */
        }
        .event .event-content .event-card .card-content .review{
         color:white;
