@@ -91,10 +91,11 @@ font-weight:normal;
  .join .serve{
      border:1px solid var(--gold);
      position: relative;
+     padding: 30px;
  }
 
  .join .serve .t1{
-     white-space: nowrap;
+    white-space: nowrap;
     background-color: var(--blue);
     position: absolute;
     transform: translateX(-50%);
@@ -103,6 +104,16 @@ font-weight:normal;
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.join .serve .product img{
+max-height:25vh;
+object-fit: contain;
+}
+
+.join .serve .product .product-name{
+font-family: sans-serif;
+    }
+
  .join .block{
     /* max-width: 500px; */
     /* min-width:200px ; */
