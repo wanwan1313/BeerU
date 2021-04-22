@@ -298,7 +298,7 @@ $SQL
                                         <img class="beer-pic" src="../images/products/${p.pic}" alt="">
                                     </a>
                                     <!-- 標籤 -->
-                                    <div class="label">
+                                    <div class="label ${p.sid}-label">
                                     </div>
 
                                     <!-- 國家圖片 -->
@@ -362,7 +362,7 @@ $SQL
                 let ishot = el.hot  //抓熱門的值
                 let created_at = Date.parse(el.created_at).valueOf() //抓建立時間
                 let deadline = Date.parse('2021-04-10').valueOf() //設定要有new標籤的時間點
-                let product_label = $('.label')
+                let product_label = $(`.${el.sid}-label`)
 
                 const labelTpl = function() {
 

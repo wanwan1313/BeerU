@@ -5,10 +5,14 @@
 
 $page_title = '啤女-世界精釀啤酒專賣';
 
-$psid = isset($_GET['psid']) ? intval(isset($_GET['psid'])) : NULL ;
+$psid = substr( $_SERVER['QUERY_STRING'], 5) ;
 
-$p_SQL = "SELECT * FROM `products` WHERE `sid` = $psid";
+$p_SQL = "SELECT p.* , t.`name` AS `country_name` FROM `products` AS p 
+            JOIN `tags` AS t 
+            ON p.`country_sid` = t.`sid`  
+            WHERE p.`sid` = $psid";
 $row = $pdo -> query($p_SQL) -> fetch();
+
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -58,7 +62,7 @@ $row = $pdo -> query($p_SQL) -> fetch();
                             <!-- 產品名稱 -->
                             <div class="pro-name">
                                 <div class="country d-flex align-items-center">
-                                    <p><?= $row['country_sid']?></p>
+                                    <p><?= $row['country_name']?></p>
                                     <img class="c-pic" src="../images/country/<?= $row['country_pic']?>" alt="">
                                 </div>
                                 <p class="c-name d-none d-lg-block"><?= $row['c_name']?></p>
@@ -597,6 +601,8 @@ $row = $pdo -> query($p_SQL) -> fetch();
 <!-- 這裡開始寫jQuery或JS -->
 
 <script>
+
+
 
 </script>
 
