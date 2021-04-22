@@ -35,7 +35,7 @@ if ($page < 1) {
     $page = $total_pages;
 };
 
-$s_SQL = sprintf("SELECT * FROM `products` $where ORDER BY `sid` LIMIT %s,%s", ($page - 1) * $page_p, $page_p);
+$s_SQL = sprintf("SELECT * FROM `products` $where ORDER BY `created_at` DESC LIMIT %s,%s", ($page - 1) * $page_p, $page_p);
 $rows = $pdo->query($s_SQL)->fetchAll();
 
 echo json_encode([
@@ -45,17 +45,4 @@ echo json_encode([
     'total_pages' => $total_pages,
     'rows' => $rows,
 ], JSON_UNESCAPED_UNICODE)
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
