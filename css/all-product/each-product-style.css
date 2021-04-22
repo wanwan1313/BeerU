@@ -48,10 +48,9 @@
         }
 
         .e-product-intro  .product-pic .pic {
-            width: 20%;
-            min-width: 120px;
-            max-width: 170px;
+            width: 50%;
             height: 65%;
+            max-height: 600px;
         }
     }
 
