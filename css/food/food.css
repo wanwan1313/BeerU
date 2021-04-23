@@ -1,3 +1,6 @@
+/* 桌機版 */
+/*-----視窗大小----- */
+
 .food-wrap {
     height: 80vh;
 }
@@ -7,9 +10,31 @@
     width: 100%;
 }
 
+.rule-wrap {
+    margin-bottom: 10%;
+}
+
+/* 手機版 */
+/*-----視窗大小----- */
+@media (max-width: 991px) {
 
 
+    .food-banner, .food-wrap {
+        height: auto;
+        margin-bottom: 10%;
+    }
+    
+        .food-banner.container {
+            display: block;
+        }
+    
+        .rule-wrap.container {
+            display: block;
+        }
+}    
 
+
+/* 文字 */
 h1 {
     font-family: 'Noto Serif TC', serif;
     color: var(--gold);
@@ -20,7 +45,8 @@ h1 {
 
 }
 
-/* 天使+蓋子圖檔 */
+/*桌機版*/
+/* 天使圖檔 */
 .angel-img-wrap
 {
     width: 60%;
@@ -53,10 +79,26 @@ h1 {
     text-align: center;
 }
 
+     /*手機版*/
+    /*天使大小調整*/
+    @media (max-width: 991px) {
+        .angel-img-wrap
+        {
+            width: 80%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    /*盤子大小調整 */
+        .plate-img-wrap
+        {
+            width: 80%;
+        }
+}
 
+/*桌機版*/
+/*第一頁文字和圈圈雕飾*/
 
-/* title:餐酒搭配 */
- /* 圈圈圖案 */
  .food-title {
     background: url(../../images/common/h1_4_w.svg) no-repeat center center;
     background-size: contain;
@@ -87,8 +129,8 @@ h1 {
     height: 50%;
     background: url(../../images/common/h1_ear_left.svg) no-repeat center center;
     background-size: contain;
-
 }
+
 
 
 /* 右邊雕飾 */
@@ -106,7 +148,49 @@ h1 {
 
 }
 
-/*intro-餐酒搭配 */
+/* 手機版 */
+/*第一頁文字和圈圈雕飾*/
+@media (max-width: 991px) {
+
+    /* 現在我想來點 */
+    .food-left-text h2 {
+    font-weight: bold;
+    font-size: 2.0rem;
+    list-style: none;
+    line-height: 2.8rem;
+    letter-spacing: 0.6rem;
+    text-indent:1.2rem;
+    text-align: center ;
+
+}
+
+/*圈圈雕飾 */
+
+.food-title p {
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    text-indent:0.8rem;
+}
+
+.food-title p::before {
+    width: 60px;
+    height: 32%;
+
+}
+
+.food-title p::after {
+    width: 60px;
+    height: 32%;
+
+}
+}
+
+
+
+
+
+/*---------------intro-餐酒搭配-------------- */
+/* 桌機版 */
 .food-right-text  {
    width: 70%;
    margin: 0 auto;
@@ -131,7 +215,25 @@ h1 {
 }
 
 
+/* 手機版 */
+@media (max-width: 991px) {
+    .food-right-text  {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 10%;
+     }
+    
+    .food-right-text h2 {
+        font-size: 1.8rem;
+        line-height: 2.6rem;
+       text-align: justify;
+    }
+ }
+    
+
+/* food-page-2 */
 /* 文字置中:酒搭配三大原則 */
+/* 桌機版 */
 .food-rule {
     margin-left: auto;
     margin-right: auto;
@@ -186,7 +288,6 @@ h1 {
 }
 
 /* 文字三大原則 */
-
 .rules-content{
     margin-top: 10%;
 }
@@ -199,11 +300,10 @@ h1 {
     border: solid 1px var(--gold);
     position:relative
     
-
 }
 
-/* 三項原則 */
 
+/* 三項原則 */
 .rules h3{
      font-family: 'Noto Serif TC', serif;
      line-height: 4.8rem;
@@ -238,20 +338,101 @@ h1 {
     text-align: justify;
 
 }
+/* 手機版 */
+@media (max-width: 991px) {
 
-
-/* 動畫:手 */
+    /* 搭配三大原則 */
+    .rules{
+        width: 150px;
+        height: 150px;;
+    
+    }
+    
+    .rules h3{
+        font-family: 'Noto Serif TC', serif;
+        line-height: 3.2rem;
+        color: var(--gold);
+        font-weight: bold;
+        font-size: 2.4rem;
+        letter-spacing: 1.2rem;
+    }
+    
+    
+    .rule-title-line h1 {
+        font-size: 2.4rem;
+        letter-spacing: 0.8rem;
+        text-indent:1.2rem;
+    }
+    
+    .rule-title-line h2 {
+        font-size: 2.4rem;
+        letter-spacing: 0.8rem;
+        text-indent:1.2rem;
+    }
+    
+    .rule-title-line h1::before {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 2px;
+        left: 10%;
+    }
+    
+    .rule-title-line h1::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 2px;
+        right: 10%;
+    }
+    
+    .beer-type .title-line{
+        font-size: 2.4rem;
+        letter-spacing: 0.8rem;
+        text-indent: 1.2rem;
+        margin-bottom: 100px;
+    
+    }
+    }
+    
+/* 桌機版 */
+/* 手 */
 .hand{
     transform: translate(-100px,-700px);
-    width: 700px;
+    width: 550px;
     position: absolute;
 }
+/* 手機版 */
+@media (max-width: 991px) {
+    /*手 */
+    .hand{
+        transform: translate(-30px,-100px);
+        width: 200px;
+        position: absolute;
+    }
+    
+    
+    .food-drop{
+        display: none;
+    }
+    
+    .m-beer-drops{
+        min-width: 100px;
+        max-width: 250px;
+        display: block;
+        margin:0 auto;
+    
+    }
+    
+    } 
+    
 
 .beer-type {
     margin-bottom: 10%;
 }
 
-/* 酒杯banner */
+/* ----------------酒杯-banner ----------------*/
+/* 桌機版 */
    .glass-banner{
     width: 100%; 
 }
@@ -269,6 +450,14 @@ h1 {
      
    }
 
+/* 手機版 */
+   @media (max-width: 991px) {
+    .glass-banner img {
+        display: none;
+    }
+    }
+    
+
 /* 酒滴 drop */
 .type-color{
     text-align: center;
@@ -282,7 +471,7 @@ h1 {
 
 .food-drop
 {
-    margin: 20px 80px 250px 0;
+    margin: 100px 60px 250px 0;
 }
 
 .drop1,
@@ -304,16 +493,43 @@ h1 {
     width: 100px;
 }
 
-/* 手機版才出現 */
+/*------------ 九宮格酒水滴---------- */
+/* 桌機版*/
 .m-beer-drops {
     display: none;
 }
 
+
+/* 手機版 */
+@media (max-width: 991px) {
+    /*手 */
+    .hand{
+        transform: translate(-30px,-100px);
+        width: 200px;
+        position: absolute;
+    }
+    
+    
+    .food-drop{
+        display: none;
+    }
+    
+    .m-beer-drops{
+        min-width: 100px;
+        max-width: 250px;
+        display: block;
+        margin:0 auto;
+    
+    }
+    
+    } 
+
+
 /* food-page-3-beer-1 */
 
 .pair-wrap{
-    /* height: 80vh; */
-    margin-top: 5%;
+
+margin-top:5%;
 }
 /* 酒食圖檔 */
 .pair.pair-1 img {
@@ -322,12 +538,15 @@ h1 {
     margin: auto;
 }
 
-/* 酒名文字*/
+/* 啤酒類型名稱 */
+/* 桌機版 */
+ @media (min-width: 992px) {
 .pair-intro{
     width: 100%;
     /* vertical-align: middle; */
 }
-.pair h2{
+.pair h2,
+.pair-title h2{
     font-family: 'Noto Serif TC', serif;
     line-height: 4.8rem;
     color: var(--gold);
@@ -335,6 +554,13 @@ h1 {
     font-size: 3.6rem;
     margin-bottom: 5%;
 }
+
+.pair-title img{
+    width: 50px;
+    padding-left: 20px;
+
+}
+
 /* beer-intro */
 .pair p{
     color: var(--white);
@@ -347,8 +573,136 @@ h1 {
     /* text-align: justify; */
     margin-bottom: 5%;
 }
+}
 
-/* 適合搭配餐點 */
+
+/* 手機版 */
+@media (max-width: 991px) {
+    .pair-intro{
+        width: 100%;
+        margin:0 auto;
+    }
+
+    /*啤酒種類名稱  */
+    .pair-title{
+    text-align: center;
+    }
+
+    .pair-title img{
+        width: 24px;
+        padding-left: 10px;
+    }
+
+   
+    .pair h2,
+    .pair-title h2{
+        
+        font-family: 'Noto Serif TC', serif;
+        line-height: 3.2rem;
+        color: var(--gold);
+        font-weight: bold;
+        font-size: 2.4rem;
+        margin-top: 5%;
+        margin-right:5%;
+        margin-left:5%;
+        margin-bottom: 5%;
+    }
+    /* beer-intro */
+    .pair p{
+        color: var(--white);
+        font-family: 'Noto Serif TC', serif;
+        font-weight: regular;
+        font-size: 1.8rem;
+        line-height:3.2rem;
+        /* letter-spacing: 0.5rem; */
+        margin: 0 auto;
+        /* text-align: justify; */
+        margin-bottom: 5%;
+        margin-right:5%;
+        margin-left:5%;
+    }
+    }
+
+/* 手機版 */
+@media (max-width: 991px) {
+    /*手 */
+    .hand{
+        transform: translate(-30px,-100px);
+        width: 200px;
+        position: absolute;
+    }
+    
+    
+    .food-drop{
+        display: none;
+    }
+    
+    .m-beer-drops{
+        min-width: 100px;
+        max-width: 250px;
+        display: block;
+        margin:0 auto;
+        margin-bottom: 20%;
+    
+    }
+    
+    } 
+
+
+/* 分享按鈕*/
+
+        /* 桌機版 */
+        @media (min-width: 992px) {
+            .pair .share-icons {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin-right: 10px;
+                /* margin-left:px?; */
+
+            }
+
+            .pair .share-icons .fb,
+            .pair .share-icons .line,
+            .pair .share-icons .share
+             {
+                margin-right: 5px;
+                margin-left: 5px;
+            }
+        }
+    
+            /* 手機版 */
+        @media (max-width: 991px) {
+            .pair .share-icons {
+                margin-bottom: 10%;
+                justify-content: center;
+            }
+            
+            .pair .share-icons .fb,
+            .pair .share-icons .line 
+             {
+                margin-right: 8px;
+                margin-left: 8px;
+          
+            }
+
+            .pair .share-icons .fb svg,
+            .pair .share-icons .line svg 
+             {
+         width: 16px;
+          
+            }
+
+            .pair .share-icons .share
+             {
+                 font-size: 1.6rem;
+                margin-right: 8px;
+                margin-left: 8px;
+            }
+        }
+
+/*---------------適合搭配餐點-------------- */
+/* 桌機版 */
 .pair h3{
     font-family: 'Noto Serif TC', serif;
     color: var(--gold);
@@ -363,6 +717,7 @@ h1 {
 {
     width: 5.0rem;
     line-height: 6.0rem;
+    margin-left:5% ;
     }
 
 .dish-type{
@@ -383,38 +738,245 @@ h1 {
     margin-bottom: 5%;
 }
 
+/* 手機版 */
+
+@media (max-width: 991px) {
+
+    .pair-resto {
+        margin: 0 auto;
+    }
+
+    .pair h3{
+        font-family: 'Noto Serif TC', serif;
+        color: var(--gold);
+        font-weight: bold;
+        font-size: 2.0rem;
+        line-height: 6.0rem;
+        /* margin: 0 auto; */
+    }
+    
+    /* icon大小 */
+    .pair-icon
+    {
+        /* margin: 0 auto; */
+        width: 4.0rem;
+        line-height: 6.0rem;
+        }
+    
+    .dish-type{
+        font-family: 'Noto Serif TC', serif;
+        color: var(--gold);
+        font-weight: bold;
+        font-size: 2.4rem;
+        line-height: 6.0rem;
+    }
+    .pair-dish {
+        margin-right: 5%;
+        margin-right: 5%;
+    }
+
+    .pair-dish h4
+    {
+        color: var(--white);
+        font-family: 'Noto Serif TC', serif;
+        font-weight: regular;
+        font-size: 2.0rem;
+        margin-right: 50px;
+        margin-bottom: 5%;
+    }
+}
+
+
+
+
+/* 手機版 */
+@media (max-width: 991px) {
+
+.dish-type{
+    font-family: 'Noto Serif TC', serif;
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.pair-dish h4
+{
+    color: var(--white);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: regular;
+    font-size: 1.8rem;
+    margin-right: 10px;
+    margin-bottom: 5%;
+}
+
+
+}
+
+
  /* -------------商品排列區域------------ */
 
-        /* 桌機版 */
-        @media (min-width: 992px) {
-            .all-product .product-arrang {
-                width: 80%;
-                min-width: 800px;
-                margin: 100px auto 30px;
-            }
-        }
-    
-            /* 手機版 */
-        @media (max-width: 991px) {
-            .beer-product .product-arrang {
-                width: 90%;
-                margin: 100px auto 30px;
-            }
-        }
-/*             
-            .beer-product .beer-product {
-                margin-bottom: 50px;
-    
-            } */
-            
-            /* 商品圖片 */
+   
+
+             /* 桌機版 */
+             @media (min-width: 992px) {
+
+                .reco-beer-opt {
+                    margin-top: 3%;
+                }
+      
+                /* 商品圖片 */
             .beer-product .pro-pic {
                 width: 100%;
                 min-width: 150px;
-                max-width: 250px;
+                max-width: 200px;
                 background-color: #fff;
                 margin: 0 auto;
-                height: 250px;
+                height: 200px;
+                padding: 10px;
+                border-radius: 20px;
+                position: relative;
+            }
+    
+            .beer-product .pro-pic > img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+    
+            /* new標籤 */
+            .beer-product .new-label {
+                font-size: 1.3rem;
+                font-weight: 600;
+                text-align: center;
+                width: 40px;
+                background-color: var(--blue);
+                border-radius: 5px;
+                position: absolute;
+                top: 0;
+                left: 0;   
+            }
+    
+             /* hot標籤 */
+            .beer-product .hot-label {
+                font-size: 1.3rem;
+                font-weight: 600;
+                text-align: center;
+                width: 40px;
+                background-color: var(--red);
+                border-radius: 5px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+    
+            /* 國家圖片 */
+            .beer-product .pro-pic .country {
+                width: 25px;
+                position:absolute;
+                bottom: 20px;
+                left: 20px;
+            }
+    
+            /* 收藏按鈕 */
+            .beer-product .pro-pic .collect {
+                position: absolute;
+                bottom: 10px;
+                right: 20px;
+            }
+    
+            .btn_collect, .btn_collect_active {
+                background-color: transparent;
+                border: none;
+                color: var(--red);
+                padding: 0;
+                font-size: 24px;  
+                cursor: pointer; 
+                transition: .3s;
+            }
+    
+            .btn_collect:hover, .btn_collect_active:hover {
+                transform: scale(1.1,1.1);
+            }
+    
+            .btn_collect::after {
+                content: '加入收藏';
+                display: block;
+                position:absolute;
+                top: -10px;
+                left: -70%;
+                font-size: 1.2rem;
+                width: 250%;
+                color: transparent;
+                transition: .3s;
+            }
+    
+            .btn_collect:hover::after {
+                color: var(--red);
+            }
+
+            .beer-product.product-1 {
+                display: flex;
+            }
+
+            /* 商品介紹 */
+        .beer-product .pro-intro {
+            width: 100%;
+            width: 320px;
+            /* background-color: var(--gold); */
+            border-radius: 10px;
+            margin-left: 12%;
+            /* margin: -20px auto 0; */
+            /* padding: 40px 20px 15px; */
+            /* height: 200px; */
+            font-family: 'Noto sans TC', serif;
+
+        }
+          /* 品名 */
+          .p-name-c {
+            font-family: 'Noto serif TC',serif;
+            font-size: 1.8rem;
+            line-height: 2.6rem;
+            /* text-align: center; */
+            
+        }
+        .p-name-e {
+            font-size: 1.4rem;
+            line-height: 1.8rem;
+            /* text-align: center; */
+            color: rgb(223, 223, 223);
+        }
+
+            }
+                  /* 手機版 */
+        @media (max-width: 991px) {
+            .reco-beer-opt {
+             margin: 0 auto;
+            }
+
+            .beer-product .product-arrang {
+                width: 90%;
+                /* margin: 100px auto 30px; */
+            }
+
+            .beer-product.product-1 {
+                margin-top: 5%;
+                display: wrap;
+            }
+
+            /* product-2 不出現 */
+            .beer-product.product-2 {
+                display: none;
+            }
+
+
+             /* 商品圖片 */
+             .beer-product .pro-pic {
+                width: 100%;
+                min-width: 200px;
+                max-width: 200px;
+                background-color: #fff;
+                margin: 0 auto;
+                height: 200px;
                 padding: 10px;
                 border-radius: 20px;
                 position: relative;
@@ -504,7 +1066,7 @@ h1 {
             /* background-color: var(--gold); */
             border-radius: 10px;
             margin: -20px auto 0;
-            padding: 40px 20px 15px;
+            padding: 40px 10px 15px;
             /* height: 200px; */
 
         }
@@ -520,7 +1082,8 @@ h1 {
             text-align: center;
             color: rgb(223, 223, 223);
         }
-
+        }
+            
 
 /* ----------------了解更多---------------------- */
 
@@ -528,10 +1091,8 @@ h1 {
     font-family: 'Noto Serif TC', serif;
     font-size: 2rem;
     font-weight: bold;
-    /* margin-left: 5%; */
-    margin: auto;
-    margin-top: 5%;
-    margin-bottom:20% ;
+    margin-left: 5%;
+    margin-bottom:10% ;
     position: relative;
     width: fit-content;
     transition: .5s;
@@ -590,11 +1151,27 @@ h1 {
     opacity: 0;
 }
 
+/* 手機版 */
+@media (max-width: 991px) {
+    .know-more {
+        font-family: 'Noto Serif TC', serif;
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin:auto;
+        margin-top: 10%;
+        margin-bottom:15% ;
+        position: relative;
+        width: fit-content;
+        transition: .5s;
+    }
+}
+
 
         /* -------------餐廳區------------  */
+        /* 桌機版 */
         /* 餐廳照片*/
         .resto-img-wrap{
-            margin-top: 50px;
+            margin-top: 3%;
             width: 200px;
             border-radius: 20px;
         }
@@ -605,182 +1182,145 @@ h1 {
 
         /* 餐廳資訊 */
         .resto-text {
-    margin-top: 10%;
+    margin-top: 3%;
     margin-left: 10%;
         }
-
-        
-
+    
         .resto-info h4 {
     color: var(--white);
-    font-family: 'Noto Serif TC', serif;
+    font-family: 'Noto serif TC',serif;
     font-weight: regular;
-    font-size: 2.0rem;
+    font-size: 1.8rem;
     margin-right: 50px;
     margin-bottom: 5%;
 }
-
-
-
-    
-
-
-
-
-
-
-
-/* 手機版 改字和雕飾大小*/
-@media (max-width: 991px) {
-
-
-.food-banner, .food-wrap {
-    height: auto;
-    margin-bottom: 10%;
-}
-
-    .food-banner.container {
-        display: block;
-    }
-
-    .rule-wrap.container {
-        display: block;
-    }
-
-
-/*天使大小調整*/
-    .angel-img-wrap
-    {
-        width: 80%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-/*盤子大小調整 */
-    .plate-img-wrap
-    {
-        width: 80%;
-    }
-
-    /* 現在我想來點 */
-    .food-left-text h2 {
-    font-weight: bold;
-    font-size: 2.0rem;
-    list-style: none;
-    line-height: 2.8rem;
-    letter-spacing: 0.6rem;
-    text-indent:1.2rem;
-    text-align: center ;
-
-}
-
-.food-title p {
-    font-size: 2.4rem;
-    letter-spacing: 0.8rem;
-    text-indent:0.8rem;
-}
-
-.food-title p::before {
-    width: 60px;
-    height: 32%;
-
-}
-
-.food-title p::after {
-    width: 60px;
-    height: 32%;
-
-}
-/*intro-餐酒搭配 */
-.food-right-text  {
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 10%;
- }
-
-.food-right-text h2 {
-    font-size: 1.8rem;
-    line-height: 2.6rem;
-   text-align: justify;
-}
-
-/* food-page-2 */
-/* 搭配三大原則 */
-.rules{
-    width: 150px;
-    height: 150px;;
-
-}
-
-.rules h3{
+/* ---------------- 線上訂位---------------------- */
+/* 桌機版 */
+.book-now {
     font-family: 'Noto Serif TC', serif;
-    line-height: 3.2rem;
-    color: var(--gold);
+    font-size: 2rem;
     font-weight: bold;
-    font-size: 2.4rem;
-    letter-spacing: 1.2rem;
+    margin-left: 5%;
+    margin-top: 20%;
+    margin-bottom:20% ;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
 }
 
-
-.rule-title-line h1 {
-    font-size: 2.4rem;
-    letter-spacing: 0.8rem;
-    text-indent:1.2rem;
-}
-
-.rule-title-line h2 {
-    font-size: 2.4rem;
-    letter-spacing: 0.8rem;
-    text-indent:1.2rem;
-}
-
-.rule-title-line h1::before {
+.book-now::before {
     content: '';
     display: block;
-    width: 50px;
-    height: 2px;
-    left: 10%;
-}
-
-.rule-title-line h1::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 2px;
-    right: 10%;
-}
-
-.beer-type .title-line{
-    font-size: 2.4rem;
-    letter-spacing: 0.8rem;
-    text-indent: 1.2rem;
-    margin-bottom: 100px;
-
-}
-/* 酒杯-banner */
-.glass-banner img {
-    display: none;
-}
-
-/*手 */
-.hand{
-    transform: translate(-30px,-100px);
-    width: 200px;
     position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
 }
-
-
-.food-drop{
-    display: none;
-}
-
-.m-beer-drops{
-    min-width: 100px;
-    max-width: 250px;
+.book-now::after {
+    content: '';
     display: block;
-    margin:0 auto;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
 
+.book-now:hover {
+    transform: scale(1.1,1.1);
+}
+
+.book-now:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+.book-now:hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 0;
 }
 
 
+
+ /* 手機版 */
+ @media (max-width: 991px) {
+     /* 餐廳照片*/
+     .resto-img-wrap{
+        margin-top: 5%;
+        width: 180px;
+        border-radius: 20px;
+        margin-bottom: 5%;
+    }
+
+    .resto-img-wrap img{
+        border-radius: 20px;
+    }
+
+    /* 餐廳資訊 */
+    .resto-text {
+margin-top: 5%;
+   margin-left: 10%;
+    }
+
+    .resto-info h4 {
+color: var(--white);
+font-family: 'Noto Serif TC', serif;
+font-weight: regular;
+font-size: 1.6rem;
+/* margin-left:1%; */
+margin-right: 1%;
+margin-bottom: 5%;
+}
+
+.book-now {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-left: 5%;
+    margin-top: 15%;
+    margin-bottom:20% ;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
+}
+    
+    }
+
+/* ------------------ 區隔線----------------- */
+@media (min-width: 992px) {
+    .deco-line{
+        display: none;
+     
+   }
+}
+
+@media (max-width: 991px) {
+    .deco-line{
+        width: 70%;
+        margin:auto ;
+        margin-top: 10%;
+        margin-bottom: 10%;
+     
+   }
 }
