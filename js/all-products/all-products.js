@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
 
 
     // 商品分類切換
@@ -7,7 +7,7 @@ $(function() {
     }
 
 
-    $(window).resize(function() {
+    $(window).resize(function () {
 
         if ($(window).width() >= 992) {
             $('.product-select > .product-category').css('display', 'block')
@@ -18,12 +18,9 @@ $(function() {
     })
 
     // 排序與篩選的按鈕
-    $('.fixed-btn').on('click',function(){
+    $('.fixed-btn').on('click', function () {
         $(this).parent('.product-select').toggleClass('on')
     })
-
-    
-
 
 
 

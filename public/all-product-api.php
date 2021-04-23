@@ -1,20 +1,51 @@
-<?php include __DIR__ . '../../php/common/config.php' ;
+<?php include __DIR__ . '../../php/common/config.php';
 
 
 // 分類
-// $c_SQL = "SELECT * FROM `categories` WHERE `parent_sid`=0";
-// $total_cates = $pdo -> query($c_SQL) -> fetchAll();
-// $cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
+
+// 酒廠
+$brands_SQL = "SELECT * FROM `tags` WHERE `pre_sid` = 1";
+$total_brands = $pdo->query($brands_SQL)->fetchAll();
+
+// 國家
+$countries_SQL = "SELECT * FROM `tags` WHERE `pre_sid` = 2";
+$total_countries =  $pdo->query($countries_SQL)->fetchAll();
+
+// 類型
+$type_SQL = "SELECT * FROM `tags` WHERE `pre_sid` = 3";
+$total_type =  $pdo->query($type_SQL)->fetchAll();
+
+// 周邊
+$merch_SQL = "SELECT * FROM `tags` WHERE `pre_sid` = 4";
+$total_merch =  $pdo->query($merch_SQL)->fetchAll();
+
+$cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
+$hot = isset($_GET['hot']) ? intval($_GET['hot']) : 0;
+
 
 $where = ' WHERE 1 ';
-if( empty($cate) == false){
-    $where .= " AND `category_sid` = $cate ";
+$cate_name = '';
+if (empty($cate) == false and $cate <= 28) {
+    $where .= " AND `brand_sid` = $cate ";
+    $cate_name = $total_brands[$cate-5]['name'];
+}
+if (empty($cate) == false and $cate >= 29 and $cate <= 43) {
+    $where .= " AND `country_sid` = $cate ";
+    $cate_name = $total_countries[$cate-29]['name'];
+}
+if (empty($cate) == false and $cate >= 44 and $cate <= 53) {
+    $where .= " AND `type_sid` = $cate ";
+    $cate_name = $total_type[$cate-44]['name'];
+}
+if (empty($cate) == false and $cate == 54) {
+    $where .= " AND `merch_sid` = $cate ";
+    $cate_name = $total_merch[0]['name'];
+}
+if (empty($hot) == false and $hot == 1) {
+    $where .= " AND `hot` = 'true' ";
+    $cate_name = '熱門商品';
 }
 
-// $qs = [];
-// if( ! empty($cate) ){
-//     $qs['cate'] = $cate;
-// }
 
 
 
@@ -29,6 +60,10 @@ $t_SQL = "SELECT COUNT(1) FROM `products` $where ";
 $total_rows = $pdo->query($t_SQL)->fetch(PDO::FETCH_NUM)[0];
 $total_pages = ceil($total_rows / $page_p);
 
+// 防呆
+if( $total_pages ==0 ){
+    $total_pages = 1;
+};
 if ($page < 1) {
     $page = 1;
 } elseif ($page > $total_pages) {
@@ -36,6 +71,7 @@ if ($page < 1) {
 };
 
 $s_SQL = sprintf("SELECT * FROM `products` $where ORDER BY `created_at` DESC LIMIT %s,%s", ($page - 1) * $page_p, $page_p);
+
 $rows = $pdo->query($s_SQL)->fetchAll();
 
 echo json_encode([
@@ -43,6 +79,7 @@ echo json_encode([
     'page_p' => $page_p,
     'total_rows' => $total_rows,
     'total_pages' => $total_pages,
+    'cate' => $cate,
+    'cate_name' => $cate_name,
     'rows' => $rows,
-], JSON_UNESCAPED_UNICODE)
-?>
+], JSON_UNESCAPED_UNICODE);

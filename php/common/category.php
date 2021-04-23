@@ -33,7 +33,7 @@ $total_merch =  $pdo -> query($merch_SQL) ->fetchAll();
     </div>
     <div class="category">
         <div class="category-item category-1 hot-beer">
-            <a href="">
+            <a href="javascript: selectHot()" class="category-out-item" >
                 <div class="category-name0 d-flex justify-content-between">
                     <p><i class="fas fa-crown"></i>熱門商品</p>
                 </div>
@@ -47,7 +47,7 @@ $total_merch =  $pdo -> query($merch_SQL) ->fetchAll();
             <ul class="category-sub-item-warp d-flex flex-wrap">
                 <?php foreach( $total_brands as $tb ): ?>
                 <li class="col-6 col-lg-12 category-sub-item" data-sid="<?= $tb['sid']?>">
-                    <a href="javascript: "><?= $tb['name']?></a>
+                    <a href="javascript: changeCate(<?= $tb['sid']?>)"><?= $tb['name']?></a>
                 </li>
                 <?php endforeach; ?>          
             </ul>
@@ -68,7 +68,7 @@ $total_merch =  $pdo -> query($merch_SQL) ->fetchAll();
             <ul class="category-sub-item-warp d-flex flex-wrap">
                 <?php foreach( $total_countries as $tc ): ?>
                 <li class="col-6 col-lg-12 category-sub-item" data-sid="<?= $tc['sid']?>">
-                    <a href="javascript: "><?= $tc['name']?></a>
+                    <a href="javascript: changeCate(<?= $tc['sid']?>)"><?= $tc['name']?></a>
                 </li>
                 <?php endforeach; ?>           
             </ul>
@@ -89,7 +89,7 @@ $total_merch =  $pdo -> query($merch_SQL) ->fetchAll();
             <ul class="category-sub-item-warp d-flex flex-wrap">
                 <?php foreach( $total_type as $tt ): ?>
                 <li class="col-6 col-lg-12 category-sub-item" data-sid="<?= $tt['sid']?>">
-                    <a href="javascript: "><?= $tt['name']?></a>
+                    <a href="javascript: changeCate(<?= $tt['sid']?>)"><?= $tt['name']?></a>
                 </li>
                 <?php endforeach; ?>   
             </ul>
@@ -110,7 +110,7 @@ $total_merch =  $pdo -> query($merch_SQL) ->fetchAll();
             <ul class="category-sub-item-warp d-flex flex-wrap justify-content-center">
                 <?php foreach( $total_merch as $tm ): ?>
                 <li class="col-6 col-lg-12 category-sub-item" data-sid="<?= $tm['sid']?>">
-                    <a href="javascript: "><?= $tm['name']?></a>
+                    <a href="javascript: changeCate(<?= $tm['sid']?>)"><?= $tm['name']?></a>
                 </li>
                 <?php endforeach; ?>  
             </ul>
@@ -125,8 +125,8 @@ $total_merch =  $pdo -> query($merch_SQL) ->fetchAll();
             
         </div>
         <div class="category-item category-6 all-beer">
-            <a href="">
-                <div class="category-name0 d-flex justify-content-between">
+            <a href="javascript: changeCate(0)" class="category-out-item" >
+                <div class="category-name0 d-flex justify-content-between" >
                     <p><i class="fas fa-th"></i>全部商品</p>
                 </div>
             </a>

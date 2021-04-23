@@ -119,6 +119,14 @@
         .product-category .category-sub-item:hover {
             color: var(--gold);
         }
+
+        .product-category .category-sub-item.on {
+            color: var(--gold);
+        }
+
+        .product-category .category-out-item.on {
+            color: var(--gold);
+        }
     } 
         /* 手機版 */ 
     @media (max-width: 991px) { 
@@ -263,7 +271,10 @@
             font-size: 1.8rem;
             line-height: 3.8rem;
         }
-        .product-category .category-sub-item:hover {
+        .product-category .category-sub-item.on {
+            color: var(--gold);
+        }
+        .product-category .category-out-item.on {
             color: var(--gold);
         }
 

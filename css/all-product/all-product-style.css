@@ -869,7 +869,11 @@
             transition: .3s;
         }
 
-        .all-product .btn_page:hover {
+        .all-product .btn_page.btn_disabled {
+            opacity: .3;
+            }
+
+        .all-product .btn_page.hover {
             color: #b6956479;
         }
 
@@ -885,6 +889,10 @@
             overflow: hidden;
             margin: 0 8px;
         }
+
+        .all-product .page:hover {
+            color: #b6956479;
+        }
     }
 
         /* 手機版 */
@@ -898,16 +906,22 @@
         }
     }
         
-
-        .all-product .page {
+        .all-product .pages {
+            transform: translateX(0px);
+        }
+        
+        .all-product .page p {
             width: 35px;
             text-align: center;
             font-size: 1.8rem;
             transition: .3s;
         }
-        .all-product .page:hover {
-            color: #b6956479;
+        
+        .all-product .page.page-on {
+            color: var(--yellow);
+            font-weight: bold;
         }
+        
 
 
 

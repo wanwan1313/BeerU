@@ -39,6 +39,7 @@ $(function () {
     })
 
 
+
     // 分類不同尺寸切換
     if ($(window).width() < 992) {
         $('.mobile-menu > .product-category').css('display', 'block')
@@ -67,6 +68,8 @@ $(function () {
             $(this).removeClass('category-name-on')
         }
     })
+
+    
 
     
 
