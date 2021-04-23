@@ -1,6 +1,9 @@
 body{
     background-color: var(--blue);
 }
+
+/* ------------------- 新手入門介紹 ------------------- */
+
 .newbie-wrap {
     height: 80vh;
     position: relative;
@@ -17,15 +20,7 @@ body{
     bottom: 0;
 }
 
-/* .crystal{
-    background-image: url(../../images/glori_images/crystal.png);
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: contain;
-    justify-content: center;
-} */
-
-.pipi{
+.newbie-wrap .pipi{
     position: absolute;
     width: 30%;
     height: 30%;
@@ -33,18 +28,17 @@ body{
     background-size: contain;
     background-repeat: no-repeat;
     top: 20px;
-    right: 0;
-    
+    right: 0; 
 }
 
-.right-info{
+.newbie-wrap .right-info{
     height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-    /* 新手入門介紹 */
-        .newbie-intro-txt {
+
+    .newbie-wrap .newbie-intro-txt {
             margin: 5% 0;
             width: 65%;
             font-size: 1.7rem;
@@ -69,7 +63,7 @@ body{
         /* 手機版 */
     @media (max-width: 991px) {
 
-        .right-info{
+        .newbie-wrap .right-info{
             overflow: hidden;
             justify-content: space-evenly;
             margin: 0 auto;
@@ -79,11 +73,11 @@ body{
             height: auto;
         }
 
-        .right-info .enter-btn{
+        .newbie-wrap .right-info .enter-btn{
             margin: 0 auto;
         }
 
-        .newbie-intro-txt {
+        .newbie-wrap .newbie-intro-txt {
             display: none;
         }
 
@@ -99,14 +93,14 @@ body{
         }
 }
         /* 圈圈圖案 */
-        .newbie-title {
+        .newbie-wrap .newbie-title {
             background: url(../../images/common/h1_4_w.svg) no-repeat center left;
             background-size: contain;
 
         }
 
         /* 標題文字 */
-        .newbie-title p {
+        .newbie-wrap .newbie-title p {
             color: #fff;
             font-family: 'Noto Serif TC', serif;
             font-weight: bold;
@@ -119,7 +113,7 @@ body{
         }
 
         /* 右邊雕飾 */
-        .newbie-title p::after {
+        .newbie-wrap .newbie-title p::after {
             content: '';
             display: block;
             position: absolute;
@@ -137,18 +131,18 @@ body{
         /* 手機版 改字和雕飾大小*/
     @media (max-width: 991px) {
 
-        .newbie-title{
+        .newbie-wrap .newbie-title{
             margin: 0 auto;
         }
 
-        .newbie-title p {
+        .newbie-wrap .newbie-title p {
             font-size: 2.4rem;
             letter-spacing: 0.8rem;
             text-indent:0.8rem;
             margin: 0 auto;
         }
 
-        .newbie-title p::after {
+        .newbie-wrap .newbie-title p::after {
             width: 90%;
             height: 40%;
 
@@ -229,11 +223,10 @@ body{
 
 /* ----------------了解更多---------------------- */
 
-.know-more {
+.newbie-wrap .know-more {
     font-family: 'Noto Serif TC', serif;
     font-size: 2rem;
     font-weight: bold;
-    /* margin-left: 5%; */
     position: relative;
     width: fit-content;
     transition: .5s;
@@ -300,7 +293,7 @@ body{
     opacity: 0;
 }
 
-    /* 啤酒百科介紹 */
+/* ------------------- 啤酒百科介紹 ------------------- */
     .knowledge-wrap{
         height: 80vh;
         position: relative;
@@ -311,50 +304,50 @@ body{
         margin-top: 5%;
     }
 
-    .hop-bg{
+    .knowledge-wrap .hop-bg{
         background: url(../../images/glori_images/hop-bg.svg)no-repeat center center;
         background-size: contain;
         position: relative;
         width: 100%;
     }
 
-    .about-beer{
+    .knowledge-wrap .about-beer{
         width: 45%;
         margin: -10% 45% 45%;
     }
 
-    .pipi-bubble{
+    .knowledge-wrap .pipi-bubble{
         width: 80%;
         margin: 0 5%;
     }
 
     @media (max-width: 991px) {
-    .hop-bg{
+    .knowledge-wrap .hop-bg{
         width: 100%;
         margin-top: 75%;
         position: absolute;
         }
 
-    .pipi-bubble{
+    .knowledge-wrap .pipi-bubble{
         width: 70%;
         margin: 8% 10% 0 15%;
     }
 
-    .about-beer{
+    .knowledge-wrap .about-beer{
         width: 42%;
         margin: -15% 50% 50%;
     }
 
     }
             /* 圈圈圖案 */
-            .knowledge-title {
+            .knowledge-wrap .knowledge-title {
                 background: url(../../images/common/h1_4_w.svg) no-repeat center left;
                 background-size: contain;
     
             }
     
             /* 標題文字 */
-            .knowledge-title p {
+            .knowledge-wrap .knowledge-title p {
                 color: #fff;
                 font-family: 'Noto Serif TC', serif;
                 font-weight: bold;
@@ -367,7 +360,7 @@ body{
             }
     
             /* 右邊雕飾 */
-            .knowledge-title p::before {
+            .knowledge-wrap .knowledge-title p::before {
                 content: '';
                 display: block;
                 position: absolute;
@@ -384,19 +377,19 @@ body{
             /* 手機版 改字和雕飾大小*/
         @media (max-width: 991px) {
     
-            .knowledge-title{
+            .knowledge-wrap .knowledge-title{
                 margin: 0 auto;
                 background: url(../../images/common/h1_4_w.svg) no-repeat center center;
             }
     
-            .knowledge-title p {
+            .knowledge-wrap .knowledge-title p {
                 font-size: 2.4rem;
                 letter-spacing: 0.8rem;
                 text-indent:0.8rem;
                 margin: 0 auto;
             }
     
-            .knowledge-title p::before {
+            .knowledge-wrap .knowledge-title p::before {
                 width: 90%;
                 height: 40%;
                 transform: translate(-115%, -50%);
@@ -404,7 +397,7 @@ body{
     
         }
 
-    .knowledge-intro {
+        .knowledge-wrap .knowledge-intro {
         margin: 5% 0;
         width: 90%;
         font-size: 1.7rem;
@@ -428,10 +421,10 @@ body{
         }
 
     }
-/* 啤酒原料介紹 */
+/* ------------------- 啤酒原料介紹 ------------------- */
 
 .four-ingre-wrap{
-    height: 80vh;
+    /* height: 80vh; */
     position: relative;
     margin: 0 auto;
 }
@@ -506,16 +499,15 @@ body{
     line-height: 3rem;
 }
 
-
     /* 圈圈圖案 */
-    .ingredient-title {
+    .four-ingre-wrap .ingredient-title {
         background: url(../../images/common/h1_4_w.svg) no-repeat center center;
         background-size: contain;
 
     }
 
     /* 標題文字 */
-    .ingredient-title p {
+    .four-ingre-wrap .ingredient-title p {
         color: #fff;
         font-family: 'Noto Serif TC', serif;
         font-weight: bold;
@@ -528,7 +520,7 @@ body{
     }
 
     /* 左邊雕飾 */
-    .ingredient-title p::before {
+    .four-ingre-wrap .ingredient-title p::before {
         content: '';
         display: block;
         position: absolute;
@@ -544,7 +536,7 @@ body{
 
 
     /* 右邊雕飾 */
-    .ingredient-title p::after {
+    .four-ingre-wrap .ingredient-title p::after {
         content: '';
         display: block;
         position: absolute;
@@ -555,31 +547,527 @@ body{
         height: 50%;
         background: url(../../images/common/h1_ear_right.svg) no-repeat center center;
         background-size: contain;
-
     }
 
     /* 手機版 改字和雕飾大小*/
 @media (max-width: 991px) {
-    .ingredient-title p {
+    .four-ingre-wrap .ingredient-title p {
         font-size: 2.4rem;
         letter-spacing: 0.8rem;
         text-indent:0.8rem;
     }
 
-    .ingredient-title p::before {
+    .four-ingre-wrap .ingredient-title p::before {
         width: 60px;
         height: 32%;
-
     }
 
-    .ingredient-title p::after {
+    .four-ingre-wrap .ingredient-title p::after {
         width: 60px;
         height: 32%;
-
     }
-
 }
 
+/* ------------------- 釀啤酒步驟介紹 ------------------- */
+
+.brew-steps-wrap{
+    position: relative;
+    margin: 0 auto;
+}
+    /* 圈圈圖案 */
+    .brew-steps-wrap .brew-title {
+        background: url(../../images/common/h1_5_w.svg) no-repeat center center;
+        background-size: contain;
+
+    }
+
+    /* 標題文字 */
+    .brew-steps-wrap .brew-title p {
+        color: #fff;
+        font-family: 'Noto Serif TC', serif;
+        font-weight: bold;
+        font-size: 3.6rem;
+        letter-spacing: 1.2rem;
+        text-indent:1.2rem;
+        width: fit-content;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    /* 左邊雕飾 */
+    .brew-steps-wrap .brew-title p::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-115%, -50%);
+        width: 150px;
+        height: 50%;
+        background: url(../../images/common/h1_ear_left.svg) no-repeat center center;
+        background-size: contain;
+
+    }
 
 
+    /* 右邊雕飾 */
+    .brew-steps-wrap .brew-title p::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        right:0;
+        transform: translate(115%, -50%);
+        width: 150px;
+        height: 50%;
+        background: url(../../images/common/h1_ear_right.svg) no-repeat center center;
+        background-size: contain;
+    }
 
+    /* 手機版 改字和雕飾大小*/
+@media (max-width: 991px) {
+    .brew-steps-wrap .brew-title p {
+        font-size: 2.4rem;
+        letter-spacing: 0.8rem;
+        text-indent:0.8rem;
+    }
+
+    .brew-steps-wrap .brew-title p::before {
+        width: 60px;
+        height: 32%;
+    }
+
+    .brew-steps-wrap .brew-title p::after {
+        width: 60px;
+        height: 32%;
+    }
+}
+
+.brew-steps-wrap .brew-intro {
+    margin: 2% 0;
+    width: 100%;
+    font-size: 1.7rem;
+    text-align: center;
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 0.1rem;
+    line-height: 3rem;
+}
+
+.brew-steps-wrap .each-step-wrap{
+    margin: 0 auto;
+}
+
+.brew-steps-wrap .step-title{
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 2.6rem;
+    color: var(--gold);
+    margin: 0 auto;
+}
+.brew-steps-wrap .each-step,
+.brew-steps-wrap .each-step2{
+    width: 75%;
+    min-width: 200px;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+    /* 手機版 改步驟圖片位置*/
+    @media (max-width: 991px) {
+
+        .brew-steps-wrap .each-step,
+        .brew-steps-wrap .each-step2{
+            width: 50%;
+        }
+
+        .brew-steps-wrap .each-step:nth-child(odd) {
+            margin-left: 0;
+        }
+
+        .brew-steps-wrap .each-step:nth-child(even) {
+            margin-right: 0;
+        }
+
+        .brew-steps-wrap .each-step2:nth-child(odd) {
+            margin-right: 0;
+        }
+
+        .brew-steps-wrap .each-step2:nth-child(even) {
+            margin-left: 0;
+        }
+    }
+
+    /* ------------------- 酒杯介紹 ------------------- */
+
+.beer-glass-wrap{
+    position: relative;
+    margin: 0 auto;
+}
+    /* 圈圈圖案 */
+    .beer-glass-wrap .glass-title {
+        background: url(../../images/common/h1_4_w.svg) no-repeat center center;
+        background-size: contain;
+
+    }
+
+    /* 標題文字 */
+    .beer-glass-wrap .glass-title p {
+        color: #fff;
+        font-family: 'Noto Serif TC', serif;
+        font-weight: bold;
+        font-size: 3.6rem;
+        letter-spacing: 1.2rem;
+        text-indent:1.2rem;
+        width: fit-content;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    /* 左邊雕飾 */
+    .beer-glass-wrap .glass-title p::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-115%, -50%);
+        width: 150px;
+        height: 50%;
+        background: url(../../images/common/h1_ear_left.svg) no-repeat center center;
+        background-size: contain;
+
+    }
+
+    /* 右邊雕飾 */
+    .beer-glass-wrap .glass-title p::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        right:0;
+        transform: translate(115%, -50%);
+        width: 150px;
+        height: 50%;
+        background: url(../../images/common/h1_ear_right.svg) no-repeat center center;
+        background-size: contain;
+    }
+
+        /* 手機版 改字和雕飾大小*/
+@media (max-width: 991px) {
+    .beer-glass-wrap .glass-title p {
+        font-size: 2.4rem;
+        letter-spacing: 0.8rem;
+        text-indent:0.8rem;
+    }
+
+    .beer-glass-wrap .glass-title p::before {
+        width: 60px;
+        height: 32%;
+    }
+
+    .beer-glass-wrap .glass-title p::after {
+        width: 60px;
+        height: 32%;
+    }
+}
+
+    .beer-glass-wrap .glass-intro {
+        margin: 2% 0;
+        width: 100%;
+        font-size: 1.7rem;
+        text-align: center;
+        font-family: "Noto Sans TC", sans-serif;
+        font-weight: 400;
+        color: #fff;
+        letter-spacing: 0.1rem;
+        line-height: 3rem;
+    }
+
+    .beer-glass-wrap .each-glass-wrap{
+        margin: 0 auto;
+        text-align: center;
+
+    }
+    .beer-glass-wrap .each-glass{
+        max-width: 200px;
+        margin-right: 5%;
+        margin: 0 auto;
+    }
+
+    .beer-glass-wrap .each-glass img{
+        max-width: 120px;
+    }
+
+    .beer-glass-wrap .each-glass p{
+        font-family: 'Noto Serif TC', serif;
+        font-weight: bold;
+        font-size: 2.1rem;
+        color: var(--gold);
+        margin: 0 auto;
+    }
+
+    .beer-glass-wrap .each-glass p:hover{
+        color: #fff;
+    }
+
+    .beer-glass-wrap .each-glass p:nth-child(1){
+        margin-bottom: -10px;
+    }
+
+    .beer-glass-wrap .glass-wrap-border{
+        border-bottom: 10px solid var(--gold);
+        margin: 0 auto;
+    }
+
+    .beer-glass-wrap button{
+        background-color: transparent;
+        border-color: none;
+        border-style: none;
+    }
+
+    /* 各啤酒杯介紹彈出視窗 */
+
+            /* Modal */
+
+            .modal,
+            .modal-box {
+                z-index: 900;
+            }
+    
+            .modal-sandbox {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: transparent;
+    
+            }
+    
+            .modal {
+                display: none;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background: rgb(0, 0, 0);
+                background: rgba(0, 0, 0, .8);
+                overflow: auto;
+                text-align: center;
+    
+            }
+    
+            .modal-box {
+                position: relative;
+                width: 80%;
+                max-width: 400px;
+                margin: 150px auto;
+                animation-name: modalbox;
+                animation-duration: .4s;
+                animation-timing-function: cubic-bezier(0, 0, .3, 1.6);
+            }
+    
+            .modal-header {
+                padding: 20px 40px;
+                background: rgba(255, 255, 255, 0.9);
+                text-align: center;
+                margin: 0 auto;
+                display: block;
+                border-radius: 10px 10px 0 0;
+            }
+
+            .modal-header h1{
+                font-family: 'Noto Serif TC', serif;
+                font-weight: bold;
+                font-size: 3.0rem;
+                color: var(--blue);
+                text-align: center;
+            }
+
+            .modal-header h3{
+                font-family: 'Noto Serif TC', serif;
+                font-weight: bold;
+                font-size: 2.4rem;
+                color: var(--blue);
+                text-align: center;
+
+            }
+    
+            .modal img {
+                width: 120px;
+                margin: 0 auto;
+            }
+    
+            .modal-body {
+                color: var(--blue);
+                background: rgba(255, 255, 255, 0.9);
+                padding: 30px 10px;
+                border-radius: 0 0 10px 10px;
+            }
+    
+            .modal-body p {
+                margin: 2% 2%;
+                font-size: 1.8rem;
+                text-align: center;
+                font-family: "Noto Sans TC", sans-serif;
+                font-weight: 400;
+                color: var(--blue);
+                letter-spacing: 0.1rem;
+                line-height: 3rem;
+            }
+    
+            /* Close Button */
+            .close-modal {
+                font-size: 1.8rem;
+                font-weight: bold;
+                margin-top: 5%;
+                width: 150px;
+                border-radius: 5px;
+                border: 2px solid var(--gold);
+                color: var(--gold);
+                background-color: #fff;
+                padding: 10px;
+                cursor: pointer;
+                text-align: center;
+                cursor: pointer;
+                font-family: 'Noto Serif TC', serif;
+                letter-spacing: .3rem;
+            }
+    
+            .close-modal:hover {
+                background-color: var(--gold);
+                color: #fff;
+            }
+    
+            /* Animation */
+            @-webkit-keyframes modalbox {
+                0% {
+                    top: -250px;
+                    opacity: 0;
+                }
+    
+                100% {
+                    top: 0;
+                    opacity: 1;
+                }
+            }
+    
+            @keyframes modalbox {
+                0% {
+                    top: -250px;
+                    opacity: 0;
+                }
+    
+                100% {
+                    top: 0;
+                    opacity: 1;
+                }
+            }
+
+
+       /* 手機版 改酒杯大小 增加底線*/
+       @media (max-width: 991px) {
+
+        .beer-glass-wrap .each-glass{
+            margin-bottom: 10%;
+        }
+
+        .beer-glass-wrap .each-glass img{
+            max-width: 100px;
+        }
+}
+
+    /* ------------------- 啤酒指南 ------------------- */
+
+    .beer-guide-wrap{
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .guide-container{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .guide-container{
+        margin: 0 auto;
+    }
+        /* 圈圈圖案 */
+        .beer-guide-wrap .guide-title {
+            background: url(../../images/common/h1_4_w.svg) no-repeat center center;
+            background-size: contain;
+        }
+
+        .beer-guide-wrap .guide-title2 {
+            background: url(../../images/common/h1_3_w.svg) no-repeat center center;
+            background-size: contain;
+        }
+    
+        /* 標題文字 */
+        .beer-guide-wrap .guide-title p,
+        .beer-guide-wrap .guide-title2 p {
+            color: #fff;
+            font-family: 'Noto Serif TC', serif;
+            font-weight: bold;
+            font-size: 3.6rem;
+            letter-spacing: 1.2rem;
+            text-indent:1.2rem;
+            width: fit-content;
+            margin: 0 auto;
+            position: relative;
+        }
+    
+        .beer-guide-wrap .guide-intro {
+            margin: 2% 0;
+            width: 100%;
+            font-size: 1.7rem;
+            text-align: center;
+            font-family: "Noto Sans TC", sans-serif;
+            font-weight: 400;
+            color: #fff;
+            letter-spacing: 0.1rem;
+            line-height: 3rem;
+        }
+    
+        .beer-guide-wrap .guide-wrap{
+            margin: 0 auto;
+            text-align: center;
+            max-width: 25%;
+        }
+
+        .beer-guide-wrap .guide-wrap img{
+            margin: 10%;
+            max-width: 150px;
+            max-height: 115px;
+        }
+
+        .beer-guide-wrap .know-more {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 2rem;
+            font-weight: bold;
+            position: relative;
+            width: fit-content;
+            transition: .5s;
+            margin: 0 auto;
+        }
+
+        .beer-guide-wrap .know-more-wrap{
+            margin: 0 auto;
+        }
+
+        /* 啤酒指南手機 */
+        @media (max-width: 991px) {
+            .beer-guide-wrap .guide-title p,
+            .beer-guide-wrap .guide-title2 p {
+                font-size: 2.4rem;
+                letter-spacing: 0.8rem;
+                text-indent:0.8rem;
+            }
+
+        .beer-guide-wrap .guide-wrap{
+            max-width: none;
+        }
+        }
