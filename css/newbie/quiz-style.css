@@ -1,0 +1,167 @@
+body{
+    background-color: var(--blue);
+}
+
+/* ------------------- 心理測驗第一題 ------------------- */
+
+.quiz-1-wrap{
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+.quiz-1-wrap .quiz-q{
+    color: #fff;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    text-align: center;
+}
+
+.quiz-1-wrap .quiz-quote{
+    color: #fff;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 2.6rem;
+    letter-spacing: 0.8rem;
+    text-indent:1.2rem;
+    text-align: center;
+}
+
+.quiz-1-wrap .quiz-row{
+    min-height: 50vh;
+    align-content: center;
+}
+
+.quiz-1-wrap .option-wrap {
+    position: relative;
+    text-align: center;
+    color: var(--gold);
+}
+
+.quiz-1-wrap .option-img{
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.quiz-1-wrap .option-1-title-wrap p:nth-child(1) {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 2.6rem;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.quiz-1-wrap .option-1-title-wrap p:nth-child(2) {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 2.1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 下一步按鈕開始 */
+
+.quiz-1-wrap .next-btn {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
+    margin: 0 auto;
+}
+
+.quiz-1-wrap .next-btn::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+.quiz-1-wrap .next-btn::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+
+.quiz-1-wrap .next-btn:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+.quiz-1-wrap .next-btn:hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+/* 下一步按鈕結束 */
+
+/* 手機板 */
+    @media (max-width: 991px) {
+
+            .quiz-1-wrap{
+                min-height: none;
+            }
+
+            .quiz-1-wrap .option-wrap{
+                margin-bottom: 10%;
+            }
+
+            .quiz-1-wrap .quiz-row{
+                min-height: none;
+            }
+
+            .quiz-1-wrap .quiz-q{
+                font-size: 2.6rem;
+            }
+
+            .quiz-1-wrap .quiz-quote{
+                font-size: 1.8rem;
+                letter-spacing: 0.4rem;
+            }
+
+            .quiz-1-wrap .option-1-title-wrap p:nth-child(1) {
+                font-size: 2.4rem;
+            }
+
+            .quiz-1-wrap .option-1-title-wrap p:nth-child(2) {
+                font-size: 1.8rem;
+            }
+
+            .quiz-1-wrap .option-img{
+                max-width: 250px;
+                max-height: 250px;
+            }
+    }
