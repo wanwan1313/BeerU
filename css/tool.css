@@ -13,6 +13,16 @@
 .lh15{
     line-height:1.5;
 }
+
+/* 間距 */
+
+.event .row, .join .row{
+margin-left: 0;
+margin-left:0;
+padding-left:0;
+padding-right:0
+}
+
 /* 加入關注.btn_attention */
 .btn_attention {
     white-space: nowrap;
@@ -104,11 +114,16 @@
     color: white;
     border: 1.5px solid var(--red);
 }
+
+
 .full:hover{
-    background-color: transparent;
+    background-color: white;
     color: var(--red);
     border: 1.5px solid var(--red);
 }
+
+
+
 .over{
     background-color: var(--gold);
     color: white;
@@ -123,7 +138,17 @@
     background-color: white;
     color: var(--gold);
     border: 1.5px solid var(--gold);
+    margin-top: 100px;
+    margin-bottom:100px;
 }
+
+@media (max-width: 992px) {
+    .return{
+        margin-top: 50px;
+        margin-bottom:50px;
+    }
+   }
+
 .return:hover{
     background-color: transparent;
     color: var(--gold);

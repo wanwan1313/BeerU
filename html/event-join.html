@@ -96,6 +96,7 @@
         </div>
     </section>
 
+
     <!-- 可變動區 -->
     <!-- event品飲會 -->
     <section class="event join">
@@ -105,7 +106,7 @@
             <div class="row justify-content-between justify-content-md-end align-items-end
             flex-nowrap">
                 <!-- 2.2.1.關注 -->
-                <button class="btn_attention"><i class="fas fa-plus"></i>加入關注</button>
+                <button class="btn_attention px-3 py-1"><i class="fas fa-plus"></i>加入關注</button>
                 <!-- 2.2.2.分享 -->
                 <div class="share-icons d-flex ">
                     <div class="fb">
@@ -261,8 +262,7 @@
                 </div>
             </div>
         </div>
-
-        <!-- content -->
+        <!-- 3.content -->
         <div class="container event-content px-5">
             <!-- 3.1.title -->
             <div class='name'>
@@ -270,61 +270,64 @@
                 <hr>
             </div>
             <!-- 3.2.時間+地點 + 名額+價格 -->
-            <div class='row mx-0  align-items-stretch'>
+            <div class='row mx-0 align-items-stretch'>
                 <!--時間+地點-->
                 <div class="timelocation col-md-6">
                     <div class="time">
                         <div class="d-flex align-items-center">
-                            <p class='t1'><i class="far fa-clock"></i>活動時間</p>
+                            <p class='t1-i'><i class="far fa-clock"></i>活動時間</p>
                             <div class='btn_join over calender'><a href=""><i class="fas fa-calendar-plus"></i>加入行事曆</a>
                             </div>
                         </div>
                         <p class='t1-c'>2021-06-06(日) 19:30 ~ 21:30 (GMT+8)</p>
                     </div>
                     <div class="location">
-                        <p class='t1'><i class="fas fa-map-marker-alt"></i>活動地點</p>
+                        <p class='t1-i'><i class="fas fa-map-marker-alt"></i>活動地點</p>
                         <p class='t1-c'>台灣台北市忠孝東路4段270號11樓之3
-                            <br> <span color='aaa'>忠孝／延吉，凱基銀行樓上）（藏酒論壇／禾創）</span>
+                            <br> <span>忠孝／延吉，凱基銀行樓上）（藏酒論壇／禾創）</span>
                         </p>
                     </div>
                 </div>
                 <!-- 名額+價格 -->
-                <div class="row mx-5 mx-md-0 px-2 quotaprice col-md-6 justify-content-center flex-sm-nowrap flex-md-wrap">
-                    <div class="col-sm-6 col-md-12 block quota">剩餘名額：20</div>
+                <div
+                    class="row mx-5 mx-md-0 px-2 quotaprice col-md-6 justify-content-center flex-sm-nowrap flex-md-wrap">
+                    <div class="col-sm-6 col-md-12 block quota">剩餘名額：19/20</div>
                     <div class="col-sm-6 col-md-12 block price">價格：NT$200</div>
                 </div>
             </div>
 
         </div>
-        <!-- overview -->
-        <div class="row w-100 mx-0 px-5">
+        <!-- 4.overview -->
+        <div class="row mx-0 px-5">
             <div class="overview">
                 “ 連假準備展開！ 拋下平日的煩惱，讓快樂跟著肉肉一起燃！燒！🥩🔥 美景、美酒、美食，在Rooftop Bar XOXO同時滿足吧！”
             </div>
         </div>
-        <!-- 活動介紹 -->
-        <div class="container event-intro">
-            <div class="row">
+        <!-- 5.活動介紹 -->
+        <div class="container event-intro px-0">
+            <div class="row mx-auto">
                 <div class="title">
                     <p>活動介紹</p>
                 </div>
             </div>
             <!-- 3.4.1-現場供應+文字 -->
-            <div class="row px-5">
+            <div class="row px-md-5 justify-content-around mx-0 mx-5">
                 <!-- 3.4.1.1.現場供應 -->
-                <div class="serve col-md-6">
+                <div class="serve col-md-6 mb-4 mb-md-0">
                     <p class='t1 text-center'>現場供應</p>
-                    <div class="row">
+                    <div class="row mx-0">
                         <div class="product col-6">
-                            <img src="../images/products/Heart of Darkness-01.png" alt="">
-                            <div class="product-name">維恩雪弗•X內華達山脊•熊掌酒花小麥啤酒</div>
+                            <div class="product-img"> <img src="../images/products/Heart of Darkness-01.png" alt="">
+                            </div>
+                            <div class="product-name">維恩雪弗✕內華達山脊•熊掌酒花小麥啤酒</div>
                             <div class='know-more'>
                                 <a href="">進入購物車</a>
                             </div>
                         </div>
                         <div class="product col-6">
-                            <img src="../images/products/Heart of Darkness-01.png" alt="">
-                            <div class="product-name">維恩雪弗•X內華達山脊•熊掌酒花小麥啤酒</div>
+                            <div class="product-img"> <img src="../images/products/Heart of Darkness-01.png" alt="">
+                            </div>
+                            <div class="product-name">維恩雪弗✕內華達山脊•熊掌酒花小麥啤酒</div>
                             <div class='know-more'>
                                 <a href="">進入購物車</a>
                             </div>
@@ -332,92 +335,153 @@
                     </div>
                 </div>
                 <!-- 3.4.1.2.說明 -->
-                <div class="intro-content  col-md-6 text-justify">當ABV世界精釀啤酒餐廳，邁入一個新的里程碑，我們要帶領更多的好朋友，一起進入精釀啤酒的世界，因為我們推廣精釀啤酒文化不遺餘力。
+                <div class="intro-content col-md-5 pt-0 px-0 pr-md-0">
+                    當ABV世界精釀啤酒餐廳，邁入一個新的里程碑，我們要帶領更多的好朋友，一起進入精釀啤酒的世界，因為我們推廣精釀啤酒文化不遺餘力。
                     透過品飲會的引路，從精釀的歷史、發展沿革，再聽各國對於精釀啤酒的發展、變化，至於工業啤酒的興起，爾後又再掀起精釀的風潮…在品飲會裡，聽ABV
                     Camilo講故事，貫串古今。ＡＢＶ不只是餐廳，我們更建立了全中文最豐富的精釀啤酒百科。想認識更多啤酒知識，精釀啤酒文化；從啤酒原料、專有名詞、酒杯、類型解說，以及每一瓶的啤酒介紹，ＡＢＶ精釀啤酒資料庫將給您最完整的資訊集合。
                 </div>
             </div>
         </div>
-        
-        <!-- 活動地點 -->
-        <div class="event-map">
+        <!-- 6.活動地點 -->
+        <div class="container event-map px-0">
             <div class="row mx-0">
                 <div class="title">
                     <p>活動地點</p>
                 </div>
             </div>
             <!-- 地址 -->
-            <p class='text-center'>台灣台北市忠孝東路4段270號11樓之3</p>
-            <div class="map"></div>
+            <div class="row mx-0">
+                <p class="address">台灣台北市忠孝東路4段270號11樓之3</p>
+            </div>
+            <div class="row mx-0 w-100"> <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d35727.53422513179!2d121.52958781909861!3d25.036727979722496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aa29379b8db9%3A0x6c7f37e71cce4568!2z6LOH562W5pyD!5e0!3m2!1szh-TW!2stw!4v1619082372147!5m2!1szh-TW!2stw"
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
         </div>
 
-        <!-- 報名活動 -->
-        <div class="event-join-sign">
-            <div class="row mx-0 px-5">
-                <div class="title">
-                    <p>報名活動</p>
+        <!-- 判斷：已登入 -->
+        <div class='can_join'>
+            <!-- 7.報名活動 -->
+            <div class="container event-join-sign">
+                <div class="row mx-0 px-5">
+                    <div class="title">
+                        <p>報名活動</p>
+                    </div>
                 </div>
-            </div>
-            <!-- form+intro -->
-            <div class="row mx-0 px-5">
-                <form class='col-md-6' action="">
-                    <div class="form-title">姓名 <input type="text" class='col-10' placeholder="啤啤"></div>
-                    <div class="form-title">電話 <input class='col-10' type="tel" placeholder="0912-345-678"></div>
-                    <p class='memo'>＊請輸入正確，以便現場核對身份</p>
-                    <div class="form-title">攜伴人數</div>
-                    <select class='col-11'>
-                        <option selected>0</option>
-                        <option>1</option>
-                        <option>2</option>
-                    </select>
-                    <div class="d-flex flex-nowrap">
-                        <div class="form-title-s col-6">姓名 <input type="text" placeholder="啤啤"></div>
-                        <div class="form-title-s col-6">電話 <input type="tel" placeholder="0912-345-678"></div>
-                    </div>
-                    <p class='memo'>＊請輸入正確，以便現場核對身份</p>
-                    <div class="d-flex flex-nowrap">
-                        <div class="form-title-s col-6">姓名 <input type="text" placeholder="啤啤"></div>
-                        <div class="form-title-s col-6">電話 <input type="tel" placeholder="0912-345-678"></div>
-                    </div>
-                    <p class='memo'>＊請輸入正確，以便現場核對身份</p>
-                    <div class="form-title">驗證碼 <input type="text" placeholder="1234"><i class="fas fa-undo-alt"></i>
-                    </div>
+                <!-- form+intro -->
+                <div class="row mx-0 px-5 justify-content-around">
+                    <!--表單-->
+                    <form class='col-md-5 px-0 pl-md-0 mr-0 order-2 order-md-1' action="">
+                        <div class="form-title">姓名 <input type="text" class='col-10' placeholder="啤啤"></div>
+                        <div class="form-title">電話 <input class='col-10' type="tel" placeholder="0912-345-678"></div>
+                        <p class='memo'>＊請輸入正確，以便現場核對身份</p>
+                        <div class="form-title row justify-content-start">
+                            <div >攜伴人數 <span class="memo ㄊㄟ">＊最多可攜戴<span class="number_big">0</span>位朋友</span></div>
+                            
+                        </div>
 
-                </form>
-                <div class="serve col-md-6">
-                    <p class='t1 text-center'>活動資訊</p>
-                    <div class="timelocation">
-                        <div class="time">
-                            <div class="row">
-                                <p><i class="far fa-clock"></i>活動時間</p>
-                                <div class='btn_join over calender'><a href=""><i
-                                            class="fas fa-calendar-plus"></i>加入行事曆</a></div>
+                        <select class='col-12'>
+                            <option value="0" selected>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                        <div class="gold-line-wrap">
+                            <hr class='gold-line mx-0'>
+                        </div>
+                        <!--攜伴人數第1列-->
+                        <div class='one'>
+                            <div class="row mx-0 px-0 flex-wrap justify-content-start">
+                                <div class="form-title-s col-12 col-md-6">姓名 <input type="text" placeholder="啤啤"></div>
+                                <div class="form-title-s col-12 col-md-6">電話 <input type="tel"
+                                        placeholder="0912-345-678">
+                                </div>
                             </div>
-                            <p>2021-06-06(日) 19:30 ~ 21:30 (GMT+8)</p>
+                            <p class='memo ml-3'>＊請輸入正確，以便現場核對身份</p>
                         </div>
-                        <div class="location">
-                            <p><i class="fas fa-map-marker-alt"></i>活動地點</p>
-                            <p>台灣台北市忠孝東路4段270號11樓之3
-                                <br><span>（忠孝／延吉，凱基銀行樓上）（藏酒論壇／禾創）</span>
-                            </p>
+                        <!--攜伴人數第2列-->
+                        <div class='two'>
+                            <div class="row mx-0 px-0 flex-wrap justify-content-start">
+                                <div class="form-title-s col-12 col-md-6">姓名 <input type="text" placeholder="啤啤"></div>
+                                <div class="form-title-s col-12 col-md-6">電話 <input type="tel"
+                                        placeholder="0912-345-678">
+                                </div>
+                            </div>
+                            <p class='memo ml-3'>＊請輸入正確，以便現場核對身份</p>
                         </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <div class="block price col-6">價格：NT$200</div>
-                        <div class="memo">*費用為當天當場繳交，<br>
-                            活動前一個禮拜不開放取消</div>
+                        <div class="gold-line-wrap">
+                            <hr class='gold-line-2 mx-0'>
+                        </div>
+
+                        <div class="form-title mb-5 mt-5 flex-nowrap text-center text-md-left pb-4 pb-md-0">驗證碼 <input
+                                type="text" placeholder="1234" class='check_code'><img
+                                src="../images/event/checkcode-test.jpg" alt=""><i class="fas fa-undo-alt"></i>
+                        </div>
+
+
+                    </form>
+                    <!-- 活動資訊 -->
+                    <div class="serve col-md-5 h-100 px-4 pr-lg-3 order-1 order-md-2">
+                        <p class='t1 text-center'>活動資訊</p>
+                        <!-- 活動時間地點 -->
+                        <div class="timelocation lh15 w-75 mx-auto">
+                            <div class="time">
+                                <div class="d-flex align-items-md-center align-items-start justify-content-start">
+                                    <p class='t1-i mx-0 px-0 text-nowrap'><i class="far fa-clock"></i>活動時間</p>
+                                    <div class='btn_join over calender mx-0'><a href=""><i
+                                                class="fas fa-calendar-plus"></i>加入行事曆</a></div>
+                                </div>
+                                <p class='t1-c'>2021-06-06(日) 19:30 ~ 21:30 (GMT+8)</p>
+                            </div>
+                            <div class="location">
+                                <p class='t1-i'><i class="fas fa-map-marker-alt"></i>活動地點</p>
+                                <p class='t1-c'>台灣台北市忠孝東路4段270號11樓之3
+                                    <br><span>（忠孝／延吉，凱基銀行樓上）（藏酒論壇／禾創）</span>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- 價格 -->
+                        <div class="row align-items-start mx-auto jusitify-content-around">
+                            <div class="block price col-8 col-lg-6 mt-0 mx-auto px-0 text-center">價格：NT$200</div>
+                            <div class="memo mb-0 col-8 col-lg-6 text-justify px-0 px-lg-4 mx-auto">
+                                *費用為當天當場繳交，活動前一個禮拜不開放取消</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <button class='btn_join over d-block mx-auto' type='submit'>立即報名</button>
-            <div class="text-center">
-                <input type="checkbox" checked class='lh15' />
-                <div class="memo mx-auto d-inline lh15">*按下報名鈕的同時，表示您已詳閱我們的資料使用政策與使用條款，同意使用 啤女 所提供的服務並訂閱電子報。</div>
+            <!-- 8.按鈕 -->
+            <div class="col all-button flex-nowrap px-0">
+                <!-- 立即報名 -->
+                <button class='btn_join over d-block mx-auto w-75 mb-2 col-md-5 ' type='submit'>立即報名</button>
+                <!-- 說明 -->
+                <div class="d-flex w-75 mx-auto col-md-5 memo-check lh15 px-0 align-items-baseline">
+                    <input class='d-block mr-2' type="checkbox" checked />
+                    <div class="memo mx-auto d-inline">按下報名鈕的同時，表示您已詳閱我們的資料使用政策與使用條款，同意使用《啤女》所提供的服務並訂閱電子報。</div>
+                </div>
+                <!-- 返回上頁 -->
+                <a href="../html/event.html"><button class='btn_join return d-block mx-auto w-75 col-md-5'> 返回上頁</button></a>
             </div>
         </div>
 
-        <!-- 按鈕 -->
-        <button class='btn_join return d-block mx-auto'>返回上頁</button>
+        <!-- 判斷：尚未登入 -->
+        <div class="need_login">
+            <!-- 標題：報名活動 -->
+            <div class="container event-join-sign">
+                <div class="row mx-0 px-5">
+                    <div class="title">
+                        <p>報名活動</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 按鈕 -->
+            <div class="col all-button flex-nowrap px-0">
+                <!-- 登入會員 -->
+                <button class='btn_join over d-block mx-auto w-75 mb-2 col-md-5' type='submit'>登入會員</button>
+                <div class="d-flex w-75 mx-auto col-md-5 memo-check lh15 px-0 align-items-baseline">
+                    <div class="memo mx-auto d-inline">*登入會員即可填寫報名表參加活動</div>
+                </div>
+                <!-- 返回上頁 -->
+                <a href="../html/event.html"><button class='btn_join return d-block mx-auto w-75 col-md-5'> 返回上頁</button></a>
+            </div>
+        </div>
     </section>
 
 

@@ -1,9 +1,12 @@
     /* 品飲會-join */
    /* 間距以margin-bottom(大標30，內文5，row 10，button 20)為主，其餘使用全域 */
    /* button長度125 */
+   /* title前一個區塊margin-bottom:50px */
  /* 0 */
 
-
+.join{
+    letter-spacing: .25rem;
+}
 /* 1 */
    /* 2.banner */
    .join .event-banner {
@@ -40,7 +43,8 @@
    /* 3.content */
    .join .event-content {
        line-height: 1.5;
-       letter-spacing: .25rem;
+       max-width: 1075px;
+       /* letter-spacing: .25rem; */
    }
    /* 3.1.title */
    .join .event-content .name {
@@ -75,6 +79,14 @@
     margin-bottom: 10px;
  }
 
+ .join .t1-i{
+    font-family: 'Noto Serif TC', serif;
+    color:var(--gold);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+ }
+
  .join .t1-c{
 font-family:'Noto Sans TC', sans-serif;
 font-size:1.8rem;
@@ -86,12 +98,13 @@ font-weight:normal;
     color:#aaa;
  }
 
-
+/* serve */
 
  .join .serve{
      border:1px solid var(--gold);
      position: relative;
      padding: 30px;
+     margin-bottom: 50px;
  }
 
  .join .serve .t1{
@@ -108,15 +121,55 @@ font-weight:normal;
 .join .serve .product img{
 max-height:25vh;
 object-fit: contain;
+margin-bottom:10px;
+position: relative;
+}
+.join .serve .product-img{
+    position: relative;
 }
 
-.join .serve .product .product-name{
-font-family: sans-serif;
+
+.join .serve .product-img:before{
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/country/flag_australia_circle.svg) 0 0 no-repeat;
+    width:100px;
+    height: 100px;
+    transform: translate(-50%);
+    left: 30%;
+    bottom: 50%;
     }
 
+
+.join .serve .product .product-name{
+    font-family: 'Noto Sans TC',sans-serif;
+    text-align: center;
+    font-weight:500;
+    font-size:1.6rem;
+    line-height:1.75;
+    margin-bottom:10px;
+    }
+    .join .serve .product .know-more{
+    margin:auto;
+transform: scale(.75);
+    }
+
+    .join .serve .product .know-more:hover{
+        margin:auto;
+    transform: scale(1);
+        }
+
+    .join .intro-content{
+        font-family: 'Noto Sans TC',sans-serif;
+        text-align: justify;
+        line-height:2.25;
+        padding-left:30px;
+        /* margin-bottom:50px; */
+        font-weight: 300;
+    } 
+
  .join .block{
-    /* max-width: 500px; */
-    /* min-width:200px ; */
     height:40px;
     font-family: 'Noto Sans TC',sans-serif;
     text-align: center;
@@ -137,10 +190,11 @@ font-family: sans-serif;
     color:#aaa;
     font-weight:400;
     line-height: 1.5;
+    text-align: justify;
 }
 
 .join .overview{
-    max-width: 1230px;
+max-width: 1000px;
    text-align: justify;
    color: white;
    font-size: 2rem;
@@ -160,15 +214,18 @@ font-family: sans-serif;
 
 .join .event-intro {
     line-height: 1.5;
-    letter-spacing: .25rem;
+    max-width: 1150px;
+    margin-bottom: 50px;
+    overflow: hidden;
+
+    /* letter-spacing: .25rem; */
 }
 /* 3.1.title */
 .join .title {
     margin: auto;
     margin-bottom: 30px;
+
     position: relative;
-    /* overflow: hidden; */
-    /* width:100%; */
 }
 /* title-line */
 .join .title:before {
@@ -182,28 +239,28 @@ font-family: sans-serif;
  left: 135px;
  bottom: 46%;
 }
+
+.join .title:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: white;
+    width:37.5vw;
+    max-width:545px;
+    height:1px;
+    right:135px;
+    bottom: 46%;
+   }
 @media (max-width: 992px) {
  .join .title:before {
-     width:36vw;
+     width:30vw;
      left: 120px;
  }
- }
-.join .title:after {
- content: '';
- display: block;
- position: absolute;
- background-color: white;
- width:37.5vw;
- max-width:545px;
- height:1px;
- right:135px;
- bottom: 46%;
-}
-@media (max-width: 992px) {
+
  .join .title:after {
-     width:36vw;
-     right: 120px;
- }
+    width:30vw;
+    right: 120px;
+}
  }
  /* title-content */
 .join .title p {
@@ -233,3 +290,256 @@ font-family: sans-serif;
     right: -30%;
     bottom: 23%;
 }
+
+/* 活動地點 */
+
+.event-map .title p:before, .event-map .title p::after{
+    bottom: 27%;
+}
+
+
+.event-map {
+    font-family: 'Noto Sans TC',sans-serif;
+    margin-bottom:50px;
+    max-width:1075px;
+    overflow: hidden;
+}
+
+.event-map .address, .event-map iframe {
+    width:100%;
+    text-align: center;
+}
+
+.event-map .address{
+    margin-top:-25px;
+    margin-bottom:5px;
+}
+
+.event-map iframe{
+    height:50vh;
+}
+
+/* 報名活動 */
+.event-join-sign .title p:before, .event-join-sign .title p:after{
+    bottom: 27%;
+}
+
+
+.event-join-sign{
+    font-family: 'Noto Sans TC',sans-serif;
+    max-width:1200px;
+    overflow: hidden;
+}
+
+.event-join-sign form{
+margin-top: -25px;
+}
+
+
+.event-join-sign .form-title{
+margin-bottom: 5px;
+}
+
+.event-join-sign input, select{
+    height:30px;
+    margin-bottom:10px;
+}
+
+.event-join-sign select{
+    width:100%;
+    margin-bottom:15px;
+}
+
+.event-join-sign .memo{
+margin-top:-5px;
+margin-bottom:15px;
+}
+
+.event-join-sign .memo:nth-of-type(2),.event-join-sign .memo:nth-of-type(3){
+    padding-left: 45px;
+    }
+
+.event-join-sign .form-title-s {
+     /* white-space: nowrap; */
+    }
+
+.event-join-sign .form-title{
+    /* padding-right: 8%; */
+    }
+.event-join-sign .form-title img{
+    height:30px;
+    object-fit: contain;
+    width:80px;
+    margin-left:10px;
+    margin-right:10px;
+    }
+
+    .event-join-sign .check_code{
+width: 100px
+    }
+
+
+
+.event-join-sign .form-title input{
+    max-width:100%;
+
+}
+
+.event-join-sign .form-title-s {
+    /* padding-right: 8%; */
+}
+
+.event-join-sign .form-title-s input{
+    width:100%;
+}
+
+ .number_big{
+transform: scale(2);
+color:var(--yellow);
+font-size: 2rem;
+margin-left: 3px;
+margin-right: 3px;
+}
+
+
+.memo-check{
+    text-align: justify;
+    margin-bottom: 50px;
+
+    /* margin-left: 50px; */
+
+}
+
+.gold-line-wrap{
+position: relative;
+}
+
+.gold-line, .gold-line-2{
+    /* width:92%; */
+    border-top:1px solid var(--gold);
+
+}
+
+.gold-line:before{
+    content: '▲';
+    display: block;
+    position: absolute;
+    color: var(--gold);
+    /* width:100%; */
+    left:50%;
+    top:-20px;
+}
+
+.btn_join_size_full{
+    max-width:100%;
+}
+
+.one, .two{
+    position: relative;
+    margin-left:25px;
+}
+
+.one:before{
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/event/SVG/one.svg) 0 0 no-repeat;
+    opacity: .5;
+    width:22.5px;
+    height: 60px;
+    transform: translate(-50%);
+    left: -10px;
+    top: 10px;
+
+}
+
+
+.two:before{
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/event/SVG/two.svg) 0 0 no-repeat;
+    opacity: .5;
+    width:27.5px;
+    height: 60px;
+    transform: translate(-50%);
+    left: -10px;
+    top: 10px;
+}
+
+/* 活動花絮 */
+.join .event_review{
+    overflow: hidden;
+}
+
+.join .photo1,.join .photo2,.join .photo3,.join .photo4,.join .photo5{
+position: relative;
+}
+.join .photo1:before{
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/event/SVG/event_photo_deco_1.svg) 0 0 no-repeat;
+    width: 45%;
+    height: 45%;
+    transform: translateX(0%) translateY(0%) ;
+    left: -5%;
+    top: -5%;
+    z-index:10;
+}
+
+.join .photo2:before{
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/event/SVG/event_photo_deco_4.svg) 0 0 no-repeat;
+    width: 35%;
+    height: 35%;
+    transform: translateX(0%) translateY(0%);
+    right: -8%;
+    bottom: 35%;
+    z-index:10;
+}
+
+.join .photo3:before{
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/event/SVG/event_photo_deco_2.svg) 0 0 no-repeat;
+    width: 60%;
+    height: 60%;
+    transform: translateX(0%) translateY(0%) ;
+    right: -10%;
+    top: -20%;
+    z-index:10;
+}
+
+.join .photo4:before{
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/event/SVG/event_photo_deco_5.svg) 0 0 no-repeat;
+    width: 50%;
+    height: 50%;
+    transform: translateX(0%) translateY(0%) ;
+    left: -20%;
+    top: -5%;
+    z-index:10;
+}
+
+.join .photo5:before{
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/event/SVG/event_photo_deco_3.svg) 0 0 no-repeat;
+    width: 50%;
+    height: 50%;
+    transform: translateX(50%) translateY(0%) ;
+    right: -5%;
+    bottom: 37%;
+    z-index:10;
+}
+
+
+
+
