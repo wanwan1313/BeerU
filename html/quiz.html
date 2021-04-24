@@ -82,8 +82,8 @@
 
     <section class="quiz-1-wrap">
         <div class="container">
-            <p class="quiz-q mt-5">請依照直覺選出一面鏡子。</p>
-            <div class="row quiz-row mt-5 mb-4">
+            <p class="quiz-q mt-3">請依照直覺選出一面鏡子。</p>
+            <div class="row quiz-row mt-5">
                 <div class="col-md-3 option-wrap">
                     <img class="option-img" src="../images/glori_images/q1-o1.svg">
                     <div class="option-1-title-wrap">
@@ -114,6 +114,59 @@
                 </div>
             </div>
             <p class="quiz-quote">人的心靈就像一面鏡子，你看到的世界，取決於你如何看待自己。</p>
+            <div class="next-btn-wrap mt-3">
+                <a href="">
+                    <div class="next-btn">下一步</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="quiz-2-wrap">
+        <div class="container">
+            <p class="quiz-q mt-3">哪裡更適合讓妳獨自小酌呢?</p>
+            <div class="row quiz-row mt-5">
+                <div class="col-md-3 option-wrap">
+                    <img class="option-img" src="../images/glori_images/sports_bar.jpeg">
+                    <div class="option-2-title-wrap">
+                        <p class="option-2-title-ch">美式酒吧
+                            <span class="option-2-txt">
+                                美國的啤酒以英國啤酒為基礎，再加入歐洲其他國家啤酒文化而更形豐富。然而地區上的限制與市場特性，讓美國逐漸發展與舊世界不同風格的啤酒。如今美國以品質卓越的手工精釀啤酒傲視全球，也將美式風格啤酒推為啤酒界的霸主。
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 option-wrap">
+                    <img class="option-img" src="../images/glori_images/izakaya.jpeg">
+                    <div class="option-2-title-wrap">
+                        <p class="option-2-title-ch">日式居酒屋 <span class="option-2-txt">
+                                一般而言，啤酒有兩種釀造方法，
+                                採頂層發酵釀造的「Ale Beer」，帶有芳醇香氣。 採低層發酵釀造的「Lager Beer」，帶有清爽與微苦風味。
+                                在歐美地區，兩種啤酒都受到大眾喜愛，不過日本的啤酒90%以上皆為Lager。
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 option-wrap">
+                    <img class="option-img" src="../images/glori_images/australian_bar.jpeg">
+                    <div class="option-2-title-wrap">
+                        <p class="option-2-title-ch">比利時酒吧<span class="option-2-txt">
+                                比利時的啤酒絕大多數都是愛爾啤酒。但與德國純酒令不同，比利時啤酒可以添加除了麥芽、酵母、啤酒花以外的原料，因此從酵母、穀物到香料添加都有不同的變化，讓比利時啤酒成為世界上最複雜的啤酒。比起其他國家，酒精濃度也更高。
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 option-wrap">
+                    <img class="option-img" src="../images/glori_images/germany_bary.jpeg">
+                    <div class="option-2-title-wrap">
+                        <p class="option-2-title-ch">德式酒吧<span class="option-2-txt">
+                                雖然「德國製造」的啤酒在全球占了三分之一，但德國並不是喝最多啤酒的國家。德國人平均每人每年喝掉約110公升啤酒（大概是300到320杯），皮爾森啤酒（Pilsner）的老家捷克共和國平均每人每年喝掉140到150公升。
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <p class="quiz-quote">離開舒適圈，你將遇見未知的自己。</p>
             <div class="next-btn-wrap mt-3">
                 <a href="">
                     <div class="next-btn">下一步</div>
@@ -154,6 +207,19 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".option-wrap").hover(
+                function () {
+                    $(this).addClass("option-2-title-wrap");
+                },
+                function () {
+                    $(this).removeClass("option-2-title-wrap");
+                }
+            );
+        });
+    </script>
 
 </body>
 

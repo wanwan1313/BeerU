@@ -897,14 +897,14 @@ body{
             }
     
             .modal img {
-                width: 120px;
+                width: 100px;
                 margin: 0 auto;
             }
     
             .modal-body {
                 color: var(--blue);
                 background: rgba(255, 255, 255, 0.9);
-                padding: 30px 10px;
+                padding: 20px 10px;
                 border-radius: 0 0 10px 10px;
             }
     
@@ -923,13 +923,13 @@ body{
             .close-modal {
                 font-size: 1.8rem;
                 font-weight: bold;
-                margin-top: 5%;
+                margin-top: 2%;
                 width: 150px;
                 border-radius: 5px;
                 border: 2px solid var(--gold);
                 color: var(--gold);
                 background-color: #fff;
-                padding: 10px;
+                padding: 5px;
                 cursor: pointer;
                 text-align: center;
                 cursor: pointer;
