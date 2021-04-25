@@ -226,6 +226,7 @@ body,html{
 
 .pip_pick{
     position: absolute;
+    opacity: 1;
     width: 100px;
     transform: rotate(30deg) translate(110px,5px);
     

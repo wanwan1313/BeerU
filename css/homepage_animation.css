@@ -39,3 +39,11 @@
     --animate-duration: 3s;
     --animate-delay: 5s;
 }
+
+
+.pipi-flyout{
+    transition: 3s;
+    opacity: 0;
+    transform: translate(110px,-100px);
+
+}

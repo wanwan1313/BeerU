@@ -52,19 +52,35 @@ $(document).ready(function(){
 
                
             },5200)  
+
+            setTimeout(()=>{
+
+                $('.pip_pick').addClass('pipi-flyout')
+        
+        
+            },7500)
             
-       
 
         });
+
+     
 
     }
     else{
         $('#LandingPage').addClass('OUT');
+
+        setTimeout(()=>{
+
+            $('.pip_pick').addClass('pipi-flyout')
+    
+    
+        },3000)
     }
 
-     
 
-
+ 
+ 
+  
 
 
     
