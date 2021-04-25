@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" href="../css/all-product/all-product-style.css">
     <link rel="stylesheet" href="../css/category.css">
+    <link rel="stylesheet" href="../css/pop-up.css">
     <script src="../js/all-products/all-products.js" defer></script>
 
 </head>
@@ -83,6 +84,25 @@
         </div>
 
     </section>
+
+
+    <!-- <section class="pop-up pop-up-1 ">
+        <div class="pop-up-box animate__animated animate__fadeIn d-flex flex-column justify-content-center align-items-center">
+            <div class="icon animate__animated animate__rubberBand "><i class="fas fa-times"></i></div>
+            <p class="pop-up-text">請輸入正確數量</p>
+            <button class="ok">我知道了</button>
+        </div>
+    </section> -->
+    <!-- <section class="pop-up pop-up-2 ">
+        <div class="pop-up-box animate__animated animate__fadeIn d-flex flex-column justify-content-center align-items-center">
+            <div class="icon animate__animated animate__rubberBand "><i class="fas fa-times"></i></div>
+            <p class="pop-up-text">請輸入正確數量</p>
+            <div class="button-wrap">
+                <button class="yes">是</button>
+                <button class="no">否</button>
+            </div>
+        </div>
+    </section> -->
 
     <section class="all-product">
         <!-- 輪播Banner -->
@@ -1023,199 +1043,204 @@
         crossorigin="anonymous"></script>
 
 
-        <script>
+    <script>
 
-            let pages = $('.page')
-            let btn_pages = $('.btn_page')
-            let pages_wrap = $('.pages')
-        
-            // 預設第一頁為on,往前按鈕不能按
-            pages.eq(0).addClass('page-on')
-            $('.page-first').addClass('btn_disabled').attr('disabled', true)
-            $('.page-prev').addClass('btn_disabled').attr('disabled', true)
-        
-            if ($(window).width() >= 992) {
-                // 分頁按鈕按了變色
-                pages.on('click', function () {
-                    btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
-                    $(this).addClass('page-on').siblings().removeClass('page-on')
-                    $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
-        
-                    if (pages.last().hasClass('page-on')) {
-                        $('.page-next').addClass('btn_disabled').attr('disabled', true)
-                        $('.page-last').addClass('btn_disabled').attr('disabled', true)
+        $('button.ok').on('click',function(){
+            $('.pop-up').css('display','none')
+        })
+
+
+        let pages = $('.page')
+        let btn_pages = $('.btn_page')
+        let pages_wrap = $('.pages')
+
+        // 預設第一頁為on,往前按鈕不能按
+        pages.eq(0).addClass('page-on')
+        $('.page-first').addClass('btn_disabled').attr('disabled', true)
+        $('.page-prev').addClass('btn_disabled').attr('disabled', true)
+
+        if ($(window).width() >= 992) {
+            // 分頁按鈕按了變色
+            pages.on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                $(this).addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+
+                if (pages.last().hasClass('page-on')) {
+                    $('.page-next').addClass('btn_disabled').attr('disabled', true)
+                    $('.page-last').addClass('btn_disabled').attr('disabled', true)
+                }
+                if (pages.first().hasClass('page-on')) {
+                    $('.page-first').addClass('btn_disabled').attr('disabled', true)
+                    $('.page-prev').addClass('btn_disabled').attr('disabled', true)
+                }
+
+                if (pages.length > 10) {
+                    if ($('.pages').css('transform') == 'none' || $('.pages').css('transform') == "matrix(1, 0, 0, 1, 0, 0)") {
+                        if ($(this).find('p').text() == 10) {
+                            if (pages.length < 19) {
+                                $('.pages-show').css('width', 35 + (pages.length % 10) * 35 + 'px')
+                            }
+                            pages_wrap.css('transform', 'translateX(-315px)')
+                        }
                     }
-                    if (pages.first().hasClass('page-on')) {
-                        $('.page-first').addClass('btn_disabled').attr('disabled', true)
-                        $('.page-prev').addClass('btn_disabled').attr('disabled', true)
-                    }
-        
-                    if (pages.length > 10) {
-                        if ($('.pages').css('transform') == 'none' || $('.pages').css('transform') == "matrix(1, 0, 0, 1, 0, 0)") {
-                            if ($(this).find('p').text() == 10) {
-                                if (pages.length < 19) {
-                                    $('.pages-show').css('width', 35 + (pages.length % 10) * 35 + 'px')
-                                }
+                    else {
+                        if ($(this).find('p').text() == 10) {
+                            $('.pages-show').css('width', '350px')
+                            pages_wrap.css('transform', 'translateX(0px)')
+                        }
+                        if ($('.pages').css('transform') == "matrix(1, 0, 0, 1, -315, 0)") {
+                            if ($(this).find('p').text() == 19 && pages.length > 19) {
+                                $('.pages-show').css('width', 70 + (pages.length % 10) * 35 + 'px')
+                                pages_wrap.css('transform', 'translateX(-630px)')
+                            }
+                        } else {
+                            if ($(this).find('p').text() == 19) {
+                                $('.pages-show').css('width', '350px')
                                 pages_wrap.css('transform', 'translateX(-315px)')
                             }
                         }
-                        else {
-                            if ($(this).find('p').text() == 10) {
-                                $('.pages-show').css('width', '350px')
-                                pages_wrap.css('transform', 'translateX(0px)')
-                            }
-                            if ($('.pages').css('transform') == "matrix(1, 0, 0, 1, -315, 0)") {
-                                if ($(this).find('p').text() == 19 && pages.length > 19) {
-                                    $('.pages-show').css('width', 70 + (pages.length % 10) * 35 + 'px')
-                                    pages_wrap.css('transform', 'translateX(-630px)')
-                                }
-                            } else {
-                                if ($(this).find('p').text() == 19) {
-                                    $('.pages-show').css('width', '350px')
-                                    pages_wrap.css('transform', 'translateX(-315px)')
-                                }
-                            }
-                        }
-        
-        
                     }
-                })
-        
-                // 前後按鈕
-                $('.page-next').on('click', function () {
-                    btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
-                    $('.page-on').next().addClass('page-on').siblings().removeClass('page-on')
-                    $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
-                    if (pages.last().hasClass('page-on')) {
-                        $('.page-next').addClass('btn_disabled').attr('disabled', true)
-                        $('.page-last').addClass('btn_disabled').attr('disabled', true)
+
+
+                }
+            })
+
+            // 前後按鈕
+            $('.page-next').on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                $('.page-on').next().addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+                if (pages.last().hasClass('page-on')) {
+                    $('.page-next').addClass('btn_disabled').attr('disabled', true)
+                    $('.page-last').addClass('btn_disabled').attr('disabled', true)
+                }
+                if (pages.eq(9).hasClass('page-on') || pages.eq(10).hasClass('page-on')) {
+                    if (pages.length < 19) {
+                        $('.pages-show').css('width', 35 + (pages.length % 10) * 35 + 'px')
                     }
-                    if (pages.eq(9).hasClass('page-on') || pages.eq(10).hasClass('page-on')) {
-                        if (pages.length < 19) {
-                            $('.pages-show').css('width', 35 + (pages.length % 10) * 35 + 'px')
-                        }
-                        pages_wrap.css('transform', 'translateX(-315px)')
-                    }
-                    if (pages.eq(18).hasClass('page-on')) {
-                        $('.pages-show').css('width', 70 + (pages.length % 10) * 35 + 'px')
-                        pages_wrap.css('transform', 'translateX(-630px)')
-                    }
-                })
-                $('.page-prev').on('click', function () {
-                    btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
-                    $('.page-on').prev().addClass('page-on').siblings().removeClass('page-on')
-                    $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
-                    if (pages.first().hasClass('page-on')) {
-                        $('.page-first').addClass('btn_disabled').attr('disabled', true)
-                        $('.page-prev').addClass('btn_disabled').attr('disabled', true)
-                    }
-                    if (pages.eq(8).hasClass('page-on')) {
-                        $('.pages-show').css('width', '350px')
-                        pages_wrap.css('transform', 'translateX(0px)')
-                    }
-                    if (pages.eq(17).hasClass('page-on')) {
-                        $('.pages-show').css('width', '350px')
-                        pages_wrap.css('transform', 'translateX(-315px)')
-                    }
-                })
-                $('.page-first').on('click', function () {
-                    btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
-                    pages.first().addClass('page-on').siblings().removeClass('page-on')
-                    $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
-                    $(this).addClass('btn_disabled').attr('disabled', true)
+                    pages_wrap.css('transform', 'translateX(-315px)')
+                }
+                if (pages.eq(18).hasClass('page-on')) {
+                    $('.pages-show').css('width', 70 + (pages.length % 10) * 35 + 'px')
+                    pages_wrap.css('transform', 'translateX(-630px)')
+                }
+            })
+            $('.page-prev').on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                $('.page-on').prev().addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+                if (pages.first().hasClass('page-on')) {
+                    $('.page-first').addClass('btn_disabled').attr('disabled', true)
                     $('.page-prev').addClass('btn_disabled').attr('disabled', true)
+                }
+                if (pages.eq(8).hasClass('page-on')) {
                     $('.pages-show').css('width', '350px')
                     pages_wrap.css('transform', 'translateX(0px)')
-        
-                })
-                $('.page-last').on('click', function () {
-                    btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
-                    pages.last().addClass('page-on').siblings().removeClass('page-on')
-                    $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
-                    $(this).addClass('btn_disabled').attr('disabled', true)
+                }
+                if (pages.eq(17).hasClass('page-on')) {
+                    $('.pages-show').css('width', '350px')
+                    pages_wrap.css('transform', 'translateX(-315px)')
+                }
+            })
+            $('.page-first').on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                pages.first().addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+                $(this).addClass('btn_disabled').attr('disabled', true)
+                $('.page-prev').addClass('btn_disabled').attr('disabled', true)
+                $('.pages-show').css('width', '350px')
+                pages_wrap.css('transform', 'translateX(0px)')
+
+            })
+            $('.page-last').on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                pages.last().addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+                $(this).addClass('btn_disabled').attr('disabled', true)
+                $('.page-next').addClass('btn_disabled').attr('disabled', true)
+                if (10 < pages.length < 19) {
+                    $('.pages-show').css('width', 35 + (pages.length % 10) * 35 + 'px')
+                    pages_wrap.css('transform', 'translateX(-315px)')
+                }
+                if (pages.length > 19) {
+                    $('.pages-show').css('width', 70 + (pages.length % 10) * 35 + 'px')
+                    pages_wrap.css('transform', 'translateX(-630px)')
+                }
+            })
+        }
+
+        if ($(window).width() < 992) {
+            // 分頁按鈕按了變色
+            pages.on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                $(this).addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+
+                if (pages.last().hasClass('page-on')) {
                     $('.page-next').addClass('btn_disabled').attr('disabled', true)
-                    if (10 < pages.length < 19) {
-                        $('.pages-show').css('width', 35 + (pages.length % 10) * 35 + 'px')
-                        pages_wrap.css('transform', 'translateX(-315px)')
-                    }
-                    if (pages.length > 19) {
-                        $('.pages-show').css('width', 70 + (pages.length % 10) * 35 + 'px')
-                        pages_wrap.css('transform', 'translateX(-630px)')
-                    }
-                })
-            }
-        
-            if ($(window).width() < 992) {
-                // 分頁按鈕按了變色
-                pages.on('click', function () {
-                    btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
-                    $(this).addClass('page-on').siblings().removeClass('page-on')
-                    $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
-        
-                    if (pages.last().hasClass('page-on')) {
-                        $('.page-next').addClass('btn_disabled').attr('disabled', true)
-                        $('.page-last').addClass('btn_disabled').attr('disabled', true)
-                    }
-                    if (pages.first().hasClass('page-on')) {
-                        $('.page-first').addClass('btn_disabled').attr('disabled', true)
-                        $('.page-prev').addClass('btn_disabled').attr('disabled', true)
-                    }
-                    pages_wrap.css('transform', 'translateX(-' + 35 * ($(this).index() - 1) + 'px)')
-        
-                })
-        
-                // 前後按鈕
-                $('.page-next').on('click', function () {
-                    btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
-                    $('.page-on').next().addClass('page-on').siblings().removeClass('page-on')
-                    $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
-                    if (pages.last().hasClass('page-on')) {
-                        $('.page-next').addClass('btn_disabled').attr('disabled', true)
-                        $('.page-last').addClass('btn_disabled').attr('disabled', true)
-                    }
-        
-                    let pagennum = $('.page-on').find('p').text() * 1
-                    pages_wrap.css('transform', 'translateX(-' + (pagennum - 2) * 35 + 'px)')
-        
-        
-                })
-                $('.page-prev').on('click', function () {
-                    btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
-                    $('.page-on').prev().addClass('page-on').siblings().removeClass('page-on')
-                    $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
-                    if (pages.first().hasClass('page-on')) {
-                        $('.page-first').addClass('btn_disabled').attr('disabled', true)
-                        $('.page-prev').addClass('btn_disabled').attr('disabled', true)
-                    }
-        
-                    let pagennum = $('.page-on').find('p').text() * 1
-                    pages_wrap.css('transform', 'translateX(-' + (pagennum - 2) * 35 + 'px)')
-        
-                })
-                $('.page-first').on('click', function () {
-                    btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
-                    pages.first().addClass('page-on').siblings().removeClass('page-on')
-                    $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
-                    $(this).addClass('btn_disabled').attr('disabled', true)
+                    $('.page-last').addClass('btn_disabled').attr('disabled', true)
+                }
+                if (pages.first().hasClass('page-on')) {
+                    $('.page-first').addClass('btn_disabled').attr('disabled', true)
                     $('.page-prev').addClass('btn_disabled').attr('disabled', true)
-                    $('.pages-show').css('width', '140px')
-                    pages_wrap.css('transform', 'translateX(0px)')
-        
-                })
-                $('.page-last').on('click', function () {
-                    btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
-                    pages.last().addClass('page-on').siblings().removeClass('page-on')
-                    $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
-                    $(this).addClass('btn_disabled').attr('disabled', true)
+                }
+                pages_wrap.css('transform', 'translateX(-' + 35 * ($(this).index() - 1) + 'px)')
+
+            })
+
+            // 前後按鈕
+            $('.page-next').on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                $('.page-on').next().addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+                if (pages.last().hasClass('page-on')) {
                     $('.page-next').addClass('btn_disabled').attr('disabled', true)
-        
-                    let pagennum = $('.page-on').find('p').text() * 1
-                    pages_wrap.css('transform', 'translateX(-' + (pagennum - 2) * 35 + 'px)')
-        
-                })
-            }
-        
-        </script>
+                    $('.page-last').addClass('btn_disabled').attr('disabled', true)
+                }
+
+                let pagennum = $('.page-on').find('p').text() * 1
+                pages_wrap.css('transform', 'translateX(-' + (pagennum - 2) * 35 + 'px)')
+
+
+            })
+            $('.page-prev').on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                $('.page-on').prev().addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+                if (pages.first().hasClass('page-on')) {
+                    $('.page-first').addClass('btn_disabled').attr('disabled', true)
+                    $('.page-prev').addClass('btn_disabled').attr('disabled', true)
+                }
+
+                let pagennum = $('.page-on').find('p').text() * 1
+                pages_wrap.css('transform', 'translateX(-' + (pagennum - 2) * 35 + 'px)')
+
+            })
+            $('.page-first').on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                pages.first().addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+                $(this).addClass('btn_disabled').attr('disabled', true)
+                $('.page-prev').addClass('btn_disabled').attr('disabled', true)
+                $('.pages-show').css('width', '140px')
+                pages_wrap.css('transform', 'translateX(0px)')
+
+            })
+            $('.page-last').on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                pages.last().addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+                $(this).addClass('btn_disabled').attr('disabled', true)
+                $('.page-next').addClass('btn_disabled').attr('disabled', true)
+
+                let pagennum = $('.page-on').find('p').text() * 1
+                pages_wrap.css('transform', 'translateX(-' + (pagennum - 2) * 35 + 'px)')
+
+            })
+        }
+
+    </script>
 
 
 

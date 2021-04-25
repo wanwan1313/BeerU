@@ -508,15 +508,22 @@
 
         /* 標籤 */
         .all-product .tagpic {
-            width: 35px;
-            height: fit-content;
+            width: 45px;
+            height: 40px;
+        }
+
+        .all-product .tagpic img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center center;
         }
         
         .all-product .product-tag p {
             color: var(--blue);
             font-family:'Noto Serif TC', serif;
             font-weight: 600;
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             margin: 5px 8px;
 
         }
@@ -783,7 +790,7 @@
             border: none;
             outline: none;
         }
-
+          
         .all-product .minus, .all-product .plus {
             cursor: pointer;
             transition: .3s;

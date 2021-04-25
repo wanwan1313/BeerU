@@ -21,23 +21,24 @@ $total_merch =  $pdo->query($merch_SQL)->fetchAll();
 
 $cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 $hot = isset($_GET['hot']) ? intval($_GET['hot']) : 0;
+$order = isset($_GET['order']) ? $_GET['order'] : '`created_at` DESC';
 
 
 $where = ' WHERE 1 ';
 $cate_name = '';
-if (empty($cate) == false and $cate <= 28) {
+if (empty($cate) == false and $cate <= $total_brands[count($total_brands) - 1]['sid']) {
     $where .= " AND `brand_sid` = $cate ";
-    $cate_name = $total_brands[$cate-5]['name'];
+    $cate_name = $total_brands[$cate-($total_brands[0]['sid'])]['name'];
 }
-if (empty($cate) == false and $cate >= 29 and $cate <= 43) {
+if (empty($cate) == false and $cate >= $total_countries[0]['sid'] and $cate <= $total_countries[count($total_countries) - 1]['sid']) {
     $where .= " AND `country_sid` = $cate ";
-    $cate_name = $total_countries[$cate-29]['name'];
+    $cate_name = $total_countries[$cate-($total_countries[0]['sid'])]['name'];
 }
-if (empty($cate) == false and $cate >= 44 and $cate <= 53) {
+if (empty($cate) == false and $cate >=  $total_type[0]['sid'] and $cate <= $total_type[count($total_type) - 1]['sid']) {
     $where .= " AND `type_sid` = $cate ";
-    $cate_name = $total_type[$cate-44]['name'];
+    $cate_name = $total_type[$cate-($total_type[0]['sid'])]['name'];
 }
-if (empty($cate) == false and $cate == 54) {
+if (empty($cate) == false and $cate == $total_merch[0]['sid']) {
     $where .= " AND `merch_sid` = $cate ";
     $cate_name = $total_merch[0]['name'];
 }
@@ -45,8 +46,6 @@ if (empty($hot) == false and $hot == 1) {
     $where .= " AND `hot` = 'true' ";
     $cate_name = '熱門商品';
 }
-
-
 
 
 
@@ -70,7 +69,7 @@ if ($page < 1) {
     $page = $total_pages;
 };
 
-$s_SQL = sprintf("SELECT * FROM `products` $where ORDER BY `created_at` DESC LIMIT %s,%s", ($page - 1) * $page_p, $page_p);
+$s_SQL = sprintf("SELECT * FROM `products` $where ORDER BY $order LIMIT %s,%s", ($page - 1) * $page_p, $page_p);
 
 $rows = $pdo->query($s_SQL)->fetchAll();
 
