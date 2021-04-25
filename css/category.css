@@ -265,7 +265,7 @@
             height: auto;
         }
 
-        .product-category .category-sub-item {
+        .product-category .category-sub-item, .category-sub-item0 {
             cursor: pointer;
             transition: .5s;
             font-size: 1.8rem;
