@@ -103,7 +103,7 @@ body,html{
 }
 
 .doorSign_warp h1:nth-of-type(1){
-    font-size: 40px;
+    font-size: 4rem;
     font-family: 'Noto Serif TC';
     font-weight: Bold;
     
@@ -114,7 +114,7 @@ body,html{
 .doorSign_warp p{
     font-family: 'Noto Sans TC';
     color: #E9BF85;
-    font-size: 18px;
+    font-size: 1.8rem;
 }
 .doorSign_warp p:nth-of-type(1){
   margin-top: 15px;
@@ -133,7 +133,7 @@ body,html{
      margin-top: 15px;
      transform:  translateX(10px);
      color: #E9BF85;
-     font-size: 25px;
+     font-size: 2.5rem;
      font-weight: bold;
 
   }
@@ -200,7 +200,6 @@ body,html{
 
 .flag{
     position: relative;
-    
     width: 1000px;
     overflow: hidden;
 }
@@ -238,68 +237,138 @@ body,html{
     display: none;
 }
 
+
+
 .Woman_warp{
     display: flex;
-    
     justify-content: center;
-
-    /* transform: translateY(-20px); */
-    
   
-    
-    
 }
 
 .woman{
-    
-    margin: auto 35px;
+    position: relative;
+    margin: 0 35px;
+}
+.woman-img{
     width: 180px;
 }
 
-.woman img{
-    width: 100%;
+.woman-talk{
+    top: 0;
+    width: 70%;
+    position: absolute;
 }
 
-.woman01{
-    margin-top: 1px;
-}
-.woman03{
-    width: 250px;
-    margin-top: 1px;
-    transform: translateX(25px);
+
+.woman03-img{
+    width: 240px;
+    margin-left: 20px;
 }
 
-.Brew-school{
-    /* height: 100vh; */
+.talk01{
+    transform: translate(-80px, -80px);
 }
+.talk02{
+    right: 0;
+    transform: translate(50px, -60px);
+
+}
+.talk03{
+    right: 0;
+    width: 50%;
+    transform: translate(50px, -80px);
+}
+.talk04{
+    right: 0;
+
+    transform: translate(30px, -60px);
+}
+
+
+
+
 
 
 .title-wrap{
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+    /* 圈圈圖案 */
+.Brew-school-title { 
+    background: url(../images/common/h1_5_w.svg) no-repeat center center;
+    background-size: contain;
 
-.h1-title{
-    position: relative;
-    margin: auto 15px;
-    width: 300px;
 }
 
-.Brew-school-title h1{
-    position: absolute;
-    top: 20%;
-    left: 3%;
+/* 標題文字 */
+.Brew-school-title p {
+    color: white;
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
-    font-size: 40px;
-    letter-spacing: 15px;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
     text-indent:1.2rem;
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
 }
-.h1-ear{
+
+/* 左邊雕飾 */
+.Brew-school-title p::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-115%, -50%);
     width: 150px;
+    height: 50%;
+    background: url(../images/common/h1_ear_left.svg) no-repeat center center;
+    background-size: contain;
+
 }
+
+
+/* 右邊雕飾 */
+.Brew-school-title p::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right:0;
+    transform: translate(115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../images/common/h1_ear_right.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 手機版 改字和雕飾大小*/
+@media (max-width: 991px) {
+.Brew-school-title p {
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    text-indent:0.8rem;
+}
+
+.Brew-school-title p::before {
+    width: 60px;
+    height: 32%;
+
+}
+
+.Brew-school-title p::after {
+    width: 60px;
+    height: 32%;
+
+}
+
+
+}
+
+
 
 
 .Brew-school-intro {
@@ -330,7 +399,7 @@ body,html{
 .title-txt h2{
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
-    font-size: 35px;
+    font-size: 3.5rem;
     letter-spacing: 0.1rem;
 }
 
@@ -340,7 +409,7 @@ body,html{
 }
 .content-txt h6{
     font-family: 'Noto Sans TC', serif;
-    font-size: 18px;
+    font-size: 1.8rem;
     letter-spacing: 0.1rem;
     margin-bottom: 25px;
    
@@ -370,7 +439,7 @@ body,html{
 .category-middle h6{
    
     font-family: 'Noto Sans TC', serif;
-    font-size: 18px;
+    font-size: 1.8rem;
     letter-spacing: 0.1rem;
     text-align: center;
     padding-bottom: 20px;
@@ -407,37 +476,11 @@ body,html{
 
 }
 
+
 .more-btn01{
     margin: 0 auto;
-    align-items: center;
-    
-}
-.more-btn01 button{
-    font-family: 'Noto Serif TC', serif;
-    color:#fff;
-    font-weight: bold;
-    letter-spacing: 0.1rem;
-    background-color: transparent;
-    border: transparent;
-
 }
 
-.more-btn01::before{
-    content: '';
-    display:block;
-    width: 10px;
-    height: 16px;
-    background: url("../images/common/ear_left_yellow.svg") 0 0 no-repeat;
-    
-}
-.more-btn01::after{
-    content: '';
-    display:block;
-    width: 10px;
-    height: 16px;
-    background: url("../images/common/ear_right_yellow.svg") 0 0 no-repeat;
- 
-}
 
 .Beer-type{
     margin-top: 60px;
@@ -446,7 +489,7 @@ body,html{
 .title-wrap h3{
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 3rem;
     letter-spacing: 0.1rem
 
 }
@@ -494,7 +537,7 @@ body,html{
 .type-intro-title h3{ 
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 3rem;
     letter-spacing: 0.1rem;
     color: var(--yellow);
 
@@ -519,7 +562,7 @@ body,html{
 .type-intro-text p{
     word-break: break-all;
     font-family: 'Noto Sans TC', serif;
-    font-size: 16px;
+    font-size: 1.6rem;
     letter-spacing: 0.1rem;
     line-height: 2;
 
@@ -538,37 +581,7 @@ body,html{
 }
 
 
-.more-btn02{
-    justify-content: flex-end;
-    align-items: center;
-    
-}
-.more-btn02 button{
-    font-family: 'Noto Serif TC', serif;
-    color:#fff;
-    font-weight: bold;
-    letter-spacing: 0.1rem;
-    background-color: transparent;
-    border: transparent;
 
-}
-
-.more-btn02::before{
-    content: '';
-    display:block;
-    width: 10px;
-    height: 16px;
-    background: url("../images/common/ear_left_yellow.svg") 0 0 no-repeat;
-    
-}
-.more-btn02::after{
-    content: '';
-    display:block;
-    width: 10px;
-    height: 16px;
-    background: url("../images/common/ear_right_yellow.svg") 0 0 no-repeat;
- 
-}
 
 .hand{
     position: absolute;
@@ -587,18 +600,86 @@ body,html{
   
 }
 
+.drop1 img{
+    filter: drop-shadow(0px 0px 10px white)
+}
+
 .BeerU-colllection{
     margin-top: 120px;
 }
-.BeerU-colllection-title h1{
+
+    /* 圈圈圖案 */
+.BeerU-colllection-title{ 
+    background: url(../images/common/h1_4_w.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 標題文字 */
+.BeerU-colllection-title p {
+    color: white;
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
-    font-size: 45px;
-    letter-spacing: 23px;
-    position: absolute;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
     text-indent:1.2rem;
-    top: 20%;
-    left: 4%;
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 左邊雕飾 */
+.BeerU-colllection-title p::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../images/common/h1_ear_left.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+
+/* 右邊雕飾 */
+.BeerU-colllection-title p::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right:0;
+    transform: translate(115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../images/common/h1_ear_right.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 手機版 改字和雕飾大小*/
+@media (max-width: 991px) {
+.BeerU-colllection-title p {
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    text-indent:0.8rem;
+}
+
+.BeerU-colllection-title p::before {
+    width: 60px;
+    height: 32%;
+
+}
+
+.BeerU-colllection-title p::after {
+    width: 60px;
+    height: 32%;
+
+}
+
+
 }
 
 .colllection-items{
@@ -622,7 +703,7 @@ body,html{
 .item-intro h4{
     font-family: 'Noto Sans TC', serif;
     font-weight: Medium;
-    font-size: 20px;
+    font-size: 2rem;
     text-align: center;
 }
 
@@ -698,7 +779,7 @@ body,html{
 
 .feature-content p{
     font-family: 'Noto Serif TC', serif;
-    font-size: 35px;
+    font-size: 3.5rem;
     font-weight: bold;
     margin-left: 20px;
   
@@ -714,16 +795,81 @@ body,html{
 .BeerU-legend{
     margin-top: 120px;
 }
-.BeerU-legend-title h1{
+
+/* 圈圈圖案 */
+.BeerU-legend-title{ 
+    background: url(../images/common/h1_4_w.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 標題文字 */
+.BeerU-legend-title p {
+    color: white;
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
-    font-size: 45px;
-    letter-spacing: 23px;
-    position: absolute;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
     text-indent:1.2rem;
-    top: 20%;
-    left: 4%;
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
 }
+
+/* 左邊雕飾 */
+.BeerU-legend-title p::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../images/common/h1_ear_left.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+
+/* 右邊雕飾 */
+.BeerU-legend-title p::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right:0;
+    transform: translate(115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../images/common/h1_ear_right.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 手機版 改字和雕飾大小*/
+@media (max-width: 991px) {
+.BeerU-legend-title p {
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    text-indent:0.8rem;
+}
+
+.BeerU-legend-title p::before {
+    width: 60px;
+    height: 32%;
+
+}
+
+.BeerU-legend-title p::after {
+    width: 60px;
+    height: 32%;
+
+}
+
+
+}
+
 
 .legned-story{
     margin-top: 50px;
@@ -744,7 +890,7 @@ body,html{
      letter-spacing: 5px;
      line-height: 50px;
      margin-top: 10px;
-     font-size: 30px;
+     font-size: 3rem;
      text-align: center;
      color: var(--yellow);
 }
@@ -760,6 +906,9 @@ body,html{
     margin-top: 80px;
 }
 
+.pip-wrap{
+    width: 100%;
+}
 .clouds{
     height: 400px;
     background-image: url("../images/common/clouds.svg");
@@ -780,7 +929,7 @@ body,html{
     font-weight: bold;
     letter-spacing: 0.1rem;
     line-height: 1.25;
-    font-size: 35px;
+    font-size: 3.5rem;
 
 }
 
@@ -789,23 +938,35 @@ body,html{
     color:#b69564;
 }
 
-.pipi-img{
-    width: 200px;
+
+.pipi-body{
+    position: relative;
+    margin-left: 20px;
+}
+
+.pipi-arrow{
+    position: absolute;
+    width: 50px;
+    top: 30%;
+    transform: translateX(-20px);
+}
+
+.pipi-intro{
+    width: 100%;  
+    
 }
 
 
 .pipi-intro p{
+   
     padding: 15px;
-     font-family: 'Noto Serif TC', serif;
-     letter-spacing: 5px;
+    font-family: 'Noto Serif TC', serif;
+    letter-spacing: 5px;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.8rem;
     margin-top: 80px;
-    width: 400px;
     word-break: break-all;
-    
     border: solid 2px var(--gold);
-
     border-radius: 10px;
 }
 
