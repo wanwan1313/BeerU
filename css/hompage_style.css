@@ -1,5 +1,5 @@
 *{
-    outline: solid 1px white;
+    /* outline: solid 1px white; */
 }
 body,html{
     margin: 0;
@@ -11,7 +11,7 @@ body,html{
     /* background-image: url('../images/common/BG-texture\ v1.jpg'); */
 }
 
-
+/* --------LandingPage-------- */
 
 #LandingPage{
 
@@ -69,6 +69,7 @@ body,html{
     width: 380px;
     background-image: url('../images/common/door-2.png');
     background-size: cover;
+    background-repeat: no-repeat;
 
 }
 .DOOR img{
@@ -159,6 +160,7 @@ body,html{
      border: solid 1px var(--gold);
   }
 
+  /* --------homepage-----------  */
   .home{
       width: 100%;
       height:calc(100vh - 85px);
@@ -199,14 +201,27 @@ body,html{
 
 
 .flag{
-    position: relative;
-    width: 1000px;
+    width: 50%;
     overflow: hidden;
+    
 }
 
-.flag img{
-    width: 100%;
+.flag_L{
+    height: 0;
+    background-size: cover;
+    background-image: url('../images/common/flag_L_V3.png'
+    );
+    padding-top: 21.84%;
+  
 }
+.flag_R{
+    height: 0;
+    background-size: cover;
+    background-image: url('../images/common/flag_R_V3.png'
+    );
+    padding-top: 21.84%;
+}
+
 
 .LOGO_Filter{
     position: absolute;
@@ -286,7 +301,7 @@ body,html{
 
 
 
-
+ /* ////////精釀小學堂///////// */
 
 
 .title-wrap{
@@ -370,7 +385,6 @@ body,html{
 
 
 
-
 .Brew-school-intro {
     display: flex;
     justify-content: center;
@@ -392,7 +406,8 @@ body,html{
 
 
 .title-txt{
-    width: 250px;
+    width: 100%;
+    max-width: 300px;
     border-bottom: solid 1px #fff;
     padding: 10px 0;
 }
@@ -481,6 +496,7 @@ body,html{
     margin: 0 auto;
 }
 
+/* ///////Beer-type///////// */
 
 .Beer-type{
     margin-top: 60px;
@@ -513,6 +529,7 @@ body,html{
 
 .type-intro{
     justify-content: space-between;
+    align-items: center;
     width: 700px;
 }
 
@@ -523,6 +540,9 @@ body,html{
 }
 
 .type-intro-content{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
     width: 100%;
     max-width: 400px;
 
@@ -570,6 +590,7 @@ body,html{
 
 
 
+
 .type-backward{
     background-image: url("../images/common/arrow_right.svg");
     width: 80px;
@@ -579,6 +600,7 @@ body,html{
 
 
 }
+
 
 
 
@@ -603,6 +625,8 @@ body,html{
 .drop1 img{
     filter: drop-shadow(0px 0px 10px white)
 }
+
+/* ///////啤女精選///////// */
 
 .BeerU-colllection{
     margin-top: 120px;
@@ -728,9 +752,14 @@ body,html{
 
 }
 
+/* ////////啤女分頁////////*/
+
+.BeerU-feature{
+    margin-top: 100px;
+}
 
 .feature-wrap{
-   
+  
     display: flex;
     justify-content: center;
 }
@@ -791,6 +820,7 @@ body,html{
 
 }
 
+/* ////////啤女傳說/////// */
 
 .BeerU-legend{
     margin-top: 120px;
@@ -870,6 +900,12 @@ body,html{
 
 }
 
+.legned-story-warp{
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
 .legned-story{
     margin-top: 50px;
@@ -896,10 +932,15 @@ body,html{
 }
 
 .legned-content{
-    width: 250px;
-    word-break:break-alll;
+    width: 100%;
     margin: 0 auto;
     
+}
+
+.legned-content p{
+    font-family: 'Noto Sans TC', serif;
+    font-size: 1.6rem;
+    word-break:keep-alll;
 }
 
 .pipi{

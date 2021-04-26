@@ -66,32 +66,43 @@
     height:calc(100vh - 80px);
     background-size: cover;
     background: url("../images/common/工作區域\ 3.png") ;
-    
-    
+    background-position: bottom -50px  left 0 ;
+
    }
-
-
    .Logo_wrap{
-    margin-top: 20px;
+    width: 100%;
+    margin-top: -20%;
+  
    }
 
    .flag_L{
-    transform: scale(3) translateX(-60px);
-   } 
-
+    height: 0;
+    background-size: cover;
+    background-image: url('../images/common/flag_L_V3.png'
+    );
+    background-position:  right;
+    padding-top: 71.84%;
+  
+  }
    .flag_R{
-    transform: scale(3) translateX(65px);
-   } 
-
+    height: 0;
+    background-size: cover;
+    background-image: url('../images/common/flag_R_V3.png'
+    );
+    padding-top: 71.84%;
+  
+  }
+   
 
    .LOGO_Filter{
     z-index: 5;
-    width: 400px;
-    margin-top: 10px;
-
+    width: 100%;
+    left: 48%;
+    
+   
     }
 
-    
+
    .pip_pick{
     position: absolute;
     width: 60px;
@@ -100,13 +111,13 @@
     }
 
     .RWD-button-wrap{
-      
+      margin-bottom: 45px;
     }
+
+
     .RWD-button-wrap .row{
-        
         display: flex;
         justify-content: center;
-        
        
     }
 
@@ -121,18 +132,18 @@
     }
     .RWD-button img{
         margin: 0 auto;
-        width: 40px;
+        width: 40%;
     }
 
     .icon02 img{
         margin-left: 30px;
-        width: 55px;
+        width: 60%;
     }
     .icon03 img{
-        width: 50px;
+        width: 50%;
     }
     .icon04 img{
-        width: 30px;
+        width: 35%;
     }
 
     .RWD-button h3{
@@ -156,14 +167,18 @@
     
     /* ////////精釀小學堂///////// */
 
-    .h1-title{
-        margin: auto 8px;
-        width: 230px;
-
+    .Brew-school-intro{
+        /* margin-top:20px; */
+        flex-direction: row;
     }
-    .h1-ear{
-        width: 80px;
-    } 
+
+
+    .brew-beer-left{
+        width: 50%;
+        text-align: center;
+        flex-direction: column;
+    }
+
 
     .Brew-school-title h1{
         top: 24%;
@@ -172,14 +187,10 @@
     }
 
 
-    .brew-beer-left{
-        text-align: center;
-        flex-direction: column;
-    }
-
+   
     .brew-beer-img{
         margin: 0 auto;
-        width: 150px;
+        width: 40%
     } 
     
     .brew-beer-intro{
@@ -197,9 +208,12 @@
     }
 
     .content-txt{
+        word-break: break-all;
         margin-top: 0;
     }
     .content-txt h6{
+        width: 100%;
+       
         margin-bottom: 20px;
     }
      
@@ -219,11 +233,22 @@
     .category-middle{
         display: none;
     }
-
+  
+  
     .bussiness-beer-right{
-        margin-top: 40px;
-        text-align: center;
+        width: 50%;
         flex-direction: column-reverse;
+    }
+    
+    .bussiness-beer-intro{
+        margin-bottom: 19px;
+    }
+    .bussiness-beer-content{
+        text-align: center;
+    }
+    .bussiness-beer-img{
+        margin: 0 auto;
+        width: 50%;
     }
     
 
@@ -241,6 +266,11 @@
         flex-direction: column;
     }
 
+
+    .more-btn02{
+       margin: 0 auto;
+    }
+    
     .hand{
         display: none;
     }
@@ -248,11 +278,16 @@
     .type-intro-img{
         width: 100%;
         max-width: 100px;
+        
         margin: 0 auto;
     }
     
     
+    .type-intro-title{
+        margin-top: 25px;
+    }
     .type-intro-title h3{
+       
         margin: 0 auto;
     }
 
@@ -276,6 +311,7 @@
 
     .more-btn02 {
         justify-content: center;
+        margin-top: 15px;
     }
 
 
@@ -326,7 +362,7 @@
     }
 
 
-    /* ////////啤女精選////////*/
+    /* ////////啤女分頁////////*/
    
     .feature02{
    
@@ -348,6 +384,29 @@
         letter-spacing: 13px;
 
     }
+
+    .legned {
+        
+        width: 100px;
+        height: 100px;
+        transform: translateX(-6px);
+        border-radius: 50%;
+        border: solid 1px var(--yellow)
+        
+    }
+
+    .legned h3{
+        font-size: 2.4rem;
+        line-height: 4rem;
+    }
+
+    .legned-content p{
+        font-family: 'Noto Sans TC', serif;
+        font-size: 1.2rem;
+        word-break:break-alll;
+    }
+    
+
     .clouds{
         height: 600px;
     }
@@ -365,7 +424,7 @@
 
     .pipi-intro{
         width: 100px;
-        max-width: 320px;
+        max-width: 400px;
         margin: 0 auto;
     }
     .pipi-intro p{
