@@ -12,7 +12,7 @@ $('.user-login').click(function(){
 
 $('.log-sandbox').click(function(){
 
-   $('#LogIn-Out').css('display','none');
+   $('#LogIn-Out').fadeOut(500);
 
 })
 
