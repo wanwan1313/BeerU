@@ -798,11 +798,12 @@ body,html{
 
 
 .feature-content{
-   
+    
     position: absolute;
     width: 100%;
     bottom: 0px;
     left: 0px;
+  
     background: linear-gradient(to right ,#000 0% , transparent 100% );
 }
 
@@ -811,11 +812,12 @@ body,html{
     font-size: 3.5rem;
     font-weight: bold;
     margin-left: 20px;
+    
   
 }
 
 .feature-content:hover{
-    
+    transition: 3s;
     background: linear-gradient(to right ,#b69564 0% , transparent 100% );
 
 }
@@ -940,7 +942,7 @@ body,html{
 .legned-content p{
     font-family: 'Noto Sans TC', serif;
     font-size: 1.6rem;
-    word-break:keep-alll;
+    word-break:break-alll;
 }
 
 .pipi{
