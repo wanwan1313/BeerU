@@ -4,7 +4,7 @@
             background-color: #fff;
         }
 
-        .beeru-breadcrumb {
+        .each-product .beeru-breadcrumb {
             font-family:'Noto Serif TC', serif;
             font-weight: 600;
             color: var(--gold);
@@ -15,13 +15,13 @@
         }
 
 /* ------------------------單支產品介紹---------------------- */
-        .e-product-intro-warp {
+        .each-product .e-product-intro-warp {
             padding: 0;
             background-color: var(--blue);
         }
 
         /* 桌機版 */
-        .e-product-intro {
+        .each-product .e-product-intro {
             width: 100%;
             height: calc(100vh - 85px);
             margin: 0;
@@ -29,7 +29,7 @@
 
         /* 手機版 不做高度滿版*/
     @media (max-width: 991px) {
-        .e-product-intro {
+        .each-product .e-product-intro {
             height: auto;
         }
     }
@@ -40,14 +40,14 @@
 
         /* 桌機版 */
     @media (min-width: 992px) {
-        .e-product-intro .product-pic {
+        .each-product .e-product-intro .product-pic {
             height: 100%;
             position: relative;
             background: url(../../images/common/bg/product-bg.png) no-repeat;
             background-size: cover;
         }
 
-        .e-product-intro  .product-pic .pic {
+        .each-product .e-product-intro  .product-pic .pic {
             width: 50%;
             height: 65%;
             max-height: 600px;
@@ -56,14 +56,14 @@
 
         /* 手機版 */
     @media (max-width: 991px) {
-        .e-product-intro .product-pic {
+        .each-product .e-product-intro .product-pic {
             height: 45vh;
             position: relative;
             background: url(../../images/common/bg/product-bg.png) no-repeat;
             background-size: cover;
         }
 
-        .e-product-intro  .product-pic .pic {
+        .each-product .e-product-intro  .product-pic .pic {
             width: 20%;
             min-width: 120px;
             max-width: 170px;
@@ -72,7 +72,7 @@
         }
     }
         
-        .e-product-intro  .product-pic .pic img {
+        .each-product .e-product-intro  .product-pic .pic img {
             width: 100%;
             height: 100%;
             object-fit: contain;   
@@ -82,7 +82,7 @@
 
         /* 桌機版 */
     @media (min-width: 992px) {
-        .e-product-intro  .collect {
+        .each-product .e-product-intro  .collect {
             position: absolute;
             top: 17%;
             right: 10%;
@@ -91,7 +91,7 @@
 
         /* 手機版 */
     @media (max-width: 991px) {
-        .e-product-intro  .collect {
+        .each-product .e-product-intro  .collect {
             position: absolute;
             bottom: 30px;
             right: 15px;
@@ -99,7 +99,7 @@
     }
 
         /* 加入收藏 */
-        .btn_collect2 {
+        .each-product .btn_collect2 {
             font-family:'Noto Serif TC', serif;
             color: var(--red);
             font-size: 1.8rem;
@@ -111,17 +111,17 @@
             transition: .3s;
         }
 
-        .btn_collect2 i, .btn_collect2_active i {
+        .each-product .btn_collect2 i, .btn_collect2_active i {
             margin: 5px;
         }
 
-        .btn_collect2:hover {
+        .each-product .btn_collect2:hover {
             background-color: var(--red);
             color: #fff;
         }
 
         /* 已收藏 */
-        .btn_collect2_active {
+        .each-product .btn_collect2_active {
             font-family:'Noto Serif TC', serif;
             color: #fff;
             font-size: 1.8rem;
@@ -133,7 +133,7 @@
             transition: .3s;
         }
 
-        .btn_collect2_active:hover {
+        .each-product .btn_collect2_active:hover {
             background-color: #fff;
             color: var(--red);
         }
@@ -143,14 +143,14 @@
 
 /* --------------------右邊產品介紹------------------- */
         
-        .e-product-intro .product-intro {
+        .each-product .e-product-intro .product-intro {
             position: relative;
             
         }
 
         /* 桌機版 */
     @media (min-width: 992px) {
-        .e-product-intro .intro-content {
+        .each-product .e-product-intro .intro-content {
             width: 100%;
             max-width: 480px;
             margin: 0 auto;
@@ -159,7 +159,7 @@
 
         /* 手機版 */
     @media (max-width: 991px) {
-        .e-product-intro .intro-content {
+        .each-product .e-product-intro .intro-content {
             width: 95%;
             margin: 0 auto;
             padding: 20px;
@@ -172,7 +172,7 @@
 
         /* 桌機版 */
     @media (min-width: 992px) {
-        .e-product-intro .pro-name {
+        .each-product .e-product-intro .pro-name {
             width: fit-content;
             font-family: 'Noto Serif TC', serif;
             font-size: 2.6rem;
@@ -180,17 +180,17 @@
             line-height: 3.6rem;
         }
 
-        .e-product-intro .pro-name>p:nth-of-type(1) {
+        .each-product .e-product-intro .pro-name>p:nth-of-type(1) {
             margin-top: 10px;
         }
 
-        .e-product-intro .pro-name>p:nth-of-type(2) {
+        .each-product .e-product-intro .pro-name>p:nth-of-type(2) {
             font-size: 1.8rem;
             color: var(--gold);
         }
 
         /* 國旗 */
-        .e-product-intro .c-pic {
+        .each-product .e-product-intro .c-pic {
             width: 27px;
             height: 27px;
             margin-left: 8px;
@@ -199,7 +199,7 @@
 
         /* 手機版 */
     @media (max-width: 991px) {
-        .e-product-intro .pro-name, .e-product-intro .pro-name-m {
+        .each-product .e-product-intro .pro-name, .e-product-intro .pro-name-m {
             width: fit-content;
             font-family: 'Noto Serif TC', serif;
             font-size: 2.4rem;
@@ -207,26 +207,26 @@
             line-height: 3.6rem;
         }
 
-        .e-product-intro .pro-name-m {
+        .each-product .e-product-intro .pro-name-m {
             width: 75%;
             position: absolute;
             top: 20px;
         }
 
-        .e-product-intro .c-name-m {
+        .each-product .e-product-intro .c-name-m {
             font-size: 2.2rem;
             line-height: 2.5rem;
             color: var(--blue);
         }
 
-        .e-product-intro .e-name-m {
+        .each-product .e-product-intro .e-name-m {
             font-size: 1.5rem;
             line-height: 2.2rem;
             color: var(--gold);
         }
 
         /* 國旗 */
-        .e-product-intro .c-pic {
+        .each-product .e-product-intro .c-pic {
             width: 22px;
             height: 22px;
             margin-left: 8px;
@@ -238,7 +238,7 @@
         
 
         /* 產品介紹 */
-        .e-product-intro .intro-text {
+        .each-product .e-product-intro .intro-text {
             margin: 5% 0;
             width: 90%;
             font-size: 1.7rem;
@@ -246,7 +246,7 @@
 
         /* 手機版 */
     @media (max-width: 991px) {
-        .e-product-intro .intro-text {
+        .each-product .e-product-intro .intro-text {
             margin: 8px 0 12px;
             width: 100%;
             font-size: 1.6rem;
@@ -256,17 +256,17 @@
     }
 
         /* 購買數量 */
-        .e-product-intro .p-buy {
+        .each-product .e-product-intro .p-buy {
             width: 100%;
             max-width: 300px;
         }
 
-        .e-product-intro .quantity {
+        .each-product .e-product-intro .quantity {
             border: 1px solid #fff;
             padding: 0 15% ;
         }
 
-        .e-product-intro .buy-number {
+        .each-product .e-product-intro .buy-number {
             font-size: 1.8rem;
             font-weight: 600;
             width: 50px;
@@ -277,18 +277,18 @@
             outline: none;
         }
 
-        .e-product-intro .minus, .e-product-intro .plus {
+        .each-product .e-product-intro .minus, .e-product-intro .plus {
             cursor: pointer;
             transition: .3s;
         }
 
-        .e-product-intro .minus:hover, .e-product-intro .plus:hover {
+        .each-product .e-product-intro .minus:hover, .e-product-intro .plus:hover {
             color: var(--yellow);
         }
 
 
         /* 商品價格 */
-        .e-product-intro .p-price {
+        .each-product .e-product-intro .p-price {
             border: 1px solid #fff;
             color: var(--blue);
             background-color: #fff;
@@ -296,12 +296,12 @@
             font-size: 2rem; 
             font-weight: 600;   
         }
-        .e-product-intro .p-price span {
+        .each-product .e-product-intro .p-price span {
             font-size: 1.6rem;
         }
 
         /* 加入購物車按鈕 */
-        .e-product-intro .add-cart {
+        .each-product .e-product-intro .add-cart {
             background-color: transparent;
             border: 1px solid #fff;
             color: #fff;
@@ -314,17 +314,17 @@
 
         /* 手機版 */
     @media (max-width: 991px) {
-        .e-product-intro .add-cart {
+        .each-product .e-product-intro .add-cart {
             background-color: var(--gold);
         }
 
     }
-        .e-product-intro .add-cart i {
+        .each-product .e-product-intro .add-cart i {
             margin-right: 8px;
         }
     
 
-        .e-product-intro .add-cart:hover {
+        .each-product .e-product-intro .add-cart:hover {
             background-color: var(--gold);
         }
 
@@ -334,30 +334,30 @@
 
         /* 桌機版 */
     @media (min-width: 992px) {
-        .e-product-intro .product-key {
+        .each-product .e-product-intro .product-key {
             margin-top: 5%;
             text-align: center;
         }
 
-        .e-product-intro .key-content {
+        .each-product .e-product-intro .key-content {
             margin-right: 20px;
             margin-bottom: 20px;
         }
 
-        .e-product-intro .title {
+        .each-product .e-product-intro .title {
             width:80px ;
             background: url(../../images/common/h1_2_w.svg) no-repeat center center;
             background-size: contain;
             margin: 0 auto;
         }
-        .e-product-intro .title-4 {
+        .each-product .e-product-intro .title-4 {
             width:140px ;
             background: url(../../images/common/h1_4_w.svg) no-repeat center center;
             background-size: contain;
             margin: 0 auto;
         }
 
-        .e-product-intro .title p, .title-4 p {
+        .each-product .e-product-intro .title p, .title-4 p {
             font-family: 'Noto Serif TC', serif;
             font-size: 2rem;
             font-weight: 700;
@@ -368,37 +368,37 @@
             margin: 0 auto;
         }
 
-        .e-product-intro .title-4 p {
+        .each-product .e-product-intro .title-4 p {
             letter-spacing: 0.8rem;
         }
     }
 
         /* 手機版 */
     @media (max-width: 991px) {
-        .e-product-intro .product-key {
+        .each-product .e-product-intro .product-key {
             margin-top: 5%;
             text-align: center;
         }
 
-        .e-product-intro .key-content {
+        .each-product .e-product-intro .key-content {
             margin-right: 10px;
             margin-top: 10px;
         }
 
-        .e-product-intro .title {
+        .each-product .e-product-intro .title {
             width:60px ;
             background: url(../../images/common/h1_2_w.svg) no-repeat center center;
             background-size: contain;
             margin: 0 auto;
         }
-        .e-product-intro .title-4 {
+        .each-product .e-product-intro .title-4 {
             width:105px ;
             background: url(../../images/common/h1_4_w.svg) no-repeat center center;
             background-size: contain;
             margin: 0 auto;
         }
 
-        .e-product-intro .title p, .title-4 p {
+        .each-product .e-product-intro .title p, .title-4 p {
             font-family: 'Noto Serif TC', serif;
             font-size: 1.8rem;
             font-weight: 700;
@@ -409,13 +409,13 @@
             margin: 0 auto;
         }
 
-        .e-product-intro .title-4 p {
+        .each-product .e-product-intro .title-4 p {
             letter-spacing: 0.5rem;
         }
 
         
 
-        .e-product-intro .content {
+        .each-product .e-product-intro .content {
             line-height: 40px;
             font-size: 1.6rem;
             margin-left: 5px;
@@ -427,7 +427,7 @@
 
         /* 桌機版 */
     @media (min-width: 992px) {
-        .e-product-intro .share-icons {
+        .each-product .e-product-intro .share-icons {
             position: absolute;
             top: 0;
             right: 20%;
@@ -436,23 +436,23 @@
 
         /* 手機版 */
     @media (max-width: 991px) {
-        .e-product-intro .share-icons {
+        .each-product .e-product-intro .share-icons {
             position: absolute;
             top: 20px;
             right: 30px;
         }
     }
         
-        .e-product-intro .fb, .e-product-intro .line{
+        .each-product .e-product-intro .fb, .e-product-intro .line{
             margin-right: 8px;
         }
-        .e-product-intro .share {
+        .each-product .e-product-intro .share {
             font-size: 1.9rem;
         }
 
 /* ------------------------------相關商品------------------------------ */
 
-        .related-comment-wrap {
+        .each-product .related-comment-wrap {
             width: 100%;
             border-top: 25px solid var(--gold);
             background: url(../../images/common/bg/marble-bg.png);
@@ -462,7 +462,7 @@
 
         /* 手機版 */
     @media (max-width: 991px) {
-        .related-comment-wrap {
+        .each-product .related-comment-wrap {
             padding-bottom: 50px;
         } 
 
@@ -471,7 +471,7 @@
 
         /* 標題(相關商品&商品評論) */
         /* 圈圈圖案 */
-        .rpco-title {
+        .each-product .rpco-title {
             background: url(../../images/common/h1_4_b.svg) no-repeat center center;
             background-size: contain;
             margin: 100px 0 50px;
@@ -480,7 +480,7 @@
 
         /* 手機版 */
     @media (max-width: 991px) {
-        .rpco-title {
+        .each-product .rpco-title {
             margin: 60px 0 40px;
 
         }
@@ -488,7 +488,7 @@
         
 
         /* 標題文字 */
-        .rpco-title p {
+        .each-product .rpco-title p {
             color: var(--blue);
             font-family: 'Noto Serif TC', serif;
             font-weight: bold;
@@ -501,7 +501,7 @@
         }
 
         /* 左邊雕飾 */
-        .rpco-title p::before {
+        .each-product .rpco-title p::before {
             content: '';
             display: block;
             position: absolute;
@@ -517,7 +517,7 @@
 
 
         /* 右邊雕飾 */
-        .rpco-title p::after {
+        .each-product .rpco-title p::after {
             content: '';
             display: block;
             position: absolute;
@@ -533,19 +533,19 @@
 
         /* 手機版 改字和雕飾大小*/
     @media (max-width: 991px) {
-        .rpco-title p {
+        .each-product .rpco-title p {
             font-size: 2.4rem;
             letter-spacing: 0.8rem;
             text-indent:0.8rem;
         }
 
-        .rpco-title p::before {
+        .each-product .rpco-title p::before {
             width: 60px;
             height: 32%;
 
         }
 
-        .rpco-title p::after {
+        .each-product .rpco-title p::after {
             width: 60px;
             height: 32%;
 
@@ -556,12 +556,12 @@
 
 
         /* 商品BOX */
-        .related-p {
+        .each-product .related-p {
             overflow: hidden;
         }
 
         /* 商品圖片 */
-        .related-p .pro-pic {
+        .each-product .related-p .pro-pic {
             width: 75%;
             min-width: 200px;
             max-width: 250px;
@@ -573,11 +573,11 @@
             position: relative;
         }
 
-        .related-p .pro-pic:hover .beer-pic {
+        .each-product .related-p .pro-pic:hover .beer-pic {
             opacity: .7;
         }
 
-        .related-p .pro-pic .beer-pic {
+        .each-product .related-p .pro-pic .beer-pic {
             width: 100%;
             height: 100%;
             object-fit: contain;
@@ -586,14 +586,14 @@
 
         /* 標籤 */
 
-        .related-p .label {
+        .each-product .related-p .label {
             position: absolute;
             top: 0;
             left: 0;
         }
 
         /* new標籤 */
-        .related-p .new-label {
+        .each-product .related-p .new-label {
             font-size: 1.3rem;
             font-weight: 600;
             text-align: center;
@@ -604,7 +604,7 @@
         }
 
          /* hot標籤 */
-         .related-p .hot-label {
+         .each-product .related-p .hot-label {
             font-size: 1.3rem;
             font-weight: 600;
             text-align: center;
@@ -615,7 +615,7 @@
         }
 
         /* 國家圖片 */
-        .related-p .pro-pic .country {
+        .each-product .related-p .pro-pic .country {
             width: 25px;
             position:absolute;
             bottom: 20px;
@@ -623,13 +623,13 @@
         }
 
         /* 收藏按鈕 */
-        .related-p .pro-pic .collect {
+        .each-product .related-p .pro-pic .collect {
             position: absolute;
             bottom: 10px;
             right: 20px;
         }
 
-        .btn_collect, .btn_collect_active {
+        .each-product .btn_collect, .btn_collect_active {
             background-color: transparent;
             border: none;
             color: var(--red);
@@ -639,11 +639,11 @@
             transition: .3s;
         }
 
-        .btn_collect:hover, .btn_collect_active:hover {
+        .each-product .btn_collect:hover, .btn_collect_active:hover {
             transform: scale(1.1,1.1);
         }
 
-        .btn_collect::after {
+        .each-product .btn_collect::after {
             content: '加入收藏';
             display: block;
             position:absolute;
@@ -655,13 +655,13 @@
             transition: .3s;
         }
 
-        .btn_collect:hover::after {
+        .each-product .btn_collect:hover::after {
             color: var(--red);
         }
 
 
         /* 商品介紹 */
-        .related-p .pro-intro {
+        .each-product .related-p .pro-intro {
             width: 100%;
             max-width: 320px;
             background-color: var(--gold);
@@ -674,37 +674,37 @@
 
         /* 手機版 改高度*/
     @media (max-width: 991px) {
-        .related-p .pro-intro {
+        .each-product .related-p .pro-intro {
             height: 180px;
         }
     }
 
         /* 品名 */
-        .related-p .p-name {
+        .each-product .related-p .p-name {
             transition: .6s;
         }
 
-        .related-p .p-name:hover .p-name-c{
+        .each-product .related-p .p-name:hover .p-name-c{
             color: var(--yellow);
         }
-        .related-p .p-name-c {
+        .each-product .related-p .p-name-c {
             line-height: 2rem;
             transition: .6s;
             
         }
-        .related-p .p-name-e {
+        .each-product .related-p .p-name-e {
             font-size: 1.4rem;
             line-height: 1.8rem;
             color: rgb(223, 223, 223);
         }
 
         /* 購買數量 */
-        .related-p .quantity {
+        .each-product .related-p .quantity {
             border: 1px solid #fff;
             padding: 0 15% ;
         }
 
-        .related-p .buy-number {
+        .each-product .related-p .buy-number {
             font-size: 1.8rem;
             font-weight: 600;
             width: 50px;
@@ -715,29 +715,29 @@
             outline: none;
         }
 
-        .related-p .minus, .related-p .plus {
+        .each-product .related-p .minus, .related-p .plus {
             cursor: pointer;
             transition: .3s;
         }
 
-        .related-p .minus:hover, .related-p .plus:hover {
+        .each-product .related-p .minus:hover, .related-p .plus:hover {
             color: var(--yellow);
         }
 
 
         /* 商品價格 */
-        .related-p .p-price {
+        .each-product .related-p .p-price {
             border: 1px solid #fff;
             text-align: center;
             font-size: 1.8rem; 
             font-weight: 600;   
         }
-        .related-p .p-price span {
+        .each-product .related-p .p-price span {
             font-size: 1.4rem;
         }
 
         /* 加入購物車按鈕 */
-        .related-p .add-cart {
+        .each-product .related-p .add-cart {
             background-color: transparent;
             border: 1px solid #fff;
             color: #fff;
@@ -750,18 +750,18 @@
 
         /* 手機版 */
     @media (max-width: 991px) {
-        .related-p .add-cart {
+        .each-product .related-p .add-cart {
             background-color: #fff;
             color: var(--gold);
         }
 
     }
-        .related-p .add-cart i {
+        .each-product .related-p .add-cart i {
             margin-right: 8px;
         }
     
 
-        .related-p .add-cart:hover {
+        .each-product .related-p .add-cart:hover {
             background-color: #fff;
             color: var(--gold);
         }
@@ -769,11 +769,11 @@
 
 /* ------------------------商品評論-------------------------- */
 
-        .comment {
+        .each-product .comment {
             color: var(--blue);
         }
 
-        .sub-title  p{
+        .each-product .sub-title  p{
             margin: 0 auto;
             width: 66%;
             font-size: 2.4rem;
@@ -783,10 +783,10 @@
         }
 
         /* 分數列表bar */
-        .score {
+        .each-product .score {
             width: 15%;
         }
-        .percent-bar-wrap {
+        .each-product .percent-bar-wrap {
             width: 60%;
             height: 10px;
             border-radius: 5px;
@@ -794,12 +794,12 @@
             position: relative;
             z-index: 5;
         }
-        .score-percrnt {
+        .each-product .score-percrnt {
             width: 15%;
             text-align: right;
         }
 
-        .score5-percrnt-bar {
+        .each-product .score5-percrnt-bar {
             position: absolute;
             top: 0;
             left: 0;
@@ -814,19 +814,19 @@
 
         /* 桌機版 */
     @media (min-width: 992px) {
-        .average-score {
+        .each-product .average-score {
             font-size: 5rem;
             font-weight: bold;
             line-height:5rem;
             margin-bottom: 15px;
         }
-        .beer-score img {
+        .each-product .beer-score img {
             width: 11px;
             height: 35px;
             margin: 0 3px;
         }
 
-        .total-comments {
+        .each-product .total-comments {
             font-size: 2.2rem;
             margin-top: 10px;
         }
@@ -834,19 +834,19 @@
 
         /* 手機版 */
     @media (max-width: 991px) {
-        .average-score {
+        .each-product .average-score {
             font-size: 6rem;
             font-weight: bold;
             line-height:6rem;
             margin-right: 20px;
         }
-        .beer-score img {
+        .each-product .beer-score img {
             width: 11px;
             height: 35px;
             margin: 0 3px;
         }
 
-        .total-comments {
+        .each-product .total-comments {
             font-size: 1.8rem;
         }
     }
@@ -854,12 +854,12 @@
 
 
         /* -----使用者留言------ */
-        .comments-for-product {
+        .each-product .comments-for-product {
             margin-top: 50px;
         }
 
         /* 留言BOX */
-        .user-comment {
+        .each-product .user-comment {
             width: 100%;
             border: 2px solid var(--blue);
             border-radius: 30px;
@@ -869,7 +869,7 @@
         }
 
         /* 使用者大頭照 */
-        .user-img {
+        .each-product .user-img {
             width: 100px;
             height: 100px;
             margin-right: 20px;
@@ -878,27 +878,27 @@
 
         
         /* 分數啤酒 */
-        .beer-score-icon {
+        .each-product .beer-score-icon {
             margin-right: 27.5px;
             margin-left: 7.5px;
         }
 
         /* 手機版 改間距 */
     @media (max-width: 991px) {
-        .beer-score-icon {
+        .each-product .beer-score-icon {
             margin-right: 0;
             margin-left: 0;
             margin-bottom: 5px;
         }
     }
-        .beer-score-icon img {
+        .each-product .beer-score-icon img {
             width: 11px;
             height: 35px;
             margin: 0 3px;
         }
 
         /* 留言文字 */
-        .comment-text {
+        .each-product .comment-text {
             line-height: 2.2rem;
         }
 
