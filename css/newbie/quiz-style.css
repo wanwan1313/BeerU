@@ -1,0 +1,479 @@
+body{
+    background-color: var(--blue);
+}
+
+/* ----------------下一步按鈕開始---------------------- */
+
+.next-btn {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
+    margin: 0 auto;
+}
+
+.next-btn::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+
+.next-btn::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+
+.next-btn:hover {
+    transform: scale(1.1,1.1);
+}
+
+.next-btn:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+.next-btn:hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+/* 下一步按鈕結束 */
+
+/* ------------------- 心理測驗第一題 ------------------- */
+
+.quiz-1-wrap{
+    display: flex;
+    margin: 0 auto;
+    min-height: 80vh;
+    align-items: center;
+}
+
+.quiz-1-wrap .quiz-q{
+    color: #fff;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    text-align: center;
+}
+
+.quiz-quote{
+    color: #fff;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 2.6rem;
+    letter-spacing: 0.8rem;
+    text-indent:1.2rem;
+    text-align: center;
+}
+
+.quiz-1-wrap .quiz-row{
+    min-height: 50vh;
+    align-content: center;
+}
+
+.quiz-1-wrap .option-wrap {
+    position: relative;
+    text-align: center;
+    color: var(--gold);
+}
+
+.quiz-1-wrap .option-img{
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.quiz-1-wrap .option-1-title-ch {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 2.6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    display: none;
+}
+
+.quiz-1-wrap .option-1-title-ch.show {
+    display: block;
+}
+
+.quiz-1-wrap .option-1-txt{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 2% 2%;
+    font-size: 1.6rem;
+    text-align: justify;
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    line-height: 2.6rem;
+    display: none;
+}
+
+.quiz-1-wrap .option-1-txt.show{
+    display: block;
+}
+
+/* 心理測驗第一題-波特的內容 */
+.quiz-1-wrap .o2-txt{
+    transform: translate(-50%, -70%);
+}
+
+/* ------------------- 心理測驗第二題 ------------------- */
+
+.quiz-2-wrap{
+    display: flex;
+    margin: 0 auto;
+    min-height: 80vh;
+    align-items: center;
+}
+
+.quiz-2-wrap .quiz-q{
+    color: #fff;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.quiz-2-wrap .quiz-row{
+    min-height: 50vh;
+    align-content: center;
+}
+
+.quiz-2-wrap .option-wrap {
+    width: 300px;
+    height: 250px;
+    position: relative;
+    text-align: center;
+    color: var(--gold);
+    margin: 0 auto;
+}
+
+.quiz-2-wrap .option-img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.quiz-2-wrap .option-2-title-wrap{
+    display: none;
+}
+
+.quiz-2-wrap .option-2-title-wrap.show{
+    display: block;
+}
+
+.quiz-2-wrap .option-2-title-wrap p {
+    width: 300px;
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.85);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 2.6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--blue);
+}
+
+.quiz-2-wrap .option-2-title-wrap span{
+    margin: 2% 2%;
+    font-size: 1.6rem;
+    text-align: center;
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 400;
+    color: var(--blue);
+    letter-spacing: 0.1rem;
+    line-height: 2.6rem;
+    display: inline-block;
+}
+
+/* ------------------- 心理測驗第三題 ------------------- */
+
+.quiz-3-wrap{
+    display: flex;
+    margin: 0 auto;
+    min-height: 80vh;
+    align-items: center;
+}
+
+.quiz-3-wrap .quiz-q{
+    color: #fff;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.quiz-3-wrap .quiz-row{
+    min-height: 50vh;
+    align-content: center;
+}
+
+.quiz-3-wrap .option-wrap {
+    text-align: center;
+    color: var(--gold);
+    margin: 0 auto;
+    padding: 0 2%;
+}
+
+.quiz-3-wrap .option-3-title{
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 2.6rem;
+
+}
+
+.quiz-3-wrap .option-img{
+    max-width: 50%;
+}
+
+.quiz-3-wrap .option-3-txt{
+    margin: 5% 2%;
+    font-size: 1.6rem;
+    text-align: center;
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    line-height: 2.6rem;
+    color: transparent;
+}
+
+.quiz-3-wrap .option-3-txt.show{
+    color: #fff;
+}
+
+/* ------------------- 心理測驗第四題 ------------------- */
+
+.quiz-4-wrap{
+    display: flex;
+    margin: 0 auto;
+    min-height: 80vh;
+    align-items: center;
+}
+
+.quiz-4-wrap .quiz-q{
+    color: #fff;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.quiz-4-wrap .quiz-row{
+    min-height: 50vh;
+    align-content: center;
+}
+
+.quiz-4-wrap .option-wrap {
+    text-align: center;
+    color: var(--gold);
+    margin: 0 auto;
+}
+
+.quiz-4-wrap .option-4-title{
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 2.6rem;
+    margin: 8%;
+}
+
+.quiz-4-wrap .option-4-title span{
+    font-size: 1.6rem;
+    text-align: center;
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    line-height: 2.6rem;
+    display: block;
+    color: transparent;
+}
+
+.quiz-4-wrap .option-img-wrap {
+    margin: 0 auto;
+    width: 100%;
+    height: 200px;
+}
+
+.quiz-4-wrap .option-img{
+    height: 100%;
+    object-fit: contain;
+}
+
+.quiz-4-wrap .option-4-txt{
+    margin: 8% 2%;
+    font-size: 1.6rem;
+    text-align: center;
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    line-height: 2.6rem;
+color: transparent;}
+
+.quiz-4-wrap .option-4-title span.show{
+    color: #fff;
+}
+.quiz-4-wrap .option-4-txt.show{
+    color: #fff;
+}
+
+/* ------------------- 心理測驗第五題 ------------------- */
+
+.quiz-5-wrap{
+    display: flex;
+    margin: 0 auto;
+    min-height: 80vh;
+    align-items: center;
+}
+
+.quiz-5-wrap .quiz-q{
+    color: #fff;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.quiz-5-wrap .quiz-row{
+    min-height: 50vh;
+    align-content: center;
+}
+
+.quiz-5-wrap .option-wrap {
+    text-align: center;
+    color: var(--gold);
+    margin: 0 auto;
+}
+
+.quiz-5-wrap .option-5-title{
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 2.6rem;
+    margin: 8%;
+}
+
+.quiz-5-wrap .option-img{
+    object-fit: contain;
+    max-width: 50%;
+}
+
+/* ------------------- 心理測驗手機板 ------------------- */
+
+@media (max-width: 991px) {
+
+/* ----- 心理測驗(第一題) ----- */
+
+    .quiz-1-wrap .option-wrap{
+        margin-bottom: 10%;
+    }
+
+    .quiz-1-wrap .option-1-title-wrap p:nth-child(1) {
+        font-size: 1.8rem;
+    }
+
+    .quiz-1-wrap .option-1-title-wrap p:nth-child(2) {
+        font-size: 1.6rem;
+    }
+
+    .quiz-1-wrap .option-img{
+        max-width: 250px;
+        max-height: 250px;
+    }
+
+/* ----- 心理測驗(第二題) ----- */
+
+    .quiz-2-wrap .option-wrap{
+        width: 350px;
+        height: 200px;
+        margin-bottom: 10%;
+    }
+
+    .quiz-2-wrap .option-2-title-wrap p {
+        width: 350px;
+        height: 200px;
+        font-size: 1.8rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .quiz-2-wrap .option-2-title-wrap span{
+        margin: 2% 2%;
+        font-size: 1.4rem;
+        text-align: center;
+        letter-spacing: 0.1rem;
+        line-height: 2.0rem;
+        display: inline-block;
+    }
+
+/* ------------------- 心理測驗(共用) ------------------- */
+    .option-wrap{
+        max-width: 50%;
+    }
+
+    .quiz-row{
+        min-height: none;
+    }
+
+    .quiz-q{
+        font-size: 2.0rem;
+        letter-spacing: 0.5rem;
+    }
+
+    .quiz-quote{
+        font-size: 1.8rem;
+        letter-spacing: 0.4rem;
+        line-height: 2.2rem;
+    }   
+
+}
