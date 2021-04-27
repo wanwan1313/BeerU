@@ -240,7 +240,7 @@ $page_title = '啤女-精釀啤酒商品';
     let cate = 0;
     let page = 1;
     let hot = 0;
-    let order = '`created_at` DESC';
+    let order = 1;
     let p_data = {};
     let product_arrang = $('.all-product .product-arrang')
     let pages_wrap = $('.all-product .pages')
@@ -328,6 +328,8 @@ $page_title = '啤女-精釀啤酒商品';
     }
 
 
+
+
     // -------------------------------------------------------
     // 用ajax撈資料
     function getallproductData() {
@@ -374,8 +376,45 @@ $page_title = '啤女-精釀啤酒商品';
     }
 
     // 設定一進入全部商品頁的樣貌
-    if ($(window).width() >= 992) {
-        getallproductData()
+    init()
+
+    function getURL(cate, page, hot, order) {
+        let url = location.pathname + '?cate=' + cate + '&page=' + page + '&hot=' + hot + '&order=' + order + '#select-allproduct'
+        history.pushState({
+            url: url,
+            title: document.title
+        }, document.title, url)
+    }
+
+    function init() {
+        let num_g = location.search.match(/\d+/g)
+        if (num_g == null) {
+            getallproductData()
+        } else {
+            cate = num_g[0]
+            page = num_g[1] ?? 1
+            hot = num_g[2] ?? 0
+            order = num_g[3] ?? 1
+            if (hot == 1) {
+                getallproductData()
+                toProductTop()
+                product_tag.html(` 
+        <div class="tagpic"><img src="../images/tagespic/hot.svg" alt=""></div>
+            <p>#熱門商品</p>
+        `)
+            } else if (cate == 0) {
+                product_tag.html('')
+                getallproductData()
+                toProductTop()
+            } else {
+                getallproductData()
+                toProductTop()
+            }
+        }
+    }
+
+    window.onpopstate = function() {
+        init()
     }
 
 
@@ -394,6 +433,7 @@ $page_title = '啤女-精釀啤酒商品';
         hot = 0
         getallproductData()
         toProductTop()
+        getURL(cate, page, hot, order)
 
         $('.product-category').removeClass('on')
         $('.trigger span').removeClass('on')
@@ -415,7 +455,7 @@ $page_title = '啤女-精釀啤酒商品';
         cate = 0
         getallproductData()
         toProductTop()
-
+        getURL(cate, page, hot, order)
         product_tag.html(` 
         <div class="tagpic"><img src="../images/tagespic/hot.svg" alt=""></div>
             <p>#熱門商品</p>
@@ -438,6 +478,7 @@ $page_title = '啤女-精釀啤酒商品';
         product_tag.html('')
         getallproductData()
         toProductTop()
+        getURL(cate, page, hot, order)
 
         $('.product-category').removeClass('on')
         $('.trigger span').removeClass('on')
@@ -457,36 +498,41 @@ $page_title = '啤女-精釀啤酒商品';
     // 排序事件
     function changeSort() {
         if ($('#sort-option').val() == 'new') {
-            order = '`created_at` DESC'
+            order = 1
             page = 1
             getallproductData()
             toProductTop()
+            getURL(cate, page, hot, order)
 
 
         }
         if ($('#sort-option').val() == 'priceup') {
-            order = '`price` ASC'
+            order = 2
             page = 1
             getallproductData()
             toProductTop()
+            getURL(cate, page, hot, order)
         }
         if ($('#sort-option').val() == 'pricedown') {
-            order = '`price` DESC'
+            order = 3
             page = 1
             getallproductData()
             toProductTop()
+            getURL(cate, page, hot, order)
         }
         if ($('#sort-option').val() == 'abvup') {
-            order = '`abv` ASC'
+            order = 4
             page = 1
             getallproductData()
             toProductTop()
+            getURL(cate, page, hot, order)
         }
         if ($('#sort-option').val() == 'abvdown') {
-            order = '`abv` DESC'
+            order = 5
             page = 1
             getallproductData()
             toProductTop()
+            getURL(cate, page, hot, order)
         }
     }
 
@@ -503,6 +549,7 @@ $page_title = '啤女-精釀啤酒商品';
         page = p
         getallproductData()
         toProductTop()
+        getURL(cate, page, hot, order)
         btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
 
 
@@ -512,6 +559,7 @@ $page_title = '啤女-精釀啤酒商品';
         page = ($('.all-product .page-on').find('p').text() * 1) - 1
         getallproductData()
         toProductTop()
+        getURL(cate, page, hot, order)
         btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
 
     }
@@ -520,6 +568,7 @@ $page_title = '啤女-精釀啤酒商品';
         page = ($('.all-product .page-on').find('p').text() * 1) + 1
         getallproductData()
         toProductTop()
+        getURL(cate, page, hot, order)
         btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
     }
 
@@ -527,6 +576,7 @@ $page_title = '啤女-精釀啤酒商品';
         page = p_data.total_pages
         getallproductData()
         toProductTop()
+        getURL(cate, page, hot, order)
         btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
     }
 
@@ -600,8 +650,6 @@ $page_title = '啤女-精釀啤酒商品';
         product_tag.append(allproductTag(p_data))
 
     }
-
-
 </script>
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>

@@ -21,7 +21,7 @@ $total_merch =  $pdo->query($merch_SQL)->fetchAll();
 
 $cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 $hot = isset($_GET['hot']) ? intval($_GET['hot']) : 0;
-$order = isset($_GET['order']) ? $_GET['order'] : '`created_at` DESC';
+$order = isset($_GET['order']) ? intval($_GET['order']) : 1;
 
 
 $where = ' WHERE 1 ';
@@ -47,6 +47,24 @@ if (empty($hot) == false and $hot == 1) {
     $cate_name = '熱門商品';
 }
 
+$sort =  '`created_at` DESC';
+if(empty($order) == false and $order == 1 ){
+    $sort =  '`created_at` DESC';
+}
+if(empty($order) == false and $order == 2 ){
+    $sort =  '`price` ASC';
+}
+if(empty($order) == false and $order == 3 ){
+    $sort =  '`price` DESC';
+}
+if(empty($order) == false and $order == 4 ){
+    $sort =  '`abv` ASC';
+}
+if(empty($order) == false and $order == 5 ){
+    $sort =  '`abv` DESC';
+}
+
+
 
 
 // 抓資料庫的產品資料
@@ -69,7 +87,7 @@ if ($page < 1) {
     $page = $total_pages;
 };
 
-$s_SQL = sprintf("SELECT * FROM `products` $where ORDER BY $order LIMIT %s,%s", ($page - 1) * $page_p, $page_p);
+$s_SQL = sprintf("SELECT * FROM `products` $where ORDER BY $sort LIMIT %s,%s", ($page - 1) * $page_p, $page_p);
 
 $rows = $pdo->query($s_SQL)->fetchAll();
 
