@@ -10,11 +10,11 @@ $('.user-login').click(function(){
 
 });
 
-// $('.log-sandbox').click(function(){
+$('.log-sandbox').click(function(){
 
-//    $('#LogIn-Out').css('display','none');
+   $('#LogIn-Out').css('display','none');
 
-// })
+})
 
 $('#LogIn-btn').click(function(){
 

@@ -1,5 +1,5 @@
 #LogIn-Out{
-    display: none;
+    /* display: none; */
 }
 
 .LogIn-Out{
@@ -15,18 +15,24 @@
     
 }
    
-.log-sandbox{
-    position: relative;
 
+.log-wrap{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     height:calc(100vh - 85px); 
     width: 100%;
-   
+
+}
+.log-sandbox{
+    width: 100%;
+    height:calc(100vh - 85px); 
+ 
 }
    
 .log-box{
+    position: absolute;
     z-index: 989;
     border:solid 3px var(--gold);
     border-radius: 15px;
@@ -35,6 +41,7 @@
     box-shadow: 0 0 0 1920px rgba(0, 0, 0, .5);
     /* 起始頁大小 */
     width: 45%;
+    /* max-width: 430px; */
     height: 500px;
     
     /* 登入頁大小 */
