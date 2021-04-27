@@ -317,12 +317,12 @@ body{
 
 .sakura{
     width: 100%;
-    position: sticky;
+    position: absolute;
     z-index: 999;
 }
 .product-info{
     position: relative;
-    background-color: #fff;
+    /* background-color: #fff; */
 }
 
 .e-product-intro .product-intro {
