@@ -9,7 +9,7 @@ body{
     position: relative;
 }
 
-.left-crystal-bg{
+.newbie-wrap .left-crystal-bg{
     height: 80vh;
     position: relative;
     background-image: url(../../images/glori_images/beer-candles.svg);
@@ -19,6 +19,43 @@ body{
     justify-content: center;
     bottom: 0;
 }
+
+.newbie-wrap .crystal-wrap{
+    position: relative;
+    text-align: center;}
+
+.newbie-wrap .inside-beer{
+    position: absolute;
+    width: 38%;
+    height: 38%;
+    background-image: url(../../images/glori_images/inside-beer.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: 32%;
+    top: 35%;
+    animation: rotation 4s infinite linear;
+}
+
+.newbie-wrap .inside-heads{
+    position: absolute;
+    width: 35%;
+    height: 35%;
+    background-image: url(../../images/glori_images/inside-heads.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: 30%;
+    top: 37%;
+    animation: rotation 5s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
 
 .newbie-wrap .pipi{
     position: absolute;
@@ -150,77 +187,6 @@ body{
 
     }
 
-
-/* 收藏按鈕 */
-
-/* 桌機版 */
-@media (min-width: 992px) {
-.e-product-intro  .collect {
-    position: absolute;
-    top: 17%;
-    right: 10%;
-}
-}
-
-/* 手機版 */
-@media (max-width: 991px) {
-.e-product-intro  .collect {
-    position: absolute;
-    bottom: 30px;
-    right: 15px;
-}
-}
-
-/* 加入收藏 */
-.btn_collect2 {
-    font-family:'Noto Serif TC', serif;
-    color: var(--red);
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: 0.15rem;
-    background-color:rgba(255, 255, 255, 0.459);
-    border: 1.5px solid var(--red);
-    cursor: pointer;
-    transition: .3s;
-}
-
-/* 手機版 */
-@media (max-width: 991px) {
- .btn_collect2{
-    border: 1px solid var(--red);
-    letter-spacing: 0rem;
-    font-size: 1.4rem;
-    }
-}
-
-.btn_collect2 i, .btn_collect2_active i {
-    margin: 5px;
-}
-
-.btn_collect2:hover {
-    background-color: var(--red);
-    color: #fff;
-}
-
-/* 已收藏 */
-.btn_collect2_active {
-    font-family:'Noto Serif TC', serif;
-    color: #fff;
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: 0.15rem;
-    background-color: var(--red);
-    border: 1.5px solid var(--red);
-    cursor: pointer;
-    transition: .3s;
-}
-
-.btn_collect2_active:hover {
-    background-color: #fff;
-    color: var(--red);
-}
-
-
 /* ----------------了解更多---------------------- */
 
 .newbie-wrap .know-more {
@@ -233,12 +199,6 @@ body{
     right: -20px;
 }
 
-/* 手機版 */
-@media (max-width: 991px) {
-    .know-more{
-        right: 0;
-    }
-}
 
 .know-more::before {
     content: '';
@@ -291,6 +251,13 @@ body{
     left: -25%;
     bottom: 23%;
     opacity: 0;
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+    .newbie-wrap .know-more{
+        right: 0;
+    }
 }
 
 /* ------------------- 啤酒百科介紹 ------------------- */
@@ -827,6 +794,12 @@ body{
         border-style: none;
     }
 
+    @media (max-width: 991px) {
+        .each-glass-wrap .each-glass{
+            max-width: 50%;
+        }
+    }
+
     /* 各啤酒杯介紹彈出視窗 */
 
             /* Modal */
@@ -973,11 +946,19 @@ body{
 
         .beer-glass-wrap .each-glass{
             margin-bottom: 10%;
+            border-bottom: 6px solid var(--gold);
         }
 
         .beer-glass-wrap .each-glass img{
             max-width: 100px;
         }
+
+        .beer-glass-wrap .glass-wrap-border{
+            border-bottom: none;
+        }
+
+        .beer-glass-wrap .each-glass p{
+            font-size: 1.8rem;        }
 }
 
     /* ------------------- 啤酒指南 ------------------- */
@@ -1067,7 +1048,11 @@ body{
                 text-indent:0.8rem;
             }
 
-        .beer-guide-wrap .guide-wrap{
-            max-width: none;
-        }
+            .beer-guide-wrap .guide-wrap{
+                max-width: none;
+            }
+            .beer-guide-wrap .guide-container{
+                margin-top: -15%;
+            }
+
         }
