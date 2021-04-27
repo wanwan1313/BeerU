@@ -9,15 +9,22 @@ $psid = substr($_SERVER['QUERY_STRING'], 5);
 
 
 // 此頁商品
-$p_SQL = "SELECT p.* , t.`name` AS `country_name` FROM `products` AS p 
-            JOIN `tags` AS t 
-            ON p.`country_sid` = t.`sid`  
-            WHERE p.`sid` = $psid";
+$p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.`name` AS `type_name`,t4.`name` AS `merch_name` FROM `products` AS p 
+                JOIN `tags` AS t1 
+                ON p.`brand_sid` = t1.`sid`
+                JOIN `tags` AS t2 
+                ON p.`country_sid` = t2.`sid`
+                JOIN `tags` AS t3 
+                ON p.`type_sid` = t3.`sid`
+                JOIN `tags` AS t4 
+                ON p.`merch_sid` = t4.`sid`
+                WHERE p.`sid` = $psid";
 $row = $pdo->query($p_SQL)->fetch();
 
 $country_sid = $row['country_sid'];
 $type_sid = $row['type_sid'];
 $brands_sid = $row['brand_sid'];
+$merch_sid = $row['merch_sid'];
 
 // 相關商品
 $c_SQL = "SELECT * FROM `products` WHERE `country_sid` = $country_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
@@ -31,7 +38,9 @@ $b_row = $pdo->query($b_SQL)->fetch();
 // new標籤
 $deadline = strtotime('2021-04-27');
 
-
+// 從哪裡來
+$come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
+$come_cate = $come_from != 'http://localhost/BeerU/public/all-product.php' ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
 
 ?>
 
@@ -54,8 +63,20 @@ $deadline = strtotime('2021-04-27');
 <section class="each-product">
 
     <!-- 麵包屑 -->
-    <div class="beeru-breadcrumb d-none d-lg-block">
-        <p> <a href="">首頁</a> ｜<a href="all-product.php">全部酒款</a> ｜ <a href=""><?= $row['country_name'] ?></a> ｜ <?= $row['c_name'] ?></p>
+    <div class="beeru-breadcrumb d-none d-lg-flex">
+        <p><a href="">首頁</a> ｜</p>
+        <p><a href="all-product.php">全部酒款</a> ｜ </p>
+        <?php if ($come_cate <= 4) : ?>
+        <?php elseif ($come_cate >= 5 and $come_cate <= 28) : ?>
+            <p><a href="all-product.php?cate=<?= $row['brand_sid']?>"><?= $row['brand_name'] ?></a> ｜ </p>
+        <?php elseif ($come_cate >= 29 and $come_cate <= 43) : ?>
+            <p><a href="all-product.php?cate=<?= $row['country_sid']?>"><?= $row['country_name'] ?></a> ｜ </p>
+        <?php elseif ($come_cate >= 44 and $come_cate <= 53) : ?>
+            <p><a href="all-product.php?cate=<?= $row['type_sid']?>"><?= $row['type_name'] ?></a> ｜ </p>
+        <?php elseif ($come_cate == 54) : ?>
+            <p><a href="all-product.php?cate=<?= $row['merch_sid']?>"><?= $row['merch_name'] ?></a> ｜ </p>
+        <?php endif; ?>
+        <p><?= $row['c_name'] ?></p>
     </div>
     <!-- 產品圖片和介紹 -->
     <div class="container-fluid e-product-intro-warp">
