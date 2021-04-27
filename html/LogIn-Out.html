@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>navbar-footer</title>
+    <title>啤女會員登入測試</title>
     <!-- reset -->
     <link rel="stylesheet" href="../css/reset.css">
     <!-- bootstrap -->
@@ -26,10 +26,28 @@
     <link rel="stylesheet" href="../css/menu-footer/nav-bar.css">
     <link rel="stylesheet" href="../css/menu-footer/footer.css">
 
+
+    <link rel="stylesheet" href="../css/LogIn-Out/LogIn-Out.css">
     <!-- js -->
     <script src="../js/menu-footer/nav-bar.js" defer></script>
 
     <style>
+        .testarea{
+            height: 100vh;
+        }
+
+        .test01{
+            background-color: #afa;
+        }
+        .test02{
+            background-color:  goldenrod;
+        }
+        .test03{
+            background-color:  pink;
+        }
+        .test04{
+            background-color: cyan;
+        }
         
     </style>
 
@@ -66,8 +84,8 @@
                 <ul class="nav-bar-member list-unstyled d-flex ">
                     <input type="text" id="search" name="search" class="search-bar" placeholder="找啤酒">
                     <li class="search"><i class="fas fa-search"></i></li>
+                    <li class="user-login"><img src="../images/common/icon_member.svg" alt=""></li>
                     <li class="shopping-cart"><a href=""><img src="../images/common/icon_shopbag.svg" alt=""></a></li>
-                    <li class="user-login"><a href=""><img src="../images/common/icon_member.svg" alt=""></a></li>
                 </ul>
             </div>
         </div>
@@ -83,6 +101,106 @@
         </div>
 
     </section>
+
+
+<section class="LogIn-Out" id="LogIn-Out">
+    <div class="log-sandbox">
+        <div class="log-box">
+            <div class="logo-wrap">
+                <img src="../images/logo/logo_beeru_gold.svg" alt="">
+            </div>
+
+        <!-- 起始畫面 -->
+         <div class="log-content" id="first-page">
+
+                <div class="first-content">
+                    <h3>現在加入會員</h3>
+                    <h3>立即享有專屬優惠！</h3>
+                </div>  
+
+                <div class="login-title social-login-title">
+                    <h4>用以下社群帳號繼續</h4>
+                </div>
+
+                <div class="social-icon">
+                    <img src="../images/common/icon_fb_blue.svg" alt="">
+                </div>
+
+                <div class="login-title member-login-title">
+                    <h4>或用啤女帳號繼續</h4>
+                </div>
+
+                <div class="LogInOut-btn-warp d-flex">
+                    <div class="log-btn " id="LogIn-btn">登入</div>
+                    <div class="log-btn LogOut-btn" >註冊</div>
+                </div>
+            </div> 
+
+        <!-- 登入畫面 -->
+           <div class="log-content" id="LogIn-page">
+
+             <div class="LogIn-title">
+                 <h3>用啤女帳戶登入</h3>
+             </div>
+             
+             <div class="LogIn-content-wrap">
+       
+                <div class="input-account">
+                    <i class="fas fa-user-alt"></i>
+                    <input class="input-btn" placeholder="啤女帳號" id="account">
+                    
+                </div>
+   
+                <div class="input-password">
+                    <i class="fas fa-lock"></i>
+                    <input class="input-btn" type="password" placeholder="密碼" id="account">
+                </div>
+
+
+
+                <div class="wrong-alert d-flex">
+                    <i class="far fa-times-circle"></i>
+                    <p>帳號或密碼錯誤</p>
+                </div>
+
+                <div class="LogIn-btn">登入</div>
+            </div>
+
+            <div class="forget-password">
+                <h3>忘記密碼</h3>
+                <h3>｜</h3>
+                <h3>重新寄認證信</h3>
+            </div>
+            
+            
+
+            <div class="not-menber">
+                <h3>還不是會員嗎？</h3>
+                <h3><span>立即註冊新帳號</span></h3>
+            </div>
+      
+
+            <div class="backward-logIn">
+                <h3>回上頁</h3>
+            </div>
+    
+           </div> 
+            
+
+
+
+        <!-- 註冊畫面 -->
+            
+        </div>
+    </div>
+</section>
+
+
+
+<section class="testarea test01"></section>
+<section class="testarea test02"></section>
+<section class="testarea test03"></section>
+<section class="testarea test04"></section>
 
 
 
@@ -135,6 +253,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+
+
+
+    <script src="../js/LogIn-Out.js"></script>
 
 
 

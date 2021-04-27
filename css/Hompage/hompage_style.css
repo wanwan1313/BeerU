@@ -1,0 +1,1037 @@
+*{
+    /* outline: solid 1px white; */
+}
+body,html{
+    margin: 0;
+    padding: 0;
+    background-color: #163D50;
+}
+
+#content-wrap{
+    /* background-image: url('../images/common/BG-texture\ v1.jpg'); */
+}
+
+/* --------LandingPage-------- */
+
+#LandingPage{
+
+    background-image: url('../../images/common/BG-texture\ v1.jpg');
+    height:calc(100vh - 85px);
+    overflow: hidden;
+    
+}
+
+
+ .LandingPage::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 10vh;
+    max-height: 85px;
+} 
+
+.LandingPage_warp{
+    
+    display: flex;
+    margin: 0 auto;
+    width: 90%;
+    justify-content: space-between;
+    align-items: flex-end;
+    height:calc(100vh - 85px);
+
+    transition:3s;
+  
+    
+}
+.colum{
+   
+   transition:0.8s;
+
+   width: 82px;
+   height:calc(100vh - 85px);
+}
+
+
+.colum::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 10vh;
+    max-height: 85px;
+} 
+
+
+
+
+.DOOR{
+    
+    margin: 0 auto;
+    width: 380px;
+    background-image: url('../../images/common/door-2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+.DOOR img{
+    width: 100%
+}
+
+
+.pip_push{
+    opacity: 0;
+    position: absolute;
+    width: 150px;
+    transform: translate(-120px, -50px) ;
+
+}
+
+.door_outside{
+    transition: 2s;
+    position: relative;
+   
+}
+
+.doorSign_warp {
+    transition: 2s;
+    position: absolute;
+    text-align: center;
+    margin-top: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* object-position: 50% 50%; */
+ 
+}
+
+.doorSign_warp h1:nth-of-type(1){
+    font-size: 4rem;
+    font-family: 'Noto Serif TC';
+    font-weight: Bold;
+    
+
+
+}
+
+.doorSign_warp p{
+    font-family: 'Noto Sans TC';
+    color: #E9BF85;
+    font-size: 1.8rem;
+}
+.doorSign_warp p:nth-of-type(1){
+  margin-top: 15px;
+}
+
+.doorSign_warp p:nth-of-type(2),p:nth-of-type(3),p:nth-of-type(4){
+    transform:  translateX(10px);
+  
+  }
+
+  /* :nth-child(){
+    
+} */
+
+  .doorSign_warp h1:nth-of-type(2){
+     margin-top: 15px;
+     transform:  translateX(10px);
+     color: #E9BF85;
+     font-size: 2.5rem;
+     font-weight: bold;
+
+  }
+
+
+  .button_warp{
+    transition: 2s;
+    position: absolute;
+    margin-top: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+  }
+
+  .btn01{
+     width: 60px;
+     height: 40px;
+     border-radius: 10px;
+     margin: auto 5px;
+     background-color: transparent;
+     color: var(--gold);
+     border: solid 1px var(--gold);
+  }
+
+  /* --------homepage-----------  */
+  .home{
+      width: 100%;
+      height:calc(100vh - 85px);
+      display: flex;
+      flex-direction: column;
+       overflow: hidden;  
+
+  }
+  .home_bg {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      height: calc(100vh - 85px);
+      background: url("../../images/common/Homepage_background.png") center center no-repeat;
+      background-size: contain;
+     
+  }
+
+  .home::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 10vh;
+      max-height: 85px;
+  }
+
+
+  .Logo_wrap{
+      display: flex;
+      position: relative;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      margin-top: -100px;
+   
+  }
+
+
+.flag{
+    width: 50%;
+    overflow: hidden;
+    
+}
+
+.flag_L{
+    height: 0;
+    background-size: cover;
+    background-image: url('../../images/common/flag_L_V3.png'
+    );
+    padding-top: 21.84%;
+  
+}
+.flag_R{
+    height: 0;
+    background-size: cover;
+    background-image: url('../../images/common/flag_R_V3.png'
+    );
+    padding-top: 21.84%;
+}
+
+
+.LOGO_Filter{
+    position: absolute;
+    z-index: 99;
+    width: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin-top: 25px;   
+}
+
+
+.LOGO_Filter img{
+    width: 100%;
+}
+
+.pip_pick{
+    position: absolute;
+    opacity: 1;
+    width: 100px;
+    transform: rotate(30deg) translate(110px,5px);
+    
+    
+}
+
+
+.RWD-button-wrap .row{
+    display: none;
+}
+
+
+
+.Woman_warp{
+    display: flex;
+    justify-content: center;
+  
+}
+
+.woman{
+    position: relative;
+    margin: 0 35px;
+}
+.woman-img{
+    width: 180px;
+}
+
+.woman-talk{
+    top: 0;
+    width: 70%;
+    position: absolute;
+}
+
+
+.woman03-img{
+    width: 240px;
+    margin-left: 20px;
+}
+
+.talk01{
+    transform: translate(-80px, -80px);
+}
+.talk02{
+    right: 0;
+    transform: translate(50px, -60px);
+
+}
+.talk03{
+    right: 0;
+    width: 50%;
+    transform: translate(50px, -80px);
+}
+.talk04{
+    right: 0;
+
+    transform: translate(30px, -60px);
+}
+
+
+
+ /* ////////精釀小學堂///////// */
+
+
+.title-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    /* 圈圈圖案 */
+.Brew-school-title { 
+    background: url(../../images/common/h1_5_w.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 標題文字 */
+.Brew-school-title p {
+    color: white;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 左邊雕飾 */
+.Brew-school-title p::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_left.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+
+/* 右邊雕飾 */
+.Brew-school-title p::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right:0;
+    transform: translate(115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_right.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 手機版 改字和雕飾大小*/
+@media (max-width: 991px) {
+.Brew-school-title p {
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    text-indent:0.8rem;
+}
+
+.Brew-school-title p::before {
+    width: 60px;
+    height: 32%;
+
+}
+
+.Brew-school-title p::after {
+    width: 60px;
+    height: 32%;
+
+}
+
+
+}
+
+
+
+.Brew-school-intro {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+
+.brew-beer-left{
+    width: 550px;
+    justify-content: space-between;
+    text-align: right;
+    
+}
+
+.brew-beer-intro{
+    border-bottom: solid 1px #fff;
+
+}
+
+
+.title-txt{
+    width: 100%;
+    max-width: 300px;
+    border-bottom: solid 1px #fff;
+    padding: 10px 0;
+}
+.title-txt h2{
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.5rem;
+    letter-spacing: 0.1rem;
+}
+
+
+.content-txt{
+    margin-top: 40px;
+}
+.content-txt h6{
+    font-family: 'Noto Sans TC', serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 25px;
+   
+
+}
+
+.content-txt h6:nth-of-type(1){
+    
+    color:var(--yellow);
+}
+.content-txt h6:nth-of-type(3){
+    margin: 35px 0;
+    color:var(--yellow);
+}
+.content-txt h6:nth-of-type(4){
+    margin:45px 0;
+   
+}
+.content-txt h6:nth-of-type(5){
+    color:var(--yellow);
+}
+
+.category-middle{
+    width: 100px;
+    border-bottom: solid 1px #fff;
+}
+.category-middle h6{
+   
+    font-family: 'Noto Sans TC', serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    padding-bottom: 20px;
+
+}
+.category-middle h6:nth-of-type(1){
+    border-top: solid 1px #fff;
+    margin-top: 67px;
+    padding-top: 40px;
+    color:var(--yellow);
+}
+
+.category-middle h6:nth-of-type(3){
+    color:var(--yellow);
+}
+  
+
+.category-middle h6:nth-of-type(5){
+    color:var(--yellow);
+
+   
+}
+
+.bussiness-beer-right{
+    width: 550px;
+    justify-content: space-between;
+    text-align: left;
+    
+
+}
+
+.bussiness-beer-intro{
+    border-bottom: solid 1px #fff;
+
+}
+
+
+.more-btn01{
+    margin: 0 auto;
+}
+
+/* ///////Beer-type///////// */
+
+.Beer-type{
+    margin-top: 60px;
+}
+
+.title-wrap h3{
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3rem;
+    letter-spacing: 0.1rem
+
+}
+
+.type-content{
+    justify-content: space-around;
+    align-items: center;
+}
+
+.type-forward{
+    
+    background-image: url("../../images/common/arrow_left.svg");
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+
+.type-intro{
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+}
+
+.type-intro-img{
+    width: 100%;
+    max-width: 160px;
+
+}
+
+.type-intro-content{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    width: 100%;
+    max-width: 400px;
+
+}
+
+
+.type-intro-title{
+    width: 100%;
+    align-items: center;
+}
+
+.type-intro-title h3{ 
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3rem;
+    letter-spacing: 0.1rem;
+    color: var(--yellow);
+
+}
+
+.type-intro-title:before{
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url('../../images/common/dot-1.svg')
+
+}
+
+.colorDot {
+    display: none;
+}
+
+
+
+
+.type-intro-text p{
+    word-break: break-all;
+    font-family: 'Noto Sans TC', serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.1rem;
+    line-height: 2;
+
+}
+
+
+
+
+.type-backward{
+    background-image: url("../../images/common/arrow_right.svg");
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+
+
+
+
+.hand{
+    position: absolute;
+    transform: translate(-30px,-155px);
+    width: 20%;
+}
+
+.type-color{
+    justify-content: center;  
+    margin-top: 50px;
+}
+
+.drop{
+    margin: 0 30px;
+    width: 4%
+  
+}
+
+.drop1 img{
+    filter: drop-shadow(0px 0px 10px white)
+}
+
+/* ///////啤女精選///////// */
+
+.BeerU-colllection{
+    margin-top: 120px;
+}
+
+    /* 圈圈圖案 */
+.BeerU-colllection-title{ 
+    background: url(../../images/common/h1_4_w.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 標題文字 */
+.BeerU-colllection-title p {
+    color: white;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 左邊雕飾 */
+.BeerU-colllection-title p::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_left.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+
+/* 右邊雕飾 */
+.BeerU-colllection-title p::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right:0;
+    transform: translate(115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_right.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 手機版 改字和雕飾大小*/
+@media (max-width: 991px) {
+.BeerU-colllection-title p {
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    text-indent:0.8rem;
+}
+
+.BeerU-colllection-title p::before {
+    width: 60px;
+    height: 32%;
+
+}
+
+.BeerU-colllection-title p::after {
+    width: 60px;
+    height: 32%;
+
+}
+
+
+}
+
+.colllection-items{
+    margin-top: 40px;
+}
+.item-flag{
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    width: 40px;
+
+    transform: rotate(-10deg) translate(0px,20px);
+}
+.item-img{
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    width: 150px;
+}
+
+.item-intro h4{
+    font-family: 'Noto Sans TC', serif;
+    font-weight: Medium;
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+.dot-wrap{
+  
+  
+    margin: 0 auto;  
+}
+
+.dot-wrap span{
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #fff;
+
+}
+.dot-wrap span:nth-of-type(1){
+  
+    background-color: var(--yellow);
+
+}
+
+/* ////////啤女分頁////////*/
+
+.BeerU-feature{
+    margin-top: 100px;
+}
+
+.feature-wrap{
+  
+    display: flex;
+    justify-content: center;
+}
+
+
+.feature{
+    position: relative;
+    margin: 15px 15px;
+    width: 540px;
+    height: 350px;
+}
+
+
+.feature01{
+    background-image: url('../../images/Links/feature01.jpg') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.feature02{
+    
+    background-image: url('../../images/Links/feature02.jpg') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.feature03{
+    background-image: url('../../images/Links/feature03.jpg') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+  
+}
+.feature04{
+    background-image: url('../../images/Links/feature04.jpg') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+} 
+
+
+.feature-content{
+    
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+  
+    background: linear-gradient(to right ,#000 0% , transparent 100% );
+}
+
+.feature-content p{
+    font-family: 'Noto Serif TC', serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-left: 20px;
+    
+  
+}
+
+.feature-content:hover{
+    transition: 3s;
+    background: linear-gradient(to right ,#b69564 0% , transparent 100% );
+
+}
+
+/* ////////啤女傳說/////// */
+
+.BeerU-legend{
+    margin-top: 120px;
+}
+
+/* 圈圈圖案 */
+.BeerU-legend-title{ 
+    background: url(../../images/common/h1_4_w.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 標題文字 */
+.BeerU-legend-title p {
+    color: white;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 左邊雕飾 */
+.BeerU-legend-title p::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_left.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+
+/* 右邊雕飾 */
+.BeerU-legend-title p::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right:0;
+    transform: translate(115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_right.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 手機版 改字和雕飾大小*/
+@media (max-width: 991px) {
+.BeerU-legend-title p {
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    text-indent:0.8rem;
+}
+
+.BeerU-legend-title p::before {
+    width: 60px;
+    height: 32%;
+
+}
+
+.BeerU-legend-title p::after {
+    width: 60px;
+    height: 32%;
+
+}
+
+
+}
+
+.legned-story-warp{
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.legned-story{
+    margin-top: 50px;
+}
+
+.legned {
+    margin: 0 auto;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    border: solid 1px var(--yellow)
+    
+
+}
+
+.legned h3{
+     font-family: 'Noto Serif TC', serif;
+     letter-spacing: 5px;
+     line-height: 50px;
+     margin-top: 10px;
+     font-size: 3rem;
+     text-align: center;
+     color: var(--yellow);
+}
+
+.legned-content{
+    width: 100%;
+    margin: 0 auto;
+    
+}
+
+.legned-content p{
+    font-family: 'Noto Sans TC', serif;
+    font-size: 1.6rem;
+    word-break:break-alll;
+}
+
+.pipi{
+    margin-top: 80px;
+}
+
+.pip-wrap{
+    width: 100%;
+}
+.clouds{
+    height: 400px;
+    background-image: url("../../images/common/clouds.svg");
+    background-repeat: no-repeat;
+    background-position:center;
+}
+
+
+.pipi-left{
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px
+}
+
+.pipi-name h3{
+    
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    line-height: 1.25;
+    font-size: 3.5rem;
+
+}
+
+.pipi-name h3:nth-of-type(2){
+    margin-top: 25px;
+    color:#b69564;
+}
+
+
+.pipi-body{
+    position: relative;
+    margin-left: 20px;
+}
+
+.pipi-arrow{
+    position: absolute;
+    width: 50px;
+    top: 30%;
+    transform: translateX(-20px);
+}
+
+.pipi-intro{
+    width: 100%;  
+    
+}
+
+
+.pipi-intro p{
+   
+    padding: 15px;
+    font-family: 'Noto Serif TC', serif;
+    letter-spacing: 5px;
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-top: 80px;
+    word-break: break-all;
+    border: solid 2px var(--gold);
+    border-radius: 10px;
+}
+
+
+.pipi-intro p span{
+    color: var(--yellow);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
