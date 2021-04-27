@@ -1,0 +1,599 @@
+/* 0 */
+.map .container .row{
+    margin-left: 0;
+    margin-right: 0;
+}
+.map .comtainer-fulid .row{
+    margin-left: 0;
+    margin-right: 0;
+}
+/* --------------------------------------- */
+/* 1.大標:啤酒地圖 */
+.map .container .row:nth-of-type(1){}
+/* --------------------------------------- */
+
+/* 2.底圖+地圖 */
+.map .container .row:nth-of-type(2){
+    max-height: 1080px;
+    min-height: 700px;
+}
+/* 底圖 */
+.map_bg {
+    z-index: -1;
+}
+.map_bg img{
+    object-fit: contain;
+    width: 1200px;
+    object-position: center ;
+    max-height: fit-content;
+    min-height: 700px;
+}
+/* 手機 */
+@media (max-width: 990px) {
+    .map_bg img{
+        object-fit: cover;
+        width: 1000px;
+        }
+}
+
+/* 五大洲 */
+.map .world{
+    display:none;
+    }
+    
+    .map  .world svg{
+        padding-top:50px;
+        width:100%;
+        min-width: 700px;
+        max-height: 550px;
+    }
+    .map  .world path {
+        fill: #b293627e;
+        stroke:#792221;
+        stroke-width:2px;
+        stroke-dasharray:3,3;
+        stroke-linejoin:round;
+        cursor: pointer;
+    }
+    
+    .map  .world path:hover {
+        fill: #792221;
+    }
+/* 手機 */
+/* 水平移動 */
+@media (max-width: 990px) {
+    .map  .world{
+    /* us */
+    /* transform: translateX(30%); */
+    /* eu */
+    /* transform: translateX(0%); */
+    /* as */
+    /* transform: translateX(-25%); */
+    /* au */
+    /* transform: translateX(-30%); */
+    }
+
+    .map .world svg{
+        padding-top:0;
+        }
+}
+
+/* 換洲------------------------- */
+
+/* 美洲 */
+.map .world_us {
+    display:none;
+}
+.map .world_us path {
+    fill: #b293627e;
+    stroke:#792221;
+    stroke-width:.5px;
+    stroke-dasharray:3,3;
+    stroke-linejoin:round;
+    cursor: pointer;
+}
+
+.map .world_us path:hover {
+    fill: #792221;
+}
+
+.map .world_us{
+    /* display: none; */
+    -webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 80%);
+    }
+
+    .world_us svg{
+        margin-top:-100px;
+        width:600px; 
+        height:900px;
+        }
+
+/* 手機 */
+@media (max-width: 990px) {
+    .map .world_us svg{
+    width:525px; 
+    height:725px;
+}
+}
+
+/* 歐洲 */
+.map .world_eu path {
+    fill: #b293627e;
+    stroke:#792221;
+    stroke-width:.25px;
+    stroke-dasharray:1,1;
+    stroke-linejoin:round;
+    cursor: pointer;
+}
+
+.map .world_eu path:hover {
+    fill: #792221;
+}
+
+.map .world_eu{
+    /* display: none; */
+    -webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 80%);
+    }
+
+    .map .world_eu svg{
+        margin-top:-180px;
+        width:600px; 
+        height:900px;
+        }
+
+/* 手機 */
+@media (max-width: 990px) {
+    .map .world_us svg{
+    width:525px; 
+    height:725px;
+}
+}
+
+/* --------------------------------------- */
+/* 3.各大洲 */
+.map .container .row:nth-of-type(3){
+    z-index: 20;
+    max-width:1000px;
+}
+
+/* 標題 */
+.map_title{
+    top: -300px;
+    left:50%;
+    transform: translateX(-50%);
+    color:var(--red);
+    font-size:4rem;
+    font-weight: bold;
+    letter-spacing: .5rem;
+    font-family: 'Noto Serif TC', serif;
+    white-space: nowrap;
+}
+/* 標題-英文字 */
+.map_title span{
+    color:black;
+    font-size:3rem;
+    letter-spacing: .1rem;
+    opacity:.5;
+    padding-top:7.5px;
+}
+/* 手機版 */
+@media (max-width: 990px) {
+    .map_title{
+        top: -275px;
+    }
+    }
+
+/* balloon */
+.map .balloon{
+    width:105px;
+    left:10%;
+    top:-700px;
+}
+@media (max-width: 990px) {
+    .map .balloon{
+    width:80px;
+    top:-700px;
+    left:5%
+        
+    }
+    }
+
+  
+/* return */
+.map .pipi_plane{
+    width:100px;
+    right:11%;
+    top:-400px;
+    }
+
+    .map .pipi_plane .return-text{
+    margin-top:3px;
+    color:var(--red);
+    font-size:1.6rem;
+    line-height: 1.25;
+    white-space: nowrap;
+    cursor: pointer;
+}
+/* 手機 */
+@media (max-width: 990px) {
+    .map  .pipi_plane{
+        width:75px;
+            right:7%;
+            top:-450px;
+        }
+        .map  .pipi_plane .return-text{
+            font-size:1.4rem;
+        }
+    }
+
+/* 各個國家選項 */
+.map .countries {
+    /* display: none; */
+    width:1000px;
+    left:50%;
+    top:-200px;
+    transform:translateX(-50%);
+}
+
+
+@media (max-width: 600px) {
+    .map .countries {
+        top:-200px;
+        width:375px;
+       
+        }
+    }
+
+
+/* 箭頭 */
+.map .arrow-left, .arrow-right{
+width:50px;
+height:50px;
+transition: .3s;
+}
+
+.map .arrow-left{
+    background: url(../../images/map/SVG/arrow_left-hover-red.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.map .arrow-right{
+    background: url(../../images/map/SVG/arrow_right-hover-red.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.map .arrow-left:hover{
+    background: url(../../images/map/SVG/arrow_left-hover-red.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translateX(-3px) scale(1.4);
+}
+.map .arrow-right:hover{
+    background: url(../../images/map/SVG/arrow_right-hover-red.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translateX(3px) scale(1.4);
+}
+
+/* 手機版 */
+@media (max-width: 990px) {
+    .map .arrow-left, .arrow-right{
+       width:32.5px;
+        height:32.5px;
+        transition: .3s;
+        }
+
+        .map .arrow-left:hover{
+         transform: translateX(-5px) scale(1.2);
+        }
+        
+        .map .arrow-right:hover{
+        transform: translateX(5px) scale(1.2);
+        }
+}
+
+/* 郵票 */
+.map .country{
+    width:200px;
+    height:160px;
+    margin-left: 15px;
+    margin-right: 15px;
+    transition: .3s;
+    padding: 13px;
+    background: white;
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.5));
+    background: radial-gradient(
+        transparent 0px,transparent 6px,white 6px,white);
+    background-size: 20px 20px;
+    background-position: center;
+}
+
+.map .country img{
+    object-fit: cover;
+    object-position: center;
+    width:100%;
+    height: 100%;
+}
+
+.map .country:hover{
+    transform: scale(1.25);
+}
+
+/* 手機版 */
+@media (max-width: 990px) {
+    .map .country{
+        width:80px;
+        height:80px;
+        margin-left: 1.5%;
+        margin-right: 1.5%;
+        padding: 10px;
+        background: white;
+        background: radial-gradient(
+            transparent 0px,transparent 4px,white 4px,white);
+        background-size:13px 13px;
+        background-position: center;
+    }
+}
+
+/* --------------------------------------- */
+/* 4.四大洲選項-手機版才有 */
+.map .container>.row:nth-of-type(4){
+    display: none;
+}
+
+.map .container>.row:nth-of-type(4){
+    z-index: 990;
+    color:var(--red);
+    min-width: 350px;
+    max-width: 500px;
+    margin-top:-160px;
+    margin-bottom: 160px;
+}
+.map .parts .part{
+    white-space: nowrap;
+    max-width: 80px;
+    transition: .3s;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 1.8rem;
+    letter-spacing: .5rem;
+}
+ /*動畫：飛機飛到地區中心點 */
+.map .parts .part:hover{
+    color:transparent;
+    /* transform: translateX(0) translateY(-100%) scale(.25); */
+    }
+    
+    .map .parts .part:nth-of-type(2):hover{
+        color:transparent;
+        /* transform: translateX(0) translateY(-100%) scale(.25); */
+        }
+    .map .parts .part:nth-of-type(3):hover{
+        color:transparent;
+        /* transform: translateX(0) translateY(-100%) scale(.25); */
+        }
+    .map .parts .part:nth-of-type(4):hover{
+        color:transparent;
+        /* transform: translateX(0) translateY(-50%) scale(.25); */
+        }
+
+/* 桌機版時隱藏 */
+@media (min-width: 991px) {
+    .map .container>.row:nth-of-type(4){
+        display: none;
+        }
+}
+/* --------------------------------------- */
+/* pupup */
+/* 背景 */
+.map .bg-black{
+z-index:990;
+width: 100%;
+height:100vh;
+position: fixed;
+top:0;
+background-color: rgba(0, 0, 0, 0.6);
+}
+/*明信片 */
+.map .card{
+    width: 70%;
+    height:70vh;
+    background-color: blanchedalmond;
+    margin:auto;
+    padding:25px;
+    color:var(--red);
+}
+
+
+/* 1.關閉按鈕 */
+.map .card .row:nth-of-type(1){
+font-size: 30px;
+}
+/* ---------------------- */
+/* 2.國家名 */
+.map .card .row:nth-of-type(2){
+font-family: 'Noto Serif TC', serif;
+font-size: 3.5rem;
+font-weight: bold;
+}
+/* ---------------------- */
+/* 3.代理廠牌 */
+.map .card .row:nth-of-type(3){
+
+}
+/* ---------------------- */
+/* 4.介紹文字 */
+.map .card .row:nth-of-type(4){
+    font-size: 1.4rem;
+color:#555;
+max-width:400px;
+line-height:1.5;
+font-weight:400;
+}
+/* ---------------------- */
+/* 5.搭配酒杯 */
+.map .card .row:nth-of-type(5){
+
+}
+.map .title{
+    margin: auto;
+    position: relative;
+}
+/* title-line */
+.map  .title:before {
+    /* content: '';
+    display: block;
+    position: absolute;
+    background-color: var(--red); */
+    /* width:30px; */
+    /* max-width: 545px;
+    height:1px;
+    left: 1px;
+    bottom: 46%; */
+   }
+   
+   .map .title:after {
+       /* content: '';
+       display: block;
+       position: absolute;
+       background-color: var(--red); */
+       /* width:300px; */
+       /* max-width:545px;
+       height:1px;
+       right:1px;
+       bottom: 46%; */
+      }
+
+      /* 手機版 */
+   @media (max-width: 992px) {
+    .map .title:before {
+        /* width:30vw;
+        left: 120px; */
+    }
+   
+    .map .title:after {
+       /* width:30vw;
+       right: 120px; */
+   }
+    }
+/* title-content */
+.map .title p {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    position: relative;
+    width: fit-content;
+}
+.map .title p:before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/map/SVG/ear-l-red.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+}
+.map .title p:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/map/SVG/ear-r-red.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -30%;
+    bottom: 23%;
+}
+
+/* ----------------------- */
+.map .cup{
+
+}
+
+.map .cup-img, .beer-img{
+    width:80px;
+    height:80px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.map .cup-img img,.beer-img img{
+    width:85%;
+    height: 85%;
+    object-fit: contain;
+    margin: auto;
+}
+
+.map .cup-name{
+    background-color: rgba(0, 0, 0, 0.5);
+    color:white;
+    font-size:1.2rem;
+    text-align: center;
+    line-height: 1.5;
+    height:50%;
+    width:100%;
+    top:50%;
+    transform: translateY(-50%);
+    transition: .3s;
+    opacity: 0;
+}
+
+/* hover出現品名 */
+.map .cup-name:hover{
+    background-color: rgba(0, 0, 0, 0.5);
+    color:white;
+    font-size:1.2rem;
+    text-align: center;
+    line-height: 1.5;
+    height:50%;
+    width:100%;
+    top:50%;
+    transform: translateY(-50%);
+    opacity: 1;
+}
+
+.map .know-more{
+    transform: scale(.75);
+    margin:auto;
+    cursor: pointer;
+}
+.map .know-more:hover{
+    transform: scale(.85);
+}
+
+.map .know-more::before{
+    background: url(../../images/map/SVG/ear-l-red.svg) 0 0 no-repeat;
+    
+}
+.map .know-more::after{
+    background: url(../../images/map/SVG/ear-r-red.svg) 0 0 no-repeat;
+    
+}
+/* ---------------------- */
+/* 6.搭配啤酒 */
+.map .card .row:nth-of-type(6){
+
+}
+/* ---------------------- */
+/* 7.按鈕 */
+.map .card .row:nth-of-type(7){
+
+}
+/* ---------------------- */
+/* 8.stamp */
+.map .card .row:nth-of-type(8){
+
+}
+/* ---------------------- */
+
+
+
+
+
+
+
+
+
