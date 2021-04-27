@@ -31,7 +31,7 @@ $total_merch =  $pdo->query($merch_SQL)->fetchAll();
     <div class="category-title">
         <p>商品分類</p>
     </div>
-    <div class="category">
+    <div class="category d-flex flex-column justify-content-around">
         <div class="category-item category-1 hot-beer">
             <div class="category-out-item selectHotitem">
                 <div class="category-name0 d-flex justify-content-between">
@@ -133,5 +133,5 @@ $total_merch =  $pdo->query($merch_SQL)->fetchAll();
         </div>
     </div>
 
-    <div class="menu-logo"></div>
+    <div class="menu-logo-wrap"><a href=""><div class="menu-logo"><img src="/BeerU/images/logo/logo_beeru_white.svg" alt=""></div></a></div>
 </div>
