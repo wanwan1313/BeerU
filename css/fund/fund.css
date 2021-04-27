@@ -34,12 +34,14 @@
     }
     
     .img-demo img {
+        cursor: pointer;
         width: 100%;
         height: 100%;
         object-fit: contain;
     }
     
     .img-wrap img {
+        cursor: pointer;
         width: 90%;
     }
 }
@@ -73,7 +75,7 @@
         margin-top: 5%;
 }
 
-    .fund h3 {
+ .fund h3 {
         /* width: fit-content; */
         font-family: 'Noto Serif TC', serif;
         font-size: 2.4rem;
@@ -228,26 +230,25 @@
 
 /* 募資目標 */
 .fund .goal {
-    font-family: 'Noto San TC';
+    font-family: 'Noto Sans TC', sans-serif;
     margin-top: 5%;
-    color: var(--blue);
 }
 
 .fund .goal .current-value h3 {
     font-family:'Noto San TC';
-    font-size: 3.0rem;
+    font-size: 2.0rem;
 
 }
 
 .fund .goal .goal-value p {
     font-family:'Noto San TC';
-    font-size: 1.8rem;
+    font-size: 1.7rem;
 
 }
 
 .fund .goal .goal-value .goal-title {
     font-family:'Noto Serif TC', serif;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
 
 }
 
@@ -619,9 +620,7 @@
 /* 桌機版 */
 @media (min-width: 992px) {
     /* 分頁籤 */
-    .tabs {
-        /* max-width: 538px; */
-      }
+   
       .tabs-nav li {
         float: left;
         width: 50%;
@@ -698,6 +697,7 @@
     .card {
         /* display: inline-block; */
         /* width: 100%; */
+        border: 2px solid #fff;
         max-width: 80rem;
         margin: 5%;
         font-size: 2.4rem;
@@ -710,6 +710,7 @@
     .card:hover {
         transform: translateY(-0.5rem) scale(1.0125);
         box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
+        border: 2px solid var(--red);
     }
     
     .card-description {
