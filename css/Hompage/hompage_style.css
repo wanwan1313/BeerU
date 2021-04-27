@@ -15,7 +15,7 @@ body,html{
 
 #LandingPage{
 
-    background-image: url('../images/common/BG-texture\ v1.jpg');
+    background-image: url('../../images/common/BG-texture\ v1.jpg');
     height:calc(100vh - 85px);
     overflow: hidden;
     
@@ -67,7 +67,7 @@ body,html{
     
     margin: 0 auto;
     width: 380px;
-    background-image: url('../images/common/door-2.png');
+    background-image: url('../../images/common/door-2.png');
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -175,7 +175,7 @@ body,html{
       justify-content: space-between;
       width: 100%;
       height: calc(100vh - 85px);
-      background: url("../images/common/Homepage_background.png") center center no-repeat;
+      background: url("../../images/common/Homepage_background.png") center center no-repeat;
       background-size: contain;
      
   }
@@ -209,7 +209,7 @@ body,html{
 .flag_L{
     height: 0;
     background-size: cover;
-    background-image: url('../images/common/flag_L_V3.png'
+    background-image: url('../../images/common/flag_L_V3.png'
     );
     padding-top: 21.84%;
   
@@ -217,7 +217,7 @@ body,html{
 .flag_R{
     height: 0;
     background-size: cover;
-    background-image: url('../images/common/flag_R_V3.png'
+    background-image: url('../../images/common/flag_R_V3.png'
     );
     padding-top: 21.84%;
 }
@@ -311,7 +311,7 @@ body,html{
 }
     /* 圈圈圖案 */
 .Brew-school-title { 
-    background: url(../images/common/h1_5_w.svg) no-repeat center center;
+    background: url(../../images/common/h1_5_w.svg) no-repeat center center;
     background-size: contain;
 
 }
@@ -339,7 +339,7 @@ body,html{
     transform: translate(-115%, -50%);
     width: 150px;
     height: 50%;
-    background: url(../images/common/h1_ear_left.svg) no-repeat center center;
+    background: url(../../images/common/h1_ear_left.svg) no-repeat center center;
     background-size: contain;
 
 }
@@ -355,7 +355,7 @@ body,html{
     transform: translate(115%, -50%);
     width: 150px;
     height: 50%;
-    background: url(../images/common/h1_ear_right.svg) no-repeat center center;
+    background: url(../../images/common/h1_ear_right.svg) no-repeat center center;
     background-size: contain;
 
 }
@@ -517,7 +517,7 @@ body,html{
 
 .type-forward{
     
-    background-image: url("../images/common/arrow_left.svg");
+    background-image: url("../../images/common/arrow_left.svg");
     width: 80px;
     height: 50px;
     background-repeat: no-repeat;
@@ -568,7 +568,7 @@ body,html{
     display: block;
     width: 30px;
     height: 30px;
-    background: url('../images/common/dot-1.svg')
+    background: url('../../images/common/dot-1.svg')
 
 }
 
@@ -592,7 +592,7 @@ body,html{
 
 
 .type-backward{
-    background-image: url("../images/common/arrow_right.svg");
+    background-image: url("../../images/common/arrow_right.svg");
     width: 80px;
     height: 50px;
     background-repeat: no-repeat;
@@ -634,7 +634,7 @@ body,html{
 
     /* 圈圈圖案 */
 .BeerU-colllection-title{ 
-    background: url(../images/common/h1_4_w.svg) no-repeat center center;
+    background: url(../../images/common/h1_4_w.svg) no-repeat center center;
     background-size: contain;
 
 }
@@ -662,7 +662,7 @@ body,html{
     transform: translate(-115%, -50%);
     width: 150px;
     height: 50%;
-    background: url(../images/common/h1_ear_left.svg) no-repeat center center;
+    background: url(../../images/common/h1_ear_left.svg) no-repeat center center;
     background-size: contain;
 
 }
@@ -678,7 +678,7 @@ body,html{
     transform: translate(115%, -50%);
     width: 150px;
     height: 50%;
-    background: url(../images/common/h1_ear_right.svg) no-repeat center center;
+    background: url(../../images/common/h1_ear_right.svg) no-repeat center center;
     background-size: contain;
 
 }
@@ -774,24 +774,24 @@ body,html{
 
 
 .feature01{
-    background-image: url('../images/Links/feature01.jpg') ;
+    background-image: url('../../images/Links/feature01.jpg') ;
     background-size: cover;
     background-repeat: no-repeat;
 }
 .feature02{
     
-    background-image: url('../images/Links/feature02.jpg') ;
+    background-image: url('../../images/Links/feature02.jpg') ;
     background-size: cover;
     background-repeat: no-repeat;
 }
 .feature03{
-    background-image: url('../images/Links/feature03.jpg') ;
+    background-image: url('../../images/Links/feature03.jpg') ;
     background-size: cover;
     background-repeat: no-repeat;
   
 }
 .feature04{
-    background-image: url('../images/Links/feature04.jpg') ;
+    background-image: url('../../images/Links/feature04.jpg') ;
     background-size: cover;
     background-repeat: no-repeat;
 } 
@@ -830,7 +830,7 @@ body,html{
 
 /* 圈圈圖案 */
 .BeerU-legend-title{ 
-    background: url(../images/common/h1_4_w.svg) no-repeat center center;
+    background: url(../../images/common/h1_4_w.svg) no-repeat center center;
     background-size: contain;
 
 }
@@ -858,7 +858,7 @@ body,html{
     transform: translate(-115%, -50%);
     width: 150px;
     height: 50%;
-    background: url(../images/common/h1_ear_left.svg) no-repeat center center;
+    background: url(../../images/common/h1_ear_left.svg) no-repeat center center;
     background-size: contain;
 
 }
@@ -874,7 +874,7 @@ body,html{
     transform: translate(115%, -50%);
     width: 150px;
     height: 50%;
-    background: url(../images/common/h1_ear_right.svg) no-repeat center center;
+    background: url(../../images/common/h1_ear_right.svg) no-repeat center center;
     background-size: contain;
 
 }
@@ -954,7 +954,7 @@ body,html{
 }
 .clouds{
     height: 400px;
-    background-image: url("../images/common/clouds.svg");
+    background-image: url("../../images/common/clouds.svg");
     background-repeat: no-repeat;
     background-position:center;
 }
