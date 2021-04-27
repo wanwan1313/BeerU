@@ -1,0 +1,46 @@
+/* 桌機版 */
+@media (min-width: 992px) {
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+}
+
+
+/* 白底container */
+.fund.container {
+    padding-top:1% ;
+    padding-bottom:5% ;
+    max-width: 1300px;
+    background-color: #fff;
+}
+
+
+/* 字體 */
+.fund h3 {
+    color: var(--blue);
+}
+
+.fund p {
+    color: var(--blue);
+}
+
+.fund.container {
+    margin-bottom: 5px;
+}
+
+
+/*------------ 上方簡介 ------------ */
+/* 桌機版 */
+@media (min-width: 992px) {
+
+/* 圖片 */
+.img-demo-wrap {
+    width: 100%;
+}
+
+.product-intro {
+height: auto;
+
+}
+}
