@@ -1,0 +1,33 @@
+.LogIn-Out{
+    position: fixed;
+    height:calc(100vh - 85px);
+    
+    width: 100%;
+    
+     /* background-color: red; */
+   
+    
+}
+   
+.log-sandbox{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:calc(100vh - 85px); 
+    width: 100%;
+   
+}
+   
+.log-box{
+    border:solid 3px var(--gold);
+    width: 700px;
+    height: 500px;
+    border-radius: 15px;
+    margin-top: -80px;
+    background-color: white;
+    box-shadow: 0 0 0 1920px rgba(0, 0, 0, .5);
+   
+    
+   
+}
