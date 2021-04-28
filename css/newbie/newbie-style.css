@@ -196,7 +196,6 @@ body{
     position: relative;
     width: fit-content;
     transition: .5s;
-    right: -20px;
 }
 
 
@@ -253,15 +252,10 @@ body{
     opacity: 0;
 }
 
-/* 手機版 */
-@media (max-width: 991px) {
-    .newbie-wrap .know-more{
-        right: 0;
-    }
-}
 
 /* ------------------- 啤酒百科介紹 ------------------- */
     .knowledge-wrap{
+        padding-top: 100px;
         height: 80vh;
         position: relative;
     }
@@ -289,6 +283,9 @@ body{
     }
 
     @media (max-width: 991px) {
+    .knowledge-wrap{
+        padding-top: 0;
+    }
     .knowledge-wrap .hop-bg{
         width: 100%;
         margin-top: 75%;
@@ -1056,3 +1053,11 @@ body{
             }
 
         }
+
+        /* 手機版 */
+@media (max-width: 991px) {
+    .newbie-wrap .know-more{
+        right: 0;
+        margin: 0;
+    }
+}
