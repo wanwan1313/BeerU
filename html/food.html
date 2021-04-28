@@ -126,6 +126,9 @@
     </section>
     <!-- food-page-2 -->
     <section class="rule-wrap">
+        <!-- return to top -->
+        <a href="javascript:" id="return-to-top"><img src="../images/common/top.svg" alt=""></a>
+
         <div class="container">
             <div class="row">
                 <div class="col-12  food-rule">
@@ -184,15 +187,19 @@
 
                 <div class="type-color d-flex ">
                     <div class="food-drop drop1">
-                        <a href="#pair-1">
-                            <img src="../images/joyce_images/drop-1.svg" alt=""></a>
+                        <div class="food-drop-img">
+                            <a href="#pair-1">
+                                <img src="../images/joyce_images/drop-1.svg" alt=""></a>
+                        </div>
                         <div class="food-drop-name">
                             <p>白啤酒<br>Witbier</p>
                         </div>
                     </div>
                     <div class="food-drop drop2">
-                        <a href="#pair-2">
-                            <img src="../images/joyce_images/drop-2.svg" alt=""></a>
+                        <div class="food-drop-img">
+                            <a href="#pair-2">
+                                <img src="../images/joyce_images/drop-2.svg" alt=""></a>
+                        </div>
                         <div class="food-drop-name">
                             <p>淡色拉格<br>
                                 <span class="font-s">Pale Lager</span>
@@ -200,22 +207,28 @@
                         </div>
                     </div>
                     <div class="food-drop drop3">
-                        <a href="#pair-3">
-                            <img src="../images/joyce_images/drop-3.svg" alt=""></a>
+                        <div class="food-drop-img">
+                            <a href="#pair-3">
+                                <img src="../images/joyce_images/drop-3.svg" alt=""></a>
+                        </div>
                         <div class="food-drop-name">
-                            <p>印度淡艾爾<br>IPA</p>
+                            <p>印度<br>淡艾爾<br>IPA</p>
                         </div>
                     </div>
                     <div class="food-drop drop4">
-                        <a href="#pair-4">
-                            <img src="../images/joyce_images/drop-4.svg" alt=""></a>
+                        <div class="food-drop-img">
+                            <a href="#pair-4">
+                                <img src="../images/joyce_images/drop-4.svg" alt=""></a>
+                        </div>
                         <div class="food-drop-name">
                             <p>皮爾森<br>Pilsner</p>
                         </div>
                     </div>
                     <div class="food-drop drop5">
-                        <a href="#pair-5">
-                            <img src="../images/joyce_images/drop-5.svg" alt=""></a>
+                        <div class="food-drop-img">
+                            <a href="#pair-5">
+                                <img src="../images/joyce_images/drop-5.svg" alt=""></a>
+                        </div>
                         <div class="food-drop-name">
                             <p>小麥啤酒
                                 <br>Weizen
@@ -223,8 +236,10 @@
                         </div>
                     </div>
                     <div class="food-drop drop6">
-                        <a href="#pair-6">
-                            <img src="../images/joyce_images/drop-6.svg" alt=""></a>
+                        <div class="food-drop-img">
+                            <a href="#pair-6">
+                                <img src="../images/joyce_images/drop-6.svg" alt=""></a>
+                        </div>
                         <div class="food-drop-name">
                             <p>淡色艾爾
                                 <br>Pale Ale
@@ -232,22 +247,28 @@
                         </div>
                     </div>
                     <div class="food-drop drop7">
-                        <a href="#pair-7">
-                            <img src="../images/joyce_images/drop-7.svg" alt=""></a>
+                        <div class="food-drop-img">
+                            <a href="#pair-7">
+                                <img src="../images/joyce_images/drop-7.svg" alt=""></a>
+                        </div>
                         <div class="food-drop-name">
                             <p> 勃克啤酒<br>Bock</p>
                         </div>
                     </div>
                     <div class="food-drop drop8">
-                        <a href="#pair-8">
-                            <img src="../images/joyce_images/drop-8.svg" alt=""></a>
+                        <div class="food-drop-img">
+                            <a href="#pair-8">
+                                <img src="../images/joyce_images/drop-8.svg" alt=""></a>
+                        </div>
                         <div class="food-drop-name">
                             <p>波特啤酒<br>Porter</p>
                         </div>
                     </div>
                     <div class="food-drop drop9">
-                        <a href="#pair-9">
-                            <img src="../images/joyce_images/drop-9.svg" alt=""></a>
+                        <div class="food-drop-img">
+                            <a href="#pair-9">
+                                <img src="../images/joyce_images/drop-9.svg" alt=""></a>
+                        </div>
                         <div class="food-drop-name">
                             <p>司陶特<br>Stout</p>
                         </div>
@@ -1097,7 +1118,7 @@
                                 <h3>適合搭配餐點</h3>
                             </div>
                             <div class="pair-dish d-flex justify-content-between">
-                                <h4><span class="dish-type">台式 | </span>麻辣鍋、沙茶口味熱炒</h4>
+                                <h4><span class="dish-type">台式 | </span>麻辣鍋、沙茶炒麵</h4>
                                 <h4><span class="dish-type">西式 | </span>硬質乳酪</h4>
                             </div>
                         </div>
@@ -2934,6 +2955,50 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+
+
+    <!---------------------- all the animations --------------------->
+
+    <!------- Scroll to top button ------>
+    <script>
+        // 桌機版 
+        if ($(window).width() >= 992) {
+            $(window).scroll(function () {
+
+                if ($(this).scrollTop() >= 2140) {
+                    $('#return-to-top').fadeIn(200);
+                } else {
+                    $('#return-to-top').fadeIn(200);
+                }
+
+                $('#return-to-top').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 1300
+                    }, 500);
+                })
+            })
+        }
+
+
+        // 手機版 
+        if ($(window).width() < 992) {
+            $(window).scroll(function () {
+
+                if ($(this).scrollTop() >= 50) {
+                    $('#return-to-top').fadeIn(200);
+                } else {
+                    $('#return-to-top').fadeOut(200);
+                }
+
+                $('#return-to-top').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 500);
+                })
+            })
+        }
+
+    </script>
 
 
 
