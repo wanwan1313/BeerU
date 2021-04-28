@@ -70,7 +70,7 @@ if(empty($order) == false and $order == 5 ){
 // 抓資料庫的產品資料
 // 設定每頁幾筆資料, 取得總頁數, 取得現在頁數, 放入資料
 
-$page_p = 9; //每頁放9筆
+$page_p = 12; //每頁放9筆
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
 $t_SQL = "SELECT COUNT(1) FROM `products` $where ";
