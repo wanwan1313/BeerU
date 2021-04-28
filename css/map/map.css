@@ -7,6 +7,13 @@
     margin-left: 0;
     margin-right: 0;
 }
+.map li{
+    list-style: none;
+}
+.map a{
+    cursor: pointer;
+}
+
 /* --------------------------------------- */
 /* 1.大標:啤酒地圖 */
 .map .container .row:nth-of-type(1){}
@@ -395,44 +402,147 @@ top:0;
 background-color: rgba(0, 0, 0, 0.6);
 }
 /*明信片 */
-.map .card{
-    width: 70%;
-    height:70vh;
-    background-color: blanchedalmond;
+.map .map-card{
+    width: 700px;
+    height:450px;
+    background-color: rgb(244, 231, 190);
     margin:auto;
-    padding:25px;
+    padding-left:15px;
+    padding-right:15px;
+    padding-bottom:15px;
+    padding-top: 0;
     color:var(--red);
 }
 
 
+/* 手機版 */
+@media (max-width: 768px) {
+    .map .map-card{
+    width: 350px;
+    height:600px;
+    
+}
+}
 /* 1.關閉按鈕 */
-.map .card .row:nth-of-type(1){
-font-size: 30px;
+.map .map-card .card-close{
+font-size: 3rem;
+height:30px;
+}
+
+@media (max-width: 768px) {
 }
 /* ---------------------- */
-/* 2.國家名 */
-.map .card .row:nth-of-type(2){
-font-family: 'Noto Serif TC', serif;
-font-size: 3.5rem;
-font-weight: bold;
+/* deco-郵票 */
+.stamp{
+    width:125px;
+    /* height:200px; */
+    overflow: hidden;
+    top: 40px;
+    left:10px;
 }
+
+.stamp img{
+    object-fit: contain;
+}
+
+
+@media (max-width: 768px) {
+    .stamp{
+        width:85px;
+        /* height:200px; */
+        overflow: hidden;
+        top:37.5px;
+        left:10px;
+    }
+}
+/* ---------------------- */
+/* deco-郵戳 */
+.stamp_country{
+    width:80px;
+    /* height:200px; */
+    overflow: hidden;
+    top:10px;
+    left:15px;
+}
+
+@media (max-width: 768px) {
+    .stamp_country{
+        width:60px;
+        /* height:100px; */
+        overflow: hidden;
+        top:10px;
+        left:10px;
+    }
+}
+/* ---------------------- */
+
+/* 2.國家名 */
+.map .map-card .country-name{
+font-family: 'Noto Serif TC', serif;
+font-size: 5rem;
+font-weight: bold;
+margin-top: -20px;
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+    .map .map-card .country-name{
+        font-family: 'Noto Serif TC', serif;
+        font-size: 3.5rem;
+        font-weight: bold;
+        margin-top: -20px;
+        }
+}
+
 /* ---------------------- */
 /* 3.代理廠牌 */
-.map .card .row:nth-of-type(3){
+.map .map-card .beer-brand{
+    margin-top: -10px;
+}
 
+
+.map li{
+    width:30px;
+    height:30px;
+    margin-left:5px;
+    margin-right:5px;
+}
+/* ---------------------- */
+/* 分隔線 */
+.seprate-line{
+    width:20px;
+    opacity: .25;
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+    .seprate-line{
+        display:none;
+    }
 }
 /* ---------------------- */
 /* 4.介紹文字 */
-.map .card .row:nth-of-type(4){
-    font-size: 1.4rem;
+.map .map-card .beer-intro{
+    font-size: 1.6rem;
 color:#555;
-max-width:400px;
-line-height:1.5;
+width:100%;
+line-height:1.75;
 font-weight:400;
+margin:auto;
+text-align: justify;
 }
+
+/* 手機版 */
+@media (max-width: 768px) {
+    .map .map-card .beer-intro{
+        font-size: 1.4rem;
+    width:90%;
+    }
+}
+
 /* ---------------------- */
-/* 5.搭配酒杯 */
-.map .card .row:nth-of-type(5){
+/* 5.搭配酒杯 （和6推薦啤酒一起） */
+.map .map-card .cups,.map .map-card .beers{
 
 }
 .map .title{
@@ -441,45 +551,57 @@ font-weight:400;
 }
 /* title-line */
 .map  .title:before {
-    /* content: '';
+    content: '';
     display: block;
     position: absolute;
-    background-color: var(--red); */
-    /* width:30px; */
-    /* max-width: 545px;
+    background-color: var(--red);
+    width:30%;
     height:1px;
     left: 1px;
-    bottom: 46%; */
+    bottom: 50%;
    }
    
    .map .title:after {
-       /* content: '';
+       content: '';
        display: block;
        position: absolute;
-       background-color: var(--red); */
-       /* width:300px; */
-       /* max-width:545px;
+       background-color: var(--red);
+       width:30%;
        height:1px;
        right:1px;
-       bottom: 46%; */
+       bottom: 50%;
       }
 
       /* 手機版 */
-   @media (max-width: 992px) {
-    .map .title:before {
-        /* width:30vw;
-        left: 120px; */
-    }
-   
-    .map .title:after {
-       /* width:30vw;
-       right: 120px; */
-   }
+      @media (max-width: 768px) {
+        .map  .title:before {
+            content: '';
+            display: block;
+            position: absolute;
+            background-color: var(--red);
+            width:35%;
+            height:1px;
+            left: 1px;
+            bottom: 50%;
+           }
+           
+           .map .title:after {
+               content: '';
+               display: block;
+               position: absolute;
+               background-color: var(--red);
+               width:35%;
+               height:1px;
+               right:1px;
+               bottom: 50%;
+              }
+
+
     }
 /* title-content */
 .map .title p {
     font-family: 'Noto Serif TC', serif;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 600;
     position: relative;
     width: fit-content;
@@ -489,8 +611,8 @@ font-weight:400;
     display: block;
     position: absolute;
     background: url(../../images/map/SVG/ear-l-red.svg) 0 0 no-repeat;
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
     left: -25%;
     bottom: 23%;
 }
@@ -499,20 +621,25 @@ font-weight:400;
     display: block;
     position: absolute;
     background: url(../../images/map/SVG/ear-r-red.svg) 0 0 no-repeat;
-    width: 18px;
-    height: 18px;
-    right: -30%;
+    width: 15px;
+    height: 15px;
+    right: -33%;
     bottom: 23%;
 }
-
 /* ----------------------- */
-.map .cup{
+.map .cup,.map .beer{
+    transition:.3s;
+    margin-top:10px;
+}
+
+.map .cup:hover, .map .beer:hover{
+transform:scale(1.2) ;
 
 }
 
 .map .cup-img, .beer-img{
-    width:80px;
-    height:80px;
+    width:70px;
+    height:70px;
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
@@ -520,20 +647,22 @@ font-weight:400;
     margin-right:5px;
 }
 
-.map .cup-img img,.beer-img img{
+.map .cup-img img,.map .beer-img img{
     width:85%;
     height: 85%;
     object-fit: contain;
     margin: auto;
 }
 
-.map .cup-name{
-    background-color: rgba(0, 0, 0, 0.5);
+.map .cup-name, .map .beer-name{
+    background-color: rgba(0, 0, 0, 0.6);
     color:white;
+    padding-top:25px;
+    padding-bottom:25px;
     font-size:1.2rem;
     text-align: center;
-    line-height: 1.5;
-    height:50%;
+    line-height: 1.25;
+    height:100%;
     width:100%;
     top:50%;
     transform: translateY(-50%);
@@ -542,26 +671,18 @@ font-weight:400;
 }
 
 /* hover出現品名 */
-.map .cup-name:hover{
-    background-color: rgba(0, 0, 0, 0.5);
-    color:white;
-    font-size:1.2rem;
-    text-align: center;
-    line-height: 1.5;
-    height:50%;
-    width:100%;
-    top:50%;
-    transform: translateY(-50%);
+.map .cup-name:hover,.map .beer-name:hover{
     opacity: 1;
 }
 
 .map .know-more{
-    transform: scale(.75);
+    transform: scale(.5);
     margin:auto;
     cursor: pointer;
+    margin-top:-5px;
 }
 .map .know-more:hover{
-    transform: scale(.85);
+    transform: scale(.5);
 }
 
 .map .know-more::before{
@@ -580,6 +701,9 @@ font-weight:400;
 /* ---------------------- */
 /* 7.按鈕 */
 .map .card .row:nth-of-type(7){
+
+}
+.map .botton{
 
 }
 /* ---------------------- */

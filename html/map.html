@@ -1029,89 +1029,143 @@
         <!-- popup -->
         <div class="comtainer-fulid popup align-items-center">
             <div class="row bg-black">
-                <div class="card align-items-center">
+                <div class="map-card align-items-center position-relative">
                     <!-- 1.關閉按鈕 -->
-                    <div class="row card-close">
-                        <i class="fas fa-times-circle"></i>
+                    <div class="row card-close justify-content-end ">
+                        <a href=""><i class="fas fa-times-circle"></i></a>
                     </div>
-                    <!-- 2.國家名 -->
-                    <div class="row country-name mb-3">美國</div>
-                    <!-- 3.代理廠牌 -->
-                    <div class="row beer-brand mb-3"><img src="../images/map/SVG/us-brand.svg" alt=""></div>
-                    <!-- 4.介紹文字 -->
-                    <div class="row beer-intro mb-5">介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字</div>
-                    <!-- 5.搭配酒杯 -->
-                    <div class="col cups mb-3 w-100 align-items-center justify-content-center">
-                        <div class="row title ">
-                            <p>搭配酒杯</p>
-                        </div>
-                        <div class="row">
-                            <div class="cup">
-                                <div class="cup-img d-flex position-relative"><img
-                                        src="../images/map/beer_glass_Foot.png" alt="">
-                                    <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
-                                </div>
-                                <div class='know-more'>
-                                    <a href="">了解更多</a>
-                                </div>
-                            </div>
-                            <div class="cup">
-                                <div class="cup-img d-flex position-relative"><img
-                                        src="../images/map/beer_glass_Foot.png" alt="">
-                                    <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
-                                </div>
-                                <div class='know-more'>
-                                    <a href="">了解更多</a>
-                                </div>
-                            </div>
-                            <div class="cup">
-                                <div class="cup-img d-flex position-relative"><img
-                                        src="../images/map/beer_glass_Foot.png" alt="">
-                                    <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
-                                </div>
-                                <div class='know-more'>
-                                    <a href="">了解更多</a>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- deco-郵票 -->
+                    <div class="stamp_country position-absolute"><img src="../images/map/SVG/stamp_us.svg" alt=""></div>
+                    <!-- deco-郵戳 -->
+                    <div class="stamp position-absolute"><img src="../images/map/SVG/stamp.svg" alt=""></div>
 
+                    <div class="row align-items-md-center justify-content-md-around">
+                        <div class="col-md-5">
+                            <div class="row align-items-center">
+                                <!-- 2.國家名 -->
+                                <div class="row country-name justify-content-center col-md-12 mb-md-2">
+                                    <p>美國</p>
+                                </div>
+                                <!-- 3.代理廠牌 -->
+                                <div class="row beer-brand justify-content-center col-md-12 mb-3 mb-md-5">
+                                    <li><a href=""><img src="../images/brands/logo_beer_lost_coast.svg" alt=""></a></li>
+                                    <li><a href=""><img src="../images/brands/logo_beer_modern times.svg" alt=""></a>
+                                    </li>
+                                    <li><a href=""><img src="../images/brands/logo_beer_smog_city.svg" alt=""></a></li>
+                                    <li><a href=""><img src="../images/brands/logo_beer_the_bruery.svg" alt=""></a></li>
+                                    <li><a href=""><img src="../images/brands/logo_beer_topa.svg" alt=""></a></li>
+                                </div>
+                            </div>
+                            <!-- 4.介紹文字 -->
+                            <div class="row beer-intro mb-3 mx-md-1 justify-content-center">
+                                <p>介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字</p>
+                            </div>
+                        </div>
+                        <div class="seprate-line h-100">
+                            <img src="../images/map/SVG/line.svg" alt="">
+                        </div>
+                        <div class="col-md-5">
+                            <!-- 5.搭配酒杯 -->
+                            <div class="col cups mb-3 align-items-center ">
+                                <!--標題-->
+                                <div class="row title justify-content-center mb-1 mt-4">
+                                    <p>搭配酒杯</p>
+                                </div>
+                                <!--酒杯-->
+                                <div class="row flex-nowrap justify-content-around">
+                                    <div class="cup">
+                                        <a class="" href="">
+                                            <div class="cup-img d-flex position-relative"><img
+                                                    src="../images/map/beer_glass_Foot.png" alt="">
+                                                <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
+                                            </div>
+                                            <div class='know-more mx-auto'>
+                                                了解更多
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="cup">
+                                        <a href="">
+                                            <div class="cup-img d-flex position-relative"><img
+                                                    src="../images/map/beer_glass_Foot.png" alt="">
+                                                <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
+                                            </div>
+                                            <div class='know-more'>
+                                                了解更多
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="cup">
+                                        <a href="">
+                                            <div class="cup-img d-flex position-relative"><img
+                                                    src="../images/map/beer_glass_Foot.png" alt="">
+                                                <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
+                                            </div>
+                                            <div class='know-more'>
+                                                了解更多
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 6.搭配啤酒 -->
+                            <div class="col beers align-items-center justify-content-center mb-5">
+                                <!-- 標題 -->
+                                <div class="row title justify-content-center mb-1 mt-4">
+                                    <p>推薦啤酒</p>
+                                </div>
+                                <!-- 啤酒 -->
+                                <div class="row flex-nowrap justify-content-around">
+                                    <div class="beer">
+                                        <a href="">
+                                            <div class="beer-img d-flex position-relative"><img
+                                                    src="../images/products/Heart of Darkness-01.png" alt="">
+                                                <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
+                                            </div>
+                                            <div class='know-more'>
+                                                了解更多
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="beer">
+                                        <a href="">
+                                            <div class="beer-img d-flex position-relative"><img
+                                                    src="../images/products/Heart of Darkness-01.png" alt="">
+                                                <div class="beer-name position-absolute">英式鬱金香<br>品脫杯</div>
+                                            </div>
+                                            <div class='know-more'>
+                                                了解更多
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="beer">
+                                        <a href="">
+                                            <div class="beer-img d-flex position-relative"><img
+                                                    src="../images/products/Heart of Darkness-01.png" alt="">
+                                                <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
+                                            </div>
+                                            <div class='know-more'>
+                                                了解更多
+                                            </div>
+                                        </a>
+                                    </div>
 
-                    </div>
-                    <!-- 6.搭配啤酒 -->
-                    <div class="row beers align-items-center justify-content-center mb-3">
-                        <div class="title col-12">
-                            <p>推薦啤酒</p>
-                        </div>
-                        <div class="beer align-items-center col-3">
-                            <div class="beer-img"><img src="" alt=""></div>
-                            <div class='know-more'>
-                                <a href="">了解更多</a>
-                            </div>
-                        </div>
-                        <div class="beer align-items-center col-3">
-                            <div class="beer-img"><img src="" alt=""></div>
-                            <div class='know-more'>
-                                <a href="">了解更多</a>
-                            </div>
-                        </div>
-                        <div class="beer align-items-center col-3">
-                            <div class="beer-img"><img src="" alt=""></div>
-                            <div class='know-more'>
-                                <a href="">了解更多</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- 7.按鈕 -->
                     <div class=" row buttons justify-content-center flex-nowrap">
                         <!--加入關注-->
-                        <button class="btn_attention px-3 py-1"><i class="fas fa-plus"></i>加入關注</button>
+                        <button class="btn_attention px-3 py-1 mx-5"><i class="fas fa-plus"></i>加入關注</button>
                         <!-- 看更多商品 -->
-                        <button class="btn_attention px-3 py-1">看更多</button>
+                        <button class="btn_attention px-3 py-1 mx-5">看更多</button>
                     </div>
-                    <!-- 8.stamp -->
-                    <div class="deco">
-                        <img src="" alt="">
+                    <!-- 0.deco -->
+                    <div class="deco position-relative">
+                        <div class="stamp positive-absolute"><img src="" alt=""></div>
                     </div>
+
 
 
 
