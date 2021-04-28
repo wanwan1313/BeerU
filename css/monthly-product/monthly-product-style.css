@@ -58,7 +58,7 @@ body{
 
         /* 標題文字 */
 
-        .p-title-ch {
+        .monthly-product-wrap .p-title-ch {
             color: var(--blue);
             font-family: 'Noto Serif TC', serif;
             font-weight: bold;
@@ -69,7 +69,7 @@ body{
             margin: 0 auto;
         }
 
-        .p-title-en {
+        .monthly-product-wrap .p-title-en {
             color: var(--blue);
             font-family: 'Noto Serif TC', serif;
             font-weight: bold;
@@ -144,11 +144,11 @@ body{
 
         }
 
-        .p-title-ch
+        .monthly-product-wrap .p-title-ch
         {
             font-size: 2.6rem;
         }
-        .p-title-en{
+        .monthly-product-wrap .p-title-en{
             font-size: 1.8rem;
         }
     }
@@ -156,20 +156,20 @@ body{
         /* 手機版 改商品圖跟文字順序*/
         @media (max-width: 991px) {
 
-            .monthly-product-main{
+            .monthly-product-wrap .monthly-product-main{
                 position: absolute;
                 bottom: 0;
             }
 
-            .monthly-product-wrap .marble{
+           .monthly-product-wrap .marble{
                 background-size: 200%;
             }
 
-            .monthly-product-main{
+            .monthly-product-wrap .monthly-product-main{
                 background-position-y: bottom;
             }
 
-            .monthly-product-intro{
+            .monthly-product-wrap .monthly-product-intro{
                 display: block;
             }
         }
@@ -178,16 +178,16 @@ body{
 /* ------------------------單支產品介紹---------------------- */
 
 
-.e-product-intro-wrap {
+.may-product-info .e-product-intro-wrap {
     padding: 0;
 }
 
 /* 桌機版 */
 
-.product-intro p{
+.may-product-info .product-intro p{
     color: var(--blue);
 }
-.e-product-intro {
+.may-product-info .e-product-intro {
     width: 100%;
     height: calc(100vh - 85px);
     margin: 0;
@@ -195,7 +195,7 @@ body{
 
 /* 手機版 不做高度滿版*/
 @media (max-width: 991px) {
-.e-product-intro {
+    .may-product-info .e-product-intro {
     height: auto;
 }
 }
@@ -206,14 +206,14 @@ body{
 
 /* 桌機版 */
 @media (min-width: 992px) {
-.e-product-intro .product-pic {
+    .may-product-info .e-product-intro .product-pic {
     height: 100%;
     position: relative;
     background: url(../../images/glori_images/sakura-bg.png) no-repeat;
     background-size: cover;
 }
 
-.e-product-intro  .product-pic .pic {
+.may-product-info .e-product-intro .product-pic .pic {
     width: 100%;
     height: 65%;
 }
@@ -221,21 +221,21 @@ body{
 
 /* 手機版 */
 @media (max-width: 991px) {
-.e-product-intro .product-pic {
+    .may-product-info .e-product-intro .product-pic {
     height: 45vh;
     position: relative;
     background: url(../../images/glori_images/sakura-bg.png) no-repeat;
     background-size: cover;
 }
 
-.e-product-intro  .product-pic .pic {
+.may-product-info .e-product-intro .product-pic .pic {
     width: 100%;
     height: 70%;
     /* margin-top: 75px; */
 }
 }
 
-.e-product-intro  .product-pic .pic img {
+.may-product-info .e-product-intro  .product-pic .pic img {
     width: 100%;
     height: 100%;
     object-fit: contain;   
@@ -245,7 +245,7 @@ body{
 
 /* 桌機版 */
 @media (min-width: 992px) {
-.e-product-intro  .collect {
+    .may-product-info .e-product-intro  .collect {
     position: absolute;
     top: 17%;
     right: 10%;
@@ -254,7 +254,7 @@ body{
 
 /* 手機版 */
 @media (max-width: 991px) {
-.e-product-intro  .collect {
+    .may-product-info .e-product-intro  .collect {
     position: absolute;
     bottom: 30px;
     right: 15px;
@@ -279,7 +279,7 @@ body{
  .btn_collect2{
     border: 1px solid var(--red);
     letter-spacing: 0rem;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     }
 }
 
@@ -309,8 +309,6 @@ body{
     background-color: #fff;
     color: var(--red);
 }
-
-
 
 
 /* --------------------產品介紹------------------- */
@@ -647,13 +645,15 @@ fill: var(--blue);
 /* 桌機版 */
 .spring-product-wrap{
    width: 100%;
+   margin-bottom: 5%;
 }
 
 .spring-product-wrap .circle-wrap{
-    position: relative;
+    /* position: relative; */
     width: 100%;
+    height: 300px;
 }
-.spring-product-wrap .circle{
+/* .spring-product-wrap .circle{
     position: absolute;
     z-index: -99;
     width: 120px;
@@ -662,6 +662,12 @@ fill: var(--blue);
     border-radius: 50%;
     top: -40px;
     right: 80px;
+} */
+
+.spring-product-wrap .circle-wrap img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 /* 手機版 */
@@ -710,6 +716,16 @@ fill: var(--blue);
         font-size: 1.6rem;
         letter-spacing: 0rem;
     }
+
+    .spring-product-wrap .left-spring{
+        display: block;
+    }
+
+    .spring-product-wrap .title{
+        margin-top: 100px;
+    }
+
+
 }
 .spring-product-wrap .right-intro{
     display: flex;
@@ -788,6 +804,11 @@ text-align: center;
     bottom: 23%;
     opacity: 0;
 }
+
+@media (max-width: 991px) {
+    .spring-product-wrap .collect{
+        margin-top: 10px;
+    }}
 
 
 
