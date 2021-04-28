@@ -315,21 +315,21 @@ body{
 
 /* --------------------產品介紹------------------- */
 
-.sakura{
+.may-product-info .sakura{
     width: 100%;
     position: absolute;
     z-index: 999;
 }
-.product-info{
+.may-product-info{
     position: relative;
     /* background-color: #fff; */
 }
 
-.e-product-intro .product-intro {
+.may-product-info .e-product-intro .product-intro {
     position: relative; 
 }
 
-.e-product-intro{
+.may-product-info .e-product-intro{
     width: 100%;
     background: url(../../images/glori_images/sakura-bg.png) no-repeat center center;
     background-attachment: fixed;
@@ -337,7 +337,7 @@ body{
 
 /* 桌機版 */
 @media (min-width: 992px) {
-.e-product-intro .intro-content {
+    .may-product-info .e-product-intro .intro-content {
     width: 100%;
     max-width: 480px;
     margin: 0 auto;
@@ -346,7 +346,7 @@ body{
 
 /* 手機版 */
 @media (max-width: 991px) {
-.e-product-intro .intro-content {
+    .may-product-info .e-product-intro .intro-content {
     width: 95%;
     margin: 0 auto;
     padding: 20px;
@@ -359,7 +359,7 @@ body{
 
 /* 桌機版 */
 @media (min-width: 992px) {
-.e-product-intro .pro-name {
+    .may-product-info .e-product-intro .pro-name {
     width: fit-content;
     font-family: 'Noto Serif TC', serif;
     font-size: 2.6rem;
@@ -367,17 +367,17 @@ body{
     line-height: 3.6rem;
 }
 
-.e-product-intro .pro-name>p:nth-of-type(1) {
+.may-product-info .e-product-intro .pro-name>p:nth-of-type(1) {
     margin-top: 10px;
 }
 
-.e-product-intro .pro-name>p:nth-of-type(2) {
+.may-product-info .e-product-intro .pro-name>p:nth-of-type(2) {
     font-size: 1.8rem;
     color: var(--gold);
 }
 
 /* 國旗 */
-.e-product-intro .c-pic {
+.may-product-info .e-product-intro .c-pic {
     width: 27px;
     height: 27px;
     margin-left: 8px;
@@ -388,7 +388,7 @@ body{
 
 /* 手機版 */
 @media (max-width: 991px) {
-.e-product-intro .pro-name, .e-product-intro .pro-name-m {
+.may-product-info .e-product-intro .pro-name, .e-product-intro .pro-name-m {
     width: fit-content;
     font-family: 'Noto Serif TC', serif;
     font-size: 2.4rem;
@@ -396,26 +396,26 @@ body{
     line-height: 3.6rem;
 }
 
-.e-product-intro .pro-name-m {
+.may-product-info .e-product-intro .pro-name-m {
     width: 75%;
     position: absolute;
     top: 20px;
 }
 
-.e-product-intro .c-name-m {
+.may-product-info .e-product-intro .c-name-m {
     font-size: 2.2rem;
     line-height: 2.5rem;
     color: var(--blue);
 }
 
-.e-product-intro .e-name-m {
+.may-product-info .e-product-intro .e-name-m {
     font-size: 1.5rem;
     line-height: 2.2rem;
     color: var(--gold);
 }
 
 /* 國旗 */
-.e-product-intro .c-pic {
+.may-product-info .e-product-intro .c-pic {
     width: 22px;
     height: 22px;
     margin-left: 8px;
@@ -425,7 +425,7 @@ body{
 }
 
 /* 產品介紹 */
-.e-product-intro .intro-text {
+.may-product-info .e-product-intro .intro-text {
     margin: 5% 0;
     width: 90%;
     font-size: 1.7rem;
@@ -434,7 +434,7 @@ body{
 
 /* 手機版 */
 @media (max-width: 991px) {
-.e-product-intro .intro-text {
+    .may-product-info .e-product-intro .intro-text {
     margin: 8px 0 12px;
     width: 100%;
     font-size: 1.6rem;
@@ -444,17 +444,17 @@ body{
 }
 
 /* 購買數量 */
-.e-product-intro .p-buy {
+.may-product-info .e-product-intro .p-buy {
     width: 100%;
     max-width: 300px;
 }
 
-.e-product-intro .quantity {
+.may-product-info .e-product-intro .quantity {
     border: 1px solid var(--blue);
     padding: 0 15% ;
 }
 
-.e-product-intro .buy-number {
+.may-product-info .e-product-intro .buy-number {
     font-size: 1.8rem;
     font-weight: 600;
     width: 50px;
@@ -465,7 +465,7 @@ body{
     outline: none;
 }
 
-.e-product-intro .minus, .e-product-intro .plus {
+.may-product-info .e-product-intro .minus, .e-product-intro .plus {
     color: var(--blue);
     cursor: pointer;
     transition: .3s;
@@ -477,7 +477,7 @@ body{
 
 
 /* 商品價格 */
-.e-product-intro .p-price {
+.may-product-info .e-product-intro .p-price {
     border: 1px solid var(--blue);
     color: var(--blue);
     background-color: #fff;
@@ -485,12 +485,12 @@ body{
     font-size: 2rem; 
     font-weight: 600;   
 }
-.e-product-intro .p-price span {
+.may-product-info .e-product-intro .p-price span {
     font-size: 1.6rem;
 }
 
 /* 加入購物車按鈕 */
-.e-product-intro .add-cart {
+.may-product-info .e-product-intro .add-cart {
     background-color: var(--blue);
     border: 1px solid var(--blue);
     color: #fff;
@@ -503,17 +503,17 @@ body{
 
 /* 手機版 */
 @media (max-width: 991px) {
-.e-product-intro .add-cart {
+    .may-product-info .e-product-intro .add-cart {
     background-color: var(--gold);
 }
 
 }
-.e-product-intro .add-cart i {
+.may-product-info .e-product-intro .add-cart i {
     margin-right: 8px;
 }
 
 
-.e-product-intro .add-cart:hover {
+.may-product-info .e-product-intro .add-cart:hover {
     background-color: var(--gold);
 }
 
@@ -523,29 +523,29 @@ body{
 
 /* 桌機版 */
 @media (min-width: 992px) {
-.e-product-intro .product-key {
+    .may-product-info .e-product-intro .product-key {
     margin-top: 5%;
     text-align: center;
 }
 
-.e-product-intro .key-content {
+.may-product-info .e-product-intro .key-content {
     margin-right: 20px;
 }
 
-.e-product-intro .title {
+.may-product-info .e-product-intro .title {
     width:80px ;
     background: url(../../images/common/h1_2_b.svg) no-repeat center center;
     background-size: contain;
     margin: 0 auto;
 }
-.e-product-intro .title-4 {
+.may-product-info .e-product-intro .title-4 {
     width:140px ;
     background: url(../../images/common/h1_4_b.svg) no-repeat center center;
     background-size: contain;
     margin: 0 auto;
 }
 
-.e-product-intro .title p, .title-4 p {
+.may-product-info .e-product-intro .title p, .title-4 p {
     font-family: 'Noto Serif TC', serif;
     font-size: 2rem;
     font-weight: 700;
@@ -556,37 +556,37 @@ body{
     margin: 0 auto;
 }
 
-.e-product-intro .title-4 p {
+.may-product-info .e-product-intro .title-4 p {
     letter-spacing: 0.8rem;
 }
 }
 
 /* 手機版 */
 @media (max-width: 991px) {
-.e-product-intro .product-key {
+    .may-product-info .e-product-intro .product-key {
     margin-top: 5%;
     text-align: center;
 }
 
-.e-product-intro .key-content {
+.may-product-info .e-product-intro .key-content {
     margin-right: 10px;
     margin-top: 10px;
 }
 
-.e-product-intro .title {
+.may-product-info .e-product-intro .title {
     width:60px ;
     background: url(../../images/common/h1_2_b.svg) no-repeat center center;
     background-size: contain;
     margin: 0 auto;
 }
-.e-product-intro .title-4 {
+.may-product-info .e-product-intro .title-4 {
     width:105px ;
     background: url(../../images/common/h1_4_b.svg) no-repeat center center;
     background-size: contain;
     margin: 0 auto;
 }
 
-.e-product-intro .title p, .title-4 p {
+.may-product-info .e-product-intro .title p, .title-4 p {
     font-family: 'Noto Serif TC', serif;
     font-size: 1.8rem;
     font-weight: 700;
@@ -597,11 +597,11 @@ body{
     margin: 0 auto;
 }
 
-.e-product-intro .title-4 p {
+.may-product-info .e-product-intro .title-4 p {
     letter-spacing: 0.5rem;
 }
 
-.e-product-intro .content {
+.may-product-info .e-product-intro .content {
     line-height: 40px;
     font-size: 1.6rem;
     margin-left: 5px;
@@ -612,33 +612,33 @@ body{
 
 /* 桌機版 */
 @media (min-width: 992px) {
-.e-product-intro .share-icons {
+    .may-product-info .e-product-intro .share-icons {
     position: absolute;
     top: 0;
     right: 20%;
 }
 
-.e-product-intro .share-icons svg path {
+.may-product-info .e-product-intro .share-icons svg path {
 fill: var(--blue);
 }
 }
 
 /* 手機版 */
 @media (max-width: 991px) {
-.e-product-intro .share-icons {
+    .may-product-info .e-product-intro .share-icons {
     position: absolute;
     top: 20px;
     right: 30px;
 }
-.e-product-intro .share-icons svg path {
+.may-product-info .e-product-intro .share-icons svg path {
     fill: var(--blue);
     }
 }
 
-.e-product-intro .fb, .e-product-intro .line{
+.may-product-info .e-product-intro .fb, .e-product-intro .line{
     margin-right: 8px;
 }
-.e-product-intro .share {
+.may-product-info .e-product-intro .share {
     font-size: 1.9rem;
 }
 
@@ -649,11 +649,11 @@ fill: var(--blue);
    width: 100%;
 }
 
-.circle-wrap{
+.spring-product-wrap .circle-wrap{
     position: relative;
     width: 100%;
 }
-.circle{
+.spring-product-wrap .circle{
     position: absolute;
     z-index: -99;
     width: 120px;
@@ -666,11 +666,11 @@ fill: var(--blue);
 
 /* 手機版 */
 @media (max-width: 991px) {
-.spring-wrap{
+    .spring-product-wrap .spring-wrap{
     flex-direction: column-reverse;
 }
 
-.circle{
+.spring-product-wrap .circle{
     width: 80px;
     height: 80px;
     top: -10;
@@ -679,11 +679,11 @@ fill: var(--blue);
 
 }
 
-.left-spring{
+.spring-product-wrap .left-spring{
     display: flex;
 }
 
-.title{
+.spring-product-wrap .title{
     color: var(--blue);
     font-family: 'Noto Serif TC', serif;
     font-size: 2.2rem;
@@ -694,7 +694,7 @@ fill: var(--blue);
     margin: 0 auto;
 }
 
-.title2{
+.spring-product-wrap .title2{
     color: var(--blue);
     font-family: 'Noto Serif TC', serif;
     font-size: 1.8rem;
@@ -706,27 +706,27 @@ fill: var(--blue);
 }
 
 @media (max-width: 991px) {
-    .title2{
+    .spring-product-wrap .title2{
         font-size: 1.6rem;
         letter-spacing: 0rem;
     }
 }
-.right-intro{
+.spring-product-wrap .right-intro{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.spring-product{
+.spring-product-wrap .spring-product{
 text-align: center;
 }
-.spring-product-img img{
+.spring-product-wrap .spring-product-img img{
     width: 100%;
 }
 
 
 /* ----------------了解更多---------------------- */
 
-.know-more {
+.spring-product-wrap .know-more {
     font-family: 'Noto Serif TC', serif;
     font-size: 2rem;
     font-weight: bold;
@@ -736,7 +736,7 @@ text-align: center;
     transition: .5s;
 }
 
-.know-more::before {
+.spring-product-wrap .know-more::before {
     content: '';
     display: block;
     position: absolute;
@@ -748,7 +748,7 @@ text-align: center;
     opacity: 1;
     transition: .3s;
 }
-.know-more::after {
+.spring-product-wrap .know-more::after {
     content: '';
     display: block;
     position: absolute;
@@ -761,11 +761,11 @@ text-align: center;
     transition: .3s;
 }
 
-.know-more:hover {
+.spring-product-wrap .know-more:hover {
     transform: scale(1.1,1.1);
 }
 
-.know-more:hover::after {
+.spring-product-wrap .know-more:hover::after {
     content: '';
     display: block;
     position: absolute;
@@ -777,7 +777,7 @@ text-align: center;
     opacity: 0;
 }
 
-.know-more:hover::before {
+.spring-product-wrap .know-more:hover::before {
     content: '';
     display: block;
     position: absolute;
