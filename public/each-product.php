@@ -671,13 +671,13 @@ $come_cate = $come_from != 'http://localhost/BeerU/public/all-product.php' ? exp
             changePrice.text('$' + qty * price)
         } else if (qty > 30) {
             $('.pop-up-1').css('display', 'block')
-            $('.pop-up-1 .icon').html('<i class="fas fa-exclamation"></i>')
+            $('.pop-up-1 .icon').html('<i class="fas fa-exclamation"></i>').css('background-color','var(--red)')
             $('.pop-up-1 .pop-up-text').text('購買數量超過庫存，庫存為30')
             $(this).val('30')
             changePrice.text('$' + 30 * price)
         } else {
             $('.pop-up-1').css('display', 'block')
-            $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>')
+            $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color','var(--red)')
             $('.pop-up-1 .pop-up-text').text('請輸入正確數量，數量不得為0')
             $(this).val('1')
             changePrice.text('$' + price)
@@ -695,7 +695,7 @@ $come_cate = $come_from != 'http://localhost/BeerU/public/all-product.php' ? exp
             changePrice.text('$' + qty * price)
         } else if (qty >= 30) {
             $('.pop-up-1').css('display', 'block')
-            $('.pop-up-1 .icon').html('<i class="fas fa-exclamation"></i>')
+            $('.pop-up-1 .icon').html('<i class="fas fa-exclamation"></i>').css('background-color','var(--red)')
             $('.pop-up-1 .pop-up-text').text('購買數量超過庫存，庫存為30')
             $(this).prev().val('30')
             changePrice.text('$' + 30 * price)
@@ -713,11 +713,26 @@ $come_cate = $come_from != 'http://localhost/BeerU/public/all-product.php' ? exp
             changePrice.text('$' + qty * price)
         } else if (qty <= 1) {
             $('.pop-up-1').css('display', 'block')
-            $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>')
+            $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color','var(--red)')
             $('.pop-up-1 .pop-up-text').text('購買數量不得為0')
             $(this).next().val('1')
             changePrice.text('$' + price)
         }
+    })
+
+    // -------------------------------------------------------
+    // 加入購物車
+    $('.add-cart').on('click', function () {
+        let qty = $(this).closest('.p-buy').find('.buy-number').val()
+        let psid = $(this).closest('.beer-product').attr('data-sid')
+
+        $.get('cart-api.php',{'action':'add','psid':psid, 'qty':qty },function(data){
+            // console.log(data)
+            $('.pop-up-1').css('display', 'block')
+            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+            $('.pop-up-1 .pop-up-text').text(data.msg)
+        }, 'json')
+
     })
 
     // -------------------------------------------------------------
