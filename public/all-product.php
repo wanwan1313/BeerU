@@ -210,14 +210,14 @@ $page_title = '啤女-精釀啤酒商品';
 
                     <!-- 頁碼 -->
                     <div class="product-pages d-flex justify-content-center">
-                        <a href="javascript: changePage(1)"><button class="btn_page page-first "><i class="fas fa-angle-double-left"></i></button></a>
-                        <a href="javascript: prevPage()"><button class="btn_page page-prev"><i class="fas fa-angle-left"></i></button></a>
+                        <button class="btn_page page-first" onclick="changePage(1)"><i class="fas fa-angle-double-left"></i></button>
+                        <button class="btn_page page-prev" onclick="prevPage()"><i class="fas fa-angle-left"></i></button>
                         <div class="pages-show ">
                             <div class="pages d-flex">
                             </div>
                         </div>
-                        <a href="javascript: nextPage()"><button class="btn_page page-next"><i class="fas fa-angle-right"></i></button></a>
-                        <a href="javascript: lastPage()"><button class="btn_page page-last"><i class="fas fa-angle-double-right"></i></button></a>
+                        <button class="btn_page page-next" onclick="nextPage()" ><i class="fas fa-angle-right"></i></button>
+                        <button class="btn_page page-last" onclick="lastPage()"><i class="fas fa-angle-double-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -342,31 +342,46 @@ $page_title = '啤女-精釀啤酒商品';
             // console.log(data)
             p_data = data //把資料拉到全域變數
             renderallProducts()
+
+            // -------------------------------------------
+            // 頁碼部分
+            // 如果商品只有1頁，分頁按鈕隱藏
             if (p_data.total_pages == 1) {
                 $('.all-product .product-pages').css('opacity', 0)
             } else {
                 renderallPages()
                 $('.all-product .product-pages').css('opacity', 1)
             }
+            // 在最後一頁的時候
             if (page == p_data.total_pages) {
-                $('.all-product .page-next').addClass('btn_disabled').attr('disabled', true)
-                $('.all-product .page-last').addClass('btn_disabled').attr('disabled', true)
+                $('.all-product .page-next').addClass('btn_disabled').attr('disabled',true)
+                $('.all-product .page-last').addClass('btn_disabled').attr('disabled',true)
+                $('.all-product .page-first').removeClass('btn_disabled').attr('disabled', false)
+                $('.all-product .page-prev').removeClass('btn_disabled').attr('disabled', false)
             }
+            // 在第一頁的時候
             if (page == 1) {
                 $('.all-product .page-first').addClass('btn_disabled').attr('disabled', true)
                 $('.all-product .page-prev').addClass('btn_disabled').attr('disabled', true)
+                $('.all-product .page-next').removeClass('btn_disabled').attr('disabled', false)
+                $('.all-product .page-last').removeClass('btn_disabled').attr('disabled', false)
             }
 
+            // -------------------------------------------
+            // tag部分
+            //國家/酒廠/類型
             if (p_data.cate != 0) {
                 product_tag.html('')
                 renderallTags()
                 $('.all-product .btn_attention').css('display', 'block')
 
-                if (p_data.cate == 54) {
+                // 啤酒杯，隱藏關注按鈕
+                if (p_data.cate == 54 || p_data.cate == 53) {
                     $('.all-product .btn_attention').css('display', 'none')
                 }
-            } else {
-
+            }
+            // 熱門商品/全部商品
+            else {
                 $('.all-product .btn_attention').css('display', 'none')
             }
 
@@ -391,7 +406,7 @@ $page_title = '啤女-精釀啤酒商品';
         if (num_g == null) {
             getallproductData()
         } else {
-            cate = num_g[0]
+            cate = num_g[0] ?? 0
             page = num_g[1] ?? 1
             hot = num_g[2] ?? 0
             order = num_g[3] ?? 1
@@ -413,6 +428,7 @@ $page_title = '啤女-精釀啤酒商品';
         }
     }
 
+    // 回上一頁
     window.onpopstate = function() {
         init()
     }
@@ -431,9 +447,12 @@ $page_title = '啤女-精釀啤酒商品';
         cate = $(this).attr('data-sid')
         page = 1
         hot = 0
+        order = 1
+        $('#sort-option').val('new')
         getallproductData()
         toProductTop()
         getURL(cate, page, hot, order)
+        pages_wrap.css('transform', 'translateX(0px)')
 
         $('.product-category').removeClass('on')
         $('.trigger span').removeClass('on')
@@ -453,9 +472,12 @@ $page_title = '啤女-精釀啤酒商品';
         hot = 1
         page = 1
         cate = 0
+        order = 1
+        $('#sort-option').val('new')
         getallproductData()
         toProductTop()
         getURL(cate, page, hot, order)
+        pages_wrap.css('transform', 'translateX(0px)')
         product_tag.html(` 
         <div class="tagpic"><img src="../images/tagespic/hot.svg" alt=""></div>
             <p>#熱門商品</p>
@@ -475,10 +497,13 @@ $page_title = '啤女-精釀啤酒商品';
         cate = 0
         page = 1
         hot = 0
-        product_tag.html('')
+        order = 1
+        $('#sort-option').val('new')
         getallproductData()
         toProductTop()
         getURL(cate, page, hot, order)
+        pages_wrap.css('transform', 'translateX(0px)')
+        product_tag.html('')
 
         $('.product-category').removeClass('on')
         $('.trigger span').removeClass('on')
@@ -503,6 +528,7 @@ $page_title = '啤女-精釀啤酒商品';
             getallproductData()
             toProductTop()
             getURL(cate, page, hot, order)
+            pages_wrap.css('transform', 'translateX(0px)')
 
 
         }
@@ -512,6 +538,7 @@ $page_title = '啤女-精釀啤酒商品';
             getallproductData()
             toProductTop()
             getURL(cate, page, hot, order)
+            pages_wrap.css('transform', 'translateX(0px)')
         }
         if ($('#sort-option').val() == 'pricedown') {
             order = 3
@@ -519,6 +546,7 @@ $page_title = '啤女-精釀啤酒商品';
             getallproductData()
             toProductTop()
             getURL(cate, page, hot, order)
+            pages_wrap.css('transform', 'translateX(0px)')
         }
         if ($('#sort-option').val() == 'abvup') {
             order = 4
@@ -526,6 +554,7 @@ $page_title = '啤女-精釀啤酒商品';
             getallproductData()
             toProductTop()
             getURL(cate, page, hot, order)
+            pages_wrap.css('transform', 'translateX(0px)')
         }
         if ($('#sort-option').val() == 'abvdown') {
             order = 5
@@ -533,6 +562,7 @@ $page_title = '啤女-精釀啤酒商品';
             getallproductData()
             toProductTop()
             getURL(cate, page, hot, order)
+            pages_wrap.css('transform', 'translateX(0px)')
         }
     }
 
@@ -552,24 +582,83 @@ $page_title = '啤女-精釀啤酒商品';
         getURL(cate, page, hot, order)
         btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
 
+        if ($(window).width() >= 992) {
+            if (page == 10 && p_data.total_pages > 10) {
+                if (pages_wrap.css('transform') == 'none' || pages_wrap.css('transform') == "matrix(1, 0, 0, 1, 0, 0)") {
+                    pages_wrap.css('transform', 'translateX(-315px)')
+                } else if (pages_wrap.css('transform') == "matrix(1, 0, 0, 1, -315, 0)") {
+                    pages_wrap.css('transform', 'translateX(0px)')
+                }
+
+            }
+
+            if (page == 1) {
+                pages_wrap.css('transform', 'translateX(0px)')
+            }
+        }
+
+        if ($(window).width() < 992) {
+            if (p_data.total_pages > 4 && page < 18) {
+                pages_wrap.css('transform', `translateX(-` + (page - 2) * 35 + `px)`)
+            }
+            if (page == 1) {
+                pages_wrap.css('transform', 'translateX(0px)')
+            }
+        }
+
+
+
+
+
+
 
     }
 
     function prevPage() {
         page = ($('.all-product .page-on').find('p').text() * 1) - 1
+        if(page < 1){
+            page = 1
+        }
         getallproductData()
         toProductTop()
         getURL(cate, page, hot, order)
         btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+
+        if ($(window).width() >= 992) {
+            if (page <= 10 && p_data.total_pages > 10) {
+                pages_wrap.css('transform', 'translateX(0px)')
+            }
+        }
+        if ($(window).width() < 992) {
+            if (p_data.total_pages > 4 && page < 18) {
+                pages_wrap.css('transform', `translateX(-` + (page - 2) * 35 + `px)`)
+            }
+        }
+
+
 
     }
 
     function nextPage() {
         page = ($('.all-product .page-on').find('p').text() * 1) + 1
+        if(page > p_data.total_pages){
+            page = p_data.total_pages
+        }
         getallproductData()
         toProductTop()
         getURL(cate, page, hot, order)
         btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+
+        if ($(window).width() >= 992) {
+            if (page >= 10 && p_data.total_pages > 10) {
+                pages_wrap.css('transform', 'translateX(-315px)')
+            }
+        }
+        if ($(window).width() < 992) {
+            if (p_data.total_pages > 4 && page < 18) {
+                pages_wrap.css('transform', `translateX(-` + (page - 2) * 35 + `px)`)
+            }
+        }
     }
 
     function lastPage() {
@@ -578,6 +667,16 @@ $page_title = '啤女-精釀啤酒商品';
         toProductTop()
         getURL(cate, page, hot, order)
         btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+        if ($(window).width() >= 992) {
+            if (p_data.total_pages > 10){
+                pages_wrap.css('transform', 'translateX(-315px)')
+            }
+        }
+        if ($(window).width() < 992) {
+            if (p_data.total_pages > 4){
+                pages_wrap.css('transform', `translateX(-` + (page - 4) * 35 + `px)`)
+            }
+        }
     }
 
 
@@ -592,7 +691,7 @@ $page_title = '啤女-精釀啤酒商品';
                 product_arrang.append(allproductTpl(el))
                 let ishot = el.hot //抓熱門的值
                 let created_at = Date.parse(el.created_at).valueOf() //抓建立時間
-                let deadline = Date.parse('2021-04-27').valueOf() //設定要有new標籤的時間點
+                let deadline = Date.parse('2021-05-01').valueOf() //設定要有new標籤的時間點
                 let product_label = $(`.${el.sid}-label`)
 
                 const alllabelTpl = function() {
