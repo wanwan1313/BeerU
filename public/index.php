@@ -1,101 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include __DIR__ . '../../php/common/config.php' ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>啤女BeerU</title>
-    <!-- reset -->
-    <link rel="stylesheet" href="../css/reset.css">
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap"
-        rel="stylesheet">
-    <!-- FOA -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
-    <!-- style -->
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/menu-footer/nav-bar.css">
-    <link rel="stylesheet" href="../css/menu-footer/footer.css">
-    <!-- 首頁CSS -->
-    <link rel="stylesheet" href="../css/Hompage/hompage_style.css">   
+<!-- 需要置換的變數們 -->
+<?php
+
+$page_title = '啤女BeerU';
+
+
+
+
+
+
+
+?>
+
+<?php include __DIR__ . '../../php/common/html-head.php' ?>
+<!-- 這裡插入要放在head的東西 -->
+<!-- 包含自己的css和js -->
+
+<!-- HomepageJs -->
+<script src="../js/Homepage.js" defer></script>
+
+
+ <!-- 首頁CSS -->
+ <link rel="stylesheet" href="../css/Hompage/hompage_style.css">   
     <link rel="stylesheet" href="../css/Hompage/homepage_style_RWD.css"> 
     <link rel="stylesheet" href="../css/Hompage/homepage_animation.css"> 
-    
-    
-
-    <!-- js -->
-    <script src="../js/menu-footer/nav-bar.js" defer></script>
-
-    <style>
-     
-    </style>
 
 
-</head>
- 
-<body>
+
+
+<style>
    
-    <!-- navbar -->
-<header class="beeru-nav-bar" id="beeru-nav-bar">
-        <div class="container">
-            <div
-                class="row  flex-column flex-lg-row align-items-center justify-content-lg-between align-items-lg-start">
-                <div class="trigger"><span></span></div>
-                <a href="">
-                    <div class="nav-bar-logo"><img src="../images/logo/logo_beeru_white.svg" alt=""></div>
-                </a>
-                <ul class="nav-bar-list list-unstyled d-flex justify-content-around">
-                    <li class="nav-item"><a href="">本月主打</a></li>
-                    <li class="nav-item"><a href="">新手入門</a></li>
-                    <li class="nav-item">啤酒指南
-                        <ul class="nav-sub-menu list-unstyled">
-                            <li class="nav-sub-menu-item"><a href=""></a>啤酒地圖</a></li>
-                            <li class="nav-sub-menu-item"><a href="">餐酒搭配</a></li>
-                            <li class="nav-sub-menu-item"><a href="">風味輪</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">啤酒活動
-                        <ul class="nav-sub-menu list-unstyled">
-                            <li class="nav-sub-menu-item"><a href="">預約試飲會</a></li>
-                            <li class="nav-sub-menu-item"><a href="">募資計畫</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item d-none d-lg-block"><a href="">全部商品</a></li>
-                </ul>
-                <ul class="nav-bar-member list-unstyled d-flex ">
-                    <input type="text" id="search" name="search" class="search-bar" placeholder="找啤酒">
-                    <li class="search"><i class="fas fa-search"></i></li>
-                    <li class="user-login"><a href=""><img src="../images/common/icon_member.svg" alt=""></a></li>
-                    <li class="shopping-cart"><a href=""><img src="../images/common/icon_shopbag.svg" alt=""></a></li>
-                </ul>
-            </div>
-        </div>
-    </header>    
-    
+</style>
 
-    <div class="header"></div>
+<?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<!-- 這裡開始寫html -->
 
-    <!-- 酒駕標語 -->
-    <section class="beer-warning d-flex align-items-center">
-        <div class="container">
-            <div class="row justify-content-center  align-items-center">
-                <p>禁止酒駕</p>
-                <p>酒後不開車 安全有保障</p>
-            </div>
-        </div>
-    </section>
 
-   <!-- Landingpage門 -->
-     <section class="LandingPage" id="LandingPage">
+<!-- 會員登入 -->
+<?php include __DIR__ . '../../php/common/Login-Sign.php'?>
+
+
+<!-- Landingpage門 -->
+<section class="LandingPage" id="LandingPage">
         <div class="LandingPage_warp">
             <div class="colum colum01 animate__animated animate__fadeIn">
                 <img src="../images/common/door_deco.svg" alt="">
@@ -126,10 +73,11 @@
             <div class="colum colum02 animate__animated animate__fadeIn">
                 <img src="../images/common/door_deco.svg" alt="">
             </div>
-        </div>
-    </section>    
-    
- <!-- 內容開始    -->
+       </div> 
+</section>  
+
+
+<!-- 內容開始    -->
 <div class="content-wrap" id="content-wrap">
     
     <!-- 首頁 -->
@@ -601,66 +549,78 @@
         </div>
     </div>
 </section>
-      
-   
 </div>
 <!-- 內容結束 -->
 
 
-    <!-- footer -->
-    <footer>
-        <div class="footer-brand d-none d-md-block">
-            <p>brand</p>
-            <div class="brand-logos"><img src="../images/brands/brand_logos.svg" alt=""></div>
-        </div>
-        <div class="footer-share">
-            <p>share</p>
-            <div class="sns-logos d-flex justify-content-center">
-                <div class="sns-logo-icon f-fb "><img src="../images/common/icon_fb.svg" alt=""></div>
-                <div class="sns-logo-icon f-email "><img src="../images/common/icon_email.svg" alt=""></div>
-                <div class="sns-logo-icon f-ig "><img src="../images/common/icon_ig.svg" alt=""></div>
-                <div class="sns-logo-icon f-twitter "><img src="../images/common/icon_twitter.svg" alt=""></div>
-                <div class="sns-logo-icon f-line "><img src="../images/common/icon_line.svg" alt=""></div>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>Copyright© 2021 BEERU. All Rights Reserved</p>
-        </div>
-    </footer> 
 
 
- 
-   
+<?php include __DIR__ . '../../php/common/html-body-footer.php' ?>
+<?php include __DIR__ . '../../php/common/script.php' ?>
+<!-- 這裡開始寫jQuery或JS -->
 
 
-
-
-    
-
-
-
-
-  
- <!-- 各種CDN -->
- <script src="https://code.jquery.com/jquery-3.5.1.js"
- integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
- integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
- crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
- integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
- crossorigin="anonymous"></script>
-
-
- <script src="../js/Homepage.js"></script>
 
 
 <script>
 
 
+$(document).ready(function(){
+
+// 起始navbar、footer、header的狀態
+let scrollNow = $(window).scrollTop();
+
+if (scrollNow == 0){
+
+    $('.header').addClass('nav-headerOut');
+    $('.beeru-nav-bar').addClass('OUT');
+    
+    $('footer').addClass('OUT')
+
+    $('#YES').click(function(){
+
+         setTimeout(()=>{
+            
+            $('.header').removeClass('nav-headerOut');
+            $('.beeru-nav-bar').removeClass('OUT');
+            $('.beeru-nav-bar').fadeIn();
+
+           
+        },5200)  
+
+    });
+}
 
 
-        
+//navbar登入起始畫面按鈕
+$('.user-login').click(function(){
+
+$('.LogIn-Sign').fadeIn(100);
+$('.first-login-page').fadeIn(1);
+$('.log-box').css('width','35%').css('height','500px');
+$('.LogIn-page').fadeOut(1);
+$('.LogSign-page').fadeOut(1);
+$('.Check-page').fadeOut(1);
+
+});
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
-</body>
-</html>
+
+<?php include __DIR__ . '../../php/common/html-end.php' ?>
