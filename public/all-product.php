@@ -16,7 +16,8 @@ $page_title = '啤女-精釀啤酒商品';
 
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
-
+<!-- 會員登入 -->
+<?php include __DIR__ . '../../php/common/Login-Sign.php'?>
 <?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
 <?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
 <section class="mobile-menu">
