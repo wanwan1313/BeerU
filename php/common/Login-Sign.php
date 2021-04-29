@@ -1,4 +1,4 @@
-<section class="LogIn-Sign" id="LogIn-Sign">
+<section class="LogIn-Sign">
     <div class="log-wrap">
     <div class="log-sandbox"></div>
         <div class="log-box">
@@ -12,7 +12,7 @@
             </div>
 
         <!-- 起始畫面 -->
-        <div class="log-content" id="first-login-page">
+        <div class="log-content first-login-page" >
 
                 <div class="first-content">
                     <h3>現在加入會員</h3>
@@ -32,13 +32,13 @@
                 </div>
 
                 <div class="LogInOut-btn-warp d-flex">
-                    <div class="log-btn " id="LogIn-btn">登入</div>
-                    <div class="log-btn" id="LogOut-btn" >註冊</div>
+                    <div class="log-btn LogIn-btn01">登入</div>
+                    <div class="log-btn LogOut-btn02">註冊</div>
                 </div>
             </div>   
 
         <!-- 登入畫面 -->
-          <div class="log-content" id="LogIn-page">
+          <div class="log-content LogIn-page" >
 
              <div class="LogIn-title">
                  <h3>用啤女帳戶登入</h3>
@@ -64,7 +64,7 @@
                     <p>帳號或密碼錯誤</p>
                 </div>
 
-                <div class="LogIn-btn">登入</div>
+                <div class="LogIn-btn02">登入</div>
             </div>
 
             <div class="forget-password">
@@ -77,7 +77,7 @@
 
             <div class="not-menber">
                 <h3>還不是會員嗎？</h3>
-                <h3><span id="LogSign-right">立即註冊新帳號</span></h3>
+                <h3><span class="LogSign-rightNow">立即註冊新帳號</span></h3>
             </div>
       
 
@@ -89,7 +89,7 @@
              
 
         <!-- 註冊畫面 -->
-          <div class="log-content" id="LogSign-page">
+           <div class="log-content LogSign-page" >
             <div class="LogSign-title">
                 <h3>註冊啤女帳號</h3>
                 
@@ -135,11 +135,11 @@
                  <p>按下註冊鈕的同時，表示您已詳閱我們的資料使用政策與使用條款，同意使用<span>啤女</span>所提供的服務並訂閱電子報。</p>
              </div>
 
-             <div class="logSign-btn" id="LogSign-btn">註冊</div>
+             <div class="logSign-btn">註冊</div>
                
             <div class="already-account">
                 <h3>已經有帳號了？</h3>
-                <h3><span id="LogIn-rightNow">馬上登入</span></h3>
+                <h3><span class="LogIn-rightNow">馬上登入</span></h3>
             </div>
              <div class="backward" id="back02">
                 <h3>回上頁</h3>
@@ -155,11 +155,11 @@
     
                 </div>
 
-        </div>   
+        </div>    
 
 
         <!-- 驗證畫面 -->
-        <div class="log-content" id="Check-page">
+        <div class="log-content Check-page">
             <div class="Check-title">
                 <h3>請查看您的 Email</h3>
             </div>
@@ -189,7 +189,7 @@
                 </div>
             </div>
 
-          </div> 
+          </div>   
 
         
         <!-- 註冊成功畫面 -->

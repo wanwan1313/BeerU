@@ -20,6 +20,7 @@ $page_title = '啤女BeerU';
 <!-- HomepageJs -->
 <script src="../js/Homepage.js" defer></script>
 
+
  <!-- 首頁CSS -->
  <link rel="stylesheet" href="../css/Hompage/hompage_style.css">   
     <link rel="stylesheet" href="../css/Hompage/homepage_style_RWD.css"> 
@@ -35,6 +36,8 @@ $page_title = '啤女BeerU';
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
 <!-- 這裡開始寫html -->
 
+
+<!-- 會員登入 -->
 <?php include __DIR__ . '../../php/common/Login-Sign.php'?>
 
 
@@ -558,6 +561,7 @@ $page_title = '啤女BeerU';
 
 
 
+
 <script>
 
 
@@ -591,12 +595,12 @@ if (scrollNow == 0){
 //navbar登入起始畫面按鈕
 $('.user-login').click(function(){
 
-$('#LogIn-Sign').fadeIn(100);
-$('#first-login-page').fadeIn(1);
+$('.LogIn-Sign').fadeIn(100);
+$('.first-login-page').fadeIn(1);
 $('.log-box').css('width','35%').css('height','500px');
-$('#LogIn-page').fadeOut(1);
-$('#LogSign-page').fadeOut(1);
-$('#Check-page').fadeOut(1);
+$('.LogIn-page').fadeOut(1);
+$('.LogSign-page').fadeOut(1);
+$('.Check-page').fadeOut(1);
 
 });
 

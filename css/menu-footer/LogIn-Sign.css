@@ -1,4 +1,4 @@
-#LogIn-Sign{
+.LogIn-Sign{
    
     display: none;
 
@@ -155,7 +155,7 @@
 
 }
 
-#LogIn-page{
+.LogIn-page{
     display: none;
 }
 
@@ -236,7 +236,7 @@
     font-size: 1.4rem;
 }
 
-.LogIn-btn{
+.LogIn-btn02{
     margin-top: 30px;
     width: 100%;
     background-color: var(--gold);
@@ -305,7 +305,7 @@
 
 /* /////註冊畫面////// */
 
-#LogSign-page{
+.LogSign-page{
     display: none;
 }
 
