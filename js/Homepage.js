@@ -11,7 +11,7 @@ $(document).ready(function(){
         $('.beeru-nav-bar').addClass('OUT');
         $('#LandingPage').addClass('IN');
         $('#content-wrap').addClass('OUT');
-        $('#footer').addClass('OUT')
+        $('footer').addClass('OUT')
 
         $('#YES').click(function(){
             
@@ -68,7 +68,7 @@ $(document).ready(function(){
     }
     else{
         $('#LandingPage').addClass('OUT');
-
+        $('#content-wrap').css('display','block').css('opacity','1');
         setTimeout(()=>{
 
             $('.pip_pick').addClass('pipi-flyout')

@@ -1,0 +1,598 @@
+#LogIn-Sign{
+   
+    display: none;
+
+}
+
+.LogIn-Sign{
+    position: fixed;
+    height:calc(100vh - 85px);
+    width: 100%;
+    z-index: 990;  
+}
+   
+
+.log-wrap{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:calc(100vh - 85px); 
+    width: 100%;
+}
+
+
+
+
+.log-sandbox{
+    width: 100%;
+    height:calc(100vh - 85px); 
+ 
+}
+   
+.log-box{
+
+    overflow-y: auto;
+    position: absolute;
+    z-index: 989;
+    border:solid 3px var(--gold);
+    border-radius: 15px;
+   
+    margin-top: -80px;
+    background-color: white;
+    box-shadow: 0 0 0 1920px rgba(0, 0, 0, .5);
+    /* 起始頁大小 */
+     width: 35%; 
+     height: 500px;
+     /* height: calc(100vh - 48vh); */
+    
+    /* 登入頁大小 */
+    /* height: 550px; */
+    /* height: calc(100vh - 48vh) */
+
+    /* 註冊大小 */
+    /* width: 50%;
+    height: 80% */
+    /* height: calc(100vh - 25vh) */
+
+    /* 驗證頁大小 */
+    /* height: calc(100vh - 48vh); */
+
+
+    
+}
+
+
+.log-box::-webkit-scrollbar { width: 0 !important }
+
+.logo-wrap{
+    margin: 20px auto;
+    width: 100px;    
+    transform: translateX(-1px);
+}
+
+.cancel-quit{
+    cursor: pointer;
+    position: absolute;
+    color: var(--gold);
+    top: 0;
+    right: 15px;
+
+}
+.log-content{
+    width: 100%;
+}
+
+/* //////起始畫面////// */
+.first-content{
+    margin: 20px auto;
+    width: 100%;
+}
+
+.first-content h3{
+    text-align: center;
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    line-height: 3rem;
+    /* margin-left: 30px; */
+
+}
+
+.login-title{
+    margin: 0 auto;
+    width: 60%;
+    border-bottom: solid 2px var(--blue);
+    
+
+}
+.login-title h4{
+    margin: 0 auto;
+    width: 40%;
+    color: var(--blue);
+    font-family: 'Noto Sans TC', serif;
+    text-align: center;
+    background-color: white;
+    transform: translateY(10px);
+
+}
+
+.social-icon{
+    cursor: pointer;
+
+}
+
+#fb-01{
+    margin: 35px auto 15px auto;
+    width: 50px
+
+}
+.LogInOut-btn-warp{
+    margin-top: 50px;
+    justify-content: center;
+}
+.log-btn{
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Noto Sans TC', serif;
+    margin: 0 10px;
+    text-align: center;
+    width: 150px;
+    height: 35px;
+    background-color: var(--gold);
+}
+
+
+/* //////登入畫面/////// */
+
+.LogIn-box{
+    transition: .5s;
+    width: 40%;
+    height: 550px;
+    margin-top: -60px;
+
+}
+
+#LogIn-page{
+    display: none;
+}
+
+.LogIn-title h3{
+    text-align: center;
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    line-height: 3rem;
+}
+
+
+.LogIn-content-wrap{
+    width: 60%;
+    margin: 0 auto;
+}
+.input-account{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 30px;
+    
+}
+
+.input-btn{
+
+    width: 100%;
+    height: 35px;
+    padding-left:35px;
+    color: var(--gold);
+    border: solid 1px var(--gold);
+    border-radius: 5px;
+}
+
+::placeholder{
+    font-size: 1.6rem;
+    color: var(--gold);
+    letter-spacing: 0.5rem;
+       
+}
+
+
+.user-icon01{
+    position: absolute;
+    color: var(--gold);
+    top: 30%;
+   left: 3%;
+
+}
+
+.input-password{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 15px;
+    
+}
+
+.lock-icon01{
+    position: absolute;
+    color: var(--gold);
+    top: 30%;
+   left: 3%;
+
+}
+
+.wrong-alert{
+    margin-top: 10px;
+    align-items: center;
+    color:  var(--pink);
+}
+
+
+.wrong-alert p{
+    margin-left: 5px;
+    font-size: 1.4rem;
+}
+
+.LogIn-btn{
+    margin-top: 30px;
+    width: 100%;
+    background-color: var(--gold);
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+.forget-password{
+
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--blue);
+}
+
+.forget-password h3{
+    font-size: 1.6rem;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+}
+
+.not-menber{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--blue);
+}
+
+.not-menber h3{
+    font-size: 1.6rem;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+
+}
+
+.not-menber h3 span{
+    cursor: pointer;
+    color: var(--pink);
+}
+
+.backward{
+    cursor: pointer;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--pink);
+
+}
+
+.backward h3{
+    font-size: 1.6rem;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+}
+
+#back01{
+    margin-top: 30px;
+
+}
+
+
+/* /////註冊畫面////// */
+
+#LogSign-page{
+    display: none;
+}
+
+.LogSign-title h3{
+    text-align: center;
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    line-height: 3rem;
+}
+
+
+.logSign-content-wrap{
+    margin: 25px auto 0px auto ;
+    width: 65%;
+    border-bottom: solid 2px var(--gold);
+}
+
+.account-password-wrap{
+    justify-content: space-between;
+}
+.logSign-account{
+    position: relative;
+    width: 45%;
+}
+
+.logSign-account h3{
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+
+}
+
+.logSign-account input{
+    margin-top: 5px;
+
+}
+
+.email-icon01{
+    position: absolute;
+    color: var(--gold);
+    top: 40px;
+    left: 4%;;
+}
+
+.logSign-account p{
+    font-size: 1.4rem;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+    color: #7F7F7F;
+}
+
+.logSign-password{
+    position: relative;
+    width: 45%;
+}
+
+
+.logSign-password h3{
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+
+}
+
+.logSign-password input{
+    margin-top: 5px;
+
+}
+.lock-icon02{
+    position: absolute;
+    color: var(--gold);
+    top: 38px;
+    left: 4%;
+}
+
+.logSign-password p{
+    font-size: 1.4rem;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+    color: #7F7F7F;
+}
+
+
+.member-wrap{
+    margin-top: 20px;
+    justify-content: space-between;
+}
+.logSign-name{
+    position: relative;
+    width: 45%;
+}
+
+.logSign-name h3{
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.logSign-birthday{
+    position: relative;
+    width: 45%;
+}
+.user-icon02{
+    position: absolute;
+    color: var(--gold);
+    top: 34px;
+    left: 4%;
+}
+
+.logSign-birthday h3{
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+#birthday{
+    position: relative;
+  
+}
+
+/* 生日圖示改變  */
+#birthday::-webkit-calendar-picker-indicator { 
+ 
+    position: absolute;
+    left: -15px;
+    display: block; 
+    background: url('../../images/common/birthday-icon.svg') no-repeat; 
+ 
+    width: 15px; 
+ 
+    height: 15px; 
+
+ 
+}
+
+.logSign-notice{
+    margin: 30px auto 0 auto;
+    width: 65%;
+    color: var(--blue);
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+    
+}
+
+.logSign-notice span{
+    font-weight: bold;
+}
+
+.logSign-btn{
+    border-radius: 5px;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+    margin-top: 25px;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    background-color: var(--gold);
+    height: 35px;
+
+}
+
+.already-account{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.already-account h3{
+    color: var(--blue);
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+    font-size: 1.6rem;
+
+}
+.already-account h3 span{
+    cursor: pointer;
+    color: var(--pink);
+    
+}
+
+#back02{
+    margin: 10px auto 12px auto;
+}
+
+
+#fb-02{
+    margin: 0px auto 0 auto;
+    width: 40px
+}
+
+
+.social-signIn-wrap h4{
+    margin-top: 5px;
+    font-family: 'Noto Sans TC', serif;
+    font-weight:light;
+    text-align: center;
+    color: var(--blue);
+    font-size: 1.4rem;
+}
+
+
+/* /////驗證畫面////  */
+#Check-page{
+    display: none;
+
+}
+
+.Check-warp{
+    margin: 0 auto;
+    width: 65%;
+}
+
+.Check-title h3{
+    text-align: center;
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bolder;
+    font-size: 2.4rem;
+    letter-spacing: 0.6rem;
+    line-height: 3rem;
+}
+
+.Check-content-warp{
+    margin-top: 25px;
+}
+.Check-content{
+    margin: 0px auto 0 auto;
+    
+    color: var(--blue);
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+
+}
+
+.Check-Email{
+    position: relative;
+    margin: 20px auto 0 auto;
+    width: 100%
+}
+
+.email-icon02{
+    position: absolute;
+    color: var(--gold);
+    top: 10px;
+    left: 2.5%;;
+}
+
+.resent-btn{
+    width: 100%;
+    margin: 10px auto 0 auto;
+    border-radius: 5px;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+    
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    background-color: var(--gold);
+    height: 35px;
+
+}
+
+
+.later-check{
+    cursor: pointer;
+}
+
+.later-check h3{
+   
+    margin-top: 20px;
+   text-align: center;
+   font-size: 1.6rem;
+   font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+    color: var(--blue);
+
+
+}

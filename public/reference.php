@@ -27,6 +27,7 @@ $page_title = '啤女BeerU';
 </style>
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+
 <!-- 這裡開始寫html -->
 
 <!-- 空白內容 開始寫之後請刪除以下div -->
