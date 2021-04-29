@@ -27,8 +27,12 @@
     color: var(--blue);
 }
 
+.fund h2 {
+    color: var(--blue);
+}
+
 .fund.container {
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
 }
 
 
@@ -36,18 +40,14 @@
 /* 桌機版 */
 @media (min-width: 992px) {
 
-/* 排版 */
-.col-sm-8 {
-    display: flex;
-}
 
 /* 圖片 */
 .img-demo-wrap {
     /* height: 40px; */
-    width: 90%;
+    width: 20%;
 }
 
-.product-intro h3 {
+.product-main-text h3 {
        /* width: fit-content; */
        font-family: 'Noto Serif TC', serif;
        font-size: 2.4rem;
@@ -71,7 +71,7 @@
     margin-top: 5%;
 }
 
-/* 募資目標 */
+/* ----------募資目標-------------- */
 
 .fund .goal .current-value h3 {
     font-size: 1.8rem;
@@ -90,6 +90,328 @@
     /* font-family:'Noto Serif TC', serif; */
     font-size: 1.7rem;
 
+}
+
+}
+
+/* ---------------選定方案------------ */
+  /* 桌機版 */
+  @media (min-width: 992px) {
+    /* .card-list {
+      display: block;
+      margin: 1rem auto;
+      padding: 0;
+  } */
+  
+  .card {
+      /* display: inline-block; */
+      /* width: 100%; */
+      border: 2px solid #fff;
+      max-width: 80rem;
+      margin: 5%;
+      font-size: 2.4rem;
+      text-decoration: none;
+      overflow: hidden;
+      box-shadow: 0 0 3rem -1rem rgba(0,0,0,0.5);
+      transition: transform 0.1s ease-in-out, box-shadow 0.1s;
+  }
+  
+  
+/*   
+  .card:hover {
+      transform: translateY(-0.5rem) scale(1.0125);
+      box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
+  } */
+  
+  .card-description {
+      display: block;
+      padding: 1rem;
+      color: #515151;
+      text-decoration: none;
+  }
+  
+  .card-description > h2 {
+      font-size: 2.4rem;
+      color: var(--red);
+      margin-top: 5%;
+      margin-bottom: 5%;
+  }
+  
+  .card-description > p {
+      font-size: 1.7rem;
+      margin: 0;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.7rem;
+      font-weight: bold;
+      line-height: 2.5rem;
+  }
+
+/* 更改方案按鈕 */
+.btn_edit {
+    margin-left: 5%;
+    margin-top: 1%;
+    margin-bottom: 5%;
+    padding-right: 31%;
+    padding-left: 31%;
+    font-family:'Noto Serif TC', serif;
+    color: var(--gold);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    background-color: #fff;
+    border: 1.5px solid var(--gold);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn_edit i, .btn_edit_active i {
+    margin: 5px;
+}
+
+.btn_edit:hover {
+    background-color: var(--gold);
+    color: #fff;
+}
+
+.btn_edit_active {
+    font-family:'Noto Serif TC', serif;
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15r～·～｀em;
+    background-color: var(--gold);
+    border: 1.5px solid var(--gold);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn_edit_active:hover {
+    background-color: #fff;
+    color: var(--gold);
+}
+
+
+
+
+}
+  
+  
+      /* 手機版 */
+      @media (max-width: 991px) {
+     .card-list {
+      display: block;
+      margin: 1rem auto;
+      padding: 0;
+      font-size: 0;
+      /* text-align: center; */
+  }
+  
+  .card {
+      /* display: inline-block; */
+      /* width: 100%; */
+      max-width: 80rem;
+      margin: 5%;
+      font-size: 2.4rem;
+      text-decoration: none;
+      overflow: hidden;
+      box-shadow: 0 0 3rem -1rem rgba(0,0,0,0.5);
+      transition: transform 0.1s ease-in-out, box-shadow 0.1s;
+  }
+  
+  .card:hover {
+      transform: translateY(-0.5rem) scale(1.0125);
+      box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
+  }
+  
+  .card-description {
+      display: block;
+      padding: 1rem;
+      color: #515151;
+      text-decoration: none;
+  }
+  
+  .card-description > h2 {
+      font-size: 2.4rem;
+      color: var(--red);
+      margin-top: 5%;
+      margin-bottom: 5%;
+  }
+  
+  .card-description > p {
+      font-family: 'Noto Serif TC', serif;
+      margin: 0;
+      font-weight: bold;
+      font-size:1.6rem;
+  }
+
+/* 更改方案按鈕 */
+.btn_edit {
+    margin-right: 20%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    /* padding-right: 35%; */
+    /* padding-left: 35%; */
+    font-family:'Noto Serif TC', serif;
+    color: var(--gold);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    background-color: #fff;
+    border: 1.5px solid var(--gold);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn_edit i, .btn_edit_active i {
+    margin: 5px;
+}
+
+.btn_edit:hover {
+    background-color: var(--gold);
+    color: #fff;
+}
+
+.btn_edit_active {
+    font-family:'Noto Serif TC', serif;
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15r～·～｀em;
+    background-color: var(--gold);
+    border: 1.5px solid var(--gold);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn_edit_active:hover {
+    background-color: #fff;
+    color: var(--gold);
+}
+
+
+}
+
+
+
+/*------------ 贊助金額 ------------ */
+/* 桌機版 */
+@media (min-width: 992px) {
+.fund-amount-title {
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+
+ .fund-amount {
+     margin-left: 5%;
+     margin-right: 5%;
+     margin-top: 2%;
+     padding-top: 2%;
+     border-radius: 2px;
+     background-color: rgba(182, 149, 100, 0.541);
+     box-shadow: 0 0 3rem -1rem rgba(0,0,0,0.5);
+     transition: transform 0.1s ease-in-out, box-shadow 0.1s;
+
+
+ }
+
+ .fund-amount h2 {
+     padding-top:5%;
+     margin-left: 5%;
+ }
+
+ .fund-amount p {
+    margin-left: 5%;
+}
+
+ .unit {
+    width: 300px;
+    border: 1px solid var(--gold);
+    background: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-left: 5%;
+}
+
+.price {
+    border: none;
+    width: 100px;
+    text-align: center;
+    background: none;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+}
+
+.minus {
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    background-color: var(--gold);
+    border-radius: 50%;
+    border: none;
+    font-weight: bold;
+}
+
+.add {
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    background-color: var(--gold);
+    border-radius: 50%;
+    border: none;
+    font-weight: bold;
+}
+
+
+/* 贊助按鈕 */
+.btn_fundnow {
+    margin-left: 70%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    /* padding-right: 35%; */
+    /* padding-left: 35%; */
+    font-family:'Noto Serif TC', serif;
+    color: var(--gold);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    background-color: #fff;
+    border: 1.5px solid var(--gold);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn_fundnow i, .btn_fundnow_active i {
+    margin: 5px;
+}
+
+.btn_fundnow:hover {
+    background-color: var(--gold);
+    color: #fff;
+}
+
+.btn_fundnow_active {
+    font-family:'Noto Serif TC', serif;
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15r～·～｀em;
+    background-color: var(--gold);
+    border: 1.5px solid var(--gold);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn_fundnow_active:hover {
+    background-color: #fff;
+    color: var(--gold);
 }
 
 }
