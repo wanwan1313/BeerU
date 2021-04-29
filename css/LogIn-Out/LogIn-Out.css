@@ -1,5 +1,7 @@
 #LogIn-Out{
-    display: block;
+   
+    display: none;
+
 }
 
 .LogIn-Out{
@@ -27,23 +29,29 @@
 }
    
 .log-box{
+
+    overflow-y: auto;
     position: absolute;
     z-index: 989;
     border:solid 3px var(--gold);
     border-radius: 15px;
+   
     margin-top: -80px;
     background-color: white;
     box-shadow: 0 0 0 1920px rgba(0, 0, 0, .5);
     /* 起始頁大小 */
      width: 35%; 
-     /* height: 500px */
+     height: 500px;
+     /* height: calc(100vh - 48vh); */
     
     /* 登入頁大小 */
     /* height: 550px; */
+    /* height: calc(100vh - 48vh) */
 
     /* 註冊大小 */
-    width: 50%;
-    height: 80%
+    /* width: 50%;
+    height: 80% */
+    /* height: calc(100vh - 25vh) */
 
 
     
@@ -97,10 +105,14 @@
 
 .social-icon{
     cursor: pointer;
-    margin: 35px auto 15px auto;
-    width: 50px
+
 }
 
+#fb-01{
+    margin: 35px auto 15px auto;
+    width: 50px
+
+}
 .LogInOut-btn-warp{
     margin-top: 50px;
     justify-content: center;
@@ -157,6 +169,7 @@
 .input-btn{
 
     width: 100%;
+    height: 35px;
     padding-left:35px;
     color: var(--gold);
     border: solid 1px var(--gold);
@@ -252,9 +265,9 @@
     color: var(--pink);
 }
 
-.backward-logIn{
+.backward{
     cursor: pointer;
-    margin-top: 30px;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -262,14 +275,23 @@
 
 }
 
-.backward-logIn h3{
+.backward h3{
     font-size: 1.6rem;
     font-family: 'Noto Sans TC', serif;
     font-weight: normal;
 }
 
+#back01{
+    margin-top: 30px;
+
+}
+
 
 /* /////註冊畫面////// */
+
+#LogSign-page{
+    display: none;
+}
 
 .LogSign-title h3{
     text-align: center;
@@ -283,93 +305,197 @@
 
 
 .logSign-content-wrap{
-    margin: 0 auto;
+    margin: 25px auto 0px auto ;
     width: 65%;
+    border-bottom: solid 1px var(--gold);
 }
 
+.account-password-wrap{
+    justify-content: space-between;
+}
 .logSign-account{
     position: relative;
-    margin-top: 30px;
+    width: 45%;
 }
 
 .logSign-account h3{
+    color: var(--blue);
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
-    color: var(--blue)
+    font-size: 1.6rem;
 
 }
 
 .logSign-account input{
     margin-top: 5px;
+
 }
 
-.user-icon02{
-    color: var(--gold);
+.email-icon01{
     position: absolute;
-    top:63%;
-    left: 3%;
-
+    color: var(--gold);
+    top: 40px;
+    left: 4%;;
 }
 
-
-.acount-notice h3{
-    color: #7F7F7F;
+.logSign-account p{
+    font-size: 1.4rem;
     font-family: 'Noto Sans TC', serif;
     font-weight: normal;
-    font-size: 1.4rem;
+    color: #7F7F7F;
 }
-
 
 .logSign-password{
     position: relative;
-    margin-top: 25px;
+    width: 45%;
 }
+
 
 .logSign-password h3{
+    color: var(--blue);
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
-    color: var(--blue)
+    font-size: 1.6rem;
 
 }
+
 .logSign-password input{
     margin-top: 5px;
-    
+
 }
 .lock-icon02{
     position: absolute;
     color: var(--gold);
-    top: 60%;
-    left: 3%;
+    top: 38px;
+    left: 4%;
 }
 
-.password-notice h3{
-    color: #7F7F7F;
+.logSign-password p{
+    font-size: 1.4rem;
     font-family: 'Noto Sans TC', serif;
     font-weight: normal;
-    font-size: 1.4rem;
+    color: #7F7F7F;
 }
 
 
-.logSign-Email{
+.member-wrap{
+    margin-top: 20px;
+    justify-content: space-between;
+}
+.logSign-name{
     position: relative;
+    width: 45%;
+}
+
+.logSign-name h3{
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.logSign-birthday{
+    position: relative;
+    width: 45%;
+}
+.user-icon02{
+    position: absolute;
+    color: var(--gold);
+    top: 34px;
+    left: 4%;
+}
+
+.logSign-birthday h3{
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+#birthday{
+    position: relative;
+  
+}
+
+/* 生日圖示改變  */
+#birthday::-webkit-calendar-picker-indicator { 
+ 
+    position: absolute;
+    left: -15px;
+    display: block; 
+    background: url('../../images/common/birthday-icon.svg') no-repeat; 
+ 
+    width: 15px; 
+ 
+    height: 15px; 
+
+ 
+}
+
+.logSign-notice{
+    margin: 30px auto 0 auto;
+    width: 65%;
+    color: var(--blue);
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+    
+}
+
+.logSign-notice span{
+    font-weight: bold;
+}
+
+.logSign-btn{
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+    margin-top: 25px;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    background-color: var(--gold);
+    height: 35px;
+
+}
+
+.already-account{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 25px;
 }
 
-.logSign-Email h3{
-    font-family: 'Noto Serif TC', serif;
-    font-weight: bold;
-    color: var(--blue)
+.already-account h3{
+    color: var(--blue);
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+    font-size: 1.6rem;
 
 }
+.already-account h3 span{
+    cursor: pointer;
+    color: var(--pink);
+    
+}
 
-.logSign-Email input{
+#back02{
+    margin: 10px auto 12px auto;
+}
+
+
+#fb-02{
+    margin: 0px auto 0 auto;
+    width: 40px
+}
+
+
+.social-signIn-wrap h4{
     margin-top: 5px;
+    font-family: 'Noto Sans TC', serif;
+    font-weight:light;
+    text-align: center;
+    color: var(--blue);
+    font-size: 1.2rem;
 }
 
-.email-icon{
-    color: var(--gold);
-    position: absolute;
-    top:63%;
-    left: 3%;
-
-}
