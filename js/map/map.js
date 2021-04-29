@@ -5,7 +5,8 @@
 if ($(window).width() < 991){
     $('.part').eq(0).mouseenter(function () {
         $(this).addClass('animate__animated animate__fadeOutUp').addClass('infinite');
-        $('.map .world').css('transform','translateX(30%)')
+        $('.map .world').css('transform','translateX(30%)');
+        $('.map .world_titles').css('transform','translateX(30%)');
     }).mouseleave(function () {
         {
             $(this).removeClass('animate__animated animate__fadeOutUp');
@@ -14,7 +15,8 @@ if ($(window).width() < 991){
     
     $('.part').eq(1).mouseenter(function () {
         $(this).addClass('animate__animated animate__fadeOutUp').addClass('infinite');
-        $('.map .world').css('transform','translateX(0%)')
+        $('.map .world').css('transform','translateX(0%)');
+        $('.map .world_titles').css('transform','translateX(0%)');
     }).mouseleave(function () {
         {
             $(this).removeClass('animate__animated animate__fadeOutUp');
@@ -22,7 +24,8 @@ if ($(window).width() < 991){
     })
     $('.part').eq(2).mouseenter(function () {
         $(this).addClass('animate__animated animate__fadeOutUp').addClass('infinite');
-        $('.map .world').css('transform','translateX(-25%)')
+        $('.map .world').css('transform','translateX(-25%)');
+        $('.map .world_titles').css('transform','translateX(-25%)');
     }).mouseleave(function () {
         {
             $(this).removeClass('animate__animated animate__fadeOutUp');
@@ -30,7 +33,8 @@ if ($(window).width() < 991){
     })
     $('.part').eq(3).mouseenter(function () {
         $(this).addClass('animate__animated animate__fadeOutUp').addClass('infinite');
-        $('.map .world').css('transform','translateX(-30%)')
+        $('.map .world').css('transform','translateX(-30%)');
+        $('.map .world_titles').css('transform','translateX(-30%)');
     }).mouseleave(function () {
         {
             $(this).removeClass('animate__animated animate__fadeOutUp');
@@ -45,7 +49,8 @@ $(window).resize(function(){
     if ($(window).width() < 991){
         $('.part').eq(0).mouseenter(function () {
             $(this).addClass('animate__animated animate__fadeOutUp').addClass('infinite');
-            $('.map .world').css('transform','translateX(30%)')
+            $('.map .world').css('transform','translateX(30%)');
+            $('.map .world_titles').css('transform','translateX(30%)');
         }).mouseleave(function () {
             {
                 $(this).removeClass('animate__animated animate__fadeOutUp');
@@ -54,7 +59,8 @@ $(window).resize(function(){
         
         $('.part').eq(1).mouseenter(function () {
             $(this).addClass('animate__animated animate__fadeOutUp').addClass('infinite');
-            $('.map .world').css('transform','translateX(0%)')
+            $('.map .world').css('transform','translateX(0%)');
+            $('.map .world_titles').css('transform','translateX(0%)');
         }).mouseleave(function () {
             {
                 $(this).removeClass('animate__animated animate__fadeOutUp');
@@ -62,7 +68,8 @@ $(window).resize(function(){
         })
         $('.part').eq(2).mouseenter(function () {
             $(this).addClass('animate__animated animate__fadeOutUp').addClass('infinite');
-            $('.map .world').css('transform','translateX(-25%)')
+            $('.map .world').css('transform','translateX(-25%)');
+            $('.map .world_titles').css('transform','translateX(-25%)');
         }).mouseleave(function () {
             {
                 $(this).removeClass('animate__animated animate__fadeOutUp');
@@ -70,7 +77,8 @@ $(window).resize(function(){
         })
         $('.part').eq(3).mouseenter(function () {
             $(this).addClass('animate__animated animate__fadeOutUp').addClass('infinite');
-            $('.map .world').css('transform','translateX(-30%)')
+            $('.map .world').css('transform','translateX(-30%)');
+            $('.map .world_titles').css('transform','translateX(-30%)');
         }).mouseleave(function () {
             {
                 $(this).removeClass('animate__animated animate__fadeOutUp');
