@@ -12,7 +12,7 @@
    .join .event-banner {
     min-height:350px;
     /* max-height:600px; */
-    background-image:url(/images/event/event-join-w.jpg);
+    background-image:url(../../images/event/event-join-w.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
