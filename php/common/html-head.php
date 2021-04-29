@@ -30,3 +30,4 @@
 
     <!-- js -->
     <script src="<?= WEB_ROOT ?>/js/menu-footer/nav-bar.js" defer></script>
+    <script src="../js/all-products/category.js" defer ></script>

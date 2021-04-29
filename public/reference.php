@@ -51,8 +51,6 @@ $page_title = '啤女BeerU';
 <?php include __DIR__ . '../../php/common/script.php' ?>
 <!-- 這裡開始寫jQuery或JS -->
 
-<script src="../js/all-products/category.js"></script>
-
 
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>
