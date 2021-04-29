@@ -27,9 +27,10 @@ $brands_sid = $row['brand_sid'];
 $merch_sid = $row['merch_sid'];
 
 // 相關商品
-$c_SQL = "SELECT * FROM `products` WHERE `country_sid` = $country_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
+$c_SQL = "SELECT * FROM `products` WHERE `type_sid` = $type_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
 $c_row = $pdo->query($c_SQL)->fetch();
-$t_SQL = "SELECT * FROM `products` WHERE `type_sid` = $type_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
+$c_row_sid = $c_row['sid'];
+$t_SQL = "SELECT * FROM `products` WHERE `type_sid` = $type_sid AND `sid` !=  $psid AND `sid` != $c_row_sid  ORDER BY RAND() LIMIT 1";
 $t_row = $pdo->query($t_SQL)->fetch();
 $b_SQL = "SELECT * FROM `products` WHERE `brand_sid` = $brands_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
 $b_row = $pdo->query($b_SQL)->fetch();
