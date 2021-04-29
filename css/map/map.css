@@ -45,7 +45,8 @@
 
 /* 五大洲 */
 .map .world{
-    display:none;
+    transition: .3s;
+    /* display:none; */
     }
     
     .map  .world svg{
@@ -86,8 +87,12 @@
 }
 
 /* 換洲------------------------- */
-
+.world-each{
+    /* display: none; */
+}
 /* 美洲 */
+
+
 .map .world_us {
     display:none;
 }
@@ -105,7 +110,7 @@
 }
 
 .map .world_us{
-    /* display: none; */
+    display: none;
     -webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 80%);
     }
 
@@ -138,7 +143,7 @@
 }
 
 .map .world_eu{
-    /* display: none; */
+    display: none;
     -webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 80%);
     }
 
@@ -159,6 +164,7 @@
 /* --------------------------------------- */
 /* 3.各大洲 */
 .map .container .row:nth-of-type(3){
+    display: none;
     z-index: 20;
     max-width:1000px;
 }
@@ -192,6 +198,7 @@
 
 /* balloon */
 .map .balloon{
+    display: none;
     width:105px;
     left:10%;
     top:-700px;
@@ -211,6 +218,7 @@
     width:100px;
     right:11%;
     top:-400px;
+    cursor: pointer;
     }
 
     .map .pipi_plane .return-text{
@@ -345,7 +353,7 @@ transition: .3s;
 /* --------------------------------------- */
 /* 4.四大洲選項-手機版才有 */
 .map .container>.row:nth-of-type(4){
-    display: none;
+    /* display: none; */
 }
 
 .map .container>.row:nth-of-type(4){
@@ -367,20 +375,20 @@ transition: .3s;
 }
  /*動畫：飛機飛到地區中心點 */
 .map .parts .part:hover{
-    color:transparent;
+    /* color:transparent; */
     /* transform: translateX(0) translateY(-100%) scale(.25); */
     }
     
     .map .parts .part:nth-of-type(2):hover{
-        color:transparent;
+        /* color:transparent; */
         /* transform: translateX(0) translateY(-100%) scale(.25); */
         }
     .map .parts .part:nth-of-type(3):hover{
-        color:transparent;
+        /* color:transparent; */
         /* transform: translateX(0) translateY(-100%) scale(.25); */
         }
     .map .parts .part:nth-of-type(4):hover{
-        color:transparent;
+        /* color:transparent; */
         /* transform: translateX(0) translateY(-50%) scale(.25); */
         }
 
@@ -394,6 +402,7 @@ transition: .3s;
 /* pupup */
 /* 背景 */
 .map .bg-black{
+    display:none;
 z-index:990;
 width: 100%;
 height:100vh;
@@ -404,13 +413,13 @@ background-color: rgba(0, 0, 0, 0.6);
 /*明信片 */
 .map .map-card{
     width: 700px;
-    height:450px;
+    height:475px;
     background-color: rgb(244, 231, 190);
     margin:auto;
     padding-left:15px;
     padding-right:15px;
     padding-bottom:15px;
-    padding-top: 0;
+    padding-top: 15px;
     color:var(--red);
 }
 
@@ -419,7 +428,7 @@ background-color: rgba(0, 0, 0, 0.6);
 @media (max-width: 768px) {
     .map .map-card{
     width: 350px;
-    height:600px;
+    height:625px;
     
 }
 }
@@ -427,12 +436,13 @@ background-color: rgba(0, 0, 0, 0.6);
 .map .map-card .card-close{
 font-size: 3rem;
 height:30px;
+cursor: pointer;
 }
 
 @media (max-width: 768px) {
 }
 /* ---------------------- */
-/* deco-郵票 */
+/* deco-郵戳 */
 .stamp{
     width:125px;
     /* height:200px; */
@@ -456,13 +466,15 @@ height:30px;
     }
 }
 /* ---------------------- */
-/* deco-郵戳 */
+/* deco-郵票 */
 .stamp_country{
     width:80px;
     /* height:200px; */
     overflow: hidden;
     top:10px;
     left:15px;
+    filter:drop-shadow(5px 5px 7.5px rgba(0,0,0,0.3));
+    /* transform: rotate(10deg); */
 }
 
 @media (max-width: 768px) {
@@ -482,6 +494,7 @@ font-family: 'Noto Serif TC', serif;
 font-size: 5rem;
 font-weight: bold;
 margin-top: -20px;
+letter-spacing: .75rem;
 }
 
 /* 手機版 */
