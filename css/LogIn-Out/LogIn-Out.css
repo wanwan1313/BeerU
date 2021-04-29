@@ -55,6 +55,9 @@
     height: 80% */
     /* height: calc(100vh - 25vh) */
 
+    /* 驗證頁大小 */
+    /* height: calc(100vh - 48vh); */
+
 
     
 }
@@ -513,3 +516,83 @@
     font-size: 1.4rem;
 }
 
+
+/* /////驗證畫面////  */
+#Check-page{
+    display: none;
+
+}
+
+.Check-warp{
+    margin: 0 auto;
+    width: 65%;
+}
+
+.Check-title h3{
+    text-align: center;
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bolder;
+    font-size: 2.4rem;
+    letter-spacing: 0.6rem;
+    line-height: 3rem;
+}
+
+.Check-content-warp{
+    margin-top: 25px;
+}
+.Check-content{
+    margin: 0px auto 0 auto;
+    
+    color: var(--blue);
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+
+}
+
+.Check-Email{
+    position: relative;
+    margin: 20px auto 0 auto;
+    width: 100%
+}
+
+.email-icon02{
+    position: absolute;
+    color: var(--gold);
+    top: 10px;
+    left: 2.5%;;
+}
+
+.resent-btn{
+    width: 100%;
+    margin: 10px auto 0 auto;
+    border-radius: 5px;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+    
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    background-color: var(--gold);
+    height: 35px;
+
+}
+
+
+.later-check{
+    cursor: pointer;
+}
+
+.later-check h3{
+   
+    margin-top: 20px;
+   text-align: center;
+   font-size: 1.6rem;
+   font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+    color: var(--blue);
+
+
+}

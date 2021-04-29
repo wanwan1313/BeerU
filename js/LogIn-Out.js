@@ -9,6 +9,7 @@ $('.user-login').click(function(){
     $('.log-box').css('width','35%').css('height','500px');
     $('#LogIn-page').fadeOut(1);
     $('#LogSign-page').fadeOut(1);
+    $('#Check-page').fadeOut(1);
 
 });
 
@@ -20,7 +21,13 @@ $('.log-sandbox').click(function(){
 })
 
 $('.cancel-quit').click(function(){
+    $('#Check-page').fadeOut(300);
+   $('#LogIn-Sign').fadeOut(300);
 
+})
+
+$('.later-check').click(function(){
+   $('#Check-page').fadeOut(300);
    $('#LogIn-Sign').fadeOut(300);
 
 })
@@ -47,6 +54,17 @@ $('#LogOut-btn').click(function(){
     $('.log-box').css('width','50%').css('height','calc(100vh - 25vh)').css('transition','.4s')
 
     $('#LogSign-page').fadeIn(1000);
+     
+
+})
+
+
+// 進入驗證頁
+$('#LogSign-btn').click(function(){
+
+    $('#LogSign-page').fadeOut(1);
+    $('#Check-page').fadeIn(1000);
+    $('.log-box').css('width','35%').css('height','500px').css('transition','.4s');
 
 
 })
