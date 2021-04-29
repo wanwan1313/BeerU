@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 
-//navbar登入按鈕
+//navbar登入起始畫面按鈕
 $('.user-login').click(function(){
 
     $('#LogIn-Out').fadeIn(100);
