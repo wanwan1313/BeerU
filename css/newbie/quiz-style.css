@@ -2,6 +2,12 @@ body{
     background-color: var(--blue);
 }
 
+.quiz-wrapper{
+    height: 100vh;
+    align-items: center;
+    overflow: hidden;
+}
+
 /* ----------------下一步按鈕開始---------------------- */
 
 .next-btn {
@@ -77,6 +83,7 @@ body{
     margin: 0 auto;
     min-height: 80vh;
     align-items: center;
+    padding-bottom: 10vh;
 }
 
 .quiz-1-wrap .quiz-q{
@@ -124,24 +131,32 @@ body{
     left: 50%;
     transform: translate(-50%, -100%);
     display: none;
+    color: #fff;
 }
 
 .quiz-1-wrap .option-1-title-ch.show {
     display: block;
+    color: var(--gold);
+}
+
+.quiz-1-wrap .option-1-title-ch.active {
+    display: block;
+    color: #fff;
 }
 
 .quiz-1-wrap .option-1-txt{
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 48%;
+    left: 48%;
     transform: translate(-50%, -50%);
     margin: 2% 2%;
-    font-size: 1.6rem;
+    padding: 2% 5%;
+    font-size: 1.4rem;
     text-align: justify;
     font-family: "Noto Sans TC", sans-serif;
     font-weight: 400;
     letter-spacing: 0.1rem;
-    line-height: 2.6rem;
+    line-height: 2.2rem;
     display: none;
 }
 
@@ -159,7 +174,7 @@ body{
 .quiz-2-wrap{
     display: flex;
     margin: 0 auto;
-    min-height: 80vh;
+    min-height: 90vh;
     align-items: center;
 }
 
@@ -193,6 +208,10 @@ body{
     height: 100%;
     display: block;
     object-fit: cover;
+}
+
+.quiz-2-wrap .option-img.active{
+    border: 3px solid #fff;
 }
 
 .quiz-2-wrap .option-2-title-wrap{
@@ -234,7 +253,7 @@ body{
 .quiz-3-wrap{
     display: flex;
     margin: 0 auto;
-    min-height: 80vh;
+    min-height: 90vh;
     align-items: center;
 }
 
@@ -265,7 +284,10 @@ body{
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
     font-size: 2.6rem;
+}
 
+.quiz-3-wrap .option-3-title.active{
+    color: #fff;
 }
 
 .quiz-3-wrap .option-img{
@@ -292,7 +314,7 @@ body{
 .quiz-4-wrap{
     display: flex;
     margin: 0 auto;
-    min-height: 80vh;
+    min-height: 90vh;
     align-items: center;
 }
 
@@ -325,6 +347,10 @@ body{
     margin: 8%;
 }
 
+.quiz-4-wrap .option-4-title.active{
+    color: #fff;
+}
+
 .quiz-4-wrap .option-4-title span{
     font-size: 1.6rem;
     text-align: center;
@@ -355,7 +381,7 @@ body{
     font-weight: 400;
     letter-spacing: 0.1rem;
     line-height: 2.6rem;
-color: transparent;}
+    color: transparent;}
 
 .quiz-4-wrap .option-4-title span.show{
     color: #fff;
@@ -369,8 +395,9 @@ color: transparent;}
 .quiz-5-wrap{
     display: flex;
     margin: 0 auto;
-    min-height: 80vh;
+    min-height: 90vh;
     align-items: center;
+    padding-bottom: 70px;
 }
 
 .quiz-5-wrap .quiz-q{
@@ -402,9 +429,27 @@ color: transparent;}
     margin: 8%;
 }
 
+.quiz-5-wrap .option-5-title.show{
+    color: #fff;
+}
+
+
 .quiz-5-wrap .option-img{
     object-fit: contain;
     max-width: 50%;
+}
+
+.quiz-5-wrap .option-img.show{
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+.quiz-5-wrap .next-btn{
+    font-size: 3.0rem;
+}
+
+.quiz-empty{
+    padding-top: 100px;
 }
 
 /* ------------------- 心理測驗手機板 ------------------- */
@@ -457,15 +502,60 @@ color: transparent;}
     }
 
 /* ------------------- 心理測驗(共用) ------------------- */
+
+    .quiz-1-wrap,
+    .quiz-2-wrap,
+    .quiz-3-wrap,
+    .quiz-4-wrap,
+    .quiz-5-wrap{
+        min-height: 0;
+    }
+
     .option-wrap{
         max-width: 50%;
     }
 
-    .quiz-row{
-        min-height: none;
+    .quiz-3-wrap .option-wrap{
+        height: 220px;
     }
 
-    .quiz-q{
+    .quiz-4-wrap .option-4-title{
+        margin: 0;
+        font-size: 2.2rem;
+    }
+
+    .quiz-4-wrap .option-wrap{
+        height: 220px;
+    }
+
+    .quiz-4-wrap .option-img-wrap{
+        height: 100px;
+    }
+
+    .quiz-5-wrap{
+        padding-bottom: 40px;
+    }
+
+    .quiz-5-wrap .next-btn{
+        margin-top: 10%;
+        font-size: 3.0rem;
+    }
+
+    .quiz-3-wrap .option-img{
+        max-width: 40%;    }
+
+    .quiz-1-wrap .quiz-row,
+    .quiz-2-wrap .quiz-row,
+    .quiz-3-wrap .quiz-row,
+    .quiz-4-wrap .quiz-row,
+    .quiz-5-wrap .quiz-row {
+        margin-top: 0;    }
+
+    .quiz-1-wrap .quiz-q,
+    .quiz-2-wrap .quiz-q,
+    .quiz-3-wrap .quiz-q,
+    .quiz-4-wrap .quiz-q,
+    .quiz-5-wrap .quiz-q {
         font-size: 2.0rem;
         letter-spacing: 0.5rem;
     }
@@ -477,3 +567,147 @@ color: transparent;}
     }   
 
 }
+
+/* ------------------- 手機板彈出視窗 ------------------- */
+
+           /* Modal */
+
+           .modal,
+           .modal-box {
+               z-index: 900;
+           }
+   
+           .modal-sandbox {
+               position: fixed;
+               width: 100%;
+               height: 100%;
+               top: 0;
+               left: 0;
+               background: transparent;
+   
+           }
+   
+           .modal {
+               display: none;
+               position: fixed;
+               width: 100%;
+               height: 100%;
+               left: 0;
+               top: 0;
+               background: rgb(0, 0, 0);
+               background: rgba(0, 0, 0, .8);
+               overflow: auto;
+               text-align: center;
+   
+           }
+   
+           .modal-box {
+               position: relative;
+               width: 80%;
+               max-width: 400px;
+               margin: 150px auto;
+               animation-name: modalbox;
+               animation-duration: .4s;
+               animation-timing-function: cubic-bezier(0, 0, .3, 1.6);
+           }
+   
+           .modal-header {
+               padding: 20px 40px;
+               background: rgba(255, 255, 255, 0.9);
+               text-align: center;
+               margin: 0 auto;
+               display: block;
+               border-radius: 10px 10px 0 0;
+           }
+
+           .modal-header h1{
+               font-family: 'Noto Serif TC', serif;
+               font-weight: bold;
+               font-size: 3.0rem;
+               color: var(--blue);
+               text-align: center;
+           }
+
+           .modal-header h3{
+               font-family: 'Noto Serif TC', serif;
+               font-weight: bold;
+               font-size: 2.4rem;
+               color: var(--blue);
+               text-align: center;
+
+           }
+   
+           .modal img {
+               width: 100px;
+               margin: 0 auto;
+           }
+   
+           .modal-body {
+               color: var(--blue);
+               background: rgba(255, 255, 255, 0.9);
+               padding: 20px 10px;
+               border-radius: 0 0 10px 10px;
+           }
+   
+           .modal-body p {
+               margin: 2% 2%;
+               font-size: 1.8rem;
+               text-align: center;
+               font-family: "Noto Sans TC", sans-serif;
+               font-weight: 400;
+               color: var(--blue);
+               letter-spacing: 0.1rem;
+               line-height: 3rem;
+           }
+   
+           /* Close Button */
+           .close-modal {
+               font-size: 1.8rem;
+               font-weight: bold;
+               margin-top: 2%;
+               width: 150px;
+               border-radius: 5px;
+               border: 2px solid var(--gold);
+               color: var(--gold);
+               background-color: #fff;
+               padding: 5px;
+               cursor: pointer;
+               text-align: center;
+               cursor: pointer;
+               font-family: 'Noto Serif TC', serif;
+               letter-spacing: .3rem;
+           }
+   
+           .close-modal:hover {
+               background-color: var(--gold);
+               color: #fff;
+           }
+   
+           /* Animation */
+           @-webkit-keyframes modalbox {
+               0% {
+                   /* top: -250px; */
+                   transform: perspective(1px) translateY(-250px);
+                   opacity: 0;
+               }
+   
+               100% {
+                   /* top: 0; */
+                   transform: perspective(1px) translateY(0px);
+                   opacity: 1;
+               }
+           }
+   
+           @keyframes modalbox {
+               0% {
+                   /* top: -250px; */
+                   transform: perspective(1px) translateY(-250px);
+                   opacity: 0;
+               }
+   
+               100% {
+                   /* top: 0; */
+                   transform: perspective(1px) translateY(0px);
+                   opacity: 1;
+               }
+           }
