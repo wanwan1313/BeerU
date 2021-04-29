@@ -88,7 +88,7 @@ $page_title = '啤女BeerU';
                 <div class=" flag flag_L"></div>
                 <div class="LOGO_Filter">
                     <div class="pip_pick ">
-                        <img src="../images/common/pipi-pick.svg" alt="">
+                        <img src="../images/common/pipi-pick01.svg" alt="">
                     </div>
                     <img src="../images/common/Logo_filter.svg" alt=""> 
                 </div>
