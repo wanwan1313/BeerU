@@ -16,6 +16,7 @@ $page_title = '啤女-精釀啤酒商品';
 
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+
 <?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
 <?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
 <section class="mobile-menu">
@@ -216,7 +217,7 @@ $page_title = '啤女-精釀啤酒商品';
                             <div class="pages d-flex">
                             </div>
                         </div>
-                        <button class="btn_page page-next" onclick="nextPage()" ><i class="fas fa-angle-right"></i></button>
+                        <button class="btn_page page-next" onclick="nextPage()"><i class="fas fa-angle-right"></i></button>
                         <button class="btn_page page-last" onclick="lastPage()"><i class="fas fa-angle-double-right"></i></button>
                     </div>
                 </div>
@@ -308,6 +309,13 @@ $page_title = '啤女-精釀啤酒商品';
 
     // 設定一個頁碼的字樣
     const allpageTpl = n => {
+        console.log('window.location.href =', window.location.href);
+        const start = window.location.href.indexOf('page=', 0);
+        const end = window.location.href.indexOf('&', start);
+        const findpage = +window.location.href.substring(start + 5, end);
+        const page = (findpage) ? findpage : 1;
+        // console.log('page=', window.location.href.substring(start + 5, end));
+        // console.log('start', start, ',end:', end);
         return `<a href="javascript: changePage(${n})" class="page ${ n === page ? 'page-on':''}">
                   <p>${n}</p>
                  </a>`
@@ -354,8 +362,8 @@ $page_title = '啤女-精釀啤酒商品';
             }
             // 在最後一頁的時候
             if (page == p_data.total_pages) {
-                $('.all-product .page-next').addClass('btn_disabled').attr('disabled',true)
-                $('.all-product .page-last').addClass('btn_disabled').attr('disabled',true)
+                $('.all-product .page-next').addClass('btn_disabled').attr('disabled', true)
+                $('.all-product .page-last').addClass('btn_disabled').attr('disabled', true)
                 $('.all-product .page-first').removeClass('btn_disabled').attr('disabled', false)
                 $('.all-product .page-prev').removeClass('btn_disabled').attr('disabled', false)
             }
@@ -616,7 +624,7 @@ $page_title = '啤女-精釀啤酒商品';
 
     function prevPage() {
         page = ($('.all-product .page-on').find('p').text() * 1) - 1
-        if(page < 1){
+        if (page < 1) {
             page = 1
         }
         getallproductData()
@@ -641,7 +649,7 @@ $page_title = '啤女-精釀啤酒商品';
 
     function nextPage() {
         page = ($('.all-product .page-on').find('p').text() * 1) + 1
-        if(page > p_data.total_pages){
+        if (page > p_data.total_pages) {
             page = p_data.total_pages
         }
         getallproductData()
@@ -668,12 +676,12 @@ $page_title = '啤女-精釀啤酒商品';
         getURL(cate, page, hot, order)
         btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
         if ($(window).width() >= 992) {
-            if (p_data.total_pages > 10){
+            if (p_data.total_pages > 10) {
                 pages_wrap.css('transform', 'translateX(-315px)')
             }
         }
         if ($(window).width() < 992) {
-            if (p_data.total_pages > 4){
+            if (p_data.total_pages > 4) {
                 pages_wrap.css('transform', `translateX(-` + (page - 4) * 35 + `px)`)
             }
         }
