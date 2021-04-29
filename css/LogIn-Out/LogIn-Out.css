@@ -1,10 +1,10 @@
-#LogIn-Out{
+#LogIn-Sign{
    
-    display: none;
+    /* display: none; */
 
 }
 
-.LogIn-Out{
+.LogIn-Sign{
     position: fixed;
     height:calc(100vh - 85px);
     width: 100%;
@@ -20,6 +20,8 @@
     height:calc(100vh - 85px); 
     width: 100%;
 }
+
+
 
 
 .log-sandbox{
@@ -58,10 +60,21 @@
 }
 
 
+.log-box::-webkit-scrollbar { width: 0 !important }
+
 .logo-wrap{
     margin: 20px auto;
     width: 100px;    
     transform: translateX(-1px);
+}
+
+.cancel-quit{
+    cursor: pointer;
+    position: absolute;
+    color: var(--gold);
+    top: 0;
+    right: 15px;
+
 }
 .log-content{
     width: 100%;
@@ -307,7 +320,7 @@
 .logSign-content-wrap{
     margin: 25px auto 0px auto ;
     width: 65%;
-    border-bottom: solid 1px var(--gold);
+    border-bottom: solid 2px var(--gold);
 }
 
 .account-password-wrap{
@@ -448,6 +461,7 @@
 }
 
 .logSign-btn{
+    border-radius: 5px;
     font-family: 'Noto Sans TC', serif;
     font-weight: normal;
     margin-top: 25px;
@@ -496,6 +510,6 @@
     font-weight:light;
     text-align: center;
     color: var(--blue);
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
