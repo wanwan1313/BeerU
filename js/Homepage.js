@@ -8,7 +8,7 @@ $(document).ready(function(){
     if (scrollNow == 0){
 
         $('.header').addClass('nav-headerOut');
-        $('#beeru-nav-bar').addClass('OUT');
+        $('.beeru-nav-bar').addClass('OUT');
         $('#LandingPage').addClass('IN');
         $('#content-wrap').addClass('OUT');
         $('#footer').addClass('OUT')
@@ -42,7 +42,7 @@ $(document).ready(function(){
              setTimeout(()=>{
                 $('#content-wrap').removeClass('OUT');
                 $('.header').removeClass('nav-headerOut');
-                $('#beeru-nav-bar').removeClass('OUT');
+                $('.beeru-nav-bar').removeClass('OUT');
                 $('#LandingPage').removeClass('IN'); 
                 $('#footer').removeClass('OUT')
                 $('#LandingPage').fadeOut();
