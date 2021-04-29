@@ -274,3 +274,43 @@ padding-right:0
 
  /* title */
 
+/* ------------------------------------ */
+ /* js-css-tool */
+
+ /* 關閉，消失 */
+.display-none{
+    display: none;
+}
+
+/* 點開，顯示 */
+.display-block{
+    display: block;
+}
+
+
+/* 無限重複 */
+.infinite{
+    animation-iteration-count:infinite;
+}
+
+/* 持續時間 */
+.time-075s{
+    animation-duration: .75s;
+}
+
+.time-05s{
+    animation-duration: .5s;
+}
+
+.time-03s{
+    animation-duration: .3s;
+}
+
+.time-025s{
+    animation-duration: .25s;
+}
+
+/* 回復原位 */
+.X_0{
+transform:translateX(0);
+}
