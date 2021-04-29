@@ -83,6 +83,7 @@ body{
     margin: 0 auto;
     min-height: 80vh;
     align-items: center;
+    padding-bottom: 10vh;
 }
 
 .quiz-1-wrap .quiz-q{
@@ -130,24 +131,32 @@ body{
     left: 50%;
     transform: translate(-50%, -100%);
     display: none;
+    color: #fff;
 }
 
 .quiz-1-wrap .option-1-title-ch.show {
     display: block;
+    color: var(--gold);
+}
+
+.quiz-1-wrap .option-1-title-ch.active {
+    display: block;
+    color: #fff;
 }
 
 .quiz-1-wrap .option-1-txt{
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 48%;
+    left: 48%;
     transform: translate(-50%, -50%);
     margin: 2% 2%;
-    font-size: 1.6rem;
+    padding: 2% 5%;
+    font-size: 1.4rem;
     text-align: justify;
     font-family: "Noto Sans TC", sans-serif;
     font-weight: 400;
     letter-spacing: 0.1rem;
-    line-height: 2.6rem;
+    line-height: 2.2rem;
     display: none;
 }
 
@@ -199,6 +208,10 @@ body{
     height: 100%;
     display: block;
     object-fit: cover;
+}
+
+.quiz-2-wrap .option-img.active{
+    border: 3px solid #fff;
 }
 
 .quiz-2-wrap .option-2-title-wrap{
@@ -271,7 +284,10 @@ body{
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
     font-size: 2.6rem;
+}
 
+.quiz-3-wrap .option-3-title.active{
+    color: #fff;
 }
 
 .quiz-3-wrap .option-img{
@@ -329,6 +345,10 @@ body{
     font-weight: bold;
     font-size: 2.6rem;
     margin: 8%;
+}
+
+.quiz-4-wrap .option-4-title.active{
+    color: #fff;
 }
 
 .quiz-4-wrap .option-4-title span{
@@ -426,6 +446,10 @@ body{
 
 .quiz-5-wrap .next-btn{
     font-size: 3.0rem;
+}
+
+.quiz-empty{
+    padding-top: 100px;
 }
 
 /* ------------------- 心理測驗手機板 ------------------- */
@@ -662,24 +686,28 @@ body{
            /* Animation */
            @-webkit-keyframes modalbox {
                0% {
-                   top: -250px;
+                   /* top: -250px; */
+                   transform: perspective(1px) translateY(-250px);
                    opacity: 0;
                }
    
                100% {
-                   top: 0;
+                   /* top: 0; */
+                   transform: perspective(1px) translateY(0px);
                    opacity: 1;
                }
            }
    
            @keyframes modalbox {
                0% {
-                   top: -250px;
+                   /* top: -250px; */
+                   transform: perspective(1px) translateY(-250px);
                    opacity: 0;
                }
    
                100% {
-                   top: 0;
+                   /* top: 0; */
+                   transform: perspective(1px) translateY(0px);
                    opacity: 1;
                }
            }
