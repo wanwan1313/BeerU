@@ -584,8 +584,9 @@ if (scrollNow == 0){
             $('.header').removeClass('nav-headerOut');
             $('.beeru-nav-bar').removeClass('OUT');
             $('.beeru-nav-bar').fadeIn();
+            $('footer').removeClass('OUT');
 
-           
+    
         },5200)  
 
     });
