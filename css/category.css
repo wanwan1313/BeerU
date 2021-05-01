@@ -119,6 +119,14 @@
         .product-category .category-sub-item:hover {
             color: var(--gold);
         }
+
+        .product-category .category-sub-item.on {
+            color: var(--gold);
+        }
+
+        .product-category .category-out-item.on {
+            color: var(--gold);
+        }
     } 
         /* 手機版 */ 
     @media (max-width: 991px) { 
@@ -128,12 +136,11 @@
             width: 100%;
             height: 100vh;
             background-color: #163d50ef;
-            position: absolute;
+            position: fixed;
             z-index: 998;
-            top: 0;
-            left: 0; 
             transition: .5s;
             transform: translateX(-100%);
+            margin-top: -108px;
         }
 
         .product-category.on {
@@ -142,11 +149,22 @@
 
 
         /* logo */
+
+        .product-category .menu-logo-wrap {
+            width: 25%;
+            height: 12%;
+            margin: 0 auto;
+        }
         .product-category .menu-logo {
-            width: 100px;
-            margin: 20px auto;
-            height: 80px;
-            background: url(../images/logo/logo_beeru_white.svg) no-repeat center center;
+            width: 100%;
+            height: 100%;
+            padding: 10% 0 0;
+        }
+
+        .product-category .menu-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         /* 搜尋bar */
@@ -156,7 +174,7 @@
             color: var(--gold);
             font-size: 1.8rem;
             padding-top: 60px;
-            margin-bottom: 30px;
+            height: 12%;
         }
 
         .product-category .menu-search i {
@@ -189,6 +207,9 @@
             margin-top: 20px ;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--gold);
+            height: 10%;
+            padding: 6%;
+
         }
         .product-category .category-title p {
             position: relative;
@@ -221,7 +242,7 @@
             transition: .5s;
             position: relative;
             user-select: none;
-            padding: 20px 60px;
+            padding: 8px 60px;
             width: 100%;
         }
 
@@ -248,22 +269,26 @@
             width: 90%;
             margin: 0 auto;
             height: 0;
-            overflow: hidden;
+            overflow: scroll;
             padding-top: 5px;
             transition: .5s;
+            
         }
 
         .product-category .category-sub-item-warp-on {
             height: auto;
         }
 
-        .product-category .category-sub-item {
+        .product-category .category-sub-item, .category-sub-item0 {
             cursor: pointer;
             transition: .5s;
             font-size: 1.8rem;
             line-height: 3.8rem;
         }
-        .product-category .category-sub-item:hover {
+        .product-category .category-sub-item.on {
+            color: var(--gold);
+        }
+        .product-category .category-out-item.on {
             color: var(--gold);
         }
 

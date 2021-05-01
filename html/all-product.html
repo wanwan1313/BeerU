@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" href="../css/all-product/all-product-style.css">
     <link rel="stylesheet" href="../css/category.css">
+    <link rel="stylesheet" href="../css/pop-up.css">
     <script src="../js/all-products/all-products.js" defer></script>
 
 </head>
@@ -84,6 +85,25 @@
 
     </section>
 
+
+    <!-- <section class="pop-up pop-up-1 ">
+        <div class="pop-up-box animate__animated animate__fadeIn d-flex flex-column justify-content-center align-items-center">
+            <div class="icon animate__animated animate__rubberBand "><i class="fas fa-times"></i></div>
+            <p class="pop-up-text">請輸入正確數量</p>
+            <button class="ok">我知道了</button>
+        </div>
+    </section> -->
+    <!-- <section class="pop-up pop-up-2 ">
+        <div class="pop-up-box animate__animated animate__fadeIn d-flex flex-column justify-content-center align-items-center">
+            <div class="icon animate__animated animate__rubberBand "><i class="fas fa-times"></i></div>
+            <p class="pop-up-text">請輸入正確數量</p>
+            <div class="button-wrap">
+                <button class="yes">是</button>
+                <button class="no">否</button>
+            </div>
+        </div>
+    </section> -->
+
     <section class="all-product">
         <!-- 輪播Banner -->
         <div class="product-banner d-none d-lg-block">
@@ -107,7 +127,7 @@
         </div>
 
         <!-- 全部商品選擇 -->
-        <div class="select-product-wrap ">
+        <div id="select-product" class="select-product-wrap ">
             <div class="container-fluid">
                 <div class="row ">
 
@@ -362,9 +382,11 @@
                         <div class="product-header d-flex">
 
                             <!-- 標籤 -->
-                            <div class="col-12 col-lg-6 d-flex align-items-center flex-column flex-lg-row justify-content-center justify-content-lg-start">
+                            <div
+                                class="col-12 col-lg-6 d-flex align-items-center flex-column flex-lg-row justify-content-center justify-content-lg-start">
                                 <div class="product-tag d-flex align-items-center">
-                                    <div class="tagpic"><img src="../images/country/flag_belgium_square.svg" alt=""></div>
+                                    <div class="tagpic"><img src="../images/country/flag_belgium_square.svg" alt="">
+                                    </div>
                                     <p>#比利時啤酒</p>
                                 </div>
 
@@ -375,7 +397,8 @@
 
 
                             <!-- 排序和搜尋 -->
-                            <div class="col-lg-6 d-none d-lg-block product-func d-lg-flex align-items-lg-center justify-content-lg-end">
+                            <div
+                                class="col-lg-6 d-none d-lg-block product-func d-lg-flex align-items-lg-center justify-content-lg-end">
 
                                 <!-- 排序 -->
                                 <div class="sort">
@@ -405,14 +428,17 @@
                                 <div class="beer-product">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <a href="../html/each-product.html"><img class="beer-pic"
+                                                src="../images/products/Heart of Darkness-01.png" alt=""></a>
                                         <!-- 標籤 -->
-                                        <div class="new-label">
-                                            <p>NEW</p>
+                                        <div class="label">
+                                            <div class="new-label">
+                                                <p>NEW</p>
+                                            </div>
+                                            <div class="hot-label">
+                                                <p>HOT</p>
+                                            </div>
                                         </div>
-                                        <!-- <div class="hot-label">
-                                            <p>HOT</p>
-                                        </div> -->
 
                                         <!-- 國家圖片 -->
                                         <div class="country"><img src="../images/country/flag_denmark_circle.svg"
@@ -428,10 +454,12 @@
                                     <!-- 商品介紹 -->
                                     <div class="pro-intro d-flex flex-column justify-content-between">
                                         <!-- 商品名稱 -->
-                                        <div class="p-name">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                        </div>
+                                        <a href="../html/each-product.html">
+                                            <div class="p-name">
+                                                <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
+                                                <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                            </div>
+                                        </a>
                                         <!-- 購買 -->
                                         <div class="p-buy d-flex flex-wrap">
                                             <!-- 選擇數量 -->
@@ -454,34 +482,52 @@
                             <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
                                 <div class="beer-product">
                                     <div class="pro-pic">
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                        <!-- <div class="new-label">
-                                            <p>NEW</p>
-                                        </div> -->
-                                        <div class="hot-label">
-                                            <p>HOT</p>
+                                        <!-- 商品圖 -->
+                                        <a href="../html/each-product.html"><img class="beer-pic"
+                                                src="../images/products/Heart of Darkness-01.png" alt=""></a>
+                                        <!-- 標籤 -->
+                                        <div class="label">
+                                            <div class="new-label">
+                                                <p>NEW</p>
+                                            </div>
+                                            <div class="hot-label">
+                                                <p>HOT</p>
+                                            </div>
                                         </div>
+
+                                        <!-- 國家圖片 -->
                                         <div class="country"><img src="../images/country/flag_denmark_circle.svg"
                                                 alt=""></div>
+
+                                        <!-- 收藏按鈕 -->
                                         <div class="collect">
-                                            <!-- <button class="btn_collect"><i class="far fa-heart"></i></button> -->
-                                            <button class="btn_collect_active"><i class="fas fa-heart"></i></button>
+                                            <button class="btn_collect"><i class="far fa-heart"></i></button>
+                                            <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
                                         </div>
                                     </div>
+
+                                    <!-- 商品介紹 -->
                                     <div class="pro-intro d-flex flex-column justify-content-between">
-                                        <div class="p-name">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                        </div>
+                                        <!-- 商品名稱 -->
+                                        <a href="../html/each-product.html">
+                                            <div class="p-name">
+                                                <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
+                                                <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                            </div>
+                                        </a>
+                                        <!-- 購買 -->
                                         <div class="p-buy d-flex flex-wrap">
+                                            <!-- 選擇數量 -->
                                             <div class="col-12 quantity d-flex justify-content-between">
                                                 <div class="minus"><i class="fas fa-minus"></i></div>
                                                 <input type="text" class="buy-number" value="1">
                                                 <div class="plus"><i class="fas fa-plus"></i></div>
                                             </div>
+                                            <!-- 價格 -->
                                             <div class="col-5 p-price">
                                                 <p id="p-price"><span>NT</span>$85</p>
                                             </div>
+                                            <!-- 加入購物車按鈕 -->
                                             <button class="col-7 add-cart"><i
                                                     class="fas fa-shopping-bag"></i>加入購物車</button>
                                         </div>
@@ -491,34 +537,52 @@
                             <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
                                 <div class="beer-product">
                                     <div class="pro-pic">
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                        <div class="new-label">
-                                            <p>NEW</p>
+                                        <!-- 商品圖 -->
+                                        <a href="../html/each-product.html"><img class="beer-pic"
+                                                src="../images/products/Heart of Darkness-01.png" alt=""></a>
+                                        <!-- 標籤 -->
+                                        <div class="label">
+                                            <div class="new-label">
+                                                <p>NEW</p>
+                                            </div>
+                                            <div class="hot-label">
+                                                <p>HOT</p>
+                                            </div>
                                         </div>
-                                        <!-- <div class="hot-label">
-                                            <p>HOT</p>
-                                        </div> -->
+
+                                        <!-- 國家圖片 -->
                                         <div class="country"><img src="../images/country/flag_denmark_circle.svg"
                                                 alt=""></div>
+
+                                        <!-- 收藏按鈕 -->
                                         <div class="collect">
                                             <button class="btn_collect"><i class="far fa-heart"></i></button>
                                             <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
                                         </div>
                                     </div>
+
+                                    <!-- 商品介紹 -->
                                     <div class="pro-intro d-flex flex-column justify-content-between">
-                                        <div class="p-name">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                        </div>
+                                        <!-- 商品名稱 -->
+                                        <a href="../html/each-product.html">
+                                            <div class="p-name">
+                                                <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
+                                                <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                            </div>
+                                        </a>
+                                        <!-- 購買 -->
                                         <div class="p-buy d-flex flex-wrap">
+                                            <!-- 選擇數量 -->
                                             <div class="col-12 quantity d-flex justify-content-between">
                                                 <div class="minus"><i class="fas fa-minus"></i></div>
                                                 <input type="text" class="buy-number" value="1">
                                                 <div class="plus"><i class="fas fa-plus"></i></div>
                                             </div>
+                                            <!-- 價格 -->
                                             <div class="col-5 p-price">
                                                 <p id="p-price"><span>NT</span>$85</p>
                                             </div>
+                                            <!-- 加入購物車按鈕 -->
                                             <button class="col-7 add-cart"><i
                                                     class="fas fa-shopping-bag"></i>加入購物車</button>
                                         </div>
@@ -528,34 +592,52 @@
                             <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
                                 <div class="beer-product">
                                     <div class="pro-pic">
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                        <div class="new-label">
-                                            <p>NEW</p>
+                                        <!-- 商品圖 -->
+                                        <a href="../html/each-product.html"><img class="beer-pic"
+                                                src="../images/products/Heart of Darkness-01.png" alt=""></a>
+                                        <!-- 標籤 -->
+                                        <div class="label">
+                                            <div class="new-label">
+                                                <p>NEW</p>
+                                            </div>
+                                            <div class="hot-label">
+                                                <p>HOT</p>
+                                            </div>
                                         </div>
-                                        <!-- <div class="hot-label">
-                                            <p>HOT</p>
-                                        </div> -->
+
+                                        <!-- 國家圖片 -->
                                         <div class="country"><img src="../images/country/flag_denmark_circle.svg"
                                                 alt=""></div>
+
+                                        <!-- 收藏按鈕 -->
                                         <div class="collect">
                                             <button class="btn_collect"><i class="far fa-heart"></i></button>
                                             <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
                                         </div>
                                     </div>
+
+                                    <!-- 商品介紹 -->
                                     <div class="pro-intro d-flex flex-column justify-content-between">
-                                        <div class="p-name">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                        </div>
+                                        <!-- 商品名稱 -->
+                                        <a href="../html/each-product.html">
+                                            <div class="p-name">
+                                                <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
+                                                <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                            </div>
+                                        </a>
+                                        <!-- 購買 -->
                                         <div class="p-buy d-flex flex-wrap">
+                                            <!-- 選擇數量 -->
                                             <div class="col-12 quantity d-flex justify-content-between">
                                                 <div class="minus"><i class="fas fa-minus"></i></div>
                                                 <input type="text" class="buy-number" value="1">
                                                 <div class="plus"><i class="fas fa-plus"></i></div>
                                             </div>
+                                            <!-- 價格 -->
                                             <div class="col-5 p-price">
                                                 <p id="p-price"><span>NT</span>$85</p>
                                             </div>
+                                            <!-- 加入購物車按鈕 -->
                                             <button class="col-7 add-cart"><i
                                                     class="fas fa-shopping-bag"></i>加入購物車</button>
                                         </div>
@@ -565,34 +647,52 @@
                             <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
                                 <div class="beer-product">
                                     <div class="pro-pic">
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                        <div class="new-label">
-                                            <p>NEW</p>
+                                        <!-- 商品圖 -->
+                                        <a href="../html/each-product.html"><img class="beer-pic"
+                                                src="../images/products/Heart of Darkness-01.png" alt=""></a>
+                                        <!-- 標籤 -->
+                                        <div class="label">
+                                            <div class="new-label">
+                                                <p>NEW</p>
+                                            </div>
+                                            <div class="hot-label">
+                                                <p>HOT</p>
+                                            </div>
                                         </div>
-                                        <!-- <div class="hot-label">
-                                            <p>HOT</p>
-                                        </div> -->
+
+                                        <!-- 國家圖片 -->
                                         <div class="country"><img src="../images/country/flag_denmark_circle.svg"
                                                 alt=""></div>
+
+                                        <!-- 收藏按鈕 -->
                                         <div class="collect">
                                             <button class="btn_collect"><i class="far fa-heart"></i></button>
                                             <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
                                         </div>
                                     </div>
+
+                                    <!-- 商品介紹 -->
                                     <div class="pro-intro d-flex flex-column justify-content-between">
-                                        <div class="p-name">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                        </div>
+                                        <!-- 商品名稱 -->
+                                        <a href="../html/each-product.html">
+                                            <div class="p-name">
+                                                <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
+                                                <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                            </div>
+                                        </a>
+                                        <!-- 購買 -->
                                         <div class="p-buy d-flex flex-wrap">
+                                            <!-- 選擇數量 -->
                                             <div class="col-12 quantity d-flex justify-content-between">
                                                 <div class="minus"><i class="fas fa-minus"></i></div>
                                                 <input type="text" class="buy-number" value="1">
                                                 <div class="plus"><i class="fas fa-plus"></i></div>
                                             </div>
+                                            <!-- 價格 -->
                                             <div class="col-5 p-price">
                                                 <p id="p-price"><span>NT</span>$85</p>
                                             </div>
+                                            <!-- 加入購物車按鈕 -->
                                             <button class="col-7 add-cart"><i
                                                     class="fas fa-shopping-bag"></i>加入購物車</button>
                                         </div>
@@ -602,34 +702,52 @@
                             <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
                                 <div class="beer-product">
                                     <div class="pro-pic">
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                        <div class="new-label">
-                                            <p>NEW</p>
+                                        <!-- 商品圖 -->
+                                        <a href="../html/each-product.html"><img class="beer-pic"
+                                                src="../images/products/Heart of Darkness-01.png" alt=""></a>
+                                        <!-- 標籤 -->
+                                        <div class="label">
+                                            <div class="new-label">
+                                                <p>NEW</p>
+                                            </div>
+                                            <div class="hot-label">
+                                                <p>HOT</p>
+                                            </div>
                                         </div>
-                                        <!-- <div class="hot-label">
-                                            <p>HOT</p>
-                                        </div> -->
+
+                                        <!-- 國家圖片 -->
                                         <div class="country"><img src="../images/country/flag_denmark_circle.svg"
                                                 alt=""></div>
+
+                                        <!-- 收藏按鈕 -->
                                         <div class="collect">
                                             <button class="btn_collect"><i class="far fa-heart"></i></button>
                                             <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
                                         </div>
                                     </div>
+
+                                    <!-- 商品介紹 -->
                                     <div class="pro-intro d-flex flex-column justify-content-between">
-                                        <div class="p-name">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                        </div>
+                                        <!-- 商品名稱 -->
+                                        <a href="../html/each-product.html">
+                                            <div class="p-name">
+                                                <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
+                                                <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                            </div>
+                                        </a>
+                                        <!-- 購買 -->
                                         <div class="p-buy d-flex flex-wrap">
+                                            <!-- 選擇數量 -->
                                             <div class="col-12 quantity d-flex justify-content-between">
                                                 <div class="minus"><i class="fas fa-minus"></i></div>
                                                 <input type="text" class="buy-number" value="1">
                                                 <div class="plus"><i class="fas fa-plus"></i></div>
                                             </div>
+                                            <!-- 價格 -->
                                             <div class="col-5 p-price">
                                                 <p id="p-price"><span>NT</span>$85</p>
                                             </div>
+                                            <!-- 加入購物車按鈕 -->
                                             <button class="col-7 add-cart"><i
                                                     class="fas fa-shopping-bag"></i>加入購物車</button>
                                         </div>
@@ -639,34 +757,52 @@
                             <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
                                 <div class="beer-product">
                                     <div class="pro-pic">
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                        <div class="new-label">
-                                            <p>NEW</p>
+                                        <!-- 商品圖 -->
+                                        <a href="../html/each-product.html"><img class="beer-pic"
+                                                src="../images/products/Heart of Darkness-01.png" alt=""></a>
+                                        <!-- 標籤 -->
+                                        <div class="label">
+                                            <div class="new-label">
+                                                <p>NEW</p>
+                                            </div>
+                                            <div class="hot-label">
+                                                <p>HOT</p>
+                                            </div>
                                         </div>
-                                        <!-- <div class="hot-label">
-                                            <p>HOT</p>
-                                        </div> -->
+
+                                        <!-- 國家圖片 -->
                                         <div class="country"><img src="../images/country/flag_denmark_circle.svg"
                                                 alt=""></div>
+
+                                        <!-- 收藏按鈕 -->
                                         <div class="collect">
                                             <button class="btn_collect"><i class="far fa-heart"></i></button>
                                             <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
                                         </div>
                                     </div>
+
+                                    <!-- 商品介紹 -->
                                     <div class="pro-intro d-flex flex-column justify-content-between">
-                                        <div class="p-name">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                        </div>
+                                        <!-- 商品名稱 -->
+                                        <a href="../html/each-product.html">
+                                            <div class="p-name">
+                                                <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
+                                                <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                            </div>
+                                        </a>
+                                        <!-- 購買 -->
                                         <div class="p-buy d-flex flex-wrap">
+                                            <!-- 選擇數量 -->
                                             <div class="col-12 quantity d-flex justify-content-between">
                                                 <div class="minus"><i class="fas fa-minus"></i></div>
                                                 <input type="text" class="buy-number" value="1">
                                                 <div class="plus"><i class="fas fa-plus"></i></div>
                                             </div>
+                                            <!-- 價格 -->
                                             <div class="col-5 p-price">
                                                 <p id="p-price"><span>NT</span>$85</p>
                                             </div>
+                                            <!-- 加入購物車按鈕 -->
                                             <button class="col-7 add-cart"><i
                                                     class="fas fa-shopping-bag"></i>加入購物車</button>
                                         </div>
@@ -676,34 +812,52 @@
                             <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
                                 <div class="beer-product">
                                     <div class="pro-pic">
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                        <div class="new-label">
-                                            <p>NEW</p>
+                                        <!-- 商品圖 -->
+                                        <a href="../html/each-product.html"><img class="beer-pic"
+                                                src="../images/products/Heart of Darkness-01.png" alt=""></a>
+                                        <!-- 標籤 -->
+                                        <div class="label">
+                                            <div class="new-label">
+                                                <p>NEW</p>
+                                            </div>
+                                            <div class="hot-label">
+                                                <p>HOT</p>
+                                            </div>
                                         </div>
-                                        <!-- <div class="hot-label">
-                                            <p>HOT</p>
-                                        </div> -->
+
+                                        <!-- 國家圖片 -->
                                         <div class="country"><img src="../images/country/flag_denmark_circle.svg"
                                                 alt=""></div>
+
+                                        <!-- 收藏按鈕 -->
                                         <div class="collect">
                                             <button class="btn_collect"><i class="far fa-heart"></i></button>
                                             <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
                                         </div>
                                     </div>
+
+                                    <!-- 商品介紹 -->
                                     <div class="pro-intro d-flex flex-column justify-content-between">
-                                        <div class="p-name">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                        </div>
+                                        <!-- 商品名稱 -->
+                                        <a href="../html/each-product.html">
+                                            <div class="p-name">
+                                                <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
+                                                <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                            </div>
+                                        </a>
+                                        <!-- 購買 -->
                                         <div class="p-buy d-flex flex-wrap">
+                                            <!-- 選擇數量 -->
                                             <div class="col-12 quantity d-flex justify-content-between">
                                                 <div class="minus"><i class="fas fa-minus"></i></div>
                                                 <input type="text" class="buy-number" value="1">
                                                 <div class="plus"><i class="fas fa-plus"></i></div>
                                             </div>
+                                            <!-- 價格 -->
                                             <div class="col-5 p-price">
                                                 <p id="p-price"><span>NT</span>$85</p>
                                             </div>
+                                            <!-- 加入購物車按鈕 -->
                                             <button class="col-7 add-cart"><i
                                                     class="fas fa-shopping-bag"></i>加入購物車</button>
                                         </div>
@@ -713,99 +867,138 @@
                             <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
                                 <div class="beer-product">
                                     <div class="pro-pic">
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                        <div class="new-label">
-                                            <p>NEW</p>
+                                        <!-- 商品圖 -->
+                                        <a href="../html/each-product.html"><img class="beer-pic"
+                                                src="../images/products/Heart of Darkness-01.png" alt=""></a>
+                                        <!-- 標籤 -->
+                                        <div class="label">
+                                            <div class="new-label">
+                                                <p>NEW</p>
+                                            </div>
+                                            <div class="hot-label">
+                                                <p>HOT</p>
+                                            </div>
                                         </div>
-                                        <!-- <div class="hot-label">
-                                            <p>HOT</p>
-                                        </div> -->
+
+                                        <!-- 國家圖片 -->
                                         <div class="country"><img src="../images/country/flag_denmark_circle.svg"
                                                 alt=""></div>
+
+                                        <!-- 收藏按鈕 -->
                                         <div class="collect">
                                             <button class="btn_collect"><i class="far fa-heart"></i></button>
                                             <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
                                         </div>
                                     </div>
+
+                                    <!-- 商品介紹 -->
                                     <div class="pro-intro d-flex flex-column justify-content-between">
-                                        <div class="p-name">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                        </div>
+                                        <!-- 商品名稱 -->
+                                        <a href="../html/each-product.html">
+                                            <div class="p-name">
+                                                <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
+                                                <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
+                                            </div>
+                                        </a>
+                                        <!-- 購買 -->
                                         <div class="p-buy d-flex flex-wrap">
+                                            <!-- 選擇數量 -->
                                             <div class="col-12 quantity d-flex justify-content-between">
                                                 <div class="minus"><i class="fas fa-minus"></i></div>
                                                 <input type="text" class="buy-number" value="1">
                                                 <div class="plus"><i class="fas fa-plus"></i></div>
                                             </div>
+                                            <!-- 價格 -->
                                             <div class="col-5 p-price">
                                                 <p id="p-price"><span>NT</span>$85</p>
                                             </div>
+                                            <!-- 加入購物車按鈕 -->
                                             <button class="col-7 add-cart"><i
                                                     class="fas fa-shopping-bag"></i>加入購物車</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
                         <!-- 頁碼 -->
                         <div class="product-pages d-flex justify-content-center">
-                            <a href=""><button class="btn_page page-first" ><i
+                            <a href="javascript: "><button class="btn_page page-first "><i
                                         class="fas fa-angle-double-left"></i></button></a>
-                            <a href=""><button class="btn_page page-prev"><i class="fas fa-angle-left"></i></button></a>
+                            <a href="javascript: "><button class="btn_page page-prev"><i
+                                        class="fas fa-angle-left"></i></button></a>
                             <div class="pages-show ">
                                 <div class="pages d-flex">
-                                    <a href="">
-                                        <p class="page">1</p>
+                                    <a href="javascript: " class="page">
+                                        <p>1</p>
                                     </a>
-                                    <a href="">
-                                        <p class="page">2</p>
+                                    <a href="javascript: " class="page">
+                                        <p>2</p>
                                     </a>
-                                    <a href="">
-                                        <p class="page">3</p>
+                                    <a href="javascript: " class="page">
+                                        <p>3</p>
                                     </a>
-                                    <a href="">
-                                        <p class="page">4</p>
+                                    <a href="javascript: " class="page">
+                                        <p>4</p>
                                     </a>
-                                    <a href="">
-                                        <p class="page">5</p>
+                                    <a href="javascript: " class="page">
+                                        <p>5</p>
                                     </a>
-                                    <a href="">
-                                        <p class="page">6</p>
+                                    <a href="javascript: " class="page">
+                                        <p>6</p>
                                     </a>
-                                    <a href="">
-                                        <p class="page">7</p>
+                                    <a href="javascript: " class="page">
+                                        <p>7</p>
                                     </a>
-                                    <a href="">
-                                        <p class="page">8</p>
+                                    <a href="javascript: " class="page">
+                                        <p>8</p>
                                     </a>
-                                    <a href="">
-                                        <p class="page">9</p>
+                                    <a href="javascript: " class="page">
+                                        <p>9</p>
                                     </a>
-                                    <a href="">
-                                        <p class="page">10</p>
+                                    <a href="javascript: " class="page">
+                                        <p>10</p>
                                     </a>
-                                    <a href="">
-                                        <p class="page">11</p>
+                                    <a href="javascript: " class="page">
+                                        <p>11</p>
                                     </a>
-                                    <a href="">
-                                        <p class="page">12</p>
+                                    <a href="javascript: " class="page">
+                                        <p>12</p>
                                     </a>
-                                    <a href="">
-                                        <p class="page">13</p>
+                                    <a href="javascript: " class="page">
+                                        <p>13</p>
                                     </a>
-                                    <a href="">
-                                        <p class="page">14</p>
+                                    <a href="javascript: " class="page">
+                                        <p>14</p>
                                     </a>
-                                    <a href="">
-                                        <p class="page">15</p>
+                                    <a href="javascript: " class="page">
+                                        <p>15</p>
                                     </a>
+                                    <a href="javascript: " class="page">
+                                        <p>16</p>
+                                    </a>
+                                    <a href="javascript: " class="page">
+                                        <p>17</p>
+                                    </a>
+                                    <a href="javascript: " class="page">
+                                        <p>18</p>
+                                    </a>
+                                    <a href="javascript: " class="page">
+                                        <p>19</p>
+                                    </a>
+                                    <a href="javascript: " class="page">
+                                        <p>20</p>
+                                    </a>
+                                    <a href="javascript: " class="page">
+                                        <p>21</p>
+                                    </a>
+
                                 </div>
                             </div>
-                            <a href=""><button class="btn_page page-next"><i
+                            <a href="javascript: "><button class="btn_page page-next"><i
                                         class="fas fa-angle-right"></i></button></a>
-                            <a href=""><button class="btn_page page-last"><i
+                            <a href="javascript: "><button class="btn_page page-last"><i
                                         class="fas fa-angle-double-right"></i></button></a>
                         </div>
                     </div>
@@ -848,6 +1041,206 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+
+
+    <script>
+
+        $('button.ok').on('click',function(){
+            $('.pop-up').css('display','none')
+        })
+
+
+        let pages = $('.page')
+        let btn_pages = $('.btn_page')
+        let pages_wrap = $('.pages')
+
+        // 預設第一頁為on,往前按鈕不能按
+        pages.eq(0).addClass('page-on')
+        $('.page-first').addClass('btn_disabled').attr('disabled', true)
+        $('.page-prev').addClass('btn_disabled').attr('disabled', true)
+
+        if ($(window).width() >= 992) {
+            // 分頁按鈕按了變色
+            pages.on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                $(this).addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+
+                if (pages.last().hasClass('page-on')) {
+                    $('.page-next').addClass('btn_disabled').attr('disabled', true)
+                    $('.page-last').addClass('btn_disabled').attr('disabled', true)
+                }
+                if (pages.first().hasClass('page-on')) {
+                    $('.page-first').addClass('btn_disabled').attr('disabled', true)
+                    $('.page-prev').addClass('btn_disabled').attr('disabled', true)
+                }
+
+                if (pages.length > 10) {
+                    if ($('.pages').css('transform') == 'none' || $('.pages').css('transform') == "matrix(1, 0, 0, 1, 0, 0)") {
+                        if ($(this).find('p').text() == 10) {
+                            if (pages.length < 19) {
+                                $('.pages-show').css('width', 35 + (pages.length % 10) * 35 + 'px')
+                            }
+                            pages_wrap.css('transform', 'translateX(-315px)')
+                        }
+                    }
+                    else {
+                        if ($(this).find('p').text() == 10) {
+                            $('.pages-show').css('width', '350px')
+                            pages_wrap.css('transform', 'translateX(0px)')
+                        }
+                        if ($('.pages').css('transform') == "matrix(1, 0, 0, 1, -315, 0)") {
+                            if ($(this).find('p').text() == 19 && pages.length > 19) {
+                                $('.pages-show').css('width', 70 + (pages.length % 10) * 35 + 'px')
+                                pages_wrap.css('transform', 'translateX(-630px)')
+                            }
+                        } else {
+                            if ($(this).find('p').text() == 19) {
+                                $('.pages-show').css('width', '350px')
+                                pages_wrap.css('transform', 'translateX(-315px)')
+                            }
+                        }
+                    }
+
+
+                }
+            })
+
+            // 前後按鈕
+            $('.page-next').on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                $('.page-on').next().addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+                if (pages.last().hasClass('page-on')) {
+                    $('.page-next').addClass('btn_disabled').attr('disabled', true)
+                    $('.page-last').addClass('btn_disabled').attr('disabled', true)
+                }
+                if (pages.eq(9).hasClass('page-on') || pages.eq(10).hasClass('page-on')) {
+                    if (pages.length < 19) {
+                        $('.pages-show').css('width', 35 + (pages.length % 10) * 35 + 'px')
+                    }
+                    pages_wrap.css('transform', 'translateX(-315px)')
+                }
+                if (pages.eq(18).hasClass('page-on')) {
+                    $('.pages-show').css('width', 70 + (pages.length % 10) * 35 + 'px')
+                    pages_wrap.css('transform', 'translateX(-630px)')
+                }
+            })
+            $('.page-prev').on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                $('.page-on').prev().addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+                if (pages.first().hasClass('page-on')) {
+                    $('.page-first').addClass('btn_disabled').attr('disabled', true)
+                    $('.page-prev').addClass('btn_disabled').attr('disabled', true)
+                }
+                if (pages.eq(8).hasClass('page-on')) {
+                    $('.pages-show').css('width', '350px')
+                    pages_wrap.css('transform', 'translateX(0px)')
+                }
+                if (pages.eq(17).hasClass('page-on')) {
+                    $('.pages-show').css('width', '350px')
+                    pages_wrap.css('transform', 'translateX(-315px)')
+                }
+            })
+            $('.page-first').on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                pages.first().addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+                $(this).addClass('btn_disabled').attr('disabled', true)
+                $('.page-prev').addClass('btn_disabled').attr('disabled', true)
+                $('.pages-show').css('width', '350px')
+                pages_wrap.css('transform', 'translateX(0px)')
+
+            })
+            $('.page-last').on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                pages.last().addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+                $(this).addClass('btn_disabled').attr('disabled', true)
+                $('.page-next').addClass('btn_disabled').attr('disabled', true)
+                if (10 < pages.length < 19) {
+                    $('.pages-show').css('width', 35 + (pages.length % 10) * 35 + 'px')
+                    pages_wrap.css('transform', 'translateX(-315px)')
+                }
+                if (pages.length > 19) {
+                    $('.pages-show').css('width', 70 + (pages.length % 10) * 35 + 'px')
+                    pages_wrap.css('transform', 'translateX(-630px)')
+                }
+            })
+        }
+
+        if ($(window).width() < 992) {
+            // 分頁按鈕按了變色
+            pages.on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                $(this).addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+
+                if (pages.last().hasClass('page-on')) {
+                    $('.page-next').addClass('btn_disabled').attr('disabled', true)
+                    $('.page-last').addClass('btn_disabled').attr('disabled', true)
+                }
+                if (pages.first().hasClass('page-on')) {
+                    $('.page-first').addClass('btn_disabled').attr('disabled', true)
+                    $('.page-prev').addClass('btn_disabled').attr('disabled', true)
+                }
+                pages_wrap.css('transform', 'translateX(-' + 35 * ($(this).index() - 1) + 'px)')
+
+            })
+
+            // 前後按鈕
+            $('.page-next').on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                $('.page-on').next().addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+                if (pages.last().hasClass('page-on')) {
+                    $('.page-next').addClass('btn_disabled').attr('disabled', true)
+                    $('.page-last').addClass('btn_disabled').attr('disabled', true)
+                }
+
+                let pagennum = $('.page-on').find('p').text() * 1
+                pages_wrap.css('transform', 'translateX(-' + (pagennum - 2) * 35 + 'px)')
+
+
+            })
+            $('.page-prev').on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                $('.page-on').prev().addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+                if (pages.first().hasClass('page-on')) {
+                    $('.page-first').addClass('btn_disabled').attr('disabled', true)
+                    $('.page-prev').addClass('btn_disabled').attr('disabled', true)
+                }
+
+                let pagennum = $('.page-on').find('p').text() * 1
+                pages_wrap.css('transform', 'translateX(-' + (pagennum - 2) * 35 + 'px)')
+
+            })
+            $('.page-first').on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                pages.first().addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+                $(this).addClass('btn_disabled').attr('disabled', true)
+                $('.page-prev').addClass('btn_disabled').attr('disabled', true)
+                $('.pages-show').css('width', '140px')
+                pages_wrap.css('transform', 'translateX(0px)')
+
+            })
+            $('.page-last').on('click', function () {
+                btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+                pages.last().addClass('page-on').siblings().removeClass('page-on')
+                $('html, body').animate({ scrollTop: $('#select-product').offset().top }, 300, 'swing');
+                $(this).addClass('btn_disabled').attr('disabled', true)
+                $('.page-next').addClass('btn_disabled').attr('disabled', true)
+
+                let pagennum = $('.page-on').find('p').text() * 1
+                pages_wrap.css('transform', 'translateX(-' + (pagennum - 2) * 35 + 'px)')
+
+            })
+        }
+
+    </script>
 
 
 

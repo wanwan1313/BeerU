@@ -25,13 +25,13 @@
                             <li class="nav-sub-menu-item"><a href="">募資計畫</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item d-none d-lg-block"><a href="">全部商品</a></li>
+                    <li class="nav-item d-none d-lg-block"><a href="all-product.php">全部商品</a></li>
                 </ul>
                 <ul class="nav-bar-member list-unstyled d-flex ">
                     <input type="text" id="search" name="search" class="search-bar" placeholder="找啤酒">
                     <li class="search"><i class="fas fa-search"></i></li>
                     <li class="shopping-cart"><a href=""><img src="<?= WEB_ROOT ?>/images/common/icon_shopbag.svg" alt=""></a></li>
-                    <li class="user-login"><a href=""><img src="<?= WEB_ROOT ?>/images/common/icon_member.svg" alt=""></a></li>
+                    <li class="user-login"><a href="javascript: "><img src="<?= WEB_ROOT ?>/images/common/icon_member.svg" alt=""></a></li>
                 </ul>
             </div>
         </div>

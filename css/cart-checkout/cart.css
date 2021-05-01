@@ -1,0 +1,158 @@
+.cart-list {
+    background-color: #fff;
+    padding: 50px 0 ;
+    color: var(--blue);
+}
+
+/* -------------------------大標--------------------------- */
+
+/* 圈圈圖案 */
+.cart-title {
+    background: url(../../images/common/h1_3_b.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 標題文字 */
+.cart-title p {
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 左邊雕飾 */
+.cart-title p::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_left_b.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+
+/* 右邊雕飾 */
+.cart-title p::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right:0;
+    transform: translate(115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_right_b.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 手機版 改字和雕飾大小*/
+@media (max-width: 991px) {
+.cart-title p {
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    text-indent:0.8rem;
+}
+
+.cart-title p::before {
+    width: 60px;
+    height: 32%;
+
+}
+
+.cart-title p::after {
+    width: 60px;
+    height: 32%;
+
+}
+
+
+}
+
+
+/* -------------------------header--------------------------- */
+.cart-header {
+    border-bottom: 3px solid var(--gold);
+    padding: 0;
+}
+
+/* 概況 */
+.overview {
+    margin-right: 30px;
+}
+.overview img {
+    width: 10px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+/* 全選 */
+.selectall::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 20px;
+    background-color: var(--blue);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-60%);
+    margin-left: -5px;
+}
+
+.selectall input[type=checkbox] {
+    display: none;
+ }
+.selectall input[type=checkbox]+p {
+    margin-left: 10px;
+    cursor: pointer;
+    transition: .5s;
+    user-select: none;
+    position: relative;
+ }
+ .selectall input[type=checkbox]+p:hover {
+     opacity: .7;
+ }
+.selectall input[type=checkbox]+p span {
+    padding: 0 1.5px;
+    margin-left: 5px;
+    border: 1px solid var(--blue);
+    border-radius: 2px;
+    font-size: 1rem;
+    color: transparent;
+}
+.selectall input[type=checkbox]:checked+p span {
+    background-color: var(--blue);
+    color: #fff;
+}
+
+/* 清空購物車 */
+.del-p {
+    cursor: pointer;
+    transition: .5s;
+}
+
+.del-p:hover {
+    opacity: .7;
+}
+
+
+/* ---------------------商品list--------------------- */
+
+ 
+
+
+
+
+
+

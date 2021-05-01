@@ -1,0 +1,49 @@
+.IN{
+    
+    display: block;
+    opacity: 1;
+}
+
+.OUT{
+    
+    display: none;
+    opacity: 0;
+}
+
+
+.nav-headerOut{
+    height:0;
+}
+
+.pipi-flyIn{
+    
+    transition: 2s;
+    opacity: 1;
+    transform: translate(-120px, 300px) ;
+
+}
+
+.DOOR-OPEN{
+     transform: translateX(380px);
+    
+}
+
+
+.Door-ZoomOut{
+    transform: scale(2) translateY(-50px);
+
+    opacity: 0;
+}
+
+.animate__animated.animate__slideInDown{
+    --animate-duration: 3s;
+    --animate-delay: 5s;
+}
+
+
+.pipi-flyout{
+    transition: 3s;
+    opacity: 0;
+    transform: translate(110px,-100px);
+
+}

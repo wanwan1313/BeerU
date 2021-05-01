@@ -6,11 +6,11 @@ $(function () {
     // 桌機板 width >= 992 
     // hover
     if ($(window).width() >= 992) {
-        $('.nav-item').on('mouseenter', function () {
+        $('.beeru-nav-bar .nav-item').on('mouseenter', function () {
             $(this).addClass('nav-item-hover')
             $(this).children('.nav-sub-menu').addClass('nav-sub-menu-open')
         })
-        $('.nav-item').on('mouseleave', function () {
+        $('.beeru-nav-bar .nav-item').on('mouseleave', function () {
             $(this).removeClass('nav-item-hover')
             $(this).children('.nav-sub-menu').removeClass('nav-sub-menu-open')
         })
@@ -20,7 +20,7 @@ $(function () {
     // 手機板 width < 992 
     // click
     if ($(window).width() < 992) {
-        $('.nav-item').on('click', function () {
+        $('.beeru-nav-bar  .nav-item').on('click', function () {
             $(this).children('.nav-sub-menu').toggleClass('nav-sub-menu-open').end().siblings().children('.nav-sub-menu').removeClass('nav-sub-menu-open')
         })
 
@@ -28,7 +28,7 @@ $(function () {
 
 
     // 搜尋按鈕
-    $('.search').on('click', function () {
+    $('.beeru-nav-bar .search').on('click', function () {
         $('.search-bar').toggleClass('search-bar-open')
     })
 
@@ -37,6 +37,7 @@ $(function () {
         $('.trigger span').toggleClass('on')
         $('.product-category').toggleClass('on')
     })
+
 
 
     // 分類不同尺寸切換
@@ -56,7 +57,7 @@ $(function () {
 
 
      // 分類手風琴
-     $('.category-name').on('click', function () {
+     $('.product-category .category-name').on('click', function () {
         let div_height = $(this).nextAll('.category-sub-item-warp0').height()
 
         if ($(this).nextAll('.category-sub-item-warp').hasClass('category-sub-item-warp-on') == false) {
@@ -67,6 +68,8 @@ $(function () {
             $(this).removeClass('category-name-on')
         }
     })
+
+    
 
     
 

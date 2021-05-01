@@ -3,7 +3,7 @@
 <!-- 需要置換的變數們 -->
 <?php
 
-$page_title = '全部商品';
+$page_title = '啤女-精釀啤酒商品';
 
 ?>
 
@@ -16,9 +16,13 @@ $page_title = '全部商品';
 
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
-<div class="mobile-menu">
+<!-- 會員登入 -->
+<?php include __DIR__ . '../../php/common/Login-Sign.php'?>
+<?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
+<section class="mobile-menu">
     <?php include __DIR__ . '../../php/common/category.php' ?>
-</div>
+</section>
 
 <!-- 這裡開始寫html -->
 
@@ -44,7 +48,7 @@ $page_title = '全部商品';
     </div>
 
     <!-- 全部商品選擇 -->
-    <div class="select-product-wrap ">
+    <div id="select-allproduct" class="select-allproduct select-product-wrap ">
         <div class="container-fluid">
             <div class="row ">
 
@@ -60,16 +64,16 @@ $page_title = '全部商品';
                             <i class="fas fa-sort-amount-down"></i>
                         </div>
                         <div class="mobile-sort-item">
-                                <form action="" id="mobile-sort">
-                                    <select name="sort-option" id="mobile-sort-option" class="sort-option">
-                                        <option value="new">最新上架商品</option>
-                                        <option value="priceup">價格 (由低至高)</option>
-                                        <option value="pricedown">價格 (由高至低)</option>
-                                        <option value="abvup">酒精濃度 (由低至高)</option>
-                                        <option value="abvdown">酒精濃度 (由高至低)</option>
-                                    </select>
-                                </form>
-                            </div>
+                            <form action="" id="mobile-sort">
+                                <select name="sort-option" id="mobile-sort-option" class="sort-option">
+                                    <option value="new">最新上架商品</option>
+                                    <option value="priceup">價格 (由低至高)</option>
+                                    <option value="pricedown">價格 (由高至低)</option>
+                                    <option value="abvup">酒精濃度 (由低至高)</option>
+                                    <option value="abvdown">酒精濃度 (由高至低)</option>
+                                </select>
+                            </form>
+                        </div>
                         <!-- <div class="mobile-sort-item">
                             <label for="m-sort-option-new">
                                 <input type="checkbox" id="m-sort-option-new" name="sort-option" value="new"><span>最新上架商品</span>
@@ -169,8 +173,6 @@ $page_title = '全部商品';
                         <!-- 標籤 -->
                         <div class="col-12 col-lg-6 d-flex align-items-center flex-column flex-lg-row justify-content-center justify-content-lg-start">
                             <div class="product-tag d-flex align-items-center">
-                                <div class="tagpic"><img src="../images/country/flag_belgium_square.svg" alt=""></div>
-                                <p>#比利時啤酒</p>
                             </div>
 
                             <!-- 加入關注按鈕 -->
@@ -184,8 +186,8 @@ $page_title = '全部商品';
 
                             <!-- 排序 -->
                             <div class="sort">
-                                <form action="" id="sort">
-                                    <select name="sort-option" id="sort-option" class="sort-option">
+                                <form action="" id="sort" name="sort">
+                                    <select name="sort-option" id="sort-option" class="sort-option" onchange="changeSort()">
                                         <option value="new">最新上架商品</option>
                                         <option value="priceup">價格 (由低至高)</option>
                                         <option value="pricedown">價格 (由高至低)</option>
@@ -204,23 +206,70 @@ $page_title = '全部商品';
                         </div>
                     </div>
                     <!-- 商品排列 -->
-                    <div class="product-arrang d-flex justify-content-around flex-wrap">
+                    <div class="product-arrang d-flex  flex-wrap">
                         <!-- 單支商品 -->
-                        <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
-                            <div class="beer-product">
+                    </div>
+
+                    <!-- 頁碼 -->
+                    <div class="product-pages d-flex justify-content-center">
+                        <button class="btn_page page-first" onclick="changePage(1)"><i class="fas fa-angle-double-left"></i></button>
+                        <button class="btn_page page-prev" onclick="prevPage()"><i class="fas fa-angle-left"></i></button>
+                        <div class="pages-show ">
+                            <div class="pages d-flex">
+                            </div>
+                        </div>
+                        <button class="btn_page page-next" onclick="nextPage()"><i class="fas fa-angle-right"></i></button>
+                        <button class="btn_page page-last" onclick="lastPage()"><i class="fas fa-angle-double-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>
+
+
+
+
+
+
+
+<?php include __DIR__ . '../../php/common/html-body-footer.php' ?>
+<?php include __DIR__ . '../../php/common/script.php' ?>
+<!-- 這裡開始寫jQuery或JS -->
+
+
+<script>
+    let cate = 0;
+    let page = 1;
+    let hot = 0;
+    let order = 1;
+    let p_data = {};
+    let product_arrang = $('.all-product .product-arrang')
+    let pages_wrap = $('.all-product .pages')
+    let product_tag = $('.all-product .product-tag')
+    let btn_pages = $('.all-product .btn_page')
+    let btn_cates = $('.product-category .category-sub-item')
+    let btn_first_cates = $('.product-category .category-out-item')
+
+
+    // -------------------------------------------------------
+
+    // 設定一個產品介紹的字樣
+    const allproductTpl = p => {
+        return `
+        <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                            <div class="beer-product" data-sid=${p.sid} data-price=${p.price} data-abv=${p.abv}>
                                 <div class="pro-pic">
                                     <!-- 商品圖 -->
-                                    <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                    <a href="each-product.php?psid=${p.sid}">
+                                        <img class="beer-pic" src="../images/products/${p.pic}" alt="">
+                                    </a>
                                     <!-- 標籤 -->
-                                    <div class="new-label">
-                                        <p>NEW</p>
+                                    <div class="label ${p.sid}-label">
                                     </div>
-                                    <!-- <div class="hot-label">
-                                            <p>HOT</p>
-                                        </div> -->
 
                                     <!-- 國家圖片 -->
-                                    <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt=""></div>
+                                    <div class="country"><img src="../images/country/${p.country_pic}" alt=""></div>
 
                                     <!-- 收藏按鈕 -->
                                     <div class="collect">
@@ -232,10 +281,12 @@ $page_title = '全部商品';
                                 <!-- 商品介紹 -->
                                 <div class="pro-intro d-flex flex-column justify-content-between">
                                     <!-- 商品名稱 -->
-                                    <div class="p-name">
-                                        <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
-                                        <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                    </div>
+                                    <a href="each-product.php?psid=${p.sid}">
+                                        <div class="p-name">
+                                            <p class="p-name-c">${p.c_name}</p>
+                                            <p class="p-name-e">${p.e_name}</p>
+                                        </div>
+                                    </a>
                                     <!-- 購買 -->
                                     <div class="p-buy d-flex flex-wrap">
                                         <!-- 選擇數量 -->
@@ -246,7 +297,7 @@ $page_title = '全部商品';
                                         </div>
                                         <!-- 價格 -->
                                         <div class="col-5 p-price">
-                                            <p id="p-price"><span>NT</span>$85</p>
+                                            <p class="price" >$${p.price}</p>
                                         </div>
                                         <!-- 加入購物車按鈕 -->
                                         <button class="col-7 add-cart"><i class="fas fa-shopping-bag"></i>加入購物車</button>
@@ -254,374 +305,459 @@ $page_title = '全部商品';
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
-                            <div class="beer-product">
-                                <div class="pro-pic">
-                                    <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                    <!-- <div class="new-label">
-                                            <p>NEW</p>
-                                        </div> -->
-                                    <div class="hot-label">
-                                        <p>HOT</p>
-                                    </div>
-                                    <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt=""></div>
-                                    <div class="collect">
-                                        <!-- <button class="btn_collect"><i class="far fa-heart"></i></button> -->
-                                        <button class="btn_collect_active"><i class="fas fa-heart"></i></button>
-                                    </div>
-                                </div>
-                                <div class="pro-intro d-flex flex-column justify-content-between">
-                                    <div class="p-name">
-                                        <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
-                                        <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                    </div>
-                                    <div class="p-buy d-flex flex-wrap">
-                                        <div class="col-12 quantity d-flex justify-content-between">
-                                            <div class="minus"><i class="fas fa-minus"></i></div>
-                                            <input type="text" class="buy-number" value="1">
-                                            <div class="plus"><i class="fas fa-plus"></i></div>
-                                        </div>
-                                        <div class="col-5 p-price">
-                                            <p id="p-price"><span>NT</span>$85</p>
-                                        </div>
-                                        <button class="col-7 add-cart"><i class="fas fa-shopping-bag"></i>加入購物車</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
-                            <div class="beer-product">
-                                <div class="pro-pic">
-                                    <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                    <div class="new-label">
-                                        <p>NEW</p>
-                                    </div>
-                                    <!-- <div class="hot-label">
-                                            <p>HOT</p>
-                                        </div> -->
-                                    <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt=""></div>
-                                    <div class="collect">
-                                        <button class="btn_collect"><i class="far fa-heart"></i></button>
-                                        <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
-                                    </div>
-                                </div>
-                                <div class="pro-intro d-flex flex-column justify-content-between">
-                                    <div class="p-name">
-                                        <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
-                                        <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                    </div>
-                                    <div class="p-buy d-flex flex-wrap">
-                                        <div class="col-12 quantity d-flex justify-content-between">
-                                            <div class="minus"><i class="fas fa-minus"></i></div>
-                                            <input type="text" class="buy-number" value="1">
-                                            <div class="plus"><i class="fas fa-plus"></i></div>
-                                        </div>
-                                        <div class="col-5 p-price">
-                                            <p id="p-price"><span>NT</span>$85</p>
-                                        </div>
-                                        <button class="col-7 add-cart"><i class="fas fa-shopping-bag"></i>加入購物車</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
-                            <div class="beer-product">
-                                <div class="pro-pic">
-                                    <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                    <div class="new-label">
-                                        <p>NEW</p>
-                                    </div>
-                                    <!-- <div class="hot-label">
-                                            <p>HOT</p>
-                                        </div> -->
-                                    <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt=""></div>
-                                    <div class="collect">
-                                        <button class="btn_collect"><i class="far fa-heart"></i></button>
-                                        <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
-                                    </div>
-                                </div>
-                                <div class="pro-intro d-flex flex-column justify-content-between">
-                                    <div class="p-name">
-                                        <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
-                                        <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                    </div>
-                                    <div class="p-buy d-flex flex-wrap">
-                                        <div class="col-12 quantity d-flex justify-content-between">
-                                            <div class="minus"><i class="fas fa-minus"></i></div>
-                                            <input type="text" class="buy-number" value="1">
-                                            <div class="plus"><i class="fas fa-plus"></i></div>
-                                        </div>
-                                        <div class="col-5 p-price">
-                                            <p id="p-price"><span>NT</span>$85</p>
-                                        </div>
-                                        <button class="col-7 add-cart"><i class="fas fa-shopping-bag"></i>加入購物車</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
-                            <div class="beer-product">
-                                <div class="pro-pic">
-                                    <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                    <div class="new-label">
-                                        <p>NEW</p>
-                                    </div>
-                                    <!-- <div class="hot-label">
-                                            <p>HOT</p>
-                                        </div> -->
-                                    <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt=""></div>
-                                    <div class="collect">
-                                        <button class="btn_collect"><i class="far fa-heart"></i></button>
-                                        <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
-                                    </div>
-                                </div>
-                                <div class="pro-intro d-flex flex-column justify-content-between">
-                                    <div class="p-name">
-                                        <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
-                                        <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                    </div>
-                                    <div class="p-buy d-flex flex-wrap">
-                                        <div class="col-12 quantity d-flex justify-content-between">
-                                            <div class="minus"><i class="fas fa-minus"></i></div>
-                                            <input type="text" class="buy-number" value="1">
-                                            <div class="plus"><i class="fas fa-plus"></i></div>
-                                        </div>
-                                        <div class="col-5 p-price">
-                                            <p id="p-price"><span>NT</span>$85</p>
-                                        </div>
-                                        <button class="col-7 add-cart"><i class="fas fa-shopping-bag"></i>加入購物車</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
-                            <div class="beer-product">
-                                <div class="pro-pic">
-                                    <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                    <div class="new-label">
-                                        <p>NEW</p>
-                                    </div>
-                                    <!-- <div class="hot-label">
-                                            <p>HOT</p>
-                                        </div> -->
-                                    <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt=""></div>
-                                    <div class="collect">
-                                        <button class="btn_collect"><i class="far fa-heart"></i></button>
-                                        <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
-                                    </div>
-                                </div>
-                                <div class="pro-intro d-flex flex-column justify-content-between">
-                                    <div class="p-name">
-                                        <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
-                                        <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                    </div>
-                                    <div class="p-buy d-flex flex-wrap">
-                                        <div class="col-12 quantity d-flex justify-content-between">
-                                            <div class="minus"><i class="fas fa-minus"></i></div>
-                                            <input type="text" class="buy-number" value="1">
-                                            <div class="plus"><i class="fas fa-plus"></i></div>
-                                        </div>
-                                        <div class="col-5 p-price">
-                                            <p id="p-price"><span>NT</span>$85</p>
-                                        </div>
-                                        <button class="col-7 add-cart"><i class="fas fa-shopping-bag"></i>加入購物車</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
-                            <div class="beer-product">
-                                <div class="pro-pic">
-                                    <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                    <div class="new-label">
-                                        <p>NEW</p>
-                                    </div>
-                                    <!-- <div class="hot-label">
-                                            <p>HOT</p>
-                                        </div> -->
-                                    <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt=""></div>
-                                    <div class="collect">
-                                        <button class="btn_collect"><i class="far fa-heart"></i></button>
-                                        <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
-                                    </div>
-                                </div>
-                                <div class="pro-intro d-flex flex-column justify-content-between">
-                                    <div class="p-name">
-                                        <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
-                                        <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                    </div>
-                                    <div class="p-buy d-flex flex-wrap">
-                                        <div class="col-12 quantity d-flex justify-content-between">
-                                            <div class="minus"><i class="fas fa-minus"></i></div>
-                                            <input type="text" class="buy-number" value="1">
-                                            <div class="plus"><i class="fas fa-plus"></i></div>
-                                        </div>
-                                        <div class="col-5 p-price">
-                                            <p id="p-price"><span>NT</span>$85</p>
-                                        </div>
-                                        <button class="col-7 add-cart"><i class="fas fa-shopping-bag"></i>加入購物車</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
-                            <div class="beer-product">
-                                <div class="pro-pic">
-                                    <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                    <div class="new-label">
-                                        <p>NEW</p>
-                                    </div>
-                                    <!-- <div class="hot-label">
-                                            <p>HOT</p>
-                                        </div> -->
-                                    <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt=""></div>
-                                    <div class="collect">
-                                        <button class="btn_collect"><i class="far fa-heart"></i></button>
-                                        <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
-                                    </div>
-                                </div>
-                                <div class="pro-intro d-flex flex-column justify-content-between">
-                                    <div class="p-name">
-                                        <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
-                                        <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                    </div>
-                                    <div class="p-buy d-flex flex-wrap">
-                                        <div class="col-12 quantity d-flex justify-content-between">
-                                            <div class="minus"><i class="fas fa-minus"></i></div>
-                                            <input type="text" class="buy-number" value="1">
-                                            <div class="plus"><i class="fas fa-plus"></i></div>
-                                        </div>
-                                        <div class="col-5 p-price">
-                                            <p id="p-price"><span>NT</span>$85</p>
-                                        </div>
-                                        <button class="col-7 add-cart"><i class="fas fa-shopping-bag"></i>加入購物車</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
-                            <div class="beer-product">
-                                <div class="pro-pic">
-                                    <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                    <div class="new-label">
-                                        <p>NEW</p>
-                                    </div>
-                                    <!-- <div class="hot-label">
-                                            <p>HOT</p>
-                                        </div> -->
-                                    <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt=""></div>
-                                    <div class="collect">
-                                        <button class="btn_collect"><i class="far fa-heart"></i></button>
-                                        <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
-                                    </div>
-                                </div>
-                                <div class="pro-intro d-flex flex-column justify-content-between">
-                                    <div class="p-name">
-                                        <p class="p-name-c">奧斯陸．北歐瘋皮爾森北歐瘋皮爾森北歐瘋皮爾森</p>
-                                        <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                    </div>
-                                    <div class="p-buy d-flex flex-wrap">
-                                        <div class="col-12 quantity d-flex justify-content-between">
-                                            <div class="minus"><i class="fas fa-minus"></i></div>
-                                            <input type="text" class="buy-number" value="1">
-                                            <div class="plus"><i class="fas fa-plus"></i></div>
-                                        </div>
-                                        <div class="col-5 p-price">
-                                            <p id="p-price"><span>NT</span>$85</p>
-                                        </div>
-                                        <button class="col-7 add-cart"><i class="fas fa-shopping-bag"></i>加入購物車</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        `
+    }
 
-                    <!-- 頁碼 -->
-                    <div class="product-pages d-flex justify-content-center">
-                        <a href=""><button class="btn_page page-first"><i class="fas fa-angle-double-left"></i></button></a>
-                        <a href=""><button class="btn_page page-prev"><i class="fas fa-angle-left"></i></button></a>
-                        <div class="pages-show ">
-                            <div class="pages d-flex">
-                                <a href="">
-                                    <p class="page">1</p>
-                                </a>
-                                <a href="">
-                                    <p class="page">2</p>
-                                </a>
-                                <a href="">
-                                    <p class="page">3</p>
-                                </a>
-                                <a href="">
-                                    <p class="page">4</p>
-                                </a>
-                                <a href="">
-                                    <p class="page">5</p>
-                                </a>
-                                <a href="">
-                                    <p class="page">6</p>
-                                </a>
-                                <a href="">
-                                    <p class="page">7</p>
-                                </a>
-                                <a href="">
-                                    <p class="page">8</p>
-                                </a>
-                                <a href="">
-                                    <p class="page">9</p>
-                                </a>
-                                <a href="">
-                                    <p class="page">10</p>
-                                </a>
-                                <a href="">
-                                    <p class="page">11</p>
-                                </a>
-                                <a href="">
-                                    <p class="page">12</p>
-                                </a>
-                                <a href="">
-                                    <p class="page">13</p>
-                                </a>
-                                <a href="">
-                                    <p class="page">14</p>
-                                </a>
-                                <a href="">
-                                    <p class="page">15</p>
-                                </a>
-                            </div>
-                        </div>
-                        <a href=""><button class="btn_page page-next"><i class="fas fa-angle-right"></i></button></a>
-                        <a href=""><button class="btn_page page-last"><i class="fas fa-angle-double-right"></i></button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    // 設定一個頁碼的字樣
+    const allpageTpl = n => {
+        console.log('window.location.href =', window.location.href);
+        const start = window.location.href.indexOf('page=', 0);
+        const end = window.location.href.indexOf('&', start);
+        const findpage = +window.location.href.substring(start + 5, end);
+        const page = (findpage) ? findpage : 1;
+        // console.log('page=', window.location.href.substring(start + 5, end));
+        // console.log('start', start, ',end:', end);
+        return `<a href="javascript: changePage(${n})" class="page ${ n === page ? 'page-on':''}">
+                  <p>${n}</p>
+                 </a>`
+    }
 
-    </div>
-</section>
+    // 設定一個關注標籤的字樣
+    const allproductTag = t => {
+        return `
+            <div class="tagpic"><img src="../images/tagespic/${t.cate}.svg" alt=""></div>
+            <p data-cate="${t.cate}" >#${t.cate_name}</p>
+        `
+    }
 
-
-
-
-
-<?php include __DIR__ . '../../php/common/html-body-footer.php' ?>
-<?php include __DIR__ . '../../php/common/script.php' ?>
-<!-- 這裡開始寫jQuery或JS -->
-
-<script>
-    if ($(window).width() >= 992) {
-        $('.product-select > .product-category').css('display', 'block')
+    const toProductTop = function() {
+        $('html, body').animate({
+            scrollTop: $('.all-product .select-allproduct').offset().top
+        }, 300, 'swing');
     }
 
 
-    $(window).resize(function() {
+
+
+    // -------------------------------------------------------
+    // 用ajax撈資料
+    function getallproductData() {
+        $.get('all-product-api.php', {
+            cate,
+            page,
+            hot,
+            order
+        }, function(data) {
+            // console.log(data)
+            p_data = data //把資料拉到全域變數
+            renderallProducts()
+
+            // -------------------------------------------
+            // 頁碼部分
+            // 如果商品只有1頁，分頁按鈕隱藏
+            if (p_data.total_pages == 1) {
+                $('.all-product .product-pages').css('opacity', 0)
+            } else {
+                renderallPages()
+                $('.all-product .product-pages').css('opacity', 1)
+            }
+            // 在最後一頁的時候
+            if (page == p_data.total_pages) {
+                $('.all-product .page-next').addClass('btn_disabled').attr('disabled', true)
+                $('.all-product .page-last').addClass('btn_disabled').attr('disabled', true)
+                $('.all-product .page-first').removeClass('btn_disabled').attr('disabled', false)
+                $('.all-product .page-prev').removeClass('btn_disabled').attr('disabled', false)
+            }
+            // 在第一頁的時候
+            if (page == 1) {
+                $('.all-product .page-first').addClass('btn_disabled').attr('disabled', true)
+                $('.all-product .page-prev').addClass('btn_disabled').attr('disabled', true)
+                $('.all-product .page-next').removeClass('btn_disabled').attr('disabled', false)
+                $('.all-product .page-last').removeClass('btn_disabled').attr('disabled', false)
+            }
+
+            // -------------------------------------------
+            // tag部分
+            //國家/酒廠/類型
+            if (p_data.cate != 0) {
+                product_tag.html('')
+                renderallTags()
+                $('.all-product .btn_attention').css('display', 'block')
+
+                // 啤酒杯，隱藏關注按鈕
+                if (p_data.cate == 54 || p_data.cate == 53) {
+                    $('.all-product .btn_attention').css('display', 'none')
+                }
+            }
+            // 熱門商品/全部商品
+            else {
+                $('.all-product .btn_attention').css('display', 'none')
+            }
+
+
+
+        }, 'json')
+    }
+
+    // 設定一進入全部商品頁的樣貌
+    init()
+
+    function getURL(cate, page, hot, order) {
+        let url = location.pathname + '?cate=' + cate + '&page=' + page + '&hot=' + hot + '&order=' + order + '#select-allproduct'
+        history.pushState({
+            url: url,
+            title: document.title
+        }, document.title, url)
+    }
+
+    function init() {
+        let num_g = location.search.match(/\d+/g)
+        if (num_g == null) {
+            getallproductData()
+        } else {
+            cate = num_g[0] ?? 0
+            page = num_g[1] ?? 1
+            hot = num_g[2] ?? 0
+            order = num_g[3] ?? 1
+            if (hot == 1) {
+                getallproductData()
+                toProductTop()
+                product_tag.html(` 
+        <div class="tagpic"><img src="../images/tagespic/hot.svg" alt=""></div>
+            <p>#熱門商品</p>
+        `)
+            } else if (cate == 0) {
+                product_tag.html('')
+                getallproductData()
+                toProductTop()
+            } else {
+                getallproductData()
+                toProductTop()
+            }
+        }
+    }
+
+    // 回上一頁
+    window.onpopstate = function() {
+        init()
+    }
+
+
+    // -------------------------------------------------------
+    // 分類按鈕事件
+
+    // 酒廠/國家/類型/周邊
+    btn_cates.on('click', function() {
+        let mypage_title = document.title
+        if (mypage_title != "啤女-精釀啤酒商品") {
+            location.href = 'all-product.php'
+        }
+
+        cate = $(this).attr('data-sid')
+        page = 1
+        hot = 0
+        order = 1
+        $('#sort-option').val('new')
+        getallproductData()
+        toProductTop()
+        getURL(cate, page, hot, order)
+        pages_wrap.css('transform', 'translateX(0px)')
+
+        $('.product-category').removeClass('on')
+        $('.trigger span').removeClass('on')
+
+        $(this).addClass('on').siblings().removeClass('on')
+        $(this).parent().parent().siblings().find('.category-sub-item').removeClass('on')
+        btn_first_cates.removeClass('on')
+    })
+
+    // 熱門商品
+    $('.selectHotitem').on('click', function() {
+        let mypage_title = document.title
+        if (mypage_title != "啤女-精釀啤酒商品") {
+            location.href = 'all-product.php'
+        }
+
+        hot = 1
+        page = 1
+        cate = 0
+        order = 1
+        $('#sort-option').val('new')
+        getallproductData()
+        toProductTop()
+        getURL(cate, page, hot, order)
+        pages_wrap.css('transform', 'translateX(0px)')
+        product_tag.html(` 
+        <div class="tagpic"><img src="../images/tagespic/hot.svg" alt=""></div>
+            <p>#熱門商品</p>
+        `)
+
+        $('.product-category').removeClass('on')
+        $('.trigger span').removeClass('on')
+    })
+
+    // 全部商品
+    $('.selectallitem').on('click', function() {
+        let mypage_title = document.title
+        if (mypage_title != "啤女-精釀啤酒商品") {
+            location.href = 'all-product.php'
+        }
+
+        cate = 0
+        page = 1
+        hot = 0
+        order = 1
+        $('#sort-option').val('new')
+        getallproductData()
+        toProductTop()
+        getURL(cate, page, hot, order)
+        pages_wrap.css('transform', 'translateX(0px)')
+        product_tag.html('')
+
+        $('.product-category').removeClass('on')
+        $('.trigger span').removeClass('on')
+    })
+
+    // 選取樣式active
+    btn_first_cates.on('click', function() {
+        $(this).addClass('on').parent().siblings().find('.category-out-item').removeClass('on')
+        btn_cates.removeClass('on')
+    })
+
+
+
+
+
+    // -------------------------------------------------------
+    // 排序事件
+    function changeSort() {
+        if ($('#sort-option').val() == 'new') {
+            order = 1
+            page = 1
+            getallproductData()
+            toProductTop()
+            getURL(cate, page, hot, order)
+            pages_wrap.css('transform', 'translateX(0px)')
+
+
+        }
+        if ($('#sort-option').val() == 'priceup') {
+            order = 2
+            page = 1
+            getallproductData()
+            toProductTop()
+            getURL(cate, page, hot, order)
+            pages_wrap.css('transform', 'translateX(0px)')
+        }
+        if ($('#sort-option').val() == 'pricedown') {
+            order = 3
+            page = 1
+            getallproductData()
+            toProductTop()
+            getURL(cate, page, hot, order)
+            pages_wrap.css('transform', 'translateX(0px)')
+        }
+        if ($('#sort-option').val() == 'abvup') {
+            order = 4
+            page = 1
+            getallproductData()
+            toProductTop()
+            getURL(cate, page, hot, order)
+            pages_wrap.css('transform', 'translateX(0px)')
+        }
+        if ($('#sort-option').val() == 'abvdown') {
+            order = 5
+            page = 1
+            getallproductData()
+            toProductTop()
+            getURL(cate, page, hot, order)
+            pages_wrap.css('transform', 'translateX(0px)')
+        }
+    }
+
+    // -------------------------------------------------------
+    // 篩選事件
+
+
+
+
+    // -------------------------------------------------------
+
+    // 分頁按鈕事件
+    function changePage(p) {
+        page = p
+        getallproductData()
+        toProductTop()
+        getURL(cate, page, hot, order)
+        btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
 
         if ($(window).width() >= 992) {
-            $('.product-select > .product-category').css('display', 'block')
+            if (page == 10 && p_data.total_pages > 10) {
+                if (pages_wrap.css('transform') == 'none' || pages_wrap.css('transform') == "matrix(1, 0, 0, 1, 0, 0)") {
+                    pages_wrap.css('transform', 'translateX(-315px)')
+                } else if (pages_wrap.css('transform') == "matrix(1, 0, 0, 1, -315, 0)") {
+                    pages_wrap.css('transform', 'translateX(0px)')
+                }
+
+            }
+
+            if (page == 1) {
+                pages_wrap.css('transform', 'translateX(0px)')
+            }
+        }
+
+        if ($(window).width() < 992) {
+            if (p_data.total_pages > 4 && page < 18) {
+                pages_wrap.css('transform', `translateX(-` + (page - 2) * 35 + `px)`)
+            }
+            if (page == 1) {
+                pages_wrap.css('transform', 'translateX(0px)')
+            }
+        }
+
+
+
+
+
+
+
+    }
+
+    function prevPage() {
+        page = ($('.all-product .page-on').find('p').text() * 1) - 1
+        if (page < 1) {
+            page = 1
+        }
+        getallproductData()
+        toProductTop()
+        getURL(cate, page, hot, order)
+        btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+
+        if ($(window).width() >= 992) {
+            if (page <= 10 && p_data.total_pages > 10) {
+                pages_wrap.css('transform', 'translateX(0px)')
+            }
         }
         if ($(window).width() < 992) {
-            $('.product-select > .product-category').css('display', 'none')
+            if (p_data.total_pages > 4 && page < 18) {
+                pages_wrap.css('transform', `translateX(-` + (page - 2) * 35 + `px)`)
+            }
         }
-    })
+
+
+
+    }
+
+    function nextPage() {
+        page = ($('.all-product .page-on').find('p').text() * 1) + 1
+        if (page > p_data.total_pages) {
+            page = p_data.total_pages
+        }
+        getallproductData()
+        toProductTop()
+        getURL(cate, page, hot, order)
+        btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+
+        if ($(window).width() >= 992) {
+            if (page >= 10 && p_data.total_pages > 10) {
+                pages_wrap.css('transform', 'translateX(-315px)')
+            }
+        }
+        if ($(window).width() < 992) {
+            if (p_data.total_pages > 4 && page < 18) {
+                pages_wrap.css('transform', `translateX(-` + (page - 2) * 35 + `px)`)
+            }
+        }
+    }
+
+    function lastPage() {
+        page = p_data.total_pages
+        getallproductData()
+        toProductTop()
+        getURL(cate, page, hot, order)
+        btn_pages.removeClass('btn_disabled').removeAttr('disabled', false)
+        if ($(window).width() >= 992) {
+            if (p_data.total_pages > 10) {
+                pages_wrap.css('transform', 'translateX(-315px)')
+            }
+        }
+        if ($(window).width() < 992) {
+            if (p_data.total_pages > 4) {
+                pages_wrap.css('transform', `translateX(-` + (page - 4) * 35 + `px)`)
+            }
+        }
+    }
+
+
+
+
+    // -------------------------------------------------------
+    // 產生產品畫面
+    function renderallProducts() {
+        product_arrang.html('')
+        if (p_data.rows && p_data.rows.forEach) {
+            p_data.rows.forEach(el => {
+                product_arrang.append(allproductTpl(el))
+                let ishot = el.hot //抓熱門的值
+                let created_at = Date.parse(el.created_at).valueOf() //抓建立時間
+                let deadline = Date.parse('2021-05-01').valueOf() //設定要有new標籤的時間點
+                let product_label = $(`.${el.sid}-label`)
+
+                const alllabelTpl = function() {
+
+                    // 有hot沒有new
+                    if (ishot == 'true' && created_at >= deadline == false) {
+                        return `
+                        <div class="hot-label">
+                            <p>HOT</p>
+                        </div>
+                        `
+                    }
+
+                    // 有new沒有hot
+                    if (created_at >= deadline && ishot == 'false') {
+                        return `
+                        <div class="new-label">
+                            <p>NEW</p>
+                        </div>
+                        `
+                    }
+
+                    // 兩者都有
+                    if (ishot == 'true' && created_at >= deadline) {
+                        return `
+                        <div class="new-label">
+                            <p>NEW</p>
+                        </div>
+                        <div class="hot-label">
+                            <p>HOT</p>
+                        </div>
+                        `
+                    }
+
+                }
+                product_label.append(alllabelTpl())
+
+            })
+        }
+    }
+
+    // 產生頁碼畫面
+    function renderallPages() {
+
+        pages_wrap.html('')
+        for (let i = 1; i <= p_data.total_pages; i++) {
+            pages_wrap.append(allpageTpl(i))
+        }
+
+    }
+
+    // 產生標籤畫面
+    function renderallTags() {
+        product_tag.html('')
+        product_tag.append(allproductTag(p_data))
+
+    }
 </script>
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>

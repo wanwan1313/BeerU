@@ -5,6 +5,12 @@
 
 $page_title = '啤女BeerU';
 
+
+
+
+
+
+
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -21,9 +27,13 @@ $page_title = '啤女BeerU';
 </style>
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
-<div class="mobile-menu">
-<?php include __DIR__ . '../../php/common/category.php' ?>
-</div>
+<!-- 會員登入 -->
+<?php include __DIR__ . '../../php/common/Login-Sign.php'?>
+<?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
+<section class="mobile-menu">
+    <?php include __DIR__ . '../../php/common/category.php' ?>
+</section>
 <!-- 這裡開始寫html -->
 
 <!-- 空白內容 開始寫之後請刪除以下div -->
@@ -43,8 +53,6 @@ $page_title = '啤女BeerU';
 <?php include __DIR__ . '../../php/common/script.php' ?>
 <!-- 這裡開始寫jQuery或JS -->
 
-<script>
 
-</script>
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>
