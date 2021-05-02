@@ -253,116 +253,150 @@
     
 
     /* ///////Beer-type///////// */
-    .type-forward{
-        display: none;
-    }
-
-    .type-backward{
-        display: none;
-    }
-
-    .type-intro{
-        
-        flex-direction: column;
-    }
-
-
-    .more-btn02{
-       margin: 0 auto;
-    }
-    
-    .hand{
-        display: none;
-    }
-
-    .type-intro-img{
-        width: 100%;
-        max-width: 100px;
-        
-        margin: 0 auto;
-    }
-    
-    
-    .type-intro-title{
-        margin-top: 25px;
-    }
-    .type-intro-title h3{
-       
-        margin: 0 auto;
-    }
-
-    .type-intro-title:before{
-        content: '';
-        display: none;
-         /* width: 30px;
-        height: 30px;
-        background: url('../images/common/dot-1.svg');
-       transform: translateX(50px); */
-    } 
-
-    .type-intro-text {
-        margin: 0 auto;
-        width: 300px;
-    }
-
-    .type-intro-text p{
-        font-size: 14px;
-    }
-
-    .more-btn02 {
-        justify-content: center;
-        margin-top: 15px;
-    }
-
-
-    .type-colorDot{
-        width: 300px;
-        margin: 0 auto;
-        margin-top: 30px;
-        justify-content: space-evenly;
-    }
-    .colorDot {
+    .type-colorDot {
         display: block;
-        width: 20px;
-    }
+        margin-top: 20px;
+        justify-content: space-evenly;
 
-    .drop {
+       }
+
+       .colorDot{
+           width: 25px;
+           height: 25px;
+           border-radius: 100%;
+           border: solid 1px #fff;
+           margin: 0 5px;
+       }
+
+       
+
+
+       .hand{
         display: none;
-    }
+
+       }
+
+        .drop {
+            display: none;
+        }
+
+
+        .type-forward{
+            display: none;
+        }
+
+        .type-backward{
+            display: none;
+        }
+
+
+    /* //////輪播牆//////  */
+        .Beer-type-window{
+            position: relative;
+            overflow: hidden;
+            max-width: 370px;
+            height: 500px;
+            margin-top: 40px;
+          
+            
+        }
+        .Beer-type-content-warp{
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3330px;
+        }
+        
+        
+        .Beer-type-content{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 500px;
+            width: 100%;
+        }
+
+        .Beer-type-img {
+            width: 140px;
+        }
+
+        .type-img02{
+            width: 100px;
+        }
+        .type-img03{
+            width: 100px;
+        }
+        
+        .type-img04{
+            width: 90px;
+        }
+        
+        .type-img05{
+            width: 100px;
+        }
+        .type-img06{
+            width: 100px;
+        }
+        .type-img07{
+            width: 100px;
+        }
+        .type-img08{
+            width: 120px;
+        }
+        .type-img09{
+            width: 120px;
+        }
+
+        
+        .Beer-type-name img{
+            display: none;
+
+        }
+        .Beer-type-name{
+           margin: 30px auto 0 auto;
+        }
+         
+
+        .Beer-type-text{
+            margin-top: -20px;
+            padding: 15px;
+            width: 100%;
+            max-width: 380px;
+        }
+
+
+        .more-btn02{
+            margin: -30px auto 0 auto;
+        }
+
+   
 
     /* ///////啤女精選///////// */
 
-
-    .BeerU-colllection{
-        margin-top: 0px;
+    .BeerU-colllection-title{
+        margin-top: 30px;
     }
-
+    .colllection-items-windows {
+        margin-top: 25px;
+    }
+    
     .BeerU-colllection-title h1{
         top: 18px;
         left: 10px;
         letter-spacing: 19px;
         font-size: 28px;
     }
-
-    .colllection-items{
-        margin-top: 20px;
-    }
     
-    .item:nth-of-type(2) {
-        display: none;
-
-    }
-    .item:nth-of-type(3) {
-        display: none;
-
-    }
-    .item:nth-of-type(4) {
-        display: none;
-
-    }
 
 
     /* ////////啤女分頁////////*/
+
+    .BeerU-feature{
+        margin-top: 60px;
+    }
    
     .feature02{
    
