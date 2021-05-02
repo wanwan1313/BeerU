@@ -661,6 +661,7 @@ body,html{
 }
 
 .drop{
+    cursor: pointer;
     margin: 0 30px;
     width: 4%
   
