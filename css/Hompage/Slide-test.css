@@ -1,0 +1,471 @@
+*{
+   /* outline: solid 1px white; */
+}
+/* ///////Beer-type///////// */
+
+.Beer-type{
+    margin-top: 60px;
+}
+
+.title-wrap h3{
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3rem;
+    letter-spacing: 0.1rem
+
+}
+
+
+
+.type-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.type-forward{
+    cursor: pointer;
+    background-image: url("../../images/common/arrow_left.svg");
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+/* //////啤酒種類輪播牆/////// */
+
+.Beer-type-window{
+    position: relative;
+    overflow: hidden;
+    max-width: 720px;
+    height: 400px;
+  
+    
+}
+.Beer-type-content-warp{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6480px;
+}
+
+
+.Beer-type-content{
+    display: flex;
+    
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.Beer-type-img {
+    width: 240px;
+}
+
+.type-img02{
+    width: 180px;
+}
+.type-img03{
+    width: 190px;
+}
+
+.type-img04{
+    width: 160px;
+}
+
+.type-img05{
+    width: 180px;
+}
+.type-img06{
+    width: 175px;
+}
+.type-img07{
+    width: 155px;
+}
+.type-img08{
+    width: 190px;
+}
+.type-img09{
+    width: 190px;
+}
+
+
+.Beer-type-intro-wrap{
+    position: relative;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.Beer-type-name h3{
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3rem;
+    letter-spacing: 0.1rem;
+    color: var(--yellow);
+    margin-left: 10px;
+
+}
+
+.Beer-type-name img{
+    width: 30px;
+ 
+}
+
+.Beer-type-text{
+    /* margin-top: 20px; */
+    width: 100%;
+    max-width: 380px;
+}
+
+
+.Beer-type-text p{
+    word-break: break-all;
+    font-family: 'Noto Sans TC', serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.1rem;
+    line-height: 2;
+
+}
+
+
+
+/* //////啤酒種類輪播牆/////// */
+
+.type-backward{
+    cursor: pointer;
+    background-image: url("../../images/common/arrow_right.svg");
+    width: 80px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+
+.type-colorDot {
+    display: none;
+}
+
+
+.hand{
+    position: absolute;
+    transform: translate(-30px,-155px);
+    width: 20%;
+}
+
+.type-color{
+    justify-content: center;  
+    margin-top: 30px;
+}
+
+.drop{
+    margin: 0 30px;
+    width: 4%
+  
+}
+
+.drop1 img{
+    /* filter: drop-shadow(0px 0px 10px white); */
+}
+
+/* ///////Beer-type///////// */
+
+
+
+/* ///////Beer-type RWD///////  */
+
+
+@media (max-width: 991px) {
+
+           
+           .type-colorDot {
+            display: block;
+            margin-top: 20px;
+            justify-content: space-evenly;
+
+           }
+
+           .colorDot{
+               width: 25px;
+               height: 25px;
+               border-radius: 100%;
+              
+               margin: 0 5px;
+           }
+
+           
+
+
+           .hand{
+            display: none;
+
+           }
+
+            .drop {
+                display: none;
+            }
+
+
+            .type-forward{
+                display: none;
+            }
+
+            .type-backward{
+                display: none;
+            }
+
+
+        /* //////輪播牆//////  */
+            .Beer-type-window{
+                position: relative;
+                overflow: hidden;
+                max-width: 370px;
+                height: 600px;
+                margin-top: 40px;
+              
+                
+            }
+            .Beer-type-content-warp{
+                display: flex;
+                flex-direction: row;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 3330px;
+            }
+            
+            
+            .Beer-type-content{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+            }
+
+            .Beer-type-img {
+                width: 140px;
+            }
+
+            .type-img02{
+                width: 100px;
+            }
+            .type-img03{
+                width: 100px;
+            }
+            
+            .type-img04{
+                width: 90px;
+            }
+            
+            .type-img05{
+                width: 100px;
+            }
+            .type-img06{
+                width: 100px;
+            }
+            .type-img07{
+                width: 100px;
+            }
+            .type-img08{
+                width: 120px;
+            }
+            .type-img09{
+                width: 120px;
+            }
+
+           
+            .Beer-type-name{
+              word-break: keep-all;
+               margin: 30px auto 0 auto;
+            }
+             
+
+            .Beer-type-intro-wrap{
+                position: relative;
+                height: 350px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start
+                
+            }
+
+            .Beer-type-text{
+                padding: 15px;
+                width: 100%;
+                /* max-width: 380px; */
+            }
+
+
+            .more-btn02{
+                margin: 0 auto;
+            }
+
+       
+            
+}
+
+
+
+/* /////啤女精選/////// */
+
+    /* 圈圈圖案 */
+.BeerU-colllection-title{ 
+    background: url(../../images/common/h1_4_w.svg) no-repeat center center;
+    background-size: contain;
+    margin-top: 30px;
+}
+
+/* 標題文字 */
+.BeerU-colllection-title p {
+    color: white;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 左邊雕飾 */
+.BeerU-colllection-title p::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_left.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+
+/* 右邊雕飾 */
+.BeerU-colllection-title p::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right:0;
+    transform: translate(115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_right.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 手機版 改字和雕飾大小*/
+@media (max-width: 991px) {
+.BeerU-colllection-title p {
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    text-indent:0.8rem;
+}
+
+.BeerU-colllection-title p::before {
+    width: 60px;
+    height: 32%;
+
+}
+
+.BeerU-colllection-title p::after {
+    width: 60px;
+    height: 32%;
+
+}
+
+
+}
+
+
+/*///// 精選輪播牆 /////*/
+.colllection-items-windows{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 450px;
+}
+
+.colllection-items-warp{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    
+}
+
+
+
+.item{
+    height: 100%;
+}
+
+
+.item-flag{
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    width: 40px;
+
+    transform: rotate(-10deg) translate(0px,20px);
+}
+.item-img{
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    width: 150px;
+}
+
+.item-intro h4{
+    font-family: 'Noto Sans TC', serif;
+    font-weight: Medium;
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+/* /////啤女精選/////// */
+
+
+/* /////啤女精選 ＲＷＤ/////// */
+
+.BeerU-colllection{
+    margin-top: 0px;
+}
+
+.BeerU-colllection-title h1{
+    top: 18px;
+    left: 10px;
+    letter-spacing: 19px;
+    font-size: 28px;
+}
+
+
+
+
