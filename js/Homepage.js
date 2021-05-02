@@ -112,16 +112,20 @@ $(document).ready(function(){
         }
      });
 
-    $('.colorDot').click(function(){
-        page = $(this).index(); 
+     if ($(window).width() < 992){
 
-        // console.log('little dots',$(this).index());
+            $('.colorDot').click(function(){
+                page = $(this).index(); 
 
-        $(this).css('border','solid 3px white').siblings().css('border','transparent');
+                // console.log('little dots',$(this).index());
 
-        $('.Beer-type-content-warp').css('left',$(this).index()*-370+'px').css('transition','1s');
+                $(this).css('border','solid 3px white').siblings().css('border','transparent');
 
-    });
+                $('.Beer-type-content-warp').css('left',$(this).index()*-370+'px').css('transition','1s');
+
+            });
+
+     }
 
 
 
