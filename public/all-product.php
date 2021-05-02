@@ -17,7 +17,7 @@ $page_title = '啤女-精釀啤酒商品';
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
 <!-- 會員登入 -->
-<?php include __DIR__ . '../../php/common/Login-Sign.php'?>
+<?php include __DIR__ . '../../php/common/Login-Sign.php' ?>
 <?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
 <?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
 <section class="mobile-menu">
@@ -65,32 +65,15 @@ $page_title = '啤女-精釀啤酒商品';
                         </div>
                         <div class="mobile-sort-item">
                             <form action="" id="mobile-sort">
-                                <select name="sort-option" id="mobile-sort-option" class="sort-option">
-                                    <option value="new">最新上架商品</option>
-                                    <option value="priceup">價格 (由低至高)</option>
-                                    <option value="pricedown">價格 (由高至低)</option>
-                                    <option value="abvup">酒精濃度 (由低至高)</option>
-                                    <option value="abvdown">酒精濃度 (由高至低)</option>
+                                <select name="sort-option" id="mobile-sort-option" class="sort-option" onchange="changeSortM()">
+                                    <option value="1">最新上架商品</option>
+                                    <option value="2">價格 (由低至高)</option>
+                                    <option value="3">價格 (由高至低)</option>
+                                    <option value="4">酒精濃度 (由低至高)</option>
+                                    <option value="5">酒精濃度 (由高至低)</option>
                                 </select>
                             </form>
                         </div>
-                        <!-- <div class="mobile-sort-item">
-                            <label for="m-sort-option-new">
-                                <input type="checkbox" id="m-sort-option-new" name="sort-option" value="new"><span>最新上架商品</span>
-                            </label>
-                            <label for="m-sort-option-priceup">
-                                <input type="checkbox" id="m-sort-option-priceup" name="sort-option" value="priceup"><span>價格</span>
-                            </label>
-                            <label for="m-sort-option-pricedown">
-                                <input type="checkbox" id="m-sort-option-pricedown" name="sort-option" value="pricedown"><span>價格</span>
-                            </label>
-                            <label for="m-sort-option-abvup">
-                                <input type="checkbox" id="m-sort-option-abvup" name="sort-option" value="abvup"><span>酒精濃度</span>
-                            </label>
-                            <label for="m-sort-option-abvdown">
-                                <input type="checkbox" id="m-sort-option-abvdown" name="sort-option" value="abvdown"><span>酒精濃度</span>
-                            </label>
-                        </div> -->
                     </div>
 
                     <!-- 產品篩選 -->
@@ -176,7 +159,7 @@ $page_title = '啤女-精釀啤酒商品';
                             </div>
 
                             <!-- 加入關注按鈕 -->
-                            <button class="btn_attention"><i class="fas fa-plus"></i>加入關注</button>
+                            <button class="btn_attention d-none"><i class="fas fa-plus"></i>加入關注</button>
                             <!-- <button class="btn_attention_active"><i class="fas fa-check"></i>已關注</button> -->
                         </div>
 
@@ -188,11 +171,11 @@ $page_title = '啤女-精釀啤酒商品';
                             <div class="sort">
                                 <form action="" id="sort" name="sort">
                                     <select name="sort-option" id="sort-option" class="sort-option" onchange="changeSort()">
-                                        <option value="new">最新上架商品</option>
-                                        <option value="priceup">價格 (由低至高)</option>
-                                        <option value="pricedown">價格 (由高至低)</option>
-                                        <option value="abvup">酒精濃度 (由低至高)</option>
-                                        <option value="abvdown">酒精濃度 (由高至低)</option>
+                                        <option value="1">最新上架商品</option>
+                                        <option value="2">價格 (由低至高)</option>
+                                        <option value="3">價格 (由高至低)</option>
+                                        <option value="4">酒精濃度 (由低至高)</option>
+                                        <option value="5">酒精濃度 (由高至低)</option>
                                     </select>
                                 </form>
                             </div>
@@ -330,6 +313,8 @@ $page_title = '啤女-精釀啤酒商品';
         `
     }
 
+
+    // 往上滑到產品開頭
     const toProductTop = function() {
         $('html, body').animate({
             scrollTop: $('.all-product .select-allproduct').offset().top
@@ -382,16 +367,16 @@ $page_title = '啤女-精釀啤酒商品';
             if (p_data.cate != 0) {
                 product_tag.html('')
                 renderallTags()
-                $('.all-product .btn_attention').css('display', 'block')
+                $('.all-product .btn_attention').removeClass('d-none')
 
                 // 啤酒杯，隱藏關注按鈕
                 if (p_data.cate == 54 || p_data.cate == 53) {
-                    $('.all-product .btn_attention').css('display', 'none')
+                    $('.all-product .btn_attention').addClass('d-none')
                 }
             }
             // 熱門商品/全部商品
             else {
-                $('.all-product .btn_attention').css('display', 'none')
+                $('.all-product .btn_attention').addClass('d-none')
             }
 
 
@@ -422,6 +407,8 @@ $page_title = '啤女-精釀啤酒商品';
             if (hot == 1) {
                 getallproductData()
                 toProductTop()
+                $('#sort-option').val(order)
+                $('#mobile-sort-option').val(order)
                 product_tag.html(` 
         <div class="tagpic"><img src="../images/tagespic/hot.svg" alt=""></div>
             <p>#熱門商品</p>
@@ -430,9 +417,13 @@ $page_title = '啤女-精釀啤酒商品';
                 product_tag.html('')
                 getallproductData()
                 toProductTop()
+                $('#sort-option').val(order)
+                $('#mobile-sort-option').val(order)
             } else {
                 getallproductData()
                 toProductTop()
+                $('#sort-option').val(order)
+                $('#mobile-sort-option').val(order)
             }
         }
     }
@@ -448,16 +439,12 @@ $page_title = '啤女-精釀啤酒商品';
 
     // 酒廠/國家/類型/周邊
     btn_cates.on('click', function() {
-        let mypage_title = document.title
-        if (mypage_title != "啤女-精釀啤酒商品") {
-            location.href = 'all-product.php'
-        }
-
         cate = $(this).attr('data-sid')
         page = 1
         hot = 0
         order = 1
-        $('#sort-option').val('new')
+        $('#sort-option').val(1)
+        $('#mobile-sort-option').val(1)
         getallproductData()
         toProductTop()
         getURL(cate, page, hot, order)
@@ -473,16 +460,12 @@ $page_title = '啤女-精釀啤酒商品';
 
     // 熱門商品
     $('.selectHotitem').on('click', function() {
-        let mypage_title = document.title
-        if (mypage_title != "啤女-精釀啤酒商品") {
-            location.href = 'all-product.php'
-        }
-
         hot = 1
         page = 1
         cate = 0
         order = 1
-        $('#sort-option').val('new')
+        $('#sort-option').val(1)
+        $('#mobile-sort-option').val(1)
         getallproductData()
         toProductTop()
         getURL(cate, page, hot, order)
@@ -498,16 +481,12 @@ $page_title = '啤女-精釀啤酒商品';
 
     // 全部商品
     $('.selectallitem').on('click', function() {
-        let mypage_title = document.title
-        if (mypage_title != "啤女-精釀啤酒商品") {
-            location.href = 'all-product.php'
-        }
-
         cate = 0
         page = 1
         hot = 0
         order = 1
-        $('#sort-option').val('new')
+        $('#sort-option').val(1)
+        $('#mobile-sort-option').val(1)
         getallproductData()
         toProductTop()
         getURL(cate, page, hot, order)
@@ -531,48 +510,32 @@ $page_title = '啤女-精釀啤酒商品';
     // -------------------------------------------------------
     // 排序事件
     function changeSort() {
-        if ($('#sort-option').val() == 'new') {
-            order = 1
-            page = 1
-            getallproductData()
-            toProductTop()
-            getURL(cate, page, hot, order)
-            pages_wrap.css('transform', 'translateX(0px)')
+
+        order = $('#sort-option').val()
+        page = 1
+        getallproductData()
+        toProductTop()
+        getURL(cate, page, hot, order)
+        pages_wrap.css('transform', 'translateX(0px)')
+
+    }
 
 
-        }
-        if ($('#sort-option').val() == 'priceup') {
-            order = 2
-            page = 1
-            getallproductData()
-            toProductTop()
-            getURL(cate, page, hot, order)
-            pages_wrap.css('transform', 'translateX(0px)')
-        }
-        if ($('#sort-option').val() == 'pricedown') {
-            order = 3
-            page = 1
-            getallproductData()
-            toProductTop()
-            getURL(cate, page, hot, order)
-            pages_wrap.css('transform', 'translateX(0px)')
-        }
-        if ($('#sort-option').val() == 'abvup') {
-            order = 4
-            page = 1
-            getallproductData()
-            toProductTop()
-            getURL(cate, page, hot, order)
-            pages_wrap.css('transform', 'translateX(0px)')
-        }
-        if ($('#sort-option').val() == 'abvdown') {
-            order = 5
-            page = 1
-            getallproductData()
-            toProductTop()
-            getURL(cate, page, hot, order)
-            pages_wrap.css('transform', 'translateX(0px)')
-        }
+    // 手機-排序與篩選的按鈕
+    $('.fixed-btn').on('click', function() {
+        $(this).parent('.product-select').toggleClass('on')
+    })
+
+    function changeSortM() {
+
+        order = $('#mobile-sort-option').val()
+        page = 1
+        getallproductData()
+        toProductTop()
+        getURL(cate, page, hot, order)
+        pages_wrap.css('transform', 'translateX(0px)')
+        $('.product-select').removeClass('on')
+
     }
 
     // -------------------------------------------------------
