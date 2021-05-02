@@ -645,6 +645,7 @@ body,html{
 
 .type-colorDot {
     display: none;
+    opacity: 0;
 }
 
 
@@ -665,9 +666,6 @@ body,html{
   
 }
 
-.drop1 img{
-
-}
 
 /* ///////啤女精選///////// */
 
