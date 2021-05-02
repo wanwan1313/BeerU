@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>結帳</title>
+    <!-- reset -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <!-- FOA -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <!-- style -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/menu-footer/nav-bar.css">
+    <link rel="stylesheet" href="../css/menu-footer/footer.css">
+    <!-- js -->
+    <script src="../js/menu-footer/nav-bar.js" defer></script>
+
+    <link rel="stylesheet" href="../css/cart-checkout/checkout.css">
+    <style>
+
+    </style>
+
+
+</head>
+
+<body>
+
+    <header class="beeru-nav-bar">
+        <div class="container">
+            <div
+                class="row  flex-column flex-lg-row align-items-center justify-content-lg-between align-items-lg-start">
+                <div class="trigger"><span></span></div>
+                <a href="">
+                    <div class="nav-bar-logo"><img src="../images/logo/logo_beeru_white.svg" alt=""></div>
+                </a>
+                <ul class="nav-bar-list list-unstyled d-flex justify-content-around">
+                    <li class="nav-item"><a href="">本月主打</a></li>
+                    <li class="nav-item"><a href="">新手入門</a></li>
+                    <li class="nav-item">啤酒指南
+                        <ul class="nav-sub-menu list-unstyled">
+                            <li class="nav-sub-menu-item"><a href=""></a>啤酒地圖</a></li>
+                            <li class="nav-sub-menu-item"><a href="">餐酒搭配</a></li>
+                            <li class="nav-sub-menu-item"><a href="">風味輪</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">啤酒活動
+                        <ul class="nav-sub-menu list-unstyled">
+                            <li class="nav-sub-menu-item"><a href="">預約試飲會</a></li>
+                            <li class="nav-sub-menu-item"><a href="">募資計畫</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-none d-lg-block"><a href="">全部商品</a></li>
+                </ul>
+                <ul class="nav-bar-member list-unstyled d-flex ">
+                    <input type="text" id="search" name="search" class="search-bar" placeholder="找啤酒">
+                    <li class="search"><i class="fas fa-search"></i></li>
+                    <li class="shopping-cart"><a href=""><img src="../images/common/icon_shopbag.svg" alt=""></a></li>
+                    <li class="user-login"><a href=""><img src="../images/common/icon_member.svg" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="header"></div>
+
+    <section class="beer-warning d-flex align-items-center">
+        <div class="container">
+            <div class="row justify-content-center  align-items-center">
+                <p>禁止酒駕</p>
+                <p>酒後不開車 安全有保障</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="checkout">
+        <div class="checkout-wrap">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <!-- 大標 -->
+                    <div class="col-12 checkout-title">
+                        <p>結帳</p>
+                    </div>
+
+                    <!-- 步驟顯示 -->
+                    <div class="col-8 col-lg-3 checkout-step d-flex justify-content-between">
+                        <div class="step step-1 on">1</div>
+                        <div class="step step-2">2</div>
+                        <div class="step step-3">3</div>
+                    </div>
+                </div>
+                <div class="row justify-content-center flex-column align-items-center select-ship">
+                    <div class="col-12 col-lg-5">
+                        <form name="myship" method="post" novalidate onsubmit="checkform(); return false;">
+                            <label for="ship" class="shiptitle">選擇物流方式</label><br>
+                            <select name="ship" id="ship" class="ship">
+                                <option value="宅配">宅配</option>
+                                <option value="超商取貨">超商取貨</option>
+                            </select>
+                            <input type="hidden" name="shipping" id="shipping">
+
+                            <div class="recipient">
+                                <p class="recipient-title">收件人資訊</p>
+
+                                <div class="name mb-4">
+                                    <label for="re_name">收件人姓名</label><br>
+                                    <input type="text" class="re_name" id="re_name" name="re_name"><br>
+                                    <small class="warn"></small>
+                                </div>
+
+                                <div class="mobile mb-4">
+                                    <label for="re_mobile">收件人手機</label><br>
+                                    <input type="text" class="re_mobile" id="re_mobile" name="re_mobile"><br>
+                                    <small class="warn"></small>
+                                </div>
+                        
+                                <div class="address mb-1">
+                                    <label for="re_address">宅配地址</label><br>
+                                    <div class="re_address">
+                                        <div id="twzipcode"></div>
+                                        <input type="text" class="re_add" name="re_add">
+                                    </div>
+                                    <p class="remind">※ 請確認收件地址是否有誤，如有錯誤，需請自行負責，敬請見諒！</p>
+                                    <small class="warn"></small><br>
+                                </div>
+
+                                <div class="store mb-4">
+                                    <label>選擇門市</label><br>
+                                    <button class="select-711">選擇7-11門市</button>
+                                    <p>延華門市 - 台北市大同區延平北路一段89號91號93號1樓</p>
+                                </div>
+
+                                <div class="order-remarks mb-4">
+                                    <label for="remarks">備註</label>
+                                    <br>
+                                    <textarea class="remarks" name="remarks" id="remarks"  rows="2"></textarea>
+                                </div>
+                                
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-12 col-lg-5 submit mt-4 d-flex justify-content-end">
+                        <button class="next1-1">下一步</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer-brand d-none d-md-block">
+            <p>brand</p>
+            <div class="brand-logos"><img src="../images/brands/brand_logos.svg" alt=""></div>
+        </div>
+        <div class="footer-share">
+            <p>share</p>
+            <div class="sns-logos d-flex justify-content-center">
+                <div class="sns-logo-icon f-fb "><img src="../images/common/icon_fb.svg" alt=""></div>
+                <div class="sns-logo-icon f-email "><img src="../images/common/icon_email.svg" alt=""></div>
+                <div class="sns-logo-icon f-ig "><img src="../images/common/icon_ig.svg" alt=""></div>
+                <div class="sns-logo-icon f-twitter "><img src="../images/common/icon_twitter.svg" alt=""></div>
+                <div class="sns-logo-icon f-line "><img src="../images/common/icon_line.svg" alt=""></div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright© 2021 BEERU. All Rights Reserved</p>
+        </div>
+    </footer>
+
+
+
+
+    <!-- 各種CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
+
+    <script>
+        $("#twzipcode").twzipcode({
+                zipcodeIntoDistrict: true, // 郵遞區號自動顯示在區別選單中
+                css: ["re_city", "re_dist"], // 自訂 "城市"、"地別" class 名稱 
+                countyName: "re_city", // 自訂城市 select 標籤的 name 值
+                districtName: "re_dist" // 自訂區別 select 標籤的 name 值
+            });
+
+
+        $('#ship').on('change',function(){
+            if( $('#ship').val() == '宅配') {
+                $('.address').fadeIn(150)
+                $('.store').css('display','none')
+            }
+            if( $('#ship').val() == '超商取貨') {
+                $('.store').fadeIn(150)
+                $('.address').css('display','none')
+            }
+        })
+    </script>
+
+
+
+</body>
+
+</html>
