@@ -37,11 +37,11 @@ $b_row = $pdo->query($b_SQL)->fetch();
 
 
 // new標籤
-$deadline = strtotime('2021-04-27');
+$deadline = strtotime('2021-05-01');
 
 // 從哪裡來
 $come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
-$come_cate = $come_from != 'http://localhost/BeerU/public/all-product.php' ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
+$come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
 
 ?>
 
@@ -69,13 +69,13 @@ $come_cate = $come_from != 'http://localhost/BeerU/public/all-product.php' ? exp
         <p><a href="all-product.php">全部酒款</a> ｜ </p>
         <?php if ($come_cate <= 4) : ?>
         <?php elseif ($come_cate >= 5 and $come_cate <= 28) : ?>
-            <p><a href="all-product.php?cate=<?= $row['brand_sid']?>"><?= $row['brand_name'] ?></a> ｜ </p>
+            <p><a href="all-product.php?cate=<?= $row['brand_sid'] ?>"><?= $row['brand_name'] ?></a> ｜ </p>
         <?php elseif ($come_cate >= 29 and $come_cate <= 43) : ?>
-            <p><a href="all-product.php?cate=<?= $row['country_sid']?>"><?= $row['country_name'] ?></a> ｜ </p>
+            <p><a href="all-product.php?cate=<?= $row['country_sid'] ?>"><?= $row['country_name'] ?></a> ｜ </p>
         <?php elseif ($come_cate >= 44 and $come_cate <= 53) : ?>
-            <p><a href="all-product.php?cate=<?= $row['type_sid']?>"><?= $row['type_name'] ?></a> ｜ </p>
+            <p><a href="all-product.php?cate=<?= $row['type_sid'] ?>"><?= $row['type_name'] ?></a> ｜ </p>
         <?php elseif ($come_cate == 54) : ?>
-            <p><a href="all-product.php?cate=<?= $row['merch_sid']?>"><?= $row['merch_name'] ?></a> ｜ </p>
+            <p><a href="all-product.php?cate=<?= $row['merch_sid'] ?>"><?= $row['merch_name'] ?></a> ｜ </p>
         <?php endif; ?>
         <p><?= $row['c_name'] ?></p>
     </div>
@@ -671,14 +671,14 @@ $come_cate = $come_from != 'http://localhost/BeerU/public/all-product.php' ? exp
         if (/^(\+|-)?\d+$/.test(qty) && qty > 0 && qty <= 30 || qty == "") {
             changePrice.text('$' + qty * price)
         } else if (qty > 30) {
-            $('.pop-up-1').css('display', 'block')
-            $('.pop-up-1 .icon').html('<i class="fas fa-exclamation"></i>').css('background-color','var(--red)')
+            $('.pop-up-1').fadeIn(150)
+            $('.pop-up-1 .icon').html('<i class="fas fa-exclamation"></i>').css('background-color', 'var(--red)')
             $('.pop-up-1 .pop-up-text').text('購買數量超過庫存，庫存為30')
             $(this).val('30')
             changePrice.text('$' + 30 * price)
         } else {
-            $('.pop-up-1').css('display', 'block')
-            $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color','var(--red)')
+            $('.pop-up-1').fadeIn(150)
+            $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color', 'var(--red)')
             $('.pop-up-1 .pop-up-text').text('請輸入正確數量，數量不得為0')
             $(this).val('1')
             changePrice.text('$' + price)
@@ -695,8 +695,8 @@ $come_cate = $come_from != 'http://localhost/BeerU/public/all-product.php' ? exp
             $(this).prev().val(qty)
             changePrice.text('$' + qty * price)
         } else if (qty >= 30) {
-            $('.pop-up-1').css('display', 'block')
-            $('.pop-up-1 .icon').html('<i class="fas fa-exclamation"></i>').css('background-color','var(--red)')
+            $('.pop-up-1').fadeIn(150)
+            $('.pop-up-1 .icon').html('<i class="fas fa-exclamation"></i>').css('background-color', 'var(--red)')
             $('.pop-up-1 .pop-up-text').text('購買數量超過庫存，庫存為30')
             $(this).prev().val('30')
             changePrice.text('$' + 30 * price)
@@ -713,8 +713,8 @@ $come_cate = $come_from != 'http://localhost/BeerU/public/all-product.php' ? exp
             $(this).next().val(qty)
             changePrice.text('$' + qty * price)
         } else if (qty <= 1) {
-            $('.pop-up-1').css('display', 'block')
-            $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color','var(--red)')
+            $('.pop-up-1').fadeIn(150)
+            $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color', 'var(--red)')
             $('.pop-up-1 .pop-up-text').text('購買數量不得為0')
             $(this).next().val('1')
             changePrice.text('$' + price)
@@ -723,14 +723,18 @@ $come_cate = $come_from != 'http://localhost/BeerU/public/all-product.php' ? exp
 
     // -------------------------------------------------------
     // 加入購物車
-    $('.add-cart').on('click', function () {
+    $('.add-cart').on('click', function() {
         let qty = $(this).closest('.p-buy').find('.buy-number').val()
         let psid = $(this).closest('.beer-product').attr('data-sid')
 
-        $.get('cart-api.php',{'action':'add','psid':psid, 'qty':qty },function(data){
+        $.get('cart-api.php', {
+            'action': 'add',
+            'psid': psid,
+            'qty': qty
+        }, function(data) {
             // console.log(data)
-            $('.pop-up-1').css('display', 'block')
-            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+            $('.pop-up-1').fadeIn(150)
+            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
             $('.pop-up-1 .pop-up-text').text(data.msg)
         }, 'json')
 
@@ -739,7 +743,7 @@ $come_cate = $come_from != 'http://localhost/BeerU/public/all-product.php' ? exp
     // -------------------------------------------------------------
     // 彈跳視窗
     $('button.ok').on('click', function() {
-        $('.pop-up').css('display', 'none')
+        $('.general-pop-up').fadeOut(150)
     })
 </script>
 
