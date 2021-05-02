@@ -15,6 +15,23 @@ $output = [
 $action = isset($_GET['action']) ? $_GET['action']:'';
 $p_sid = isset($_GET['psid']) ? intval($_GET['psid']):0;
 $p_qty = isset($_GET['qty']) ? intval($_GET['qty']):0;
+$totalPrice = isset($_GET['totalPrice']) ? intval($_GET['totalPrice']):0;
+$c_sid = isset($_GET['cSid']) ? intval($_GET['cSid']):NULL;
+$c_dla = isset($_GET['cdollar']) ? intval($_GET['cdollar']):NULL;
+
+if(!empty($totalPrice)){
+    $_SESSION['total-price'] = $totalPrice;
+}
+if(!empty($c_sid)) {
+    $_SESSION['coupon-sid'] = $c_sid;
+}else{
+    unset($_SESSION['coupon-sid']);
+}
+if(!empty($c_dla)){
+    $_SESSION['coupon-dollar'] = $c_dla;
+}else{
+    unset($_SESSION['coupon-dollar']);
+}
 
 
 switch( $action ){
@@ -69,11 +86,27 @@ switch( $action ){
         }
 
         break;
+
+    case 'deleteall':
+        $_SESSION['cart'] = [];
+        $output['msg'] = '已清空購物車內所有商品';
+        break;
+
     default:
     case 'list' :
 };
 
 $output['cart'] = $_SESSION['cart'];
+if( isset($_SESSION['total-price'])){
+    $output['total-price'] = $_SESSION['total-price'];
+}
+if(isset($_SESSION['coupon-sid'])){
+    $output['coupon-sid'] = $_SESSION['coupon-sid'];
+}
+if(isset($_SESSION['coupon-dollar'])){
+    $output['coupon-dollar'] = $_SESSION['coupon-dollar'];
+}
+
 echo json_encode($output,JSON_UNESCAPED_UNICODE)
 
 ?>
