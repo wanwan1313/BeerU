@@ -315,7 +315,7 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            height: 500px;
+            height: 100%;
             width: 100%;
         }
 
@@ -351,15 +351,21 @@
         }
 
         
-        .Beer-type-name img{
-            display: none;
-
-        }
         .Beer-type-name{
+          word-break: keep-all;
            margin: 30px auto 0 auto;
         }
          
-
+     
+        .Beer-type-intro-wrap{
+            position: relative;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start
+            
+        }
+        
         .Beer-type-text{
             margin-top: -20px;
             padding: 15px;
@@ -369,7 +375,7 @@
 
 
         .more-btn02{
-            margin: -30px auto 0 auto;
+            margin: 0 auto;
         }
 
    
