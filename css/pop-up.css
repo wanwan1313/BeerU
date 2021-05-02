@@ -3,7 +3,7 @@
     height: calc(100vh - 170px);
     position: fixed;
     z-index: 990;
-    background-color: rgba(0, 0, 0, 0.493);
+    background-color: rgba(0, 0, 0, 0.5);
     display: none;
 }
 .pop-up-2 {
@@ -11,10 +11,10 @@
     height: calc(100vh - 170px);
     position: fixed;
     z-index: 990;
-    background-color: rgba(0, 0, 0, 0.493);
+    background-color: rgba(0, 0, 0, 0.5);
     display: none;
 }
-.pop-up-box {
+.general-pop-up .pop-up-box {
     width: 300px;
     background-color: #fff;
     border-radius: 15px;
@@ -26,7 +26,7 @@
     padding: 25px 15px;
 }
 
-.icon {
+.general-pop-up .icon {
     background-color: var(--red);
     width: 50px;
     height: 50px;
@@ -37,7 +37,7 @@
 }
 
 
-.pop-up-text {
+.general-pop-up .pop-up-text {
     color: var(--gold);
     font-family:'Noto Serif TC', serif;
     font-weight: 600;
@@ -45,7 +45,7 @@
     letter-spacing: 0.1rem;
     margin: 15px 0;
 }
-button.ok, button.yes, button.no {
+.general-pop-up button.ok, button.yes, button.no {
     background-color: #fff;
     border: 1.5px solid var(--gold);
     border-radius: 10px;
@@ -57,7 +57,7 @@ button.ok, button.yes, button.no {
 }
 
 
-button.ok:hover, button.yes:hover, button.no:hover {
+.general-pop-up button.ok:hover, button.yes:hover, button.no:hover {
     box-shadow: 0px 0px 10px rgb(196, 183, 147);
 }
 
