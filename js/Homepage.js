@@ -80,82 +80,91 @@ $(document).ready(function(){
 
  
  
-  // Beer-type輪播牆
+ // Beer-type輪播牆
+let page = 0;
 
-    let page = 0;
+$('.Beer-type-content').parents().find('.drop').eq(page).css('border','solid 1px white').siblings().css('border','transparent');
+
+$('.Beer-type-content').parents().find('.colorDot').eq(page).css('border','solid 3px white').siblings().css('border','transparent');
+
+
+
+
+$('.drop').on({
+
+    click:function(){
+
+            page = $(this).index(); 
+            console.log('dots page',$(this).index());
+
+            $(this).css('border','solid 1px white').siblings().css('border','transparent');
+
+            $('.Beer-type-content-warp').css('left',$(this).index()*-720+'px').css('transition','1s');
+
+    },
+
+    mouseenter:function(){
+        page = $(this).index(); 
+            // console.log('dots page',$(this).index());
+    
+            $(this).css('border','solid 1px white').siblings().css('border','transparent');
+        
+            $('.Beer-type-content-warp').css('left',$(this).index()*-720+'px').css('transition','1s');
+
+
+    }
+
+
+});
+
+
+
+$('.colorDot').click(function(){
+
+    page = $(this).index(); 
+
+    // console.log('little dots',$(this).index());
+
+     
+    $(this).css('border','solid 3px white').siblings().css('border','transparent');
+
+    $('.Beer-type-content-warp').css('left',$(this).index()*-370+'px').css('transition','1s');
+
+
+
+
+});
+
+
+
+
+setInterval(()=>{
+
+    page += 1;
+
+    if (page > 8){
+        page = 0;
+    };
+
 
     $('.Beer-type-content').parents().find('.drop').eq(page).css('border','solid 1px white').siblings().css('border','transparent');
+
 
     $('.Beer-type-content').parents().find('.colorDot').eq(page).css('border','solid 3px white').siblings().css('border','transparent');
 
 
-    $('.drop').on({
-        click:function(){
+    if ($(window).width() >= 992){
+    $('.Beer-type-content-warp').css('left',page*-720+'px').css('transition','1s');
 
-                page = $(this).index(); 
-                console.log('dots page',$(this).index());
+    }
 
-                $(this).css('border','solid 1px white').siblings().css('border','transparent');
+    if ($(window).width() < 992){
 
-                $('.Beer-type-content-warp').css('left',$(this).index()*-720+'px').css('transition','1s');
-
-        },
-        mouseenter:function(){
-            page = $(this).index(); 
-                // console.log('dots page',$(this).index());
-        
-                $(this).css('border','solid 1px white').siblings().css('border','transparent');
-            
-                $('.Beer-type-content-warp').css('left',$(this).index()*-720+'px').css('transition','1s');
-
-
-        }
-     });
-
-     if ($(window).width() < 992){
-
-            $('.colorDot').click(function(){
-                page = $(this).index(); 
-
-                // console.log('little dots',$(this).index());
-
-                $(this).css('border','solid 3px white').siblings().css('border','transparent');
-
-                $('.Beer-type-content-warp').css('left',$(this).index()*-370+'px').css('transition','1s');
-
-            });
+        $('.Beer-type-content-warp').css('left',page*-370+'px').css('transition','1s');
 
      }
 
-
-
-
-    setInterval(()=>{
-        page += 1;
-
-        if (page > 8){
-            page = 0;
-        };
-
-
-        $('.Beer-type-content').parents().find('.drop').eq(page).css('border','solid 1px white').siblings().css('border','transparent');
-
-
-        $('.Beer-type-content').parents().find('.colorDot').eq(page).css('border','solid 3px white').siblings().css('border','transparent');
-
-
-        if ($(window).width() >= 992){
-        $('.Beer-type-content-warp').css('left',page*-720+'px').css('transition','1s');
-
-        }
-
-        if ($(window).width() < 992){
-
-            $('.Beer-type-content-warp').css('left',page*-370+'px').css('transition','1s');
-
-        }
-
-    },8000)
+},8000)
 
 
     
