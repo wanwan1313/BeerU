@@ -270,6 +270,7 @@
     font-family: 'Noto Serif TC', serif;
     line-height: 1.8rem;
     margin-left: 10px;
+    font-weight: 600;
 }
 .e-name {
     font-size: 1.3rem;
@@ -360,6 +361,7 @@
     
     .re-tbody {
         padding: 0;
+        
     }
 
 
@@ -377,6 +379,20 @@
 }
 
 .keep-shop:hover {
+    opacity: .7;
+}
+
+/* 返回 */
+.backtocart, .backtoship {
+    color: var(--gold);
+    position: absolute;
+    top: 120px;
+    left: 30px;
+    z-index: 996;
+    transition: .5s;
+}
+
+.backtocart:hover , .backtoship:hover {
     opacity: .7;
 }
 
