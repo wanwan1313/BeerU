@@ -428,7 +428,7 @@
 
 
 /* 手機版 */
-@media (max-width: 991px) {
+@media (max-width: 991gipx) {
     .fund-amount-title {
         margin-top: 5%;
         margin-left: 5%;
