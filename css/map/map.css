@@ -22,24 +22,31 @@
 /* 2.底圖+地圖 */
 .map .container .row:nth-of-type(2){
     max-height: 1080px;
-    min-height: 700px;
+    min-height: 650px;
+}
+
+@media (max-width: 990px) {
+    .map .container .row:nth-of-type(2){
+        min-height: 600px;
+        }
 }
 /* 底圖 */
 .map_bg {
-    z-index: -2;
+    z-index: -1;
 }
 .map_bg img{
     object-fit: contain;
-    width: 1200px;
+    max-width: 1200px;
+    min-width: 1000px;
     object-position: center ;
     max-height: fit-content;
-    min-height: 700px;
+    min-height: 575px;
 }
 /* 手機 */
 @media (max-width: 990px) {
     .map_bg img{
         object-fit: cover;
-        width: 1000px;
+        height:500px;
         }
 }
 /* 各州名 */
@@ -50,28 +57,35 @@
 .title_us{
     top:300px;
     left:-240px;
-    height:30px;
+    height:20px;
     z-index: 3;
     cursor: pointer;
 }
 .title_eu{
     top:250px;
     left:0px;
-    height:40px;
+    height:25px;
     z-index: 3;
     cursor: pointer;
 }
 .title_as{
     top:250px;
     left:180px;
-    height:30px;
+    height:20px;
     z-index: 3;
     cursor: pointer;
 }
 .title_au{
     top:440px;
     left:260px;
-    height:30px;
+    height:20px;
+    z-index: 3;
+    cursor: pointer;
+}
+.title_af{
+    top:350px;
+    left:10px;
+    height:20px;
     z-index: 3;
     cursor: pointer;
 }
@@ -89,25 +103,30 @@
         left:180px;
     }
     .title_au{
-        top:400px;
+        top:380px;
         left:260px;
+    }
+    .title_af{
+        top:350px;
+        left:20px;
     }
 }
 
 
 /* 五大洲 */
 .map .world{
+    z-index:0;
     transition: .3s;
-    /* display:none; */
     }
     
-    .map  .world svg{
-        padding-top:50px;
+    .map .world svg{
+        padding-top:45px;
+        padding-bottom:15px;
         width:100%;
         min-width: 700px;
         max-height: 550px;
     }
-    .map  .world path {
+    .map .world path {
         fill: #b293627e;
         stroke:#792221;
         stroke-width:2px;
@@ -116,85 +135,105 @@
         cursor: pointer;
     }
     
-    .map  .world path:hover {
-        fill: #792221;
+    .map .world path:hover {
+        /* fill: #792221; */
     }
 /* 手機 */
 @media (max-width: 990px) {
+    .world>svg>a:nth-of-type(1)>path{
+        /* fill:#792221; */
+    }
+
     .map  .world{
     }
 
     .map .world svg{
-        padding-top:0;
+        padding-top:20px;
         }
+}
+
+@media (max-width: 699px){
+    .map .world svg{
+        -webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 95%);
+    
+        }
+}
+/* --------------------------------------- */
+/* 3.各大洲 */
+.world-eachs{
+    display: none;
+    max-width:1200px;
 }
 
 /* 換洲------------------------- */
-.world-each{
-    /* display: none; */
+.map .world-each{ 
+    /* top:-600px;
+    left:50%;
+    transform: translateX(-50%);  
+fill: #b293627e;
+stroke:#792221;
+stroke-linejoin:round;
+cursor: pointer;
+-webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); */
 }
+
 /* 美洲 */
-
-
-.map .world_us {
-    display:none;
+.map .world_us{
+    z-index: 0;
+    width:600px;
+    height:500px;
+    top:-600px;
+    left:50%;
+    transform: translateX(-50%);  
+fill: #b293627e;
+stroke:#792221;
+stroke-linejoin:round;
+cursor: pointer;
+-webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); 
 }
+
 .map .world_us path {
-    fill: #b293627e;
-    stroke:#792221;
     stroke-width:.5px;
     stroke-dasharray:3,3;
-    stroke-linejoin:round;
-    cursor: pointer;
 }
 
 .map .world_us path:hover {
-    fill: #792221;
+    fill: var(--blue);
 }
-
-.map .world_us{
-    display: none;
-    -webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 80%);
-    }
-
-    .world_us svg{
-        margin-top:-100px;
-        width:600px; 
-        height:900px;
-        }
 
 /* 手機 */
 @media (max-width: 990px) {
     .map .world_us svg{
-    width:525px; 
-    height:725px;
+    width:500px; 
+    height:700px;
 }
 }
 
 /* 歐洲 */
+.map .world_eu{
+    z-index: 0;
+    width:800px;
+    height:700px;
+    margin-top:-100px;
+    top:-600px;
+    left:40%;
+    transform: translateX(-50%);  
+fill: #b293627e;
+stroke:#792221;
+stroke-linejoin:round;
+cursor: pointer;
+-webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); 
+}
+
 .map .world_eu path {
-    fill: #b293627e;
-    stroke:#792221;
     stroke-width:.25px;
     stroke-dasharray:1,1;
-    stroke-linejoin:round;
-    cursor: pointer;
 }
 
 .map .world_eu path:hover {
-    fill: #792221;
+    fill: var(--blue);
 }
 
-.map .world_eu{
-    display: none;
-    -webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 80%);
-    }
-
-    .map .world_eu svg{
-        margin-top:-180px;
-        width:600px; 
-        height:900px;
-        }
 
 /* 手機 */
 @media (max-width: 990px) {
@@ -204,17 +243,103 @@
 }
 }
 
-/* --------------------------------------- */
-/* 3.各大洲 */
-.map .container .row:nth-of-type(3){
-    display: none;
-    z-index: -1;
-    max-width:1000px;
+/* 亞洲 */
+.map .world_as path {
+    stroke-width:.25px;
+    stroke-dasharray:1,1;
+}
+
+.map .world_as svg{
+    margin-top:-180px;
+     width:600px; 
+    height:900px;
+}
+.map .world_as path:hover {
+    fill: var(--blue);
+}
+
+/* 手機 */
+@media (max-width: 990px) {
+    .map .world_as svg{
+    width:500px; 
+    height:700px;
+}
+}
+
+/* 大飛機 */
+.pipi_plane_big img{
+    width: 250px;
+    bottom:0px;
+    left:0px;
+}
+/* 旗子位置 */
+.flag{
+    width:30px;
+    height:50px;
+}
+
+.us>.flag{
+    top: -400px;
+    left:600px;
+    transform: translateX(-50%);
+    width:30px;
+    height:50px;
+}
+
+.flag_shadow{
+    width:30px;
+    height:6px;
+    margin-top: -10px;
+    border-radius: 50%;
+    background:radial-gradient(ellipse at center ,rgba(0, 0, 0, 1.0) 10%,rgba(0, 0, 0, 0) 70%);
+    transform: rotate(-25deg);
+    opacity: .3;
+    
+}
+/* 英國uk */
+.eu .flag1{
+    top: -520px;
+    left:390px;
+}
+/* 法國france */
+.eu .flag2{
+    top: -420px;
+    left:430px;
+}
+/* 比利時belgium */
+.eu .flag3{
+    top: -475px;
+    left:470px;
+}
+/* 挪威norway */
+.eu .flag4{
+    top: -630px;
+    left:500px;
+}
+/* 丹麥denmark */
+.eu .flag5{
+    top: -560px;
+    left:505px;
+}
+/* 德國germany */
+.eu .flag6{
+    top: -490px;
+    left:515px;
+}
+/* 瑞典sweden */
+.eu .flag7{
+    top: -600px;
+    left:560px;
+}
+/* 義大利italy */
+.eu .flag8{
+    top: -400px;
+    left:520px;
 }
 
 /* 標題 */
 .map_title{
-    top: -300px;
+    top: -310px;
     left:50%;
     transform: translateX(-50%);
     color:var(--red);
@@ -241,16 +366,24 @@
 
 /* balloon */
 .map .balloon{
-    display: none;
+    z-index:996;
     width:105px;
     left:10%;
     top:-700px;
+    /* opacity: 0; */
+    /* transition: 5s; */
 }
+
+/* .balloon.active{
+    opacity: 1;
+} */
+
 @media (max-width: 990px) {
     .map .balloon{
     width:80px;
     top:-700px;
     left:5%
+    
         
     }
     }
@@ -258,26 +391,29 @@
   
 /* return */
 .map .pipi_plane{
-    width:100px;
+    z-index: 990;
+    width:50px;
     right:11%;
-    top:-400px;
-    cursor: pointer;
+    top:-200px;
     }
 
+    .map .pipi_plane:hover{
+        cursor: pointer;
+        }
     .map .pipi_plane .return-text{
     margin-top:3px;
     color:var(--red);
     font-size:1.6rem;
     line-height: 1.25;
-    white-space: nowrap;
-    cursor: pointer;
+    font-size: 1.4rem;
 }
 /* 手機 */
 @media (max-width: 990px) {
     .map  .pipi_plane{
-        width:75px;
-            right:7%;
-            top:-450px;
+        width:50px;
+            right:5%;
+            top:-70vh;
+
         }
         .map  .pipi_plane .return-text{
             font-size:1.4rem;
@@ -286,17 +422,21 @@
 
 /* 各個國家選項 */
 .map .countries {
-    /* display: none; */
+
+    z-index: 990;
     width:1000px;
+    height:300px;
     left:50%;
-    top:-200px;
+    bottom:20%;
     transform:translateX(-50%);
 }
 
-
+/* 手機版 */
 @media (max-width: 600px) {
     .map .countries {
-        top:-200px;
+        z-index: 990;
+        bottom:10%;
+        /* top:-200px; */
         width:375px;
        
         }
@@ -308,30 +448,33 @@
 width:50px;
 height:50px;
 transition: .3s;
+cursor: pointer;
+z-index: 990;
 }
 
 .map .arrow-left{
     background: url(../../images/map/SVG/arrow_left-hover-red.svg);
     background-repeat: no-repeat;
     background-position: center;
+    
 }
 .map .arrow-right{
     background: url(../../images/map/SVG/arrow_right-hover-red.svg);
     background-repeat: no-repeat;
     background-position: center;
 }
-.map .arrow-left:hover{
+/* .map .eu .arrow-left:hover{
     background: url(../../images/map/SVG/arrow_left-hover-red.svg);
     background-repeat: no-repeat;
     background-position: center;
     transform: translateX(-3px) scale(1.4);
 }
-.map .arrow-right:hover{
+.map .eu .arrow-right:hover{
     background: url(../../images/map/SVG/arrow_right-hover-red.svg);
     background-repeat: no-repeat;
     background-position: center;
     transform: translateX(3px) scale(1.4);
-}
+} */
 
 /* 手機版 */
 @media (max-width: 990px) {
@@ -350,31 +493,48 @@ transition: .3s;
         }
 }
 
+.manycountry-windows{
+    position: relative;
+    overflow: hidden;
+    width: 420px;
+    height: 124px;
+}
+
+.manycountry{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:1120px;
+    height:100%;
+}
+
 /* 郵票 */
 .map .country{
-    width:200px;
-    height:160px;
-    margin-left: 15px;
-    margin-right: 15px;
+    width:40%;
+    height:150px;
+    /* margin-left: 5px; */
+    /* margin-right: 5px; */
     transition: .3s;
     padding: 13px;
-    background: white;
+    /* background: white;
     -webkit-filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.5));
     background: radial-gradient(
         transparent 0px,transparent 6px,white 6px,white);
     background-size: 20px 20px;
-    background-position: center;
+    background-position: center; */
+    cursor: pointer;
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.5));
 }
 
 .map .country img{
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     width:100%;
     height: 100%;
 }
 
 .map .country:hover{
-    transform: scale(1.25);
+    /* transform: scale(1.25); */
 }
 
 /* 手機版 */
@@ -395,18 +555,27 @@ transition: .3s;
 
 /* --------------------------------------- */
 /* 4.四大洲選項-手機版才有 */
-.map .container>.row:nth-of-type(4){
-    /* display: none; */
+.map .phone-option{
+    /* z-index: 4; */
+    color:var(--red);
+    min-width: 300px;
+    max-width: 700px;
+    position: relative;
+    /* margin-top:-18vh */
+    /* margin-top: -32.5vh; */
+    /* margin-top: -80vh; */
+
 }
 
-.map .container>.row:nth-of-type(4){
-    z-index: 990;
-    color:var(--red);
-    min-width: 350px;
-    max-width: 500px;
-    margin-top:-160px;
-    margin-bottom: 160px;
+.map .parts{
+    height:80px;
+    position: fixed;
+    /* top:50%; */
+    left:50%;
+    transform: translate(-50%);
+
 }
+
 .map .parts .part{
     white-space: nowrap;
     max-width: 80px;
@@ -416,27 +585,10 @@ transition: .3s;
     font-size: 1.8rem;
     letter-spacing: .5rem;
 }
- /*動畫：飛機飛到地區中心點 */
-.map .parts .part:hover{
-    /* color:transparent; */
-    /* transform: translateX(0) translateY(-100%) scale(.25); */
-    }
-    
-    .map .parts .part:nth-of-type(2):hover{
-        /* color:transparent; */
-        /* transform: translateX(0) translateY(-100%) scale(.25); */
-        }
-    .map .parts .part:nth-of-type(3):hover{
-        /* color:transparent; */
-        /* transform: translateX(0) translateY(-100%) scale(.25); */
-        }
-    .map .parts .part:nth-of-type(4):hover{
-        /* color:transparent; */
-        /* transform: translateX(0) translateY(-50%) scale(.25); */
-        }
+
 
 /* 桌機版時隱藏 */
-@media (min-width: 991px) {
+@media (min-width: 700px) {
     .map .container>.row:nth-of-type(4){
         display: none;
         }
@@ -445,7 +597,7 @@ transition: .3s;
 /* pupup */
 /* 背景 */
 .map .bg-black{
-    display:none;
+    /* display:none; */
 z-index:990;
 width: 100%;
 height:100vh;

@@ -375,10 +375,8 @@ margin-bottom:15px;
     }
 
     .event-join-sign .check_code{
-width: 100px
+/* width: 100px; */
     }
-
-
 
 .event-join-sign .form-title input{
     max-width:100%;
@@ -450,6 +448,7 @@ position: relative;
     transform: translate(-50%);
     left: -10px;
     top: 10px;
+    
 
 }
 
