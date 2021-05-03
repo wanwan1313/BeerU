@@ -648,6 +648,7 @@ $page_title = '啤女-購物車';
                     cdollar
                 }, function(data) {
                     // console.log(data)
+                    location.href = 'checkout.php'
                 }, 'json')
             })
 
@@ -657,6 +658,7 @@ $page_title = '啤女-購物車';
                 cdollar
             }, function(data) {
                 // console.log(data)
+                location.href = 'checkout.php'
             }, 'json')
         }
 
