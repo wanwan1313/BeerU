@@ -6,11 +6,13 @@
 $page_title = '啤女-結帳';
 
 
-$subPlus = 0;
-foreach ($_SESSION['cart'] as $c) {
-    $subPlus += $c['price'] * $c['quantity'];
-};
-$totalPrice = $subPlus - $_SESSION['coupon-dollar'] + $_SESSION['shipping']
+// $subPlus = 0;
+// foreach ($_SESSION['cart'] as $c) {
+//     $subPlus += $c['price'] * $c['quantity'];
+// };
+// if (isset($_SESSION['discount']) and isset($_SESSION['shipping'])) {
+//     $totalPrice = $subPlus - $_SESSION['discount'] + $_SESSION['shipping'];
+// }
 
 
 
@@ -37,7 +39,7 @@ $totalPrice = $subPlus - $_SESSION['coupon-dollar'] + $_SESSION['shipping']
 
 <section class="checkout">
     <div class="checkout-wrap">
-        <div class="container">
+        <div class="container" class="position-relative">
 
             <!-- header 大標與步驟 -->
             <div class="row justify-content-center">
@@ -56,6 +58,11 @@ $totalPrice = $subPlus - $_SESSION['coupon-dollar'] + $_SESSION['shipping']
 
             <!-- 物流 -->
             <div id="select-ship">
+                <div class="backtocart">
+                    <a href="cart-list.php">
+                        <i class="fas fa-arrow-alt-circle-left mr-2"></i>返回購物車
+                    </a>
+                </div>
                 <div class="row justify-content-center flex-column align-items-center select-ship">
                     <div class="col-12 col-lg-5">
                         <form name="myship" method="post" novalidate onsubmit="checkshipform(); return false;">
@@ -120,6 +127,11 @@ $totalPrice = $subPlus - $_SESSION['coupon-dollar'] + $_SESSION['shipping']
 
             <!-- 金流 -->
             <div id="select-payment">
+                <div class="backtoship">
+                    <a href="http://localhost/BeerU/public/checkout.php?step=1">
+                        <i class="fas fa-arrow-alt-circle-left mr-2"></i>返回物流選項
+                    </a>
+                </div>
                 <div class="row justify-content-center flex-column align-items-center select-payment">
                     <div class="col-12 col-lg-6">
 
@@ -148,33 +160,19 @@ $totalPrice = $subPlus - $_SESSION['coupon-dollar'] + $_SESSION['shipping']
                                     <!-- 單支產品開始 -->
                                 </div>
 
-                                <!-- <?php foreach ($_SESSION['cart'] as $v) : ?>
-                                    <div class="my-checkout-p d-flex align-items-center mb-2">
-                                        <div class="col-7 col-lg-8 d-flex align-items-center">
-                                            <div class="col-2 thisp-pic px-0"><img src="../images/products/<?= $v['pic'] ?>" alt=""></div>
-                                            <div class="col-10 thisp-name px-0">
-                                                <p class="c-name"><?= $v['c_name'] ?></p>
-                                                <p class="e-name d-none d-lg-block"><?= $v['e_name'] ?></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-2 thisp-qty px-0 text-center"><?= $v['quantity'] ?></div>
-                                        <div class="col-3 col-lg-2 thisp-subp px-0 text-center">$<?= $v['quantity'] * $v['price'] ?></div>
-                                    </div>
-                                <?php endforeach; ?> -->
-
                                 <!-- 最後金額計算 -->
-                                <div class="calc-price mt-4">
+                                <div class="calc-price mt-4 mr-lg-4">
                                     <div class="coupon d-flex justify-content-end">
-                                        <div class="col-4 col-lg-2 text-right">折價券</div>
-                                        <div class="col-4 col-lg-2 text-right">– $<?= $_SESSION['coupon-dollar'] ?></div>
+                                        <div class="col-4 col-lg-3 text-right">折價券</div>
+                                        <div class="col-4 col-lg-3 text-right mydiscount"></div>
                                     </div>
                                     <div class="shipping d-flex justify-content-end">
-                                        <div class="col-4 col-lg-2 text-right">運費</div>
-                                        <div class="col-4 col-lg-2 text-right">$<?= $_SESSION['shipping'] ?></div>
+                                        <div class="col-4 col-lg-3 text-right">運費</div>
+                                        <div class="col-4 col-lg-3 text-right myshipping"></div>
                                     </div>
                                     <div class="total-price d-flex justify-content-end">
                                         <div class="col-4 col-lg-3 text-right">金額總計</div>
-                                        <div class="col-4 col-lg-2 text-right" data-tprice="<?= $totalPrice ?>">NT$<?= $totalPrice ?></div>
+                                        <div class="col-4 col-lg-3 text-right mytotalprice"></div>
                                     </div>
                                 </div>
                             </div>
@@ -204,7 +202,7 @@ $totalPrice = $subPlus - $_SESSION['coupon-dollar'] + $_SESSION['shipping']
                         </div>
 
                         <div class="order-detail">
-                            <p class="text-center text-lg-left">訂單編號：202105031234</p>
+                            <p class="text-center text-lg-left" id="order_num">訂單編號：202105031234</p>
                             <div class="order-d-box px-3 px-lg-5 py-4">
                                 <!-- 訂單資訊 -->
                                 <div class="overview">
@@ -215,9 +213,9 @@ $totalPrice = $subPlus - $_SESSION['coupon-dollar'] + $_SESSION['shipping']
                                         <div class="v-thead col-3 px-0 text-center text-lg-left">訂單狀態</div>
                                     </div>
                                     <div class="view-content d-flex">
-                                        <div class="v-tbody col-3 px-0 text-center text-lg-left">2021-05-03</div>
-                                        <div class="v-tbody col-3 px-0 text-center text-lg-left">NT$<?= $totalPrice ?></div>
-                                        <div class="v-tbody col-3 px-0 text-center text-lg-left"><?= $_SESSION['payment'] ?></div>
+                                        <div class="v-tbody col-3 px-0 text-center text-lg-left" id="orderDay">2021-05-03</div>
+                                        <div class="v-tbody col-3 px-0 text-center text-lg-left" id="mytotalprice"></div>
+                                        <div class="v-tbody col-3 px-0 text-center text-lg-left" id="mypayment"></div>
                                         <div class="v-tbody col-3 px-0 text-center text-lg-left">處理中</div>
                                     </div>
                                 </div>
@@ -230,34 +228,25 @@ $totalPrice = $subPlus - $_SESSION['coupon-dollar'] + $_SESSION['shipping']
                                         <div class="p-thead col-2 px-0 text-center">數量</div>
                                         <div class="p-thead col-3 col-lg-2 px-0 text-center">小計</div>
                                     </div>
-                                    <!-- 單支產品開始 -->
-                                    <?php foreach ($_SESSION['cart'] as $v) : ?>
-                                        <div class="my-checkout-p d-flex align-items-center mb-2">
-                                            <div class="col-7 col-lg-8 d-flex align-items-center">
-                                                <div class="col-2 thisp-pic px-0"><img src="../images/products/<?= $v['pic'] ?>" alt=""></div>
-                                                <div class="col-10 thisp-name px-0">
-                                                    <p class="c-name"><?= $v['c_name'] ?></p>
-                                                    <p class="e-name d-none d-lg-block"><?= $v['e_name'] ?></p>
-                                                </div>
-                                            </div>
-                                            <div class="col-2 thisp-qty px-0 text-center"><?= $v['quantity'] ?></div>
-                                            <div class="col-3 col-lg-2 thisp-subp px-0 text-center">$<?= $v['quantity'] * $v['price'] ?></div>
-                                        </div>
-                                    <?php endforeach; ?>
+
+                                    <div class="my-checkout-p-wrap">
+                                        <!-- 單支產品開始 -->
+                                    </div>
+
 
                                     <!-- 最後金額計算 -->
-                                    <div class="calc-price mt-4">
+                                    <div class="calc-price mt-4 mr-lg-4">
                                         <div class="coupon d-flex justify-content-end">
-                                            <div class="col-4 col-lg-2 text-right">折價券</div>
-                                            <div class="col-4 col-lg-2 text-right">– $<?= $_SESSION['coupon-dollar'] ?></div>
+                                            <div class="col-4 col-lg-3 text-right">折價券</div>
+                                            <div class="col-4 col-lg-3 text-right mydiscount"></div>
                                         </div>
                                         <div class="shipping d-flex justify-content-end">
-                                            <div class="col-4 col-lg-2 text-right">運費</div>
-                                            <div class="col-4 col-lg-2 text-right">$<?= $_SESSION['shipping'] ?></div>
+                                            <div class="col-4 col-lg-3 text-right">運費</div>
+                                            <div class="col-4 col-lg-3 text-right myshipping"></div>
                                         </div>
                                         <div class="total-price d-flex justify-content-end">
                                             <div class="col-4 col-lg-3 text-right">金額總計</div>
-                                            <div class="col-4 col-lg-2 text-right" data-tprice="<?= $totalPrice ?>">NT$<?= $totalPrice ?></div>
+                                            <div class="col-4 col-lg-3 text-right mytotalprice"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -267,21 +256,21 @@ $totalPrice = $subPlus - $_SESSION['coupon-dollar'] + $_SESSION['shipping']
                                         <p class="col-12 px-2">收件人資訊</p>
                                     </div>
                                     <div class="re-content d-flex px-3 flex-column flex-lg-row">
-                                        <div class="re01 col-lg-2 px-0 d-flex flex-row flex-lg-column ">
+                                        <div class="re01 col-lg-2 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
                                             <div class="col-3 col-lg-12 re-thead px-0 pl-lg-1">收件人</div>
-                                            <div class="col-9 col-lg-12 re-tbody pl-3 pl-lg-1"><?= $_SESSION['re_name'] ?></div>
+                                            <div class="col-9 col-lg-12 re-tbody pl-3 pl-lg-1" id="myRecipient"></div>
                                         </div>
-                                        <div class="re02 col-lg-3 px-0 d-flex flex-row flex-lg-column ">
-                                            <div class="col-3 col-lg-12 re-thead px-0">收件人電話</div>
-                                            <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0"><?= $_SESSION['re_mobile'] ?></div>
+                                        <div class=" re02 col-lg-3 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
+                                            <div class=" col-3 col-lg-12 re-thead px-0">收件人電話</div>
+                                            <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0" id="myRecipientPhone"></div>
                                         </div>
-                                        <div class="re03 col-lg-5 px-0 d-flex flex-row flex-lg-column ">
+                                        <div class="re03 col-lg-5 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
                                             <div class="col-3 col-lg-12 re-thead px-0">收件地址</div>
-                                            <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0"><?= $_SESSION['re_add'] ?></div>
+                                            <div class="col-9 col-lg-12 re-tbody pl-3 pl-lg-0 pr-lg-2" id="myRecipientAdd"></div>
                                         </div>
-                                        <div class="re04 col-lg-2 px-0 d-flex flex-row flex-lg-column ">
+                                        <div class="re04 col-lg-2 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
                                             <div class="col-3 col-lg-12 re-thead px-0">運送方式</div>
-                                            <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0"><?= $_SESSION['ship'] ?></div>
+                                            <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0" id="myship"></div>
                                         </div>
 
                                     </div>
@@ -319,14 +308,45 @@ $totalPrice = $subPlus - $_SESSION['coupon-dollar'] + $_SESSION['shipping']
 <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
 
 <script>
-    console.log('location', window.location.search);
+    console.log(window.location.search.substr(6, 1));
 
+    function reloadData() {
+        $('#ship').val('<?= $_SESSION['ship'] ?? '' ?>')
+        $('#shipping').val(<?= $_SESSION['shipping'] ?? ''?>)
+        $('#re_name').val('<?= $_SESSION['re_name'] ?? ''?>')
+        $('#re_mobile').val('<?= $_SESSION['re_mobile'] ?? '' ?>')
+        $('.re_add').val("<?= isset($_SESSION['re_add']) ? mb_substr($_SESSION['re_add'], 6) : '' ?>")
+        document.getElementsByClassName('re_city').value = "<?= isset($_SESSION['re_add']) ? mb_substr($_SESSION['re_add'], 0, 3) : '' ?>"
+        document.getElementsByClassName('re_dist').value = "<?= isset($_SESSION['re_add']) ? mb_substr($_SESSION['re_add'], 3, 3):'' ?>"
+        $('#payment').val('<?= $_SESSION['payment'] ?? '' ?>')
+        if ($('#ship').val() == '超商取貨') {
+            $('.store').fadeIn(150)
+            $('.address').css('display', 'none')
+        }
+    }
 
-    let url = location.pathname + '?step=1'
-    history.pushState({
-        url: url,
-        title: document.title
-    }, document.title, url)
+    if (window.location.search.substr(6, 1) == 1) {
+        reloadData()
+
+    }
+    if (window.location.search.substr(6, 1) == 2) {
+        reloadData()
+        checkshipform()
+    }
+    if (window.location.search.substr(6, 1) == 3) {
+        reloadData()
+        checkshipform()
+        checkpaymentform()
+    }
+
+    if (window.location.search == '') {
+        let url = location.pathname + '?step=1'
+        history.pushState({
+            url: url,
+            title: document.title
+        }, document.title, url)
+    }
+
 
     // 台灣地址插件
     $("#twzipcode").twzipcode({
@@ -351,10 +371,11 @@ $totalPrice = $subPlus - $_SESSION['coupon-dollar'] + $_SESSION['shipping']
         }
     })
 
-    // 下一步
+    // 下一步----------------------------------------------------
 
     let p_data = {};
 
+    // 商品的html碼
     const checkoutpTpl = p => {
         return `
         <div class="my-checkout-p d-flex align-items-center mb-2">
@@ -367,36 +388,61 @@ $totalPrice = $subPlus - $_SESSION['coupon-dollar'] + $_SESSION['shipping']
                                         </div>
                                     </div>
                                     <div class="col-2 thisp-qty px-0 text-center">${p.quantity}</div>
-                                    <div class="col-3 col-lg-2 thisp-subp px-0 text-center">${p.quantity * p.price}</div>
+                                    <div class="col-3 col-lg-2 thisp-subp px-0 text-center">$${p.quantity * p.price}</div>
                                 </div>
         `
     }
 
+    // 產生商品頁面
     function renderCheckoutP() {
-        console.log(p_data.cart)
+        // console.log(p_data.cart)
         $('.my-checkout-p-wrap').html('')
-       for( let el in p_data.cart) {
-           console.log(el.sid)
-       }
-        // p_data.cart.forEach(el => {
-        //     $('.my-checkout-p-wrap').append(checkoutpTpl(el))
-        // })
+        for (let el in p_data.cart) {
+            let p = p_data.cart[el]
+            $('.my-checkout-p-wrap').append(checkoutpTpl(p))
+        }
 
     }
 
+    // 計算價格
+    function renderCalcPrice() {
+        let subPrice = 0
+        let coupon = 0
+        let shipping = p_data['shipping']
+        for (let el in p_data.cart) {
+            let p = p_data.cart[el]
+            subPrice += p.quantity * p.price
+        }
+        if (p_data['discount'] != undefined) {
+            coupon = p_data['discount']
+            $('.coupon').html(`
+        <div class="col-4 col-lg-3 text-right">折價券</div>
+        <div class="col-4 col-lg-3 text-right mydiscount"></div>`)
+            $('.mydiscount').text('– $' + coupon)
+        } else {
+            $('.coupon').html('')
+        }
+        let total_Price = subPrice * 1 - coupon * 1 + shipping * 1
+        $('.myshipping').text('$' + shipping)
+        $('.mytotalprice').text('NT$' + total_Price).attr('data-tprice', total_Price)
+
+    }
+
+    // 檢查表格與AJAX傳送
     function checkshipform() {
         let isPass = true
 
         if (isPass) {
             $.post(
-                'cart-api.php',
+                'checkout-api.php',
                 $(document.myship).serialize(),
                 function(data) {
-                    console.log(data.cart)
                     p_data = data
-                    $('#select-ship').fadeOut(100)
-                    $('#select-payment').fadeIn(150)
+                    console.log(p_data)
                     renderCheckoutP()
+                    renderCalcPrice()
+                    $('#select-ship').fadeOut(0)
+                    $('#select-payment').fadeIn(150)
                     $('.step-2').addClass('on')
                     $('.step-1').removeClass('on')
                     $('body,html').animate({
@@ -414,32 +460,79 @@ $totalPrice = $subPlus - $_SESSION['coupon-dollar'] + $_SESSION['shipping']
     }
 
 
-    // 確認結帳
 
+
+
+
+    // 確認結帳----------------------------------------------------
+
+
+    // 日期+0
+    function setTimeDateFmt(s) {
+        return s < 10 ? '0' + s : s;
+    }
+
+    // 產生訂單編號
+    function randomNumber() {
+        const now = new Date()
+        let month = now.getMonth() + 1
+        let day = now.getDate()
+        let hour = now.getHours()
+        let minutes = now.getMinutes()
+        let seconds = now.getSeconds()
+        month = setTimeDateFmt(month)
+        day = setTimeDateFmt(day)
+        hour = setTimeDateFmt(hour)
+        minutes = setTimeDateFmt(minutes)
+        let orderCode = now.getFullYear().toString() + month.toString() + day + hour + minutes + (Math.round(Math.random() * 100)).toString();
+        $('#order_num').text('訂單編號：' + orderCode)
+        return orderCode;
+    }
+
+
+
+    // 產生訂單概要
+    function renderOrderDetail() {
+        let Today = new Date()
+        let totalPrice = $('.mytotalprice').attr('data-tprice')
+        $('#orderDay').text(Today.getFullYear() + '-' + setTimeDateFmt((Today.getMonth() + 1)) + '-' + setTimeDateFmt(Today.getDate()))
+        $('#mytotalprice').text('NT$' + totalPrice)
+        $('#mypayment').text(p_data['payment'])
+    }
+    // 產生收件人資訊
+    function renderRecipient() {
+        $('#myRecipient').text(p_data['re_name'])
+        $('#myRecipientPhone').text(p_data['re_mobile'])
+        $('#myRecipientAdd').text(p_data['re_add'])
+        $('#myship').text(p_data['ship'])
+    }
+
+    // 檢查表格與AJAX傳送
     function checkpaymentform() {
         let isPass = true
-        let totalPrice = <?= $totalPrice ?>;
+        let totalPrice = $('.mytotalprice').attr('data-tprice')
         let payment = $('#payment').val()
-
-        console.log(totalPrice, payment)
-
+        let order_num = randomNumber()
         if (isPass) {
             $.post(
-                'cart-api.php', {
+                'checkout-api.php', {
                     'payment': payment,
                     'totalPrice': totalPrice,
+                    'order_num': order_num
                 },
                 function(data) {
-                    console.log(data)
-
-                    $('#select-payment').fadeOut(100)
+                    // console.log(data)
+                    p_data = data
+                    renderOrderDetail()
+                    renderRecipient()
+                    $('#select-ship').fadeOut(0)
+                    $('#select-payment').fadeOut(0)
                     $('#complete-order').fadeIn(150)
                     $('.step-3').addClass('on')
                     $('.step-2').removeClass('on')
                     $('body,html').animate({
                         scrollTop: 0
                     }, 150, 'swing');
-
                 },
                 'json'
             )
