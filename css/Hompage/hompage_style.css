@@ -536,6 +536,7 @@ body,html{
 }
 
 .type-forward{
+    z-index: 980;
     cursor: pointer;
     background-image: url("../../images/common/arrow_left.svg");
     width: 80px;

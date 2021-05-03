@@ -460,7 +460,7 @@ $('.type-forward').click(function(){
     if (page < 0){
         page = 8;
     };
-
+  
 
 
     $('.Beer-type-content').parents().find('.drop').eq(page).css('filter','drop-shadow(0 0 10px #0AB6E4)').siblings().css('filter','none');
