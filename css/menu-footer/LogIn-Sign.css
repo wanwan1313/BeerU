@@ -43,8 +43,9 @@
     box-shadow: 0 0 0 1920px rgba(0, 0, 0, .5);
     /* 起始頁大小 */
      width: 35%; 
-     height: 500px;
-     /* height: calc(100vh - 48vh); */
+     height: 60%;
+     min-height: 494px;
+    /* height: calc(100vh - 48vh); */
     
     /* 登入頁大小 */
     /* height: 550px; */
