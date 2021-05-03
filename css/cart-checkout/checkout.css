@@ -1,7 +1,6 @@
 .checkout {
     width: 100%;
     background-color: #fff;
-    height: 100vh;
     color: var(--blue);
 }
 
@@ -98,7 +97,7 @@
 
 /* ----------------------步驟顯示------------------------ */
 .checkout-step {
-    margin: 25px 0 50px;
+    margin: 25px 0 30px;
     color: var(--gold);
     font-weight: 800;
     font-size: 2rem;
@@ -128,7 +127,7 @@
     background-color: #fff;
     position: relative;
     z-index: 5;
-    transition: .5s;
+    transition: .3s;
 }
 
 .step.on {
@@ -139,12 +138,12 @@
 
 
 /* ------------------------物流------------------------ */
-.shiptitle, .recipient-title {
-    font-size: 1.8rem;
-    letter-spacing: 0.2rem;
+.shiptitle, .recipient-title, .paytitle {
+    font-size: 1.7rem;
+    letter-spacing: 0.15rem;
 }
 
-.ship {
+.ship, .payment {
     border: 1.2px solid var(--gold);
     color: var(--gold);
     width: 100%;
@@ -154,7 +153,8 @@
     background-color: #fff;
 }
 
-.recipient {
+/* 收件人 & 結帳商品外框 */
+.checkoutbox {
     margin-top: 30px;
     border: 1.5px solid var(--gold);
     border-radius: 15px;
@@ -175,7 +175,7 @@
 .remind {
     font-size: 1.3rem;
     color: rgb(165, 165, 165);
-    line-height: 0;
+    line-height: 1.5rem;
     margin-top: 10px;
 }
 
@@ -210,16 +210,6 @@
     outline: none;
 }
 
-.submit button {
-    background-color: var(--pink);
-    color: #fff;
-    font-size: 2rem;
-    letter-spacing: 0.1rem;
-    border: none;
-    border-radius: 30px;
-    padding: 0 10px;
-}
-
 .select-711 {
     background-color: var(--blue);
     border: 1px solid var(--gold);
@@ -231,3 +221,163 @@
 .store {
     display: none;
 }
+
+
+/* 下一步按鈕 & 確認購買按鈕 */
+.submit button {
+    background-color: var(--pink);
+    color: #fff;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    border: none;
+    border-radius: 30px;
+    padding: 0 10px;
+    transition: .5s;
+}
+
+.submit button:hover {
+    transform: scale(1.05,1.05);
+}
+
+
+/* --------------------------金流--------------------- */
+#select-payment {
+    display: none;
+}
+
+.buy-product {
+    padding: 10px 10px 10px 20px;
+}
+
+.p-thead, .my-checkout-p {
+    border-bottom: 0.5px solid #BABABA;
+    padding: 10px 0 ;
+}
+
+.thisp-pic {
+    width: 30px;
+    height: 80px;
+}
+
+.thisp-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.thisp-name {
+    color: var(--gold);
+    font-family: 'Noto Serif TC', serif;
+    line-height: 1.8rem;
+    margin-left: 10px;
+}
+.e-name {
+    font-size: 1.3rem;
+    opacity: .8;
+}
+
+.coupon, .shipping {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.total-price {
+    color: var(--red);
+}
+
+
+
+
+/* -----------------------訂單完成---------------------- */
+#complete-order {
+    display: none;
+}
+
+.complete-title {
+    width: 100%;
+    border-bottom: 2px solid var(--blue);
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.order-detail>p {
+    font-size: 1.5rem;
+    color: var(--gold);
+}
+
+.order-d-box {
+    border: 2px solid var(--blue);
+    border-radius: 25px;
+}
+
+/* 手機版 */ 
+@media (max-width: 991px) { 
+.order-d-box {
+    border-radius: 0;
+}
+}
+
+
+.v-thead {
+    border-bottom: 0.5px solid #BABABA;
+    font-weight: 500;
+}
+
+.v-tbody {
+    border-bottom: 0.5px solid #BABABA;
+    padding: 20px 0;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.d-header>p {
+    background-color: #E7E7E7;
+    font-weight: 500;
+}
+
+.re-content {
+    background-color: #F5F5F5;
+    padding: 10px 0;
+}
+
+.re-thead {
+    border-bottom: 0.5px solid #BABABA;
+    color: var(--gold);
+}
+
+.re-tbody {
+    padding: 10px 0;
+}
+
+
+/* 手機版 */ 
+@media (max-width: 991px) { 
+    .re-thead {
+        border-bottom:none;
+        color: var(--gold);
+    }
+    
+    .re-tbody {
+        padding: 0;
+    }
+
+
+}
+
+
+/* -----------------繼續購物--------------- */
+.keep-shop {
+    color: var(--gold);
+    font-size: 2rem;
+    transition: .5s;
+    padding: 30px;
+    text-align: center;
+
+}
+
+.keep-shop:hover {
+    opacity: .7;
+}
+
+
