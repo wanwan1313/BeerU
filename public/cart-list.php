@@ -161,7 +161,7 @@ $page_title = '啤女-購物車';
                                         </div>
                                     </div>
                                     <div class="col-lg-5 pro-know p-lg-0">
-                                        <p class="sub-t-price">NT$500</p>
+                                        <p class="sub-t-price"></p>
                                         <div class="intro d-flex flex-wrap ">
                                             <p class="col-12 px-0 price">單價-NT$<?= $v['price'] ?></p>
                                             <p class="abv">ABV-<?= $v['abv'] ?>%</p>
@@ -633,7 +633,7 @@ $page_title = '啤女-購物車';
 
     // 結帳--------------------------------------------------------------------
     $('.go-checkout').on('click', function() {
-        let totalPrice = $('.t-price-after').attr('data-tprice')
+        // let totalPrice = $('.t-price-after').attr('data-tprice')
         let cSid = $('.coupon-num').attr('coupon-sid')
         let cdollar = $('.coupon-num').attr('coupon-dollar')
 
@@ -644,7 +644,6 @@ $page_title = '啤女-購物車';
                 $.get('cart-api.php', {
                     action: 'delete',
                     psid,
-                    totalPrice,
                     cSid,
                     cdollar
                 }, function(data) {
@@ -654,7 +653,6 @@ $page_title = '啤女-購物車';
 
         } else {
             $.get('cart-api.php', {
-                totalPrice,
                 cSid,
                 cdollar
             }, function(data) {
