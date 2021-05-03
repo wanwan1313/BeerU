@@ -2,9 +2,7 @@
 
 <!-- 需要置換的變數們 -->
 <?php
-
 $page_title = '啤女BeerU:品飲會';
-
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>

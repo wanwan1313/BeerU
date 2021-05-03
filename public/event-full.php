@@ -195,7 +195,7 @@ $page_title = '啤女BeerU:品飲會:已額滿';
                     <div class="time">
                         <div class="d-flex align-items-center">
                             <p class='t1-i'><i class="far fa-clock"></i>活動時間</p>
-                            <div class='btn_join over calender'><a href=""><i class="fas fa-calendar-plus"></i>加入行事曆</a>
+                            <div class='btn_join over calender'><a href="https://www.google.com/calendar/render?action=TEMPLATE&trp=true&sf=true&output=xml&dates=20210530T080000Z/20210530T110000Z&details=活動詳情%0Ahttp://192.168.8.157:3002/beeru/public/event-join.php&location=活動地點&text=活動名稱"><i class="fas fa-calendar-plus"></i>加入行事曆</a>
                             </div>
                         </div>
                         <p class='t1-c'>2021-06-06(日) 19:30 ~ 21:30 (GMT+8)</p>
