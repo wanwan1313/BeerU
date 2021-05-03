@@ -22,6 +22,13 @@
     transform: translate(-120px, 300px) ;
 
 }
+.pipi-flyIn-RWD{
+    
+    transition: 2s;
+    opacity: 1;
+    transform: translate(-120px, 200px) ;
+
+}
 
 .DOOR-OPEN{
      transform: translateX(380px);
@@ -47,3 +54,4 @@
     transform: translate(110px,-100px);
 
 }
+

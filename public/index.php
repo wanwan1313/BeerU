@@ -8,14 +8,16 @@ $page_title = '啤女BeerU';
 
 
 
-
-
-
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
 <!-- 這裡插入要放在head的東西 -->
 <!-- 包含自己的css和js -->
+
+<!-- carousel -->
+<!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/> -->
+<!-- <link rel="stylesheet" type="text/css" href="../css/slick.css"/> -->
+
 
 <!-- HomepageJs -->
 <script src="../js/Homepage.js" defer></script>
@@ -25,7 +27,6 @@ $page_title = '啤女BeerU';
  <link rel="stylesheet" href="../css/Hompage/hompage_style.css">   
     <link rel="stylesheet" href="../css/Hompage/homepage_style_RWD.css"> 
     <link rel="stylesheet" href="../css/Hompage/homepage_animation.css"> 
-
 
 
 
@@ -131,7 +132,7 @@ $page_title = '啤女BeerU';
             <div class="Woman_warp">
 
                 <div class="woman woman01">
-                    <div class="woman-img  woman01">
+                    <div class="woman-img  woman01-img">
                         <img src="../images/common/woman1.svg" alt="">
                     </div>
                     <div class="woman-talk talk01">
@@ -139,7 +140,7 @@ $page_title = '啤女BeerU';
                     </div>
                 </div>
                 <div class="woman woman02">
-                    <div class="woman-img  woman02">
+                    <div class="woman-img  woman02-img">
                         <img src="../images/common/woman2.svg" alt="">
                     </div>
                     <div class="woman-talk talk02">
@@ -308,10 +309,10 @@ $page_title = '啤女BeerU';
     
                                 <div class="Beer-type-name d-flex">
                                 <img src="../images/common/dot-2.svg" alt="">
-                                <h3>淡拉格Pale Lager</h3>
+                                <h3>淡色拉格Pale Lager</h3>
                                 </div>
                                 <div class="Beer-type-text">
-                                    <p>Pale Lager淡拉格一詞較Pale Ale淡愛爾晚出現，最早用於形容類一般商業拉格、工業拉格。較淡的麥芽香氣，帶有麥芽或穀物輕微的甜香，酒花香氣從偏低到略微辛辣味都有可能。因為發酵程度很高，會有少量的酵母味道（如淡淡的青蘋果味）。
+                                    <p>現今的主流商業啤酒，除麥芽外，也可能添加玉米、米......等副添加物，風味通常非常溫和、爽口，適合大口暢飲。
                                     </p>
                                 </div>
     
@@ -323,17 +324,18 @@ $page_title = '啤女BeerU';
                         <div class="Beer-type-content type03 ">
     
                             <div class="Beer-type-img type-img03">
-                                <img src="../images/glasses/pilsner.png" alt="">
+                                <img src="../images/glasses/ipa.svg" alt="">
                             </div>
                             
                             <div class="Beer-type-intro-wrap ">
     
                                 <div class="Beer-type-name d-flex">
                                 <img src="../images/common/dot-3.svg" alt="">
-                                <h3>皮爾森啤酒Pilsner </h3>
+                                <h3>印度淡艾爾IPA </h3>
                                 </div>
                                 <div class="Beer-type-text">
-                                    <p>世界上最早的金色啤酒，名字由來是最初的產地-捷克的皮爾森市。皮爾森大膽採用了當時新誕生不久的淺色麥芽，使啤酒呈現出標誌性的金黃色。皮爾森啤酒的色澤從淡黃色到金黃色不等，口味通常較為爽口清淡。
+                                    <p>是一種酒花香氣更濃郁的淡色艾爾，最初為了讓啤酒在從英格蘭到印度的遠距離航程中不至於腐敗，因此在釀造時加入了大量具有防腐性能的啤酒花以確保啤酒的新鮮，從此漸漸形成一種風味獨特的啤酒類型。IPA的苦味在重口味的食物之後，會有意想不到的回甘。
+
                                     </p>
                                 </div>
     
@@ -345,18 +347,17 @@ $page_title = '啤女BeerU';
                         <div class="Beer-type-content type04 ">
     
                             <div class="Beer-type-img type-img04">
-                                <img src="../images/glasses/weizen.svg" alt="">
+                                <img src="../images/glasses/pilsner.png" alt="">
                             </div>
                             
                             <div class="Beer-type-intro-wrap ">
     
                                 <div class="Beer-type-name d-flex">
                                 <img src="../images/common/dot-4.svg" alt="">
-                                <h3>德國小麥啤酒weizen</h3>
+                                <h3>皮爾森Pilsner</h3>
                                 </div>
                                 <div class="Beer-type-text">
-                                    <p>weizen，發源自德國巴伐利亞地區。顏色因為未經過濾，酵母和小麥中的蛋白質純留在酒液之中，使酒體呈現白中混濁的色澤並擁有細緻的泡沫。風味上，weizen帶有明顯的果香，其中，香蕉、丁香、泡泡糖、香草的風味構成了weizen的主韻。
-    
+                                    <p>皮爾森啤酒，稱作 Pils 或 Pilsner，世界上最早的金色啤酒，名字由來是其最初的產地－捷克的皮爾森市。皮爾森啤酒大膽採用了當時新誕生不久的淺色麥芽，使啤酒呈現出標誌性的金黃色。皮爾森啤酒的色澤從淡黃色到金黃色不等，口味通常較為爽口清淡。明亮澄清的色澤更帶動了透明玻璃啤酒杯的流行。
                                     </p>
                                 </div>
     
@@ -368,17 +369,17 @@ $page_title = '啤女BeerU';
                         <div class="Beer-type-content type05 ">
     
                             <div class="Beer-type-img type-img05">
-                                <img src="../images/glasses/ipa.svg" alt="">
+                                <img src="../images/glasses/weizen.svg" alt="">
                             </div>
                             
                             <div class="Beer-type-intro-wrap ">
     
                                 <div class="Beer-type-name d-flex">
                                 <img src="../images/common/dot-5.svg" alt="">
-                                <h3>印度式淡愛爾IPA</h3>
+                                <h3>小麥啤酒Weizen</h3>
                                 </div>
                                 <div class="Beer-type-text">
-                                    <p>IPA的全名為India Pale Ale，印度式淡愛爾，起源自18世紀英國的倫敦和伯頓特倫特。今日的IPA已經成為精釀啤酒界的超級巨星，除了明顯的苦度值外，強烈的酒花香氣也成為吸引人的特色之一。
+                                    <p>不同於一般啤酒以大麥為原料，德國小麥啤酒依德國法律規範，小麥麥芽須占穀料一半以上。不會過濾，留存懸浮的酵母使外觀混濁，顏色則在淡金色到暗金色間，味道清新，口感輕盈，帶有香蕉與丁香味道且果香濃郁。
     
                                     </p>
                                 </div>
@@ -398,10 +399,10 @@ $page_title = '啤女BeerU';
     
                                 <div class="Beer-type-name d-flex">
                                 <img src="../images/common/dot-6.svg" alt="">
-                                <h3>淡愛爾Pale Ale</h3>
+                                <h3>淡色艾爾Pale Ale</h3>
                                 </div>
                                 <div class="Beer-type-text">
-                                    <p>Pale Ale發源自英國，“淡”指的是顏色淡。在1642年以前，淡愛爾一詞為使用焦炭烘焙過麥芽，同時使用上層發酵酵母，使得淡愛爾擁有豐富且多層次的果香與香料風味。
+                                    <p>使用淡色麥芽（Pale Malts）、少量啤酒花、以頂層發酵方式釀造的啤酒，通常氣泡豐富，麥味濃郁。在英國地區，苦啤酒與淡啤酒被當成同義詞，可見苦味也是淡色愛爾的一大特徵。
                                     </p>
                                 </div>
     
@@ -420,10 +421,10 @@ $page_title = '啤女BeerU';
     
                                 <div class="Beer-type-name d-flex">
                                 <img src="../images/common/dot-7.svg" alt="">
-                                <h3>勃克bock</h3>
+                                <h3>勃克啤酒Bock</h3>
                                 </div>
                                 <div class="Beer-type-text">
-                                    <p>Bock代表著濃郁型的拉格，得名自德國城鎮的Einbock。最傳統的勃克顏色為深黑，酒體醇厚，香氣除了深色麥芽帶有的焦糖、太妃糖、烘焙與堅果香外，另有明顯的果香與花香。
+                                    <p>源於北德城市Einbeck，為當時僧侶齋戒時的營養來源，17世紀巴伐利亞王室請了釀酒師到慕尼黑釀酒，原先為艾爾，但因1516年的醇酒令而轉成底層發酵的烈性拉格。烘焙麥芽的風味鮮明，口感滑順，顏色較深。
                                     </p>
                                 </div>
     
@@ -442,10 +443,10 @@ $page_title = '啤女BeerU';
     
                                 <div class="Beer-type-name d-flex">
                                 <img src="../images/common/dot-8.svg" alt="">
-                                <h3>波特 Poter</h3>
+                                <h3>波特啤酒Porter</h3>
                                 </div>
                                 <div class="Beer-type-text">
-                                    <p>而Porter是由英文中「搬運工」一詞而來。早期的Porter會經過巨型橡木桶的沉放來增加風味，時間可長達1~2年。但也有一說指出當時的Porter是由新鮮啤酒、過期啤酒和陳年啤酒混合後產生了讓人著迷的煙燻香、烘焙香與酸味。</p>
+                                    <p>一種深色啤酒，源自於18世紀英國倫敦地區，以烘焙麥芽發酵而成。當時廣受河上及街道搬運工（Porter）的歡迎，因此得名。帶有咖啡般香味。</p>
                                 </div>
     
                                 <div class="know-more more-btn02">了解更多</div>
@@ -463,11 +464,10 @@ $page_title = '啤女BeerU';
     
                                 <div class="Beer-type-name d-flex">
                                 <img src="../images/common/dot-9.svg" alt="">
-                                <h3>斯陶特Stout</h3>
+                                <h3>司陶特Stout</h3>
                                 </div>
                                 <div class="Beer-type-text">
-                                    <p>Stout屬於一種深黑色的愛爾啤酒，得名於Stout Porter，起初指加強型的Porter，基本的Stout帶有巧克力、咖啡、黑莓、煙燻或一點酸味，而Stout的變體也相當的多。
-                                    </p>
+                                    <p>又稱烈性黑啤酒，是一種由波特啤酒改良而來的深色啤酒，而Stout一名源自法語，原義是強烈的意思，具濃郁烘烤風味，略帶咖啡與巧克力滋味，口味較波特啤酒濃烈。</p>
                                 </div>
     
                                 <div class="know-more more-btn02">了解更多</div>
@@ -568,6 +568,7 @@ $page_title = '啤女BeerU';
                             <h4>托帕托帕-週末客享瘦</h4>
                         </div>
                     </div>
+                    
                     <div class="item item02 col-lg-3 col-12">
                         <div class="item-flag">
                             <img src="../images/country/flag_italy_stick.svg" alt="">
@@ -745,30 +746,30 @@ $page_title = '啤女BeerU';
 
        
            <div class="row legned-story-warp ">
-               <div class="legned-story col-lg-3 col-4">
+               <div class="legned-story col-lg-3 col-12">
                    <div class="legned">
                        <h3>以酒<br>會友</h3>
                    </div>
-                   <div class="legned-content  mt-5">
+                   <div class="legned-content">
                     <p>酒是最容易讓卸下心防的商品，在啤女裡，你可以找到與你志同道合的酒肉朋友！</p>
 
                    </div>
                    
                </div>
-               <div class="legned-story col-lg-3 col-4">
+               <div class="legned-story col-lg-3 col-12">
                    <div class="legned">
                        <h3>信賴<br>專業</h3>
                    </div>
-                   <div class="legned-content mt-5">
+                   <div class="legned-content">
                     <p>我們有世界各國多元的商品，絕對能讓你找到屬於你的那支MR/MS.RIGHT!</p>
                    </div>
                   
                </div>
-               <div class="legned-story col-lg-3 col-4">
+               <div class="legned-story col-lg-3 col-12">
                    <div class="legned">
                        <h3>學問<br>殿堂</h3>
                    </div>
-                   <div class="legned-content  mt-5">
+                   <div class="legned-content">
                     <p>我們致力於推廣世界釀啤酒的文化，讓你感受到濃濃的異國氣息，增添生活樂趣！</p>
                    </div>
                </div>
@@ -780,11 +781,14 @@ $page_title = '啤女BeerU';
    <section class="pipi">
     <div class="container clouds">
         <div class="row pipi-wrap">
+
             <div class="pipi-left col-lg-8 col-12 d-flex">
+
                 <div class="pipi-name">
                     <h3>啤啤</h3>
                     <h3>喜歡你，<br>是我獨家的記憶...</h3>
                 </div>
+
                 <div class="pipi-body">
                     <div class="pipi-img">
                         <img src="../images/common/pipi-new2.svg" alt="">
@@ -881,5 +885,35 @@ $('.Check-page').fadeOut(1);
 
 
 </script>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<!-- <script>
+    $('.colllection-items-warp').slick({
+  centerMode: true,
+  centerPadding: '60px',
+  slidesToShow: 4,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: true,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 4
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: true,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    }
+  ]
+});
+</script> -->
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>

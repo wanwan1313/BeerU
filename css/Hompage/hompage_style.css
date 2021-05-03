@@ -256,14 +256,22 @@ body,html{
 }
 
 .woman{
+    cursor: pointer;
     position: relative;
     margin: 0 35px;
 }
+
+
+
+
 .woman-img{
+    opacity: 0;
     width: 180px;
+  
 }
 
 .woman-talk{
+    opacity: 0;
     top: 0;
     width: 70%;
     position: absolute;
@@ -276,28 +284,32 @@ body,html{
 }
 
 .talk01{
-    transform: translate(-80px, -80px);
+    transform: scale(0.5) translate(-80px, -80px);
 }
 .talk02{
     right: 0;
-    transform: translate(50px, -60px);
+    transform: scale(0.5) translate(50px, -60px);
 
 }
 .talk03{
     right: 0;
     width: 50%;
-    transform: translate(50px, -80px);
+    transform: scale(0.5) translate(50px, -80px);
 }
 .talk04{
     right: 0;
 
-    transform: translate(30px, -60px);
+    transform: scale(0.5) translate(30px, -60px);
 }
 
 
 
  /* ////////精釀小學堂///////// */
 
+
+ .Brew-school{
+     opacity: 0;
+ }
 
 .title-wrap{
     display: flex;
@@ -394,6 +406,10 @@ body,html{
     
 }
 
+.brew-beer-img{
+    opacity: 0.6;
+}
+
 .brew-beer-intro{
     border-bottom: solid 1px #fff;
 
@@ -486,6 +502,9 @@ body,html{
 
 }
 
+.bussiness-beer-img{
+    opacity: 0.6;
+}
 
 .more-btn01{
     margin: 0 auto;
@@ -494,6 +513,7 @@ body,html{
 /* ///////Beer-type///////// */
 
 .Beer-type{
+    opacity: 0;
     margin-top: 60px;
 }
 
@@ -563,15 +583,18 @@ body,html{
     width: 180px;
 }
 .type-img03{
-    width: 190px;
+    /* width: 190px; */
+    width: 180px;
 }
 
 .type-img04{
-    width: 160px;
+    /* width: 160px; */
+    width: 190px;
 }
 
 .type-img05{
-    width: 180px;
+    /* width: 180px; */
+    width: 160px;
 }
 .type-img06{
     width: 175px;
@@ -651,13 +674,16 @@ body,html{
 
 .hand{
     position: absolute;
-    transform: translate(-30px,-155px);
-    width: 20%;
+    /* transform: translate(-30px,-155px); */
+    transform: translate(-150px,-250px) rotate(-30deg);
+    min-width: 400px;
+    width: 30%;
 }
 
 .type-color{
+    opacity: 0;
     justify-content: center;  
-    margin-top: 30px;
+    margin-top: 55px;
 }
 
 .drop{
@@ -666,6 +692,8 @@ body,html{
     width: 4%
   
 }
+
+
 
 
 /* ///////啤女精選///////// */
@@ -975,7 +1003,7 @@ body,html{
 
 .legned-content{
     width: 100%;
-    margin: 0 auto;
+    margin: 30px auto 0 auto;
     
 }
 
@@ -1023,15 +1051,18 @@ body,html{
 
 
 .pipi-body{
+    cursor: pointer;
     position: relative;
-    margin-left: 20px;
+    width: 200px;
+    margin-left: 100px;
+  
 }
 
 .pipi-arrow{
     position: absolute;
-    width: 50px;
-    top: 30%;
-    transform: translateX(-20px);
+    width: 70px;
+    top: 33%;
+    transform: translateX(-30px);
 }
 
 .pipi-intro{

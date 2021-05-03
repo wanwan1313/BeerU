@@ -51,7 +51,7 @@
   .pip_push{
     position: absolute;
     width: 150px;
-    transform: translate(-120px, 220px) ;
+    transform: translate(-120px, 0px) ;
 
    }
 
@@ -116,12 +116,15 @@
 
 
     .RWD-button-wrap .row{
+        
         display: flex;
         justify-content: center;
        
     }
 
     .RWD-button{
+        opacity: 0;
+        cursor: pointer;
         flex-direction: column;
         justify-content: flex-end;
         width: 100px;
@@ -167,6 +170,11 @@
     
     /* ////////精釀小學堂///////// */
 
+
+    .Brew-school{
+            opacity: 0;
+    }
+
     .Brew-school-intro{
         /* margin-top:20px; */
         flex-direction: row;
@@ -180,15 +188,9 @@
     }
 
 
-    .Brew-school-title h1{
-        top: 24%;
-        left: 5px;
-        font-size: 24px;
-    }
-
-
    
     .brew-beer-img{
+        opacity: 1;
         margin: 0 auto;
         width: 40%
     } 
@@ -207,11 +209,16 @@
         
     }
 
+    .title-txt h2{
+       font-size: 2.6rem;
+    }
+
     .content-txt{
         word-break: break-all;
         margin-top: 0;
     }
     .content-txt h6{
+        font-size: 1.6rem;
         width: 100%;
        
         margin-bottom: 20px;
@@ -241,7 +248,7 @@
     }
     
     .bussiness-beer-intro{
-        margin-bottom: 19px;
+        margin-bottom: 17px;
     }
     .bussiness-beer-content{
         text-align: center;
@@ -297,7 +304,7 @@
             position: relative;
             overflow: hidden;
             max-width: 370px;
-            height: 500px;
+            height: 600px;
             margin-top: 40px;
           
             
@@ -333,11 +340,13 @@
         }
         
         .type-img04{
-            width: 90px;
+            /* width: 90px; */
+            width: 100px;
         }
         
         .type-img05{
-            width: 100px;
+            /* width: 100px; */
+            width: 90px;
         }
         .type-img06{
             width: 100px;
@@ -405,7 +414,7 @@
     .BeerU-feature{
         margin-top: 60px;
     }
-   
+
     .feature02{
    
         background-position: right 2px  top 0px;
@@ -427,11 +436,23 @@
 
     }
 
+
+    .legned-story-warp{
+
+        transform: translateX(-10px);
+    }
+
+    .legned-story{
+        display: flex;
+        flex-direction: row;
+        /* justify-content: center; */
+        align-items: center;
+    }
     .legned {
         
         width: 100px;
         height: 100px;
-        transform: translateX(-6px);
+        
         border-radius: 50%;
         border: solid 1px var(--yellow)
         
@@ -442,9 +463,17 @@
         line-height: 4rem;
     }
 
+
+    .legned-content{
+        width: 45%;
+        transform: translateX(-6px);
+        margin: 0;
+   
+    }
+
     .legned-content p{
         font-family: 'Noto Sans TC', serif;
-        font-size: 1.2rem;
+        font-size: 1.6rem;
         word-break:break-alll;
     }
     
@@ -460,6 +489,23 @@
       
         margin-top: 50px
     }
+
+    .pipi-body{
+        cursor: pointer;
+        position: relative;
+        width: 200px;
+       
+        margin-left:0;
+      
+    }
+
+    .pipi-arrow{
+        position: absolute;
+        width: 40px;
+        top: 30%;
+        transform: translateX(-20px);
+    }
+    
     .pipi-name{
         padding: 15px;
     }
