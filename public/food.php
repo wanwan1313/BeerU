@@ -513,14 +513,6 @@ $page_title = '啤女BeerU:餐酒搭配';
                     </div>
 
                 </div>
-                <!-- <div class="resto-img-wrap">
-                        <img src="../images/joyce_images/restaurants-1.png" alt="">
-                    </div>
-                    <h4>The 58 Bar 精釀啤酒餐酒館
-                        <br>
-                        台北市萬華區開封街二段58號
-                        電話：02-2927-7183
-                    </h4> -->
             </div>
 
         </div>

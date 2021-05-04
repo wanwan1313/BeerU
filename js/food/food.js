@@ -85,7 +85,7 @@ $(window).scroll(function () {
 
     }
 
-    // 手機版
+    // 
 
     if ($(window).width() < 992) {
 
