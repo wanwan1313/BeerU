@@ -2,6 +2,7 @@
 
 if( ! isset($_SESSION['cart'])){
     $_SESSION['cart'] = [];
+    $_SESSION['checkout'] = [];
 };
 
 
@@ -20,16 +21,16 @@ $c_dla = isset($_GET['cdollar']) ? intval($_GET['cdollar']):NULL;
 
 
 if(!empty($c_sid)) {
-    $_SESSION['coupon-sid'] = $c_sid;
+    $_SESSION['checkout']['coupon-sid'] = $c_sid;
     $output['msg'] = '有使用折價券';
 }else{
-    unset($_SESSION['coupon-sid']);
+    unset($_SESSION['checkout']['coupon-sid']);
     $output['msg'] = '沒有使用折價券';
 }
 if(!empty($c_dla)){
-    $_SESSION['discount'] = $c_dla;
+    $_SESSION['checkout']['discount'] = $c_dla;
 }else {
-    unset($_SESSION['discount']);
+    unset($_SESSION['checkout']['discount']);
 }
 
 
@@ -99,11 +100,11 @@ switch( $action ){
 
 $output['cart'] = $_SESSION['cart'];
 
-if(isset($_SESSION['coupon-sid'])){
-    $output['coupon-sid'] = $_SESSION['coupon-sid'];
+if(isset($_SESSION['checkout']['coupon-sid'])){
+    $output['checkout']['coupon-sid'] = $_SESSION['checkout']['coupon-sid'];
 }
-if(isset($_SESSION['discount'])){
-    $output['discount'] = $_SESSION['discount'];
+if(isset($_SESSION['checkout']['discount'])){
+    $output['checkout']['discount'] = $_SESSION['checkout']['discount'];
 }
 
 echo json_encode($output,JSON_UNESCAPED_UNICODE)
