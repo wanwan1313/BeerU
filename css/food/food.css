@@ -14,7 +14,7 @@
     margin-bottom: 10%;
 }
 
-.pair-1 img,
+.pair-1,
 .pair-title,
 .pair .share-icons {
     padding-top: 100px;
@@ -51,58 +51,149 @@ h1 {
     font-weight: bold;
     font-size: 3.6rem;
     letter-spacing: 1.2rem;
-
 }
 
+h2 {
+    font-family: 'Noto Serif TC', serif;
+    color: var(--white);
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.4rem;
+    letter-spacing: 0.2rem;
+}
+
+
+
 /*桌機版*/
-/* 天使圖檔 */
-.angel-img-wrap
-{
+/*----- pipi 動畫 ----- */
+@media (min-width: 992px) {
+
+    .food-left {
+        display: flex;
+    }
+
+.pipi-flyup{
     width: 60%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    position: absolute;
+    top: 245px;
+    left: 155px;
+    z-index: 99;
+  margin-left: auto;
+  margin-right: auto;
+  animation: mymove 3s infinite;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes mymove{
+    from {top:245px;}
+    to {top: 5px;}
+  }
+
+
+.plate{
+  width: 55%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position:absolute;
+  top: 600px;
+  left: 200px;
 }
 
 .food-left-text{
-    display: none;
-}
-/* 盤子圖檔 */
-.plate-img-wrap
-{
-    width: 65%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* 現在我想來點 */
 .food-left-text h2 {
+    position: absolute;
+    top: 455px;
+    left: 315px;
     color: var(--gold);
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
     font-size: 3.6rem;
     letter-spacing: 1.2rem;
     text-indent:1.2rem;
-    margin: 0 auto;
+    /* margin: 0 auto;*/
     text-align: center;
 }
+}
+
+
 
      /*手機版*/
     /*天使大小調整*/
     @media (max-width: 991px) {
-        .angel-img-wrap
-        {
-            width: 80%;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+
+        .food-left{
+            margin-bottom: 70%;
+        
         }
-    /*盤子大小調整 */
-        .plate-img-wrap
-        {
-            width: 80%;
+
+        .food-intro {
+
         }
+    
+
+        .pipi-flyup{
+            margin-top: 10%;
+            width:85%;
+            z-index: 99;
+            position: absolute;
+            top: 100px;
+          margin-left: auto;
+          margin-right: auto;
+          animation: mymove 2s;
+          animation-delay: 0.3s;
+          animation-fill-mode: forwards;
+        }
+        
+        @keyframes mymove{
+            from {top:100px;}
+            to {top: 0px;}
+          }
+        
+        .plate{
+          width: 80%;
+          position: absolute;
+          top: 400px;
+          margin-left: 20px;
+
+        }
+
+        /* 現在我想來點 */
+.food-left-text h2 {
+
+    position: absolute;
+    top: 320px;
+    left: 100px;
+    color: var(--gold);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    margin-left: 20px;
+    /* text-align: center; */
+}
+     
+.pair-now {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin:auto;
+    margin-top: 10%;
+    margin-bottom:15% ;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
+    text-align: center;
+}
+
+
+
+
 }
 
 /*桌機版*/
@@ -203,7 +294,7 @@ h1 {
 .food-right-text  {
    width: 70%;
    margin: 0 auto;
-   margin-top: 10%;
+   margin-top: 5%;
 }
 
 .food-right-text h2 {
@@ -218,10 +309,18 @@ h1 {
     text-align: justify;
 }
 /* span:pariage */
+
+.text-highlight {
+    color: var(--gold);
+    font-size: 3.6rem;
+
+}
 .mariage {
     font-family: 'Noto Sans TC', sans-serif;
-    letter-spacing: 0.5rem;
+    /* letter-spacing: 0.5rem; */
 }
+
+
 
 
 /* 手機版 */
@@ -233,17 +332,98 @@ h1 {
      }
     
     .food-right-text h2 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
         line-height: 2.6rem;
        text-align: justify;
     }
- }
-    
 
-/* food-page-2 */
+    .text-highlight {
+        color: var(--gold);
+        font-size: 2.4rem;
+    
+    }
+ }
+ 
+ 
+
+ /* ----------------學搭餐---------------------- */
+/* 桌機版 */
+.pair-now {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 85%;
+    margin-top: 5%;
+    margin-bottom:20% ;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
+}
+
+.pair-now::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+.pair-now::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+
+.pair-now:hover {
+    transform: scale(1.1,1.1);
+}
+
+.pair-now:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+.pair-now:hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+ /* 手機版 */
+ @media (max-width: 991px) {
+.pair-now {
+    display: none;
+}
+ }
+/*-------------- food-page-2 ------------- */
 /* 文字置中:酒搭配三大原則 */
 /* 桌機版 */
 .food-rule {
+    margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -298,7 +478,7 @@ h1 {
 
 /* 文字三大原則 */
 .rules-content{
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .rules {
@@ -400,17 +580,31 @@ h1 {
         letter-spacing: 0.8rem;
         text-indent: 1.2rem;
         margin-bottom: 100px;
-    
     }
+
+       
     }
     
 /* 桌機版 */
-/* 手 */
-.hand{
-    transform: translate(-100px,-700px);
-    width: 550px;
-    position: absolute;
+@media (min-width: 992px) {
+    .beer-type {
+        text-align: center;
+        margin-bottom: 10%;
+    }
+    
+    /* 手 */
+
+    .hand{
+        transform: translate(-100px,-600px);
+        width: 550px;
+        position: absolute;
+        top: 1700px;
+    
+    }
+
+
 }
+
 /* 手機版 */
 @media (max-width: 991px) {
     /*手 */
@@ -436,9 +630,7 @@ h1 {
     } 
     
 
-.beer-type {
-    margin-bottom: 10%;
-}
+
 
 /* ----------------酒杯-banner ----------------*/
 /* 桌機版 */
@@ -499,7 +691,9 @@ h1 {
 
 .food-drop-name
 {
-color: transparent;}
+color: transparent;
+transition: 0.3s;
+}
 
 .food-drop-img:hover + .food-drop-name
 {
@@ -508,6 +702,7 @@ color: transparent;}
     font-weight: bold;
     text-align:center;
     width: 75px;
+    transition: 0.8s;
   
 }
 
@@ -576,6 +771,7 @@ margin-top:5%;
     font-weight: bold;
     font-size: 3.6rem;
     margin-bottom: 5%;
+    text-align: left;
 }
 
 .pair-title img{
@@ -1334,8 +1530,9 @@ margin-bottom: 5%;
 /* 桌機版 */
 @media (min-width: 992px) {
     .deco-line{
-        display: none;
-     
+        width: 20%;
+        margin:auto;
+        margin-top: 2%;
    }
 }
 /* 手機版 */
