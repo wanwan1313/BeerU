@@ -355,7 +355,8 @@ body{
 /* 分享按鈕*/
 
 .quiz-result-wrap .share-icons{
-justify-content: center;
+    justify-content: center;
+
 }
 .quiz-result-wrap .share-icons svg path {
     fill: var(--blue);
@@ -365,6 +366,9 @@ justify-content: center;
     margin-right: 8px;
 }
 
+.fb_iframe_widget{
+    margin-right: 10px;
+}
 /* ----------------返回按鈕開始---------------------- */
 
 .back-btn {

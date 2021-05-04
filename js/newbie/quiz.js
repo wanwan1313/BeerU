@@ -123,13 +123,13 @@ $('.result-btn').click(function (e) {
     console.log('.result-btn', totalScore > 0 <= 5);
     if (totalScore > 0 && totalScore <= 5) {
         console.log('trueeeee');
-        window.location.href = "quiz-result-1.html";
+        window.location.href = "quiz-result-1.php";
     } else if (totalScore > 5 && totalScore <= 10) {
-        window.location.href = "quiz-result-2.html";
+        window.location.href = "quiz-result-2.php";
     } else if (totalScore > 10 && totalScore <= 15) {
-        window.location.href = "quiz-result-3.html";
+        window.location.href = "quiz-result-3.php";
     } else {
-        window.location.href = "quiz-result-4.html";
+        window.location.href = "quiz-result-4.php";
     }
 
 })
