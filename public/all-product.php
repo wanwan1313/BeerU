@@ -293,7 +293,7 @@ $page_title = '啤女-精釀啤酒商品';
 
     // 設定一個頁碼的字樣
     const allpageTpl = n => {
-        console.log('window.location.href =', window.location.href);
+        // console.log('window.location.href =', window.location.href);
         const start = window.location.href.indexOf('page=', 0);
         const end = window.location.href.indexOf('&', start);
         const findpage = +window.location.href.substring(start + 5, end);
