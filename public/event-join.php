@@ -313,8 +313,7 @@ $page_title = '啤女BeerU:品飲會:立即報名';
                     </div>
                     <!-- 驗證碼 -->
                     <form action="">
-                    <div class="form-title mb-5 mt-5 flex-nowrap text-center text-md-left pb-4 pb-md-0 js5-input-div" id="js5-form" ng-controller="enterCtrl"><span class="js5-input-divSpan">驗證碼 </span><input type="text" placeholder="不區分大小寫" class='check_code js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:150px"><input type="text" class="js5-authCode mx-3" style="width:100px;background-color:var(--red);color:var(--yellow);font-size:2rem;font-weight:bold;text-align:center;letter-spacing:.25rem;border:1px solid white" value="" id="js5-authCode" ng-model="showAuthCode" disabled="disabled">
-                        <!--disabled="disabled"禁止驗證碼框文字被選中-->
+                    <div class="cant_copy form-title mb-5 mt-5 flex-nowrap text-center text-md-left pb-4 pb-md-0 js5-input-div" id="js5-form" ng-controller="enterCtrl"><span class="js5-input-divSpan">驗證碼 </span><input type="text" placeholder="不區分大小寫" class='check_code js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:150px"><input type="text" class="js5-authCode mx-3" style="width:100px;background-color:var(--red);color:var(--yellow);font-size:2rem;font-weight:bold;text-align:center;letter-spacing:.25rem;border:1px solid white" value="" id="js5-authCode" ng-model="showAuthCode" disabled="disabled" oncopy="return false">
                         <a class='recode' href="javascript:"><i class="fas fa-undo-alt" style="font-size:1.4rem;letter-spacing:0"> 重新獲取驗證碼</i></a>
                     </div></form>
                     <!-- 活動資訊 -->

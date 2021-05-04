@@ -62,8 +62,9 @@
     cursor: pointer;
 }
 .title_eu{
-    top:250px;
+    top:200px;
     left:0px;
+    /* width:30px; */
     height:25px;
     z-index: 3;
     cursor: pointer;
@@ -141,7 +142,6 @@
 /* 手機 */
 @media (max-width: 990px) {
     .world>svg>a:nth-of-type(1)>path{
-        /* fill:#792221; */
     }
 
     .map  .world{
@@ -234,10 +234,60 @@ cursor: pointer;
     fill: var(--blue);
 }
 
+/* 亞洲 */
+.map .world_as{
+    z-index: 0;
+    width:625px;
+    height:525px;
+    margin-top:-100px;
+    top:-550px;
+    left:45%;
+    transform: translateX(-50%);  
+fill: #b293627e;
+stroke:#792221;
+stroke-linejoin:round;
+cursor: pointer;
+-webkit-mask-image: linear-gradient(transparent 3%,rgba(0, 0, 0, 1.0) 15%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); 
+}
+
+.map .world_as path {
+    stroke-width:.25px;
+    stroke-dasharray:1,1;
+}
+
+.map .world_as path:hover {
+    fill: var(--blue);
+}
+
+/* 大洋洲 */
+.map .world_au{
+    z-index: 0;
+    width:800px;
+    height:500px;
+    margin-top:-50px;
+    top:-550px;
+    left:40%;
+    transform: translateX(-50%);  
+fill: #b293627e;
+stroke:#792221;
+stroke-linejoin:round;
+cursor: pointer;
+-webkit-mask-image: linear-gradient(transparent 3%,rgba(0, 0, 0, 1.0) 15%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); 
+}
+
+.map .world_au path {
+    stroke-width:.25px;
+    stroke-dasharray:1,1;
+}
+
+.map .world_au path:hover {
+    fill: var(--blue);
+}
+
 
 /* 手機 */
 @media (max-width: 990px) {
-    .map .world_us svg{
+    .map .world_au svg{
     width:525px; 
     height:725px;
 }
@@ -296,6 +346,7 @@ cursor: pointer;
     opacity: .3;
     
 }
+/* 歐洲------------ */
 /* 英國uk */
 .eu .flag1{
     top: -520px;
@@ -335,6 +386,38 @@ cursor: pointer;
 .eu .flag8{
     top: -400px;
     left:520px;
+}
+/* 亞洲------------ */
+/* 日本 */
+.as .flag1{
+    top: -530px;
+    left:760px;
+}
+/* 俄羅斯 */
+.as .flag2{
+    top: -610px;
+    left:520px;
+}
+/* 新加坡 */
+.as .flag3{
+    top: -370px;
+    left:650px;
+}
+/* 越南 */
+.as .flag4{
+    top: -400px;
+    left:670px;
+}
+/* 大洋洲------------ */
+/* 澳洲 */
+.au .flag1{
+    top: -500px;
+    left:460px;
+}
+/* 紐西蘭 */
+.au .flag2{
+    top: -500px;
+    left:810px;
 }
 
 /* 標題 */
@@ -463,18 +546,6 @@ z-index: 990;
     background-repeat: no-repeat;
     background-position: center;
 }
-/* .map .eu .arrow-left:hover{
-    background: url(../../images/map/SVG/arrow_left-hover-red.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    transform: translateX(-3px) scale(1.4);
-}
-.map .eu .arrow-right:hover{
-    background: url(../../images/map/SVG/arrow_right-hover-red.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    transform: translateX(3px) scale(1.4);
-} */
 
 /* 手機版 */
 @media (max-width: 990px) {
@@ -493,7 +564,7 @@ z-index: 990;
         }
 }
 
-.manycountry-windows{
+.countries_wrap{
     position: relative;
     overflow: hidden;
     width: 420px;
@@ -510,18 +581,11 @@ z-index: 990;
 
 /* 郵票 */
 .map .country{
-    width:40%;
+    /* width:40%; */
+    width:140px;
     height:150px;
-    /* margin-left: 5px; */
-    /* margin-right: 5px; */
     transition: .3s;
     padding: 13px;
-    /* background: white;
-    -webkit-filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.5));
-    background: radial-gradient(
-        transparent 0px,transparent 6px,white 6px,white);
-    background-size: 20px 20px;
-    background-position: center; */
     cursor: pointer;
     -webkit-filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.5));
 }
@@ -530,12 +594,47 @@ z-index: 990;
     object-fit: contain;
     object-position: center;
     width:100%;
-    height: 100%;
+    height: 100px;
+}
+
+.us .manycountry{
+    width:140px;
+
+}
+.au .manycountry{
+    width:280px;
+
+}
+
+.us .country img{
+    object-fit: contain;
+    height: 100px;
+}
+
+.as .country{
+    width:140px;
+}
+
+.us .arrow-left, .us .arrow-right, .au .arrow-left, .au .arrow-right{
+    display: none;
 }
 
 .map .country:hover{
-    /* transform: scale(1.25); */
+    transform: scale(1.05);
 }
+
+.map .country_name{
+    
+    background: linear-gradient(90deg, transparent 0%,rgb(0, 0, 0) 20%,rgb(0, 0, 0) 80%,transparent 100%);
+    height:22%;
+    width:75%;
+    color:rgba(255, 255, 255);
+    text-align: center;
+    left:12.5%;
+    letter-spacing: .25rem;
+    top:32.5%;
+}
+
 
 /* 手機版 */
 @media (max-width: 990px) {

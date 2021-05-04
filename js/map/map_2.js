@@ -1,5 +1,5 @@
 $('.us, .eu, .as, .au').hide()
-$('.carousel').carousel()
+// $('.carousel').carousel()
 // 桌機版
 // 點選飛到:美洲
 $('.world>svg>a:nth-of-type(1)>path, .title_us').click(function () {
@@ -11,14 +11,14 @@ $('.world>svg>a:nth-of-type(1)>path, .title_us').click(function () {
     $('.world-eachs').delay(1000).fadeIn(500)
     $('.us').show()
     setTimeout(function () {
-        $('.balloon').show();  
+        $('.balloon').show();
     }, 3000);
     $('.pipi_plane').toggleClass('animate__animated animate__pulse').toggleClass('infinite');
     // 國旗飛下來
     setTimeout(function () {
         $('.flag').show()
-        .toggleClass('animate__animated animate__bounceInDown');
-    }, 2000);
+            .toggleClass('animate__animated animate__bounceInDown');
+    }, 1000);
 })
 
 // 點選飛到:歐洲
@@ -31,62 +31,107 @@ $('.world>svg>a:nth-of-type(2)>path, .title_eu').click(function () {
     $('.us, .as, .au').hide()
     $('.eu').show()
     setTimeout(function () {
-        $('.balloon').show();  
+        $('.balloon').show();
     }, 3000);
     $('.pipi_plane').toggleClass('animate__animated animate__pulse').toggleClass('infinite');
     // 國旗飛下來
     setTimeout(function () {
         $('.flag').show()
-        .toggleClass('animate__animated animate__bounceInDown');
-    }, 2000);
+            .toggleClass('animate__animated animate__bounceInDown');
+    }, 1000);
     $('.eu .arrow-left, .eu .arrow-right').toggleClass('animate__animated animate__pulse').toggleClass('infinite')
 })
 // 點選飛到:亞洲
 $('.world>svg>a:nth-of-type(3)>path, .title_as').click(function () {
     $('.pipi_plane_big img').toggleClass('animate__animated animate__pulse')
         .removeClass('infinite')
-        .toggleClass('pipi_plane_to_as')
+        .toggleClass('pipi_plane_to_eu')
     $('.world').delay(1000).fadeOut(500)
     $('.world-eachs').delay(1000).fadeIn(500)
+    // $('.us, .eu, .au').hide()
+    $('.as').show()
+    setTimeout(function () {
+        $('.balloon').show();
+    }, 3000);
+    $('.pipi_plane').toggleClass('animate__animated animate__pulse').toggleClass('infinite');
+    // 國旗飛下來
+    setTimeout(function () {
+        $('.flag').show()
+            .toggleClass('animate__animated animate__bounceInDown');
+    }, 1000);
+    $('.as .arrow-left, .eu .arrow-right').toggleClass('animate__animated animate__pulse').toggleClass('infinite')
 })
-// 點選飛到:澳洲
+// 點選飛到:大洋洲
 $('.world>svg>a:nth-of-type(4)>path, .title_au').click(function () {
     $('.pipi_plane_big img').toggleClass('animate__animated animate__pulse')
         .removeClass('infinite')
         .toggleClass('pipi_plane_to_au')
     $('.world').delay(1000).fadeOut(500)
     $('.world-eachs').delay(1000).fadeIn(500)
+    // $('.us, .eu, .au').hide()
+    $('.au').show()
+    setTimeout(function () {
+        $('.balloon').show();
+    }, 3000);
+    $('.pipi_plane').toggleClass('animate__animated animate__pulse').toggleClass('infinite');
+    // 國旗飛下來
+    setTimeout(function () {
+        $('.flag').show()
+            .toggleClass('animate__animated animate__bounceInDown');
+    }, 1000);
+    $('.as .arrow-left, .eu .arrow-right').toggleClass('animate__animated animate__pulse').toggleClass('infinite')
 
 })
 
 
 
 // -------------------------
-// 輪播牆
-let slick = 0
+// 輪播牆-美洲
+
+// 輪播牆-歐洲
+slick = 0
 
 // 左箭頭
-$('.arrow-right').click(function(){
-  slick += 1
-  if(slick > 7){
-    slick = 7 ;
-  } 
-  $('.manycountry').css('left',slick*-140+'px').css('transition','1s');
+$('.eu .arrow-right').click(function () {
+    slick += 1
+    if (slick > 7) {
+        slick = 0;
+    }
+    $('.eu .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
 })
 
 // 右箭頭
-$('.arrow-left').click(function(){
-  slick -= 1
-  if(slick < 0){
-    slick = 0 ;
-  }
-  $('.manycountry').css('left',slick*-140+'px').css('transition','1s');
+$('.eu .arrow-left').click(function () {
+    slick -= 1
+    if (slick < 0) {
+        slick = 0;
+    }
+    $('.eu .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
 })
 
 
+// 輪播牆-亞洲
+// let slick = 0
 
+// 左箭頭
+$('.as .arrow-right').click(function () {
+    slick += 1
+    if (slick > 2) {
+        slick = 0;
+    }
+    $('.as .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
+})
 
+// 右箭頭
+$('.as .arrow-left').click(function () {
+    slick -= 1
+    if (slick < 0) {
+        slick = 0;
+    }
+    $('.as .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
+})
 
+// 輪播牆-澳洲
 // --------------------------------------------------------------------
 // $('.parts>.part:nth-of-type(1)').click(function () {
 //     setTimeout(function () {
@@ -160,7 +205,7 @@ $('.pipi_plane').click(function () {
     // $(this).removeClass('animate__animated animate__pulse')
     //     $('.world-eachs').fadeOut();
     //     $('.world').fadeIn()
-    })
+})
 
 
 // 氣球天使到處飄移--------------------------------
