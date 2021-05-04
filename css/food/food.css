@@ -595,9 +595,10 @@ h2 {
     /* 手 */
 
     .hand{
-        transform: translate(-100px,-700px);
+        transform: translate(-100px,-600px);
         width: 550px;
         position: absolute;
+        top: 1700px;
     
     }
 
