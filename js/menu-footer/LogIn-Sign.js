@@ -6,7 +6,7 @@ $('.user-login').click(function(){
 
     $('.LogIn-Sign').fadeIn(100);
     $('.first-login-page').fadeIn(1);
-    $('.log-box').css('width','35%').css('height','500px');
+    $('.log-box').css('width','35%').css('height','60%');
     $('.LogIn-page').fadeOut(1);
     $('.LogSign-page').fadeOut(1);
     $('.Check-page').fadeOut(1);

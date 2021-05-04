@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>carousel</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <style>
+    .wrap{
+      max-width: 800px;
+      height: 400px;
+      overflow:hidden;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .img-wrap{
+      height: 400px;
+      width: 4000px;
+      position: absolute;
+      transition: 0.6s;
+      left: 0;
+    }
+
+    .img-wrap img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .slider-dots{
+      position: absolute;
+      list-style-type: none;
+      display: flex;
+      bottom: 0;
+      justify-content: center;
+      /* 為了讓整體物件能夠對應外層，設100% */
+      width: 100%;
+
+    }
+
+    .slider-dots li{
+      width: 10px;    
+      height: 10px;
+      margin: 0 4px; 
+      border: 1px solid #fff;
+      border-radius: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <ul class="list-unstyled d-flex img-wrap ">
+      <li><img src="./imgs/slide1.jpg" alt=""></li>
+      <li><img src="./imgs/slide2.jpg" alt=""></li>
+      <li><img src="./imgs/slide3.jpg" alt=""></li>
+      <li><img src="./imgs/slide4.jpg" alt=""></li>
+      <li><img src="./imgs/slide5.jpg" alt=""></li>
+    </ul>
+    <ul class="slider-dots ">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script>
+      // 宣告一個變數來儲存現在的頁數
+      // 作用域 scope 全域變數
+      let page = 0;
+      // 設定點點初始值，Page=0
+      $('.slider-dots li').eq(page).css('background-color','#fff').siblings().css('background-color','transparent');
+
+      $('.slider-dots li').hover(function(){
+
+        page = $(this).index();
+
+        // $(this) 代名詞 = 被hover 的 li 
+        console.log("hi");
+        // .index()叫出索引值順序
+        console.log($(this).index());
+
+        $(this).css('background-color','#fff').siblings().css('background-color','transparent');
+        // 根據索引值順序的值運算移動
+        $('.img-wrap').css('left',$(this).index()*-800+'px');
+      })
+      
+      // js es6 的 Funtion 寫法,俗稱箭頭函式
+      setInterval(() => {
+         page += 1;
+
+         if(page > 4){
+           page = 0;
+         };
+          
+         $('.img-wrap').css('left',page*-800+'px');
+         console.log('page =',page);
+
+         $('.slider-dots li').eq(page).css('background-color','#fff').siblings().css('background-color','transparent');
+      } ,3000);
+
+</script>
+</body>
+</html>
