@@ -55,3 +55,18 @@
 
 }
 
+
+.BeerU-fadeIN{
+    opacity: 1;
+    transition: 1s;
+}
+
+
+.BeerU-fadeOut{
+    opacity: 0;
+    transition: 0.5s;
+
+}
+
+
+

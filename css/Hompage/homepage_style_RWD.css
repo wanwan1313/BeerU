@@ -190,6 +190,7 @@
 
    
     .brew-beer-img{
+        transform: translateX(0px);
         opacity: 1;
         margin: 0 auto;
         width: 40%
@@ -254,6 +255,7 @@
         text-align: center;
     }
     .bussiness-beer-img{
+        transform: translateX(0px);
         margin: 0 auto;
         width: 50%;
     }
@@ -304,7 +306,7 @@
             position: relative;
             overflow: hidden;
             max-width: 370px;
-            height: 600px;
+            height: 520px;
             margin-top: 40px;
           
             
@@ -394,7 +396,7 @@
     /* ///////啤女精選///////// */
 
     .BeerU-colllection-title{
-        margin-top: 30px;
+        margin-top: 0px;
     }
     .colllection-items-windows {
         margin-top: 25px;

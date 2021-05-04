@@ -407,6 +407,7 @@ body,html{
 }
 
 .brew-beer-img{
+    transform: translateX(-200px);
     opacity: 0.6;
 }
 
@@ -503,6 +504,7 @@ body,html{
 }
 
 .bussiness-beer-img{
+    transform: translateX(200px);
     opacity: 0.6;
 }
 

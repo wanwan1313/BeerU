@@ -14,9 +14,10 @@ $page_title = '啤女BeerU';
 <!-- 這裡插入要放在head的東西 -->
 <!-- 包含自己的css和js -->
 
-<!-- carousel -->
-<!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/> -->
-<!-- <link rel="stylesheet" type="text/css" href="../css/slick.css"/> -->
+<!-- slick css-->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+<link rel="stylesheet" type="text/css" href="../css/slick.css"/>
 
 
 <!-- HomepageJs -->
@@ -823,6 +824,10 @@ $page_title = '啤女BeerU';
 
 
 
+<!-- slick js -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
 
 <script>
 
@@ -876,44 +881,9 @@ $('.Check-page').fadeOut(1);
 
 
 
-
-
-
-
-
-
-
-
 </script>
 
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-<!-- <script>
-    $('.colllection-items-warp').slick({
-  centerMode: true,
-  centerPadding: '60px',
-  slidesToShow: 4,
-  responsive: [
-    {
-      breakpoint: 768,
-      settings: {
-        arrows: true,
-        centerMode: true,
-        centerPadding: '40px',
-        slidesToShow: 4
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        arrows: true,
-        centerMode: true,
-        centerPadding: '40px',
-        slidesToShow: 1
-      }
-    }
-  ]
-});
-</script> -->
+
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>

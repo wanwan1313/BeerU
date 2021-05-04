@@ -6,7 +6,8 @@ $(document).ready(function(){
     let scrollNow = $(window).scrollTop();
 
     if (scrollNow == 0){
-
+        
+        // 門以外的東西都消失
         $('.header').addClass('nav-headerOut');
         $('.beeru-nav-bar').addClass('OUT');
         $('#LandingPage').addClass('IN');
@@ -17,6 +18,7 @@ $(document).ready(function(){
         // 按了Yes之後
         $('#YES').click(function(){
             
+////////////////////// 首頁效果///////////////////
 
             if ($(window).width() >= 992){
              $('#pipi01').addClass('pipi-flyIn');
@@ -100,6 +102,60 @@ $(document).ready(function(){
             $('.woman04-img').css('opacity','1').css('transition','0.8s');
 
         },10500)
+
+         // 說話的女人們
+         setTimeout(() => {
+                    
+
+            $('.woman01').on({
+            
+                mouseenter:function(){
+                $('.talk01').css('transform','scale(1) translate(-80px, -80px)').css('opacity','1').css('transition','0.5s')
+                },
+                mouseleave:function(){
+                $('.talk01').css('transform','scale(0.5)  translate(-80px, -80px)').css('opacity','0').css('transition','0.5s')
+            
+                }
+                
+            })
+            
+            $('.woman02').on({
+            
+                mouseenter:function(){
+                $('.talk02').css('transform','scale(1) translate(50px, -60px)').css('opacity','1').css('transition','0.5s')
+                },
+                mouseleave:function(){
+                $('.talk02').css('transform','scale(0.5) translate(50px, -60px)').css('opacity','0').css('transition','0.5s')
+            
+                }
+                
+            })
+            
+            $('.woman03').on({
+            
+                mouseenter:function(){
+                $('.talk03').css('transform','scale(1) translate(50px, -80px)').css('opacity','1').css('transition','0.5s')
+                },
+                mouseleave:function(){
+                $('.talk03').css('transform','scale(0.5) translate(50px, -80px)').css('opacity','0').css('transition','0.5s')
+            
+                }
+                
+            })
+            
+            $('.woman04').on({
+            
+                mouseenter:function(){
+                $('.talk04').css('transform','scale(1) translate(30px, -60px)').css('opacity','1').css('transition','0.5s')
+                },
+                mouseleave:function(){
+                $('.talk04').css('transform','scale(0.5) translate(30px, -60px)').css('opacity','0').css('transition','0.5s')
+            
+                }
+                
+            })
+            
+            }, 10500);
            
 
        
@@ -148,72 +204,78 @@ $(document).ready(function(){
                 $('.woman04-img').css('opacity','1').css('transition','0.8s');
 
             },3500)
+
+
+
+            // 說話的女人們
+                setTimeout(() => {
+                    
+
+                    $('.woman01').on({
+                    
+                        mouseenter:function(){
+                        $('.talk01').css('transform','scale(1) translate(-80px, -80px)').css('opacity','1').css('transition','0.5s')
+                        },
+                        mouseleave:function(){
+                        $('.talk01').css('transform','scale(0.5)  translate(-80px, -80px)').css('opacity','0').css('transition','0.5s')
+                    
+                        }
+                        
+                    })
+                    
+                    $('.woman02').on({
+                    
+                        mouseenter:function(){
+                        $('.talk02').css('transform','scale(1) translate(50px, -60px)').css('opacity','1').css('transition','0.5s')
+                        },
+                        mouseleave:function(){
+                        $('.talk02').css('transform','scale(0.5) translate(50px, -60px)').css('opacity','0').css('transition','0.5s')
+                    
+                        }
+                        
+                    })
+                    
+                    $('.woman03').on({
+                    
+                        mouseenter:function(){
+                        $('.talk03').css('transform','scale(1) translate(50px, -80px)').css('opacity','1').css('transition','0.5s')
+                        },
+                        mouseleave:function(){
+                        $('.talk03').css('transform','scale(0.5) translate(50px, -80px)').css('opacity','0').css('transition','0.5s')
+                    
+                        }
+                        
+                    })
+                    
+                    $('.woman04').on({
+                    
+                        mouseenter:function(){
+                        $('.talk04').css('transform','scale(1) translate(30px, -60px)').css('opacity','1').css('transition','0.5s')
+                        },
+                        mouseleave:function(){
+                        $('.talk04').css('transform','scale(0.5) translate(30px, -60px)').css('opacity','0').css('transition','0.5s')
+                    
+                        }
+                        
+                    })
+                    
+                    }, 3500);
+
        }
 
+
+    //    首頁RWD按鈕出現
        if ($(window).width() < 992){
         setTimeout(()=>{
             $('.RWD-button').css('opacity','1').css('transition','0.8s');
 
-        },2000)
+        },1500)
      
        }
 
     
       
     }
-
-
- 
-////////////////////// 首頁效果///////////////////
-$('.woman01').on({
-
-    mouseenter:function(){
-    $('.talk01').css('transform','scale(1) translate(-80px, -80px)').css('opacity','1').css('transition','0.5s')
-    },
-    mouseleave:function(){
-    $('.talk01').css('transform','scale(0.5)  translate(-80px, -80px)').css('opacity','0').css('transition','0.5s')
-
-    }
-    
-})
-
-$('.woman02').on({
-
-    mouseenter:function(){
-    $('.talk02').css('transform','scale(1) translate(50px, -60px)').css('opacity','1').css('transition','0.5s')
-    },
-    mouseleave:function(){
-    $('.talk02').css('transform','scale(0.5) translate(50px, -60px)').css('opacity','0').css('transition','0.5s')
-
-    }
-    
-})
-
-$('.woman03').on({
-
-    mouseenter:function(){
-    $('.talk03').css('transform','scale(1) translate(50px, -80px)').css('opacity','1').css('transition','0.5s')
-    },
-    mouseleave:function(){
-    $('.talk03').css('transform','scale(0.5) translate(50px, -80px)').css('opacity','0').css('transition','0.5s')
-
-    }
-    
-})
-
-$('.woman04').on({
-
-    mouseenter:function(){
-    $('.talk04').css('transform','scale(1) translate(30px, -60px)').css('opacity','1').css('transition','0.5s')
-    },
-    mouseleave:function(){
-    $('.talk04').css('transform','scale(0.5) translate(30px, -60px)').css('opacity','0').css('transition','0.5s')
-
-    }
-    
-})
-
-
 
 ////////精釀小學堂效果////////////
 
@@ -227,9 +289,22 @@ $(window).scroll(function(){
     if ($(window).width() >= 992){
         if(scrollNow >= 175){
         
-            $('.Brew-school').css('opacity','1').css('transition','1s')
+            $('.Brew-school').addClass('BeerU-fadeIN')
 
         }
+
+        if(scrollNow >= 300){
+            $('.brew-beer-img').css('transform','translateX(0px)').css('transition','2s');
+            $('.bussiness-beer-img').css('transform','translateX(0px)').css('transition','2s');
+        }
+        else{
+            $('.brew-beer-img').css('transform','translateX(-200px)').css('transition','2s');
+            $('.bussiness-beer-img').css('transform','translateX(200px)').css('transition','2s');
+
+        }
+
+
+
    } 
 
    if ($(window).width() < 992){
@@ -318,7 +393,7 @@ if ($(window).width() < 992){
     if ($(window).width() >= 992){
         if(scrollNow >= 800){
         
-            $('.Beer-type').css('opacity','1').css('transition','1s')
+            $('.Beer-type').addClass('BeerU-fadeIN')
 
         }
 
@@ -332,7 +407,7 @@ if ($(window).width() < 992){
           setInterval(() => {
             $('.type-color').css('opacity','1').css('transition','1s')
               
-          }, 1500);
+          }, 1200);
            
 
         }
@@ -427,8 +502,8 @@ $('.type-backward').click(function(){
     if (page > 8){
         page = 0;
     };
-
-
+    
+    $('.type-backward img').toggleClass('BeerU-fadeOut');
 
     $('.Beer-type-content').parents().find('.drop').eq(page).css('filter','drop-shadow(0 0 10px #0AB6E4  )').siblings().css('filter','none');
 
@@ -451,6 +526,8 @@ $('.type-backward').click(function(){
          console.log(page);
 
 })
+
+
 
 
 $('.type-forward').click(function(){
@@ -481,45 +558,22 @@ $('.type-forward').click(function(){
     
          }
 
-          console.log(page);
+        //   console.log(page);
 
-          console.log('lg-3 width', $('.colllection-items-warp .col-lg-3').outerWidth());
+        //   console.log('lg-3 width', $('.colllection-items-warp .col-lg-3').outerWidth());
 })
 
 
 
-$
 
 
 
 
-// setInterval(()=>{
-
-//     page += 1;
-
-//     if (page > 8){
-//         page = 0;
-//     };
 
 
-//     $('.Beer-type-content').parents().find('.drop').eq(page).css('border','solid 1px white').siblings().css('border','transparent');
 
 
-//     $('.Beer-type-content').parents().find('.colorDot').eq(page).css('border','solid 3px white').siblings().css('border','transparent');
 
-
-//     if ($(window).width() >= 992){
-//     $('.Beer-type-content-warp').css('left',page*-720+'px').css('transition','1s');
-
-//     }
-
-//     if ($(window).width() < 992){
-
-//         $('.Beer-type-content-warp').css('left',page*-370+'px').css('transition','1s');
-
-//      }
-
-// },8000)
 
 
     
