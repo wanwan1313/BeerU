@@ -2,6 +2,7 @@
     width: 100%;
     background-color: #fff;
     color: var(--blue);
+    min-height: 90vh;
 }
 
 
@@ -138,6 +139,10 @@
 
 
 /* ------------------------物流------------------------ */
+#select-ship {
+    display: none;
+}
+
 .shiptitle, .recipient-title, .paytitle {
     font-size: 1.7rem;
     letter-spacing: 0.15rem;
@@ -166,10 +171,6 @@
 .recipient label {
     color: var(--gold);
     margin: 0;
-}
-
-.warn {
-    color: var(--pink);
 }
 
 .remind {
@@ -382,7 +383,7 @@
     opacity: .7;
 }
 
-/* 返回 */
+/* ------------------返回----------------------- */
 .backtocart, .backtoship {
     color: var(--gold);
     position: absolute;
@@ -396,4 +397,14 @@
     opacity: .7;
 }
 
+
+/* -------------------錯誤格式------------------ */
+
+.warn {
+    color: var(--pink);
+}
+
+.recipient input[type=text].borderispink, .re_city.borderispink, .re_dist.borderispink {
+    border: 1.2px solid var(--pink);
+}
 

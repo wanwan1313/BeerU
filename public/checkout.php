@@ -50,7 +50,7 @@ $page_title = '啤女-結帳';
 
                 <!-- 步驟顯示 -->
                 <div class="col-8 col-lg-3 checkout-step d-flex justify-content-between">
-                    <div class="step step-1 on">1</div>
+                    <div class="step step-1">1</div>
                     <div class="step step-2">2</div>
                     <div class="step step-3">3</div>
                 </div>
@@ -93,11 +93,9 @@ $page_title = '啤女-結帳';
                                 </div>
 
                                 <div class="address mb-1">
-                                    <label for="re_address">宅配地址</label><br>
-                                    <div class="re_address">
-                                        <div id="twzipcode"></div>
-                                        <input type="text" class="re_add" name="re_address">
-                                    </div>
+                                    <label for="re_add">宅配地址</label><br>
+                                    <div id="twzipcode"></div>
+                                    <input type="text" class="re_add" name="re_address" id="re_add">
                                     <p class="remind">※ 請確認收件地址是否有誤，如有錯誤，需請自行負責，敬請見諒！</p>
                                     <small class="warn"></small><br>
                                 </div>
@@ -202,7 +200,7 @@ $page_title = '啤女-結帳';
                         </div>
 
                         <div class="order-detail">
-                            <p class="text-center text-lg-left" id="order_num">訂單編號：202105031234</p>
+                            <p class="text-center text-lg-left" id="order_num"></p>
                             <div class="order-d-box px-3 px-lg-5 py-4">
                                 <!-- 訂單資訊 -->
                                 <div class="overview">
@@ -308,57 +306,93 @@ $page_title = '啤女-結帳';
 <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
 
 <script>
-    console.log(window.location.search.substr(6, 1));
+    // console.log(window.location.search.substr(6, 1));
 
+    // 台灣地址套件
+    $("#twzipcode").twzipcode({
+        zipcodeIntoDistrict: true, // 郵遞區號自動顯示在區別選單中
+        css: ["re_city", "re_dist"], // 自訂 "城市"、"地別" class 名稱 
+        countyName: "re_city", // 自訂城市 select 標籤的 name 值
+        districtName: "re_dist" // 自訂區別 select 標籤的 name 值
+        
+    });
+    
+
+    // 要被檢查的東西
+    const mobile_re = /^09\d{2}-?\d{3}-?\d{3}$/;
+    let re_name = $('#re_name')
+    let re_mobile = $('#re_mobile')
+    let re_city = document.all.re_city
+    let re_dist = document.all.re_dist
+    let re_add = $('.re_add')
+    let re_arr = [re_name, re_mobile, re_add, ]
+    
+
+    // 從session reload資料 for 上一步或刷新
     function reloadData() {
-        $('#ship').val('<?= $_SESSION['ship'] ?? '' ?>')
-        $('#shipping').val(<?= $_SESSION['shipping'] ?? ''?>)
-        $('#re_name').val('<?= $_SESSION['re_name'] ?? ''?>')
-        $('#re_mobile').val('<?= $_SESSION['re_mobile'] ?? '' ?>')
-        $('.re_add').val("<?= isset($_SESSION['re_add']) ? mb_substr($_SESSION['re_add'], 6) : '' ?>")
-        document.getElementsByClassName('re_city').value = "<?= isset($_SESSION['re_add']) ? mb_substr($_SESSION['re_add'], 0, 3) : '' ?>"
-        document.getElementsByClassName('re_dist').value = "<?= isset($_SESSION['re_add']) ? mb_substr($_SESSION['re_add'], 3, 3):'' ?>"
-        $('#payment').val('<?= $_SESSION['payment'] ?? '' ?>')
+        $('#ship').val('<?= $_SESSION['checkout']['ship'] ?? '宅配到府' ?>')
+        $('#shipping').val(<?= $_SESSION['checkout']['shipping'] ?? 80 ?>)
+        re_name.val('<?= $_SESSION['checkout']['re_name'] ?? '' ?>')
+        re_mobile.val('<?= $_SESSION['checkout']['re_mobile'] ?? '' ?>')
+        re_add.val("<?= isset($_SESSION['checkout']['re_add']) ? mb_substr($_SESSION['checkout']['re_add'], 6) : '' ?>")
+        re_city.value = "<?= isset($_SESSION['checkout']['re_add']) ? mb_substr($_SESSION['checkout']['re_add'], 0, 3) : '' ?>"
+        re_dist.value = "<?= isset($_SESSION['checkout']['re_add']) ? mb_substr($_SESSION['checkout']['re_add'], 3, 3) : '' ?>"
+        $('#payment').val('<?= $_SESSION['checkout']['payment'] ?? '取貨付款' ?>')
         if ($('#ship').val() == '超商取貨') {
             $('.store').fadeIn(150)
             $('.address').css('display', 'none')
         }
     }
 
-    if (window.location.search.substr(6, 1) == 1) {
-        reloadData()
 
-    }
-    if (window.location.search.substr(6, 1) == 2) {
-        reloadData()
-        checkshipform()
-    }
-    if (window.location.search.substr(6, 1) == 3) {
-        reloadData()
-        checkshipform()
-        checkpaymentform()
+    // 偵測購物車內有沒有商品
+    let cartProduct = '<?= !empty($_SESSION['cart']) ? 'true' : 'false' ?>'
+    if (cartProduct == 'true') {
+        // 第一次進入頁面非刷新的時候，給網址step1
+        if (window.location.search == '') {
+            let url = location.pathname + '?step=1'
+            history.pushState({
+                url: url,
+                title: document.title
+            }, document.title, url)
+            $('#select-ship').fadeIn(150)
+            $('.step-1').addClass('on')
+        }
+
+        // 刷新的時候偵測網址
+        if (window.location.search.substr(6, 1) == 1) {
+            $('#select-ship').fadeIn(150)
+            $('.step-1').addClass('on')
+            reloadData()
+
+        }
+        if (window.location.search.substr(6, 1) == 2) {
+            reloadData()
+            checkshipform()
+            $('#select-ship').css('display', 'none')
+            $('#select-payment').fadeIn(150)
+            $('.step-2').addClass('on')
+            $('.step-1').removeClass('on')
+        }
+        if (window.location.search.substr(6, 1) == 3) {
+
+            location.href = 'cart-list.php'
+            // reloadData()
+            // checkshipform()
+            // checkpaymentform()
+            // $('#select-payment').css('display', 'none')
+            // $('#complete-order').fadeIn(150)
+            // $('.step-3').addClass('on')
+            // $('.step-2').removeClass('on')
+        }
+    } else {
+        location.href = 'cart-list.php'
     }
 
-    if (window.location.search == '') {
-        let url = location.pathname + '?step=1'
-        history.pushState({
-            url: url,
-            title: document.title
-        }, document.title, url)
-    }
-
-
-    // 台灣地址插件
-    $("#twzipcode").twzipcode({
-        zipcodeIntoDistrict: true, // 郵遞區號自動顯示在區別選單中
-        css: ["re_city", "re_dist"], // 自訂 "城市"、"地別" class 名稱 
-        countyName: "re_city", // 自訂城市 select 標籤的 name 值
-        districtName: "re_dist" // 自訂區別 select 標籤的 name 值
-    });
 
     // 宅配vs超商
     $('#ship').on('change', function() {
-        if ($('#ship').val() == '宅配') {
+        if ($('#ship').val() == '宅配到府') {
             $('.address').fadeIn(150)
             $('.store').css('display', 'none')
             $('#shipping').val(80)
@@ -384,7 +418,7 @@ $page_title = '啤女-結帳';
                                                 alt=""></div>
                                         <div class="col-10 thisp-name px-0">
                                             <p class="c-name">${p.c_name}</p>
-                                            <p class="e-name d-none d-lg-block">${p.e_name}</p>
+                                            <p class="e-name d-none d-lg-block">${p.e_name !=undefined ?p.e_name:'' }</p>
                                         </div>
                                     </div>
                                     <div class="col-2 thisp-qty px-0 text-center">${p.quantity}</div>
@@ -408,13 +442,13 @@ $page_title = '啤女-結帳';
     function renderCalcPrice() {
         let subPrice = 0
         let coupon = 0
-        let shipping = p_data['shipping']
+        let shipping = p_data.checkout['shipping']
         for (let el in p_data.cart) {
             let p = p_data.cart[el]
             subPrice += p.quantity * p.price
         }
-        if (p_data['discount'] != undefined) {
-            coupon = p_data['discount']
+        if (p_data.checkout['discount'] != undefined) {
+            coupon = p_data.checkout['discount']
             $('.coupon').html(`
         <div class="col-4 col-lg-3 text-right">折價券</div>
         <div class="col-4 col-lg-3 text-right mydiscount"></div>`)
@@ -428,9 +462,53 @@ $page_title = '啤女-結帳';
 
     }
 
+
+
     // 檢查表格與AJAX傳送
     function checkshipform() {
         let isPass = true
+
+        // 先把錯誤格式回復
+        re_arr.forEach(el => {
+            el.removeClass('borderispink')
+            el.nextAll('.warn').text('')
+        })
+
+        re_city.classList.remove('borderispink')
+        re_dist.classList.remove('borderispink')
+
+
+        if (re_name.val().length < 2) {
+            isPass = false
+            re_name.addClass('borderispink')
+            re_name.nextAll('.warn').html('<i class="far fa-times-circle"></i>請輸入正確的姓名')
+        }
+        if (mobile_re.test(re_mobile.val()) == false) {
+            isPass = false
+            re_mobile.addClass('borderispink')
+            re_mobile.nextAll('.warn').html('<i class="far fa-times-circle"></i>請輸入正確的手機號碼')
+        }
+
+        if (re_city.value == '' ) {
+            isPass = false
+            re_city.classList.add('borderispink')
+            re_add.nextAll('.warn').html('<i class="far fa-times-circle"></i>請輸入正確的地址')
+        }
+        if (re_dist.value == '' ) {
+            isPass = false
+            re_dist.classList.add('borderispink')
+            re_add.nextAll('.warn').html('<i class="far fa-times-circle"></i>請輸入正確的地址')
+        }
+
+        if (re_add.val().length < 5) {
+            isPass = false
+            re_add.addClass('borderispink')
+            re_add.nextAll('.warn').html('<i class="far fa-times-circle"></i>請輸入正確的地址')
+        }
+
+
+
+
 
         if (isPass) {
             $.post(
@@ -441,7 +519,7 @@ $page_title = '啤女-結帳';
                     console.log(p_data)
                     renderCheckoutP()
                     renderCalcPrice()
-                    $('#select-ship').fadeOut(0)
+                    $('#select-ship').css('display', 'none')
                     $('#select-payment').fadeIn(150)
                     $('.step-2').addClass('on')
                     $('.step-1').removeClass('on')
@@ -489,22 +567,21 @@ $page_title = '啤女-結帳';
         return orderCode;
     }
 
-
-
     // 產生訂單概要
     function renderOrderDetail() {
         let Today = new Date()
         let totalPrice = $('.mytotalprice').attr('data-tprice')
         $('#orderDay').text(Today.getFullYear() + '-' + setTimeDateFmt((Today.getMonth() + 1)) + '-' + setTimeDateFmt(Today.getDate()))
         $('#mytotalprice').text('NT$' + totalPrice)
-        $('#mypayment').text(p_data['payment'])
+        $('#mypayment').text(p_data.checkout['payment'])
     }
+
     // 產生收件人資訊
     function renderRecipient() {
-        $('#myRecipient').text(p_data['re_name'])
-        $('#myRecipientPhone').text(p_data['re_mobile'])
-        $('#myRecipientAdd').text(p_data['re_add'])
-        $('#myship').text(p_data['ship'])
+        $('#myRecipient').text(p_data.checkout['re_name'])
+        $('#myRecipientPhone').text(p_data.checkout['re_mobile'])
+        $('#myRecipientAdd').text(p_data.checkout['re_add'])
+        $('#myship').text(p_data.checkout['ship'])
     }
 
     // 檢查表格與AJAX傳送
@@ -525,8 +602,7 @@ $page_title = '啤女-結帳';
                     p_data = data
                     renderOrderDetail()
                     renderRecipient()
-                    $('#select-ship').fadeOut(0)
-                    $('#select-payment').fadeOut(0)
+                    $('#select-payment').css('display', 'none')
                     $('#complete-order').fadeIn(150)
                     $('.step-3').addClass('on')
                     $('.step-2').removeClass('on')
