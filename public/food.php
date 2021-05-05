@@ -18,6 +18,9 @@ $page_title = '啤女BeerU:餐酒搭配';
 <link rel="stylesheet" href="../css/food/food.css">
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<!-- <section class="mobile-menu">
+    <?php include __DIR__ . '../../php/common/category.php' ?>
+</section> -->
 
 
 
