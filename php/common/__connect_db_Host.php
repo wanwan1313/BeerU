@@ -1,8 +1,8 @@
 <?php
-$db_host = '192.168.23.151'; //james
+$db_host = 'localhost'; //james
 $db_name = 'beeru'; //資料庫名稱
-$db_user = 'beeru'; //
-$db_pass = 'beeru';
+$db_user = 'James W'; //
+$db_pass = 'admin';
 
 // data source name
 $dsn = sprintf('mysql:host=%s;dbname=%s;charset=utf8', $db_host, $db_name);

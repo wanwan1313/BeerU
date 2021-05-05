@@ -33,3 +33,5 @@
     <script src="<?= WEB_ROOT ?>/js/menu-footer/nav-bar.js" defer></script>
     <script src="<?= WEB_ROOT ?>/js/all-products/category.js" defer ></script>
     <script src="<?= WEB_ROOT ?>/js/menu-footer/LogIn-Sign.js" defer ></script>
+
+    <script src="<?= WEB_ROOT ?>/js/menu-footer/Sign.js" defer></script>
