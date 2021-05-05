@@ -5,13 +5,58 @@
 
 $page_title = '啤女BeerU:本月之星';
 
+$psid = 17;
+
+
+// 此頁商品
+$p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.`name` AS `type_name`,t4.`name` AS `merch_name` FROM `products` AS p 
+                JOIN `tags` AS t1 
+                ON p.`brand_sid` = t1.`sid`
+                JOIN `tags` AS t2 
+                ON p.`country_sid` = t2.`sid`
+                JOIN `tags` AS t3 
+                ON p.`type_sid` = t3.`sid`
+                JOIN `tags` AS t4 
+                ON p.`merch_sid` = t4.`sid`
+                WHERE p.`sid` = $psid";
+$row = $pdo->query($p_SQL)->fetch();
+
+$country_sid = $row['country_sid'];
+$type_sid = $row['type_sid'];
+$brands_sid = $row['brand_sid'];
+$merch_sid = $row['merch_sid'];
+
+// 相關商品
+$c_SQL = "SELECT * FROM `products` WHERE `type_sid` = $type_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
+$c_row = $pdo->query($c_SQL)->fetch();
+$c_row_sid = $c_row['sid'];
+$t_SQL = "SELECT * FROM `products` WHERE `type_sid` = $type_sid AND `sid` !=  $psid AND `sid` != $c_row_sid  ORDER BY RAND() LIMIT 1";
+$t_row = $pdo->query($t_SQL)->fetch();
+$b_SQL = "SELECT * FROM `products` WHERE `brand_sid` = $brands_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
+$b_row = $pdo->query($b_SQL)->fetch();
+
+
+// new標籤
+$deadline = strtotime('2021-05-01');
+
+// 從哪裡來
+$come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
+$come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
+
 ?>
+
+
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
 <!-- my-style -->
 <link rel="stylesheet" href="../css/monthly-product/monthly-product-1-style.css">
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
+<section class="mobile-menu">
+    <?php include __DIR__ . '../../php/common/category.php' ?>
+</section>
 
 <section class="monthly-product-wrap">
     <div class="monthly-product-banner marble">
@@ -33,7 +78,7 @@ $page_title = '啤女BeerU:本月之星';
 <section class="may-product-info">
     <div class="container-fluid e-product-intro-warp">
         <img class="sakura" src="../images/glori_images/sakura.png" alt="">
-        <div class="row e-product-intro justify-content-center align-items-center">
+        <div class="row e-product-intro justify-content-center align-items-center beer-product" data-sid=<?= $row['sid'] ?> data-price=<?= $row['price'] ?> data-abv=<?= $row['abv'] ?>>
             <!-- 產品描述 -->
             <div class="col-12 col-lg-6 product-intro ">
                 <!-- 開始內容 -->
@@ -41,17 +86,16 @@ $page_title = '啤女BeerU:本月之星';
                     <!-- 產品名稱 -->
                     <div class="pro-name">
                         <div class="country d-flex align-items-center">
-                            <p>日本</p>
-                            <img class="c-pic" src="../images/country/flag_japan_circle.svg" alt="">
+                            <p><?= $row['country_name'] ?></p>
+                            <img class="c-pic" src="../images/country/<?= $row['country_pic'] ?>" alt="">
                         </div>
-                        <p class="c-name d-lg-block">源流．東京白啤酒</p>
-                        <p class="e-name d-lg-block">Far Yeast Tokyo White</p>
+                        <p class="c-name d-none d-lg-block"><?= $row['c_name'] ?></p>
+                        <p class="e-name d-none d-lg-block"><?= $row['e_name'] ?></p>
                     </div>
 
                     <!-- 產品介紹文字 -->
                     <div class="intro-text">
-                        <p>淡金蜂蜜色酒液，持久的酒帽，帶著柑橘、丁香、杏桃、檸檬草香氣。入口乾爽，氣泡感較強，小麥風味明顯，柑橘混著花草香佐以Saison酵母的微微酸感。後段則是麥芽糖與酒花苦韻的交錯平衡。
-                        </p>
+                        <p><?= $row['intro'] ?></p>
                     </div>
 
                     <!-- 購買 -->
@@ -63,8 +107,9 @@ $page_title = '啤女BeerU:本月之星';
                             <div class="plus"><i class="fas fa-plus"></i></div>
                         </div>
                         <!-- 價格 -->
-                        <div class="col-5 p-price">
-                            <p id="p-price"><span>NT</span>$150</p>
+                        <div class="col-5 p-price d-flex justify-content-center align-items-baseline">
+                            <span>NT</span>
+                            <p class="price">$<?= $row['price'] ?></p>
                         </div>
                         <!-- 加入購物車按鈕 -->
                         <button class="col-7 add-cart"><i class="fas fa-shopping-bag"></i>加入購物車</button>
@@ -76,25 +121,25 @@ $page_title = '啤女BeerU:本月之星';
                             <div class="title">
                                 <p>類型</p>
                             </div>
-                            <p class="content type">烈愛爾</p>
+                            <p class="content type"><?= $row['type_name'] ?></p>
                         </div>
                         <div class="key-content d-flex flex-lg-column">
                             <div class="title">
                                 <p>風味</p>
                             </div>
-                            <p class="content flavor">果香</p>
+                            <p class="content flavor"><?= $row['flavor'] ?></p>
                         </div>
                         <div class="key-content d-flex flex-lg-column ">
                             <div class="title">
                                 <p>容量</p>
                             </div>
-                            <p class="content capacity">330ml</p>
+                            <p class="content capacity"><?= $row['capacity'] ?></p>
                         </div>
                         <div class="key-content d-flex flex-lg-column">
                             <div class="title-4">
                                 <p>酒精濃度</p>
                             </div>
-                            <p class="content abv">5.0%</p>
+                            <p class="content abv"><?= $row['abv'] ?>%</p>
                         </div>
                     </div>
                 </div>
@@ -322,7 +367,7 @@ $page_title = '啤女BeerU:本月之星';
 
 <?php include __DIR__ . '../../php/common/html-body-footer.php' ?>
 <?php include __DIR__ . '../../php/common/script.php' ?>
-
+<script src='../js/monthly-product/monthly-product.js'></script>
 
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>

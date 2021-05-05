@@ -769,12 +769,8 @@ body{
         font-family: 'Noto Serif TC', serif;
         font-weight: bold;
         font-size: 2.1rem;
-        color: var(--gold);
+        /* color: var(--gold); */
         margin: 0 auto;
-    }
-
-    .beer-glass-wrap .each-glass p:hover{
-        color: #fff;
     }
 
     .beer-glass-wrap .each-glass p:nth-child(1){
@@ -1155,4 +1151,12 @@ body{
             -moz-animation-name: fadeInUp;
             -o-animation-name: fadeInUp;
             animation-name: fadeInUp;
+        }
+
+        .glass-title-wrap{
+            color: var(--gold);
+        }
+
+        .glass-title-wrap:hover{
+            color: #fff;
         }

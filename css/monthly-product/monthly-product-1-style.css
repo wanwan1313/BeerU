@@ -316,7 +316,7 @@ body{
 .may-product-info .sakura{
     width: 100%;
     position: absolute;
-    z-index: 999;
+    z-index: 998;
 }
 .may-product-info{
     position: relative;
@@ -325,6 +325,7 @@ body{
 
 .may-product-info .e-product-intro .product-intro {
     position: relative; 
+    z-index: 999;
 }
 
 .may-product-info .e-product-intro{
@@ -463,7 +464,7 @@ body{
     outline: none;
 }
 
-.may-product-info .e-product-intro .minus, .e-product-intro .plus {
+.may-product-info .e-product-intro .minus, .may-product-info .e-product-intro .plus {
     color: var(--blue);
     cursor: pointer;
     transition: .3s;

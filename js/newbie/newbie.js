@@ -42,3 +42,5 @@ jQuery(function ($) {
     $(window).trigger('scroll');
 
 });
+
+new WOW().init();
