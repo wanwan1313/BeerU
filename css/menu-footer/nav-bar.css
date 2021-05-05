@@ -451,6 +451,24 @@
 
 
 
+/* ----------------購物車小字------------------ */
+
+        .cart-pnum {
+            position: absolute;
+            bottom: 0;
+            right: -10px;
+            font-size: 0.9rem;
+            z-index: 999;
+            background-color: var(--pink);
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            line-height: 15px;
+            text-align: center;
+        }
+
+
+
 
         
 
