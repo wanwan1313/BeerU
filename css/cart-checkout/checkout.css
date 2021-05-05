@@ -217,6 +217,9 @@
     color: #fff;
     border-radius: 5px;
     padding: 0 8px;
+    width: 130px;
+    cursor: pointer;
+    text-align: center;
 }
 
 .store {
