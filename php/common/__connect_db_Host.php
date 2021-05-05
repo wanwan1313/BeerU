@@ -1,5 +1,5 @@
 <?php
-$db_host = '192.168.21.4'; //本機端或別人的IP位置(看SQL在誰那裏)
+$db_host = '192.168.23.151'; //james
 $db_name = 'beeru'; //資料庫名稱
 $db_user = 'beeru'; //
 $db_pass = 'beeru';
@@ -22,5 +22,3 @@ try {
 ?>
 
 
-// 連結資料庫
-require __DIR__.'/__connect_db_Host.php';
