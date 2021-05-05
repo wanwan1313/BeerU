@@ -30,36 +30,26 @@ if(isset($_POST['email'])){
     $hash = sha1( $_POST['email']. uniqid() );
 
 
-    $sql = "INSERT INTO `member`(
-        `email`, `password`,`nickname`,
-        ,`birthday`,`address`, `hash`,  
-        , `created_at`
-        ) VALUES (
-                  ?, ?,
-                  ?, ?, ?,
-                  ?, NOW()
-        )";
+    $sql = "INSERT INTO `member`(`email`, `password`, `nickname`, `birthday`, `address`, `hash`, `created_at`) 
+    VALUES (?,?,?,?,?,?,NOW())";
 
-
-
-$stmt = $pdo->prepare($sql);
-$stmt->execute([
+    $stmt = $pdo -> prepare($sql);
+    $stmt -> execute([
+        $_POST['email'],
+        $_POST['password'],
+        $_POST['nickname'],
+        $_POST['birthday'],
+        $_POST['address'],
+        $hash  
+        
+    ]);
     
-    $_POST['email'],
-    password_hash($_POST['password'], PASSWORD_DEFAULT),
-    $_POST['nickname'],
-    $_POST['birthday'],
-    $_POST['address'],
-    $hash
-    
-]);
-
-if($stmt->rowCount()){
-    $output['success'] = true;
-    $output['error'] = '';
-} else {
-    $output['error'] = '註冊發生錯誤';
-}
+    if($stmt->rowCount()){
+        $output['success'] = true;
+        $output['error'] = '';
+    } else {
+        $output['error'] = '註冊發生錯誤';
+    }
 }
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
