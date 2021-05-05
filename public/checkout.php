@@ -24,6 +24,7 @@ $page_title = '啤女-結帳';
 <!-- 這裡插入要放在head的東西 -->
 <!-- 包含自己的css和js -->
 <link rel="stylesheet" href="../css/cart-checkout/checkout.css">
+<link rel="stylesheet" href="../css/cart-checkout/credit-card.css">
 
 
 
@@ -102,9 +103,9 @@ $page_title = '啤女-結帳';
 
                                 <div class="store mb-4">
                                     <label>選擇門市</label><br>
-                                    <button class="select-711" disabled>選擇7-11門市</button>
-                                    <p>延華門市-台北市大同區延平北路一段89號91號93號1樓</p>
-                                    <input type="hidden" name="re_store" value="延華門市-台北市大同區延平北路一段89號91號93號1樓">
+                                    <div class="select-711">選擇7-11門市</div>
+                                    <p class="re_store_txt"></p>
+                                    <input type="hidden" name="re_store" class="re_store" value="">
                                 </div>
 
                                 <div class="order-remarks mb-4">
@@ -131,7 +132,7 @@ $page_title = '啤女-結帳';
                     </a>
                 </div>
                 <div class="row justify-content-center flex-column align-items-center select-payment">
-                    <div class="col-12 col-lg-6">
+                    <div class="col-12 col-lg-8 col-xl-6">
 
                         <form name="mypayment" method="post" novalidate onsubmit="checkpaymentform(); return false;">
                             <!-- 選擇金流方式 -->
@@ -143,6 +144,126 @@ $page_title = '啤女-結帳';
                             <small class="warn"></small>
 
                             <!-- 信用卡 -->
+                            <div class="credit-card">
+                                <div class="mycreditcard d-flex mt-4 flex-wrap align-items-center ">
+                                    <div class="col-12 col-lg-6 px-lg-0">
+                                        <div class="credit-card-box ">
+                                            <div class="flip">
+                                                <div class="front">
+                                                    <div class="chip"></div>
+                                                    <div class="logo">
+                                                        <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
+                                                            <g>
+                                                                <path d="M44.688,16.814h-3.004c-0.933,0-1.627,0.254-2.037,1.184l-5.773,13.074h4.083c0,0,0.666-1.758,0.817-2.143
+                                                            c0.447,0,4.414,0.006,4.979,0.006c0.116,0.498,0.474,2.137,0.474,2.137h3.607L44.688,16.814z M39.893,26.01
+                                                            c0.32-0.819,1.549-3.987,1.549-3.987c-0.021,0.039,0.317-0.825,0.518-1.362l0.262,1.23c0,0,0.745,3.406,0.901,4.119H39.893z
+                                                            M34.146,26.404c-0.028,2.963-2.684,4.875-6.771,4.875c-1.743-0.018-3.422-0.361-4.332-0.76l0.547-3.193l0.501,0.228
+                                                            c1.277,0.532,2.104,0.747,3.661,0.747c1.117,0,2.313-0.438,2.325-1.393c0.007-0.625-0.501-1.07-2.016-1.77
+                                                            c-1.476-0.683-3.43-1.827-3.405-3.876c0.021-2.773,2.729-4.708,6.571-4.708c1.506,0,2.713,0.31,3.483,0.599l-0.526,3.092
+                                                            l-0.351-0.165c-0.716-0.288-1.638-0.566-2.91-0.546c-1.522,0-2.228,0.634-2.228,1.227c-0.008,0.668,0.824,1.108,2.184,1.77
+                                                            C33.126,23.546,34.163,24.783,34.146,26.404z M0,16.962l0.05-0.286h6.028c0.813,0.031,1.468,0.29,1.694,1.159l1.311,6.304
+                                                            C7.795,20.842,4.691,18.099,0,16.962z M17.581,16.812l-6.123,14.239l-4.114,0.007L3.862,19.161
+                                                            c2.503,1.602,4.635,4.144,5.386,5.914l0.406,1.469l3.808-9.729L17.581,16.812L17.581,16.812z M19.153,16.8h3.89L20.61,31.066
+                                                            h-3.888L19.153,16.8z" />
+                                                            </g>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="number"></div>
+                                                    <div class="card-holder">
+                                                        <label>Card holder</label>
+                                                        <div></div>
+                                                    </div>
+                                                    <div class="card-expiration-date">
+                                                        <label>Expires</label>
+                                                        <div></div>
+                                                    </div>
+                                                </div>
+                                                <div class="back">
+                                                    <div class="strip"></div>
+                                                    <div class="logo">
+                                                        <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
+                                                            <g>
+                                                                <path d="M44.688,16.814h-3.004c-0.933,0-1.627,0.254-2.037,1.184l-5.773,13.074h4.083c0,0,0.666-1.758,0.817-2.143
+                                                            c0.447,0,4.414,0.006,4.979,0.006c0.116,0.498,0.474,2.137,0.474,2.137h3.607L44.688,16.814z M39.893,26.01
+                                                            c0.32-0.819,1.549-3.987,1.549-3.987c-0.021,0.039,0.317-0.825,0.518-1.362l0.262,1.23c0,0,0.745,3.406,0.901,4.119H39.893z
+                                                            M34.146,26.404c-0.028,2.963-2.684,4.875-6.771,4.875c-1.743-0.018-3.422-0.361-4.332-0.76l0.547-3.193l0.501,0.228
+                                                            c1.277,0.532,2.104,0.747,3.661,0.747c1.117,0,2.313-0.438,2.325-1.393c0.007-0.625-0.501-1.07-2.016-1.77
+                                                            c-1.476-0.683-3.43-1.827-3.405-3.876c0.021-2.773,2.729-4.708,6.571-4.708c1.506,0,2.713,0.31,3.483,0.599l-0.526,3.092
+                                                            l-0.351-0.165c-0.716-0.288-1.638-0.566-2.91-0.546c-1.522,0-2.228,0.634-2.228,1.227c-0.008,0.668,0.824,1.108,2.184,1.77
+                                                            C33.126,23.546,34.163,24.783,34.146,26.404z M0,16.962l0.05-0.286h6.028c0.813,0.031,1.468,0.29,1.694,1.159l1.311,6.304
+                                                            C7.795,20.842,4.691,18.099,0,16.962z M17.581,16.812l-6.123,14.239l-4.114,0.007L3.862,19.161
+                                                            c2.503,1.602,4.635,4.144,5.386,5.914l0.406,1.469l3.808-9.729L17.581,16.812L17.581,16.812z M19.153,16.8h3.89L20.61,31.066
+                                                            h-3.888L19.153,16.8z" />
+                                                            </g>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="ccv">
+                                                        <label>CCV</label>
+                                                        <div></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 pr-lg-0">
+                                        <small class="warn"></small>
+                                        <div class="credit-cart-input">
+                                            <div>
+                                                <label for="card-number">信用卡卡號</label>
+                                                <div class="card-number-grop d-flex justify-content-between">
+                                                    <input type="num" id="card-number" class="input-cart-number js-input-cart-number" maxlength="4" />
+                                                    <input type="num" id="card-number-1" class="input-cart-number js-input-cart-number" maxlength="4" />
+                                                    <input type="num" id="card-number-2" class="input-cart-number js-input-cart-number" maxlength="4" />
+                                                    <input type="num" id="card-number-3" class="input-cart-number js-input-cart-number" maxlength="4" />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label for="card-holder">持卡人姓名</label>
+                                                <input type="text" id="card-holder" class="js-card-holder" maxlength="30" />
+                                            </div>
+                                            <div class="fieldset-expiration">
+                                                <label for="card-expiration-month">有效期限</label>
+                                                <div class="select">
+                                                    <select id="card-expiration-month" class="js-card-expiration-month selectdate">
+                                                        <option></option>
+                                                        <option>01</option>
+                                                        <option>02</option>
+                                                        <option>03</option>
+                                                        <option>04</option>
+                                                        <option>05</option>
+                                                        <option>06</option>
+                                                        <option>07</option>
+                                                        <option>08</option>
+                                                        <option>09</option>
+                                                        <option>10</option>
+                                                        <option>11</option>
+                                                        <option>12</option>
+                                                    </select>
+                                                </div>
+                                                <div class="select">
+                                                    <select id="card-expiration-year" class="js-card-expiration-year selectdate">
+                                                        <option></option>
+                                                        <option>2021</option>
+                                                        <option>2022</option>
+                                                        <option>2023</option>
+                                                        <option>2024</option>
+                                                        <option>2025</option>
+                                                        <option>2026</option>
+                                                        <option>2027</option>
+                                                        <option>2028</option>
+                                                        <option>2029</option>
+                                                        <option>2030</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="fieldset-ccv">
+                                                <label for="card-ccv">CCV</label>
+                                                <input type="text" id="card-ccv" class="js-card-ccv" maxlength="3" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <!-- 結帳商品 -->
                             <div class="checkoutbox buy-product">
@@ -314,9 +435,9 @@ $page_title = '啤女-結帳';
         css: ["re_city", "re_dist"], // 自訂 "城市"、"地別" class 名稱 
         countyName: "re_city", // 自訂城市 select 標籤的 name 值
         districtName: "re_dist" // 自訂區別 select 標籤的 name 值
-        
+
     });
-    
+
 
     // 要被檢查的東西
     const mobile_re = /^09\d{2}-?\d{3}-?\d{3}$/;
@@ -326,22 +447,29 @@ $page_title = '啤女-結帳';
     let re_dist = document.all.re_dist
     let re_add = $('.re_add')
     let re_arr = [re_name, re_mobile, re_add, ]
-    
+
 
     // 從session reload資料 for 上一步或刷新
     function reloadData() {
+
         $('#ship').val('<?= $_SESSION['checkout']['ship'] ?? '宅配到府' ?>')
-        $('#shipping').val(<?= $_SESSION['checkout']['shipping'] ?? 80 ?>)
-        re_name.val('<?= $_SESSION['checkout']['re_name'] ?? '' ?>')
-        re_mobile.val('<?= $_SESSION['checkout']['re_mobile'] ?? '' ?>')
-        re_add.val("<?= isset($_SESSION['checkout']['re_add']) ? mb_substr($_SESSION['checkout']['re_add'], 6) : '' ?>")
-        re_city.value = "<?= isset($_SESSION['checkout']['re_add']) ? mb_substr($_SESSION['checkout']['re_add'], 0, 3) : '' ?>"
-        re_dist.value = "<?= isset($_SESSION['checkout']['re_add']) ? mb_substr($_SESSION['checkout']['re_add'], 3, 3) : '' ?>"
-        $('#payment').val('<?= $_SESSION['checkout']['payment'] ?? '取貨付款' ?>')
         if ($('#ship').val() == '超商取貨') {
             $('.store').fadeIn(150)
             $('.address').css('display', 'none')
         }
+
+        $('#shipping').val(<?= $_SESSION['checkout']['shipping'] ?? 80 ?>)
+
+        re_name.val('<?= $_SESSION['checkout']['re_name'] ?? '' ?>')
+        re_mobile.val('<?= $_SESSION['checkout']['re_mobile'] ?? '' ?>')
+
+        if ( <?= isset($_SESSION['checkout']['re_city']) ? 'true':'false' ?> == true) {
+            re_add.val("<?= isset($_SESSION['checkout']['re_address']) ? $_SESSION['checkout']['re_address'] : '' ?>")
+            re_city.value = "<?= isset($_SESSION['checkout']['re_city']) ? $_SESSION['checkout']['re_city'] : '' ?>"
+            re_dist.value = "<?= isset($_SESSION['checkout']['re_dist']) ? $_SESSION['checkout']['re_dist'] : '' ?>"
+        }
+
+        $('#payment').val('取貨付款')
     }
 
 
@@ -396,13 +524,43 @@ $page_title = '啤女-結帳';
             $('.address').fadeIn(150)
             $('.store').css('display', 'none')
             $('#shipping').val(80)
+            $('.re_store_txt').text('')
+            $('.re_store').val('')
+
+            // 恢復
+            re_arr.forEach(el => {
+                el.removeClass('borderispink')
+                el.nextAll('.warn').text('')
+            })
+
+            re_city.classList.remove('borderispink')
+            re_dist.classList.remove('borderispink')
+
 
         }
         if ($('#ship').val() == '超商取貨') {
             $('.store').fadeIn(150)
             $('.address').css('display', 'none')
             $('#shipping').val(60)
+            re_add.val('')
+            re_city.value = ''
+            re_dist.value = ''
+
+            // 恢復
+            re_arr.forEach(el => {
+                el.removeClass('borderispink')
+                el.nextAll('.warn').text('')
+            })
+
+            re_city.classList.remove('borderispink')
+            re_dist.classList.remove('borderispink')
+
         }
+    })
+
+    $('.select-711').on('click', function() {
+        $(this).next().text('延華門市-台北市大同區延平北路一段89號91號93號1樓')
+        $(this).nextAll('input').val('延華門市-台北市大同區延平北路一段89號91號93號1樓')
     })
 
     // 下一步----------------------------------------------------
@@ -463,7 +621,6 @@ $page_title = '啤女-結帳';
     }
 
 
-
     // 檢查表格與AJAX傳送
     function checkshipform() {
         let isPass = true
@@ -477,7 +634,6 @@ $page_title = '啤女-結帳';
         re_city.classList.remove('borderispink')
         re_dist.classList.remove('borderispink')
 
-
         if (re_name.val().length < 2) {
             isPass = false
             re_name.addClass('borderispink')
@@ -489,23 +645,27 @@ $page_title = '啤女-結帳';
             re_mobile.nextAll('.warn').html('<i class="far fa-times-circle"></i>請輸入正確的手機號碼')
         }
 
-        if (re_city.value == '' ) {
-            isPass = false
-            re_city.classList.add('borderispink')
-            re_add.nextAll('.warn').html('<i class="far fa-times-circle"></i>請輸入正確的地址')
-        }
-        if (re_dist.value == '' ) {
-            isPass = false
-            re_dist.classList.add('borderispink')
-            re_add.nextAll('.warn').html('<i class="far fa-times-circle"></i>請輸入正確的地址')
-        }
+        if ($('#ship').val() == '宅配到府') {
 
-        if (re_add.val().length < 5) {
-            isPass = false
-            re_add.addClass('borderispink')
-            re_add.nextAll('.warn').html('<i class="far fa-times-circle"></i>請輸入正確的地址')
-        }
 
+            if (re_city.value == '') {
+                isPass = false
+                re_city.classList.add('borderispink')
+                re_add.nextAll('.warn').html('<i class="far fa-times-circle"></i>請輸入正確的地址')
+            }
+            if (re_dist.value == '') {
+                isPass = false
+                re_dist.classList.add('borderispink')
+                re_add.nextAll('.warn').html('<i class="far fa-times-circle"></i>請輸入正確的地址')
+            }
+
+            if (re_add.val().length < 5) {
+                isPass = false
+                re_add.addClass('borderispink')
+                re_add.nextAll('.warn').html('<i class="far fa-times-circle"></i>請輸入正確的地址')
+            }
+
+        }
 
 
 
@@ -584,12 +744,88 @@ $page_title = '啤女-結帳';
         $('#myship').text(p_data.checkout['ship'])
     }
 
+    // 取貨vs信用卡
+    $('#payment').on('change', function() {
+        if ($('#payment').val() == '信用卡付款') {
+            $('.credit-card').fadeIn(150)
+        } else {
+            $('.credit-card').fadeOut(150)
+        }
+    })
+
+    // 信用卡動態
+    let $t;
+
+    $('.js-input-cart-number').on('keyup change', function() {
+        var card_number = '';
+        $t = $(this);
+
+        if ($t.val().length > 3) {
+            $t.next().focus();
+        }
+
+        $('.js-input-cart-number').each(function() {
+            card_number += $(this).val() + ' ';
+
+            if ($(this).val().length == 4) {
+                $(this).next().focus();
+            }
+        })
+
+        $('.credit-card-box .number').html(card_number);
+    });
+    $('.js-card-holder').on('keyup change', function() {
+        $t = $(this);
+        $('.credit-card-box .card-holder div').html($t.val());
+    });
+    $('.js-card-holder').on('keyup change', function() {
+        $t = $(this);
+        $('.credit-card-box .card-holder div').html($t.val());
+    });
+    $('.js-card-expiration-month, .js-card-expiration-year').change(function() {
+        var m = $('#card-expiration-month option').index($('#card-expiration-month option:selected'));
+        var y = $('#card-expiration-year').val().substr(2, 2);
+        m = (m < 10) ? '0' + m : m;
+        $('.card-expiration-date div').html(m + '/' + y);
+    })
+    $('.js-card-ccv').on('focus', function() {
+        $('.credit-card-box').addClass('hover');
+    }).on('blur', function() {
+        $('.credit-card-box').removeClass('hover');
+    }).on('keyup change', function() {
+        $('.ccv div').html($(this).val());
+    });
+
     // 檢查表格與AJAX傳送
     function checkpaymentform() {
         let isPass = true
         let totalPrice = $('.mytotalprice').attr('data-tprice')
         let payment = $('#payment').val()
         let order_num = randomNumber()
+
+        // 檢查信用卡表格
+        if ($('#payment').val() == '信用卡付款') {
+            let cardInput = $('.credit-cart-input input')
+            let cardSelect = $('.credit-cart-input .selectdate')
+
+            cardInput.removeClass('borderispink')
+            $('.credit-cart-input .select').removeClass('borderispink')
+            $('.credit-cart-input').prev().html('')
+
+            if (cardInput.val().length < 4) {
+                isPass = false
+                cardInput.addClass('borderispink')
+                $('.credit-cart-input').prev().html('<i class="far fa-times-circle"></i>請輸入正確的信用卡資訊')
+            }
+            if (cardSelect.val() == '') {
+                isPass = false
+                $('.credit-cart-input .select').addClass('borderispink')
+                $('.credit-cart-input').prev().html('<i class="far fa-times-circle"></i>請輸入正確的信用卡資訊')
+            }
+
+
+        }
+
         if (isPass) {
             $.post(
                 'checkout-api.php', {
@@ -600,6 +836,7 @@ $page_title = '啤女-結帳';
                 function(data) {
                     // console.log(data)
                     p_data = data
+                    $('.cart-pnum').addClass('d-none')
                     renderOrderDetail()
                     renderRecipient()
                     $('#select-payment').css('display', 'none')

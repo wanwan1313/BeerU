@@ -25,11 +25,18 @@ if (!empty($ship) and !empty($re_name) and !empty($re_mobile) and !empty($shippi
     $_SESSION['checkout']['shipping'] = $shipping;
 
     if (!empty($re_city) and !empty($re_dist) and !empty($re_address)) {
+        $_SESSION['checkout']['re_city'] = $re_city;
+        $_SESSION['checkout']['re_dist'] = $re_dist;
+        $_SESSION['checkout']['re_address'] = $re_address;
         $_SESSION['checkout']['re_add'] = $re_city . $re_dist . $re_address;
     }
 
     if (empty($re_city) and empty($re_dist) and empty($re_address) and !empty($re_store)) {
-        $_SESSION['checkout']['re_add'] = $re_store;    
+        $_SESSION['checkout']['re_add'] = $re_store;
+        unset($_SESSION['checkout']['re_city']);
+        unset($_SESSION['checkout']['re_dist']);
+        unset($_SESSION['checkout']['re_address']);
+
     }
 
     $output['cart'] = $_SESSION['cart'];
