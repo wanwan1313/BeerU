@@ -89,6 +89,7 @@ $(function () {
 
         $.get('cart-api.php',{'action':'add','psid':psid, 'qty':qty },function(data){
             // console.log(data)
+            showCartCount(data.cart)
             $('.pop-up-1').fadeIn(150)
             $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
             $('.pop-up-1 .pop-up-text').text(data.msg)
