@@ -498,6 +498,7 @@ $page_title = '啤女-購物車';
                 psid
             }, function(data) {
                 // console.log(data) //console.log回傳的資料以方便除錯
+                showCartCount(data.cart)
                 del.closest('.c-product').remove() //從資料庫刪除後再從前端刪除
                 calcprice()
                 overVeiw()
@@ -541,7 +542,8 @@ $page_title = '啤女-購物車';
                 $.get('cart-api.php', {
                     action: 'deleteall',
                 }, function(data) {
-                    console.log(data) //console.log回傳的資料以方便除錯
+                    // console.log(data) //console.log回傳的資料以方便除錯
+                    showCartCount(data.cart)
                     $('.c-product').remove() //從資料庫刪除後再從前端刪除
                     calcprice()
                     overVeiw()
