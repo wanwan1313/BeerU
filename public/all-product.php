@@ -90,22 +90,22 @@ $page_title = '啤女-精釀啤酒商品';
                                 </div>
                                 <div class="filter-sub-item-warp">
                                     <label for="price-filter-100">
-                                        <input type="checkbox" id="price-filter-100" name="price-filter" value="100"><span>100元以下</span>
+                                        <input type="checkbox" id="price-filter-100" name="price-filter" value="1"><span data-value="1">100元以下</span>
                                     </label><br>
                                     <label for="price-filter-100-150">
-                                        <input type="checkbox" id="price-filter-100-150" name="price-filter" value="100-150"><span>100元-150元</span><br>
+                                        <input type="checkbox" id="price-filter-100-150" name="price-filter" value="2"><span data-value="2">100元-150元</span><br>
                                     </label>
                                     <label for="price-filter-150-200">
-                                        <input type="checkbox" id="price-filter-150-200" name="price-filter" value="150-200"><span>151元-200元</span><br>
+                                        <input type="checkbox" id="price-filter-150-200" name="price-filter" value="3"><span data-value="3">150元-200元</span><br>
                                     </label>
                                     <label for="price-filter-200-300">
-                                        <input type="checkbox" id="price-filter-200-300" name="price-filter" value="200-300"><span>201元-300元</span><br>
+                                        <input type="checkbox" id="price-filter-200-300" name="price-filter" value="4"><span data-value="4">200元-300元</span><br>
                                     </label>
                                     <label for="price-filter-300-500">
-                                        <input type="checkbox" id="price-filter-300-500" name="price-filter" value="300-500"><span>300元-500元</span><br>
+                                        <input type="checkbox" id="price-filter-300-500" name="price-filter" value="5"><span data-value="5">300元-500元</span><br>
                                     </label>
                                     <label for="price-filter-500">
-                                        <input type="checkbox" id="price-filter-500" name="price-filter" value="500"><span>500元以上</span><br>
+                                        <input type="checkbox" id="price-filter-500" name="price-filter" value="6"><span data-value="6">500元以上</span><br>
                                     </label>
                                 </div>
                             </div>
@@ -116,19 +116,19 @@ $page_title = '啤女-精釀啤酒商品';
                                 </div>
                                 <div class="filter-sub-item-warp">
                                     <label for="abv-filter-4">
-                                        <input type="checkbox" id="abv-filter-4" name="abv-filter" value="4"><span>低於4%</span>
+                                        <input type="checkbox" id="abv-filter-4" name="abv-filter" value="1"><span data-value="1">低於4%</span>
                                     </label><br>
                                     <label for="abv-filter-4-6">
-                                        <input type="checkbox" id="abv-filter-4-6" name="abv-filter" value="4-6"><span>4%-6%</span><br>
+                                        <input type="checkbox" id="abv-filter-4-6" name="abv-filter" value="2"><span data-value="2">4%-6%</span><br>
                                     </label>
                                     <label for="abv-filter-6-8">
-                                        <input type="checkbox" id="abv-filter-6-8" name="abv-filter" value="6-8"><span>6%-8%</span><br>
+                                        <input type="checkbox" id="abv-filter-6-8" name="abv-filter" value="3"><span data-value="3">6%-8%</span><br>
                                     </label>
                                     <label for="abv-filter-8-10">
-                                        <input type="checkbox" id="abv-filter-8-10" name="abv-filter" value="8-10"><span>8%-10%</span><br>
+                                        <input type="checkbox" id="abv-filter-8-10" name="abv-filter" value="4"><span data-value="4">8%-10%</span><br>
                                     </label>
                                     <label for="abv-filter-10">
-                                        <input type="checkbox" id="abv-filter-10" name="abv-filter" value="10"><span>高於10%</span><br>
+                                        <input type="checkbox" id="abv-filter-10" name="abv-filter" value="5"><span data-value="5">高於10%</span><br>
                                     </label>
                                 </div>
                             </div>
@@ -183,7 +183,7 @@ $page_title = '啤女-精釀啤酒商品';
                             <!-- 搜尋 -->
                             <div class="p_search">
                                 <i class="fas fa-search"></i>
-                                <input type="text" class="search2" placeholder="搜尋啤酒">
+                                <input type="text" id="search2" class="search2" placeholder="搜尋啤酒">
                             </div>
 
                         </div>
@@ -226,6 +226,9 @@ $page_title = '啤女-精釀啤酒商品';
     let page = 1;
     let hot = 0;
     let order = 1;
+    let filterPrice = 0;
+    let filterABV = 0;
+    let userSearch = '';
     let p_data = {};
     let product_arrang = $('.all-product .product-arrang')
     let pages_wrap = $('.all-product .pages')
@@ -331,7 +334,10 @@ $page_title = '啤女-精釀啤酒商品';
             cate,
             page,
             hot,
-            order
+            order,
+            filterPrice,
+            filterABV,
+            userSearch,
         }, function(data) {
             // console.log(data)
             p_data = data //把資料拉到全域變數
@@ -387,45 +393,87 @@ $page_title = '啤女-精釀啤酒商品';
     // 設定一進入全部商品頁的樣貌
     init()
 
-    function getURL(cate, page, hot, order) {
-        let url = location.pathname + '?cate=' + cate + '&page=' + page + '&hot=' + hot + '&order=' + order + '#select-allproduct'
-        history.pushState({
-            url: url,
-            title: document.title
-        }, document.title, url)
+    function getURL(cate, page, hot, order, userSearch) {
+
+        if (userSearch == undefined) {
+            let url = location.pathname + '?cate=' + cate + '&page=' + page + '&hot=' + hot + '&order=' + order
+            history.pushState({
+                url: url,
+                title: document.title
+            }, document.title, url)
+        } else {
+            let url = location.pathname + '?search=' + userSearch
+            history.pushState({
+                url: url,
+                title: document.title
+            }, document.title, url)
+        }
+
     }
 
     function init() {
-        let num_g = location.search.match(/\d+/g)
-        if (num_g == null) {
-            getallproductData()
-        } else {
-            cate = num_g[0] ?? 0
-            page = num_g[1] ?? 1
-            hot = num_g[2] ?? 0
-            order = num_g[3] ?? 1
-            if (hot == 1) {
+
+        if (location.search.indexOf('search') == -1) {
+            let num_g = location.search.match(/\d+/g)
+            if (num_g == null) {
                 getallproductData()
-                toProductTop()
-                $('#sort-option').val(order)
-                $('#mobile-sort-option').val(order)
-                product_tag.html(` 
+            } else {
+                cate = num_g[0] ?? 0
+                page = num_g[1] ?? 1
+                hot = num_g[2] ?? 0
+                order = num_g[3] ?? 1
+                filterPrice = 0
+                filterABV = 0
+                userSearch = ''
+
+                if (hot == 1) {
+                    getallproductData()
+                    toProductTop()
+                    $('#sort-option').val(order)
+                    $('#mobile-sort-option').val(order)
+                    product_tag.html(` 
         <div class="tagpic"><img src="../images/tagespic/hot.svg" alt=""></div>
             <p>#熱門商品</p>
         `)
-            } else if (cate == 0) {
-                product_tag.html('')
-                getallproductData()
-                toProductTop()
-                $('#sort-option').val(order)
-                $('#mobile-sort-option').val(order)
-            } else {
-                getallproductData()
-                toProductTop()
-                $('#sort-option').val(order)
-                $('#mobile-sort-option').val(order)
+                } else if (cate == 0) {
+                    product_tag.html('')
+                    getallproductData()
+                    toProductTop()
+                    $('#sort-option').val(order)
+                    $('#mobile-sort-option').val(order)
+                } else {
+                    getallproductData()
+                    toProductTop()
+                    $('#sort-option').val(order)
+                    $('#mobile-sort-option').val(order)
+                }
             }
         }
+
+
+        if (location.search.indexOf('search') == 1) {
+            let search_g = location.search.substr(8)
+            if (search_g != '') {
+                cate = 0
+                page = 1
+                hot = 0
+                order = 1
+                filterPrice = 0
+                filterABV = 0
+                userSearch = search_g
+
+                getallproductData()
+                toProductTop()
+                product_tag.html(` 
+        <div class="tagpic"><img src="../images/common/userhasSearch.svg" alt=""></div>
+            <p class="userSearch">您已查詢：<span class="userSearch-txt" >${decodeURI(userSearch)}</span></p>
+        `)
+
+                $('#search2').val(decodeURI(userSearch))
+            }
+        }
+
+
     }
 
     // 回上一頁
@@ -443,16 +491,26 @@ $page_title = '啤女-精釀啤酒商品';
         page = 1
         hot = 0
         order = 1
-        $('#sort-option').val(1)
-        $('#mobile-sort-option').val(1)
+        filterPrice = 0
+        filterABV = 0
+        userSearch = ''
+
+        // 抓資料
         getallproductData()
         toProductTop()
         getURL(cate, page, hot, order)
-        pages_wrap.css('transform', 'translateX(0px)')
 
+        // input/select/checkbox回復
+        $('#sort-option').val(1)
+        $('#mobile-sort-option').val(1)
+        $('.filter-price input').prop('checked', false)
+        $('.filter-abv input').prop('checked', false)
+        $('#search2').val('')
+
+        // 樣式
+        pages_wrap.css('transform', 'translateX(0px)')
         $('.product-category').removeClass('on')
         $('.trigger span').removeClass('on')
-
         $(this).addClass('on').siblings().removeClass('on')
         $(this).parent().parent().siblings().find('.category-sub-item').removeClass('on')
         btn_first_cates.removeClass('on')
@@ -464,17 +522,28 @@ $page_title = '啤女-精釀啤酒商品';
         page = 1
         cate = 0
         order = 1
-        $('#sort-option').val(1)
-        $('#mobile-sort-option').val(1)
+        filterPrice = 0
+        filterABV = 0
+        userSearch = ''
+
+        // 抓資料
         getallproductData()
         toProductTop()
         getURL(cate, page, hot, order)
+
+        // input/select/checkbox回復
+        $('#sort-option').val(1)
+        $('#mobile-sort-option').val(1)
+        $('.filter-price input').prop('checked', false)
+        $('.filter-abv input').prop('checked', false)
+        $('#search2').val('')
+
+        // 樣式
         pages_wrap.css('transform', 'translateX(0px)')
         product_tag.html(` 
         <div class="tagpic"><img src="../images/tagespic/hot.svg" alt=""></div>
             <p>#熱門商品</p>
         `)
-
         $('.product-category').removeClass('on')
         $('.trigger span').removeClass('on')
     })
@@ -485,14 +554,25 @@ $page_title = '啤女-精釀啤酒商品';
         page = 1
         hot = 0
         order = 1
-        $('#sort-option').val(1)
-        $('#mobile-sort-option').val(1)
+        filterPrice = 0
+        filterABV = 0
+        userSearch = ''
+
+        // 抓資料
         getallproductData()
         toProductTop()
         getURL(cate, page, hot, order)
+
+        // input/select/checkbox回復
+        $('#sort-option').val(1)
+        $('#mobile-sort-option').val(1)
+        $('.filter-price input').prop('checked', false)
+        $('.filter-abv input').prop('checked', false)
+        $('#search2').val('')
+
+        // 樣式
         pages_wrap.css('transform', 'translateX(0px)')
         product_tag.html('')
-
         $('.product-category').removeClass('on')
         $('.trigger span').removeClass('on')
     })
@@ -538,9 +618,76 @@ $page_title = '啤女-精釀啤酒商品';
 
     }
 
+
+
+
     // -------------------------------------------------------
     // 篩選事件
+    $('.filter-price span').on('click', function() {
 
+        // console.log($(this).prev().prop('checked'))
+
+        if ($(this).prev().prop('checked') == false) {
+            $(this).closest('label').siblings().find('input').prop('checked', false)
+
+            filterPrice = $(this).attr('data-value')
+            page = 1
+            getallproductData()
+            toProductTop()
+        } else {
+            filterPrice = 0
+            page = 1
+            getallproductData()
+            toProductTop()
+        }
+        $('.product-select').removeClass('on')
+
+    })
+    $('.filter-abv span').on('click', function() {
+
+        // console.log($(this).prev().prop('checked'))
+
+        if ($(this).prev().prop('checked') == false) {
+            $(this).closest('label').siblings().find('input').prop('checked', false)
+
+            filterABV = $(this).attr('data-value')
+            page = 1
+            getallproductData()
+            toProductTop()
+        } else {
+            filterABV = 0
+            page = 1
+            getallproductData()
+            toProductTop()
+        }
+        $('.product-select').removeClass('on')
+    })
+
+
+
+    // -------------------------------------------------------
+    // 查詢事件
+    $('#search2').on('keypress', function(event) {
+        let pressBtn = event.keyCode
+        if (pressBtn == 13 && $(this).val() != "" ) {
+            userSearch = $(this).val()
+            cate = 0
+            page = 1
+            hot = 0
+            order = 1
+            filterPrice = 0
+            filterABV = 0
+
+            getallproductData()
+            toProductTop()
+            getURL(cate, page, hot, order, userSearch)
+            product_tag.html(` 
+        <div class="tagpic"><img src="../images/common/userhasSearch.svg" alt=""></div>
+            <p class="userSearch">您已查詢：<span class="userSearch-txt" >${userSearch}</span></p>
+        `)
+        }
+
+    })
 
 
 

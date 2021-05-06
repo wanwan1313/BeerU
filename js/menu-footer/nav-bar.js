@@ -69,6 +69,15 @@ $(function () {
         }
     })
 
+
+    // 搜尋按鈕
+    $('#search').on('keypress', function(event) {
+        let pressBtn = event.keyCode
+        if (pressBtn == 13 && $(this).val() != "" ) {
+            location.href = `all-product.php?search=${$(this).val()}`
+        }
+    })
+
     
 
     

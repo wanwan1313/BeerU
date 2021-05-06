@@ -22,6 +22,9 @@ $total_merch =  $pdo->query($merch_SQL)->fetchAll();
 $cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
 $hot = isset($_GET['hot']) ? intval($_GET['hot']) : 0;
 $order = isset($_GET['order']) ? intval($_GET['order']) : 1;
+$filterPrice = isset($_GET['filterPrice']) ? intval($_GET['filterPrice']) : 0;
+$filterABV = isset($_GET['filterABV']) ? intval($_GET['filterABV']) : 0;
+$userSearch = isset($_GET['userSearch']) ? urldecode($_GET['userSearch']) : '';
 
 
 $where = ' WHERE 1 ';
@@ -47,6 +50,55 @@ if (empty($hot) == false and $hot == 1) {
     $cate_name = '熱門商品';
 }
 
+// 篩選-價格
+if(!empty($filterPrice) and $filterPrice == 1) {
+    $where .= " AND `price` < 100 ";
+}
+if(!empty($filterPrice) and $filterPrice == 2) {
+    $where .= " AND `price` BETWEEN 100 AND 150 ";
+}
+if(!empty($filterPrice) and $filterPrice == 3) {
+    $where .= " AND `price` BETWEEN 150 AND 200 ";
+}
+if(!empty($filterPrice) and $filterPrice == 4) {
+    $where .= " AND `price` BETWEEN 200 AND 300 ";
+}
+if(!empty($filterPrice) and $filterPrice == 5) {
+    $where .= " AND `price` BETWEEN 300 AND 500 ";
+}
+if(!empty($filterPrice) and $filterPrice == 6) {
+    $where .= " AND `price` >= 500 ";
+}
+// 篩選-酒精濃度
+if(!empty($filterABV) and $filterABV == 1) {
+    $where .= " AND `abv` <= 4 ";
+}
+if(!empty($filterABV) and $filterABV == 2) {
+    $where .= " AND `abv` BETWEEN 4 AND 6 ";
+}
+if(!empty($filterABV) and $filterABV == 3) {
+    $where .= " AND `abv` BETWEEN 6 AND 8 ";
+}
+if(!empty($filterABV) and $filterABV == 4) {
+    $where .= " AND `abv` BETWEEN 8 AND 10 ";
+}
+if(!empty($filterABV) and $filterABV == 5) {
+    $where .= " AND `abv` >=10 ";
+}
+
+// 查詢
+$serach =  '%%'.$userSearch.'%%';
+
+
+if( !empty($userSearch) and $userSearch !=''){
+    $where .= " AND (`c_name` LIKE '$serach' OR `e_name` LIKE '$serach' OR `type_name` LIKE '$serach') ";
+}
+
+// echo $where;
+// exit;
+
+
+// 排序
 $sort =  '`created_at` DESC';
 if(empty($order) == false and $order == 1 ){
     $sort =  '`created_at` DESC';
