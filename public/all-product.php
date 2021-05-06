@@ -395,7 +395,7 @@ $page_title = '啤女-精釀啤酒商品';
 
     function getURL(cate, page, hot, order, userSearch) {
 
-        if (userSearch == undefined) {
+        if (userSearch == undefined || userSearch == '') {
             let url = location.pathname + '?cate=' + cate + '&page=' + page + '&hot=' + hot + '&order=' + order
             history.pushState({
                 url: url,
