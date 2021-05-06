@@ -1,12 +1,43 @@
-function Sign(){
+const newAccount_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+const $nickname = $('#nickname'),
+      $newAccount = $('newAccount');
 
-     $.post('Sign-api.php',
-     $(document.Sign).serialize(),
-     function(data){
+const fileds = [$nickname, $newAccount];
 
 
-        if(data.success){
-            alert('資料新增成功');
+function checkform_sign(){
+
+    // 回復原來的狀態
+    // fileds.forEach(el=>{
+    //         el.css('border', '1px solid #CCCCCC');
+    //         el.next().text('');
+    //     });
+
+
+    let isPass = true;
+
+    // if(! email_re.test($newAccount.val())){
+    //         isPass = false;
+    //         $email.css('border', '1px solid red');
+    //         $email.next().text('請輸入正確的 email');
+    //     }
+
+
+    if(isPass){
+            $.post(
+                'Sign-api.php',
+                $(document.Sign).serialize(),
+                function(data){
+                    console.log(data)
+                    // if(data.success){
+                    //     alert('註冊成功');
+                    // } else {
+                    //     alert(data.error);
+                    // }
+                },
+                'json'
+            )
         }
-     },'json')
+
+
 }
