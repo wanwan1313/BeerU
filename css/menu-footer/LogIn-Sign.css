@@ -43,17 +43,21 @@
     box-shadow: 0 0 0 1920px rgba(0, 0, 0, .5);
     /* 起始頁大小 */
      width: 35%; 
-     height: 500px;
-     /* height: calc(100vh - 48vh); */
+     height: 60%;
+     min-height: 494px;
+    
+
     
     /* 登入頁大小 */
-    /* height: 550px; */
-    /* height: calc(100vh - 48vh) */
+    /* height: 60%; */
+    /* min-height: 494px; */
+   
+  
 
     /* 註冊大小 */
     /* width: 50%;
-    height: 80% */
-    /* height: calc(100vh - 25vh) */
+    height: 86% ;
+    min-height: 250px; */
 
     /* 驗證頁大小 */
     /* height: calc(100vh - 48vh); */
@@ -237,6 +241,8 @@
 }
 
 .LogIn-btn02{
+    color: white;
+    border: transparent;
     margin-top: 30px;
     width: 100%;
     background-color: var(--gold);
@@ -448,9 +454,23 @@
  
 }
 
+
+.logSign-address{
+    margin-top: 25px;
+}
+
+.logSign-address h3{
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+
+
 .logSign-notice{
     margin: 30px auto 0 auto;
-    width: 65%;
+    width: 100%;
     color: var(--blue);
     text-align: center;
     font-size: 1.4rem;
@@ -465,6 +485,8 @@
 
 .logSign-btn{
     border-radius: 5px;
+    width: 100%;
+    border: transparent;
     font-family: 'Noto Sans TC', serif;
     font-weight: normal;
     margin-top: 25px;
@@ -518,7 +540,7 @@
 
 
 /* /////驗證畫面////  */
-#Check-page{
+.Check-page{
     display: none;
 
 }

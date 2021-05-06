@@ -1,6 +1,8 @@
 $(document).ready(function(){
 
 
+//會員登入的視覺效果
+
 //navbar登入起始畫面按鈕
 $('.user-login').click(function(){
 
@@ -38,7 +40,7 @@ $('.LogIn-btn01').click(function(){
    
 
    $('.first-login-page').fadeOut(1);
-   $('.log-box').css('width','35%').css('height','calc(100vh - 40vh)').css('transition','.4s');
+   $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
    $('.LogIn-page').fadeIn(1000);
 
     
@@ -52,7 +54,7 @@ $('.LogOut-btn02').click(function(){
 
     $('.first-login-page').fadeOut(1);
 
-    $('.log-box').css('width','50%').css('height','calc(100vh - 25vh)').css('transition','.4s')
+    $('.log-box').css('width','50%').css('height','86%').css('min-height','250px').css('transition','.4s')
 
     $('.LogSign-page').fadeIn(1000);
      
@@ -61,7 +63,7 @@ $('.LogOut-btn02').click(function(){
 
 
 // 進入驗證頁
-$('.logSign-btn').click(function(){
+$('.Sign').click(function(){
 
     $('.LogSign-page').fadeOut(1);
     $('.Check-page').fadeIn(1000);
@@ -76,7 +78,7 @@ $('.LogSign-rightNow').click(function(){
 
     $('.first-login-page').fadeOut(1);
     $('.LogIn-page').fadeOut(1);
-    $('.log-box').css('width','50%').css('height','calc(100vh - 25vh)').css('transition','.4s')
+    $('.log-box').css('width','50%').css('height','86%').css('min-height','250px').css('transition','.4s')
     $('.LogSign-page').fadeIn(1000);
 
 })
@@ -87,7 +89,7 @@ $('.LogIn-rightNow').click(function(){
 
     $('.first-login-page').fadeOut(1);
     $('.LogSign-page').fadeOut(1);
-    $('.log-box').css('width','35%').css('height','calc(100vh - 40vh)').css('transition','.4s');
+    $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
     $('.LogIn-page').fadeIn(1000);
  
      
