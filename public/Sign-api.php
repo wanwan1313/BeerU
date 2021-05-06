@@ -30,13 +30,13 @@ if(isset($_POST['newAccount'])){
     $hash = sha1( $_POST['newAccount']. uniqid() );
 
 
-    $sql = "INSERT INTO `member`( `email`, `password`, `nickname`, `birthday`, `address`, `hash`, `created_at`) VALUES (?,?,?,?,?,?,NOW())";
+    $sql = "INSERT INTO `member`( `email`, `password`, `nickname`, `birthday`, `address`, `hash`, `created_at`,`user-pic`) VALUES (?,?,?,?,?,?,NOW(),'user.svg')";
 
     $stmt = $pdo -> prepare($sql);
      
     $stmt -> execute([
         $_POST['newAccount'],
-        $_POST['newPassword'],
+        password_hash($_POST['newPassword'],PASSWORD_DEFAULT),
         $_POST['nickname'],
         $_POST['birthday'],
         $_POST['address'],
