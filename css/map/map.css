@@ -1,0 +1,1030 @@
+/* 0 */
+.map .container .row{
+    margin-left: 0;
+    margin-right: 0;
+}
+.map .comtainer-fulid .row{
+    margin-left: 0;
+    margin-right: 0;
+}
+.map li{
+    list-style: none;
+}
+.map a{
+    cursor: pointer;
+}
+
+/* --------------------------------------- */
+/* 1.大標:啤酒地圖 */
+.map .container .row:nth-of-type(1){}
+/* --------------------------------------- */
+
+/* 2.底圖+地圖 */
+.map .container .row:nth-of-type(2){
+    max-height: 1080px;
+    min-height: 650px;
+}
+
+@media (max-width: 990px) {
+    .map .container .row:nth-of-type(2){
+        min-height: 600px;
+        }
+}
+/* 底圖 */
+.map_bg {
+    z-index: -1;
+}
+.map_bg img{
+    object-fit: contain;
+    max-width: 1200px;
+    min-width: 1000px;
+    object-position: center ;
+    max-height: fit-content;
+    min-height: 575px;
+}
+/* 手機 */
+@media (max-width: 990px) {
+    .map_bg img{
+        object-fit: cover;
+        height:500px;
+        }
+}
+/* 各州名 */
+.world_titles{
+    transition: .3s;
+}
+
+.title_us{
+    top:300px;
+    left:-240px;
+    height:20px;
+    z-index: 3;
+    cursor: pointer;
+}
+.title_eu{
+    top:200px;
+    left:0px;
+    /* width:30px; */
+    height:25px;
+    z-index: 3;
+    cursor: pointer;
+}
+.title_as{
+    top:250px;
+    left:180px;
+    height:20px;
+    z-index: 3;
+    cursor: pointer;
+}
+.title_au{
+    top:440px;
+    left:260px;
+    height:20px;
+    z-index: 3;
+    cursor: pointer;
+}
+.title_af{
+    top:350px;
+    left:10px;
+    height:20px;
+    z-index: 3;
+    cursor: pointer;
+}
+@media (max-width: 990px) {
+    .title_us{
+        top:300px;
+        left:-240px;
+    }
+    .title_eu{
+        top:225px;
+        left:0px;
+    }
+    .title_as{
+        top:250px;
+        left:180px;
+    }
+    .title_au{
+        top:380px;
+        left:260px;
+    }
+    .title_af{
+        top:350px;
+        left:20px;
+    }
+}
+
+
+/* 五大洲 */
+.map .world{
+    z-index:0;
+    transition: .3s;
+    }
+    
+    .map .world svg{
+        padding-top:45px;
+        padding-bottom:15px;
+        width:100%;
+        min-width: 700px;
+        max-height: 550px;
+    }
+    .map .world path {
+        fill: #b293627e;
+        stroke:#792221;
+        stroke-width:2px;
+        stroke-dasharray:3,3;
+        stroke-linejoin:round;
+        cursor: pointer;
+    }
+    
+    .map .world path:hover {
+        /* fill: #792221; */
+    }
+/* 手機 */
+@media (max-width: 990px) {
+    .world>svg>a:nth-of-type(1)>path{
+    }
+
+    .map  .world{
+    }
+
+    .map .world svg{
+        padding-top:20px;
+        }
+}
+
+@media (max-width: 699px){
+    .map .world svg{
+        -webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 95%);
+    
+        }
+}
+/* --------------------------------------- */
+/* 3.各大洲 */
+.world-eachs{
+    display: none;
+    max-width:1200px;
+}
+
+/* 換洲------------------------- */
+.map .world-each{ 
+    /* top:-600px;
+    left:50%;
+    transform: translateX(-50%);  
+fill: #b293627e;
+stroke:#792221;
+stroke-linejoin:round;
+cursor: pointer;
+-webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); */
+}
+
+/* 美洲 */
+.map .world_us{
+    z-index: 0;
+    width:600px;
+    height:500px;
+    top:-600px;
+    left:50%;
+    transform: translateX(-50%);  
+fill: #b293627e;
+stroke:#792221;
+stroke-linejoin:round;
+cursor: pointer;
+-webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); 
+}
+
+.map .world_us path {
+    stroke-width:.5px;
+    stroke-dasharray:3,3;
+}
+
+.map .world_us path:hover {
+    fill: var(--blue);
+}
+
+/* 手機 */
+@media (max-width: 990px) {
+    .map .world_us svg{
+    width:500px; 
+    height:700px;
+}
+}
+
+/* 歐洲 */
+.map .world_eu{
+    z-index: 0;
+    width:800px;
+    height:700px;
+    margin-top:-100px;
+    top:-600px;
+    left:40%;
+    transform: translateX(-50%);  
+fill: #b293627e;
+stroke:#792221;
+stroke-linejoin:round;
+cursor: pointer;
+-webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); 
+}
+
+.map .world_eu path {
+    stroke-width:.25px;
+    stroke-dasharray:1,1;
+}
+
+.map .world_eu path:hover {
+    fill: var(--blue);
+}
+
+/* 亞洲 */
+.map .world_as{
+    z-index: 0;
+    width:625px;
+    height:525px;
+    margin-top:-100px;
+    top:-550px;
+    left:45%;
+    transform: translateX(-50%);  
+fill: #b293627e;
+stroke:#792221;
+stroke-linejoin:round;
+cursor: pointer;
+-webkit-mask-image: linear-gradient(transparent 3%,rgba(0, 0, 0, 1.0) 15%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); 
+}
+
+.map .world_as path {
+    stroke-width:.25px;
+    stroke-dasharray:1,1;
+}
+
+.map .world_as path:hover {
+    fill: var(--blue);
+}
+
+/* 大洋洲 */
+.map .world_au{
+    z-index: 0;
+    width:800px;
+    height:500px;
+    margin-top:-50px;
+    top:-550px;
+    left:40%;
+    transform: translateX(-50%);  
+fill: #b293627e;
+stroke:#792221;
+stroke-linejoin:round;
+cursor: pointer;
+-webkit-mask-image: linear-gradient(transparent 3%,rgba(0, 0, 0, 1.0) 15%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); 
+}
+
+.map .world_au path {
+    stroke-width:.25px;
+    stroke-dasharray:1,1;
+}
+
+.map .world_au path:hover {
+    fill: var(--blue);
+}
+
+
+/* 手機 */
+@media (max-width: 990px) {
+    .map .world_au svg{
+    width:525px; 
+    height:725px;
+}
+}
+
+/* 亞洲 */
+.map .world_as path {
+    stroke-width:.25px;
+    stroke-dasharray:1,1;
+}
+
+.map .world_as svg{
+    margin-top:-180px;
+     width:600px; 
+    height:900px;
+}
+.map .world_as path:hover {
+    fill: var(--blue);
+}
+
+/* 手機 */
+@media (max-width: 990px) {
+    .map .world_as svg{
+    width:500px; 
+    height:700px;
+}
+}
+
+/* 大飛機 */
+.pipi_plane_big img{
+    width: 250px;
+    bottom:0px;
+    left:0px;
+}
+/* 旗子位置 */
+.flag{
+    width:30px;
+    height:50px;
+}
+
+.us>.flag{
+    top: -400px;
+    left:600px;
+    transform: translateX(-50%);
+    width:30px;
+    height:50px;
+}
+
+.flag_shadow{
+    width:30px;
+    height:6px;
+    margin-top: -10px;
+    border-radius: 50%;
+    background:radial-gradient(ellipse at center ,rgba(0, 0, 0, 1.0) 10%,rgba(0, 0, 0, 0) 70%);
+    transform: rotate(-25deg);
+    opacity: .3;
+    
+}
+/* 歐洲------------ */
+/* 英國uk */
+.eu .flag1{
+    top: -520px;
+    left:390px;
+}
+/* 法國france */
+.eu .flag2{
+    top: -420px;
+    left:430px;
+}
+/* 比利時belgium */
+.eu .flag3{
+    top: -475px;
+    left:470px;
+}
+/* 挪威norway */
+.eu .flag4{
+    top: -630px;
+    left:500px;
+}
+/* 丹麥denmark */
+.eu .flag5{
+    top: -560px;
+    left:505px;
+}
+/* 德國germany */
+.eu .flag6{
+    top: -490px;
+    left:515px;
+}
+/* 瑞典sweden */
+.eu .flag7{
+    top: -600px;
+    left:560px;
+}
+/* 義大利italy */
+.eu .flag8{
+    top: -400px;
+    left:520px;
+}
+/* 亞洲------------ */
+/* 日本 */
+.as .flag1{
+    top: -530px;
+    left:760px;
+}
+/* 俄羅斯 */
+.as .flag2{
+    top: -610px;
+    left:520px;
+}
+/* 新加坡 */
+.as .flag3{
+    top: -370px;
+    left:650px;
+}
+/* 越南 */
+.as .flag4{
+    top: -400px;
+    left:670px;
+}
+/* 大洋洲------------ */
+/* 澳洲 */
+.au .flag1{
+    top: -500px;
+    left:460px;
+}
+/* 紐西蘭 */
+.au .flag2{
+    top: -500px;
+    left:810px;
+}
+
+/* 標題 */
+.map_title{
+    top: -310px;
+    left:50%;
+    transform: translateX(-50%);
+    color:var(--red);
+    font-size:4rem;
+    font-weight: bold;
+    letter-spacing: .5rem;
+    font-family: 'Noto Serif TC', serif;
+    white-space: nowrap;
+}
+/* 標題-英文字 */
+.map_title span{
+    color:black;
+    font-size:3rem;
+    letter-spacing: .1rem;
+    opacity:.5;
+    padding-top:7.5px;
+}
+/* 手機版 */
+@media (max-width: 990px) {
+    .map_title{
+        top: -275px;
+    }
+    }
+
+/* balloon */
+.map .balloon{
+    z-index:996;
+    width:105px;
+    left:10%;
+    top:-700px;
+    /* opacity: 0; */
+    /* transition: 5s; */
+}
+
+/* .balloon.active{
+    opacity: 1;
+} */
+
+@media (max-width: 990px) {
+    .map .balloon{
+    width:80px;
+    top:-700px;
+    left:5%
+    
+        
+    }
+    }
+
+  
+/* return */
+.map .pipi_plane{
+    z-index: 990;
+    width:50px;
+    right:11%;
+    top:-200px;
+    }
+
+    .map .pipi_plane:hover{
+        cursor: pointer;
+        }
+    .map .pipi_plane .return-text{
+    margin-top:3px;
+    color:var(--red);
+    font-size:1.6rem;
+    line-height: 1.25;
+    font-size: 1.4rem;
+}
+/* 手機 */
+@media (max-width: 990px) {
+    .map  .pipi_plane{
+        width:50px;
+            right:5%;
+            top:-70vh;
+
+        }
+        .map  .pipi_plane .return-text{
+            font-size:1.4rem;
+        }
+    }
+
+/* 各個國家選項 */
+.map .countries {
+
+    z-index: 990;
+    width:1000px;
+    height:300px;
+    left:50%;
+    bottom:20%;
+    transform:translateX(-50%);
+}
+
+/* 手機版 */
+@media (max-width: 600px) {
+    .map .countries {
+        z-index: 990;
+        bottom:10%;
+        /* top:-200px; */
+        width:375px;
+       
+        }
+    }
+
+
+/* 箭頭 */
+.map .arrow-left, .arrow-right{
+width:50px;
+height:50px;
+transition: .3s;
+cursor: pointer;
+z-index: 990;
+}
+
+.map .arrow-left{
+    background: url(../../images/map/SVG/arrow_left-hover-red.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+.map .arrow-right{
+    background: url(../../images/map/SVG/arrow_right-hover-red.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* 手機版 */
+@media (max-width: 990px) {
+    .map .arrow-left, .arrow-right{
+       width:32.5px;
+        height:32.5px;
+        transition: .3s;
+        }
+
+        .map .arrow-left:hover{
+         transform: translateX(-5px) scale(1.2);
+        }
+        
+        .map .arrow-right:hover{
+        transform: translateX(5px) scale(1.2);
+        }
+}
+
+.countries_wrap{
+    position: relative;
+    overflow: hidden;
+    width: 420px;
+    height: 124px;
+}
+
+.manycountry{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:1120px;
+    height:100%;
+}
+
+/* 郵票 */
+.map .country{
+    /* width:40%; */
+    width:140px;
+    height:150px;
+    transition: .3s;
+    padding: 13px;
+    cursor: pointer;
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.5));
+}
+
+.map .country img{
+    object-fit: contain;
+    object-position: center;
+    width:100%;
+    height: 100px;
+}
+
+.us .manycountry{
+    width:140px;
+
+}
+.au .manycountry{
+    width:280px;
+
+}
+
+.us .country img{
+    object-fit: contain;
+    height: 100px;
+}
+
+.as .country{
+    width:140px;
+}
+
+.us .arrow-left, .us .arrow-right, .au .arrow-left, .au .arrow-right{
+    display: none;
+}
+
+.map .country:hover{
+    transform: scale(1.05);
+}
+
+.map .country_name{
+    
+    background: linear-gradient(90deg, transparent 0%,rgb(0, 0, 0) 20%,rgb(0, 0, 0) 80%,transparent 100%);
+    height:22%;
+    width:75%;
+    color:rgba(255, 255, 255);
+    text-align: center;
+    left:12.5%;
+    letter-spacing: .25rem;
+    top:32.5%;
+}
+
+
+/* 手機版 */
+@media (max-width: 990px) {
+    .map .country{
+        width:80px;
+        height:80px;
+        margin-left: 1.5%;
+        margin-right: 1.5%;
+        padding: 10px;
+        background: white;
+        background: radial-gradient(
+            transparent 0px,transparent 4px,white 4px,white);
+        background-size:13px 13px;
+        background-position: center;
+    }
+}
+
+/* --------------------------------------- */
+/* 4.四大洲選項-手機版才有 */
+.map .phone-option{
+    /* z-index: 4; */
+    color:var(--red);
+    min-width: 300px;
+    max-width: 700px;
+    position: relative;
+    /* margin-top:-18vh */
+    /* margin-top: -32.5vh; */
+    /* margin-top: -80vh; */
+
+}
+
+.map .parts{
+    height:80px;
+    position: fixed;
+    /* top:50%; */
+    left:50%;
+    transform: translate(-50%);
+
+}
+
+.map .parts .part{
+    white-space: nowrap;
+    max-width: 80px;
+    transition: .3s;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 1.8rem;
+    letter-spacing: .5rem;
+}
+
+
+/* 桌機版時隱藏 */
+@media (min-width: 700px) {
+    .map .container>.row:nth-of-type(4){
+        display: none;
+        }
+}
+/* --------------------------------------- */
+/* pupup */
+/* 背景 */
+.map .bg-black{
+    /* display:none; */
+z-index:990;
+width: 100%;
+height:100vh;
+position: fixed;
+top:0;
+background-color: rgba(0, 0, 0, 0.6);
+}
+/*明信片 */
+.map .map-card{
+    width: 700px;
+    height:475px;
+    background-color: rgb(244, 231, 190);
+    margin:auto;
+    padding-left:15px;
+    padding-right:15px;
+    padding-bottom:15px;
+    padding-top: 15px;
+    color:var(--red);
+}
+
+
+/* 手機版 */
+@media (max-width: 768px) {
+    .map .map-card{
+    width: 350px;
+    height:625px;
+    
+}
+}
+/* 1.關閉按鈕 */
+.map .map-card .card-close{
+font-size: 3rem;
+height:30px;
+cursor: pointer;
+}
+
+@media (max-width: 768px) {
+}
+/* ---------------------- */
+/* deco-郵戳 */
+.stamp{
+    width:125px;
+    /* height:200px; */
+    overflow: hidden;
+    top: 40px;
+    left:10px;
+}
+
+.stamp img{
+    object-fit: contain;
+}
+
+
+@media (max-width: 768px) {
+    .stamp{
+        width:85px;
+        /* height:200px; */
+        overflow: hidden;
+        top:37.5px;
+        left:10px;
+    }
+}
+/* ---------------------- */
+/* deco-郵票 */
+.stamp_country{
+    width:80px;
+    /* height:200px; */
+    overflow: hidden;
+    top:10px;
+    left:15px;
+    filter:drop-shadow(5px 5px 7.5px rgba(0,0,0,0.3));
+    /* transform: rotate(10deg); */
+}
+
+@media (max-width: 768px) {
+    .stamp_country{
+        width:60px;
+        /* height:100px; */
+        overflow: hidden;
+        top:10px;
+        left:10px;
+    }
+}
+/* ---------------------- */
+
+/* 2.國家名 */
+.map .map-card .country-name{
+font-family: 'Noto Serif TC', serif;
+font-size: 5rem;
+font-weight: bold;
+margin-top: -20px;
+letter-spacing: .75rem;
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+    .map .map-card .country-name{
+        font-family: 'Noto Serif TC', serif;
+        font-size: 3.5rem;
+        font-weight: bold;
+        margin-top: -20px;
+        }
+}
+
+/* ---------------------- */
+/* 3.代理廠牌 */
+.map .map-card .beer-brand{
+    margin-top: -10px;
+}
+
+
+.map li{
+    width:30px;
+    height:30px;
+    margin-left:5px;
+    margin-right:5px;
+}
+/* ---------------------- */
+/* 分隔線 */
+.seprate-line{
+    width:20px;
+    opacity: .25;
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+    .seprate-line{
+        display:none;
+    }
+}
+/* ---------------------- */
+/* 4.介紹文字 */
+.map .map-card .beer-intro{
+    font-size: 1.6rem;
+color:#555;
+width:100%;
+line-height:1.75;
+font-weight:400;
+margin:auto;
+text-align: justify;
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+    .map .map-card .beer-intro{
+        font-size: 1.4rem;
+    width:90%;
+    }
+}
+
+/* ---------------------- */
+/* 5.搭配酒杯 （和6推薦啤酒一起） */
+.map .map-card .cups,.map .map-card .beers{
+
+}
+.map .title{
+    margin: auto;
+    position: relative;
+}
+/* title-line */
+.map  .title:before {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: var(--red);
+    width:30%;
+    height:1px;
+    left: 1px;
+    bottom: 50%;
+   }
+   
+   .map .title:after {
+       content: '';
+       display: block;
+       position: absolute;
+       background-color: var(--red);
+       width:30%;
+       height:1px;
+       right:1px;
+       bottom: 50%;
+      }
+
+      /* 手機版 */
+      @media (max-width: 768px) {
+        .map  .title:before {
+            content: '';
+            display: block;
+            position: absolute;
+            background-color: var(--red);
+            width:35%;
+            height:1px;
+            left: 1px;
+            bottom: 50%;
+           }
+           
+           .map .title:after {
+               content: '';
+               display: block;
+               position: absolute;
+               background-color: var(--red);
+               width:35%;
+               height:1px;
+               right:1px;
+               bottom: 50%;
+              }
+
+
+    }
+/* title-content */
+.map .title p {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    position: relative;
+    width: fit-content;
+}
+.map .title p:before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/map/SVG/ear-l-red.svg) 0 0 no-repeat;
+    width: 15px;
+    height: 15px;
+    left: -25%;
+    bottom: 23%;
+}
+.map .title p:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/map/SVG/ear-r-red.svg) 0 0 no-repeat;
+    width: 15px;
+    height: 15px;
+    right: -33%;
+    bottom: 23%;
+}
+/* ----------------------- */
+.map .cup,.map .beer{
+    transition:.3s;
+    margin-top:10px;
+}
+
+.map .cup:hover, .map .beer:hover{
+transform:scale(1.2) ;
+
+}
+
+.map .cup-img, .beer-img{
+    width:70px;
+    height:70px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.map .cup-img img,.map .beer-img img{
+    width:85%;
+    height: 85%;
+    object-fit: contain;
+    margin: auto;
+}
+
+.map .cup-name, .map .beer-name{
+    background-color: rgba(0, 0, 0, 0.6);
+    color:white;
+    padding-top:25px;
+    padding-bottom:25px;
+    font-size:1.2rem;
+    text-align: center;
+    line-height: 1.25;
+    height:100%;
+    width:100%;
+    top:50%;
+    transform: translateY(-50%);
+    transition: .3s;
+    opacity: 0;
+}
+
+/* hover出現品名 */
+.map .cup-name:hover,.map .beer-name:hover{
+    opacity: 1;
+}
+
+.map .know-more{
+    transform: scale(.5);
+    margin:auto;
+    cursor: pointer;
+    margin-top:-5px;
+}
+.map .know-more:hover{
+    transform: scale(.5);
+}
+
+.map .know-more::before{
+    background: url(../../images/map/SVG/ear-l-red.svg) 0 0 no-repeat;
+    
+}
+.map .know-more::after{
+    background: url(../../images/map/SVG/ear-r-red.svg) 0 0 no-repeat;
+    
+}
+/* ---------------------- */
+/* 6.搭配啤酒 */
+.map .card .row:nth-of-type(6){
+
+}
+/* ---------------------- */
+/* 7.按鈕 */
+.map .card .row:nth-of-type(7){
+
+}
+.map .botton{
+
+}
+/* ---------------------- */
+/* 8.stamp */
+.map .card .row:nth-of-type(8){
+
+}
+/* ---------------------- */
+
+
+
+
+
+
+
+
+

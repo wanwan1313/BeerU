@@ -281,6 +281,7 @@
             position: absolute;
             right: -1px;
             bottom: -55px;
+            display: none;
 
         }
     
@@ -298,10 +299,12 @@
             color: var(--blue);
             opacity: 0;
             transition: .5s;
+            display: none;
         }
         .beeru-nav-bar .search-bar-open {
             width: 280px;
             opacity: 1;
+            display: none;
         }
 
 
@@ -320,8 +323,8 @@
             height: 35px;
             position: absolute;
             z-index: 999;
-            left: 5%;
-            top: 15%;
+            left: 20px;
+            top: 16px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -368,12 +371,12 @@
 
         .beeru-nav-bar .trigger span.on::after {
             transform: rotate(-45deg) translate(5px, -5px);
-            background-color: var(--blue);
+            background-color: #fff;
         }
 
         .beeru-nav-bar .trigger span.on::before {
             transform: rotate(45deg) translate(8px, 8px);
-            background-color: var(--blue);
+            background-color: #fff;
         }
 
     }
@@ -445,6 +448,28 @@
             height: 107.67px;
         }
     }
+
+
+
+/* ----------------購物車小字------------------ */
+
+        .cart-pnum {
+            position: absolute;
+            bottom: 0;
+            right: -10px;
+            font-size: 0.9rem;
+            z-index: 999;
+            background-color: var(--pink);
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            line-height: 15px;
+            text-align: center;
+        }
+
+
+
+
         
 
 

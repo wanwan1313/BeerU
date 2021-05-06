@@ -1,0 +1,362 @@
+/* 顏色 */
+.blue{
+    color:var(--blue);      
+}
+    .red{
+    color:var(--red);      
+}
+    .aaa{
+ color:#aaa;
+}
+
+/*文字 */
+.lh15{
+    line-height:1.5;
+}
+
+/* 間距 */
+
+.event .row, .join .row{
+margin-left: 0;
+margin-left:0;
+padding-left:0;
+padding-right:0
+}
+
+/* 加入關注.btn_attention */
+.btn_attention {
+    white-space: nowrap;
+    font-family: 'Noto Serif TC', serif;
+    color: var(--gold);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    background-color: #fff;
+    border: 1.5px solid var(--gold);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn_attention i,
+.btn_attention_active i {
+    margin: 5px;
+}
+
+.btn_attention:hover {
+    background-color: var(--gold);
+    color: #fff;
+}
+
+.btn_attention_active {
+    font-family: 'Noto Serif TC', serif;
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    background-color: var(--gold);
+    border: 1.5px solid var(--gold);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn_attention_active:hover {
+    background-color: #fff;
+    color: var(--gold);
+}
+
+/* btn_join */
+.btn_join {
+    white-space: nowrap;
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'Noto Serif TC', serif;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    background-color:var(--blue);
+    border: 1.5px solid var(--blue);
+    cursor: pointer;
+    transition: .3s;
+    line-height: 2;
+}
+
+.btn_join i,
+.btn_join_active i {
+    margin: 5px;
+}
+
+.btn_join:hover {
+    background-color: transparent;
+    color:var(--blue);
+}
+
+.btn_join_active {
+    font-family: 'Noto Serif TC', serif;
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    background-color: var(--blue);
+    border: 1.5px solid var(--blue);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn_join_active:hover {
+    background-color: transparent;
+    color: var(--blue);
+    
+}
+
+.full{
+    background-color: var(--red);
+    color: white;
+    border: 1.5px solid var(--red);
+}
+
+
+.full:hover{
+    background-color: white;
+    color: var(--red);
+    border: 1.5px solid var(--red);
+}
+
+
+
+.over{
+    background-color: var(--gold);
+    color: white;
+    border: 1.5px solid var(--gold);
+}
+.over:hover{
+    background-color: transparent;
+    color: var(--gold);
+    border: 1.5px solid var(--gold);
+}
+.return{
+    background-color: white;
+    color: var(--gold);
+    border: 1.5px solid var(--gold);
+    margin-top: 100px;
+    margin-bottom:100px;
+}
+
+@media (max-width: 992px) {
+    .return{
+        margin-top: 50px;
+        margin-bottom:50px;
+    }
+   }
+
+.return:hover{
+    background-color: transparent;
+    color: var(--gold);
+    border: 1.5px solid var(--gold);
+}
+
+.calender{
+    font-family: 'Noto Sans TC',sans-serif;
+    font-weight: normal;
+    transform:scale(.7);
+    padding-left:10px;
+    padding-right:10px;
+}
+
+/* 了解更多know-more */
+.know-more {
+    white-space: nowrap;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 5%;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
+}
+
+.know-more::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+
+.know-more::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+
+.know-more:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.know-more:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+.know-more:hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+/* 收藏btn_collect */
+.btn_collect,
+.btn_collect_active {
+    white-space: nowrap;
+    background-color: transparent;
+    border: none;
+    color: var(--red);
+    padding: 0;
+    font-size: 24px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn_collect:hover,
+.btn_collect_active:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.btn_collect::after {
+    content: '加入收藏';
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: -70%;
+    font-size: 1.2rem;
+    width: 250%;
+    color: transparent;
+    transition: .3s;
+}
+
+.btn_collect:hover::after {
+    color: var(--red);
+}
+
+/* 分享按鈕 */
+.fb, .line, .share{
+    margin-left:15px;
+}
+.share {
+    font-size: 1.9rem;
+ }
+
+
+ /* title */
+
+/* ------------------------------------ */
+ /* js-css-tool */
+
+ /* 關閉，消失 */
+.display-none{
+    display: none;
+}
+
+/* 點開，顯示 */
+.display-block{
+    display: block;
+}
+
+
+/* 無限重複 */
+.infinite{
+    animation-iteration-count:infinite;
+}
+
+/* 持續時間 */
+.time-075s{
+    animation-duration: .75s;
+}
+
+.time-05s{
+    animation-duration: .5s;
+}
+
+.time-03s{
+    animation-duration: .3s;
+}
+
+.time-025s{
+    animation-duration: .25s;
+}
+
+/* 回復原位 */
+.X_0{
+transform:translateX(0);
+}
+
+
+.zx_996{
+    z-index: 996;
+}
+.zx_995{
+    z-index: 995;
+}
+.zx_994{
+    z-index: 994;
+}
+.zx_993{
+    z-index: 993;
+}
+.zx_992{
+    z-index: 992;
+}
+.zx_991{
+    z-index: 991;
+}
+
+/* 手機版選項預設位置 */
+.top625{
+    top:625px;
+}
+
+.top_145{
+    top:-145px;
+}
+
+/* 白光暈 */
+
+.shadow_gold{
+    filter: drop-shadow(1px 1px 2px var(--gold)) 
+          drop-shadow(-1px -1px 2px var(--gold));
+    -webkit-filter: drop-shadow(1px 1px 2px var(--gold))drop-shadow(-1px -1px 2px var(--gold));
+}
+
+
+/* 動畫：先放大再消失 */
+/* .bigerclose{
+    transform:scale(2) ;
+    opacity: 0;
+    transition: transform .5s ease-in-out 0s, opacity .5s ease-in-out 1s;
+} */
+
