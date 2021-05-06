@@ -7,10 +7,6 @@ $page_title = '啤女BeerU:募資計畫';
 
 
 
-
-
-
-
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -18,9 +14,10 @@ $page_title = '啤女BeerU:募資計畫';
 <link rel="stylesheet" href="../css/fund/fund.css">
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
-<section class="mobile-menu">
+
+<!-- <section class="mobile-menu">
     <?php include __DIR__ . '../../php/common/category.php' ?>
-</section>
+</section> -->
 
 <!-- 這裡開始寫html -->
 <section class="fund-wrap-1">
@@ -177,19 +174,20 @@ $page_title = '啤女BeerU:募資計畫';
             <div class="col-md-6 col-lg-4">
                 <ul class="card-list">
                     <li class="card" id="card1">
-                        <a class="card-description" href="../html/fund-step2.html" target="_blank">
+                        <a class="card-description" href="../html/fund-step2.html?fund_id=" target="_blank">
                             <!-- pic -->
-                            <img class="pic" src="../images/joyce_images/option-1.jpg" alt="" />
-                            <!-- option_price -->
-                            <h2 class="option_price"><?= $v['option_price'] ?></h2> //$2650
+                            <img class="pic" src="../images/joyce_images/<?= $v[`pic`] ?> alt=""/>
+                            <!-- plan-price -->
+                            <h2 class=" [plan-price"><?= $v['plan-price'] ?></h2>
                             <!-- c_name -->
-                            <p class="c-name" style="color: var(--gold);">【啤女獨家優惠 | 英國雲水精釀啤酒】</p>
-                            <!-- option -->
-                            <div class="option">
-                                <p><?= $v['option'] ?></p> //4入組｜雲水精釀啤酒(獨享組)
+                            <p class="c-name" style="color: var(--gold);"><?= $v['c-name'] ?></p>
+                            <!-- plan-title -->
+                            <div class="plan-title">
+                                <p><?= $v['plan-title'] ?></p>
                             </div>
-                            <div class="option-content">
-                                <p>【口味】</p>
+                            <!-- plan-content -->
+                            <div class="plan-content">
+                                <p><?= $v['plan-content'] ?></p>
                                 <p> ✓ Helles向藝術致敬IPA </p>
                                 <p> ✓ Hoppy little lager快腳步愛爾</p>
                                 <p> ✓ 加速腳步思陶特 Stout</p>
@@ -219,8 +217,7 @@ $page_title = '啤女BeerU:募資計畫';
                             <!-- pic -->
                             <img class="pic" src="../images/joyce_images/option-1.jpg" alt="" />
                             <!-- option_price -->
-                            <h2 class="option_price"><?= $v['option_price'] ?></h2> //$2650
-                            <!-- c_name -->
+                            <h2 class="option_price"><?= $v['option_price'] ?></h2> <!-- c_name -->
                             <p class="c-name" style="color: var(--gold);">【啤女獨家優惠 | 英國雲水精釀啤酒】</p>
                             <!-- option -->
                             <div class="option">
