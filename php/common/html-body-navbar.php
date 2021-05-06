@@ -6,9 +6,11 @@
         <div class="container">
             <div class="row  flex-column flex-lg-row align-items-center justify-content-lg-between align-items-lg-start">
                 <div class="trigger"><span></span></div>
-                <a href="">
+                <!-- logo -->
+                <a href="index.php">
                     <div class="nav-bar-logo"><img src="<?= WEB_ROOT ?>/images/logo/logo_beeru_white.svg" alt=""></div>
                 </a>
+                <!-- 選單 -->
                 <ul class="nav-bar-list list-unstyled d-flex justify-content-around">
                     <li class="nav-item"><a href="">本月主打</a></li>
                     <li class="nav-item"><a href="">新手入門</a></li>
@@ -27,13 +29,23 @@
                     </li>
                     <li class="nav-item d-none d-lg-block"><a href="all-product.php">全部商品</a></li>
                 </ul>
+                <!-- 會員&搜尋 -->
                 <ul class="nav-bar-member list-unstyled d-flex ">
+                    
+                    <!-- 搜尋 -->
                     <input type="text" id="search" name="search" class="search-bar" placeholder="找啤酒">
                     <li class="search"><i class="fas fa-search"></i></li>
+
+                    <!-- 購物車 -->
                     <div class="cart-g position-relative">
-                        <li class="shopping-cart"><a href="cart-list.php"><img src="<?= WEB_ROOT ?>/images/common/icon_shopbag.svg" alt=""></a></li>  
-                        <span class="cart-pnum d-none"></span>                   
+                        <li class="shopping-cart"><a href="cart-list.php"><img src="<?= WEB_ROOT ?>/images/common/icon_shopbag.svg" alt=""></a></li>
+                        <span class="cart-pnum d-none"></span>
                     </div>
+                    
+                    <!-- 登出 -->
+                    <!-- <p class="logout d-none d-lg-block">LOG OUT</p> -->
+                    
+                    <!-- 登入 -->
                     <li class="user-login"><a href="javascript: "><img src="<?= WEB_ROOT ?>/images/common/icon_member.svg" alt=""></a></li>
                 </ul>
             </div>

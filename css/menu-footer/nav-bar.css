@@ -163,7 +163,6 @@
         /* 右上角小圖們 */
 
         .beeru-nav-bar .nav-bar-member {
-            width: 75px;
             position: relative;
             right: 20px;
         }
@@ -201,6 +200,17 @@
             z-index: 10;
         }
 
+        .beeru-nav-bar .logout {
+            font-size: 1.2rem;
+            text-align: center;
+            line-height: 35px;
+            margin-left: 15px;
+            margin-right: -10px;
+            transition: .5s;
+            cursor: pointer;
+        }
+
+
         /* 會員登入 & 購物車 桌機版 HOVER效果*/
     @media (min-width: 992px) {
         .beeru-nav-bar .user-login::after {
@@ -223,6 +233,10 @@
 
 
         .beeru-nav-bar .user-login:hover::after {
+            color: var(--yellow);
+        }
+
+        .beeru-nav-bar .logout:hover {
             color: var(--yellow);
         }
 
