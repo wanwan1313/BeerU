@@ -1,0 +1,115 @@
+.member {
+    background-color: #fff;
+    height: 100vh;
+    color: var(--blue);
+}
+
+/* 背景圖 */
+.member-wrap {
+    width: 100%;
+    height: 100%;
+    background: url(../../images/common/bg/marble-bg-l.png);
+    background-size: 100% auto;
+    padding: 30px 0;
+}
+
+
+/* ---------------------------------------大標---------------------------------- */
+
+        /* 圈圈圖案 */
+        .member-title {
+            background: url(../../images/common/h1_4_b.svg) no-repeat center center;
+            background-size: contain;
+
+        }
+
+        /* 標題文字 */
+        .member-title p {
+            color: var(--blue);
+            font-family: 'Noto Serif TC', serif;
+            font-weight: bold;
+            font-size: 3.6rem;
+            letter-spacing: 1.2rem;
+            text-indent:1.2rem;
+            width: fit-content;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* 左邊雕飾 */
+        .member-title p::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-115%, -50%);
+            width: 150px;
+            height: 50%;
+            background: url(../../images/common/h1_ear_left_b.svg) no-repeat center center;
+            background-size: contain;
+
+        }
+
+
+        /* 右邊雕飾 */
+        .member-title p::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            right:0;
+            transform: translate(115%, -50%);
+            width: 150px;
+            height: 50%;
+            background: url(../../images/common/h1_ear_right_b.svg) no-repeat center center;
+            background-size: contain;
+
+        }
+
+        /* 手機版 改字和雕飾大小*/
+    @media (max-width: 991px) {
+        .member-title p {
+            font-size: 2.4rem;
+            letter-spacing: 0.8rem;
+            text-indent:0.8rem;
+        }
+
+        .member-title p::before {
+            width: 60px;
+            height: 32%;
+
+        }
+
+        .member-title p::after {
+            width: 60px;
+            height: 32%;
+
+        }
+
+
+    }
+
+
+
+/* -----------------------------會員概況------------------------------- */
+.member-overveiw {
+    font-family: 'Noto Serif TC', serif;
+    margin-top: 10px;
+}
+
+/* 頭像 */
+
+
+/* 名字 */
+.helloname {
+    font-size: 1.8rem;
+    font-weight: 600;
+    border-bottom: 1.5px solid var(--blue);
+}
+
+.memberinfo p {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 1.8rem;
+}
