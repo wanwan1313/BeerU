@@ -31,7 +31,7 @@ $page_title = '啤女BeerU:餐酒搭配';
             <div class="row ">
                 <div class="col-md-6 col-sm-4  food-left">
                     <div class="food-left mt-5">
-                        <div class="pipi-flyup animate__animated animate__swing">
+                        <div class="pipi-flyup">
                             <img src="../images/joyce_images/pipi-up.svg" alt="">
                         </div>
                         <div class="food-left-text">
@@ -61,6 +61,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                         <a href="#three-rule">
                             <div class="pair-now">搭餐去</div>
                         </a>
+
                     </div>
                 </div>
             </div>
@@ -82,28 +83,28 @@ $page_title = '啤女BeerU:餐酒搭配';
             </div>
         </div>
         <div class="row">
-            <div class="rules-content col-lg-4">
-                <div class="rules">
+            <div class="rules-content col-lg-4 ">
+                <div class="rules animatable fadeInUp ">
                     <h3>共鳴<br>原則</h3>
                 </div>
-                <div class="rules-inner  mt-5">
+                <div class="rules-inner animatable fadeInUp mt-5">
                     <p>此為最常見的餐酒搭配方式，當啤酒與食物擁有共同的味道和香氣時，彼此映襯對方的風味。這樣的搭配法就像照鏡子一樣，相互映照並勾勒出酒與料理兩者的細膩味道。</p>
                 </div>
             </div>
 
             <div class="rules-content col-lg-4">
-                <div class="rules">
+                <div class="rules animatable fadeInUp">
                     <h3>對比<br>原則</h3>
                 </div>
-                <div class="rules-inner  mt-5">
+                <div class="rules-inner animatable fadeInUp  mt-5">
                     <p>食物與精釀啤酒的某些特性會以可預期的方式互動，利用這些互動，讓食物與啤酒之間互相平衡。</p>
                 </div>
             </div>
             <div class="rules-content col-lg-4">
-                <div class="rules">
+                <div class="rules animatable fadeInUp">
                     <h3>補充<br> 原則</h3>
                 </div>
-                <div class="rules-inner  mt-5">
+                <div class="rules-inner animatable fadeInUp mt-5">
                     <p>需要考慮的是風味強度，味覺體驗的總和。例如常用大蒜入菜的台式料理就與小麥啤酒就是很對味的搭配。</p>
                 </div>
             </div>
@@ -136,7 +137,8 @@ $page_title = '啤女BeerU:餐酒搭配';
                             <img src="../images/joyce_images/drop-1.svg" alt=""></a>
                     </div>
                     <div class="food-drop-name">
-                        <p>酸啤酒<br>Sour beer</p>
+                        <p>酸啤酒</p>
+                        <p>Sour beer</p>
                     </div>
                 </div>
                 <div class="food-drop drop2">
@@ -145,9 +147,8 @@ $page_title = '啤女BeerU:餐酒搭配';
                             <img src="../images/joyce_images/drop-2.svg" alt=""></a>
                     </div>
                     <div class="food-drop-name">
-                        <p>淡色拉格<br>
-                            <span class="font-s">Pale Lager</span>
-                        </p>
+                        <p>淡色拉格</p>
+                        <p>Pale Lager</p>
                     </div>
                 </div>
                 <div class="food-drop drop3">
@@ -156,7 +157,9 @@ $page_title = '啤女BeerU:餐酒搭配';
                             <img src="../images/joyce_images/drop-3.svg" alt=""></a>
                     </div>
                     <div class="food-drop-name">
-                        <p>印度<br>淡艾爾<br>IPA</p>
+                        <!-- <p>印度<br>淡艾爾<br>IPA</p> -->
+                        <p>印度<br>淡艾爾</p>
+                        <p>IPA</p>
                     </div>
                 </div>
                 <div class="food-drop drop4">
@@ -418,7 +421,8 @@ $page_title = '啤女BeerU:餐酒搭配';
                                 <div class="beer-product product-1">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <img src="../images/joyce_images/goses_are_red.png" alt="">
+
                                         <!-- 標籤 -->
                                         <div class="new-label">
                                             <p>NEW</p>
@@ -428,7 +432,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     </div> -->
 
                                         <!-- 國家圖片 -->
-                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt="">
+                                        <div class="country"><img src="../images/country/flag_us_circle.svg" alt="">
                                         </div>
 
                                         <!-- 收藏按鈕 -->
@@ -442,11 +446,12 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     <div class="pro-intro d-flex flex-column justify-content-between">
                                         <!-- 商品名稱 -->
                                         <div class="p-name ">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic Pilsner crazy beer Oslo</p>
+                                            <p class="p-name-c">布魯里．你比較甜:粉紅酸啤</p>
+                                            <p class="p-name-e">The Bruery - Goses Are Red</p>
                                         </div>
                                         <!-- 了解更多 -->
-                                        <a href="">
+
+                                        <a href="each-product.php? psid=<?= $psid = 99 ?>">
                                             <div class="know-more">了解更多</div>
                                         </a>
 
@@ -454,41 +459,7 @@ $page_title = '啤女BeerU:餐酒搭配';
 
                                 </div>
                             </div>
-                            <!-- <div class="col-sm d-flex">
-                                    <div class="beer-product product-2">
-                                        <div class="pro-pic">
-                                        
-                                            <img src="../images/products/Heart of Darkness-01.png" alt="">
-                                        
-                                            <div class="new-label">
-                                                <p>NEW</p>
-                                            </div>
-                                                                          
-                                            <div class="country"><img src="../images/country/flag_denmark_circle.svg"
-                                                    alt=""></div>
 
-                                                                       <div class="collect">
-                                                <button class="btn_collect"><i class="far fa-heart"></i></button>
-                                              
-                                            </div>
-                                        </div>
-
-                                
-                                        <div class="pro-intro d-flex flex-column justify-content-between">
-                                        
-                                            <div class="p-name">
-                                                <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
-                                                <p class="p-name-e">Oslo - Nordic PilsnerOslo</p>
-                                            </div>
-                                            <a href="">
-                                                <div class="know-more">了解更多</div>
-                                            </a>
- -->
-
-                            <!-- end here  -->
-                            <!-- </div> -->
-                            <!-- </div> -->
-                            <!-- </div> -->
                         </div>
                     </div>
                 </div>
@@ -729,7 +700,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     </div> -->
 
                                         <!-- 國家圖片 -->
-                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt="">
+                                        <div class="country"><img src="../images/country/flag_vietnam_circle.svg" alt="">
                                         </div>
 
                                         <!-- 收藏按鈕 -->
@@ -743,8 +714,8 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     <div class="pro-intro d-flex flex-column justify-content-between">
                                         <!-- 商品名稱 -->
                                         <div class="p-name ">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic Pilsner crazy beer Oslo</p>
+                                            <p class="p-name-c">黑暗之心．島嶼天光印度淺色拉格</p>
+                                            <p class="p-name-e">Heart of Darkness - The Island </p>
                                         </div>
                                         <!-- 了解更多 -->
                                         <a href="">
@@ -1027,7 +998,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                 <div class="beer-product product-1">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <img src="../images/joyce_images/Civale 09.png" alt="">
                                         <!-- 標籤 -->
                                         <div class="new-label">
                                             <p>NEW</p>
@@ -1037,7 +1008,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     </div> -->
 
                                         <!-- 國家圖片 -->
-                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt="">
+                                        <div class="country"><img src="../images/country/flag_italy_circle.svg" alt="">
                                         </div>
 
                                         <!-- 收藏按鈕 -->
@@ -1051,8 +1022,8 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     <div class="pro-intro d-flex flex-column justify-content-between">
                                         <!-- 商品名稱 -->
                                         <div class="p-name ">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic Pilsner crazy beer Oslo</p>
+                                            <p class="p-name-c">奇瓦雷．狂花帝國IPA</p>
+                                            <p class="p-name-e">Civale - Thunderhop</p>
                                         </div>
                                         <!-- 了解更多 -->
                                         <a href="">
@@ -1293,7 +1264,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                 <div class="beer-product product-1">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <img src="../images/joyce_images/oslo-01.png" alt="">
                                         <!-- 標籤 -->
                                         <div class="new-label">
                                             <p>NEW</p>
@@ -1303,7 +1274,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     </div> -->
 
                                         <!-- 國家圖片 -->
-                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt="">
+                                        <div class="country"><img src="../images/country/flag_norway_circle.svg" alt="">
                                         </div>
 
                                         <!-- 收藏按鈕 -->
@@ -1318,7 +1289,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                         <!-- 商品名稱 -->
                                         <div class="p-name ">
                                             <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic Pilsner crazy beer Oslo</p>
+                                            <p class="p-name-e">Oslo - Nordic Pilsner </p>
                                         </div>
                                         <!-- 了解更多 -->
                                         <a href="">
@@ -1558,7 +1529,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                 <div class="beer-product product-1">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <img src="../images/joyce_images/8-wired-09.png" alt="">
                                         <!-- 標籤 -->
                                         <div class="new-label">
                                             <p>NEW</p>
@@ -1568,7 +1539,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     </div> -->
 
                                         <!-- 國家圖片 -->
-                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt="">
+                                        <div class="country"><img src="../images/country/flag_new_zealand_circle.svg" alt="">
                                         </div>
 
                                         <!-- 收藏按鈕 -->
@@ -1582,8 +1553,8 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     <div class="pro-intro d-flex flex-column justify-content-between">
                                         <!-- 商品名稱 -->
                                         <div class="p-name ">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic Pilsner crazy beer Oslo</p>
+                                            <p class="p-name-c">8號鐵絲．香橙嬉皮柏林小麥</p>
+                                            <p class="p-name-e">8 Wired - Mandarin Hippy</p>
                                         </div>
                                         <!-- 了解更多 -->
                                         <a href="">
@@ -1823,7 +1794,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                 <div class="beer-product product-1">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <img src="../images/joyce_images/Brewlander 01.png" alt="">
                                         <!-- 標籤 -->
                                         <div class="new-label">
                                             <p>NEW</p>
@@ -1833,7 +1804,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     </div> -->
 
                                         <!-- 國家圖片 -->
-                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt="">
+                                        <div class="country"><img src="../images/country/flag_singapore_circle.svg" alt="">
                                         </div>
 
                                         <!-- 收藏按鈕 -->
@@ -1847,8 +1818,8 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     <div class="pro-intro d-flex flex-column justify-content-between">
                                         <!-- 商品名稱 -->
                                         <div class="p-name ">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic Pilsner crazy beer Oslo</p>
+                                            <p class="p-name-c">釀酒島主．希望夏日愛爾</p>
+                                            <p class="p-name-e">Brewlander - Hope Summer</p>
                                         </div>
                                         <!-- 了解更多 -->
                                         <a href="">
@@ -2088,7 +2059,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                 <div class="beer-product product-1">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <img src="../images/joyce_images/ag_winter.png" alt="">
                                         <!-- 標籤 -->
                                         <div class="new-label">
                                             <p>NEW</p>
@@ -2098,7 +2069,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     </div> -->
 
                                         <!-- 國家圖片 -->
-                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt="">
+                                        <div class="country"><img src="../images/country/flag_germany_circle.svg" alt="">
                                         </div>
 
                                         <!-- 收藏按鈕 -->
@@ -2112,8 +2083,8 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     <div class="pro-intro d-flex flex-column justify-content-between">
                                         <!-- 商品名稱 -->
                                         <div class="p-name ">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic Pilsner crazy beer Oslo</p>
+                                            <p class="p-name-c">艾英格．冬季勃克</p>
+                                            <p class="p-name-e">Ayinger - Weizen</p>
                                         </div>
                                         <!-- 了解更多 -->
                                         <a href="">
@@ -2352,7 +2323,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                 <div class="beer-product product-1">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <img src="../images/products/London_Porter.png" alt="">
                                         <!-- 標籤 -->
                                         <div class="new-label">
                                             <p>NEW</p>
@@ -2362,7 +2333,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     </div> -->
 
                                         <!-- 國家圖片 -->
-                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt="">
+                                        <div class="country"><img src="../images/country/flag_uk_circle.svg" alt="">
                                         </div>
 
                                         <!-- 收藏按鈕 -->
@@ -2376,8 +2347,8 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     <div class="pro-intro d-flex flex-column justify-content-between">
                                         <!-- 商品名稱 -->
                                         <div class="p-name ">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic Pilsner crazy beer Oslo</p>
+                                            <p class="p-name-c">富樂．波特啤酒</p>
+                                            <p class="p-name-e">Fuller's - London Porter</p>
                                         </div>
                                         <!-- 了解更多 -->
                                         <a href="">
@@ -2616,7 +2587,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                 <div class="beer-product product-1">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
-                                        <img src="../images/products/Heart of Darkness-01.png" alt="">
+                                        <img src="../images/products/LC-PB Chocolate Milk Stout.png" alt="">
                                         <!-- 標籤 -->
                                         <div class="new-label">
                                             <p>NEW</p>
@@ -2626,7 +2597,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     </div> -->
 
                                         <!-- 國家圖片 -->
-                                        <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt="">
+                                        <div class="country"><img src="../images/country/flag_US_circle.svg" alt="">
                                         </div>
 
                                         <!-- 收藏按鈕 -->
@@ -2640,8 +2611,8 @@ $page_title = '啤女BeerU:餐酒搭配';
                                     <div class="pro-intro d-flex flex-column justify-content-between">
                                         <!-- 商品名稱 -->
                                         <div class="p-name ">
-                                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
-                                            <p class="p-name-e">Oslo - Nordic Pilsner crazy beer Oslo</p>
+                                            <p class="p-name-c">迷情海岸．花生醬巧克力司陶特</p>
+                                            <p class="p-name-e">Lost Coast-Peanut Butter Chocolate Milk Stout</p>
                                         </div>
                                         <!-- 了解更多 -->
                                         <a href="">
