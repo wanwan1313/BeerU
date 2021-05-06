@@ -568,6 +568,20 @@
             color: var(--gold);
         }
 
+        /* 查詢 */
+
+        .all-product .product-tag p.userSearch {
+            color: var(--gold);
+            font-size: 2rem;
+            font-family:'Noto Serif TC', serif;
+        }
+
+        .all-product .product-tag .userSearch-txt {
+            color: var(--red);
+        }
+
+
+
         /* 商品排序 */
         .all-product .sort-option {
             color: var(--gold);
@@ -606,6 +620,7 @@
 
         .all-product .p_search .search2::-webkit-input-placeholder {
             color: var(--gold);
+            letter-spacing: 0.1rem;
         }
 
         /* -------------商品排列區域------------ */
