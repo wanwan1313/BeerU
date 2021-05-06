@@ -26,7 +26,8 @@
 
     }
 
-    $.get('cart-api.php', function(data) {
+    $.get('cartforcount-api.php', function(data) {
         showCartCount(data.cart)
     }, 'json')
+
 </script>

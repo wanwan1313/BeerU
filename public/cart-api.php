@@ -23,13 +23,13 @@ $c_dla = isset($_GET['cdollar']) ? intval($_GET['cdollar']):NULL;
 if(!empty($c_sid)) {
     $_SESSION['checkout']['coupon-sid'] = $c_sid;
     $output['msg'] = '有使用折價券';
-}else if( empty($c_sid) and empty($_SESSION['checkout']['coupon-sid'])) {
+}else{
     unset($_SESSION['checkout']['coupon-sid']);
     $output['msg'] = '沒有使用折價券';
 }
 if(!empty($c_dla)){
     $_SESSION['checkout']['discount'] = $c_dla;
-}else if( empty($c_dla) and empty($_SESSION['checkout']['discount'])) {
+}else{
     unset($_SESSION['checkout']['discount']);
 }
 
