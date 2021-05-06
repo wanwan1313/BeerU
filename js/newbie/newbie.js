@@ -1,3 +1,24 @@
+$(document).ready(function () {
+
+    $("a").on('click', function (event) {
+
+        if (this.hash !== "") {
+
+            event.preventDefault();
+
+            var hash = this.hash;
+
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 800, function () {
+
+                window.location.hash = hash;
+            });
+        }
+    });
+});
+
+
 // ------------------- modal -----------------------
 $(".modal-trigger").click(function (e) {
     e.preventDefault();
@@ -42,5 +63,3 @@ jQuery(function ($) {
     $(window).trigger('scroll');
 
 });
-
-new WOW().init();

@@ -62,13 +62,13 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <div class="monthly-product-banner marble">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-4 monthly-product-main"></div>
+                <div class="col-md-6 col-sm-4 monthly-product-main"><a href="each-product.php?psid=<?= $psid = 17 ?>" style="display: block"></a></div>
                 <div class="col-md-6 col-sm-4 monthly-product-intro">
-                    <div class="animatable2 fadeInUp2 monthly-title mt-5 mb-3">
+                    <div class="animatable fadeInUp monthly-title mt-5 mb-3">
                         <p>本月之星</p>
                     </div>
-                    <h1 class="p-title-ch mb-2 animatable2 fadeInUp2">源流東京白啤酒</h1>
-                    <h2 class="p-title-en animatable2 fadeInUp2">Far Yeast Tokyo White</h2>
+                    <h1 class="p-title-ch mb-2 animatable fadeInUp">源流東京白啤酒</h1>
+                    <h2 class="p-title-en animatable fadeInUp">Far Yeast Tokyo White</h2>
                 </div>
             </div>
         </div>
@@ -286,7 +286,6 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 </div>
             </div>
             <div class="col-12 col-lg-6 product-pic d-flex justify-content-center align-items-center">
-
                 <div class="pic">
                     <img src="../images/glori_images/drop.png" alt="">
                 </div>
@@ -304,11 +303,11 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                     <div class="spring-img-wrap">
                         <div class="circle-wrap" href="#">
                             <div class="circle"></div>
-                            <img src="../images/glori_images/popular_march.png">
+                            <a href="each-product.php?psid=<?= $psid = 133 ?>"><img class="animatable fadeInUp" src="../images/glori_images/popular_march.png"></a>
                         </div>
                     </div>
-                    <p class="title">米凱樂</p>
-                    <h5 class="title2 mb-2">明日仔氣力</h5>
+                    <p class="title">琳德曼．水蜜桃酸啤</p>
+                    <h5 class="title2 mb-2">Lindemans-Pecheresse</h5>
                     <!-- 收藏按鈕 -->
                     <div class="collect">
                         <button class="btn_collect2"><i class="far fa-heart"></i></i>加入收藏</button>
@@ -320,11 +319,13 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                     <div class="spring-img-wrap">
                         <div class="circle-wrap" href="#">
                             <div class="circle"></div>
-                            <img src="../images/glori_images/popular_april.png">
+                            <a href="each-product.php?psid=<?= $psid = 21 ?>">
+                                <img class="animatable fadeInUp" src="../images/glori_images/popular_april.png">
+                            </a>
                         </div>
                     </div>
-                    <p class="title">奇瓦雷</p>
-                    <h5 class="title2 mb-2">美麗之鹽</h5>
+                    <p class="title">源流．義式葡萄愛爾</p>
+                    <h5 class="title2 mb-2">Far Yeast-Grapevine</h5>
                     <!-- 收藏按鈕 -->
                     <div class="collect">
                         <button class="btn_collect2"><i class="far fa-heart"></i></i>加入收藏</button>
@@ -336,11 +337,13 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                     <div class="spring-img-wrap">
                         <div class="circle-wrap" href="#">
                             <div class="circle"></div>
-                            <img src="../images/glori_images/popular_may.png">
+                            <a href="each-product.php?psid=<?= $psid = 99 ?>">
+                                <img class="animatable fadeInUp" src="../images/glori_images/popular_may.png">
+                            </a>
                         </div>
                     </div>
-                    <p class="title">源流</p>
-                    <h5 class="title2 mb-2">東京白</h5>
+                    <p class="title">美人魚．野生粉紅啤</p>
+                    <h5 class="title2 mb-2">La Sirène-Rosè Wild</h5>
                     <!-- 收藏按鈕 -->
                     <div class="collect">
                         <button class="btn_collect2"><i class="far fa-heart"></i></i>加入收藏</button>
@@ -349,10 +352,10 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 </div>
             </div>
             <div class="col-md-6 right-intro">
-                <div class="animatable2 fadeInUp2 monthly-title mb-5">
+                <div class="animatable fadeInUp monthly-title mb-5">
                     <p>春季推薦</p>
                 </div>
-                <h1 class="title mt-2 mb-5">獨特的清爽香氣，迎接炎炎夏日
+                <h1 class="animatable fadeInUp spring-intro mt-2 mb-5">獨特的清爽香氣，迎接炎炎夏日
                 </h1>
             </div>
         </div>

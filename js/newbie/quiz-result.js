@@ -6,7 +6,6 @@
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-// LineIt.loadButton();
 
 // 加入購物車功能
 

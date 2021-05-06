@@ -22,7 +22,7 @@ $page_title = '啤女BeerU:新手入門';
                     <div class="inside-beer"></div>
                     <div class="inside-heads"></div>
                 </div>
-                <div class="pipi animatable fadeInUp"></div>
+                <div class="pipi"></div>
             </div>
             <div class="col-md-6 col-sm-4 right-info">
                 <div class="newbie-title animatable fadeInUp mt-5 ">
@@ -47,8 +47,8 @@ $page_title = '啤女BeerU:新手入門';
                     <p class="caption animatable fadeInUp">
                         可以從啤酒百科開始 ～</p>
                 </div>
-                <div class="enter-btn">
-                    <a href="#knowledge-wrap">
+                <div class="enter-btn" id="scroll">
+                    <a class="scroll" href="#knowledge-wrap">
                         <div class="know-more">了解更多</div>
                     </a>
                 </div>
@@ -94,8 +94,8 @@ $page_title = '啤女BeerU:新手入門';
                 <p class="ingredient-intro">精釀啤酒主原料僅4種，天然添加物呈現風味多樣化</p>
             </div>
             <div class="row four-ingre-row mt-5">
-                <div class="col-md ingredient-wrap">
-                    <div class="ingredient-title-sm animatable fadeInUp">
+                <div class="col-md ingredient-wrap animatable fadeInUp">
+                    <div class="ingredient-title-sm">
                         <p class="ingre-ch">麥芽</p>
                         <p class="ingre-en">Malt</p>
                     </div>
@@ -200,7 +200,7 @@ $page_title = '啤女BeerU:新手入門';
                             <p class="glass-title-ch">不缺角杯</p>
                             <p class="glass-title-en">Nonik</p>
                         </div>
-                        <img class="glass-1 wow animate__bounceInLeft" src="../images/glori_images/Nonik.png">
+                        <img class="glass-1" src="../images/glori_images/Nonik.png">
                     </button>
                 </div>
                 <div class="col-md-3 col-sm-6 each-glass">
