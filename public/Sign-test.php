@@ -26,54 +26,68 @@ $page_title = '登入測試';
 
 <div class="content">
  
-     <!-- 註冊畫面 -->
-     <form name="Sign" method="post"  novalidate onsubmit="checkform_sign(); return false;">
-           
     
-                  <h3>啤女帳號</h3>
-                  <input type="email" class="form-control" id="email" name="email" required>
-            
-
-                  <h3>密碼</h3>
-                 <input type="password"  class="form-control" id="password" name="password" required>
+     <!-- 登入測試 -->
 
 
-                 <h3>姓名</h3>
-                 <input type="text" class="form-control" id="nickname" name="nickname" required>
-
-
-                 <h3>地址</h3>
-                 <textarea  name="address" class="form-control" id="address" cols="20" rows="1"></textarea>
-                
-
-                 <h3>生日 </h3>
-                 <input type="date"  class="form-control" id="birthday" name="birthday">
-                 
-             
-                 <button type="submit" class="btn btn-primary">註冊</button>
+     <form class="LogIn-content-wrap" name="Login" method="post"  novalidate onsubmit="checkform_Login(); return false;">
+    
+         <h3>登入帳號</h3>
+          <input  type="email" id="account" name="account">
                
-            
+          
+          <h3>登入密碼</h3>
+          <input  type="password" id="password" name="password" >
+          
+          
+          <button class="LogIn-btn02" type="submit"> 登入</button>
+          
 
-            
+
      </form>    
 
 
+     <br>  <br>  <br> 
+     <!-- 註冊畫面 -->
+         <form name="Sign" method="post"  novalidate onsubmit="checkform_sign(); return false;">
+           
+    
+           <h3>註冊帳號</h3>
+           <input type="email" id="newAccount" name="newAccount" required>
+     
+
+           <h3>密碼</h3>
+          <input type="password"  id="newPassword" name="newPassword" required>
+
+
+          <h3>姓名</h3>
+          <input type="text"  id="nickname" name="nickname" required>
+
+
+          <h3>地址</h3>
+          <textarea  name="address"  id="address" cols="20" rows="1"></textarea>
+         
+
+          <h3>生日 </h3>
+          <input type="date" name="birthday">
+          
+      
+          <button type="submit" class="btn btn-primary">註冊</button>
+            
+
+            
+     </form>     
 
 
 
 </div>
-
-
-
-
-
-
-
 <?php include __DIR__ . '../../php/common/script.php' ?>
 
 
 
 <script>
+
+
 
 
 </script>
