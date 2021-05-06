@@ -141,28 +141,30 @@
                  <h3>用啤女帳戶登入</h3>
              </div>
              
-             <div class="LogIn-content-wrap">
+             <!-- 登入表單 -->
+             <form class="LogIn-content-wrap" name="Login" method="post"  novalidate onsubmit="checkform_Login(); return false;">
        
                 <div class="input-account">
                     <i class="fas fa-user-alt user-icon01"></i>
-                    <input class="input-btn" placeholder="啤女帳號" id="account01">
+                    <input class="input-btn" type="email" placeholder="啤女帳號" name="account" id="account">
                     
                 </div>
    
                 <div class="input-password">
                     <i class="fas fa-lock lock-icon01"></i>
-                    <input class="input-btn" type="password" placeholder="密碼" id="password01">
+                    <input class="input-btn" type="password" placeholder="密碼" id="password" name="password">
                 </div>
 
 
 
-                <div class="wrong-alert d-flex">
+                <!-- <div class="wrong-alert d-flex">
                     <i class="far fa-times-circle"></i>
                     <p>帳號或密碼錯誤</p>
-                </div>
+                </div> -->
 
-                <div class="LogIn-btn02">登入</div>
-            </div>
+                <button class="LogIn-btn02 Login" type="submit"> 登入</button>
+
+             </form>
 
             <div class="forget-password">
                 <h3>忘記密碼</h3>

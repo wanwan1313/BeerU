@@ -45,11 +45,13 @@
      width: 35%; 
      height: 60%;
      min-height: 494px;
-    /* height: calc(100vh - 48vh); */
+    
     
     /* 登入頁大小 */
-    /* height: 550px; */
-    /* height: calc(100vh - 48vh) */
+    /* height: 60%; */
+    /* min-height: 494px; */
+   
+  
 
     /* 註冊大小 */
     /* width: 50%;
@@ -238,6 +240,8 @@
 }
 
 .LogIn-btn02{
+    color: white;
+    border: transparent;
     margin-top: 30px;
     width: 100%;
     background-color: var(--gold);

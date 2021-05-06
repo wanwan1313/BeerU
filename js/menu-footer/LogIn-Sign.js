@@ -40,7 +40,7 @@ $('.LogIn-btn01').click(function(){
    
 
    $('.first-login-page').fadeOut(1);
-   $('.log-box').css('width','35%').css('height','calc(100vh - 40vh)').css('transition','.4s');
+   $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
    $('.LogIn-page').fadeIn(1000);
 
     
@@ -89,7 +89,7 @@ $('.LogIn-rightNow').click(function(){
 
     $('.first-login-page').fadeOut(1);
     $('.LogSign-page').fadeOut(1);
-    $('.log-box').css('width','35%').css('height','calc(100vh - 40vh)').css('transition','.4s');
+    $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
     $('.LogIn-page').fadeIn(1000);
  
      

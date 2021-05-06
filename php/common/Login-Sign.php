@@ -40,55 +40,57 @@
 
         
         
-        <!-- 登入畫面 -->
-        <div class="log-content LogIn-page" >
+      <!-- 登入畫面 -->
+      <div class="log-content LogIn-page" >
 
-             <div class="LogIn-title">
-                 <h3>用啤女帳戶登入</h3>
-             </div>
-             
-             <div class="LogIn-content-wrap">
-       
-                <div class="input-account">
-                    <i class="fas fa-user-alt user-icon01"></i>
-                    <input class="input-btn" placeholder="啤女帳號" id="account01">
-                    
-                </div>
-   
-                <div class="input-password">
-                    <i class="fas fa-lock lock-icon01"></i>
-                    <input class="input-btn" type="password" placeholder="密碼" id="password01">
-                </div>
+        <div class="LogIn-title">
+            <h3>用啤女帳戶登入</h3>
+        </div>
 
+        <!-- 登入表單 -->
+        <form class="LogIn-content-wrap" name="Login" method="post"  novalidate onsubmit="checkform_Login(); return false;">
 
-
-                <div class="wrong-alert d-flex">
-                    <i class="far fa-times-circle"></i>
-                    <p>帳號或密碼錯誤</p>
-                </div>
-
-                <div class="LogIn-btn02">登入</div>
-            </div>
-
-            <div class="forget-password">
-                <h3>忘記密碼</h3>
-                <h3>｜</h3>
-                <h3>重新寄認證信</h3>
-            </div>
+        <div class="input-account">
+            <i class="fas fa-user-alt user-icon01"></i>
+            <input class="input-btn" type="email" placeholder="啤女帳號" name="account" id="account">
             
-            
+        </div>
 
-            <div class="not-menber">
-                <h3>還不是會員嗎？</h3>
-                <h3><span class="LogSign-rightNow">立即註冊新帳號</span></h3>
-            </div>
-      
+        <div class="input-password">
+            <i class="fas fa-lock lock-icon01"></i>
+            <input class="input-btn" type="password" placeholder="密碼" id="password" name="password">
+        </div>
 
-            <div class="backward" id="back01">
-                <h3>回上頁</h3>
-            </div>
-    
-        </div>    
+
+
+        <!-- <div class="wrong-alert d-flex">
+            <i class="far fa-times-circle"></i>
+            <p>帳號或密碼錯誤</p>
+        </div> -->
+
+        <button class="LogIn-btn02 Login" type="submit"> 登入</button>
+
+        </form>
+
+        <div class="forget-password">
+        <h3>忘記密碼</h3>
+        <h3>｜</h3>
+        <h3>重新寄認證信</h3>
+        </div>
+
+
+
+<div class="not-menber">
+   <h3>還不是會員嗎？</h3>
+   <h3><span class="LogSign-rightNow">立即註冊新帳號</span></h3>
+</div>
+
+
+<div class="backward" id="back01">
+   <h3>回上頁</h3>
+</div>
+
+</div>   
              
         <!-- 註冊畫面 -->
         <div class="log-content LogSign-page" >
