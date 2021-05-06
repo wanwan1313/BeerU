@@ -24,14 +24,20 @@ $page_title = '啤女BeerU:品飲會';
         <!-- 2.banner -->
         <div class="container-fluid event-banner">
             <!-- 2.1.底圖 -->
-            <img src="../images/event/SVG/event-banner-bgc.svg" alt="">
+            <img class='banner_bg' src="../images/event/SVG/event-banner-bgc.svg" alt="">
             <!-- 2.2.標題+動畫 -->
             <div class="row justify-content-center align-items-center">
                 <!-- 2.2.1.大標 -->
                 <p class='col-10 col-lg-3 order-2 order-lg-1'>給我<br>一杯酒的時間...</p>
                 <!-- 2.2.2.動畫 -->
-                <div class='col-12 col-lg-3 order-1 order-lg-2'>缺：小天使酒杯乾杯動畫</div>
+                <div class='col-12 col-lg-3 order-1 order-lg-2'>
+                    <img class='beer_mug' src="../images/event/SVG/beer_mug_0.svg" alt="">
+                    <img class='beer_mug_b' src="../images/event/SVG/beer_mug_b.svg" alt="">
+                    <img class='pipi_beer' src="../images/event/SVG/pipi_beer.svg" alt="">
+                    <img class='pipi_beer_b' src="../images/event/SVG/pipi_beer_b.svg" alt="">
+                </div>
             </div>
+
         </div>
 
         <!-- 3.content -->
@@ -65,7 +71,7 @@ $page_title = '啤女BeerU:品飲會';
                     </div>
                     <!--3.2.2.3.剩餘名額+瀏覽人次 -->
                     <div class="row justify-content-between align-items-end">
-                        <li class='quota blue'>剩餘名額：19/20</li>
+                        <li class='quota blue'>剩餘名額：18/20</li>
                         <li class='review'><i class="far fa-eye"></i>
                             1,234</li>
                     </div>
@@ -213,8 +219,7 @@ $page_title = '啤女BeerU:品飲會';
 <?php include __DIR__ . '../../php/common/script.php' ?>
 
   <!-- my script -->
-  <script src='../js/map/map.js'></script>
-
-
+  <script src='../js/event/event_anime_banner.js'></script>
+  
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>

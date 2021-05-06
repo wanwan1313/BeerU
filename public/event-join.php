@@ -196,7 +196,7 @@ $page_title = '啤女BeerU:品飲會:立即報名';
             </div>
             <!-- 名額+價格 -->
             <div class="row mx-5 mx-md-0 px-2 quotaprice col-md-6 justify-content-center flex-sm-nowrap flex-md-wrap">
-                <div class="col-sm-6 col-md-12 block quota">剩餘名額：19/20</div>
+                <div class="col-sm-6 col-md-12 block quota">剩餘名額：18/20</div>
                 <div class="col-sm-6 col-md-12 block price">價格：NT$200</div>
             </div>
         </div>
@@ -278,44 +278,61 @@ $page_title = '啤女BeerU:品飲會:立即報名';
                     <div class="form-title">電話 <input class='col-10' type="tel" placeholder="0912-345-678"></div>
                     <p class='memo'>＊請輸入正確，以便現場核對身份</p>
                     <div class="form-title row justify-content-start">
-                        <div>攜伴人數 <span class="memo ㄊㄟ">＊最多可攜戴<span class="number_big">0</span>位朋友</span></div>
+                        <div>攜伴人數 <span class="memo ㄊㄟ">＊最多可攜戴<span class="number_big">2</span>位朋友</span></div>
 
                     </div>
 
-                    <select class='col-12'>
+                    <select class='col-12' id="people">
                         <option value="0" selected>0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                     </select>
-                    <div class="gold-line-wrap">
-                        <hr class='gold-line mx-0'>
-                    </div>
-                    <!--攜伴人數第1列-->
-                    <div class='one'>
-                        <div class="row mx-0 px-0 flex-wrap justify-content-start">
-                            <div class="form-title-s col-12 col-md-6">姓名 <input type="text" placeholder="啤啤"></div>
-                            <div class="form-title-s col-12 col-md-6">電話 <input type="tel" placeholder="0912-345-678">
-                            </div>
+                    <div class="one_people">
+                        <div class="gold-line-wrap">
+                            <hr class='gold-line mx-0'>
                         </div>
-                        <p class='memo ml-3'>＊請輸入正確，以便現場核對身份</p>
-                    </div>
-                    <!--攜伴人數第2列-->
-                    <div class='two'>
-                        <div class="row mx-0 px-0 flex-wrap justify-content-start">
-                            <div class="form-title-s col-12 col-md-6">姓名 <input type="text" placeholder="啤啤"></div>
-                            <div class="form-title-s col-12 col-md-6">電話 <input type="tel" placeholder="0912-345-678">
+                        <!--攜伴人數第1列-->
+                        <div class='one'>
+                            <div class="row mx-0 px-0 flex-wrap justify-content-start">
+                                <div class="form-title-s col-12 col-md-6">姓名 <input type="text" placeholder="啤啤"></div>
+                                <div class="form-title-s col-12 col-md-6">電話 <input type="tel" placeholder="0912-345-678">
+                                </div>
                             </div>
+                            <p class='memo ml-3'>＊請輸入正確，以便現場核對身份</p>
                         </div>
-                        <p class='memo ml-3'>＊請輸入正確，以便現場核對身份</p>
+                    </div>
+                    <div class="two_people">
+                        <div class="gold-line-wrap">
+                            <hr class='gold-line mx-0'>
+                        </div>
+                        <!--攜伴人數第1列-->
+                        <div class='one'>
+                            <div class="row mx-0 px-0 flex-wrap justify-content-start">
+                                <div class="form-title-s col-12 col-md-6">姓名 <input type="text" placeholder="啤啤"></div>
+                                <div class="form-title-s col-12 col-md-6">電話 <input type="tel" placeholder="0912-345-678">
+                                </div>
+                            </div>
+                            <p class='memo ml-3'>＊請輸入正確，以便現場核對身份</p>
+                        </div>
+                        <!--攜伴人數第2列-->
+                        <div class='two'>
+                            <div class="row mx-0 px-0 flex-wrap justify-content-start">
+                                <div class="form-title-s col-12 col-md-6">姓名 <input type="text" placeholder="啤啤"></div>
+                                <div class="form-title-s col-12 col-md-6">電話 <input type="tel" placeholder="0912-345-678">
+                                </div>
+                            </div>
+                            <p class='memo ml-3'>＊請輸入正確，以便現場核對身份</p>
+                        </div>
                     </div>
                     <div class="gold-line-wrap">
                         <hr class='gold-line-2 mx-0'>
                     </div>
                     <!-- 驗證碼 -->
                     <form action="">
-                    <div class="cant_copy form-title mb-5 mt-5 flex-nowrap text-center text-md-left pb-4 pb-md-0 js5-input-div" id="js5-form" ng-controller="enterCtrl"><span class="js5-input-divSpan">驗證碼 </span><input type="text" placeholder="不區分大小寫" class='check_code js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:150px"><input type="text" class="js5-authCode mx-3" style="width:100px;background-color:var(--red);color:var(--yellow);font-size:2rem;font-weight:bold;text-align:center;letter-spacing:.25rem;border:1px solid white" value="" id="js5-authCode" ng-model="showAuthCode" disabled="disabled" oncopy="return false">
-                        <a class='recode' href="javascript:"><i class="fas fa-undo-alt" style="font-size:1.4rem;letter-spacing:0"> 重新獲取驗證碼</i></a>
-                    </div></form>
+                        <div class="cant_copy form-title mb-5 mt-5 flex-nowrap text-center text-md-left pb-4 pb-md-0 js5-input-div" id="js5-form" ng-controller="enterCtrl"><span class="js5-input-divSpan">驗證碼 </span><input type="text" placeholder="不區分大小寫" class='check_code js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:150px"><input type="text" class="js5-authCode mx-3" style="width:100px;background-color:var(--red);color:var(--yellow);font-size:2rem;font-weight:bold;text-align:center;letter-spacing:.25rem;border:1px solid white" value="" id="js5-authCode" ng-model="showAuthCode" disabled="disabled" oncopy="return false">
+                            <a class='recode' href="javascript:"><i class="fas fa-undo-alt" style="font-size:1.4rem;letter-spacing:0"> 重新獲取驗證碼</i></a>
+                        </div>
+                    </form>
                     <!-- 活動資訊 -->
                     <div class="serve col-md-5 h-100 px-4 pr-lg-3 order-1 order-md-2">
                         <p class='t1 text-center'>活動資訊</p>
@@ -386,6 +403,7 @@ $page_title = '啤女BeerU:品飲會:立即報名';
 
 <!-- my script -->
 <script src='../js/event/event_vaild.js'></script>
+<script src='../js/event/event.js'></script>
 
 
 

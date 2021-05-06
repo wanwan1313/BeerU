@@ -920,7 +920,6 @@ $page_title = '啤女BeerU:啤酒地圖';
         </div>
         </div>
 
-
         <!-- popup -->
         <div class="comtainer-fulid popup align-items-center">
             <div class="row bg-black">
@@ -1078,5 +1077,14 @@ $page_title = '啤女BeerU:啤酒地圖';
 <script src='../js/map/map_phone_option.js'></script>
 <script src='../js/map/map-rwd-show-hide.js'></script>
 
+
+<!-- 返回上一頁時，強迫改網址！ -->
+<script>
+let url = location.pathname + '#world'
+history.pushState({
+    url: url,
+    title: document.title
+}, document.title, url)
+</script>
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>

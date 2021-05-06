@@ -21,3 +21,11 @@ $('.title_us, .title_eu, .title_as, .title_au').toggleClass('animate__animated a
 if ($(window).height() < 815) {
     $("html, body").animate({ scrollTop: 100 }, "slow")
 }
+// -------------------
+
+// 回到上一頁之後加上#world
+let url = location.pathname + '#world'
+history.pushState({
+    url: url,
+    title: document.title
+}, document.title, url)
