@@ -10,7 +10,7 @@
     display: none;
 }
 
-.discount-box {
+.discount-popup .discount-box {
     width: 700px;
     background-color: #fff;
     border-radius: 15px;
@@ -24,7 +24,7 @@
 
 /* 手機版 */
 @media (max-width: 991px) {
-.discount-box {
+    .discount-popup .discount-box {
     width: 95%;
     height: 60vh;
     padding: 10px 5px;
@@ -32,34 +32,34 @@
 }
 }
 
-.box-title img {
+.discount-popup .box-title img {
     width: 80px;
     margin-right: 10px;
 }
 
-.box-title p {
+.discount-popup .box-title p {
     font-size: 1.8rem;
     padding: 5px 40px;
     border-bottom: 1.5px solid var(--blue);
     color: var(--blue);
 }
 
-.exp {
+.discount-popup .exp {
     margin: 10px 0;
     color: var(--red);
     font-weight: 700;
 }
 
-.coupon-list {
+.discount-popup .coupon-list {
     min-height: 300px;
 }
 
-.coupon-wrap {
+.discount-popup .coupon-wrap {
     padding: 0 5px;
     margin-bottom: 10px;
 }
 
-.coupon {
+.discount-popup .coupon {
     background-color: var(--gold);
     border-radius: 15px;
     border: 1.5px solid var(--gold);
@@ -69,27 +69,27 @@
     cursor: pointer;
 }
 
-.coupon:hover {
+.discount-popup .coupon:hover {
     border: 1.5px solid var(--red);
     box-shadow: 0px 2px 10px rgba(80, 80, 78, 0.822);
 }
 
-.coupon.choose {
+.discount-popup .coupon.choose {
     border: 2px solid var(--red);
     box-shadow: 0px 2px 10px rgba(80, 80, 78, 0.822);
 }
 
-.coupon p:nth-of-type(1) {
+.discount-popup .coupon p:nth-of-type(1) {
     color: #fff;
     font-size: 1.8rem;
     padding: 15px 0;
 }
 
-.coupon .num {
+.discount-popup .coupon .num {
     font-size: 2.4rem;
 }
 
-.coupon p:nth-of-type(2) {
+.discount-popup .coupon p:nth-of-type(2) {
     font-size: 1.2rem;
     background-color: #fff;
     border-radius: 0 0 14px 14px;
@@ -97,7 +97,7 @@
     
 }
 
-button.confirm, button.cancel{
+.discount-popup button.confirm, .discount-popup button.cancel{
     background-color: #fff;
     border: 1.5px solid var(--gold);
     border-radius: 10px;
@@ -108,7 +108,7 @@ button.confirm, button.cancel{
     margin: 8px 5px;
 }
 
-button.confirm:hover, button.cancel:hover {
+.discount-popup button.confirm:hover, .discount-popup button.cancel:hover {
     box-shadow: 0px 0px 10px rgb(196, 183, 147);
 }
 

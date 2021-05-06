@@ -8,7 +8,7 @@
 
 /* 背景圖 */
 
-.checkout-wrap {
+.checkout .checkout-wrap {
     width: 100%;
     height: 100%;
     background: url(../../images/common/bg/marble-bg-l.png);
@@ -21,14 +21,14 @@
 /* --------------------------------大標---------------------------------- */
 
 /* 圈圈圖案 */
-.checkout-title {
+.checkout .checkout-title {
     background: url(../../images/common/h1_2_b.svg) no-repeat center center;
     background-size: contain;
 
 }
 
 /* 標題文字 */
-.checkout-title p {
+.checkout .checkout-title p {
     color: var(--blue);
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
@@ -41,7 +41,7 @@
 }
 
 /* 左邊雕飾 */
-.checkout-title p::before {
+.checkout .checkout-title p::before {
     content: '';
     display: block;
     position: absolute;
@@ -57,7 +57,7 @@
 
 
 /* 右邊雕飾 */
-.checkout-title p::after {
+.checkout .checkout-title p::after {
     content: '';
     display: block;
     position: absolute;
@@ -73,19 +73,19 @@
 
 /* 手機版 改字和雕飾大小*/
 @media (max-width: 991px) {
-.checkout-title p {
+.checkout .checkout-title p {
     font-size: 2.4rem;
     letter-spacing: 0.8rem;
     text-indent:0.8rem;
 }
 
-.checkout-title p::before {
+.checkout .checkout-title p::before {
     width: 60px;
     height: 32%;
 
 }
 
-.checkout-title p::after {
+.checkout .checkout-title p::after {
     width: 60px;
     height: 32%;
 
@@ -97,7 +97,7 @@
 
 
 /* ----------------------步驟顯示------------------------ */
-.checkout-step {
+.checkout .checkout-step {
     margin: 25px 0 30px;
     color: var(--gold);
     font-weight: 800;
@@ -108,7 +108,7 @@
     padding: 0;
 }
 
-.checkout-step::before {
+.checkout .checkout-step::before {
     content: '';
     display: block;
     width: 100%;
@@ -120,7 +120,7 @@
     transform: translateY(-50%);
 }
 
-.step {
+.checkout .step {
     width: 40px;
     height: 100%;
     border: 3px solid var(--gold);
@@ -131,7 +131,7 @@
     transition: .3s;
 }
 
-.step.on {
+.checkout .step.on {
     background-color: var(--gold);
     color: #fff;
 }
@@ -139,16 +139,16 @@
 
 
 /* ------------------------物流------------------------ */
-#select-ship {
+.checkout #select-ship {
     display: none;
 }
 
-.shiptitle, .recipient-title, .paytitle {
+.checkout .shiptitle, .recipient-title, .paytitle {
     font-size: 1.7rem;
     letter-spacing: 0.15rem;
 }
 
-.ship, .payment {
+.checkout .ship, .checkout .payment {
     border: 1.2px solid var(--gold);
     color: var(--gold);
     width: 100%;
@@ -159,7 +159,7 @@
 }
 
 /* 收件人 & 結帳商品外框 */
-.checkoutbox {
+.checkout .checkoutbox {
     margin-top: 30px;
     border: 1.5px solid var(--gold);
     border-radius: 15px;
@@ -168,19 +168,19 @@
     background-color: #fff;
 }
 
-.recipient label {
+.checkout .recipient label {
     color: var(--gold);
     margin: 0;
 }
 
-.remind {
+.checkout .remind {
     font-size: 1.3rem;
     color: rgb(165, 165, 165);
     line-height: 1.5rem;
     margin-top: 10px;
 }
 
-.recipient input[type=text] {
+.checkout .recipient input[type=text] {
     border: 1.2px solid var(--gold);
     color: var(--blue);
     padding: 2px 5px;
@@ -188,7 +188,7 @@
     outline: none;
 }
 
-.re_city, .re_dist {
+.checkout .re_city, .checkout .re_dist {
     border: 1.2px solid var(--gold);
     color: var(--blue);
     padding: 5px;
@@ -198,11 +198,11 @@
     margin-bottom: 5px;
 }
 
-.re_add {
+.checkout .re_add {
     width: 100%;
 }
 
-.remarks {
+.checkout .remarks {
     width: 100%;
     border: 1.2px solid var(--gold);
     color: var(--blue);
@@ -211,7 +211,7 @@
     outline: none;
 }
 
-.select-711 {
+.checkout .select-711 {
     background-color: var(--blue);
     border: 1px solid var(--gold);
     color: #fff;
@@ -222,13 +222,13 @@
     text-align: center;
 }
 
-.store {
+.checkout .store {
     display: none;
 }
 
 
 /* 下一步按鈕 & 確認購買按鈕 */
-.submit button {
+.checkout .submit button {
     background-color: var(--pink);
     color: #fff;
     font-size: 1.8rem;
@@ -239,54 +239,54 @@
     transition: .5s;
 }
 
-.submit button:hover {
+.checkout .submit button:hover {
     transform: scale(1.05,1.05);
 }
 
 
 /* --------------------------金流--------------------- */
-#select-payment {
+.checkout #select-payment {
     display: none;
 }
 
-.buy-product {
+.checkout .buy-product {
     padding: 10px 10px 10px 20px;
 }
 
-.p-thead, .my-checkout-p {
+.checkout .p-thead, .checkout .my-checkout-p {
     border-bottom: 0.5px solid #BABABA;
     padding: 10px 0 ;
 }
 
-.thisp-pic {
+.checkout .thisp-pic {
     width: 30px;
     height: 80px;
 }
 
-.thisp-pic img {
+.checkout .thisp-pic img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.thisp-name {
+.checkout .thisp-name {
     color: var(--gold);
     font-family: 'Noto Serif TC', serif;
     line-height: 1.8rem;
     margin-left: 10px;
     font-weight: 600;
 }
-.e-name {
+.checkout .e-name {
     font-size: 1.3rem;
     opacity: .8;
 }
 
-.coupon, .shipping {
+.checkout .coupon, .checkout .shipping {
     font-size: 1.5rem;
     line-height: 2rem;
 }
 
-.total-price {
+.checkout .total-price {
     color: var(--red);
 }
 
@@ -294,11 +294,11 @@
 
 
 /* -----------------------訂單完成---------------------- */
-#complete-order {
+.checkout #complete-order {
     display: none;
 }
 
-.complete-title {
+.checkout .complete-title {
     width: 100%;
     border-bottom: 2px solid var(--blue);
     font-size: 2rem;
@@ -306,64 +306,64 @@
     margin-bottom: 20px;
 }
 
-.order-detail>p {
+.checkout .order-detail>p {
     font-size: 1.5rem;
     color: var(--gold);
 }
 
-.order-d-box {
+.checkout .order-d-box {
     border: 2px solid var(--blue);
     border-radius: 25px;
 }
 
 /* 手機版 */ 
 @media (max-width: 991px) { 
-.order-d-box {
+.checkout .order-d-box {
     border-radius: 0;
 }
 }
 
 
-.v-thead {
+.checkout .v-thead {
     border-bottom: 0.5px solid #BABABA;
     font-weight: 500;
 }
 
-.v-tbody {
+.checkout .v-tbody {
     border-bottom: 0.5px solid #BABABA;
     padding: 20px 0;
     font-size: 1.5rem;
     margin-bottom: 15px;
 }
 
-.d-header>p {
+.checkout .d-header>p {
     background-color: #E7E7E7;
     font-weight: 500;
 }
 
-.re-content {
+.checkout .re-content {
     background-color: #F5F5F5;
     padding: 10px 0;
 }
 
-.re-thead {
+.checkout .re-thead {
     border-bottom: 0.5px solid #BABABA;
     color: var(--gold);
 }
 
-.re-tbody {
+.checkout .re-tbody {
     padding: 10px 0;
 }
 
 
 /* 手機版 */ 
 @media (max-width: 991px) { 
-    .re-thead {
+    .checkout .re-thead {
         border-bottom:none;
         color: var(--gold);
     }
     
-    .re-tbody {
+    .checkout .re-tbody {
         padding: 0;
         
     }
@@ -373,7 +373,7 @@
 
 
 /* -----------------繼續購物--------------- */
-.keep-shop {
+.checkout .keep-shop {
     color: var(--gold);
     font-size: 2rem;
     transition: .5s;
@@ -382,12 +382,12 @@
 
 }
 
-.keep-shop:hover {
+.checkout .keep-shop:hover {
     opacity: .7;
 }
 
 /* ------------------返回----------------------- */
-.backtocart, .backtoship {
+.checkout .backtocart, .backtoship {
     color: var(--gold);
     position: absolute;
     top: 120px;
@@ -396,18 +396,18 @@
     transition: .5s;
 }
 
-.backtocart:hover , .backtoship:hover {
+.checkout .backtocart:hover , .backtoship:hover {
     opacity: .7;
 }
 
 
 /* -------------------錯誤格式------------------ */
 
-.warn {
+.checkout .warn {
     color: var(--pink);
 }
 
-.recipient input[type=text].borderispink, .re_city.borderispink, .re_dist.borderispink {
+.checkout .recipient input[type=text].borderispink, .checkout .re_city.borderispink, .re_dist.borderispink {
     border: 1.2px solid var(--pink);
 }
 
