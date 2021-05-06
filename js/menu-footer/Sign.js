@@ -1,6 +1,6 @@
 const newAccount_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 const $nickname = $('#nickname'),
-      $newAccount = $('newAccount');
+      $newAccount = $('#newAccount');
 
 const fileds = [$nickname, $newAccount];
 
