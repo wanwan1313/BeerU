@@ -14,12 +14,16 @@ function checkform_sign(){
     //     });
 
 
+
+
     let isPass = true;
 
-    // if(! email_re.test($newAccount.val())){
+
+    // 錯誤狀態
+    // if(! newAccount_re.test($newAccount.val())){
     //         isPass = false;
-    //         $email.css('border', '1px solid red');
-    //         $email.next().text('請輸入正確的 email');
+    //         $newAccount.css('border', '1px solid red');
+    //         $newAccount.next().text('請輸入正確的 email');
     //     }
 
 
@@ -29,11 +33,11 @@ function checkform_sign(){
                 $(document.Sign).serialize(),
                 function(data){
                     console.log(data)
-                    // if(data.success){
-                    //     alert('註冊成功');
-                    // } else {
-                    //     alert(data.error);
-                    // }
+                    if(data.success){
+                        alert('註冊成功');
+                    } else {
+                        alert(data.error);
+                    }
                 },
                 'json'
             )
