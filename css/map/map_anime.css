@@ -1,0 +1,124 @@
+/* 桌機版大飛機動畫 */
+/* 飛到州 */
+.pipi_plane_to_us{
+    animation-name: pipi_plane_to_us;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+}
+
+@keyframes pipi_plane_to_us {
+    0% {
+        bottom:0;
+        left:0;
+        transform: scale(1);
+    }
+
+    50% {
+    }
+
+    100% {
+        bottom:140px;
+        left:120px;
+        transform: scale(0);
+        display: none;
+    }
+}
+.pipi_plane_to_eu{
+    animation-name: pipi_plane_to_eu;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+}
+
+@keyframes pipi_plane_to_eu {
+    0% {
+        bottom:0;
+        left:0;
+        transform: scale(1);
+    }
+
+    50% {
+    }
+
+    100% {
+        bottom:180px;
+        left:420px;
+        transform: scale(0);
+        display: none;
+    }
+}
+.pipi_plane_to_as{
+    animation-name: pipi_plane_to_as;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+}
+
+@keyframes pipi_plane_to_as {
+    0% {
+        bottom:0;
+        left:0;
+        transform: scale(1);
+    }
+
+    50% {
+    }
+
+    100% {
+        bottom:180px;
+        left:550px;
+        transform: scale(0);
+        display: none;
+    }
+}
+.pipi_plane_to_au{
+    animation-name: pipi_plane_to_au;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+}
+
+@keyframes pipi_plane_to_au {
+    0% {
+        bottom:0;
+        left:0;
+        transform: scale(1);
+    }
+
+    50% {
+    }
+
+    100% {
+        bottom:0px;
+        left:630px;
+        transform: scale(0);
+        display: none;
+    }
+}
+/* ----------------------------------- */
+/* 國旗飛下來 */
+/* .flag_down{
+    animation-name: flag_down;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+}
+
+@keyframes flag_down {
+    0% {
+        bottom:0;
+        left:0;
+        transform: scale(1);
+    }
+
+    50% {
+    }
+
+    100% {
+        bottom:0px;
+        left:630px;
+        transform: scale(0);
+        display: none;
+    }
+} */

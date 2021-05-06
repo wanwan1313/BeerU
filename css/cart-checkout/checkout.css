@@ -1,0 +1,413 @@
+.checkout {
+    width: 100%;
+    background-color: #fff;
+    color: var(--blue);
+    min-height: 90vh;
+}
+
+
+/* 背景圖 */
+
+.checkout .checkout-wrap {
+    width: 100%;
+    height: 100%;
+    background: url(../../images/common/bg/marble-bg-l.png);
+    background-size: 100% auto;
+    padding: 30px 0;
+}
+
+
+
+/* --------------------------------大標---------------------------------- */
+
+/* 圈圈圖案 */
+.checkout .checkout-title {
+    background: url(../../images/common/h1_2_b.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 標題文字 */
+.checkout .checkout-title p {
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 左邊雕飾 */
+.checkout .checkout-title p::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_left_b.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+
+/* 右邊雕飾 */
+.checkout .checkout-title p::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right:0;
+    transform: translate(115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_right_b.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 手機版 改字和雕飾大小*/
+@media (max-width: 991px) {
+.checkout .checkout-title p {
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    text-indent:0.8rem;
+}
+
+.checkout .checkout-title p::before {
+    width: 60px;
+    height: 32%;
+
+}
+
+.checkout .checkout-title p::after {
+    width: 60px;
+    height: 32%;
+
+}
+
+
+}
+
+
+
+/* ----------------------步驟顯示------------------------ */
+.checkout .checkout-step {
+    margin: 25px 0 30px;
+    color: var(--gold);
+    font-weight: 800;
+    font-size: 2rem;
+    font-family: 'Noto Serif TC', serif;
+    text-align: center;
+    line-height: 34px;
+    padding: 0;
+}
+
+.checkout .checkout-step::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--gold);
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.checkout .step {
+    width: 40px;
+    height: 100%;
+    border: 3px solid var(--gold);
+    border-radius: 50%;
+    background-color: #fff;
+    position: relative;
+    z-index: 5;
+    transition: .3s;
+}
+
+.checkout .step.on {
+    background-color: var(--gold);
+    color: #fff;
+}
+
+
+
+/* ------------------------物流------------------------ */
+.checkout #select-ship {
+    display: none;
+}
+
+.checkout .shiptitle, .recipient-title, .paytitle {
+    font-size: 1.7rem;
+    letter-spacing: 0.15rem;
+}
+
+.checkout .ship, .checkout .payment {
+    border: 1.2px solid var(--gold);
+    color: var(--gold);
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    background-color: #fff;
+}
+
+/* 收件人 & 結帳商品外框 */
+.checkout .checkoutbox {
+    margin-top: 30px;
+    border: 1.5px solid var(--gold);
+    border-radius: 15px;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 10px rgb(211, 211, 211) inset;
+    background-color: #fff;
+}
+
+.checkout .recipient label {
+    color: var(--gold);
+    margin: 0;
+}
+
+.checkout .remind {
+    font-size: 1.3rem;
+    color: rgb(165, 165, 165);
+    line-height: 1.5rem;
+    margin-top: 10px;
+}
+
+.checkout .recipient input[type=text] {
+    border: 1.2px solid var(--gold);
+    color: var(--blue);
+    padding: 2px 5px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.checkout .re_city, .checkout .re_dist {
+    border: 1.2px solid var(--gold);
+    color: var(--blue);
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.checkout .re_add {
+    width: 100%;
+}
+
+.checkout .remarks {
+    width: 100%;
+    border: 1.2px solid var(--gold);
+    color: var(--blue);
+    padding: 2px 5px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.checkout .select-711 {
+    background-color: var(--blue);
+    border: 1px solid var(--gold);
+    color: #fff;
+    border-radius: 5px;
+    padding: 0 8px;
+    width: 130px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.checkout .store {
+    display: none;
+}
+
+
+/* 下一步按鈕 & 確認購買按鈕 */
+.checkout .submit button {
+    background-color: var(--pink);
+    color: #fff;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    border: none;
+    border-radius: 30px;
+    padding: 0 10px;
+    transition: .5s;
+}
+
+.checkout .submit button:hover {
+    transform: scale(1.05,1.05);
+}
+
+
+/* --------------------------金流--------------------- */
+.checkout #select-payment {
+    display: none;
+}
+
+.checkout .buy-product {
+    padding: 10px 10px 10px 20px;
+}
+
+.checkout .p-thead, .checkout .my-checkout-p {
+    border-bottom: 0.5px solid #BABABA;
+    padding: 10px 0 ;
+}
+
+.checkout .thisp-pic {
+    width: 30px;
+    height: 80px;
+}
+
+.checkout .thisp-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.checkout .thisp-name {
+    color: var(--gold);
+    font-family: 'Noto Serif TC', serif;
+    line-height: 1.8rem;
+    margin-left: 10px;
+    font-weight: 600;
+}
+.checkout .e-name {
+    font-size: 1.3rem;
+    opacity: .8;
+}
+
+.checkout .coupon, .checkout .shipping {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.checkout .total-price {
+    color: var(--red);
+}
+
+
+
+
+/* -----------------------訂單完成---------------------- */
+.checkout #complete-order {
+    display: none;
+}
+
+.checkout .complete-title {
+    width: 100%;
+    border-bottom: 2px solid var(--blue);
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.checkout .order-detail>p {
+    font-size: 1.5rem;
+    color: var(--gold);
+}
+
+.checkout .order-d-box {
+    border: 2px solid var(--blue);
+    border-radius: 25px;
+}
+
+/* 手機版 */ 
+@media (max-width: 991px) { 
+.checkout .order-d-box {
+    border-radius: 0;
+}
+}
+
+
+.checkout .v-thead {
+    border-bottom: 0.5px solid #BABABA;
+    font-weight: 500;
+}
+
+.checkout .v-tbody {
+    border-bottom: 0.5px solid #BABABA;
+    padding: 20px 0;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.checkout .d-header>p {
+    background-color: #E7E7E7;
+    font-weight: 500;
+}
+
+.checkout .re-content {
+    background-color: #F5F5F5;
+    padding: 10px 0;
+}
+
+.checkout .re-thead {
+    border-bottom: 0.5px solid #BABABA;
+    color: var(--gold);
+}
+
+.checkout .re-tbody {
+    padding: 10px 0;
+}
+
+
+/* 手機版 */ 
+@media (max-width: 991px) { 
+    .checkout .re-thead {
+        border-bottom:none;
+        color: var(--gold);
+    }
+    
+    .checkout .re-tbody {
+        padding: 0;
+        
+    }
+
+
+}
+
+
+/* -----------------繼續購物--------------- */
+.checkout .keep-shop {
+    color: var(--gold);
+    font-size: 2rem;
+    transition: .5s;
+    padding: 30px;
+    text-align: center;
+
+}
+
+.checkout .keep-shop:hover {
+    opacity: .7;
+}
+
+/* ------------------返回----------------------- */
+.checkout .backtocart, .backtoship {
+    color: var(--gold);
+    position: absolute;
+    top: 120px;
+    left: 30px;
+    z-index: 996;
+    transition: .5s;
+}
+
+.checkout .backtocart:hover , .backtoship:hover {
+    opacity: .7;
+}
+
+
+/* -------------------錯誤格式------------------ */
+
+.checkout .warn {
+    color: var(--pink);
+}
+
+.checkout .recipient input[type=text].borderispink, .checkout .re_city.borderispink, .re_dist.borderispink {
+    border: 1.2px solid var(--pink);
+}
+
