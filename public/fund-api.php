@@ -66,7 +66,7 @@ switch ($action) {
                     // 判斷有沒有從資料庫抓到商品資料
                     if (!empty($row)) {
                         $_SESSION['cart'][$p_sid] = $row;
-                        $_SESSION['cart'][$p_sid]['total'] = $p_qty;
+                        $_SESSION['cart'][$p_sid]['total'] = $p_tlp;
                         $output['msg'] = '已將商品加入購物車清單';
                     }
                 } else {
