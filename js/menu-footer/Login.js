@@ -27,7 +27,5 @@ function checkform_Login(){
 
 // 登出
 function Logout(){
-
     location.href= 'Logout-api.php';
-    history.go(-1);
 }
