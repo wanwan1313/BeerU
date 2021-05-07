@@ -395,7 +395,7 @@ $page_title = '啤女-精釀啤酒商品';
 
     function getURL(cate, page, hot, order, userSearch) {
 
-        if (userSearch == undefined) {
+        if (userSearch == undefined || userSearch == '') {
             let url = location.pathname + '?cate=' + cate + '&page=' + page + '&hot=' + hot + '&order=' + order
             history.pushState({
                 url: url,
@@ -595,7 +595,7 @@ $page_title = '啤女-精釀啤酒商品';
         page = 1
         getallproductData()
         toProductTop()
-        getURL(cate, page, hot, order)
+        getURL(cate, page, hot, order,userSearch)
         pages_wrap.css('transform', 'translateX(0px)')
 
     }
@@ -612,7 +612,7 @@ $page_title = '啤女-精釀啤酒商品';
         page = 1
         getallproductData()
         toProductTop()
-        getURL(cate, page, hot, order)
+        getURL(cate, page, hot, order, userSearch)
         pages_wrap.css('transform', 'translateX(0px)')
         $('.product-select').removeClass('on')
 

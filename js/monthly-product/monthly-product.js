@@ -1,13 +1,6 @@
-(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.0";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
 
 // 加入購物車功能
+
 
 // 手寫數量
 $('.buy-number').on('input', function () {
@@ -80,6 +73,7 @@ $('.add-cart').on('click', function () {
         'qty': qty
     }, function (data) {
         // console.log(data)
+        // $('.pop-up-1').zIndex(1000);
         $('.pop-up-1').fadeIn(150)
         $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
         $('.pop-up-1 .pop-up-text').text(data.msg)
@@ -92,3 +86,38 @@ $('.add-cart').on('click', function () {
 $('button.ok').on('click', function () {
     $('.general-pop-up').fadeOut(150)
 })
+
+// ----------------------text animation 1----------------------------
+
+jQuery(function ($) {
+
+    // Function which adds the 'animated' class to any '.animatable' in view
+    var doAnimations = function () {
+
+        // Calc current offset and get all animatables
+        var offset = $(window).scrollTop() + $(window).height(),
+            $animatables = $('.animatable');
+
+        // Unbind scroll handler if we have no animatables
+        if ($animatables.length == 0) {
+            $(window).off('scroll', doAnimations);
+        }
+
+        // Check all animatables and animate them if necessary
+        $animatables.each(function (i) {
+            var $animatable = $(this);
+            if (($animatable.offset().top + $animatable.height() - 20) < offset) {
+                $animatable.removeClass('animatable').addClass('animated');
+            }
+        });
+
+    };
+
+    // Hook doAnimations on scroll, and trigger a scroll
+    $(window).on('scroll', doAnimations);
+    $(window).trigger('scroll');
+
+
+});
+
+

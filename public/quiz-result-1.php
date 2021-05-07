@@ -5,7 +5,9 @@
 
 $page_title = '啤女BeerU:心理測驗結果';
 
-$psid = substr($_SERVER['QUERY_STRING'], 5);
+// $psid = substr($_SERVER['QUERY_STRING'], 5);
+
+$psid = 5;
 
 
 // 此頁商品
@@ -28,12 +30,17 @@ $merch_sid = $row['merch_sid'];
 
 
 // 推薦商品
-$c_SQL = "SELECT * FROM `products` WHERE `type_sid` = $type_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
+
+$c_SQL = "SELECT * FROM `products` WHERE `type_sid` = 52 AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
 $c_row = $pdo->query($c_SQL)->fetch();
 $c_row_sid = $c_row['sid'];
-$t_SQL = "SELECT * FROM `products` WHERE `type_sid` = $type_sid AND `sid` !=  $psid AND `sid` != $c_row_sid  ORDER BY RAND() LIMIT 1";
+
+
+$t_SQL = "SELECT * FROM `products` WHERE `type_sid` = 52 AND `sid` !=  $psid AND `sid` != $c_row_sid  ORDER BY RAND() LIMIT 1";
 $t_row = $pdo->query($t_SQL)->fetch();
-$b_SQL = "SELECT * FROM `products` WHERE `brand_sid` = $brands_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
+$t_row_sid = $t_row['sid'];
+
+$b_SQL = "SELECT * FROM `products` WHERE `type_sid` = 52 AND `sid` !=  $t_row_sid AND $c_row_sid ORDER BY RAND() LIMIT 1";
 $b_row = $pdo->query($b_SQL)->fetch();
 
 // new標籤
@@ -55,13 +62,17 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
-
+<?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
+<section class="mobile-menu">
+    <?php include __DIR__ . '../../php/common/category.php' ?>
+</section>
 
 <section class="quiz-result-wrap">
     <div class="container">
         <div class="row">
             <div class="col-12 result-info-wrap mt-5">
-                <p class="result-title">適合你的精釀啤酒類型：<span>皮爾森啤酒</span></p>
+                <p class="result-title">適合你的精釀啤酒類型：<span>司陶特啤酒</span></p>
                 <p class="result-info">
                     有些人平常個性內向，很少表達自己真正的想法與見解，只有在特定時間與特定人面前才會展現能力。但在酒後他們卻判若兩人，變得善於社交，侃侃而談，思維敏捷反應快速。如果是工作酒局，那則能在使命必達的同時，也能體恤下屬。這樣的人其實有強烈的進取心，與遠大的抱負。
                     平常安靜，酒後健談，對你們來說，酒精是釋放壓力的一種方式。</p>
@@ -69,14 +80,14 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
         </div>
     </div>
 
-    <!-- 相關商品&商品評價-->
-    <div class="quiz-result-wrap">
+    <!-- 推薦商品-->
+    <section class="quiz-result-wrap">
         <div class="container">
 
-            <!-- 相關商品 -->
+            <!-- 推薦商品 -->
             <div class="row related flex-wrap">
                 <div class="col-12 rpco-title">
-                    <p>相關商品</p>
+                    <p>推薦商品</p>
                 </div>
                 <div class="col-12 d-flex related-p">
                     <!-- 商品BOX -->
@@ -284,7 +295,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 </a>
             </div>
         </div>
-    </div>
+    </section>
 </section>
 
 
