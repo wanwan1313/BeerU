@@ -24,7 +24,7 @@
        letter-spacing: .25rem;
    }
    /* 2.1 */
-   .event .event-banner img {
+   .event .event-banner .banner_bg {
        min-width: 1200px;
        max-width: 2000px;
        /* 圖片置中 */
@@ -38,6 +38,225 @@
        bottom: 30%;
        /*  */
    }
+   @media (max-width: 992px) {
+    .event .event-banner .banner_bg {
+        bottom: 40%;
+    }
+    }
+    
+   .event .event-banner .beer_mug {
+   width: 250px;
+    /* 圖片置中 */
+    display: block;
+    margin: auto;
+    /* 圖片置底 */
+    position: absolute;
+    bottom: -300px;
+
+    /*  */
+}
+
+@media (max-width: 992px) {
+    .event .event-banner .beer_mug {
+   width: 150px;
+        bottom: -280px;
+        left:0%;
+    }
+    }
+
+    .event .event-banner .beer_mug_b {
+        width: 210px;
+         /* 圖片置中 */
+         display: block;
+         margin: auto;
+         /* 圖片置底 */
+         position: absolute;
+         bottom: -250px;
+         left:14%;
+         animation-name: beer_mug_b;
+         animation-duration: 1.15s;
+         animation-timing-function: linear;
+         animation-fill-mode:forwards;
+         /*  */
+     }
+
+     @keyframes beer_mug_b {
+        0% {
+            bottom: -300px;
+            -webkit-mask-image: linear-gradient( transparent 0%,transparent  20%,transparent 40%, transparent 60%,transparent 80%, #000  100%)
+        }
+    
+        96% {
+            -webkit-mask-image: linear-gradient( transparent 0%,transparent 20%,transparent 40%, transparent 60%,#000 80%, #000 100%);
+        }
+
+        97% {
+            -webkit-mask-image: linear-gradient(transparent 0%,transparent  20%,transparent  40%, #000 60%,#000  80%, #000 100%);
+        }
+
+        98% {
+            -webkit-mask-image: linear-gradient(transparent 0%,transparent 20%,#000 40%, #000 60%,#000 80%, #000 100%);
+        }
+
+        99% {
+            -webkit-mask-image: linear-gradient(#000  0%,#000  20%,#000  40%, #000 60%,#000  80%, #000 100%);
+        }
+    
+        100% {
+            bottom: -250px;
+            left:14%;
+            -webkit-mask-image: linear-gradient(-15deg,#000 0%,#000 20%,#000 40%, #000 60%,#000 80%, #000 100%);
+    
+        }
+
+
+    }
+
+     @media (max-width: 992px) {
+         .event .event-banner .beer_mug_b {
+        width: 120px;
+             bottom: -240px;
+             left:9%;
+         }
+
+         @keyframes beer_mug_b {
+            0% {
+                bottom: -300px;
+                -webkit-mask-image: linear-gradient( transparent 0%,transparent  20%,transparent 40%, transparent 60%,transparent 80%, #000  100%)
+            }
+        
+            96% {
+                -webkit-mask-image: linear-gradient( transparent 0%,transparent 20%,transparent 40%, transparent 60%,#000 80%, #000 100%);
+            }
+    
+            97% {
+                -webkit-mask-image: linear-gradient(transparent 0%,transparent  20%,transparent  40%, #000 60%,#000  80%, #000 100%);
+            }
+    
+            98% {
+                -webkit-mask-image: linear-gradient(transparent 0%,transparent 20%,#000 40%, #000 60%,#000 80%, #000 100%);
+            }
+    
+            99% {
+                -webkit-mask-image: linear-gradient(#000  0%,#000  20%,#000  40%, #000 60%,#000  80%, #000 100%);
+            }
+        
+            100% {
+                bottom: -240px;
+                left:9%;
+                -webkit-mask-image: linear-gradient(-15deg,#000 0%,#000 20%,#000 40%, #000 60%,#000 80%, #000 100%);
+        
+            }
+        }
+         }
+     
+    .event .event-banner .pipi_beer {
+        width: 440px;
+         /* 圖片置中 */
+         display: block;
+         margin: auto;
+         /* 圖片置底 */
+         position: absolute;
+         bottom: -260px;
+         left:250px;
+         /*  */
+     }
+     @media (max-width: 992px) {
+         .event .event-banner .pipi_beer {
+        width: 260px;
+             bottom: -250px;
+             left:140px;
+         }
+         }
+
+         .event .event-banner .pipi_beer_b {
+            width: 240px;
+             /* 圖片置中 */
+             display: block;
+             margin: auto;
+             /* 圖片置底 */
+             position: absolute;
+             bottom: -200px;
+             left:210px;
+             /* opacity:0; */
+             animation-name: pipi_beer_b;
+             animation-duration: 1.15s;
+             animation-timing-function: linear;
+            animation-fill-mode:forwards;
+            /* animation-delay:1s; */
+             /*  */
+         }
+
+         @keyframes pipi_beer_b {
+            0% {
+                bottom: -300px;
+             left:300px;
+                -webkit-mask-image: linear-gradient(-15deg, #000 0%,transparent  20%,transparent 40%, transparent 60%,transparent 80%, transparent 100%);
+            }
+    
+            96% {
+                -webkit-mask-image: linear-gradient(-15deg, #000 0%,transparent 20%,transparent 40%, transparent 60%,transparent  80%, transparent 100%);
+            }
+
+            97% {
+                -webkit-mask-image: linear-gradient(-15deg, #000 0%,#000 20%,#000 40%, transparent  60%,transparent  80%, transparent 100%);
+            }
+
+            98% {
+                -webkit-mask-image: linear-gradient(-15deg, #000 0%,#000 20%,#000 40%, #000 60%,transparent  80%, transparent 100%);
+            }
+
+            99% {
+                -webkit-mask-image: linear-gradient(-15deg,#000  0%,#000  20%,#000  40%, #000 60%,#000  80%, #000 100%);
+            }
+        
+            100% {
+                bottom: -200px;
+             left:210px;
+             -webkit-mask-image: linear-gradient(-15deg,#000 0%,#000 20%,#000 40%, #000 60%,#000 80%, #000 100%);
+
+            }
+        }
+         @media (max-width: 992px) {
+             .event .event-banner .pipi_beer_b {
+            width: 140px;
+                 bottom: -210px;
+                 left: 120px;
+             }
+
+             @keyframes pipi_beer_b {
+                0% {
+                    bottom: -310px;
+                 left:200px;
+                 -webkit-mask-image: linear-gradient(-15deg, #000 0%,transparent  20%,transparent 40%, transparent 60%,transparent 80%, transparent 100%);
+                }
+            
+                96% {
+                    -webkit-mask-image: linear-gradient(-15deg, #000 0%,transparent 20%,transparent 40%, transparent 60%,transparent  80%, transparent 100%);
+                }
+    
+                97% {
+                    -webkit-mask-image: linear-gradient(-15deg, #000 0%,#000 20%,#000 40%, transparent  60%,transparent  80%, transparent 100%);
+                }
+    
+                98% {
+                    -webkit-mask-image: linear-gradient(-15deg, #000 0%,#000 20%,#000 40%, #000 60%,transparent  80%, transparent 100%);
+                }
+    
+                99% {
+                    -webkit-mask-image: linear-gradient(-15deg,#000  0%,#000  20%,#000  40%, #000 60%,#000  80%, #000 100%);
+                }
+            
+                100% {
+                    bottom: -210px;
+                    left: 120px;
+                    -webkit-mask-image: linear-gradient(-15deg,#000 0%,#000 20%,#000 40%, #000 60%,#000 80%, #000 100%);
+    
+                }
+             }    
+            }       
+
+
    /* 2.2 */
    .event .event-banner:nth-of-type(2){
        margin-top: 30px;
@@ -53,8 +272,16 @@
        margin-top: 25vh;
        white-space: nowrap;
        /* top: 30%; */
-       /* left: 20% */
+       left: 3%
    }
+
+   @media (max-width: 992px) {
+    .event .event-banner p {
+        top: 110px;
+
+        left: 6%;
+    }
+    }
  /*  */
 
  /* 3.content */

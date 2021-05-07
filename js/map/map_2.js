@@ -1,13 +1,15 @@
 $('.us, .eu, .as, .au').hide()
-// $('.carousel').carousel()
+
 // 桌機版
 // 點選飛到:美洲
-$('.world>svg>a:nth-of-type(1)>path, .title_us').click(function () {
+
+$('.world>svg>a:nth-of-type(1)>path, .title_us, .part:nth-of-type(1)').click(function () {
     console.log("us");
     $('.pipi_plane_big img').toggleClass('animate__animated animate__pulse')
         .removeClass('infinite')
         .toggleClass('pipi_plane_to_us')
-    $('.world').delay(1000).fadeOut(500)
+    $('.world').delay(500).fadeOut(500)
+    $('.phone-option').fadeOut(500)
     $('.world-eachs').delay(1000).fadeIn(500)
     $('.us').show()
     setTimeout(function () {
@@ -22,11 +24,12 @@ $('.world>svg>a:nth-of-type(1)>path, .title_us').click(function () {
 })
 
 // 點選飛到:歐洲
-$('.world>svg>a:nth-of-type(2)>path, .title_eu').click(function () {
+$('.world>svg>a:nth-of-type(2)>path, .title_eu, .part:nth-of-type(2)').click(function () {
     $('.pipi_plane_big img').toggleClass('animate__animated animate__pulse')
         .removeClass('infinite')
         .toggleClass('pipi_plane_to_eu')
-    $('.world').delay(1000).fadeOut(500)
+    $('.world').delay(500).fadeOut(500)
+    $('.phone-option').fadeOut(500)
     $('.world-eachs').delay(1000).fadeIn(500)
     $('.us, .as, .au').hide()
     $('.eu').show()
@@ -42,11 +45,12 @@ $('.world>svg>a:nth-of-type(2)>path, .title_eu').click(function () {
     $('.eu .arrow-left, .eu .arrow-right').toggleClass('animate__animated animate__pulse').toggleClass('infinite')
 })
 // 點選飛到:亞洲
-$('.world>svg>a:nth-of-type(3)>path, .title_as').click(function () {
+$('.world>svg>a:nth-of-type(3)>path, .title_as ,.part:nth-of-type(3)').click(function () {
     $('.pipi_plane_big img').toggleClass('animate__animated animate__pulse')
         .removeClass('infinite')
         .toggleClass('pipi_plane_to_eu')
-    $('.world').delay(1000).fadeOut(500)
+    $('.world').delay(500).fadeOut(500)
+    $('.phone-option').fadeOut(500)
     $('.world-eachs').delay(1000).fadeIn(500)
     // $('.us, .eu, .au').hide()
     $('.as').show()
@@ -62,11 +66,12 @@ $('.world>svg>a:nth-of-type(3)>path, .title_as').click(function () {
     $('.as .arrow-left, .eu .arrow-right').toggleClass('animate__animated animate__pulse').toggleClass('infinite')
 })
 // 點選飛到:大洋洲
-$('.world>svg>a:nth-of-type(4)>path, .title_au').click(function () {
+$('.world>svg>a:nth-of-type(4)>path, .title_au ,.part:nth-of-type(4)').click(function () {
     $('.pipi_plane_big img').toggleClass('animate__animated animate__pulse')
         .removeClass('infinite')
         .toggleClass('pipi_plane_to_au')
-    $('.world').delay(1000).fadeOut(500)
+    $('.world').delay(500).fadeOut(500)
+    $('.phone-option').fadeOut(500)
     $('.world-eachs').delay(1000).fadeIn(500)
     // $('.us, .eu, .au').hide()
     $('.au').show()
@@ -85,7 +90,7 @@ $('.world>svg>a:nth-of-type(4)>path, .title_au').click(function () {
 
 
 
-// -------------------------
+// --------------------------------------------------------------------
 // 輪播牆-美洲
 
 // 輪播牆-歐洲
@@ -94,7 +99,7 @@ slick = 0
 // 左箭頭
 $('.eu .arrow-right').click(function () {
     slick += 1
-    if (slick > 7) {
+    if (slick > 6) {
         slick = 0;
     }
     $('.eu .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
@@ -109,6 +114,25 @@ $('.eu .arrow-left').click(function () {
     $('.eu .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
 })
 
+
+if ($(window).width() < 700) {
+    $('.eu .arrow-right').click(function () {
+        slick += 1
+        if (slick > 6) {
+            slick = 0;
+        }
+        $('.eu .manycountry').css('left', slick * -105 + 'px').css('transition', '.3s');
+    })
+    
+    // 右箭頭
+    $('.eu .arrow-left').click(function () {
+        slick -= 1
+        if (slick < 0) {
+            slick = 0;
+        }
+        $('.eu .manycountry').css('left', slick * -105 + 'px').css('transition', '.3s');
+    })
+}
 
 // 輪播牆-亞洲
 // let slick = 0
@@ -131,82 +155,24 @@ $('.as .arrow-left').click(function () {
     $('.as .manycountry').css('left', slick * -140 + 'px').css('transition', '.3s');
 })
 
-// 輪播牆-澳洲
-// --------------------------------------------------------------------
-// $('.parts>.part:nth-of-type(1)').click(function () {
-//     setTimeout(function () {
-//         $('.map .world').toggle('slow', 0);
-//         $('.parts').toggle('slow', 0)
-//     }, 1000);
-//     $('.world_us').delay(500).fadeIn('ease-in');
-//     $('.map_title').delay(1000).fadeIn('ease-in');
-//     setTimeout(function () {
-//         $('.countries').delay(5000).fadeIn('ease-in');
-//         $('.countries').css('display', 'flex').css('transition', '1s');
-//     }, 1500);
-//     $('.pipi_plane').delay(1500).fadeIn('ease-in');
-//     $('.pipi_plane').addClass('animate__animated animate__pulse').addClass('infinite');
-//     $('.balloon').delay(2000).show();
-// })
-// $('.parts>.part:nth-of-type(2)').click(function () {
-//     $('.map .world').css('opacity', '0').css('transition', '.5s');
-//     $('.parts').css('opacity', '0').css('transition', '.5s');
-//     setTimeout(function () {
-//         $('.map .world').toggle();
-//         $('.parts').toggle()
-//     }, 1000);
-//     $('.world_eu').delay(500).fadeIn('ease-in');
-//     $('.map_title').delay(1000).fadeIn('ease-in');
-//     setTimeout(function () {
-//         $('.countries').delay(5000).fadeIn('ease-in');
-//         $('.countries').css('display', 'flex').css('transition', '1s');
-//     }, 1500);
-//     $('.pipi_plane').delay(1500).fadeIn('ease-in');
-//     $('.pipi_plane').addClass('animate__animated animate__pulse').addClass('infinite');
-//     $('.balloon').delay(2000).show();
-// })
-// $('.parts>.part:nth-of-type(3)').click(function () {
-//     $('.map .world').css('opacity', '0').css('transition', '.5s');
-//     $('.parts').css('opacity', '0').css('transition', '.5s');
-//     setTimeout(function () {
-//         $('.map .world').toggle();
-//         $('.parts').toggle()
-//     }, 1000);
-//     $('.world_as').delay(500).fadeIn('ease-in');
-//     $('.map_title').delay(1000).fadeIn('ease-in');
-//     setTimeout(function () {
-//         $('.countries').delay(5000).fadeIn('ease-in');
-//         $('.countries').css('display', 'flex').css('transition', '1s');
-//     }, 1500);
-//     $('.pipi_plane').delay(1500).fadeIn('ease-in');
-//     $('.pipi_plane').addClass('animate__animated animate__pulse').addClass('infinite');
-//     $('.balloon').delay(2000).show();
-// })
-// $('.parts>.part:nth-of-type(4)').click(function () {
-//     $('.map .world').css('opacity', '0').css('transition', '.5s');
-//     $('.parts').css('opacity', '0').css('transition', '.5s');
-//     setTimeout(function () {
-//         $('.map .world').toggle();
-//         $('.parts').toggle()
-//     }, 1000);
-//     $('.world_au').delay(500).fadeIn('ease-in');
-//     $('.map_title').delay(1000).fadeIn('ease-in');
-//     setTimeout(function () {
-//         $('.countries').delay(5000).fadeIn('ease-in');
-//         $('.countries').css('display', 'flex').css('transition', '1s');
-//     }, 1500);
-//     $('.pipi_plane').delay(1500).fadeIn('ease-in');
-//     $('.pipi_plane').addClass('animate__animated animate__pulse').addClass('infinite');
-//     $('.balloon').delay(2000).show();
-// })
-
-// 返回上頁飛機-----------------------------------
-$('.pipi_plane').click(function () {
-    // $(this).removeClass('animate__animated animate__pulse')
-    //     $('.world-eachs').fadeOut();
-    //     $('.world').fadeIn()
-})
-
+if ($(window).width() < 700) {
+    $('.as .arrow-right').click(function () {
+        slick += 1
+        if (slick > 2) {
+            slick = 0;
+        }
+        $('.as .manycountry').css('left', slick * -105 + 'px').css('transition', '.3s');
+    })
+    
+    // 右箭頭
+    $('.as .arrow-left').click(function () {
+        slick -= 1
+        if (slick < 0) {
+            slick = 0;
+        }
+        $('.as .manycountry').css('left', slick * -105 + 'px').css('transition', '.3s');
+    })
+}
 
 // 氣球天使到處飄移--------------------------------
 function Fireworm() {

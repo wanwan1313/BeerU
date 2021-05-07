@@ -1,18 +1,31 @@
 // 若手機高度小於815會自動調整載入頁面時的位置，到地圖中間
-if ($(window).height() < 815) {
-    $("html, body").animate({ scrollTop: 100 }, "slow")
-}
+// if ($(window).height() < 815) {
+//     $("html, body").animate({ scrollTop: 100 }, "slow")
+// }
 
-$('.balloon, .flag, .bg-black').hide();
+// $('.balloon, .flag, .bg-black').hide();
 // $('.balloon').css('opacity',0).css('transition','3s')
 
 if ($(window).width() > 700) {
-    $('.parts').hide();
+    $('.parts').hide()
+    $('.pipi_plane_big').show()
 }
 else{
-    $('.parts').show();
+    $('.parts').show()
+    $('.pipi_plane_big').hide()
 }
 
+
+$(window).resize(function () {
+    if ($(window).width() > 700) {
+        $('.parts').hide()
+        $('.pipi_plane_big').show()
+    }
+    else{
+        $('.parts').show()
+        $('.pipi_plane_big').hide()
+    }
+})
 // 手機版-4大洲-滑鼠移到時有動畫，州移位----------------------------
 
 // 桌機版要寫2套
@@ -23,7 +36,7 @@ else{
 // 動畫
 // 各州名稱heartbeat---------------------------------------
 
-$('.title_us, .title_eu, .title_as, .title_au').toggleClass('animate__animated animate__pulse').toggleClass('infinite').toggleClass('shadow_gold')
+// $('.title_us, .title_eu, .title_as, .title_au').toggleClass('animate__animated animate__pulse').toggleClass('infinite').toggleClass('shadow_gold')
 
 // 各州hover時會變綠色--------------------------------------
 $('.world>svg>a:nth-of-type(1)>path, .world>svg>a:nth-of-type(2)>path, .world>svg>a:nth-of-type(3)>path, .world>svg>a:nth-of-type(4)>path').mouseenter(function () {
@@ -67,7 +80,7 @@ setTimeout(function () {
 
 
 // ---------------------------------------------------------
-if ($(window).width() < 700) {
+// if ($(window).width() < 700) {
     $('.part').eq(0).mouseenter(function () {
         $(this).addClass('animate__animated animate__fadeOutUp').addClass('infinite');
         $('.map .world').css('transform', 'translateX(30%)');
@@ -78,6 +91,7 @@ if ($(window).width() < 700) {
             $(this).removeClass('animate__animated animate__fadeOutUp').removeClass('infinite');
             $('.title_us').removeClass('animate__animated animate__heartBeat').removeClass('infinite').removeClass('shadow_gold');
             $('.world>svg>a:nth-of-type(1)>path').css('fill', '#b293627e');
+            // $('.map .world').css('transform', 'translateX(0%)')
         }
     })
 
@@ -91,6 +105,7 @@ if ($(window).width() < 700) {
             $(this).removeClass('animate__animated animate__fadeOutUp').removeClass('infinite');
             $('.title_eu').removeClass('animate__animated animate__heartBeat').removeClass('infinite').removeClass('shadow_gold');
             $('.world>svg>a:nth-of-type(2)>path').css('fill', '#b293627e');
+            // $('.map .world').css('transform', 'translateX(0%)')
         }
     })
 
@@ -104,6 +119,7 @@ if ($(window).width() < 700) {
             $(this).removeClass('animate__animated animate__fadeOutUp').removeClass('infinite');
             $('.title_as').removeClass('animate__animated animate__heartBeat').removeClass('infinite').removeClass('shadow_gold');
             $('.world>svg>a:nth-of-type(3)>path').css('fill', '#b293627e');
+            // $('.map .world').css('transform', 'translateX(0%)')
         }
     })
     $('.part').eq(3).mouseenter(function () {
@@ -116,12 +132,13 @@ if ($(window).width() < 700) {
             $(this).removeClass('animate__animated animate__fadeOutUp').removeClass('infinite');
             $('.title_au').removeClass('animate__animated animate__heartBeat').removeClass('infinite').removeClass('shadow_gold');
             $('.world>svg>a:nth-of-type(4)>path').css('fill', '#b293627e');
+            // $('.map .world').css('transform', 'translateX(0%)')
         }
     })
-}
-else {
-    $('.map .world').css('transform', 'translateX(0%)')
-}
+// }
+// else {
+    // $('.map .world').css('transform', 'translateX(0%)')
+// }
 // 桌機版時要回復原位:resize
 $(window).resize(function () {
     if ($(window).width() < 700) {
@@ -131,6 +148,7 @@ $(window).resize(function () {
         }).mouseleave(function () {
             {
                 $(this).removeClass('animate__animated animate__fadeOutUp');
+                $('.map .world').css('transform', 'translateX(0%)')
             }
         })
 
@@ -149,6 +167,7 @@ $(window).resize(function () {
         }).mouseleave(function () {
             {
                 $(this).removeClass('animate__animated animate__fadeOutUp');
+                $('.map .world').css('transform', 'translateX(0%)')
             }
         })
         $('.part').eq(3).mouseenter(function () {
@@ -157,6 +176,7 @@ $(window).resize(function () {
         }).mouseleave(function () {
             {
                 $(this).removeClass('animate__animated animate__fadeOutUp');
+                $('.map .world').css('transform', 'translate(0%)')
             }
         })
     }

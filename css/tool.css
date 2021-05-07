@@ -294,6 +294,17 @@ padding-right:0
 }
 
 /* 持續時間 */
+.time-7s{
+    animation-duration: 7s;
+}
+
+.time-3s{
+    animation-duration: 3s;
+}
+.time-2s{
+    animation-duration: 2s;
+}
+
 .time-075s{
     animation-duration: .75s;
 }
@@ -360,3 +371,20 @@ transform:translateX(0);
     transition: transform .5s ease-in-out 0s, opacity .5s ease-in-out 1s;
 } */
 
+
+.pipi_beer_fly{
+    animation-name: pipi_beer_fly;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+   animation-fill-mode:forwards;
+}
+
+@keyframes pipi_beer_fly {
+    0% {
+        transform: translate(10px,-10px);
+       
+    }
+
+    100% {
+        transform: translate(0);
+    }}
