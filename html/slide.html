@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <style>
+        .slide-showbox {
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .slide-1 {
+            width: 100%;
+            height: 100%;
+            background-color: antiquewhite;
+        }
+
+        .slide-2 {
+            width: 100%;
+            height: 100%;
+            background-color: lightblue;
+        }
+
+        .slide-3 {
+            width: 100%;
+            height: 100%;
+            background-color: lightpink;
+        }
+
+        .slide-4 {
+            width: 100%;
+            height: 100%;
+            background-color: lightsalmon;
+        }
+
+        .slide-5 {
+            width: 100%;
+            height: 100%;
+            background-color: lightseagreen;
+        }
+
+
+        /* 桌機版 */
+        @media (min-width: 993px) {
+            .slide-content {
+                height: 100%;
+                transform: translateX(-100%);
+            }
+        }
+
+        /* 手機版 */
+        @media (max-width: 992px) {
+            .slide-content {
+                height: 100%;
+                transform: translateX(-300%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10 slide-showbox">
+                <div class="slide-content d-flex ">
+                    <div class="col-12 col-lg-4 slide-3">slide-3(-3)</div>
+                    <div class="col-12 col-lg-4 slide-4">slide-4</div>
+                    <div class="col-12 col-lg-4 slide-5">slide-5(2)</div>
+                    <div class="col-12 col-lg-4 slide-1">slide-1</div>
+                    <div class="col-12 col-lg-4 slide-2">slide-2</div>
+                    <div class="col-12 col-lg-4 slide-3">slide-3</div>
+                    <div class="col-12 col-lg-4 slide-4">slide-4</div>
+                    <div class="col-12 col-lg-4 slide-5">slide-5</div>
+                    <div class="col-12 col-lg-4 slide-1">slide-1(5)</div>
+                    <div class="col-12 col-lg-4 slide-2">slide-2</div>
+                    <div class="col-12 col-lg-4 slide-3">slide-3</div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+            <button>
+                < </button>
+                    <button> > </button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+
+        let slideNum = 0
+        let slideNumM = 3
+        let movepersent = 33.33
+
+
+        $(window).resize(function () {
+            if ($(window).width() >= 993) {
+                $('.slide-content').css('transform', 'translateX(-100%)').css('transition', '0s')
+                slideNum = 0
+            }
+
+            if ($(window).width() < 993) {
+                $('.slide-content').css('transform', 'translateX(-300%)').css('transition', '0s')
+                slideNumM = 3
+            }
+        })
+
+
+        $('button').click(function () {
+
+            if ($(window).width() >= 992) {
+                if ($(this).index() == 0) {
+                    slideNum = slideNum - 1
+                    let myTranslateX = movepersent * slideNum + 100
+                    let divPosition = 'translateX(-' + myTranslateX + '%)'
+                    $('.slide-content').css('transform', divPosition).css('transition', '.5s')
+
+                    if (slideNum < -3) {
+                        $('.slide-content').css('transform', 'translateX(-133.33%)').css('transition', '0s')
+                        slideNum = 1
+                    }
+
+                    setTimeout(() => {
+                        if (slideNum == -3) {
+                            $('.slide-content').css('transform', 'translateX(-' + (100 + movepersent * 2) + '%)').css('transition', '0s')
+                            slideNum = 2
+                        }
+                    }, 500);
+                }
+                if ($(this).index() == 1) {
+                    slideNum = slideNum + 1
+                    let myTranslateX = movepersent * slideNum + 100
+                    let divPosition = 'translateX(-' + myTranslateX + '%)'
+                    $('.slide-content').css('transform', divPosition).css('transition', '.5s')
+
+                    if (slideNum > 5) {
+                        $('.slide-content').css('transform', 'translateX(-133.33%)').css('transition', '0s')
+                        slideNum = 1
+                    }
+
+                    setTimeout(() => {
+                        if (slideNum == 5) {
+                            $('.slide-content').css('transform', 'translateX(-100%)').css('transition', '0s')
+                            slideNum = 0
+                        }
+                    }, 500);
+                }
+
+            }
+
+
+            if ($(window).width() < 992) {
+
+                if ($(this).index() == 0) {
+                    slideNumM = slideNumM - 1
+                    let divPosition = 'translateX(-' + slideNumM + '00%)'
+                    $('.slide-content').css('transform', divPosition).css('transition', '.5s')
+
+                    setTimeout(() => {
+                        if (slideNumM == 2) {
+                            $('.slide-content').css('transform', 'translateX(-700%)').css('transition', '0s')
+                            slideNumM = 7
+                        }
+                    }, 500);
+                }
+                if ($(this).index() == 1) {
+                    slideNumM = slideNumM + 1
+                    let divPosition = 'translateX(-' + slideNumM + '00%)'
+                    $('.slide-content').css('transform', divPosition).css('transition', '.5s')
+
+                    if (slideNumM > 8) {
+                        $('.slide-content').css('transform', 'translateX(-400%)').css('transition', '0s')
+                        slideNumM = 4
+                    }
+
+                    setTimeout(() => {
+                        if (slideNumM == 8) {
+                            $('.slide-content').css('transform', 'translateX(-300%)').css('transition', '0s')
+                            slideNumM = 3
+                        }
+                    }, 500);
+                }
+            }
+
+        })
+    </script>
+
+
+</body>
+
+</html>

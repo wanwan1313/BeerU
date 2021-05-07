@@ -1,0 +1,368 @@
+/* ---------商品分類----------- */
+
+
+        /* 桌機版 */ 
+    @media (min-width: 992px) { 
+        .product-category .menu-logo {
+            display: none;
+        }
+        
+        
+        
+        /* 標題 */
+        .product-category .category-title {
+            font-family:'Noto Serif TC', serif;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin: 60px 0 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--gold);
+        }
+        .product-category .category-title p {
+            position: relative;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .product-category .category-title p::before {
+            content: '';
+            display: block;
+            background: url(../images/common/icon-beer.svg) no-repeat center center;
+            width: 15px;
+            height: 50px;
+            position: absolute;
+            bottom: 20%;
+            left: -30%;
+        }
+
+        /* 分類內容區域 */
+        .product-category .category {
+            width: 50%;
+            min-width: 150px;
+            max-width: 180px;
+            margin: 0 auto 50px;
+        }
+
+        /* 分類項目名稱 */
+        .product-category .category-name, .category-name0 {
+            margin: 20px 0 5px;
+            font-family:'Noto Serif TC', serif;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .5s;
+            position: relative;
+            user-select: none;
+        }
+
+        .product-category .category-name:hover , .category-name0:hover {
+            color: var(--gold);
+        }
+
+        .product-category .category-name::after, .category-name0::after {
+            content: '';
+            display: block;
+            background-color: var(--gold);
+            width: 0;
+            height: 0.5px;
+            position: absolute;
+            bottom: 0;
+            transition: .5s;
+        }
+
+        .product-category .category-name:hover::after, .category-name0:hover::after {
+            width: 100%;
+        }
+
+        .product-category .category-name-on::after {
+            content: '';
+            display: block;
+            background-color: #fff;
+            width: 100%;
+            height: 0.5px;
+            position: absolute;
+            bottom: 0;
+            transition: .5s;
+        }
+
+        .product-category .category-name p>i , .category-name0 p>i {
+            display: none;
+        }
+
+        /* 分類子項目 */
+        .product-category .category-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-category .category-sub-item-warp0 {
+            position: absolute;
+            margin-left: -600px;
+        }
+
+        .product-category .category-sub-item-warp  {
+            width: fit-content;
+            height: 0;
+            overflow: hidden;
+            padding-left: 15px;
+            transition: .5s;
+        }
+
+        .product-category .category-sub-item-warp-on {
+            height: auto;
+        }
+
+        .product-category .category-sub-item {
+            cursor: pointer;
+            transition: .5s;
+        }
+        .product-category .category-sub-item:hover {
+            color: var(--gold);
+        }
+
+        .product-category .category-sub-item.on {
+            color: var(--gold);
+        }
+
+        .product-category .category-out-item.on {
+            color: var(--gold);
+        }
+    } 
+        /* 手機版 */ 
+    @media (max-width: 991px) { 
+
+
+        .product-category {
+            width: 100%;
+            height: 100vh;
+            background-color: #163d50ef;
+            position: fixed;
+            z-index: 998;
+            transition: .5s;
+            transform: translateX(-100%);
+            margin-top: -108px;
+        }
+
+        .product-category.on {
+            transform: translateX(0);
+        }
+
+
+        /* logo */
+
+        .product-category .menu-logo-wrap {
+            width: 25%;
+            height: 12%;
+            margin: 0 auto;
+        }
+        .product-category .menu-logo {
+            width: 100%;
+            height: 100%;
+            padding: 10% 0 0;
+        }
+
+        .product-category .menu-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* 搜尋bar */
+        .product-category .menu-search {
+            width: fit-content;
+            margin: 0 auto;
+            color: var(--gold);
+            font-size: 1.8rem;
+            padding-top: 60px;
+            height: 12%;
+        }
+
+        .product-category .menu-search i {
+            font-size: 2.4rem;
+            margin-left: -30px;
+        }
+
+        .product-category .menu-search input.mobile-search-bar {
+            width: 80%;
+            border-radius: 15px;
+            background-color: transparent;
+            border: 1px solid var(--gold);
+            outline: none;
+            padding: 3px 10px;
+            margin-left: 8px;
+            color: #fff; 
+        }
+
+        .product-category .menu-search input.mobile-search-bar::-webkit-input-placeholder {
+            color: rgba(255, 255, 255, 0.267);
+            letter-spacing: 0.1rem;
+        }
+
+
+        /* 標題 */
+        .product-category .category-title {
+            font-family:'Noto Serif TC', serif;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-top: 20px ;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gold);
+            height: 10%;
+            padding: 6%;
+
+        }
+        .product-category .category-title p {
+            position: relative;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .product-category .category-title p::before {
+            content: '';
+            display: block;
+            background: url(../images/common/icon-beer.svg) no-repeat center center;
+            width: 15px;
+            height: 50px;
+            position: absolute;
+            bottom: 20%;
+            left: -30%;
+        }
+
+        /* 分類內容區域 */
+        .product-category .category {
+            width: 100%;
+        }
+
+        /* 分類項目名稱 */
+        .product-category .category-name, .category-name0 {
+            font-family:'Noto Serif TC', serif;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .5s;
+            position: relative;
+            user-select: none;
+            padding: 8px 60px;
+            width: 100%;
+        }
+
+        .product-category .category-name i , .category-name0 i {
+            width: 30px;
+        }
+
+        .product-category .category-name-on {
+            background-color: var(--gold);
+        }
+
+
+        /* 分類子項目 */
+        .product-category .category-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-category .category-sub-item-warp0 {
+            position: absolute;
+            margin-left: -600px;
+        }
+        .product-category .category-sub-item-warp  {
+            width: 90%;
+            margin: 0 auto;
+            height: 0;
+            overflow: scroll;
+            padding-top: 5px;
+            transition: .5s;
+            
+        }
+
+        .product-category .category-sub-item-warp-on {
+            height: auto;
+        }
+
+        .product-category .category-sub-item, .category-sub-item0 {
+            cursor: pointer;
+            transition: .5s;
+            font-size: 1.8rem;
+            line-height: 3.8rem;
+        }
+        .product-category .category-sub-item.on {
+            color: var(--gold);
+        }
+        .product-category .category-out-item.on {
+            color: var(--gold);
+        }
+
+
+        /* trigger */
+
+        .product-category .trigger {
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            z-index: 999;
+            left: 20px;
+            top: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: .5s;
+        }
+
+        .product-category .trigger span {
+            display: block;
+            width: 70%;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 2px;
+            margin: 0 auto;
+            transition: .3s;
+        }
+
+        .product-category .trigger span::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 2px;
+            margin-top: -9px;
+            transition: .3s;
+        }
+
+        .product-category .trigger span::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 2px;
+            margin-top: 15px;
+            transition: .3s;
+        }
+
+        .product-category .trigger.on {
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+
+
+        .product-category .trigger span.on {
+            background-color: transparent;
+        }
+
+        .product-category .trigger span.on::after {
+            transform: rotate(-45deg) translate(6px, -7px);
+
+        }
+
+        .product-category .trigger span.on::before {
+            transform: rotate(45deg) translate(6px, 7px);
+
+        }
+
+    }
+
+
+
+        

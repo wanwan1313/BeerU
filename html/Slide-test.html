@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>輪播牆測試</title>
+    <!-- reset -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <!-- FOA -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <!-- style -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/menu-footer/nav-bar.css">
+    <link rel="stylesheet" href="../css/menu-footer/footer.css">
+
+
+    <!-- 首頁CSS -->
+    <link rel="stylesheet" href="../css/Hompage/Slide-test.css">   
+  
+  
+    
+
+    <!-- js -->
+    <script src="../js/menu-footer/nav-bar.js" defer></script>
+
+    <style>
+     
+    </style>
+
+
+</head>
+ 
+<body>
+   
+    <!-- navbar -->
+<header class="beeru-nav-bar" id="beeru-nav-bar">
+        <div class="container">
+            <div
+                class="row  flex-column flex-lg-row align-items-center justify-content-lg-between align-items-lg-start">
+                <div class="trigger"><span></span></div>
+                <a href="">
+                    <div class="nav-bar-logo"><img src="../images/logo/logo_beeru_white.svg" alt=""></div>
+                </a>
+                <ul class="nav-bar-list list-unstyled d-flex justify-content-around">
+                    <li class="nav-item"><a href="">本月主打</a></li>
+                    <li class="nav-item"><a href="">新手入門</a></li>
+                    <li class="nav-item">啤酒指南
+                        <ul class="nav-sub-menu list-unstyled">
+                            <li class="nav-sub-menu-item"><a href=""></a>啤酒地圖</a></li>
+                            <li class="nav-sub-menu-item"><a href="">餐酒搭配</a></li>
+                            <li class="nav-sub-menu-item"><a href="">風味輪</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">啤酒活動
+                        <ul class="nav-sub-menu list-unstyled">
+                            <li class="nav-sub-menu-item"><a href="">預約試飲會</a></li>
+                            <li class="nav-sub-menu-item"><a href="">募資計畫</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-none d-lg-block"><a href="">全部商品</a></li>
+                </ul>
+                <ul class="nav-bar-member list-unstyled d-flex ">
+                    <input type="text" id="search" name="search" class="search-bar" placeholder="找啤酒">
+                    <li class="search"><i class="fas fa-search"></i></li>
+                    <li class="user-login"><a href=""><img src="../images/common/icon_member.svg" alt=""></a></li>
+                    <li class="shopping-cart"><a href=""><img src="../images/common/icon_shopbag.svg" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>    
+    
+
+    <div class="header"></div>
+
+    <!-- 酒駕標語 -->
+    <section class="beer-warning d-flex align-items-center">
+        <div class="container">
+            <div class="row justify-content-center  align-items-center">
+                <p>禁止酒駕</p>
+                <p>酒後不開車 安全有保障</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- 經典精釀啤酒種類 -->
+    <section class="Beer-type">
+
+    <div class="container">
+      
+        <div class="title-wrap ">
+                <h3>經典精釀啤酒種類</h3>
+        </div>
+
+          <!-- RWD顯示 -->
+          <div class="type-colorDot d-flex">
+            <div class="colorDot dot1" style="background-color: #e3d831;"></div>
+            <div class="colorDot dot2" style="background-color: #ead346;"></div>
+            <div class="colorDot dot3" style="background-color: #f0b62d;"></div>
+            <div class="colorDot dot4" style="background-color: #e1a327;"></div>
+            <div class="colorDot dot5" style="background-color: #de9300;"></div>
+            <div class="colorDot dot6" style="background-color: #f08e19;"></div>
+            <div class="colorDot dot7" style="background-color: #b9002e;"></div>
+            <div class="colorDot dot8" style="background-color: #88171a;"></div>
+            <div class="colorDot dot9" style="background-color: #3f191a;"></div>
+         </div>
+
+        
+       <div class="row type-content ">
+
+            <div class="type-forward ">
+               <img src="../images/common/arrow_left-hover.svg" alt="">
+           </div> 
+
+
+           <div class="Beer-type-window col-lg-7 col-12">
+           
+                <div class="Beer-type-content-warp">
+
+                    <div class="Beer-type-content type01 ">
+
+                        <div class="Beer-type-img type-img01">
+                            <img src="../images/glasses/witbier.svg" alt="">
+                        </div>
+                        
+                        <div class="Beer-type-intro-wrap ">
+
+                            <div class="Beer-type-name d-flex">
+                            <img src="../images/common/dot-1.svg" alt="">
+                            <h3>酸啤Witbier</h3>
+                            </div>
+                            <div class="Beer-type-text">
+                                <p>清爽帶果香的Witbier是當今受歡迎程度最高的啤酒類型前幾名，歷史久遠，可追溯到11世紀的北歐，是最早使用啤酒花的啤酒之一。Witbier的ABV在5%左右，使用30~40%的未發芽小麥釀造，並會在過程中添加芫荽、橙皮和其他香料。「Wit」在原文中便是「白色」的意思。
+                                </p>
+                            </div>
+
+                            <div class="know-more more-btn02">了解更多</div>
+                        </div>
+
+                    </div>
+
+                    <div class="Beer-type-content type02 ">
+
+                        <div class="Beer-type-img type-img02">
+                            <img src="../images/glasses/pale_lager.svg" alt="">
+                        </div>
+                        
+                        <div class="Beer-type-intro-wrap ">
+
+                            <div class="Beer-type-name d-flex">
+                            <img src="../images/common/dot-2.svg" alt="">
+                            <h3>淡拉格Pale Lager</h3>
+                            </div>
+                            <div class="Beer-type-text">
+                                <p>Pale Lager淡拉格一詞較Pale Ale淡愛爾晚出現，最早用於形容類一般商業拉格、工業拉格。較淡的麥芽香氣，帶有麥芽或穀物輕微的甜香，酒花香氣從偏低到略微辛辣味都有可能。因為發酵程度很高，會有少量的酵母味道（如淡淡的青蘋果味）。
+                                </p>
+                            </div>
+
+                            <div class="know-more more-btn02">了解更多</div>
+                        </div>
+
+                    </div>
+
+                    <div class="Beer-type-content type03 ">
+
+                        <div class="Beer-type-img type-img03">
+                            <img src="../images/glasses/pilsner.png" alt="">
+                        </div>
+                        
+                        <div class="Beer-type-intro-wrap ">
+
+                            <div class="Beer-type-name d-flex">
+                            <img src="../images/common/dot-3.svg" alt="">
+                            <h3>皮爾森啤酒Pilsner </h3>
+                            </div>
+                            <div class="Beer-type-text">
+                                <p>世界上最早的金色啤酒，名字由來是最初的產地-捷克的皮爾森市。皮爾森大膽採用了當時新誕生不久的淺色麥芽，使啤酒呈現出標誌性的金黃色。皮爾森啤酒的色澤從淡黃色到金黃色不等，口味通常較為爽口清淡。
+                                </p>
+                            </div>
+
+                            <div class="know-more more-btn02">了解更多</div>
+                        </div>
+
+                    </div>
+
+                    <div class="Beer-type-content type04 ">
+
+                        <div class="Beer-type-img type-img04">
+                            <img src="../images/glasses/weizen.svg" alt="">
+                        </div>
+                        
+                        <div class="Beer-type-intro-wrap ">
+
+                            <div class="Beer-type-name d-flex">
+                            <img src="../images/common/dot-4.svg" alt="">
+                            <h3>德國小麥啤酒weizen</h3>
+                            </div>
+                            <div class="Beer-type-text">
+                                <p>weizen，發源自德國巴伐利亞地區。顏色因為未經過濾，酵母和小麥中的蛋白質純留在酒液之中，使酒體呈現白中混濁的色澤並擁有細緻的泡沫。風味上，weizen帶有明顯的果香，其中，香蕉、丁香、泡泡糖、香草的風味構成了weizen的主韻。
+
+                                </p>
+                            </div>
+
+                            <div class="know-more more-btn02">了解更多</div>
+                        </div>
+
+                    </div>
+
+                    <div class="Beer-type-content type05 ">
+
+                        <div class="Beer-type-img type-img05">
+                            <img src="../images/glasses/ipa.svg" alt="">
+                        </div>
+                        
+                        <div class="Beer-type-intro-wrap ">
+
+                            <div class="Beer-type-name d-flex">
+                            <img src="../images/common/dot-5.svg" alt="">
+                            <h3>印度式淡愛爾IPA</h3>
+                            </div>
+                            <div class="Beer-type-text">
+                                <p>IPA的全名為India Pale Ale，印度式淡愛爾，起源自18世紀英國的倫敦和伯頓特倫特。今日的IPA已經成為精釀啤酒界的超級巨星，除了明顯的苦度值外，強烈的酒花香氣也成為吸引人的特色之一。
+
+                                </p>
+                            </div>
+
+                            <div class="know-more more-btn02">了解更多</div>
+                        </div>
+
+                    </div>
+                
+                    <div class="Beer-type-content type06 ">
+
+                        <div class="Beer-type-img type-img06">
+                            <img src="../images/glasses/pale_ale.svg" alt="">
+                        </div>
+                        
+                        <div class="Beer-type-intro-wrap ">
+
+                            <div class="Beer-type-name d-flex">
+                            <img src="../images/common/dot-6.svg" alt="">
+                            <h3>淡愛爾Pale Ale</h3>
+                            </div>
+                            <div class="Beer-type-text">
+                                <p>Pale Ale發源自英國，“淡”指的是顏色淡。在1642年以前，淡愛爾一詞為使用焦炭烘焙過麥芽，同時使用上層發酵酵母，使得淡愛爾擁有豐富且多層次的果香與香料風味。
+                                </p>
+                            </div>
+
+                            <div class="know-more more-btn02">了解更多</div>
+                        </div>
+
+                    </div>
+
+                    <div class="Beer-type-content type07 ">
+
+                        <div class="Beer-type-img type-img07">
+                            <img src="../images/glasses/bock.svg" alt="">
+                        </div>
+                        
+                        <div class="Beer-type-intro-wrap ">
+
+                            <div class="Beer-type-name d-flex">
+                            <img src="../images/common/dot-7.svg" alt="">
+                            <h3>勃克bock</h3>
+                            </div>
+                            <div class="Beer-type-text">
+                                <p>Bock代表著濃郁型的拉格，得名自德國城鎮的Einbock。最傳統的勃克顏色為深黑，酒體醇厚，香氣除了深色麥芽帶有的焦糖、太妃糖、烘焙與堅果香外，另有明顯的果香與花香。
+                                </p>
+                            </div>
+
+                            <div class="know-more more-btn02">了解更多</div>
+                        </div>
+
+                    </div>
+
+                    <div class="Beer-type-content type08 ">
+
+                        <div class="Beer-type-img type-img08">
+                            <img src="../images/glasses/porter.svg" alt="">
+                        </div>
+                        
+                        <div class="Beer-type-intro-wrap ">
+
+                            <div class="Beer-type-name d-flex">
+                            <img src="../images/common/dot-8.svg" alt="">
+                            <h3>波特 Poter</h3>
+                            </div>
+                            <div class="Beer-type-text">
+                                <p>而Porter是由英文中「搬運工」一詞而來。早期的Porter會經過巨型橡木桶的沉放來增加風味，時間可長達1~2年。但也有一說指出當時的Porter是由新鮮啤酒、過期啤酒和陳年啤酒混合後產生了讓人著迷的煙燻香、烘焙香與酸味。</p>
+                            </div>
+
+                            <div class="know-more more-btn02">了解更多</div>
+                        </div>
+
+                    </div>
+
+                    <div class="Beer-type-content type09 ">
+
+                        <div class="Beer-type-img type-img09">
+                            <img src="../images/glasses/stout.svg" alt="">
+                        </div>
+                        
+                        <div class="Beer-type-intro-wrap ">
+
+                            <div class="Beer-type-name d-flex">
+                            <img src="../images/common/dot-9.svg" alt="">
+                            <h3>斯陶特Stout</h3>
+                            </div>
+                            <div class="Beer-type-text">
+                                <p>Stout屬於一種深黑色的愛爾啤酒，得名於Stout Porter，起初指加強型的Porter，基本的Stout帶有巧克力、咖啡、黑莓、煙燻或一點酸味，而Stout的變體也相當的多。
+                                </p>
+                            </div>
+
+                            <div class="know-more more-btn02">了解更多</div>
+                        </div>
+
+                    </div>
+
+               </div>
+    
+           </div>
+
+
+            <div class="type-backward">
+            <img src="../images/common/arrow_right-hover.svg" alt="">
+           </div> 
+
+       </div>
+
+          
+    </div>
+  
+
+
+    <div class="hand">
+        <img src="../images/common/hand.svg" alt="">
+    </div> 
+
+
+     <div class="container">
+        <div class="row type-color d-flex">
+        
+                 <div class="drop drop1" >
+                    <img src="../images/common/drop_01.svg" alt="">
+                 </div>
+                 <div class="drop drop2">
+                    <img src="../images/common/drop_02.svg" alt="">
+                 </div>
+                 <div class="drop drop3">
+                    <img src="../images/common/drop_03.svg" alt="">
+                 </div>
+                 <div class="drop drop4">
+                    <img src="../images/common/drop_04.svg" alt="">
+                 </div>
+                 <div class="drop drop5">
+                    <img src="../images/common/drop_05.svg" alt="">
+                 </div>
+                 <div class="drop drop6">
+                    <img src="../images/common/drop_06.svg" alt="">
+                 </div>
+                 <div class="drop drop7">
+                    <img src="../images/common/drop_07.svg" alt="">
+                 </div>
+                 <div class="drop drop8">
+                    <img src="../images/common/drop_08.svg" alt="">
+                 </div>
+                 <div class="drop drop9">
+                    <img src="../images/common/drop_09.svg" alt="">
+                 </div>
+
+           
+            
+        </div>
+    </div>  
+   </section>
+
+
+   <!-- 啤女精選 -->
+   <section class="BeerU-colllection">
+    <div class="container">
+
+     <div class="title-wrap">
+         <div class="container">
+             <div class="row">
+                 <div class="col-12 BeerU-colllection-title  ">
+                     <p>啤女精選</p>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+        
+
+        <div class="row ">
+
+            <div class="colllection-items-windows col-lg-12 col-12">
+
+                <div class="colllection-items-warp  col-lg-12 col-12">
+
+
+                    <div class="item item01 col-lg-3 col-12">
+                        <div class="item-flag">
+                            <img src="../images/country/flag_italy_stick.svg" alt="">
+                        </div>
+                        <div class="item-img">
+                        <img src="../images/Links/beer-001.png" alt="">
+                        </div>
+                        <div class="item-intro mt-5">
+                            <h4>托帕托帕-週末客享瘦</h4>
+                            <h4>托帕托帕-週末客享瘦</h4>
+                        </div>
+                    </div>
+                    <div class="item item02 col-lg-3 col-12">
+                        <div class="item-flag">
+                            <img src="../images/country/flag_italy_stick.svg" alt="">
+                        </div>
+                        <div class="item-img">
+                        <img src="../images/Links/beer-001.png" alt="">
+                        </div>
+                        <div class="item-intro mt-5">
+                            <h4>托帕托帕-週末客享瘦</h4>
+                            <h4>托帕托帕-週末客享瘦</h4>
+                        </div>
+                    </div>
+                    <div class="item item03 col-lg-3 col-12">
+                        <div class="item-flag">
+                            <img src="../images/country/flag_italy_stick.svg" alt="">
+                        </div>
+                        <div class="item-img">
+                        <img src="../images/Links/beer-001.png" alt="">
+                        </div>
+                        <div class="item-intro mt-5">
+                            <h4>托帕托帕-週末客享瘦</h4>
+                            <h4>托帕托帕-週末客享瘦</h4>
+                        </div>
+                    </div>
+                    <div class="item item04 col-lg-3 col-12">
+                        <div class="item-flag">
+                            <img src="../images/country/flag_italy_stick.svg" alt="">
+                        </div>
+                        <div class="item-img">
+                        <img src="../images/Links/beer-001.png" alt="">
+                        </div>
+                        <div class="item-intro mt-5">
+                            <h4>托帕托帕-週末客享瘦</h4>
+                            <h4>托帕托帕-週末客享瘦</h4>
+                        </div>
+                    </div>
+                    <div class="item item05 col-lg-3 col-12">
+                        <div class="item-flag">
+                            <img src="../images/country/flag_italy_stick.svg" alt="">
+                        </div>
+                        <div class="item-img">
+                        <img src="../images/Links/beer-001.png" alt="">
+                        </div>
+                        <div class="item-intro mt-5">
+                            <h4>托帕托帕-週末客享瘦</h4>
+                            <h4>托帕托帕-週末客享瘦</h4>
+                        </div>
+                    </div>
+                    <div class="item item06 col-lg-3 col-12">
+                        <div class="item-flag">
+                            <img src="../images/country/flag_italy_stick.svg" alt="">
+                        </div>
+                        <div class="item-img">
+                        <img src="../images/Links/beer-001.png" alt="">
+                        </div>
+                        <div class="item-intro mt-5">
+                            <h4>托帕托帕-週末客享瘦</h4>
+                            <h4>托帕托帕-週末客享瘦</h4>
+                        </div>
+                    </div>
+                    <div class="item item07 col-lg-3 col-12">
+                        <div class="item-flag">
+                            <img src="../images/country/flag_italy_stick.svg" alt="">
+                        </div>
+                        <div class="item-img">
+                        <img src="../images/Links/beer-001.png" alt="">
+                        </div>
+                        <div class="item-intro mt-5">
+                            <h4>托帕托帕-週末客享瘦</h4>
+                            <h4>托帕托帕-週末客享瘦</h4>
+                        </div>
+                    </div>
+                    <div class="item item08 col-lg-3 col-12">
+                        <div class="item-flag">
+                            <img src="../images/country/flag_italy_stick.svg" alt="">
+                        </div>
+                        <div class="item-img">
+                        <img src="../images/Links/beer-001.png" alt="">
+                        </div>
+                        <div class="item-intro mt-5">
+                            <h4>托帕托帕-週末客享瘦</h4>
+                            <h4>托帕托帕-週末客享瘦</h4>
+                        </div>
+                    </div>
+                    <div class="item item09 col-lg-3 col-12">
+                        <div class="item-flag">
+                            <img src="../images/country/flag_italy_stick.svg" alt="">
+                        </div>
+                        <div class="item-img">
+                        <img src="../images/Links/beer-001.png" alt="">
+                        </div>
+                        <div class="item-intro mt-5">
+                            <h4>托帕托帕-週末客享瘦</h4>
+                            <h4>托帕托帕-週末客享瘦</h4>
+                        </div>
+                    </div>
+                    <div class="item item10 col-lg-3 col-12">
+                        <div class="item-flag">
+                            <img src="../images/country/flag_italy_stick.svg" alt="">
+                        </div>
+                        <div class="item-img">
+                        <img src="../images/Links/beer-001.png" alt="">
+                        </div>
+                        <div class="item-intro mt-5">
+                            <h4>托帕托帕-週末客享瘦</h4>
+                            <h4>托帕托帕-週末客享瘦</h4>
+                        </div>
+                    </div>
+
+                    
+               </div>
+            </div>
+
+        </div>
+
+
+     
+</section>
+
+
+
+
+
+
+
+      
+   
+
+
+
+
+    <!-- footer -->
+    <footer>
+        <div class="footer-brand d-none d-md-block">
+            <p>brand</p>
+            <div class="brand-logos"><img src="../images/brands/brand_logos.svg" alt=""></div>
+        </div>
+        <div class="footer-share">
+            <p>share</p>
+            <div class="sns-logos d-flex justify-content-center">
+                <div class="sns-logo-icon f-fb "><img src="../images/common/icon_fb.svg" alt=""></div>
+                <div class="sns-logo-icon f-email "><img src="../images/common/icon_email.svg" alt=""></div>
+                <div class="sns-logo-icon f-ig "><img src="../images/common/icon_ig.svg" alt=""></div>
+                <div class="sns-logo-icon f-twitter "><img src="../images/common/icon_twitter.svg" alt=""></div>
+                <div class="sns-logo-icon f-line "><img src="../images/common/icon_line.svg" alt=""></div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright© 2021 BEERU. All Rights Reserved</p>
+        </div>
+    </footer> 
+
+
+ 
+   
+
+
+
+
+    
+
+
+
+
+  
+ <!-- 各種CDN -->
+ <script src="https://code.jquery.com/jquery-3.5.1.js"
+ integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+ integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+ crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+ integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+ crossorigin="anonymous"></script>
+
+
+ <!-- <script src="../js/Homepage.js"></script> -->
+
+
+<script>
+
+
+// Beer-type輪播牆
+let page = 0;
+
+$('.Beer-type-content').parents().find('.drop').eq(page).css('border','solid 1px white').siblings().css('border','transparent');
+
+$('.Beer-type-content').parents().find('.colorDot').eq(page).css('border','solid 3px white').siblings().css('border','transparent');
+
+
+
+
+$('.drop').on({
+
+    click:function(){
+
+            page = $(this).index(); 
+            console.log('dots page',$(this).index());
+
+            $(this).css('border','solid 1px white').siblings().css('border','transparent');
+
+            $('.Beer-type-content-warp').css('left',$(this).index()*-720+'px').css('transition','1s');
+
+    },
+
+    mouseenter:function(){
+        page = $(this).index(); 
+            // console.log('dots page',$(this).index());
+    
+            $(this).css('border','solid 1px white').siblings().css('border','transparent');
+        
+            $('.Beer-type-content-warp').css('left',$(this).index()*-720+'px').css('transition','1s');
+
+
+    }
+
+
+});
+
+
+
+$('.colorDot').click(function(){
+
+    page = $(this).index(); 
+
+    // console.log('little dots',$(this).index());
+
+     
+    $(this).css('border','solid 3px white').siblings().css('border','transparent');
+
+    $('.Beer-type-content-warp').css('left',$(this).index()*-370+'px').css('transition','1s');
+
+
+
+
+});
+
+
+
+
+setInterval(()=>{
+
+    page += 1;
+
+    if (page > 8){
+        page = 0;
+    };
+
+
+    $('.Beer-type-content').parents().find('.drop').eq(page).css('border','solid 1px white').siblings().css('border','transparent');
+
+
+    $('.Beer-type-content').parents().find('.colorDot').eq(page).css('border','solid 3px white').siblings().css('border','transparent');
+
+
+    if ($(window).width() >= 992){
+    $('.Beer-type-content-warp').css('left',page*-720+'px').css('transition','1s');
+
+    }
+
+    if ($(window).width() < 992){
+
+        $('.Beer-type-content-warp').css('left',page*-370+'px').css('transition','1s');
+
+     }
+
+},8000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+</script>
+</body>
+</html>

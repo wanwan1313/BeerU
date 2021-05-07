@@ -163,7 +163,6 @@
         /* 右上角小圖們 */
 
         .beeru-nav-bar .nav-bar-member {
-            width: 75px;
             position: relative;
             right: 20px;
         }
@@ -201,6 +200,27 @@
             z-index: 10;
         }
 
+        .beeru-nav-bar .logout {
+            font-size: 1.2rem;
+            text-align: center;
+            line-height: 35px;
+            margin-left: 15px;
+            margin-right: -10px;
+            transition: .5s;
+            cursor: pointer;
+        }
+
+       .beeru-nav-bar .user-pic{
+        width: 30px;
+        height: fit-content;
+        margin-left: 15px;
+        transition: .5s;
+        position: relative;
+        z-index: 10;
+           
+       }
+
+
         /* 會員登入 & 購物車 桌機版 HOVER效果*/
     @media (min-width: 992px) {
         .beeru-nav-bar .user-login::after {
@@ -217,12 +237,16 @@
         }
 
 
-        .beeru-nav-bar .user-login:hover, .beeru-nav-bar .shopping-cart:hover {
+         .beeru-nav-bar .user-login:hover, .beeru-nav-bar .shopping-cart:hover ,.beeru-nav-bar .user-pic:hover {
             filter: drop-shadow(0px 0px 8px  #163d50);
         }
 
 
         .beeru-nav-bar .user-login:hover::after {
+            color: var(--yellow);
+        }
+
+        .beeru-nav-bar .logout:hover {
             color: var(--yellow);
         }
 
@@ -281,6 +305,7 @@
             position: absolute;
             right: -1px;
             bottom: -55px;
+            display: none;
 
         }
     
@@ -298,10 +323,12 @@
             color: var(--blue);
             opacity: 0;
             transition: .5s;
+            display: none;
         }
         .beeru-nav-bar .search-bar-open {
             width: 280px;
             opacity: 1;
+            display: none;
         }
 
 
@@ -320,8 +347,8 @@
             height: 35px;
             position: absolute;
             z-index: 999;
-            left: 5%;
-            top: 15%;
+            left: 20px;
+            top: 16px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -368,12 +395,12 @@
 
         .beeru-nav-bar .trigger span.on::after {
             transform: rotate(-45deg) translate(5px, -5px);
-            background-color: var(--blue);
+            background-color: #fff;
         }
 
         .beeru-nav-bar .trigger span.on::before {
             transform: rotate(45deg) translate(8px, 8px);
-            background-color: var(--blue);
+            background-color: #fff;
         }
 
     }
@@ -445,6 +472,28 @@
             height: 107.67px;
         }
     }
+
+
+
+/* ----------------購物車小字------------------ */
+
+        .cart-pnum {
+            position: absolute;
+            bottom: 0;
+            right: -10px;
+            font-size: 0.9rem;
+            z-index: 999;
+            background-color: var(--pink);
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            line-height: 15px;
+            text-align: center;
+        }
+
+
+
+
         
 
 

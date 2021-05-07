@@ -1,0 +1,547 @@
+.cart-list {
+    background-color: #fff;
+    color: var(--blue);
+}
+
+
+
+
+/* 上方固定區域 */
+.cart-list .sticky {
+    position: sticky;
+    top: 85px;
+    left: 0;
+    background-color: #fff;
+    z-index: 50;
+    padding-top: 30px;
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+.cart-list .sticky {
+    top: 107.67px;
+}
+}
+
+/* 繼續購物 */
+.cart-list .keep-shop {
+    color: var(--gold);
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    z-index: 996;
+    transition: .5s;
+
+}
+
+.cart-list .keep-shop:hover {
+    opacity: .7;
+}
+
+
+/* --------------------------------大標---------------------------------- */
+
+/* 圈圈圖案 */
+.cart-list .cart-title {
+    background: url(../../images/common/h1_3_b.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 標題文字 */
+.cart-list .cart-title p {
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 左邊雕飾 */
+.cart-list .cart-title p::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_left_b.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+
+/* 右邊雕飾 */
+.cart-list .cart-title p::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right:0;
+    transform: translate(115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_right_b.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 手機版 改字和雕飾大小*/
+@media (max-width: 991px) {
+.cart-list .cart-title p {
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    text-indent:0.8rem;
+}
+
+.cart-list .cart-title p::before {
+    width: 60px;
+    height: 32%;
+
+}
+
+.cart-list .cart-title p::after {
+    width: 60px;
+    height: 32%;
+
+}
+
+
+}
+
+
+/* -----------------------------header---------------------------- */
+
+
+.cart-list .cart-header {
+    border-bottom: 3px solid var(--gold);
+    padding: 20px 10px  0;
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+.cart-list .cart-header {
+    padding: 20px 0  0;
+}
+}
+
+/* 概況 */
+.cart-list .overview {
+    margin-right: 30px;
+}
+.cart-list .overview img {
+    width: 10px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+/* 全選 */
+.cart-list .selectall::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 20px;
+    background-color: var(--blue);
+    position: absolute;
+    top: 50%;
+    /* transform: translateY(-60%); */
+    margin-left: -5px;
+}
+
+.cart-list .selectall input[type=checkbox] {
+    display: none;
+ }
+.cart-list .selectall input[type=checkbox]+p {
+    margin-left: 10px;
+    cursor: pointer;
+    transition: .5s;
+    user-select: none;
+    position: relative;
+ }
+/* .cart-list .selectall input[type=checkbox]+p:hover {
+     opacity: .7;
+ } */
+.cart-list .selectall input[type=checkbox]+p span {
+    padding: 0 1.5px;
+    margin-left: 5px;
+    border: 1px solid var(--blue);
+    border-radius: 2px;
+    font-size: 1rem;
+    color: transparent;
+}
+.cart-list .selectall input[type=checkbox]:checked+p span {
+    background-color: var(--blue);
+    color: #fff;
+}
+
+/* 清空購物車 */
+.cart-list .del-all {
+    cursor: pointer;
+    transition: .5s;
+    background-color: #fff;
+    border: none;
+    color: var(--blue);
+}
+
+.cart-list .del-all:hover {
+   color: var(--red);
+}
+
+/* --------------------------購物車是空的-------------------------- */
+.cart-list .empty-cart {
+    height: 40vh;
+    text-align: center;
+    color: #b69564be;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+}
+
+.cart-list .pipi {
+    background: url(../../images/cart-checkout/pipi-beer.svg) center center no-repeat;
+    height: 200px;
+}
+
+.cart-list .beer1 {
+    height: 150px;
+    background: url(../../images/cart-checkout/beer1.svg) center center no-repeat;
+}
+.cart-list .beer2 {
+    height: 150px;
+    background: url(../../images/cart-checkout/beer2.svg) center center no-repeat; 
+}
+.cart-list .beer3 {
+    height: 150px;
+    background: url(../../images/cart-checkout/beer3.svg) center center no-repeat;
+}
+.cart-list .beer4 {
+    height: 150px;
+    background: url(../../images/cart-checkout/beer4.svg) center center no-repeat;
+}
+
+
+/* 手機版 */
+@media (max-width: 991px) {
+.cart-list .beer1, .cart-list .beer2, .cart-list .beer3, .cart-list .beer4 {
+    background-size: 80% 80%;
+}
+}
+/* ----------------------------商品list---------------------------- */
+.cart-list .c-product-list {
+    padding: 30px 5px 30px;
+    min-height: calc(100vh - 310px);
+}
+
+.cart-list .c-product {
+    border: 1.5px solid var(--gold);
+    border-radius: 30px;
+    box-shadow: 0px 2px 5px rgba(158, 157, 146, 0.822);
+    margin-bottom: 25px;
+    position: relative;
+    transition: .5s;
+    transform: translateY(0px);
+}
+
+.cart-list .c-product.hover {
+    box-shadow: 0px 2px 10px rgba(80, 80, 78, 0.822);
+    border: 1.5px solid var(--red);
+    transform: translateY(-3px);
+}
+
+.cart-list .c-product.noselect {
+    opacity: .3;
+}
+
+
+/* checkbox */
+.cart-list .pro-checkbox {
+    color: transparent;
+    background-color: #fff;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: .3s;
+    user-select: none;
+    position: relative;
+    font-size: 1.2rem;
+    line-height: 0;
+    margin-left: 15px;
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+.cart-list .pro-checkbox {
+        margin-left: -5px;
+}
+}
+
+.cart-list .pro-checkbox.select {
+    background-color: var(--gold);
+    color: #fff;
+}
+
+.cart-list .pro-checkbox:hover {
+    background-color: var(--gold);
+    color: #fff;
+}
+
+
+/* 商品圖 */
+.cart-list .pro-content .pro-img {
+    height: 150px;
+    padding: 20px 0;
+    transition: .5s;
+}
+
+.cart-list .pro-content .pro-img:hover {
+    opacity: .7;
+}
+
+.cart-list .pro-content .pro-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+}
+
+/* 品名&規格 */
+.cart-list .pro-content .pro-name {
+    color: var(--gold);
+    font-family:'Noto Serif TC', serif;
+    font-weight: 700;
+    line-height: 1.8rem;
+}
+.cart-list .pro-content .c-name {
+    margin-bottom: 5px;
+    transition: .3s;
+}
+.cart-list .pro-content .c-name:hover {
+    color: rgb(160, 109, 15);
+    text-decoration: underline;
+}
+
+
+.cart-list .pro-content .e-name {
+    font-size: 1.3rem;
+    opacity: .8;
+}
+
+.cart-list .pro-content .sub-t-price {
+    font-size: 2.4rem;
+    line-height: 1.8rem;
+}
+
+.cart-list .pro-content .intro {
+    font-size: 1.3rem;
+    line-height: 1rem;
+    color: #666;
+    margin-top: 12px;
+}
+
+.cart-list .price {
+    margin-right: 10px;
+    margin-bottom: 6px;
+}
+
+/* 數量 */
+.cart-list .f-quantity {
+    color: var(--gold);
+}
+/* 手機版 */
+@media (max-width: 991px) {
+.cart-list .f-quantity {
+    margin-left: -35px;
+}
+}
+
+.cart-list .buy-number {
+    font-weight: 600;
+    width: 40px;
+    text-align: center;
+    border: 1.5px solid var(--gold);
+    border-radius: 5px;
+    margin: 0 10px;
+    outline: none;
+}
+
+.cart-list .minus, .cart-list .plus {
+    cursor: pointer;
+    transition: .3s;
+}
+
+.cart-list .minus:hover, .cart-list .plus:hover {
+    color: var(--yellow);
+}
+
+/* 刪除 */
+.cart-list .del-p {
+    font-size: 3rem;
+    line-height: 0;
+    color: var(--gold);
+    position: absolute;
+    top: -10px;
+    right: 0;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.cart-list .del-p.hover {
+    transform: scale(1.1,1.1);
+    color: var(--red);
+}
+
+/* 加購商品按鈕 */
+.cart-list .add-purchase {
+    background-color: #fff;
+    color: var(--gold);
+    border: 1.5px solid var(--gold);
+    border-radius: 10px;
+    padding: 0 10px;
+    transition: .5s;
+}
+
+.cart-list .add-purchase i:nth-of-type(1) {
+    font-size: 1rem;
+    margin-right: 5px;
+}
+
+.cart-list .add-purchase i:nth-of-type(2) {
+    margin-left: 5px;
+}
+
+.cart-list .add-purchase:hover {
+    background-color: var(--gold);
+    color: #fff;
+}
+
+
+/* -----------------------------結帳BAR------------------------ */
+
+.cart-list .checkout-bar {
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    background-color: var(--blue);
+    z-index: 997;
+    border-top: 5px solid var(--gold);
+    color: #fff;
+}
+
+.cart-list .checkout-wrap {
+    height: 120px;
+}
+
+/* 使用者照片 */
+
+.cart-list .user-pic {
+    width: 30%;
+    margin-right: 20px;
+}
+
+/* 折價券面額 */
+.cart-list .use-coupon {
+    color: var(--gold);
+}
+
+
+/* 選擇折價券按鈕 */
+.cart-list .select-coupon {
+    background-color: #152E39;
+    color: #fff;
+    border: 1px solid var(--gold);
+    border-radius: 17px;
+    width: 130px;
+    margin-top: 5px;
+    letter-spacing: 0.05rem;
+
+}
+
+.cart-list .select-coupon.hover {
+    color: var(--yellow);
+}
+
+.cart-list .select-coupon.disabled {
+    background-color: #152E39;
+    color: rgba(255, 255, 255, 0.486);
+    cursor:default;
+    border: 1px solid rgb(121, 121, 121);
+}
+
+.cart-list .select-coupon-nologin {
+    background-color: #152E39;
+    color: rgba(255, 255, 255, 0.486);
+    border: 1px solid var(--gold);
+    border-radius: 17px;
+    width: 130px;
+    margin-top: 5px;
+    transition: .5s;
+    letter-spacing: 0.05rem;
+
+}
+
+.cart-list .select-coupon-nologin:hover {
+    color: var(--yellow);
+}
+
+
+/* 金額計算 */
+.cart-list .myprice  p:nth-of-type(1){
+    font-size: 2.2rem;
+    line-height: 1.2;
+}
+
+
+.cart-list .discount-price {
+    color: #909090;
+    font-size: 1.7rem;
+    text-decoration: line-through;
+    line-height: 1.2;
+    display: none;
+}
+.cart-list .calc-price {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: var(--pink);
+    margin-bottom: 8px;
+}
+
+/* 去結帳按鈕 */
+.cart-list .go-checkout {
+    background-color: var(--pink);
+    color: #fff;
+    font-size: 2.2rem;
+    letter-spacing: 0.1rem;
+    border: none;
+    border-radius: 30px;
+    padding: 0 15px;
+    /* transition: .5s; */
+}
+
+.cart-list .go-checkout.hover {
+    transform: scale(1.05,1.05);
+}
+
+.cart-list .go-checkout.disabled {
+    background-color: #152E39;
+    color: rgba(255, 255, 255, 0.486);
+    cursor:default;
+    border: 1px solid rgb(121, 121, 121);
+    
+}
+
+
+
+
+
+
+

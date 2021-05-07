@@ -1,0 +1,2159 @@
+/* 桌機版 */
+/*-----視窗大小----- */
+@media (min-width: 992px) {
+.food-wrap {
+    height: 80vh;
+}
+
+.food-banner {
+    height: 80vh;
+    width: 100%;
+}
+
+.rule-wrap {
+    margin-bottom: 10%;
+}
+
+.pair-1,
+.pair-title,
+.pair .share-icons {
+    padding-top: 100px;
+}}
+
+
+
+/* 手機版 */
+/*-----視窗大小----- */
+@media (max-width: 991px) {
+
+
+.food-banner, 
+.food-wrap {
+        height: auto;
+        margin-bottom: 10%;
+    }
+    
+.food-banner.container {
+            display: block;
+        }
+    
+.rule-wrap.container {
+            display: block;
+        }
+}    
+
+
+/* 文字 */
+h1 {
+    font-family: 'Noto Serif TC', serif;
+    color: var(--gold);
+    text-align: center;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+}
+
+h2 {
+    font-family: 'Noto Serif TC', serif;
+    color: var(--white);
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.4rem;
+    letter-spacing: 0.2rem;
+}
+
+
+
+/*桌機版*/
+/*----- pipi 動畫 ----- */
+@media (min-width: 992px) {
+
+    .food-left {
+        display: flex;
+    }
+
+.pipi-flyup{
+    width: 60%;
+    position: absolute;
+    top: 245px;
+    left: 155px;
+    z-index: 99;
+  margin-left: auto;
+  margin-right: auto;
+  animation: mymove 3s infinite;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes mymove{
+    from {top:245px;}
+    to {top: 5px;}
+  }
+
+
+.plate{
+  width: 55%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position:absolute;
+  top: 600px;
+  left: 200px;
+}
+
+.food-left-text{
+}
+
+/* 現在我想來點 */
+.food-left-text h2 {
+    position: absolute;
+    top: 455px;
+    left: 315px;
+    color: var(--gold);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    /* margin: 0 auto;*/
+    text-align: center;
+}
+}
+
+
+
+     /*手機版*/
+    /*天使大小調整*/
+    @media (max-width: 991px) {
+
+        .food-left{
+            margin-bottom: 70%;
+        
+        }
+
+        .food-intro {
+
+        }
+    
+
+        .pipi-flyup{
+            margin-top: 10%;
+            width:85%;
+            z-index: 99;
+            position: absolute;
+            top: 100px;
+          margin-left: auto;
+          margin-right: auto;
+          animation: mymove 2s;
+          animation-delay: 0.3s;
+          animation-fill-mode: forwards;
+        }
+        
+        @keyframes mymove{
+            from {top:100px;}
+            to {top: 0px;}
+          }
+        
+        .plate{
+          width: 80%;
+          position: absolute;
+          top: 400px;
+          margin-left: 20px;
+
+        }
+
+        /* 現在我想來點 */
+.food-left-text h2 {
+
+    position: absolute;
+    top: 320px;
+    left: 100px;
+    color: var(--gold);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    margin-left: 20px;
+    /* text-align: center; */
+}
+     
+.pair-now {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin:auto;
+    margin-top: 10%;
+    margin-bottom:15% ;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
+    text-align: center;
+}
+
+
+
+
+}
+
+/*桌機版*/
+/*第一頁文字和圈圈雕飾*/
+
+ .food-title {
+    background: url(../../images/common/h1_4_w.svg) no-repeat center center;
+    background-size: contain;
+}
+
+/* 標題文字 */
+.food-title p {
+    color: var(--white);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 左邊雕飾 */
+.food-title p::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_left.svg) no-repeat center center;
+    background-size: contain;
+}
+
+
+
+/* 右邊雕飾 */
+.food-title p::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right:0;
+    transform: translate(115%, -50%);
+    width: 150px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_right.svg) no-repeat center center;
+    background-size: contain;
+
+}
+
+/* 手機版 */
+/*第一頁文字和圈圈雕飾*/
+@media (max-width: 991px) {
+
+    /* 現在我想來點 */
+    .food-left-text h2 {
+    font-weight: bold;
+    font-size: 2.0rem;
+    list-style: none;
+    line-height: 2.8rem;
+    letter-spacing: 0.6rem;
+    text-indent:1.2rem;
+    text-align: center ;
+
+}
+
+/*圈圈雕飾 */
+
+.food-title p {
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    text-indent:0.8rem;
+}
+
+.food-title p::before {
+    width: 60px;
+    height: 32%;
+
+}
+
+.food-title p::after {
+    width: 60px;
+    height: 32%;
+
+}
+}
+
+
+
+
+
+/*---------------intro-餐酒搭配-------------- */
+/* 桌機版 */
+.food-right-text  {
+   width: 70%;
+   margin: 0 auto;
+   margin-top: 5%;
+}
+
+.food-right-text h2 {
+    color: var(--white);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    font-size: 2.4rem;
+    line-height: 4.2rem;
+    /* letter-spacing: 0.8rem; */
+    /* text-indent:1.2rem; */
+    margin: 0 auto;
+    text-align: justify;
+}
+/* span:pariage */
+
+.text-highlight {
+    color: var(--gold);
+    font-size: 3.6rem;
+
+}
+.mariage {
+    font-family: 'Noto Sans TC', sans-serif;
+    /* letter-spacing: 0.5rem; */
+}
+
+
+
+
+/* 手機版 */
+@media (max-width: 991px) {
+    .food-right-text  {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 10%;
+     }
+    
+    .food-right-text h2 {
+        font-size: 1.7rem;
+        line-height: 2.6rem;
+       text-align: justify;
+    }
+
+    .text-highlight {
+        color: var(--gold);
+        font-size: 2.4rem;
+    
+    }
+ }
+ 
+ 
+
+ /* ----------------學搭餐---------------------- */
+/* 桌機版 */
+.pair-now {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 85%;
+    margin-top: 5%;
+    margin-bottom:20% ;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
+}
+
+.pair-now::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+.pair-now::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+
+.pair-now:hover {
+    transform: scale(1.1,1.1);
+}
+
+.pair-now:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+.pair-now:hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+ /* 手機版 */
+ @media (max-width: 991px) {
+.pair-now {
+    display: none;
+}
+ }
+/*-------------- food-page-2 ------------- */
+/* 文字置中:酒搭配三大原則 */
+/* 桌機版 */
+.food-rule {
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 文字大+線:酒搭配三大原則 */
+.rule-title-line h1 {
+    font-family: 'Noto Serif TC', serif;
+    color: var(--gold);
+    text-align: center;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    max-width: 990px;
+    margin: 0 auto;
+    position: relative;
+}
+.rule-title-line h2 {
+    font-family: 'Noto Serif TC', serif;
+    color: var(--gold);
+    text-align: center;
+    font-weight: bold;
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    text-indent:1.2rem;
+    max-width: 990px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.rule-title-line h1::before {
+    content: '';
+    display: block;
+    width: 350px;
+    height: 2px;
+    background: var(--gold);;
+    left: 100%;
+    top: 50%;
+    position: absolute;
+}
+
+.rule-title-line h1::after {
+    content: '';
+    display: block;
+    width: 350px;
+    height: 2px;
+    background:var(--gold);;
+    right: 100%;
+    top: 50%;
+    position: absolute;
+}
+
+/* 文字三大原則 */
+.rules-content{
+    margin-top: 5%;
+}
+
+.rules {
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: solid 1px var(--gold);
+    position:relative
+    
+}
+
+
+/* 三項原則 */
+.rules h3{
+     font-family: 'Noto Serif TC', serif;
+     line-height: 4.8rem;
+     color: var(--gold);
+     font-weight: bold;
+     font-size: 3.6rem;
+     letter-spacing: 1.2rem;
+     margin: 0;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     -ms-transform: translate(-50%, -50%);
+     transform: translate(-50%, -50%);
+
+}
+
+.rules-inner{
+    width: 60%;
+    word-break:break-all;
+    margin: 0 auto;
+    
+}
+
+.rules-inner p {
+    color: var(--white);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: regular;
+    font-size: 2.0rem;
+    line-height: 3.8rem;
+    /* letter-spacing: 0.5rem; */
+    margin: 0 auto;
+    text-align: justify;
+
+}
+/* 手機版 */
+@media (max-width: 991px) {
+
+    /* 搭配三大原則 */
+    .rules{
+        width: 150px;
+        height: 150px;;
+    
+    }
+    
+    .rules h3{
+        font-family: 'Noto Serif TC', serif;
+        line-height: 3.2rem;
+        color: var(--gold);
+        font-weight: bold;
+        font-size: 2.4rem;
+        letter-spacing: 1.2rem;
+    }
+    
+    
+    .rule-title-line h1 {
+        font-size: 2.4rem;
+        letter-spacing: 0.8rem;
+        text-indent:1.2rem;
+    }
+    
+    .rule-title-line h2 {
+        font-size: 2.4rem;
+        letter-spacing: 0.8rem;
+        text-indent:1.2rem;
+    }
+    
+    .rule-title-line h1::before {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 2px;
+        left: 10%;
+    }
+    
+    .rule-title-line h1::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 2px;
+        right: 10%;
+    }
+    
+    .beer-type .title-line{
+        font-size: 2.4rem;
+        letter-spacing: 0.8rem;
+        text-indent: 1.2rem;
+        margin-bottom: 100px;
+    }
+
+       
+    }
+    
+/* 桌機版 */
+@media (min-width: 992px) {
+    .beer-type {
+        text-align: center;
+        margin-bottom: 10%;
+    }
+    
+    /* 手 */
+
+    .hand{
+        transform: translate(-100px,-600px);
+        width: 550px;
+        position: absolute;
+        top: 1700px;
+    
+    }
+
+
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+    /*手 */
+    .hand{
+        transform: translate(-30px,-100px);
+        width: 200px;
+        position: absolute;
+    }
+    
+    
+    .food-drop{
+        display: none;
+    }
+    
+    .m-beer-drops{
+        min-width: 100px;
+        max-width: 250px;
+        display: block;
+        margin:0 auto;
+    
+    }
+    
+    } 
+    
+
+
+
+/* ----------------酒杯-banner ----------------*/
+/* 桌機版 */
+   .glass-banner{
+    width: 100%; 
+}
+
+   .glass-banner img {
+       min-width: 800px;
+       max-width: 1000px;
+       /* 圖片置中 */
+       display: block;
+       margin:0 auto;
+       /* margin-bottom: 60px; */
+       /* opacity: .25; */
+       transform: scale(1.5);
+       /* position: absolute; */
+     
+   }
+
+/* 手機版 */
+   @media (max-width: 991px) {
+    .glass-banner img {
+        display: none;
+    }
+    }
+    
+/* 桌機版 */
+/* 酒滴 drop */
+.type-color{
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.food-drop
+{
+    margin: 100px 60px 100px 0;
+}
+
+.drop1,
+.drop2,
+.drop3,
+.drop4,
+.drop5,
+.drop6,
+.drop7,
+.drop8,
+.drop9
+{
+    width: 75px;
+    margin-bottom: 5px;
+}
+
+.food-drop-name
+{
+color: transparent;
+transition: 0.3s;
+}
+
+
+.food-drop-name p
+{
+margin-top: 10%;
+font-size: 1.6rem;
+line-height:1.6rem;
+}
+
+
+.food-drop-img:hover + .food-drop-name
+{
+    color: white;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    text-align:center;
+    width: 75px;
+    transition: 0.8s;
+  
+}
+
+
+
+/*------------ 九宮格酒水滴---------- */
+/* 桌機版*/
+.m-beer-drops {
+    display: none;
+}
+
+
+/* 手機版 */
+@media (max-width: 991px) {
+    /*手 */
+    .hand{
+        transform: translate(-30px,-100px);
+        width: 200px;
+        position: absolute;
+    }
+    
+    
+    .food-drop{
+        display: none;
+    }
+    
+    .m-beer-drops{
+        min-width: 100px;
+        max-width: 250px;
+        display: block;
+        margin:0 auto;
+    
+    }
+    
+    } 
+
+
+/* food-page-pair -1 */
+
+.pair-wrap{
+margin-top:5%;
+/* height: 100vh; */
+}
+
+
+
+/* 酒食圖檔 */
+.pair.pair-1 img {
+    width: 60%;
+    display: block;
+    margin: auto;
+}
+
+/* 啤酒類型名稱 */
+/* 桌機版 */
+ @media (min-width: 992px) {
+.pair-intro{
+    width: 100%;
+    /* vertical-align: middle; */
+}
+.pair h2,
+.pair-title h2{
+    font-family: 'Noto Serif TC', serif;
+    line-height: 4.8rem;
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 3.6rem;
+    margin-bottom: 5%;
+    text-align: left;
+}
+
+.pair-title img{
+    width: 50px;
+    padding-left: 20px;
+
+}
+
+/* beer-intro */
+.pair p{
+    color: var(--white);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: regular;
+    font-size: 2.0rem;
+    line-height: 3.8rem;
+    /* letter-spacing: 0.5rem; */
+    margin: 0 auto;
+    /* text-align: justify; */
+    margin-bottom: 5%;
+}
+}
+
+
+/* 手機版 */
+@media (max-width: 991px) {
+    .pair-intro{
+        width: 100%;
+        margin:0 auto;
+    }
+
+    /*啤酒種類名稱  */
+    .pair-title{
+    text-align: center;
+    }
+
+    .pair-title img{
+        width: 24px;
+        padding-left: 10px;
+    }
+
+   
+    .pair h2,
+    .pair-title h2{
+        
+        font-family: 'Noto Serif TC', serif;
+        line-height: 3.2rem;
+        color: var(--gold);
+        font-weight: bold;
+        font-size: 2.4rem;
+        margin-top: 5%;
+        margin-right:5%;
+        margin-left:5%;
+        margin-bottom: 5%;
+    }
+    /* beer-intro */
+    .pair p{
+        color: var(--white);
+        font-family: 'Noto Serif TC', serif;
+        font-weight: regular;
+        font-size: 1.8rem;
+        line-height:3.2rem;
+        /* letter-spacing: 0.5rem; */
+        margin: 0 auto;
+        /* text-align: justify; */
+        margin-bottom: 5%;
+        margin-right:5%;
+        margin-left:5%;
+    }
+    }
+
+/* 手機版 */
+@media (max-width: 991px) {
+    /*手 */
+    .hand{
+        transform: translate(-30px,-100px);
+        width: 200px;
+        position: absolute;
+    }
+    
+    
+    .food-drop{
+        display: none;
+    }
+    
+    .m-beer-drops{
+        min-width: 100px;
+        max-width: 250px;
+        display: block;
+        margin:0 auto;
+        margin-bottom: 20%;
+    
+    }
+    
+    } 
+
+
+/* 分享按鈕*/
+
+        /* 桌機版 */
+        @media (min-width: 992px) {
+            .pair .share-icons {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin-right: 10px;
+                /* margin-left:px?; */
+
+            }
+
+            .pair .share-icons .fb,
+            .pair .share-icons .line,
+            .pair .share-icons .share
+             {
+                margin-right: 5px;
+                margin-left: 5px;
+            }
+        }
+    
+            /* 手機版 */
+        @media (max-width: 991px) {
+            .pair .share-icons {
+                margin-bottom: 10%;
+                justify-content: center;
+            }
+            
+            .pair .share-icons .fb,
+            .pair .share-icons .line 
+             {
+                margin-right: 8px;
+                margin-left: 8px;
+          
+            }
+
+            .pair .share-icons .fb svg,
+            .pair .share-icons .line svg 
+             {
+         width: 16px;
+          
+            }
+
+            .pair .share-icons .share
+             {
+                 font-size: 1.6rem;
+                margin-right: 8px;
+                margin-left: 8px;
+            }
+        }
+
+/*---------------適合搭配餐點-------------- */
+/* 桌機版 */
+.pair h3{
+    font-family: 'Noto Serif TC', serif;
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 2.4rem;
+    line-height: 6.0rem;
+    margin-left: 20px;
+}
+
+/* icon大小 */
+.pair-icon
+{
+    width: 5.0rem;
+    line-height: 6.0rem;
+    margin-left:5% ;
+    }
+
+.dish-type{
+    font-family: 'Noto Serif TC', serif;
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 2.4rem;
+    line-height: 6.0rem;
+}
+
+.pair-dish h4
+{
+    color: var(--white);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: regular;
+    font-size: 2.0rem;
+    margin-right: 50px;
+    margin-bottom: 5%;
+}
+
+/* 手機版 */
+
+@media (max-width: 991px) {
+
+    .pair-resto {
+        margin: 0 auto;
+    }
+
+    .pair h3{
+        font-family: 'Noto Serif TC', serif;
+        color: var(--gold);
+        font-weight: bold;
+        font-size: 2.0rem;
+        line-height: 6.0rem;
+        /* margin: 0 auto; */
+    }
+    
+    /* icon大小 */
+    .pair-icon
+    {
+        /* margin: 0 auto; */
+        width: 4.0rem;
+        line-height: 6.0rem;
+        }
+    
+    .dish-type{
+        font-family: 'Noto Serif TC', serif;
+        color: var(--gold);
+        font-weight: bold;
+        font-size: 2.4rem;
+        line-height: 6.0rem;
+    }
+    .pair-dish {
+        margin-right: 5%;
+        margin-right: 5%;
+    }
+
+    .pair-dish h4
+    {
+        color: var(--white);
+        font-family: 'Noto Serif TC', serif;
+        font-weight: regular;
+        font-size: 2.0rem;
+        margin-right: 50px;
+        margin-bottom: 5%;
+    }
+}
+
+
+
+
+/* 手機版 */
+@media (max-width: 991px) {
+
+.dish-type{
+    font-family: 'Noto Serif TC', serif;
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.pair-dish h4
+{
+    color: var(--white);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: regular;
+    font-size: 1.8rem;
+    margin-right: 10px;
+    margin-bottom: 5%;
+}
+
+
+}
+
+
+ /* -------------商品排列區域------------ */
+
+   
+
+             /* 桌機版 */
+             @media (min-width: 992px) {
+
+                .reco-beer-opt {
+                    margin-top: 3%;
+                }
+      
+                /* 商品圖片 */
+            .beer-product .pro-pic {
+                width: 100%;
+                min-width: 150px;
+                max-width: 200px;
+                background-color: #fff;
+                margin: 0 auto;
+                height: 200px;
+                padding: 10px;
+                border-radius: 20px;
+                position: relative;
+            }
+    
+            .beer-product .pro-pic > img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+    
+            /* new標籤 */
+            .beer-product .new-label {
+                font-size: 1.3rem;
+                font-weight: 600;
+                text-align: center;
+                width: 40px;
+                background-color: var(--blue);
+                border-radius: 5px;
+                position: absolute;
+                top: 0;
+                left: 0;   
+            }
+    
+             /* hot標籤 */
+            .beer-product .hot-label {
+                font-size: 1.3rem;
+                font-weight: 600;
+                text-align: center;
+                width: 40px;
+                background-color: var(--red);
+                border-radius: 5px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+    
+            /* 國家圖片 */
+            .beer-product .pro-pic .country {
+                width: 25px;
+                position:absolute;
+                bottom: 20px;
+                left: 20px;
+            }
+    
+            /* 收藏按鈕 */
+            .beer-product .pro-pic .collect {
+                position: absolute;
+                bottom: 10px;
+                right: 20px;
+            }
+    
+            .btn_collect, .btn_collect_active {
+                background-color: transparent;
+                border: none;
+                color: var(--red);
+                padding: 0;
+                font-size: 24px;  
+                cursor: pointer; 
+                transition: .3s;
+            }
+    
+            .btn_collect:hover, .btn_collect_active:hover {
+                transform: scale(1.1,1.1);
+            }
+    
+            .btn_collect::after {
+                content: '加入收藏';
+                display: block;
+                position:absolute;
+                top: -10px;
+                left: -70%;
+                font-size: 1.2rem;
+                width: 250%;
+                color: transparent;
+                transition: .3s;
+            }
+    
+            .btn_collect:hover::after {
+                color: var(--red);
+            }
+
+            .beer-product.product-1 {
+                display: flex;
+            }
+
+            /* 商品介紹 */
+        .beer-product .pro-intro {
+            width: 100%;
+            width: 320px;
+            /* background-color: var(--gold); */
+            border-radius: 10px;
+            margin-left: 12%;
+            /* margin: -20px auto 0; */
+            /* padding: 40px 20px 15px; */
+            /* height: 200px; */
+            font-family: 'Noto sans TC', serif;
+
+        }
+          /* 品名 */
+          .p-name-c {
+            font-family: 'Noto serif TC',serif;
+            font-size: 1.8rem;
+            line-height: 2.6rem;
+            /* text-align: center; */
+            
+        }
+        .p-name-e {
+            font-size: 1.4rem;
+            line-height: 1.8rem;
+            /* text-align: center; */
+            color: rgb(223, 223, 223);
+        }
+
+            }
+                  /* 手機版 */
+        @media (max-width: 991px) {
+            .reco-beer-opt {
+             margin: 0 auto;
+            }
+
+            .beer-product .product-arrang {
+                width: 90%;
+                /* margin: 100px auto 30px; */
+            }
+
+            .beer-product.product-1 {
+                margin-top: 5%;
+                display: wrap;
+            }
+
+            /* product-2 不出現 */
+            .beer-product.product-2 {
+                display: none;
+            }
+
+
+             /* 商品圖片 */
+             .beer-product .pro-pic {
+                width: 100%;
+                min-width: 200px;
+                max-width: 200px;
+                background-color: #fff;
+                margin: 0 auto;
+                height: 200px;
+                padding: 10px;
+                border-radius: 20px;
+                position: relative;
+            }
+    
+            .beer-product .pro-pic > img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+    
+            /* new標籤 */
+            .beer-product .new-label {
+                font-size: 1.3rem;
+                font-weight: 600;
+                text-align: center;
+                width: 40px;
+                background-color: var(--blue);
+                border-radius: 5px;
+                position: absolute;
+                top: 0;
+                left: 0;   
+            }
+    
+             /* hot標籤 */
+            .beer-product .hot-label {
+                font-size: 1.3rem;
+                font-weight: 600;
+                text-align: center;
+                width: 40px;
+                background-color: var(--red);
+                border-radius: 5px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+    
+            /* 國家圖片 */
+            .beer-product .pro-pic .country {
+                width: 25px;
+                position:absolute;
+                bottom: 20px;
+                left: 20px;
+            }
+    
+            /* 收藏按鈕 */
+            .beer-product .pro-pic .collect {
+                position: absolute;
+                bottom: 10px;
+                right: 20px;
+            }
+    
+            .btn_collect, .btn_collect_active {
+                background-color: transparent;
+                border: none;
+                color: var(--red);
+                padding: 0;
+                font-size: 24px;  
+                cursor: pointer; 
+                transition: .3s;
+            }
+    
+            .btn_collect:hover, .btn_collect_active:hover {
+                transform: scale(1.1,1.1);
+            }
+    
+            .btn_collect::after {
+                content: '加入收藏';
+                display: block;
+                position:absolute;
+                top: -10px;
+                left: -70%;
+                font-size: 1.2rem;
+                width: 250%;
+                color: transparent;
+                transition: .3s;
+            }
+    
+            .btn_collect:hover::after {
+                color: var(--red);
+            }
+
+            /* 商品介紹 */
+        .beer-product .pro-intro {
+            width: 100%;
+            max-width: 320px;
+            /* background-color: var(--gold); */
+            border-radius: 10px;
+            margin: -20px auto 0;
+            padding: 40px 10px 15px;
+            /* height: 200px; */
+
+        }
+          /* 品名 */
+          .p-name-c {
+            line-height: 2rem;
+            text-align: center;
+            
+        }
+        .p-name-e {
+            font-size: 1.4rem;
+            line-height: 1.8rem;
+            text-align: center;
+            color: rgb(223, 223, 223);
+        }
+        }
+            
+
+/* ----------------了解更多---------------------- */
+
+.know-more {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 5%;
+    margin-bottom:10% ;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
+}
+
+.know-more::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+.know-more::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+
+.know-more:hover {
+    transform: scale(1.1,1.1);
+}
+
+.know-more:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+.know-more:hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+    .know-more {
+        font-family: 'Noto Serif TC', serif;
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin:auto;
+        margin-top: 10%;
+        margin-bottom:15% ;
+        position: relative;
+        width: fit-content;
+        transition: .5s;
+    }
+}
+
+
+        /* -------------餐廳區------------  */
+        /* 桌機版 */
+        /* 餐廳照片*/
+        .resto-img-wrap{
+            margin-top: 3%;
+            width: 200px;
+            border-radius: 20px;
+        }
+
+        .resto-img-wrap img{
+            border-radius: 20px;
+        }
+
+        /* 餐廳資訊 */
+        .resto-text {
+    margin-top: 3%;
+    margin-left: 10%;
+        }
+    
+        .resto-info h4 {
+    color: var(--white);
+    font-family: 'Noto serif TC',serif;
+    font-weight: regular;
+    font-size: 1.8rem;
+    margin-right: 50px;
+    margin-bottom: 5%;
+}
+/* ---------------- 線上訂位---------------------- */
+/* 桌機版 */
+.book-now {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 5%;
+    margin-top: 20%;
+    margin-bottom:20% ;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
+}
+
+.book-now::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+.book-now::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+
+.book-now:hover {
+    transform: scale(1.1,1.1);
+}
+
+.book-now:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+.book-now:hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 16px;
+    height: 16px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+
+
+ /* 手機版 */
+ @media (max-width: 991px) {
+     /* 餐廳照片*/
+     .resto-img-wrap{
+        margin-top: 5%;
+        width: 180px;
+        border-radius: 20px;
+        margin-bottom: 5%;
+    }
+
+    .resto-img-wrap img{
+        border-radius: 20px;
+    }
+
+    /* 餐廳資訊 */
+    .resto-text {
+margin-top: 5%;
+   margin-left: 10%;
+    }
+
+    .resto-info h4 {
+color: var(--white);
+font-family: 'Noto Serif TC', serif;
+font-weight: regular;
+font-size: 1.6rem;
+/* margin-left:1%; */
+margin-right: 1%;
+margin-bottom: 5%;
+}
+
+.book-now {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-left: 5%;
+    margin-top: 15%;
+    margin-bottom:20% ;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
+}
+    
+    }
+
+/* ------------------ 區隔線----------------- */
+/* 桌機版 */
+@media (min-width: 992px) {
+    .deco-line{
+        width: 20%;
+        margin:auto;
+        margin-top: 2%;
+   }
+}
+/* 手機版 */
+@media (max-width: 991px) {
+    .deco-line{
+        width: 70%;
+        margin:auto ;
+        margin-top: 10%;
+        margin-bottom: 10%;
+     
+   }
+}
+
+  /* -------------return to top -------------*/
+  #return-to-top {
+    position: fixed;
+    z-index: 999;
+    bottom: 100px;
+    right: 100px;
+    width: 100px;
+    height: 100px;
+    display: none;
+}
+
+#return-to-top img {
+    color: #F2D5C4;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+
+}
+
+
+#return-to-top:hover img {
+    color: #fff;
+    top: 5px;
+}
+
+
+/* 手機版 */
+@media (max-width: 991px) {
+    #return-to-top {
+        width: 70px;
+        height: 70px;  
+        bottom: 100px;
+        right: 20px;
+
+}
+}
+
+
+/* scroll - swing - 特效 */
+html {
+    scroll-behavior: swing;
+  } 
+
+
+  /*  animation 特效 */
+  .animatable {
+  
+    /* initially hide animatable objects */
+    visibility: hidden;
+    
+    /* initially pause animatable objects their animations */
+    -webkit-animation-play-state: paused;   
+    -moz-animation-play-state: paused;     
+    -ms-animation-play-state: paused;
+    -o-animation-play-state: paused;   
+    animation-play-state: paused; 
+  }
+  
+  /* show objects being animated */
+  .animated {
+    visibility: visible;
+    
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -ms-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+  
+    -webkit-animation-play-state: running;
+    -moz-animation-play-state: running;
+    -ms-animation-play-state: running;
+    -o-animation-play-state: running;
+    animation-play-state: running;
+  }
+  
+  /* CSS Animations (extracted from http://glifo.uiparade.com/) */
+  @-webkit-keyframes fadeInDown {
+      0% {
+          opacity: 0;
+          -webkit-transform: translateY(-20px);
+      }	100% {
+          opacity: 1;
+          -webkit-transform: translateY(0);
+      }
+  }
+  
+  @-moz-keyframes fadeInDown {
+      0% {
+          opacity: 0;
+          -moz-transform: translateY(-20px);
+      }
+  
+      100% {
+          opacity: 1;
+          -moz-transform: translateY(0);
+      }
+  }
+  
+  @-o-keyframes fadeInDown {
+      0% {
+          opacity: 0;
+          -o-transform: translateY(-20px);
+      }
+  
+      100% {
+          opacity: 1;
+          -o-transform: translateY(0);
+      }
+  }
+  
+  @keyframes fadeInDown {
+      0% {
+          opacity: 0;
+          transform: translateY(-20px);
+      }
+      100% {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+  
+  
+  
+  @-webkit-keyframes fadeIn {
+      0% {
+          opacity: 0;
+      }
+      20% {
+          opacity: 0;
+      }
+      100% {
+          opacity: 1;
+      }
+  }
+  
+  @-moz-keyframes fadeIn {
+      0% {
+          opacity: 0;
+      }
+      20% {
+          opacity: 0;
+      }
+      100% {
+          opacity: 1;
+      }
+  }
+  
+  @-o-keyframes fadeIn {
+      0% {
+          opacity: 0;
+      }
+      20% {
+          opacity: 0;
+      }
+      100% {
+          opacity: 1;
+      }
+  }
+  
+  @keyframes fadeIn {
+      0% {
+          opacity: 0;
+      }
+      60% {
+          opacity: 0;
+      }
+      20% {
+          opacity: 0;
+      }
+      100% {
+          opacity: 1;
+      }
+  }
+  @-webkit-keyframes bounceInLeft {
+      0% {
+          opacity: 0;
+          -webkit-transform: translateX(-2000px);
+      }
+      60% {
+          -webkit-transform: translateX(20px);
+      }
+  
+      80% {
+          -webkit-transform: translateX(-5px);
+      }
+  
+      100% {
+          opacity: 1;
+          -webkit-transform: translateX(0);
+      }
+  }
+  
+  @-moz-keyframes bounceInLeft {
+      0% {
+          opacity: 0;
+          -moz-transform: translateX(-2000px);
+      }
+  
+      60% {
+          -moz-transform: translateX(20px);
+      }
+  
+      80% {
+          -moz-transform: translateX(-5px);
+      }
+  
+      100% {
+          opacity: 1;
+          -moz-transform: translateX(0);
+      }
+  }
+  
+  @-o-keyframes bounceInLeft {
+      0% {
+          opacity: 0;
+          -o-transform: translateX(-2000px);
+      }
+  
+      60% {
+          opacity: 1;
+          -o-transform: translateX(20px);
+      }
+  
+      80% {
+          -o-transform: translateX(-5px);
+      }
+  
+      100% {
+          opacity: 1;
+          -o-transform: translateX(0);
+      }
+  }
+  
+  @keyframes bounceInLeft {
+      0% {
+          opacity: 0;
+          transform: translateX(-2000px);
+      }
+  
+      60% {
+          transform: translateX(20px);
+      }
+  
+      80% {
+          transform: translateX(-5px);
+      }
+  
+      100% {
+          opacity: 1;
+          transform: translateX(0);
+      }
+  }
+  @-webkit-keyframes bounceInRight {
+      0% {
+          opacity: 0;
+          -webkit-transform: translateX(2000px);
+      }
+  
+      60% {
+          -webkit-transform: translateX(-20px);
+      }
+  
+      80% {
+          -webkit-transform: translateX(5px);
+      }
+  
+      100% {
+          opacity: 1;
+          -webkit-transform: translateX(0);
+      }
+  }
+  
+  @-moz-keyframes bounceInRight {
+      0% {
+          opacity: 0;
+          -moz-transform: translateX(2000px);
+      }
+  
+      60% {
+          -moz-transform: translateX(-20px);
+      }
+  
+      80% {
+          -moz-transform: translateX(5px);
+      }
+  
+      100% {
+          opacity: 1;
+          -moz-transform: translateX(0);
+      }
+  }
+  
+  @-o-keyframes bounceInRight {
+      0% {
+          opacity: 0;
+          -o-transform: translateX(2000px);
+      }
+  
+      60% {
+          -o-transform: translateX(-20px);
+      }
+  
+      80% {
+          -o-transform: translateX(5px);
+      }
+  
+      100% {
+          opacity: 1;
+          -o-transform: translateX(0);
+      }
+  }
+  
+  @keyframes bounceInRight {
+      0% {
+          opacity: 0;
+          transform: translateX(2000px);
+      }
+  
+      60% {
+          transform: translateX(-20px);
+      }
+  
+      80% {
+          transform: translateX(5px);
+      }
+  
+      100% {
+          opacity: 1;
+          transform: translateX(0);
+      }
+  }
+  @-webkit-keyframes fadeInUp {
+      0% {
+          opacity: 0;
+          -webkit-transform: translateY(20px);
+      }	100% {
+          opacity: 1;
+          -webkit-transform: translateY(0);
+      }
+  }
+  
+  @-moz-keyframes fadeInUp {
+      0% {
+          opacity: 0;
+          -moz-transform: translateY(20px);
+      }
+  
+      100% {
+          opacity: 1;
+          -moz-transform: translateY(0);
+      }
+  }
+  
+  @-o-keyframes fadeInUp {
+      0% {
+          opacity: 0;
+          -o-transform: translateY(20px);
+      }
+  
+      100% {
+          opacity: 1;
+          -o-transform: translateY(0);
+      }
+  }
+  
+  @keyframes fadeInUp {
+      0% {
+          opacity: 0;
+          transform: translateY(20px);
+      }
+  
+      100% {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+  @-webkit-keyframes bounceIn {
+      0% {
+          opacity: 0;
+          -webkit-transform: scale(.3);
+      }
+      50% {
+          -webkit-transform: scale(1.05);
+      }
+  
+      70% {
+          -webkit-transform: scale(.9);
+      }
+  
+      100% {
+          opacity: 1;
+          -webkit-transform: scale(1);
+      }
+  }
+  
+  @-moz-keyframes bounceIn {
+      0% {
+          opacity: 0;
+          -moz-transform: scale(.3);
+      }
+  
+      50% {
+          -moz-transform: scale(1.05);
+      }
+  
+      70% {
+          -moz-transform: scale(.9);
+      }
+  
+      100% {
+          opacity: 1;
+          -moz-transform: scale(1);
+      }
+  }
+  
+  @-o-keyframes bounceIn {
+      0% {
+          opacity: 0;
+          -o-transform: scale(.3);
+      }
+  
+      50% {
+          -o-transform: scale(1.05);
+      }
+  
+      70% {
+          -o-transform: scale(.9);
+      }
+  
+      100% {
+          opacity: 1;
+          -o-transform: scale(1);
+      }
+  }
+  
+  @keyframes bounceIn {
+      0% {
+          opacity: 0;
+          transform: scale(.3);
+      }
+  
+      50% {
+          transform: scale(1.05);
+      }
+  
+      70% {
+          transform: scale(.9);
+      }
+  
+      100% {
+          opacity: 1;
+          transform: scale(1);
+      }
+  }
+  @-webkit-keyframes moveUp {
+      0% {
+          opacity: 1;
+          -webkit-transform: translateY(40px);
+      }	100% {
+          opacity: 1;
+          -webkit-transform: translateY(0);
+      }
+  }
+  
+  @-moz-keyframes moveUp {
+      0% {
+          opacity: 1;
+          -moz-transform: translateY(40px);
+      }
+  
+      100% {
+          opacity: 1;
+          -moz-transform: translateY(0);
+      }
+  }
+  
+  @-o-keyframes moveUp {
+      0% {
+          opacity: 1;
+          -o-transform: translateY(40px);
+      }
+  
+      100% {
+          opacity: 1;
+          -o-transform: translateY(0);
+      }
+  }
+  
+  @keyframes moveUp {
+      0% {
+          opacity: 1;
+          transform: translateY(40px);
+      }
+  
+      100% {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+  
+  @-webkit-keyframes fadeBgColor {
+      0%{
+          background:none;
+      }
+    70%{
+          background:none;
+      }
+      100%{
+          background:#464646;
+      }
+  }
+  @-o-keyframes fadeBgColor {
+      0%{
+          background:none;
+      }
+    70%{
+          background:none;
+      }
+      100%{
+          background:#464646;
+      }
+  }
+  @keyframes fadeBgColor {
+      0%{
+          background:none;
+      }
+    70%{
+          background:none;
+      }
+      100%{
+          background:#464646;
+      }
+  }
+  
+  .animated.animationDelay{
+      animation-delay:.4s;
+      -webkit-animation-delay:.4s;
+  }
+  .animated.animationDelayMed{
+      animation-delay:1.2s;
+      -webkit-animation-delay:1.2s;
+  }
+  .animated.animationDelayLong{
+      animation-delay:1.6s;
+      -webkit-animation-delay:1.6s;
+  }
+  .animated.fadeBgColor {
+      -webkit-animation-name: fadeBgColor;
+      -moz-animation-name: fadeBgColor;
+      -o-animation-name: fadeBgColor;
+      animation-name: fadeBgColor;
+  }
+  .animated.bounceIn {
+      -webkit-animation-name: bounceIn;
+      -moz-animation-name: bounceIn;
+      -o-animation-name: bounceIn;
+      animation-name: bounceIn;
+  }
+  .animated.bounceInRight {
+      -webkit-animation-name: bounceInRight;
+      -moz-animation-name: bounceInRight;
+      -o-animation-name: bounceInRight;
+      animation-name: bounceInRight;
+  }
+  .animated.bounceInLeft {
+      -webkit-animation-name: bounceInLeft;
+      -moz-animation-name: bounceInLeft;
+      -o-animation-name: bounceInLeft;
+      animation-name: bounceInLeft;
+  }
+  .animated.fadeIn {
+      -webkit-animation-name: fadeIn;
+      -moz-animation-name: fadeIn;
+      -o-animation-name: fadeIn;
+      animation-name: fadeIn;
+  }
+  .animated.fadeInDown {
+      -webkit-animation-name: fadeInDown;
+      -moz-animation-name: fadeInDown;
+      -o-animation-name: fadeInDown;
+      animation-name: fadeInDown;
+  }
+  .animated.fadeInUp {
+      -webkit-animation-name: fadeInUp;
+      -moz-animation-name: fadeInUp;
+      -o-animation-name: fadeInUp;
+      animation-name: fadeInUp;
+  }
+  .animated.moveUp {
+      -webkit-animation-name: moveUp;
+      -moz-animation-name: moveUp;
+      -o-animation-name: moveUp;
+      animation-name: moveUp;
+  }

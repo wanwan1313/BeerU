@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>募資計畫</title>
+    <!-- reset -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <!-- FOA -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <!-- style -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/fund/fund.css">
+    <link rel="stylesheet" href="../css/menu-footer/nav-bar.css">
+    <link rel="stylesheet" href="../css/menu-footer/footer.css">
+
+    <!-- js -->
+    <script src="../js/menu-footer/nav-bar.js" defer></script>
+
+    <style>
+
+    </style>
+
+
+</head>
+
+<body>
+
+    <header class="beeru-nav-bar">
+        <div class="container">
+            <div
+                class="row  flex-column flex-lg-row align-items-center justify-content-lg-between align-items-lg-start">
+                <div class="trigger"><span></span></div>
+                <a href="">
+                    <div class="nav-bar-logo"><img src="../images/logo/logo_beeru_white.svg" alt=""></div>
+                </a>
+                <ul class="nav-bar-list list-unstyled d-flex justify-content-around">
+                    <li class="nav-item"><a href="">本月主打</a></li>
+                    <li class="nav-item"><a href="">新手入門</a></li>
+                    <li class="nav-item">啤酒指南
+                        <ul class="nav-sub-menu list-unstyled">
+                            <li class="nav-sub-menu-item"><a href=""></a>啤酒地圖</a></li>
+                            <li class="nav-sub-menu-item"><a href="">餐酒搭配</a></li>
+                            <li class="nav-sub-menu-item"><a href="">風味輪</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">啤酒活動
+                        <ul class="nav-sub-menu list-unstyled">
+                            <li class="nav-sub-menu-item"><a href="">預約試飲會</a></li>
+                            <li class="nav-sub-menu-item"><a href="">募資計畫</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-none d-lg-block"><a href="">全部商品</a></li>
+                </ul>
+                <ul class="nav-bar-member list-unstyled d-flex ">
+                    <input type="text" id="search" name="search" class="search-bar" placeholder="找啤酒">
+                    <li class="search"><i class="fas fa-search"></i></li>
+                    <li class="user-login"><a href=""><img src="../images/common/icon_member.svg" alt=""></a></li>
+                    <li class="shopping-cart"><a href=""><img src="../images/common/icon_shopbag.svg" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="header"></div>
+
+    <section class="beer-warning d-flex align-items-center">
+        <div class="container">
+            <div class="row justify-content-center  align-items-center">
+                <p>禁止酒駕</p>
+                <p>酒後不開車 安全有保障</p>
+            </div>
+        </div>
+
+    </section>
+    <!-- joyce從這開始寫 -->
+    <section class="fund-wrap-1">
+        <div class="fund container">
+            <div class="row">
+                <!-- <h2>募資計畫</h2> -->
+                <div class="col-md-6 col-lg-8">
+                    <div class="product-display container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="img-demo">
+                                    <img class="pics" id="pic1" src="../images/joyce_images/fund-p-1.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <div class="img-wrap d-flex mt-5">
+                                    <div class="img-row"><img class="pics" id="pic1"
+                                            src="../images/joyce_images/fund-p-1.jpg" alt=""></div>
+                                    <div class="img-row"><img class="pics" id="pic2"
+                                            src="../images/joyce_images/fund-p-2.jpg" alt=""></div>
+                                    <div class="img-row"><img class="pics" id="pic3"
+                                            src="../images/joyce_images/fund-p-3.jpg" alt=""></div>
+                                    <div class="img-row"><img class="pics" id="pic4"
+                                            src="../images/joyce_images/fund-p-4.jpg" alt=""></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="demo-carousel" class="carousel slide" data-ride="carousel">
+
+                        <!-- Indicators -->
+                        <ul class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                            <li data-target="#myCarousel" data-slide-to="3"></li>
+                        </ul>
+
+                        <!-- The slideshow -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/joyce_images/fund-p-1.jpg" alt="" width="500" height="500">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/joyce_images/fund-p-2.jpg" alt="" width="500" height="500">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/joyce_images/fund-p-3.jpg" alt="" width="500" height="500">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/joyce_images/fund-p-4.jpg" alt="" width="500" height="500">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="fund-title mt-5  mb-5">
+                        <h4>募資計畫</h4>
+                    </div>
+                    <div class="product-intro">
+                        <h3>【CLOUDWATER | 英國知名精釀廠】</h3>
+                    </div>
+                    <div class="fund-intro-text">
+                        <p>
+                            新銳神級酒廠Cloudwater 在Raterbeer連續四年(2016-2019)名列在全球最佳酒廠Top 15內，最佳成績為Top
+                            2，也是英陸最強IPA代表之一！來自Manchester 的Cloudwater 酒廠，僅僅成立3年已大有名氣，今年更於Ratebeer 最佳酒廠第5名（去年投選）擢升至第2名。
+                        </p>
+                    </div>
+                    <div class="row d-flex">
+                        <div class="col-6 col-md-6 ">
+                            <div class="progress blue"> <span class="progress-left"> <span class="progress-bar"></span>
+                                </span> <span class="progress-right"> <span class="progress-bar"></span> </span>
+                                <div class="progress-value">90%</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-6 ">
+                            <div class="goal">
+                                <div class="current-value">
+                                    <h3>NT$123,180</h3>
+                                </div>
+                                <div class="goal-value">
+                                    <p><span class="goal-title">目標 |</span>
+                                        NT$50,180</p>
+                                </div>
+                                <!-- 加入關注按鈕 -->
+                                <button class="btn_attention"><i class="fas fa-plus"></i>加入關注</button>
+                                <!-- <button class="btn_attention_active"><i class="fas fa-check"></i>已關注</button> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sub-intro mt-5">
+                        <p>
+                            贊助人數 | 6215
+                            <br>
+                            剩餘時間 | 6小時
+                            <br>
+                            時程 | 2021/05/01 - 2021/05/30
+
+                        </p>
+                    </div>
+                    <a href=""><button class="btn_fundnow"><i class="fas fa-coins"></i>我要贊助</button></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- 專案內容 -->
+    <section class="fund-wrap-2">
+        <div class="fund container">
+            <div class="row">
+                <div class="col-md-6 col-lg-8">
+                    <!-- 分頁籤 -->
+                    <div class="tabs">
+                        <ul class="tabs-nav">
+                            <li><a class="nav-opt" href="#tab-1">專案內容</a></li>
+                            <li><a class="nav-opt" href="#tab-2">常見QA</a></li>
+                        </ul>
+                        <div class="tabs-stage">
+                            <div id="tab-1">
+                                <!-- 倒數 -->
+                                <p id="countdown"></p>
+
+                                <h3>募資計畫倒數計時中</h3>
+                                <img src="../images/joyce_images/fund-p-6.jpg" alt="">
+                                <h3>全球第二名 / 英倫第一神廠 Cloudwater</h3>
+                                <p>Cloudwater 終於要台灣啦～！
+                                    來自英國曼徹斯特的 Cloudwater 酒廠，名字來自充滿禪意的「雲水」，成立於 2015
+                                    年，剛成立就奪下年度最佳新進酒廠。從隔年開始，在全球最有公信力的的啤酒評選網站 Raterbeer 上一舉闖入 Top 10 全球最佳酒廠，2017 年更摘下世界
+                                    No. 2，並至今從未掉出世界前 15 名過。</p>
+                                <img src="../images/joyce_images/fund-p-8.jpg" alt="">
+
+                                <h3> 藝術酒標登上泰德美術館</h3>
+                                <img id="art" src="../images/joyce_images/fund-p-9.jpg" alt="">
+                                <p>除了啤酒質素不容置疑之外，Cloudwater 每季都找來不同的藝術家合作設計酒標，以配合酒款的風格與理念，極具設計感的酒標更曾在英國著名的 Tate
+                                    當代藝術館舉辦了活動，因此也有人說每次看到 Cloudwater 都像走進了迷你畫廊。</p>
+                                <img src="../images/joyce_images/fund-p-10.jpg" alt="">
+                                <h3>最令台灣精釀迷興奮的強勢登台!</h3>
+                                <p>短短兩年便成為世界第二的 Cloudwater，善於運用酒花的香氣釀出各種不同平衡的酒款。但以激少量、高頻率不斷更新酒款的
+                                    Cloudwater，每一批次都少得可憐，是極難得的夢幻逸品，在台灣幾乎不可能取得，各位酒友們， 此時不買待何時！</p>
+                            </div>
+                            <div id="tab-2">
+                                <p>Phasellus pharetra aliquet viverra. Donec scelerisque tincidunt diam, eu fringilla
+                                    urna auctor at.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <ul class="card-list">
+                        <li class="card" id="card0">
+                            <a class="card-description" href="../html/fund-step2.html" target="_blank">
+                                <img src="../images/joyce_images/option-1.jpg" alt="" />
+                                <h2>$2650</h2>
+                                <p style="color: var(--gold);">【 啤女獨家優惠 | 英國雲水精釀啤酒 】- </p>
+                                <div class="option">
+                                    <p style="color: var(--gold);">4入獨享組｜四種口味各一(330ml)</p>
+                                </div>
+                                <div class="option-content">
+                                    <p>【口味】</p>
+                                    <p> ✓ Helles向藝術致敬IPA </p>
+                                    <p> ✓ Hoppy little lager快腳步愛爾</p>
+                                    <p> ✓ 加速腳步思陶特 Stout</p>
+                                    <p> ✓ Light lager不斷進化淡愛爾</p>
+                                    <hr>
+                                    <p>注意事項</p>
+                                    <p>⦿ 此價格已含運費</p>
+                                    <p>⦿ 訂單若有異動，請至會員中心的訂單留言。</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="card" id="card1">
+                            <a class="card-description" href="../html/fund-step2.html" target="_blank">
+                                <img src="../images/joyce_images/option-1.jpg" alt="" />
+                                <h2>$2850</h2>
+                                <p style="color: var(--gold);">【啤女獨家優惠 | 英國雲水精釀啤酒】</p>
+                                <p style="color: var(--gold);">6入分享組｜三種口味各二(330ml)</p>
+                                <p>【容量】</p>
+                                <p> 330ml/瓶 x 6 / 口味各2瓶</p>
+                                <p>【口味】</p>
+                                <p> ✓ Helles向藝術致敬IPA </p>
+                                <p> ✓ Hoppy little lager快腳步愛爾</p>
+
+                                <p> ✓ Light lager不斷進化淡愛爾</p>
+                                <hr>
+                                <p>注意事項</p>
+                                <p>⦿ 此價格已含運費</p>
+                                <p>⦿ 訂單若有異動，請至會員中心的訂單留言。</p>
+                            </a>
+                        </li>
+
+                        <li class="card" id="card2">
+                            <a class="card-description" href="../html/fund-step2.html" target="_blank">
+                                <img src="../images/joyce_images/option-1.jpg" alt="" />
+                                <h2>$3050</h2>
+                                <p style="color: var(--gold);">【啤女獨家優惠 | 英國雲水精釀啤酒】</p>
+                                <p style="color: var(--gold);">8入趴踢組｜四種口味各二(330ml)</p>
+                                <p>【容量】</p>
+                                <p> 30ml/瓶 x 8 / 口味各2瓶</p>
+                                <p>【口味】</p>
+                                <p> ✓ Helles向藝術致敬IPA </p>
+                                <p> ✓ Hoppy little lager快腳步愛爾</p>
+                                <p> ✓ 加速腳步思陶特 Stout</p>
+                                <p> ✓ Light lager不斷進化淡愛爾</p>
+                                <hr>
+                                <p>注意事項</p>
+                                <p>⦿ 此價格已含運費</p>
+                                <p>⦿ 訂單若有異動，請至會員中心的訂單留言。</p>
+                            </a>
+                        </li>
+                    </ul>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 過去成功計畫 -->
+    <section class="fund-success">
+        <div class="container">
+            <div class="fund-success-title d-flex justify-content-center">
+                <img src="../images/common/line-g.svg" alt="">
+                <h2>過去成功計畫</h2>
+                <img src="../images/common/line-g.svg" alt="">
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="beer-product product-1">
+                        <div class="pro-pic">
+                            <!-- 商品圖 -->
+                            <img src="../images/products/Heart of Darkness-01.png" alt="">
+                            <!-- 標籤 -->
+                            <div class="new-label">
+                                <p>NEW</p>
+                            </div>
+                            <!-- <div class="hot-label">
+                <p>HOT</p>
+            </div> -->
+                            <!-- 國家圖片 -->
+                            <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt="">
+                            </div>
+
+                            <!-- 收藏按鈕 -->
+                            <div class="collect">
+                                <button class="btn_collect"><i class="far fa-heart"></i></button>
+                                <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                            </div>
+                        </div>
+
+                        <!-- 商品介紹 -->
+                        <div class="pro-intro">
+                            <!-- 商品名稱 -->
+                            <div class="p-name">
+                                <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
+                                <p class="p-name-e">Oslo - Nordic Pilsner crazy beer Oslo</p>
+                            </div>
+                            <!-- 了解更多 -->
+                            <a href="">
+                                <div class="know-more">了解更多</div>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="beer-product product-2">
+                        <div class="pro-pic">
+                            <!-- 商品圖 -->
+                            <img src="../images/products/Heart of Darkness-01.png" alt="">
+                            <!-- 標籤 -->
+                            <div class="new-label">
+                                <p>NEW</p>
+                            </div>
+                            <!-- <div class="hot-label">
+                <p>HOT</p>
+            </div> -->
+                            <!-- 國家圖片 -->
+                            <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt="">
+                            </div>
+
+                            <!-- 收藏按鈕 -->
+                            <div class="collect">
+                                <button class="btn_collect"><i class="far fa-heart"></i></button>
+                                <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                            </div>
+                        </div>
+
+                        <!-- 商品介紹 -->
+                        <div class="pro-intro">
+                            <!-- 商品名稱 -->
+                            <div class="p-name">
+                                <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
+                                <p class="p-name-e">Oslo - Nordic Pilsner crazy beer Oslo</p>
+                            </div>
+                            <!-- 了解更多 -->
+                            <a href="">
+                                <div class="know-more">了解更多</div>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="beer-product product-3">
+                        <div class="pro-pic">
+                            <!-- 商品圖 -->
+                            <img src="../images/products/Heart of Darkness-01.png" alt="">
+                            <!-- 標籤 -->
+                            <div class="new-label">
+                                <p>NEW</p>
+                            </div>
+                            <!-- <div class="hot-label">
+                <p>HOT</p>
+            </div> -->
+                            <!-- 國家圖片 -->
+                            <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt="">
+                            </div>
+
+                            <!-- 收藏按鈕 -->
+                            <div class="collect">
+                                <button class="btn_collect"><i class="far fa-heart"></i></button>
+                                <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                            </div>
+                        </div>
+
+                        <!-- 商品介紹 -->
+                        <div class="pro-intro">
+                            <!-- 商品名稱 -->
+                            <div class="p-name">
+                                <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
+                                <p class="p-name-e">Oslo - Nordic Pilsner crazy beer Oslo</p>
+                            </div>
+                            <!-- 了解更多 -->
+                            <a href="">
+                                <div class="know-more">了解更多</div>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        </div>
+        </div>
+        </div>
+
+    </section>
+
+
+    <footer>
+        <div class="footer-brand d-none d-md-block">
+            <p>brand</p>
+
+            <div class="brand-logos"><img src="../images/brands/brand_logos.svg" alt=""></div>
+        </div>
+        <div class="footer-share">
+            <p>share</p>
+            <div class="sns-logos d-flex justify-content-center">
+                <div class="sns-logo-icon f-fb "><img src="../images/common/icon_fb.svg" alt=""></div>
+                <div class="sns-logo-icon f-email "><img src="../images/common/icon_email.svg" alt=""></div>
+                <div class="sns-logo-icon f-ig "><img src="../images/common/icon_ig.svg" alt=""></div>
+                <div class="sns-logo-icon f-twitter "><img src="../images/common/icon_twitter.svg" alt=""></div>
+                <div class="sns-logo-icon f-line "><img src="../images/common/icon_line.svg" alt=""></div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright© 2021 BEERU. All Rights Reserved</p>
+        </div>
+    </footer>
+
+
+
+
+    <!-- 各種CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+        // 取得或設定 HTML tag attribute屬性 的值
+        // 取值 .attr( attributeName )
+        // 設值 .attr( attributeName, value )
+
+        $('.img-row img').click(function () {
+            let imgSrc = $(this).attr('src');
+            $('.img-demo img').attr('src', imgSrc);
+        })
+    </script>
+    <script>
+        // Show the first tab by default
+        $('.tabs-stage div').hide();
+        $('.tabs-stage div:first').show();
+        $('.tabs-nav li:first').addClass('tab-active');
+
+        // Change tab class and display content
+        $('.tabs-nav a').on('click', function (event) {
+            event.preventDefault();
+            $('.tabs-nav li').removeClass('tab-active');
+            $(this).parent().addClass('tab-active');
+            $('.tabs-stage div').hide();
+            $($(this).attr('href')).show();
+        });
+    </script>
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("May 30, 2021 15:37:25").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("countdown").innerHTML = days + "天 " + hours + "小時 "
+                + minutes + "分 " + seconds + "秒 ";
+
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+
+
+
+
+</body>
+
+</html>

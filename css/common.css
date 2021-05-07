@@ -14,6 +14,7 @@
             --blue: #163D50;
             --yellow: #ffd76c;
             --red: #7D2322;
+            --pink: #B66496;
         }
 
         a {
@@ -25,8 +26,23 @@
             text-decoration: none;
         }
 
+        button {
+            cursor: pointer;
+        }
+
+        button:focus {
+            outline: none;
+        }
+        input:focus {
+            outline: none;
+        }
+
         .container {
             max-width: 1300px;
+        }
+
+        ul {
+            margin-bottom: 0;
         }
 
 /* -------------------------文字大小-------------------------- */
@@ -54,3 +70,70 @@
             line-height: 2;
             background-color: var(--blue);
         }
+
+
+
+/* ----------------了解更多---------------------- */
+
+.know-more {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 5%;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
+}
+
+.know-more::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+.know-more::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+
+.know-more:hover {
+    transform: scale(1.1,1.1);
+}
+
+.know-more:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+.know-more:hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 0;
+}

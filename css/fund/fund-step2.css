@@ -1,0 +1,209 @@
+/* 桌機版 */
+
+@media (min-width: 992px) {}
+
+/* 手機版 */
+
+@media (max-width: 991px) {}
+
+/* 白底container */
+
+.fund.container {
+    padding-top: 2%;
+    padding-bottom: 5%;
+    max-width: 1300px;
+    background-color: #fff;
+}
+
+/* 字體 */
+
+.fund h3 {
+    color: var(--blue);
+}
+
+.fund p {
+    color: var(--blue);
+}
+
+.fund.container {
+    margin-bottom: 5px;
+}
+
+/*------------ 上方簡介 ------------ */
+
+/* 桌機版 */
+
+@media (min-width: 992px) {
+    /* 排版 */
+    .col-sm-8 {
+        display: flex;
+    }
+    /* 圖片 */
+    .img-demo-wrap {
+        /* height: 40px; */
+        width: 70%;
+    }
+    .product-intro h3 {
+        /* width: fit-content; */
+        font-family: 'Noto Serif TC', serif;
+        font-size: 2.4rem;
+        font-weight: bold;
+        line-height: 3.6rem;
+        margin-bottom: 4%;
+    }
+    .product-intro p {
+        /* width: fit-content; */
+        margin-left: 15px;
+        margin-right: 15px;
+        font-family: 'Noto Serif TC', serif;
+        font-size: 1.7rem;
+        font-weight: bold;
+        line-height: 2.5rem;
+    }
+    .fund-intro-text {
+        margin-top: 5%;
+    }
+    /* 募資目標 */
+    .fund .goal .current-value h3 {
+        font-size: 3.0rem;
+    }
+    .fund .goal .goal-value p {
+        /* font-family: 'Noto Serif TC', serif; */
+        font-size: 1.7rem;
+        font-weight: bold;
+        line-height: 2.5rem;
+    }
+    .fund .goal .goal-value .goal-title {
+        /* font-family:'Noto Serif TC', serif; */
+        font-size: 1.8rem;
+    }
+}
+
+/* 手機版 */
+
+@media (max-width: 991px) {
+    /* 排版 */
+    .col-sm-8 {
+        flex-direction: column;
+    }
+    .product-intro {
+        font-family: 'Noto Serif TC', serif;
+        margin: 2%;
+    }
+    .product-intro h3 {
+        text-align: center;
+        margin-top: 2%;
+        margin-bottom: 5%;
+    }
+    .product-intro p {
+        text-align: left;
+        margin-top: 2%;
+        margin-bottom: 5%;
+    }
+    .goal, .sub-intro {
+        margin: 2%;
+    }
+}
+
+/* ---------------方案區-------------- */
+
+/* 桌機版 */
+
+@media (min-width: 992px) {
+    .card-list {
+        display: block;
+        margin: 1rem auto;
+        padding: 0;
+        font-size: 0;
+        /* text-align: center; */
+    }
+    .card {
+        /* display: inline-block; */
+        /* width: 100%; */
+        border: 2px solid #fff;
+        max-width: 80rem;
+        margin: 5%;
+        font-size: 2.4rem;
+        text-decoration: none;
+        overflow: hidden;
+        box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, 0.5);
+        transition: transform 0.1s ease-in-out, box-shadow 0.1s;
+    }
+    .card:hover {
+        transform: translateY(-0.5rem) scale(1.0125);
+        box-shadow: 0 0.5em 3rem -1rem rgba(0, 0, 0, 0.5);
+        border: 2px solid var(--gold);
+    }
+    .card-description {
+        display: block;
+        padding: 1rem;
+        color: #515151;
+        text-decoration: none;
+    }
+    .card-description>h2 {
+        font-size: 2.4rem;
+        color: var(--red);
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    .card-description>p {
+        font-size: 1.7rem;
+        margin: 0;
+        font-family: 'Noto Serif TC', serif;
+        font-size: 1.7rem;
+        font-weight: bold;
+        line-height: 2.5rem;
+    }
+    .option {
+        margin-bottom: 5%;
+    }
+    .option-content>p {
+        margin: 0;
+        font-size: 1.6rem;
+    }
+}
+
+/* 手機版 */
+
+@media (max-width: 991px) {
+    .card-list {
+        display: block;
+        margin: 1rem auto;
+        padding: 0;
+        font-size: 0;
+        /* text-align: center; */
+    }
+    .card {
+        /* display: inline-block; */
+        /* width: 100%; */
+        max-width: 80rem;
+        margin: 5%;
+        font-size: 2.4rem;
+        text-decoration: none;
+        overflow: hidden;
+        box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, 0.5);
+        transition: transform 0.1s ease-in-out, box-shadow 0.1s;
+    }
+    .card:hover {
+        transform: translateY(-0.5rem) scale(1.0125);
+        box-shadow: 0 0.5em 3rem -1rem rgba(0, 0, 0, 0.5);
+    }
+    .card-description {
+        display: block;
+        padding: 1rem;
+        color: #515151;
+        text-decoration: none;
+    }
+    .card-description>h2 {
+        font-size: 2.4rem;
+        color: var(--red);
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    .card-description>p {
+        font-family: 'Noto Serif TC', serif;
+        margin: 0;
+        font-weight: bold;
+        font-size: 1.6rem;
+    }
+}

@@ -6,9 +6,11 @@
         <div class="container">
             <div class="row  flex-column flex-lg-row align-items-center justify-content-lg-between align-items-lg-start">
                 <div class="trigger"><span></span></div>
-                <a href="">
+                <!-- logo -->
+                <a href="index.php">
                     <div class="nav-bar-logo"><img src="<?= WEB_ROOT ?>/images/logo/logo_beeru_white.svg" alt=""></div>
                 </a>
+                <!-- 選單 -->
                 <ul class="nav-bar-list list-unstyled d-flex justify-content-around">
                     <li class="nav-item"><a href="">本月主打</a></li>
                     <li class="nav-item"><a href="">新手入門</a></li>
@@ -25,13 +27,40 @@
                             <li class="nav-sub-menu-item"><a href="">募資計畫</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item d-none d-lg-block"><a href="">全部商品</a></li>
+                    <li class="nav-item d-none d-lg-block"><a href="all-product.php">全部商品</a></li>
                 </ul>
+                <!-- 會員&搜尋 -->
                 <ul class="nav-bar-member list-unstyled d-flex ">
+                    
+                    <!-- 搜尋 -->
                     <input type="text" id="search" name="search" class="search-bar" placeholder="找啤酒">
                     <li class="search"><i class="fas fa-search"></i></li>
-                    <li class="user-login"><a href=""><img src="<?= WEB_ROOT ?>/images/common/icon_member.svg" alt=""></a></li>
-                    <li class="shopping-cart"><a href=""><img src="<?= WEB_ROOT ?>/images/common/icon_shopbag.svg" alt=""></a></li>
+
+                    <!-- 購物車 -->
+                    <div class="cart-g position-relative">
+                        <li class="shopping-cart"><a href="cart-list.php"><img src="<?= WEB_ROOT ?>/images/common/icon_shopbag.svg" alt=""></a></li>
+                        <span class="cart-pnum d-none"></span>
+                    </div>
+                    
+                 
+                     <!-- 登入後頭像 -->
+
+                     <?php if(isset($_SESSION['user'])): ?>
+
+                     <p name=Logout class="logout d-none d-lg-block" onclick="Logout(); return false;" >LOG OUT</p> 
+
+                     <li class="user-pic"><a href="javascript: "><img src="<?= WEB_ROOT ?>/images/user/<?= htmlentities($_SESSION['user']['user-pic'])?>" alt=""></a></li>
+
+
+                    
+                    <?php else: ?>
+                    <!-- 未登入按鈕 --> 
+                   <li class="user-login"><a href="javascript: "><img src="<?= WEB_ROOT ?>/images/common/icon_member.svg" alt=""></a></li> 
+
+             
+                   <?php endif ?>
+
+                
                 </ul>
             </div>
         </div>

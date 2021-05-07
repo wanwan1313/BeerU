@@ -1,0 +1,316 @@
+<?php include __DIR__ . '../../php/common/config.php' ?>
+
+<!-- 需要置換的變數們 -->
+<?php
+
+$page_title = '啤女BeerU:心理測驗結果';
+
+
+$psid = 5;
+
+
+// 此頁商品
+$p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.`name` AS `type_name`,t4.`name` AS `merch_name` FROM `products` AS p 
+                JOIN `tags` AS t1 
+                ON p.`brand_sid` = t1.`sid`
+                JOIN `tags` AS t2 
+                ON p.`country_sid` = t2.`sid`
+                JOIN `tags` AS t3 
+                ON p.`type_sid` = t3.`sid`
+                JOIN `tags` AS t4 
+                ON p.`merch_sid` = t4.`sid`
+                WHERE p.`sid` = $psid";
+$row = $pdo->query($p_SQL)->fetch();
+
+$country_sid = $row['country_sid'];
+$type_sid = $row['type_sid'];
+$brands_sid = $row['brand_sid'];
+$merch_sid = $row['merch_sid'];
+
+
+// 推薦商品
+
+$c_SQL = "SELECT * FROM `products` WHERE `type_sid` = 51 AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
+$c_row = $pdo->query($c_SQL)->fetch();
+$c_row_sid = $c_row['sid'];
+
+
+$t_SQL = "SELECT * FROM `products` WHERE `type_sid` = 51 AND `sid` !=  $psid AND `sid` != $c_row_sid  ORDER BY RAND() LIMIT 1";
+$t_row = $pdo->query($t_SQL)->fetch();
+$t_row_sid = $t_row['sid'];
+
+$b_SQL = "SELECT * FROM `products` WHERE `type_sid` = 51 AND `sid` !=  $t_row_sid AND $c_row_sid ORDER BY RAND() LIMIT 1";
+$b_row = $pdo->query($b_SQL)->fetch();
+
+// new標籤
+$deadline = strtotime('2021-05-01');
+
+// 從哪裡來
+$come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
+$come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
+
+
+?>
+
+<?php include __DIR__ . '../../php/common/html-head.php' ?>
+<!-- my-style -->
+<link rel="stylesheet" href="../css/newbie/quiz-result-style.css">
+
+<?php include __DIR__ . '../../public/facebook.php' ?>
+<?php include __DIR__ . '../../public/line.php' ?>
+
+
+<?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
+<section class="mobile-menu">
+    <?php include __DIR__ . '../../php/common/category.php' ?>
+</section>
+
+<section class="quiz-result-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 result-info-wrap mt-5">
+                <p class="result-title">適合你的精釀啤酒類型：<span>波特啤酒</span></p>
+                <p class="result-info">
+                    有些人在酒精下肚後，容易變得脾氣暴躁，怒火中燒，此時的你們看誰都不順眼，看誰都想生氣。看似狂放不羈的你們，平常個性內向且很少說話，你們的自尊心很強，容易怕別人看不起自己。於是在喝酒後，不滿的情緒就一次爆發。這樣的人，生活始終不如意，感覺自己窮途末路，也對未來沒有信心。 酒精對你們來說，是忘記生活煩惱的百憂解。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 推薦商品-->
+    <section class="quiz-result-wrap">
+        <div class="container">
+
+            <!-- 推薦商品 -->
+            <div class="row related flex-wrap">
+                <div class="col-12 rpco-title">
+                    <p>推薦商品</p>
+                </div>
+                <div class="col-12 d-flex related-p">
+                    <!-- 商品BOX -->
+                    <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                        <div class="beer-product" data-sid=<?= $c_row['sid'] ?> data-price=<?= $c_row['price'] ?> data-abv=<?= $c_row['abv'] ?>>
+                            <div class="pro-pic">
+                                <!-- 商品圖 -->
+                                <a href="each-product.php?psid=<?= $c_row['sid'] ?>">
+                                    <img class="beer-pic" src="../images/products/<?= $c_row['pic'] ?>" alt="">
+                                </a>
+                                <!-- 標籤 -->
+                                <div class="label">
+                                    <?php if (strtotime($c_row['created_at']) > $deadline) : ?>
+                                        <div class="new-label">
+                                            <p>NEW</p>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <?php if ($c_row['hot'] == 'true') : ?>
+                                        <div class="hot-label">
+                                            <p>HOT</p>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+
+                                <!-- 國家圖片 -->
+                                <div class="country"><img src="../images/country/<?= $c_row['country_pic'] ?>" alt=""></div>
+
+                                <!-- 收藏按鈕 -->
+                                <div class="collect">
+                                    <button class="btn_collect"><i class="far fa-heart"></i></button>
+                                    <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                </div>
+                            </div>
+
+                            <!-- 商品介紹 -->
+                            <div class="pro-intro d-flex flex-column justify-content-between">
+                                <!-- 商品名稱 -->
+                                <a href="each-product.php?psid=<?= $c_row['sid'] ?>">
+                                    <div class="p-name">
+                                        <p class="p-name-c"><?= $c_row['c_name'] ?></p>
+                                        <p class="p-name-e"><?= $c_row['e_name'] ?></p>
+                                    </div>
+                                </a>
+                                <!-- 購買 -->
+                                <div class="p-buy d-flex flex-wrap">
+                                    <!-- 選擇數量 -->
+                                    <div class="col-12 quantity d-flex justify-content-between">
+                                        <div class="minus"><i class="fas fa-minus"></i></div>
+                                        <input type="text" class="buy-number" value="1">
+                                        <div class="plus"><i class="fas fa-plus"></i></div>
+                                    </div>
+                                    <!-- 價格 -->
+                                    <div class="col-5 p-price">
+                                        <p class="price">$<?= $c_row['price'] ?></p>
+                                    </div>
+                                    <!-- 加入購物車按鈕 -->
+                                    <button class="col-7 add-cart"><i class="fas fa-shopping-bag"></i>加入購物車</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                        <div class="beer-product" data-sid=<?= $t_row['sid'] ?> data-price=<?= $t_row['price'] ?> data-abv=<?= $t_row['abv'] ?>>
+                            <div class="pro-pic">
+                                <!-- 商品圖 -->
+                                <a href="each-product.php?psid=<?= $t_row['sid'] ?>">
+                                    <img class="beer-pic" src="../images/products/<?= $t_row['pic'] ?>" alt="">
+                                </a>
+                                <!-- 標籤 -->
+                                <div class="label">
+                                    <?php if (strtotime($t_row['created_at']) > $deadline) : ?>
+                                        <div class="new-label">
+                                            <p>NEW</p>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <?php if ($t_row['hot'] == 'true') : ?>
+                                        <div class="hot-label">
+                                            <p>HOT</p>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+
+                                <!-- 國家圖片 -->
+                                <div class="country"><img src="../images/country/<?= $t_row['country_pic'] ?>" alt=""></div>
+
+                                <!-- 收藏按鈕 -->
+                                <div class="collect">
+                                    <button class="btn_collect"><i class="far fa-heart"></i></button>
+                                    <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                </div>
+                            </div>
+
+                            <!-- 商品介紹 -->
+                            <div class="pro-intro d-flex flex-column justify-content-between">
+                                <!-- 商品名稱 -->
+                                <a href="each-product.php?psid=<?= $t_row['sid'] ?>">
+                                    <div class="p-name">
+                                        <p class="p-name-c"><?= $t_row['c_name'] ?></p>
+                                        <p class="p-name-e"><?= $t_row['e_name'] ?></p>
+                                    </div>
+                                </a>
+                                <!-- 購買 -->
+                                <div class="p-buy d-flex flex-wrap">
+                                    <!-- 選擇數量 -->
+                                    <div class="col-12 quantity d-flex justify-content-between">
+                                        <div class="minus"><i class="fas fa-minus"></i></div>
+                                        <input type="text" class="buy-number" value="1">
+                                        <div class="plus"><i class="fas fa-plus"></i></div>
+                                    </div>
+                                    <!-- 價格 -->
+                                    <div class="col-5 p-price">
+                                        <p class="price">$<?= $t_row['price'] ?></p>
+                                    </div>
+                                    <!-- 加入購物車按鈕 -->
+                                    <button class="col-7 add-cart"><i class="fas fa-shopping-bag"></i>加入購物車</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                        <div class="beer-product" data-sid=<?= $b_row['sid'] ?> data-price=<?= $b_row['price'] ?> data-abv=<?= $b_row['abv'] ?>>
+                            <div class="pro-pic">
+                                <!-- 商品圖 -->
+                                <a href="each-product.php?psid=<?= $b_row['sid'] ?>">
+                                    <img class="beer-pic" src="../images/products/<?= $b_row['pic'] ?>" alt="">
+                                </a>
+                                <!-- 標籤 -->
+                                <div class="label">
+                                    <?php if (strtotime($b_row['created_at']) > $deadline) : ?>
+                                        <div class="new-label">
+                                            <p>NEW</p>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <?php if ($b_row['hot'] == 'true') : ?>
+                                        <div class="hot-label">
+                                            <p>HOT</p>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+
+                                <!-- 國家圖片 -->
+                                <div class="country"><img src="../images/country/<?= $b_row['country_pic'] ?>" alt=""></div>
+
+                                <!-- 收藏按鈕 -->
+                                <div class="collect">
+                                    <button class="btn_collect"><i class="far fa-heart"></i></button>
+                                    <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                </div>
+                            </div>
+
+                            <!-- 商品介紹 -->
+                            <div class="pro-intro d-flex flex-column justify-content-between">
+                                <!-- 商品名稱 -->
+                                <a href="each-product.php?psid=<?= $b_row['sid'] ?>">
+                                    <div class="p-name">
+                                        <p class="p-name-c"><?= $b_row['c_name'] ?></p>
+                                        <p class="p-name-e"><?= $b_row['e_name'] ?></p>
+                                    </div>
+                                </a>
+                                <!-- 購買 -->
+                                <div class="p-buy d-flex flex-wrap">
+                                    <!-- 選擇數量 -->
+                                    <div class="col-12 quantity d-flex justify-content-between">
+                                        <div class="minus"><i class="fas fa-minus"></i></div>
+                                        <input type="text" class="buy-number" value="1">
+                                        <div class="plus"><i class="fas fa-plus"></i></div>
+                                    </div>
+                                    <!-- 價格 -->
+                                    <div class="col-5 p-price">
+                                        <p class="price">$<?= $b_row['price'] ?></p>
+                                    </div>
+                                    <!-- 加入購物車按鈕 -->
+                                    <button class="col-7 add-cart"><i class="fas fa-shopping-bag"></i>加入購物車</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+            <div class="share-wrap">
+                <p class="share-title mt-5">分享測驗結果</p>
+                <!-- 分享按鈕們 -->
+                <div class="share-icons d-flex align-items-center">
+
+                    <div class="fb-share-button" data-href="quiz-result-1.php" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">分享</a></div>
+
+
+                    <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-ver="3" data-url="https://org-media.line.me/zh_TW/how_to_install#lineitbutton" data-color="default" data-size="large" data-count="false" style="display: none;"></div>
+                    <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+
+                </div>
+            </div>
+            <div class="back-btn-wrap mt-5">
+                <a href="newbie.php">
+                    <div class="back-btn">返回新手入門</div>
+                </a>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+
+
+
+
+
+
+
+<?php include __DIR__ . '../../php/common/html-body-footer.php' ?>
+<?php include __DIR__ . '../../php/common/script.php' ?>
+
+<!-- my script -->
+
+<script src='../js/newbie/quiz.js'></script>
+<script src='../js/newbie/quiz-result.js'></script>
+
+
+<?php include __DIR__ . '../../php/common/html-end.php' ?>
