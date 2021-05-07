@@ -1,681 +1,948 @@
 /* -------------------輪播Banner------------------ */
+.all-product .product-banner {
+    height: 70vh;
+    max-height: 780px;
+    padding-top: 30px;
+}
 
-        .product-banner {
-            height: 70vh;
-            max-height: 780px;
-            padding-top: 30px;
-        }
+.all-product .product-banner-pic {
+    height: 65vh;
+    max-height: 760px;
+    background-size: contain;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 30px;
+}
 
-        .product-banner-pic {
-            height: 65vh;
-            max-height: 760px;
-            background-size: contain;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding-right: 30px;
-        }
+.all-product .product-banner-pic img {
+    width: 150px;
+    height: 90%;
+    min-height: 380px;
+    object-fit: contain;
+    
+}
 
-        .product-banner-pic img {
-            width: 150px;
-            height: 90%;
-            min-height: 380px;
-            object-fit: contain;
-            
-        }
+.all-product .product-banner-pic::after {
+    content: '';
+    display: block;
+    width: 42%;
+    min-width: 350px;
+    height: 42%;
+    min-height: 240px;
+    background: url(../../images/common/deco-draw-01.svg) no-repeat;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
 
-        .product-banner-pic::after {
-            content: '';
-            display: block;
-            width: 42%;
-            min-width: 350px;
-            height: 42%;
-            min-height: 240px;
-            background: url(../../images/common/deco-draw-01.svg) no-repeat;
-            position: absolute;
-            top: 5%;
-            left: 5%;
-        }
+.all-product .product-banner-pic::before {
+    content: '';
+    display: block;
+    width: 60%;
+    min-width: 500px;
+    height: 50%;
+    min-height: 280px;
+    position: absolute;
+    z-index: -1;
+    top: 35%;
+    left: 48%;
+    background: url(../../images/common/deco-draw-02.svg)no-repeat;
 
-        .product-banner-pic::before {
-            content: '';
-            display: block;
-            width: 60%;
-            min-width: 500px;
-            height: 50%;
-            min-height: 280px;
-            position: absolute;
-            z-index: -1;
-            top: 35%;
-            left: 48%;
-            background: url(../../images/common/deco-draw-02.svg)no-repeat;
+}
 
-        }
-
-        .product-banner-intro {
-            height: 65vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+.all-product .product-banner-intro {
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 
-        .product-banner-intro p:nth-of-type(1) {
-            font-family: 'Noto Serif TC', serif;
-            font-size: 4rem;
-            font-weight: bold;
-        }
-        .product-banner-intro span {
-            margin-top: -20px;
-            display: block;
-        }
+.all-product .product-banner-intro p:nth-of-type(1) {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 4rem;
+    font-weight: bold;
+}
+.all-product .product-banner-intro span {
+    margin-top: -20px;
+    display: block;
+}
 
-        .product-banner-intro p:nth-of-type(2) {
-            font-family: 'Noto Serif TC', serif;
-            font-size: 2.4rem;
-            font-weight: bold;
-        }
+.all-product .product-banner-intro p:nth-of-type(2) {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2.4rem;
+    font-weight: bold;
+}
 
-        .product-banner-intro p:nth-of-type(3) {
-            margin: 10px 0 25px;
-        }
+.all-product .product-banner-intro p:nth-of-type(3) {
+    margin: 10px 0 25px;
+}
 
-        .product-banner-intro::before {
-            content: '';
-            display: block;
-            width: 65%;
-            min-width: 240px;
-            height: 45%;
-            min-height: 280px;
-            position: absolute;
-            z-index: -1;
-            right: -10%;
-            bottom: -20px;
-            background: url(../../images/common/deco-draw-03.svg) no-repeat;
-        }
+.all-product .product-banner-intro::before {
+    content: '';
+    display: block;
+    width: 65%;
+    min-width: 240px;
+    height: 45%;
+    min-height: 280px;
+    position: absolute;
+    z-index: -1;
+    right: -10%;
+    bottom: -20px;
+    background: url(../../images/common/deco-draw-03.svg) no-repeat;
+}
 
 /* ----------------了解更多---------------------- */
 
-        .all-product .know-more {
-            font-family: 'Noto Serif TC', serif;
-            font-size: 2rem;
-            font-weight: bold;
-            margin-left: 5%;
-            position: relative;
-            width: fit-content;
-            transition: .5s;
-        }
-
-        .all-product .know-more::before {
-            content: '';
-            display: block;
-            position: absolute;
-            background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
-            width: 18px;
-            height: 18px;
-            left: -25%;
-            bottom: 23%;
-            opacity: 1;
-            transition: .3s;
-        }
-        .all-product .know-more::after {
-            content: '';
-            display: block;
-            position: absolute;
-            background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
-            width: 18px;
-            height: 18px;
-            right: -33%;
-            bottom: 23%;
-            opacity: 1;
-            transition: .3s;
-        }
-
-        .all-product .know-more:hover {
-            transform: scale(1.1,1.1);
-        }
-
-        .all-product .know-more:hover::after {
-            content: '';
-            display: block;
-            position: absolute;
-            background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
-            width: 18px;
-            height: 18px;
-            right: -33%;
-            bottom: 23%;
-            opacity: 0;
-        }
-
-        .all-product .know-more:hover::before {
-            content: '';
-            display: block;
-            position: absolute;
-            background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
-            width: 18px;
-            height: 18px;
-            left: -25%;
-            bottom: 23%;
-            opacity: 0;
-        }
-
-/* ------------------全部商品區塊---------------- */
-
-        .select-product-wrap {
-            width: 100%;
-            background-color: #fff;
-            border-top: 25px solid var(--gold);
-        }
-
-        .product-select {
-            background-color: var(--blue);
-            height: 200vh;
-        }
-
-        /* 商品展示區塊 */
-        .product-show-title {
-            color: var(--blue);
-            font-size: 2.6rem;
-            font-family:'Noto Serif TC', serif;
-            font-weight: bold;
-            text-align: center;
-            width: 75%;
-            min-width: 700px;
-            border: 1.5px solid var(--blue);
-            margin: 40px auto;
-            padding: 8px 0;
-        }
-    }
-
-        /* 手機版 改字大小和排版*/
-    @media (max-width: 991px) {
-        .all-product .product-show-title {
-            color: var(--blue);
-            font-size: 1.8rem;
-            font-family:'Noto Serif TC', serif;
-            font-weight: bold;
-            text-align: center;
-            width: 95%;
-            border: 1.5px solid var(--blue);
-            margin: 20px auto;
-            padding: 4px 0;
-        }
-
-        .all-product .product-show-title span {
-            display: block;
-        }
-    }
-        
-
-        /* ----------開頭區域--------- */
-
-
-        /* 桌機版 */
-    @media (min-width: 992px) {
-        .all-product .product-header {
-            width: 80%;
-            min-width: 800px;
-            margin: 0 auto ;
-        }
-    }
-
-        /* 手機版 */
-    @media (max-width: 991px) {
-        .all-product .product-header {
-            width: 95%;
-            margin: 0 auto ;
-            position: relative;
-        }
-
-        .all-product .product-header::after {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 30px;
-            background:url(../../images/common/line-g.svg) no-repeat center center;
-            position: absolute;
-            bottom: -50px;
-        }
-    }
-        
-
-        /* 標籤 */
-        .all-product .tagpic {
-            width: 45px;
-            height: 40px;
-        }
-
-        .all-product .tagpic img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center center;
-        }
-        
-        .all-product .product-tag p {
-            color: var(--blue);
-            font-family:'Noto Serif TC', serif;
-            font-weight: 600;
-            font-size: 2.2rem;
-            margin: 5px 8px;
-
-        }
-
-        /* 加入關注按鈕 */
-
-        .all-product .btn_attention {
-            font-family:'Noto Serif TC', serif;
-            color: var(--gold);
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 0.15rem;
-            background-color: #fff;
-            border: 1.5px solid var(--gold);
-            cursor: pointer;
-            transition: .3s;
-        }
-
-        .all-product .btn_attention i, .all-product .btn_attention_active i {
-            margin: 5px;
-        }
-
-        .all-product .btn_attention:hover {
-            background-color: var(--gold);
-            color: #fff;
-        }
-
-        .all-product .btn_attention_active {
-            font-family:'Noto Serif TC', serif;
-            color: #fff;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 0.15rem;
-            background-color: var(--gold);
-            border: 1.5px solid var(--gold);
-            cursor: pointer;
-            transition: .3s;
-        }
-
-        .all-product .btn_attention_active:hover {
-            background-color: #fff;
-            color: var(--gold);
-        }
-
-        /* 查詢 */
-
-        .all-product .product-tag p.userSearch {
-            color: var(--gold);
-            font-size: 2rem;
-            font-family:'Noto Serif TC', serif;
-        }
-
-        .all-product .product-tag .userSearch-txt {
-            color: var(--red);
-        }
-
-
-
-        /* 商品排序 */
-        .all-product .sort-option {
-            color: var(--gold);
-            font-size: 1.6rem;
-            letter-spacing: 0.15rem;
-            background-color: #fff;
-            border: 1px solid var(--gold);
-            cursor: pointer;
-            height: 41px;
-            outline: none;
-            padding: 5px;
-        }
-
-        /* 商品搜尋 */
-
-        .all-product .p_search {
-            border: 1px solid var(--gold);
-            height: 41px;
-            border-radius: 30px;
-            width: 200px;
-            padding: 0 8px;
-            margin-left: 10px;
-            
-        } 
-
-        .all-product .p_search i {
-            color: var(--gold);
-            line-height: 41px;
-        }
-
-        .all-product .p_search .search2 {
-            width: 120px;
-            border: none;
-            outline: none;
-        }
-
-        .all-product .p_search .search2::-webkit-input-placeholder {
-            color: var(--gold);
-            letter-spacing: 0.1rem;
-        }
-
-        /* -------------商品排列區域------------ */
-
-        /* 桌機版 */
-    @media (min-width: 992px) {
-        .all-product .product-arrang {
-            width: 80%;
-            min-width: 800px;
-            margin: 100px auto 30px;
-        }
-    }
-
-        /* 手機版 */
-    @media (max-width: 991px) {
-        .all-product .product-arrang {
-            width: 90%;
-            margin: 100px auto 30px;
-        }
-    }
-        
-        .all-product .beer-product {
-            margin-bottom: 50px;
-
-        }
-
-        
-        /* 商品圖片 */
-        .all-product .pro-pic {
-            width: 75%;
-            min-width: 200px;
-            max-width: 250px;
-            background-color: #fff;
-            margin: 0 auto;
-            height: 200px;
-            padding: 10px;
-            border-radius: 20px;
-            position: relative;
-        }
-
-        .all-product .pro-pic:hover .beer-pic {
-            opacity: .7;
-        }
-
-        .all-product .pro-pic .beer-pic {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: .6s;
-        }
-
-        /* 標籤 */
-
-        .all-product .label {
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        /* new標籤 */
-        .all-product .new-label {
-            font-size: 1.3rem;
-            font-weight: 600;
-            text-align: center;
-            width: 40px;
-            background-color: var(--blue);
-            border-radius: 5px;
-            margin-bottom: 5px;
-        }
-
-         /* hot標籤 */
-        .all-product .hot-label {
-            font-size: 1.3rem;
-            font-weight: 600;
-            text-align: center;
-            width: 40px;
-            background-color: var(--red);
-            border-radius: 5px;
-            margin-bottom: 5px;
-        }
-
-        /* 國家圖片 */
-        .all-product .pro-pic .country {
-            width: 25px;
-            position:absolute;
-            bottom: 20px;
-            left: 20px;
-        }
-
-        /* 收藏按鈕 */
-        .all-product .pro-pic .collect {
-            position: absolute;
-            bottom: 10px;
-            right: 20px;
-        }
-
-        .all-product .btn_collect, .btn_collect_active {
-            background-color: transparent;
-            border: none;
-            color: var(--red);
-            padding: 0;
-            font-size: 24px;  
-            cursor: pointer; 
-            transition: .3s;
-        }
-
-        .all-product .btn_collect:hover, .btn_collect_active:hover {
-            transform: scale(1.1,1.1);
-        }
-
-        .all-product .btn_collect::after {
-            content: '加入收藏';
-            display: block;
-            position:absolute;
-            top: -10px;
-            left: -70%;
-            font-size: 1.2rem;
-            width: 250%;
-            color: transparent;
-            transition: .3s;
-        }
-
-        .all-product .btn_collect:hover::after {
-            color: var(--red);
-        }
-
-
-        /* 商品介紹 */
-        .all-product .pro-intro {
-            width: 100%;
-            max-width: 320px;
-            background-color: var(--gold);
-            border-radius: 10px;
-            margin: -20px auto 0;
-            padding: 40px 20px 15px;
-            height: 210px;
-
-        }
-
-
-
-        /* 手機版 改高度*/
-    @media (max-width: 991px) {
-        .all-product .pro-intro {
-            height: 180px;
-        }
-    }
-
-        /* 品名 */
-        .all-product .p-name {
-            transition: .6s;
-        }
-
-        .all-product .p-name:hover .p-name-c{
-            color: var(--yellow);
-        }
-
-        .all-product .p-name-c {
-            line-height: 2rem;
-            transition: .6s;
-            
-        }
-        .all-product .p-name-e {
-            font-size: 1.4rem;
-            line-height: 1.8rem;
-            color: rgb(223, 223, 223);
-        }
-
-        /* 購買數量 */
-        .all-product .quantity {
-            border: 1px solid #fff;
-            padding: 0 15% ;
-        }
-
-        .all-product .buy-number {
-            font-size: 1.8rem;
-            font-weight: 600;
-            width: 50px;
-            text-align: center;
-            color: #fff;
-            background-color: transparent;
-            border: none;
-            outline: none;
-        }
-          
-        .all-product .minus, .all-product .plus {
-            cursor: pointer;
-            transition: .3s;
-        }
-
-        .all-product .minus:hover, .all-product .plus:hover {
-            color: var(--yellow);
-        }
-
-
-        /* 商品價格 */
-        .all-product .p-price {
-            border: 1px solid #fff;
-            text-align: center;
-            font-size: 1.8rem; 
-            font-weight: 600;   
-        }
-        .all-product .p-price span {
-            font-size: 1.4rem;
-        }
-
-        /* 加入購物車按鈕 */
-        .all-product .add-cart {
-            background-color: transparent;
-            border: 1px solid #fff;
-            color: #fff;
-            font-size: 1.6rem; 
-            cursor: pointer;
-            transition: .3s;
-            padding: 0 3px;
-            
-        }
-
-        /* 手機版 */
-    @media (max-width: 991px) {
-        .all-product .add-cart {
-            background-color: #fff;
-            color: var(--gold);
-        }
-
-    }
-        .all-product .add-cart i {
-            margin-right: 8px;
-        }
+.all-product .know-more {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 5%;
+    position: relative;
+    width: fit-content;
+    transition: .5s;
+}
+
+.all-product .know-more::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+.all-product .know-more::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 1;
+    transition: .3s;
+}
+
+.all-product .know-more:hover {
+    transform: scale(1.1,1.1);
+}
+
+.all-product .know-more:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    right: -33%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+.all-product .know-more:hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    width: 18px;
+    height: 18px;
+    left: -25%;
+    bottom: 23%;
+    opacity: 0;
+}
+
+/* ------------------------全部商品區塊--------------------------- */
+
+.all-product .select-product-wrap {
+    width: 100%;
+    background-color: #fff;
+    border-top: 25px solid var(--gold);
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+.all-product .select-product-wrap {
+    border-top:none;
+}
+}
+
+/* -------------分類&篩選區塊------------ */
+
+
+/* 桌機版 */ 
+@media (min-width: 992px) { 
+.all-product .product-select {
+    background-color: var(--blue);
+    padding: 90px 0 0;
+}
+
+ /* ---------商品篩選----------- */
+ .all-product .filter-title {
+    font-family:'Noto Serif TC', serif;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 60px 0 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--gold);
+}
+
+.all-product .filter-title i {
+    display: none;
+}
+
+.all-product .filter-title p {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.all-product .filter-title p::before {
+    content: '';
+    display: block;
+    background: url(../../images/common/icon-beer.svg) no-repeat center center;
+    width: 15px;
+    height: 50px;
+    position: absolute;
+    bottom: 20%;
+    left: -30%;
+}
+
+/* 分類內容區域 */
+.all-product .filter {
+    min-width: 150px;
+    max-width: 180px;
+    margin: 0 auto 50px;
+}
+
+ /* 篩選項目名稱 */
+ .all-product .filter-name {
+    margin: 20px 0 5px;
+    font-family:'Noto Serif TC', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    border-bottom: 0.5px solid #fff;
+ }
+
+ /* 篩選子項目 */
+ .all-product .filter-sub-item-warp {
+    width: fit-content;
+    height: fit-content;
+    padding-left: 30px;
+ }
+
+ .all-product .filter-sub-item-warp input[type=checkbox] {
+    display: none;
+ }
+
+ .all-product .filter-sub-item-warp input[type=checkbox]+span {
+    margin-left: 10px;
+    cursor: pointer;
+    transition: .5s;
+    user-select: none;
+    position: relative;
+ }
+
+ .all-product .filter-sub-item-warp input[type=checkbox]:checked+span {
+    color: var(--gold);
+ }
+
+ .all-product .filter-sub-item-warp input[type=checkbox]+span::before {
+     content: '';
+     display: block;
+     width: 20px;
+     height: 20px;
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     left: -30px;
+     border: 1.5px solid var(--gold);
+     border-radius: 50%;
+ }
+
+ .all-product .filter-sub-item-warp input[type=checkbox]:checked+span::after {
+     content: '';
+     display: block;
+     width: 8px;
+     height: 8px;
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     left: -24px;
+     background-color: #fff;
+     border-radius: 50%;
+ }
+
+ .all-product .filter-sub-item-warp input[type=checkbox]+span:hover {
+    color: var(--gold);
+ }
+} 
+/* 手機版 */ 
+@media (max-width: 991px) { 
+.all-product .product-select {
+    background-color: var(--blue);
+    position: fixed;
+    z-index: 500;
+    width: 86%;
+    height: 60vh;
+    min-height: 450px;
+    top: 20%;
+    left: 0;
+    transition: .5s;
+    transform: translateX(-100.5%);
+}
+
+.all-product .product-select.on {
+    transform: translateX(0)
+}
+
+.all-product .fixed-btn {
+    width: 16%;
+    height: 12%;
+    position: absolute;
+    background-color: var(--blue);
+    top: 0;
+    right: -13%;
+    border-radius: 0 8px 8px 0;
+    text-align: right;
+    padding-right: 4px;
+}
+
+.all-product .fixed-btn::after {
+    content: '';
+    display: block;
+    width: 65%;
+    height: 2px;
+    background-color: var(--gold);
+    position: absolute;
+    right: 4px;
+    top: 27px;
+}
+
+
+
+ /* ---------商品排序(手機板)----------- */
+ .all-product .mobile-sort-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.all-product .mobile-sort-item {
+    width: fit-content;
+    margin: 5px auto;
+}
+
+
+ /* ---------商品篩選----------- */
+ .all-product .filter-title {
+    font-size: 2.5rem;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+    margin-top: 8%;
+}
+
+.all-product .filter-title p {
+    display: none;
+}
+
+
+/* 分類內容區域 */
+.all-product .filter {
+    width: 100%;
+    justify-content: center;
+}
+
+
+.all-product .filter-price {
+    width: 55%;
+}
+
+.all-product .filter-abv {
+    width: 45%;
+}
+
+ /* 篩選項目名稱 */
+ .all-product .filter-name {
+    font-family:'Noto Serif TC', serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-bottom: 0.5px solid #fff;
+ }
+
+ /* 篩選子項目 */
+ .all-product .filter-sub-item-warp {
+    width: fit-content;
+    height: fit-content;
+    padding-left: 15px;
+ }
+
+ .all-product .filter-sub-item-warp input[type=checkbox] {
+    display: none;
+ }
+
+ .all-product .filter-sub-item-warp input[type=checkbox]+span {
+    margin-left: 5px;
+    cursor: pointer;
+    transition: .5s;
+    user-select: none;
+    position: relative;
+    font-size: 1.5rem;
+ }
+ .all-product .filter-sub-item-warp input[type=checkbox]:checked+span {
+    color: var(--gold);
+ }
+
+ .all-product .filter-sub-item-warp input[type=checkbox]+span::before {
+     content: '';
+     display: block;
+     width: 15px;
+     height: 15px;
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     left: -20px;
+     border: 1.5px solid var(--gold);
+     border-radius: 50%;
+ }
+
+ .all-product .filter-sub-item-warp input[type=checkbox]:checked+span::after {
+     content: '';
+     display: block;
+     width: 6px;
+     height: 6px;
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     left: -16px;
+     background-color: #fff;
+     border-radius: 50%;
+ }
+
+
+}
+
+
+
+
+
+
+
+/* --------------------------商品展示區塊--------------------------- */
+/* slogan */
+
+
+/* 桌機版 */
+@media (min-width: 992px) {
+.all-product .product-show-title {
+    color: var(--blue);
+    font-size: 2.6rem;
+    font-family:'Noto Serif TC', serif;
+    font-weight: bold;
+    text-align: center;
+    width: 80%;
+    min-width: 800px;
+    border: 1.5px solid var(--blue);
+    margin: 40px auto;
+    padding: 8px 0;
+}
+}
+
+/* 手機版 改字大小和排版*/
+@media (max-width: 991px) {
+.all-product .product-show-title {
+    color: var(--blue);
+    font-size: 1.8rem;
+    font-family:'Noto Serif TC', serif;
+    font-weight: bold;
+    text-align: center;
+    width: 95%;
+    border: 1.5px solid var(--blue);
+    margin: 20px auto;
+    padding: 4px 0;
+}
+
+.all-product .product-show-title span {
+    display: block;
+}
+}
+
+
+/* ----------開頭區域--------- */
+
+
+/* 桌機版 */
+@media (min-width: 992px) {
+.all-product .product-header {
+    width: 80%;
+    min-width: 800px;
+    margin: 0 auto ;
+}
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+.all-product .product-header {
+    width: 95%;
+    margin: 0 auto ;
+    position: relative;
+}
+
+.all-product .product-header::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 30px;
+    background:url(../../images/common/line-g.svg) no-repeat center center;
+    position: absolute;
+    bottom: -50px;
+}
+}
+
+
+/* 標籤 */
+.all-product .tagpic {
+    width: 45px;
+    height: 40px;
+}
+
+.all-product .tagpic img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+}
+
+.all-product .product-tag p {
+    color: var(--blue);
+    font-family:'Noto Serif TC', serif;
+    font-weight: 600;
+    font-size: 2.2rem;
+    margin: 5px 8px;
+
+}
+
+/* 加入關注按鈕 */
+
+.all-product .btn_attention {
+    font-family:'Noto Serif TC', serif;
+    color: var(--gold);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    background-color: #fff;
+    border: 1.5px solid var(--gold);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.all-product .btn_attention i, .all-product .btn_attention_active i {
+    margin: 5px;
+}
+
+.all-product .btn_attention:hover {
+    background-color: var(--gold);
+    color: #fff;
+}
+
+.all-product .btn_attention_active {
+    font-family:'Noto Serif TC', serif;
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    background-color: var(--gold);
+    border: 1.5px solid var(--gold);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.all-product .btn_attention_active:hover {
+    background-color: #fff;
+    color: var(--gold);
+}
+
+/* 查詢 */
+
+.all-product .product-tag p.userSearch {
+    color: var(--gold);
+    font-size: 2rem;
+    font-family:'Noto Serif TC', serif;
+}
+
+.all-product .product-tag .userSearch-txt {
+    color: var(--red);
+}
+
+
+
+/* 商品排序 */
+.all-product .sort-option {
+    color: var(--gold);
+    font-size: 1.6rem;
+    letter-spacing: 0.15rem;
+    background-color: #fff;
+    border: 1px solid var(--gold);
+    cursor: pointer;
+    height: 41px;
+    outline: none;
+    padding: 5px;
+}
+
+/* 商品搜尋 */
+
+.all-product .p_search {
+    border: 1px solid var(--gold);
+    height: 41px;
+    border-radius: 30px;
+    width: 200px;
+    padding: 0 8px;
+    margin-left: 10px;
     
+} 
 
-        .all-product .add-cart:hover {
-            background-color: #fff;
-            color: var(--gold);
-        }
+.all-product .p_search i {
+    color: var(--gold);
+    line-height: 41px;
+}
+
+.all-product .p_search .search2 {
+    width: 120px;
+    border: none;
+    outline: none;
+}
+
+.all-product .p_search .search2::-webkit-input-placeholder {
+    color: var(--gold);
+    letter-spacing: 0.1rem;
+}
+
+/* -------------商品排列區域------------ */
+
+/* 桌機版 */
+@media (min-width: 992px) {
+.all-product .product-arrang {
+    width: 80%;
+    min-width: 800px;
+    margin: 100px auto 30px;
+}
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+.all-product .product-arrang {
+    width: 90%;
+    margin: 100px auto 30px;
+}
+}
+
+.all-product .beer-product {
+    margin-bottom: 50px;
+
+}
 
 
-        /* ---------------頁碼-------------- */
+/* 商品圖片 */
+.all-product .pro-pic {
+    width: 75%;
+    min-width: 200px;
+    max-width: 250px;
+    background-color: #fff;
+    margin: 0 auto;
+    height: 200px;
+    padding: 10px;
+    border-radius: 20px;
+    position: relative;
+}
 
-        /* 區域大小 */
-        /* 桌機版 */
-    @media (min-width: 992px) {
-        .all-product .product-pages {
-            width: 80%;
-            min-width: 800px;
-            margin: 0 auto 50px;
-            color: var(--gold);
-        }
+.all-product .pro-pic:hover .beer-pic {
+    opacity: .7;
+}
+
+.all-product .pro-pic .beer-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: .6s;
+}
+
+/* 標籤 */
+
+.all-product .label {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* new標籤 */
+.all-product .new-label {
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+    width: 40px;
+    background-color: var(--blue);
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+ /* hot標籤 */
+.all-product .hot-label {
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+    width: 40px;
+    background-color: var(--red);
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+/* 國家圖片 */
+.all-product .pro-pic .country {
+    width: 25px;
+    position:absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+/* 收藏按鈕 */
+.all-product .pro-pic .collect {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}
+
+.all-product .btn_collect, .btn_collect_active {
+    background-color: transparent;
+    border: none;
+    color: var(--red);
+    padding: 0;
+    font-size: 24px;  
+    cursor: pointer; 
+    transition: .3s;
+}
+
+.all-product .btn_collect:hover, .btn_collect_active:hover {
+    transform: scale(1.1,1.1);
+}
+
+.all-product .btn_collect::after {
+    content: '加入收藏';
+    display: block;
+    position:absolute;
+    top: -10px;
+    left: -70%;
+    font-size: 1.2rem;
+    width: 250%;
+    color: transparent;
+    transition: .3s;
+}
+
+.all-product .btn_collect:hover::after {
+    color: var(--red);
+}
+
+
+/* 商品介紹 */
+.all-product .pro-intro {
+    width: 100%;
+    max-width: 320px;
+    background-color: var(--gold);
+    border-radius: 10px;
+    margin: -20px auto 0;
+    padding: 40px 20px 15px;
+    height: 210px;
+
+}
+
+
+
+/* 手機版 改高度*/
+@media (max-width: 991px) {
+.all-product .pro-intro {
+    height: 180px;
+}
+}
+
+/* 品名 */
+.all-product .p-name {
+    transition: .6s;
+}
+
+.all-product .p-name:hover .p-name-c{
+    color: var(--yellow);
+}
+
+.all-product .p-name-c {
+    line-height: 2rem;
+    transition: .6s;
+    
+}
+.all-product .p-name-e {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: rgb(223, 223, 223);
+}
+
+/* 購買數量 */
+.all-product .quantity {
+    border: 1px solid #fff;
+    padding: 0 15% ;
+}
+
+.all-product .buy-number {
+    font-size: 1.8rem;
+    font-weight: 600;
+    width: 50px;
+    text-align: center;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+  
+.all-product .minus, .all-product .plus {
+    cursor: pointer;
+    transition: .3s;
+}
+
+.all-product .minus:hover, .all-product .plus:hover {
+    color: var(--yellow);
+}
+
+
+/* 商品價格 */
+.all-product .p-price {
+    border: 1px solid #fff;
+    text-align: center;
+    font-size: 1.8rem; 
+    font-weight: 600;   
+}
+.all-product .p-price span {
+    font-size: 1.4rem;
+}
+
+/* 加入購物車按鈕 */
+.all-product .add-cart {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 1.6rem; 
+    cursor: pointer;
+    transition: .3s;
+    padding: 0 3px;
+    
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+.all-product .add-cart {
+    background-color: #fff;
+    color: var(--gold);
+}
+
+}
+.all-product .add-cart i {
+    margin-right: 8px;
+}
+
+
+.all-product .add-cart:hover {
+    background-color: #fff;
+    color: var(--gold);
+}
+
+
+/* ---------------頁碼-------------- */
+
+/* 區域大小 */
+/* 桌機版 */
+@media (min-width: 992px) {
+.all-product .product-pages {
+    width: 80%;
+    min-width: 800px;
+    margin: 0 auto 50px;
+    color: var(--gold);
+}
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+.all-product .product-pages {
+    width: 95%;
+    margin: -30px auto 35px;
+    color: var(--gold);
+}
+}
+
+
+/* 前後按鈕 */
+.all-product .btn_page {
+    border: 1px solid var(--gold);
+    background-color: transparent;
+    color: var(--gold);
+    margin: 0 5px;
+    width: 35px;
+    transition: .3s;
+}
+
+.all-product .btn_page.btn_disabled {
+    opacity: .3;
     }
 
-        /* 手機版 */
-    @media (max-width: 991px) {
-        .all-product .product-pages {
-            width: 95%;
-            margin: -30px auto 35px;
-            color: var(--gold);
-        }
-    }
-        
-
-        /* 前後按鈕 */
-        .all-product .btn_page {
-            border: 1px solid var(--gold);
-            background-color: transparent;
-            color: var(--gold);
-            margin: 0 5px;
-            width: 35px;
-            transition: .3s;
-        }
-
-        .all-product .btn_page.btn_disabled {
-            opacity: .3;
-            }
-
-        .all-product .btn_page.hover {
-            color: #b6956479;
-        }
+.all-product .btn_page.hover {
+    color: #b6956479;
+}
 
 
-        /* 數字頁碼 */
+/* 數字頁碼 */
 
-        /* 桌機版 */
-    @media (min-width: 992px) {
-        /* 最多顯示10頁 */
-        .all-product .pages-show {
-            width: fit-content;
-            max-width: 350px;
-            overflow: hidden;
-            margin: 0 8px;
-        }
+/* 桌機版 */
+@media (min-width: 992px) {
+/* 最多顯示10頁 */
+.all-product .pages-show {
+    width: fit-content;
+    max-width: 350px;
+    overflow: hidden;
+    margin: 0 8px;
+}
 
-        .all-product .page:hover {
-            color: #b6956479;
-        }
-    }
+.all-product .page:hover {
+    color: #b6956479;
+}
+}
 
-        /* 手機版 */
-    @media (max-width: 991px) {
-        /* 最多顯示4頁 */
-        .all-product .pages-show {
-            width: fit-content;
-            max-width: 140px;
-            overflow: hidden;
-            margin: 0 4px;
-        }
-    }
-        
-        .all-product .pages {
-            transform: translateX(0px);
-        }
-        
-        .all-product .page p {
-            width: 35px;
-            text-align: center;
-            font-size: 1.8rem;
-            transition: .3s;
-        }
-        
-        .all-product .page.page-on {
-            color: var(--yellow);
-            font-weight: bold;
-        }
+/* 手機版 */
+@media (max-width: 991px) {
+/* 最多顯示4頁 */
+.all-product .pages-show {
+    width: fit-content;
+    max-width: 140px;
+    overflow: hidden;
+    margin: 0 4px;
+}
+}
+
+.all-product .pages {
+    transform: translateX(0px);
+}
+
+.all-product .page p {
+    width: 35px;
+    text-align: center;
+    font-size: 1.8rem;
+    transition: .3s;
+}
+
+.all-product .page.page-on {
+    color: var(--yellow);
+    font-weight: bold;
+}
         
         
 
