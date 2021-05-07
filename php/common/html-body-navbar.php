@@ -42,11 +42,28 @@
                         <span class="cart-pnum d-none"></span>
                     </div>
                     
-                    <!-- 登出 -->
-                    <!-- <p class="logout d-none d-lg-block">LOG OUT</p> -->
+                 
+                     <!-- 登入後頭像 -->
+
+                     <?php if(isset($_SESSION['user'])): ?>
+
+                     <p name=Logout class="logout d-none d-lg-block" onclick="Logout(); return false;" >LOG OUT</p> 
+
+                     <li class="user-pic"><a href="javascript: "><img src="<?= WEB_ROOT ?>/images/user/<?= htmlentities($_SESSION['user']['user-pic'])?>" alt=""></a></li>
+
+
                     
-                    <!-- 登入 -->
-                    <li class="user-login"><a href="javascript: "><img src="<?= WEB_ROOT ?>/images/common/icon_member.svg" alt=""></a></li>
+                    <?php else: ?>
+                    <!-- 未登入按鈕 --> 
+                   <li class="user-login"><a href="javascript: "><img src="<?= WEB_ROOT ?>/images/common/icon_member.svg" alt=""></a></li> 
+
+             
+                   <?php endif ?>
+
+                
+                
+                 
+
                 </ul>
             </div>
         </div>

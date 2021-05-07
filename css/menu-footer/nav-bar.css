@@ -210,6 +210,16 @@
             cursor: pointer;
         }
 
+       .beeru-nav-bar .user-pic{
+        width: 30px;
+        height: fit-content;
+        margin-left: 15px;
+        transition: .5s;
+        position: relative;
+        z-index: 10;
+           
+       }
+
 
         /* 會員登入 & 購物車 桌機版 HOVER效果*/
     @media (min-width: 992px) {
@@ -227,7 +237,7 @@
         }
 
 
-        .beeru-nav-bar .user-login:hover, .beeru-nav-bar .shopping-cart:hover {
+         .beeru-nav-bar .user-login:hover, .beeru-nav-bar .shopping-cart:hover ,.beeru-nav-bar .user-pic:hover {
             filter: drop-shadow(0px 0px 8px  #163d50);
         }
 
