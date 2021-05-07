@@ -1,13 +1,11 @@
 <?php include __DIR__ . '../../php/common/config.php' ?>
 
-<!-- 需要置換的變數們 -->
+
 <?php
 
 $page_title = '啤女BeerU:募資計畫';
-
-
-
-
+$f_SQL = "SELECT * FROM `fund`";
+$f_rows = $pdo->query($f_SQL)->fetchAll();
 
 
 
@@ -18,6 +16,10 @@ $page_title = '啤女BeerU:募資計畫';
 <link rel="stylesheet" href="../css/fund/fund.css">
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+
+<!-- <section class="mobile-menu">
+     <?php include __DIR__ . '../../php/common/category.php' ?>
+</section>
 
 <!-- 這裡開始寫html -->
 <section class="fund-wrap-1">
@@ -163,72 +165,97 @@ $page_title = '啤女BeerU:募資計畫';
                             <p>短短兩年便成為世界第二的 Cloudwater，善於運用酒花的香氣釀出各種不同平衡的酒款。但以激少量、高頻率不斷更新酒款的
                                 Cloudwater，每一批次都少得可憐，是極難得的夢幻逸品，在台灣幾乎不可能取得，各位酒友們， 此時不買待何時！</p>
                         </div>
+                        <!--常見問題
+                         -->
                         <div id="tab-2">
-                            <p>Phasellus pharetra aliquet viverra. Donec scelerisque tincidunt diam, eu fringilla
-                                urna auctor at.</p>
+                            <p>常見QA</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
-                <ul class="card-list">
-                    <li class="card" id="card0">
-                        <a class="card-description" href="../html/fund-step2.html" target="_blank">
-                            <img src="../images/joyce_images/option-1.jpg" alt="" />
-                            <h2>$2650</h2>
-                            <p>【容量】</p>
-                            <p> 330ml/瓶 x 4 / 口味各1瓶</p>
-                            <p>【口味】</p>
-
-                            <p> ✓ Helles向藝術致敬IPA </p>
-                            <p> ✓ Hoppy little lager快腳步愛爾</p>
-                            <p> ✓ 加速腳步思陶特 Stout</p>
-                            <p> ✓ Light lager不斷進化淡愛爾</p>
-                            <hr>
-                            <p>注意事項</p>
-                            <p>⦿ 此價格已含運費</p>
-                            <p>⦿ 訂單若有異動，請至會員中心的訂單留言。</p>
-                        </a>
-                    </li>
-
-                    <li class="card" id="card1">
-                        <a class="card-description" href="../html/fund-step2.html" target="_blank">
-                            <img src="../images/joyce_images/option-1.jpg" alt="" />
-                            <h2>$2850</h2>
-                            <p>【容量】</p>
-                            <p> 330ml/瓶 x 6 / 口味各2瓶</p>
-                            <p>【口味】</p>
-                            <p> ✓ Helles向藝術致敬IPA </p>
-                            <p> ✓ Hoppy little lager快腳步愛爾</p>
-
-                            <p> ✓ Light lager不斷進化淡愛爾</p>
-                            <hr>
-                            <p>注意事項</p>
-                            <p>⦿ 此價格已含運費</p>
-                            <p>⦿ 訂單若有異動，請至會員中心的訂單留言。</p>
-                        </a>
-                    </li>
-
-                    <li class="card" id="card2">
-                        <a class="card-description" href="../html/fund-step2.html" target="_blank">
-                            <img src="../images/joyce_images/option-1.jpg" alt="" />
-                            <h2>$3050</h2>
-                            <p>【容量】</p>
-                            <p> 30ml/瓶 x 8 / 口味各2瓶</p>
-                            <p>【口味】</p>
-                            <p> ✓ Helles向藝術致敬IPA </p>
-                            <p> ✓ Hoppy little lager快腳步愛爾</p>
-                            <p> ✓ 加速腳步思陶特 Stout</p>
-                            <p> ✓ Light lager不斷進化淡愛爾</p>
-                            <hr>
-                            <p>注意事項</p>
-                            <p>⦿ 此價格已含運費</p>
-                            <p>⦿ 訂單若有異動，請至會員中心的訂單留言。</p>
-                        </a>
-                    </li>
-                </ul>
+                <?php foreach ($f_rows as $f) : ?>
+                    <ul class="card-list">
+                        <li class="card" id="card1">
+                            <a class="card-description" href="../html/fund-step2.html?fund_id=" target="_blank">
+                                <!-- pic -->
+                                <img class="pic" src="../images/joyce_images/<?= $f[`pic`] ?> alt="">
+                            <!-- plan_price -->
+                            <h2 class=" plan-price"><?= $f['plan-price'] ?></h2>
+                                <!-- c_name -->
+                                <p class="c_name" style="color: var(--gold);"><?= $f['c_name'] ?></p>
+                                <!-- plan_title -->
+                                <div class="plan_title">
+                                    <p><?= $f['plan_title'] ?></p>
+                                </div>
+                                <!-- plan_content -->
+                                <div class="plan_content">
+                                    <p><?= $f['plan_content'] ?></p>
+                                    <p> ✓ Helles向藝術致敬IPA </p>
+                                    <p> ✓ Hoppy little lager快腳步愛爾</p>
+                                    <p> ✓ 加速腳步思陶特 Stout</p>
+                                    <p> ✓ Light lager不斷進化淡愛爾</p>
+                                    <hr>
+                                    <p>注意事項</p>
+                                    <p>⦿ 此價格已含運費</p>
+                                    <p>⦿ 訂單若有異動，請至會員中心的訂單留言。</p>
+                                </div>
+                            </a>
+                        </li>
 
 
+                        <li class="card" id="card2">
+                            <a class="card-description" href="../html/fund-step2.html" target="_blank">
+                                <!-- pic -->
+                                <img class="pic" src="../images/joyce_images/option-1.jpg" alt="" />
+                                <!-- option_price -->
+                                <h2 class="option_price"><?= $f['option_price'] ?></h2> <!-- c_name -->
+                                <p class="c-name" style="color: var(--gold);">【啤女獨家優惠 | 英國雲水精釀啤酒】</p>
+                                <!-- option -->
+                                <div class="option">
+                                    <p><?= $f['option'] ?></p> //6入分享組｜三種口味各二(330ml)
+                                </div>
+                                <div class="option-content">
+                                    <p>【口味】</p>
+                                    <p> ✓ Helles向藝術致敬IPA </p>
+                                    <p> ✓ Hoppy little lager快腳步愛爾</p>
+                                    <p> ✓ Light lager不斷進化淡愛爾</p>
+                                    <hr>
+                                    <p>注意事項</p>
+                                    <p>⦿ 此價格已含運費</p>
+                                    <p>⦿ 訂單若有異動，請至會員中心的訂單留言。</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="card" id="card3">
+                            <a class="card-description" href="../html/fund-step2.html" target="_blank">
+                                <!-- pic -->
+                                <img class="pic" src="../images/joyce_images/option-1.jpg" alt="" />
+                                <!-- option_price -->
+                                <h2 class="option_price"><?= $v['option_price'] ?></h2> //$3050
+                                <!-- c_name -->
+                                <p class="c-name" style="color: var(--gold);"></p>
+                                <!-- 【啤女獨家優惠 | 英國雲水精釀啤酒】 -->
+                                <!-- option -->
+                                <div class="option">
+                                    <p><?= $v['option'] ?></p>
+                                    <!-- 8入趴踢組｜四種口味各二(330ml) -->
+                                </div>
+                                <div class="option-content">
+                                    <p>【口味】</p>
+                                    <p> ✓ Helles向藝術致敬IPA </p>
+                                    <p> ✓ Hoppy little lager快腳步愛爾</p>
+                                    <p> ✓ 加速腳步思陶特 Stout</p>
+                                    <p> ✓ Light lager不斷進化淡愛爾</p>
+                                    <hr>
+                                    <p>注意事項</p>
+                                    <p>⦿ 此價格已含運費</p>
+                                    <p>⦿ 訂單若有異動，請至會員中心的訂單留言。</p>
+                            </a>
+                        </li>
+                    </ul>
+                <?php endforeach; ?>
             </div>
 
         </div>
