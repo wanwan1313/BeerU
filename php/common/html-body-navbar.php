@@ -16,7 +16,7 @@
                     <li class="nav-item"><a href="newbie.php">新手入門</a></li>
                     <li class="nav-item">啤酒指南
                         <ul class="nav-sub-menu list-unstyled">
-                            <li class="nav-sub-menu-item"><a href="map.php"></a>啤酒地圖</a></li>
+                            <li class="nav-sub-menu-item"><a href="map.php">啤酒地圖</a></li>
                             <li class="nav-sub-menu-item"><a href="food.php">餐酒搭配</a></li>
                             <li class="nav-sub-menu-item"><a href="">風味輪</a></li>
                         </ul>
