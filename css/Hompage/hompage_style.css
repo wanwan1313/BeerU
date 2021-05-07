@@ -308,6 +308,7 @@ body,html{
 
 
  .Brew-school{
+     overflow: hidden;
      opacity: 0;
  }
 
