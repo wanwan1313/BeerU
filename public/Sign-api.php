@@ -1,6 +1,7 @@
 <?php include __DIR__ . '../../php/common/config.php' ;
 
 
+
 $output = [
     'success' => false,
     'code' => 0,
@@ -13,6 +14,7 @@ $output['newPassword'] = $_POST['newPassword'];
 $output['nickname'] = $_POST['nickname'];
 $output['address'] = $_POST['address'];
 $output['birthday'] = $_POST['birthday'];
+
 
 
 if(isset($_POST['newAccount'])){
@@ -29,7 +31,8 @@ if(isset($_POST['newAccount'])){
 
     $hash = sha1( $_POST['newAccount']. uniqid() );
 
-
+    
+    // 建立註冊資料
     $sql = "INSERT INTO `member`( `email`, `password`, `nickname`, `birthday`, `address`, `hash`, `created_at`,`user-pic`) VALUES (?,?,?,?,?,?,NOW(),'user.svg')";
 
     $stmt = $pdo -> prepare($sql);
@@ -44,10 +47,33 @@ if(isset($_POST['newAccount'])){
      
         
     ]);
-    
+
+
+    //同時建立成就資料表
+
+    //抓註冊會員的ID
+    $m_sql =  "SELECT `sid` FROM `member` ORDER BY sid DESC LIMIT 0 , 1";
+    $m_stmt = $pdo -> query($m_sql);
+    $m_id =  $m_stmt -> fetch(PDO::FETCH_NUM)[0];
+
+    //建成就資料
+    $ac_sql = "INSERT INTO `achievement`( `member_sid`, `coupon`, `achieve`, `create_at`) VALUES (?,'50','0',NOW())";
+    $ac_stmt = $pdo -> prepare($ac_sql);
+    $ac_stmt -> execute([
+         $m_id
+      
+    ]);
+
+
     if($stmt->rowCount()){
-       $output['success'] = true;
-       $output['error'] = '';
+        $_SESSION['user']['email']= $_POST['newAccount'];
+        $_SESSION['user']['user-pic']= 'user.svg';
+
+        $output['member_id']= $m_id; //註冊時的會員ID
+        $output['achieve'] = $ac_stmt; //成就系統的資料表
+        $output['success'] = true;
+        $output['error'] = '';
+
      } else {
         $output['error'] = '註冊發生錯誤';
      }

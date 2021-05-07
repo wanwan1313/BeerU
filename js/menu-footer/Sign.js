@@ -34,7 +34,8 @@ function checkform_sign(){
                 function(data){
                     console.log(data)
                     if(data.success){
-                        alert('註冊成功');
+                        // location.reload();
+                         alert('註冊成功');
                     } else {
                         alert(data.error);
                     }

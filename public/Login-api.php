@@ -16,7 +16,7 @@ $output['password'] = $_POST['password'];
 
 if(isset($_POST['account'])) {
 
-     $a_sql = "SELECT * FROM `member` WHERE `email`=?";
+    $a_sql = "SELECT * FROM `member` WHERE `email`=?";
     $a_stmt = $pdo->prepare($a_sql);
     $a_stmt->execute([ $_POST['account']]);
     $row = $a_stmt->fetch();

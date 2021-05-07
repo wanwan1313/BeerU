@@ -12,7 +12,7 @@
 }
    
 
-.log-wrap{
+.LogIn-Sign .log-wrap{
     position: relative;
     display: flex;
     justify-content: center;
@@ -24,13 +24,13 @@
 
 
 
-.log-sandbox{
+.LogIn-Sign .log-sandbox{
     width: 100%;
     height:calc(100vh - 85px); 
  
 }
    
-.log-box{
+.LogIn-Sign .log-box{
 
     overflow-y: auto;
     position: absolute;
@@ -66,15 +66,15 @@
 }
 
 
-.log-box::-webkit-scrollbar { width: 0 !important }
+.LogIn-Sign .log-box::-webkit-scrollbar { width: 0 !important }
 
-.logo-wrap{
+.LogIn-Sign .logo-wrap{
     margin: 20px auto;
     width: 100px;    
     transform: translateX(-1px);
 }
 
-.cancel-quit{
+.LogIn-Sign .cancel-quit{
     cursor: pointer;
     position: absolute;
     color: var(--gold);
@@ -82,17 +82,17 @@
     right: 15px;
 
 }
-.log-content{
+.LogIn-Sign .log-content{
     width: 100%;
 }
 
 /* //////起始畫面////// */
-.first-content{
+.LogIn-Sign .first-content{
     margin: 20px auto;
     width: 100%;
 }
 
-.first-content h3{
+.LogIn-Sign .first-content h3{
     text-align: center;
     color: var(--blue);
     font-family: 'Noto Serif TC', serif;
@@ -104,14 +104,14 @@
 
 }
 
-.login-title{
+.LogIn-Sign .login-title{
     margin: 0 auto;
     width: 60%;
     border-bottom: solid 2px var(--blue);
     
 
 }
-.login-title h4{
+.LogIn-Sign .login-title h4{
     margin: 0 auto;
     width: 40%;
     color: var(--blue);
@@ -122,21 +122,21 @@
 
 }
 
-.social-icon{
+.LogIn-Sign .social-icon{
     cursor: pointer;
 
 }
 
-.fb-01{
+.LogIn-Sign .fb-01{
     margin: 35px auto 15px auto;
     width: 50px
 
 }
-.LogInOut-btn-warp{
+.LogIn-Sign .LogInOut-btn-warp{
     margin-top: 50px;
     justify-content: center;
 }
-.log-btn{
+.LogIn-Sign .log-btn{
     cursor: pointer;
     border-radius: 5px;
     font-family: 'Noto Sans TC', serif;
@@ -150,7 +150,7 @@
 
 /* //////登入畫面/////// */
 
-.LogIn-box{
+.LogIn-Sign .LogIn-box{
     transition: .5s;
     width: 40%;
     height: 550px;
@@ -158,11 +158,11 @@
 
 }
 
-.LogIn-page{
+.LogIn-Sign .LogIn-page{
     display: none;
 }
 
-.LogIn-title h3{
+.LogIn-Sign .LogIn-title h3{
     text-align: center;
     color: var(--blue);
     font-family: 'Noto Serif TC', serif;
@@ -173,11 +173,11 @@
 }
 
 
-.LogIn-content-wrap{
+.LogIn-Sign .LogIn-content-wrap{
     width: 60%;
     margin: 0 auto;
 }
-.input-account{
+.LogIn-Sign .input-account{
     display: flex;
     justify-content: center;
     position: relative;
@@ -195,7 +195,7 @@
     border-radius: 5px;
 }
 
-::placeholder{
+.LogIn-Sign ::placeholder{
     font-size: 1.6rem;
     color: var(--gold);
     letter-spacing: 0.5rem;
@@ -203,7 +203,7 @@
 }
 
 
-.user-icon01{
+.LogIn-Sign .user-icon01{
     position: absolute;
     color: var(--gold);
     top: 30%;
@@ -211,7 +211,7 @@
 
 }
 
-.input-password{
+.LogIn-Sign .input-password{
     display: flex;
     justify-content: center;
     position: relative;
@@ -219,7 +219,7 @@
     
 }
 
-.lock-icon01{
+.LogIn-Sign .lock-icon01{
     position: absolute;
     color: var(--gold);
     top: 30%;
@@ -227,19 +227,19 @@
 
 }
 
-.wrong-alert{
+.LogIn-Sign .wrong-alert{
     margin-top: 10px;
     align-items: center;
     color:  var(--pink);
 }
 
 
-.wrong-alert p{
+.LogIn-Sign .wrong-alert p{
     margin-left: 5px;
     font-size: 1.4rem;
 }
 
-.LogIn-btn02{
+.LogIn-Sign .LogIn-btn02{
     color: white;
     border: transparent;
     margin-top: 30px;
@@ -251,7 +251,7 @@
 }
 
 
-.forget-password{
+.LogIn-Sign .forget-password{
 
     margin-top: 30px;
     display: flex;
@@ -260,13 +260,13 @@
     color: var(--blue);
 }
 
-.forget-password h3{
+.LogIn-Sign .forget-password h3{
     font-size: 1.6rem;
     font-family: 'Noto Sans TC', serif;
     font-weight: normal;
 }
 
-.not-menber{
+.LogIn-Sign .not-menber{
     margin-top: 10px;
     display: flex;
     justify-content: center;
@@ -274,19 +274,19 @@
     color: var(--blue);
 }
 
-.not-menber h3{
+.LogIn-Sign .not-menber h3{
     font-size: 1.6rem;
     font-family: 'Noto Sans TC', serif;
     font-weight: normal;
 
 }
 
-.not-menber h3 span{
+.LogIn-Sign .not-menber h3 span{
     cursor: pointer;
     color: var(--pink);
 }
 
-.backward{
+.LogIn-Sign .backward{
     cursor: pointer;
     
     display: flex;
@@ -296,13 +296,13 @@
 
 }
 
-.backward h3{
+.LogIn-Sign .backward h3{
     font-size: 1.6rem;
     font-family: 'Noto Sans TC', serif;
     font-weight: normal;
 }
 
-.back01{
+.LogIn-Sign .back01{
     margin-top: 30px;
 
 }
@@ -310,11 +310,11 @@
 
 /* /////註冊畫面////// */
 
-.LogSign-page{
+.LogIn-Sign .LogSign-page{
     display: none;
 }
 
-.LogSign-title h3{
+.LogIn-Sign .LogSign-title h3{
     text-align: center;
     color: var(--blue);
     font-family: 'Noto Serif TC', serif;
@@ -325,21 +325,21 @@
 }
 
 
-.logSign-content-wrap{
+.LogIn-Sign .logSign-content-wrap{
     margin: 25px auto 0px auto ;
     width: 65%;
     border-bottom: solid 2px var(--gold);
 }
 
-.account-password-wrap{
+.LogIn-Sign .account-password-wrap{
     justify-content: space-between;
 }
-.logSign-account{
+.LogIn-Sign .logSign-account{
     position: relative;
     width: 45%;
 }
 
-.logSign-account h3{
+.LogIn-Sign .logSign-account h3{
     color: var(--blue);
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
@@ -347,32 +347,32 @@
 
 }
 
-.logSign-account input{
+.LogIn-Sign .logSign-account input{
     margin-top: 5px;
 
 }
 
-.email-icon01{
+.LogIn-Sign .email-icon01{
     position: absolute;
     color: var(--gold);
     top: 40px;
     left: 4%;;
 }
 
-.logSign-account p{
+.LogIn-Sign .logSign-account p{
     font-size: 1.4rem;
     font-family: 'Noto Sans TC', serif;
     font-weight: normal;
     color: #7F7F7F;
 }
 
-.logSign-password{
+.LogIn-Sign .logSign-password{
     position: relative;
     width: 45%;
 }
 
 
-.logSign-password h3{
+.LogIn-Sign .logSign-password h3{
     color: var(--blue);
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
@@ -380,18 +380,18 @@
 
 }
 
-.logSign-password input{
+.LogIn-Sign .logSign-password input{
     margin-top: 5px;
 
 }
-.lock-icon02{
+.LogIn-Sign .lock-icon02{
     position: absolute;
     color: var(--gold);
     top: 38px;
     left: 4%;
 }
 
-.logSign-password p{
+.LogIn-Sign .logSign-password p{
     font-size: 1.4rem;
     font-family: 'Noto Sans TC', serif;
     font-weight: normal;
@@ -399,47 +399,47 @@
 }
 
 
-.member-wrap{
+.LogIn-Sign .member-wrap{
     margin-top: 20px;
     justify-content: space-between;
 }
-.logSign-name{
+.LogIn-Sign .logSign-name{
     position: relative;
     width: 45%;
 }
 
-.logSign-name h3{
+.LogIn-Sign .logSign-name h3{
     color: var(--blue);
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
     font-size: 1.6rem;
 }
 
-.logSign-birthday{
+.LogIn-Sign .logSign-birthday{
     position: relative;
     width: 45%;
 }
-.user-icon02{
+.LogIn-Sign .user-icon02{
     position: absolute;
     color: var(--gold);
     top: 34px;
     left: 4%;
 }
 
-.logSign-birthday h3{
+.LogIn-Sign .logSign-birthday h3{
     color: var(--blue);
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
     font-size: 1.6rem;
 }
 
-.birthday{
+.LogIn-Sign .birthday{
     position: relative;
   
 }
 
 /* 生日圖示改變  */
-.birthday::-webkit-calendar-picker-indicator { 
+.LogIn-Sign #birthday::-webkit-calendar-picker-indicator { 
  
     position: absolute;
     left: -15px;
@@ -454,11 +454,11 @@
 }
 
 
-.logSign-address{
+.LogIn-Sign .logSign-address{
     margin-top: 25px;
 }
 
-.logSign-address h3{
+.LogIn-Sign .logSign-address h3{
     color: var(--blue);
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
@@ -466,8 +466,12 @@
 }
 
 
+.LogIn-Sign .logSign-address .input-btn{
+    padding-left: 10px;
+}
 
-.logSign-notice{
+
+.LogIn-Sign .logSign-notice{
     margin: 30px auto 0 auto;
     width: 100%;
     color: var(--blue);
@@ -478,11 +482,11 @@
     
 }
 
-.logSign-notice span{
+.LogIn-Sign .logSign-notice span{
     font-weight: bold;
 }
 
-.logSign-btn{
+.LogIn-Sign .logSign-btn{
     border-radius: 5px;
     width: 100%;
     border: transparent;
@@ -497,38 +501,38 @@
 
 }
 
-.already-account{
+.LogIn-Sign .already-account{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 25px;
 }
 
-.already-account h3{
+.LogIn-Sign .already-account h3{
     color: var(--blue);
     font-family: 'Noto Sans TC', serif;
     font-weight: normal;
     font-size: 1.6rem;
 
 }
-.already-account h3 span{
+.LogIn-Sign .already-account h3 span{
     cursor: pointer;
     color: var(--pink);
     
 }
 
-.back02{
+.LogIn-Sign .back02{
     margin: 10px auto 12px auto;
 }
 
 
-.fb-02{
+.LogIn-Sign .fb-02{
     margin: 0px auto 0 auto;
     width: 40px
 }
 
 
-.social-signIn-wrap h4{
+.LogIn-Sign .social-signIn-wrap h4{
     margin-top: 5px;
     font-family: 'Noto Sans TC', serif;
     font-weight:light;
@@ -539,17 +543,17 @@
 
 
 /* /////驗證畫面////  */
-.Check-page{
+.LogIn-Sign .Check-page{
     display: none;
 
 }
 
-.Check-warp{
+.LogIn-Sign .Check-warp{
     margin: 0 auto;
     width: 65%;
 }
 
-.Check-title h3{
+.LogIn-Sign .Check-title h3{
     text-align: center;
     color: var(--blue);
     font-family: 'Noto Serif TC', serif;
@@ -559,10 +563,10 @@
     line-height: 3rem;
 }
 
-.Check-content-warp{
+.LogIn-Sign .Check-content-warp{
     margin-top: 25px;
 }
-.Check-content{
+.LogIn-Sign .Check-content{
     margin: 0px auto 0 auto;
     
     color: var(--blue);
@@ -573,20 +577,20 @@
 
 }
 
-.Check-Email{
+.LogIn-Sign .Check-Email{
     position: relative;
     margin: 20px auto 0 auto;
     width: 100%
 }
 
-.email-icon02{
+.LogIn-Sign .email-icon02{
     position: absolute;
     color: var(--gold);
     top: 10px;
     left: 2.5%;;
 }
 
-.resent-btn{
+.LogIn-Sign .resent-btn{
     width: 100%;
     margin: 10px auto 0 auto;
     border-radius: 5px;
@@ -602,11 +606,11 @@
 }
 
 
-.later-check{
+.LogIn-Sign .later-check{
     cursor: pointer;
 }
 
-.later-check h3{
+.LogIn-Sign .later-check h3{
    
     margin-top: 20px;
    text-align: center;
