@@ -463,7 +463,7 @@ $page_title = '啤女-結帳';
         re_name.val('<?= $_SESSION['checkout']['re_name'] ?? '' ?>')
         re_mobile.val('<?= $_SESSION['checkout']['re_mobile'] ?? '' ?>')
 
-        if ( <?= isset($_SESSION['checkout']['re_city']) ? 'true':'false' ?> == true) {
+        if (<?= isset($_SESSION['checkout']['re_city']) ? 'true' : 'false' ?> == true) {
             re_add.val("<?= isset($_SESSION['checkout']['re_address']) ? $_SESSION['checkout']['re_address'] : '' ?>")
             re_city.value = "<?= isset($_SESSION['checkout']['re_city']) ? $_SESSION['checkout']['re_city'] : '' ?>"
             re_dist.value = "<?= isset($_SESSION['checkout']['re_dist']) ? $_SESSION['checkout']['re_dist'] : '' ?>"
@@ -474,47 +474,56 @@ $page_title = '啤女-結帳';
 
 
     // 偵測購物車內有沒有商品
-    let cartProduct = '<?= !empty($_SESSION['cart']) ? 'true' : 'false' ?>'
-    if (cartProduct == 'true') {
-        // 第一次進入頁面非刷新的時候，給網址step1
-        if (window.location.search == '') {
-            let url = location.pathname + '?step=1'
-            history.pushState({
-                url: url,
-                title: document.title
-            }, document.title, url)
-            $('#select-ship').fadeIn(150)
-            $('.step-1').addClass('on')
-        }
+    function init() {
+        let cartProduct = '<?= !empty($_SESSION['cart']) ? 'true' : 'false' ?>'
+        if (cartProduct == 'true') {
+            // 第一次進入頁面非刷新的時候，給網址step1
+            if (window.location.search == '') {
+                let url = location.pathname + '?step=1'
+                history.pushState({
+                    url: url,
+                    title: document.title
+                }, document.title, url)
+                $('#select-ship').fadeIn(150)
+                $('.step-1').addClass('on')
+            }
 
-        // 刷新的時候偵測網址
-        if (window.location.search.substr(6, 1) == 1) {
-            $('#select-ship').fadeIn(150)
-            $('.step-1').addClass('on')
-            reloadData()
+            // 刷新的時候偵測網址
+            if (window.location.search.substr(6, 1) == 1) {
+                $('#select-ship').fadeIn(150)
+                $('.step-1').addClass('on')
+                reloadData()
 
-        }
-        if (window.location.search.substr(6, 1) == 2) {
-            reloadData()
-            checkshipform()
-            $('#select-ship').css('display', 'none')
-            $('#select-payment').fadeIn(150)
-            $('.step-2').addClass('on')
-            $('.step-1').removeClass('on')
-        }
-        if (window.location.search.substr(6, 1) == 3) {
+            }
+            if (window.location.search.substr(6, 1) == 2) {
+                reloadData()
+                checkshipform()
+                $('#select-ship').css('display', 'none')
+                $('#select-payment').fadeIn(150)
+                $('.step-2').addClass('on')
+                $('.step-1').removeClass('on')
+            }
+            if (window.location.search.substr(6, 1) == 3) {
 
+                location.href = 'cart-list.php'
+                // reloadData()
+                // checkshipform()
+                // checkpaymentform()
+                // $('#select-payment').css('display', 'none')
+                // $('#complete-order').fadeIn(150)
+                // $('.step-3').addClass('on')
+                // $('.step-2').removeClass('on')
+            }
+        } else {
             location.href = 'cart-list.php'
-            // reloadData()
-            // checkshipform()
-            // checkpaymentform()
-            // $('#select-payment').css('display', 'none')
-            // $('#complete-order').fadeIn(150)
-            // $('.step-3').addClass('on')
-            // $('.step-2').removeClass('on')
         }
-    } else {
-        location.href = 'cart-list.php'
+
+    }
+
+    init()
+    
+    window.onpopstate = function() {
+        init()
     }
 
 
