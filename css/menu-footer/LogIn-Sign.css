@@ -4,7 +4,7 @@
 
 }
 
-.LogIn-Sign .LogIn-Sign{
+.LogIn-Sign{
     position: fixed;
     height:calc(100vh - 85px);
     width: 100%;
@@ -185,7 +185,7 @@
     
 }
 
-.LogIn-Sign .LogIn-Sign .input-btn{
+.LogIn-Sign .input-btn{
 
     width: 100%;
     height: 35px;
