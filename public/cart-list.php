@@ -164,7 +164,9 @@ $page_title = '啤女-購物車';
                                         <p class="sub-t-price"></p>
                                         <div class="intro d-flex flex-wrap ">
                                             <p class="col-12 px-0 price">單價-NT$<?= $v['price'] ?></p>
+                                            <?php if( $v['abv'] != 0 ): ?>
                                             <p class="abv">ABV-<?= $v['abv'] ?>%</p>
+                                            <?php endif; ?>
                                             <p class="cap">容量-<?= $v['capacity'] ?></p>
                                         </div>
                                     </div>

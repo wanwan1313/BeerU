@@ -143,24 +143,31 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                             </div>
                             <p class="content type"><?= $row['type_name'] ?></p>
                         </div>
+
+                        <?php if( $row['flavor'] != 0 ): ?>
                         <div class="key-content d-flex flex-lg-column">
                             <div class="title">
                                 <p>風味</p>
                             </div>
                             <p class="content flavor"><?= $row['flavor'] ?></p>
                         </div>
+                        <?php endif; ?>
+                        
                         <div class="key-content d-flex flex-lg-column ">
                             <div class="title">
                                 <p>容量</p>
                             </div>
                             <p class="content capacity"><?= $row['capacity'] ?></p>
                         </div>
+
+                        <?php if( $row['abv'] != 0 ): ?>
                         <div class="key-content d-flex flex-lg-column">
                             <div class="title-4">
                                 <p>酒精濃度</p>
                             </div>
                             <p class="content abv"><?= $row['abv'] ?>%</p>
                         </div>
+                        <?php endif; ?>
                     </div>
                 </div>
 
