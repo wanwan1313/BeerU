@@ -12,19 +12,19 @@
                 </a>
                 <!-- 選單 -->
                 <ul class="nav-bar-list list-unstyled d-flex justify-content-around">
-                    <li class="nav-item"><a href="">本月主打</a></li>
-                    <li class="nav-item"><a href="">新手入門</a></li>
+                    <li class="nav-item"><a href="monthly-product.php">本月主打</a></li>
+                    <li class="nav-item"><a href="newbie.php">新手入門</a></li>
                     <li class="nav-item">啤酒指南
                         <ul class="nav-sub-menu list-unstyled">
-                            <li class="nav-sub-menu-item"><a href=""></a>啤酒地圖</a></li>
-                            <li class="nav-sub-menu-item"><a href="">餐酒搭配</a></li>
+                            <li class="nav-sub-menu-item"><a href="map.php"></a>啤酒地圖</a></li>
+                            <li class="nav-sub-menu-item"><a href="food.php">餐酒搭配</a></li>
                             <li class="nav-sub-menu-item"><a href="">風味輪</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">啤酒活動
                         <ul class="nav-sub-menu list-unstyled">
-                            <li class="nav-sub-menu-item"><a href="">預約試飲會</a></li>
-                            <li class="nav-sub-menu-item"><a href="">募資計畫</a></li>
+                            <li class="nav-sub-menu-item"><a href="event.php">預約試飲會</a></li>
+                            <li class="nav-sub-menu-item"><a href="fund.php">募資計畫</a></li>
                         </ul>
                     </li>
                     <li class="nav-item d-none d-lg-block"><a href="all-product.php">全部商品</a></li>
