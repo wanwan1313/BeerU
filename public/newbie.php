@@ -22,7 +22,7 @@ $page_title = '啤女BeerU:新手入門';
                     <div class="inside-beer"></div>
                     <div class="inside-heads"></div>
                 </div>
-                <div class="pipi animatable fadeInUp"></div>
+                <div class="pipi"></div>
             </div>
             <div class="col-md-6 col-sm-4 right-info">
                 <div class="newbie-title animatable fadeInUp mt-5 ">
@@ -47,8 +47,8 @@ $page_title = '啤女BeerU:新手入門';
                     <p class="caption animatable fadeInUp">
                         可以從啤酒百科開始 ～</p>
                 </div>
-                <div class="enter-btn">
-                    <a href="#knowledge-wrap">
+                <div class="enter-btn" id="scroll">
+                    <a class="scroll" href="#knowledge-wrap">
                         <div class="know-more">了解更多</div>
                     </a>
                 </div>
@@ -94,8 +94,8 @@ $page_title = '啤女BeerU:新手入門';
                 <p class="ingredient-intro">精釀啤酒主原料僅4種，天然添加物呈現風味多樣化</p>
             </div>
             <div class="row four-ingre-row mt-5">
-                <div class="col-md ingredient-wrap">
-                    <div class="ingredient-title-sm animatable fadeInUp">
+                <div class="col-md ingredient-wrap animatable fadeInUp">
+                    <div class="ingredient-title-sm">
                         <p class="ingre-ch">麥芽</p>
                         <p class="ingre-en">Malt</p>
                     </div>
@@ -196,29 +196,37 @@ $page_title = '啤女BeerU:新手入門';
             <div class="row each-glass-wrap mt-5 align-items-end">
                 <div class="col-md-3 col-sm-6 each-glass">
                     <button class="modal-trigger" data-modal="modal-glass-1">
-                        <p class="glass-title-ch">不缺角杯</p>
-                        <p class="glass-title-en">Nonik</p>
+                        <div class="glass-title-wrap">
+                            <p class="glass-title-ch">不缺角杯</p>
+                            <p class="glass-title-en">Nonik</p>
+                        </div>
                         <img class="glass-1" src="../images/glori_images/Nonik.png">
                     </button>
                 </div>
                 <div class="col-md-3 col-sm-6 each-glass">
                     <button class="modal-trigger" data-modal="modal-glass-2">
-                        <p class="glass-title-ch">高腳鬱金香杯</p>
-                        <p class="glass-title-en">Tulip</p>
+                        <div class="glass-title-wrap">
+                            <p class="glass-title-ch">高腳鬱金香杯</p>
+                            <p class="glass-title-en">Tulip</p>
+                        </div>
                         <img class="glass-2" src="../images/glori_images/Tulip-Glass.png">
                     </button>
                 </div>
                 <div class="col-md-3 col-sm-6 each-glass">
                     <button class="modal-trigger" data-modal="modal-glass-3">
-                        <p class="glass-title-ch">聖杯</p>
-                        <p class="glass-title-en">Chalice/Goblet</p>
+                        <div class="glass-title-wrap">
+                            <p class="glass-title-ch">聖杯</p>
+                            <p class="glass-title-en">Chalice/Goblet</p>
+                        </div>
                         <img class="glass-3" src="../images/glori_images/GobletChalice.png">
                     </button>
                 </div>
                 <div class="col-md-3 col-sm-6 each-glass">
                     <button class="modal-trigger" data-modal="modal-glass-4">
-                        <p class="glass-title-ch">笛型杯</p>
-                        <p class="glass-title-en">Flute</p>
+                        <div class="glass-title-wrap">
+                            <p class="glass-title-ch">笛型杯</p>
+                            <p class="glass-title-en">Flute</p>
+                        </div>
                         <img class="glass-4" src="../images/glori_images/Flute.png">
                     </button>
                 </div>
@@ -228,29 +236,37 @@ $page_title = '啤女BeerU:新手入門';
             <div class="row each-glass-wrap align-items-end mt-5">
                 <div class="col-md-3 each-glass">
                     <button class="modal-trigger" data-modal="modal-glass-5">
-                        <p class="glass-title-ch">直口杯</p>
-                        <p class="glass-title-en">Stange</p>
+                        <div class="glass-title-wrap">
+                            <p class="glass-title-ch">直口杯</p>
+                            <p class="glass-title-en">Stange</p>
+                        </div>
                         <img class="glass-5" src="../images/glori_images/Stange.png">
                     </button>
                 </div>
                 <div class="col-md-3 each-glass">
                     <button class="modal-trigger" data-modal="modal-glass-6">
-                        <p class="glass-title-ch">威力比切杯</p>
-                        <p class="glass-title-en">Willi Becher</p>
+                        <div class="glass-title-wrap">
+                            <p class="glass-title-ch">威力比切杯</p>
+                            <p class="glass-title-en">Willi Becher</p>
+                        </div>
                         <img class="glass-6" src="../images/glori_images/Willi-Becher.png">
                     </button>
                 </div>
                 <div class="col-md-3 each-glass">
                     <button class="modal-trigger" data-modal="modal-glass-7">
-                        <p class="glass-title-ch">皮爾森杯</p>
-                        <p class="glass-title-en">Pilsner</p>
+                        <div class="glass-title-wrap">
+                            <p class="glass-title-ch">皮爾森杯</p>
+                            <p class="glass-title-en">Pilsner</p>
+                        </div>
                         <img class="glass-7" src="../images/glori_images/Pisner-Glass.png">
                     </button>
                 </div>
                 <div class="col-md-3 each-glass">
                     <button class="modal-trigger" data-modal="modal-glass-8">
-                        <p class="glass-title-ch">雪克杯</p>
-                        <p class="glass-title-en">Shaker</p>
+                        <div class="glass-title-wrap">
+                            <p class="glass-title-ch">雪克杯</p>
+                            <p class="glass-title-en">Shaker</p>
+                        </div>
                         <img class="glass8" src="../images/glori_images/Shaker.png">
                     </button>
                 </div>
