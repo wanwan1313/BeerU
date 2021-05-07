@@ -95,7 +95,7 @@
 
 /* ----------------了解更多---------------------- */
 
-        .know-more {
+        .all-product .know-more {
             font-family: 'Noto Serif TC', serif;
             font-size: 2rem;
             font-weight: bold;
@@ -105,7 +105,7 @@
             transition: .5s;
         }
 
-        .know-more::before {
+        .all-product .know-more::before {
             content: '';
             display: block;
             position: absolute;
@@ -117,7 +117,7 @@
             opacity: 1;
             transition: .3s;
         }
-        .know-more::after {
+        .all-product .know-more::after {
             content: '';
             display: block;
             position: absolute;
@@ -130,11 +130,11 @@
             transition: .3s;
         }
 
-        .know-more:hover {
+        .all-product .know-more:hover {
             transform: scale(1.1,1.1);
         }
 
-        .know-more:hover::after {
+        .all-product .know-more:hover::after {
             content: '';
             display: block;
             position: absolute;
@@ -146,7 +146,7 @@
             opacity: 0;
         }
 
-        .know-more:hover::before {
+        .all-product .know-more:hover::before {
             content: '';
             display: block;
             position: absolute;
@@ -530,7 +530,7 @@
 
         /* 加入關注按鈕 */
 
-        .btn_attention {
+        .all-product .btn_attention {
             font-family:'Noto Serif TC', serif;
             color: var(--gold);
             font-size: 1.8rem;
@@ -542,16 +542,16 @@
             transition: .3s;
         }
 
-        .btn_attention i, .btn_attention_active i {
+        .all-product .btn_attention i, .all-product .btn_attention_active i {
             margin: 5px;
         }
 
-        .btn_attention:hover {
+        .all-product .btn_attention:hover {
             background-color: var(--gold);
             color: #fff;
         }
 
-        .btn_attention_active {
+        .all-product .btn_attention_active {
             font-family:'Noto Serif TC', serif;
             color: #fff;
             font-size: 1.8rem;
@@ -563,7 +563,7 @@
             transition: .3s;
         }
 
-        .btn_attention_active:hover {
+        .all-product .btn_attention_active:hover {
             background-color: #fff;
             color: var(--gold);
         }
@@ -717,7 +717,7 @@
             right: 20px;
         }
 
-        .btn_collect, .btn_collect_active {
+        .all-product .btn_collect, .btn_collect_active {
             background-color: transparent;
             border: none;
             color: var(--red);
@@ -727,11 +727,11 @@
             transition: .3s;
         }
 
-        .btn_collect:hover, .btn_collect_active:hover {
+        .all-product .btn_collect:hover, .btn_collect_active:hover {
             transform: scale(1.1,1.1);
         }
 
-        .btn_collect::after {
+        .all-product .btn_collect::after {
             content: '加入收藏';
             display: block;
             position:absolute;
@@ -743,7 +743,7 @@
             transition: .3s;
         }
 
-        .btn_collect:hover::after {
+        .all-product .btn_collect:hover::after {
             color: var(--red);
         }
 
@@ -828,7 +828,7 @@
         }
 
         /* 加入購物車按鈕 */
-        .add-cart {
+        .all-product .add-cart {
             background-color: transparent;
             border: 1px solid #fff;
             color: #fff;
@@ -841,18 +841,18 @@
 
         /* 手機版 */
     @media (max-width: 991px) {
-        .add-cart {
+        .all-product .add-cart {
             background-color: #fff;
             color: var(--gold);
         }
 
     }
-        .add-cart i {
+        .all-product .add-cart i {
             margin-right: 8px;
         }
     
 
-        .add-cart:hover {
+        .all-product .add-cart:hover {
             background-color: #fff;
             color: var(--gold);
         }
