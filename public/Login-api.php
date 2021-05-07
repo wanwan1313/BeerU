@@ -12,6 +12,8 @@ $output['account'] =  $_POST['account'];
 $output['password'] = $_POST['password'];
 
 
+
+
 if(isset($_POST['account'])) {
 
      $a_sql = "SELECT * FROM `member` WHERE `email`=?";
@@ -31,6 +33,7 @@ if(isset($_POST['account'])) {
         $_SESSION['user'] = $row;
         $output['success'] = true;
         $output['error'] = '';
+        $output['User'] = $_SESSION['user'];
     }
 
 }
