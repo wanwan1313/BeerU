@@ -29,5 +29,5 @@ function checkform_Login(){
 function Logout(){
 
     location.href= 'Logout-api.php';
-    history.go(0);
+    // history.go(0);
 }
