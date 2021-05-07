@@ -855,13 +855,15 @@ background-color: rgba(0, 0, 0, 0.6);
 .map .map-card{
     width: 700px;
     height:475px;
-    background-color: rgb(244, 231, 190);
+    background-color: rgb(176, 136, 104);
+    border-radius: 10px;
     margin:auto;
     padding-left:15px;
     padding-right:15px;
     padding-bottom:15px;
     padding-top: 15px;
     color:var(--red);
+    overflow: hidden;
 }
 
 
@@ -870,6 +872,10 @@ background-color: rgba(0, 0, 0, 0.6);
     .map .map-card{
     width: 350px;
     height:550px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-bottom:10px;
+    padding-top: 10px;
     
 }
 }
@@ -878,6 +884,17 @@ background-color: rgba(0, 0, 0, 0.6);
 font-size: 3rem;
 height:30px;
 cursor: pointer;
+position: absolute;
+z-index:990;
+right:15px;
+}
+
+/* ---------------------- */
+/* deco-bg */
+.bg_country{
+    top:0px;
+    left:0px;
+    /* z-index:0; */
 }
 
 /* ---------------------- */
@@ -886,8 +903,8 @@ cursor: pointer;
     width:125px;
     /* height:200px; */
     overflow: hidden;
-    top: 40px;
-    left:10px;
+    top: 50px;
+    left:40px;
 }
 
 .stamp img{
@@ -900,18 +917,18 @@ cursor: pointer;
         width:85px;
         /* height:200px; */
         overflow: hidden;
-        top:37.5px;
+        top:25px;
         left:10px;
     }
 }
 /* ---------------------- */
 /* deco-郵票 */
 .stamp_country{
-    width:80px;
+    width:90px;
     /* height:200px; */
     overflow: hidden;
-    top:10px;
-    left:15px;
+    top:25px;
+    left: 25px;
     filter:drop-shadow(5px 5px 7.5px rgba(0,0,0,0.3));
     /* transform: rotate(10deg); */
 }
@@ -932,7 +949,7 @@ cursor: pointer;
 font-family: 'Noto Serif TC', serif;
 font-size: 5rem;
 font-weight: bold;
-margin-top: -20px;
+margin-top: 70px;
 letter-spacing: .75rem;
 }
 
@@ -942,7 +959,7 @@ letter-spacing: .75rem;
         font-family: 'Noto Serif TC', serif;
         font-size: 3.5rem;
         font-weight: bold;
-        margin-top: -25px;
+        margin-top: 0px;
         }
 }
 
@@ -962,7 +979,8 @@ letter-spacing: .75rem;
 
 @media (max-width: 768px) {
     .map .map-card .beer-brand{
-        margin-top: -20px;
+        margin-top: -22px;
+        margin-bottom: 10px;
     }
     
     .map li{
@@ -979,6 +997,7 @@ letter-spacing: .75rem;
 .seprate-line{
     width:20px;
     opacity: .25;
+    margin-top: 65px;
 }
 
 /* 手機版 */
@@ -990,13 +1009,15 @@ letter-spacing: .75rem;
 /* ---------------------- */
 /* 4.介紹文字 */
 .map .map-card .beer-intro{
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 color:#555;
 width:100%;
-line-height:1.75;
+line-height:1.5;
 font-weight:400;
 margin:auto;
 text-align: justify;
+letter-spacing: .2rem;
+margin-top: -10px;
 }
 
 /* 手機版 */
@@ -1004,14 +1025,18 @@ text-align: justify;
     .map .map-card .beer-intro{
         font-size: 1.4rem;
     width:90%;
+    margin-top: 10px;
     }
 }
 
 /* ---------------------- */
 /* 5.搭配酒杯 （和6推薦啤酒一起） */
+.map .map-card .cups{
+    margin-top:80px;
+}
 @media (max-width: 768px) {
     .map .map-card .cups,.map .map-card .beers{
-    margin-top:-10px;
+    margin-top:-15px;
     }
     }
 
@@ -1099,7 +1124,7 @@ text-align: justify;
 /* ----------------------- */
 .map .cup,.map .beer{
     transition:.3s;
-    margin-top:10px;
+    margin-top:0px;
 }
 
 
@@ -1168,10 +1193,16 @@ text-align: justify;
 /* ---------------------- */
 /* 7.按鈕 */
 .map .card .row:nth-of-type(7){
-    margin-top: -100px;
+    /* margin-top: -100px; */
+    
 }
-.map .bottons{
+.map .buttons{
+    position: absolute;
+    bottom:20px;
+    left:50%;
+    transform: translateX(-50%);
 
+    /* z-index:999; */
 }
 /* ---------------------- */
 /* 8.stamp */

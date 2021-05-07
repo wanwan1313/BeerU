@@ -1,6 +1,6 @@
 // banner動畫
 // 預設關閉
-$('.beer_mug, .pipi_beer, .pipi_mug_b .pipi_beer_b').hide()
+$('.beer_mug, .pipi_beer').hide()
 
 // 左邊mug出現
 $('.beer_mug').delay(500).show().toggleClass('animate__animated animate__fadeIn')
@@ -12,10 +12,15 @@ setTimeout(function () {
 
 // 天使動動
 // setTimeout(function () {
-//     $('.pipi_beer').toggleClass('animate__animated animate__fadeInTopRight').toggleClass('time-05s').toggleClass('animate__animated animate__pulse').toggleClass('infinite');
-// }, 1000);
+//     $('.pipi_beer_group').toggleClass('animate__animated animate__shakeY').css('animation-duration','7s').toggleClass('infinite');
+// }, 0);
 
 // ---------------------------
+$('.pipi_beer_group').addClass('pipi_beer_fly').toggleClass('infinite');
+// 天使動動
+// setTimeout(function () {
+//     $('.pipi_beer_group').addClass('pipi_beer_fly').toggleClass('infinite');
+// }, 0);
 
 
 

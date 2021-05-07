@@ -927,6 +927,9 @@ $page_title = '啤女BeerU:啤酒地圖';
                     <!-- 1.關閉按鈕 -->
                     <div class="row card-close justify-content-end "><i class="fas fa-times-circle"></i>
                     </div>
+                    <!-- deco-bg -->
+                    <div class="bg_country position-absolute d-md-block d-sm-none"><img src="../images/map/bg-us.jpg" alt=""></div>
+                    <div class="bg_country position-absolute d-sm-block d-md-none"><img src="../images/map/bg-us-s.jpg" alt=""></div>
                     <!-- deco-郵票 -->
                     <div class="stamp_country position-absolute"><img src="../images/map/SVG/stamp_us.svg" alt=""></div>
                     <!-- deco-郵戳 -->
@@ -951,7 +954,7 @@ $page_title = '啤女BeerU:啤酒地圖';
                             </div>
                             <!-- 4.介紹文字 -->
                             <div class="row beer-intro mb-3 mx-md-1 justify-content-center">
-                                <p>介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字介紹文字</p>
+                                <p>1870~1910年這期間美國拉格（輔料拉格）所領導的啤酒革命，讓這國家真正擁有啤酒自由釀造的權利，進而可以發揮精釀啤酒的精神！幾乎全世界的啤酒風格都可以在美國找到，並且常以當地的啤酒花或麥芽得到新的詮釋和演繹。</p>
                             </div>
                         </div>
                         <div class="seprate-line h-100">
@@ -1079,12 +1082,12 @@ $page_title = '啤女BeerU:啤酒地圖';
 
 
 <!-- 返回上一頁時，強迫改網址！ -->
-<script>
+<!-- <script>
 let url = location.pathname + '#world'
 history.pushState({
     url: url,
     title: document.title
 }, document.title, url)
-</script>
+</script> -->
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>
