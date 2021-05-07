@@ -8,7 +8,7 @@ $('.user-login').click(function(){
 
     $('.LogIn-Sign').fadeIn(100);
     $('.first-login-page').fadeIn(1);
-    $('.log-box').css('width','35%').css('height','500px');
+    $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
     $('.LogIn-page').fadeOut(1);
     $('.LogSign-page').fadeOut(1);
     $('.Check-page').fadeOut(1);
@@ -102,8 +102,7 @@ $('.backward h3').click(function(){
     $('.LogIn-page').fadeOut(1);
     $('.LogSign-page').fadeOut(1);
     $('.first-login-page').fadeIn(100);
-    $('.log-box').css('width','35%').css('height','500px').css('transition','.4s');
-
+    $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
 
  
 })

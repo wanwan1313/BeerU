@@ -1,11 +1,12 @@
 /* -------------------輪播Banner------------------ */
-        .all-product .product-banner {
+
+        .product-banner {
             height: 70vh;
             max-height: 780px;
             padding-top: 30px;
         }
 
-        .all-product .product-banner-pic {
+        .product-banner-pic {
             height: 65vh;
             max-height: 760px;
             background-size: contain;
@@ -15,7 +16,7 @@
             padding-right: 30px;
         }
 
-        .all-product .product-banner-pic img {
+        .product-banner-pic img {
             width: 150px;
             height: 90%;
             min-height: 380px;
@@ -23,7 +24,7 @@
             
         }
 
-        .all-product .product-banner-pic::after {
+        .product-banner-pic::after {
             content: '';
             display: block;
             width: 42%;
@@ -36,7 +37,7 @@
             left: 5%;
         }
 
-        .all-product .product-banner-pic::before {
+        .product-banner-pic::before {
             content: '';
             display: block;
             width: 60%;
@@ -51,7 +52,7 @@
 
         }
 
-        .all-product .product-banner-intro {
+        .product-banner-intro {
             height: 65vh;
             display: flex;
             flex-direction: column;
@@ -59,27 +60,27 @@
         }
 
 
-        .all-product .product-banner-intro p:nth-of-type(1) {
+        .product-banner-intro p:nth-of-type(1) {
             font-family: 'Noto Serif TC', serif;
             font-size: 4rem;
             font-weight: bold;
         }
-        .all-product .product-banner-intro span {
+        .product-banner-intro span {
             margin-top: -20px;
             display: block;
         }
 
-        .all-product .product-banner-intro p:nth-of-type(2) {
+        .product-banner-intro p:nth-of-type(2) {
             font-family: 'Noto Serif TC', serif;
             font-size: 2.4rem;
             font-weight: bold;
         }
 
-        .all-product .product-banner-intro p:nth-of-type(3) {
+        .product-banner-intro p:nth-of-type(3) {
             margin: 10px 0 25px;
         }
 
-        .all-product .product-banner-intro::before {
+        .product-banner-intro::before {
             content: '';
             display: block;
             width: 65%;
@@ -158,296 +159,28 @@
             opacity: 0;
         }
 
-/* ------------------------全部商品區塊--------------------------- */
+/* ------------------全部商品區塊---------------- */
 
-        .all-product .select-product-wrap {
+        .select-product-wrap {
             width: 100%;
             background-color: #fff;
             border-top: 25px solid var(--gold);
         }
 
-        /* 手機版 */
-    @media (max-width: 991px) {
-        .all-product .select-product-wrap {
-            border-top:none;
-        }
-    }
-
-        /* -------------分類&篩選區塊------------ */
-
-
-        /* 桌機版 */ 
-    @media (min-width: 992px) { 
-        .all-product .product-select {
+        .product-select {
             background-color: var(--blue);
-            padding: 90px 0 0;
+            height: 200vh;
         }
 
-         /* ---------商品篩選----------- */
-         .all-product .filter-title {
-            font-family:'Noto Serif TC', serif;
-            font-size: 2.2rem;
-            font-weight: bold;
-            margin: 60px 0 20px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--gold);
-        }
-
-        .all-product .filter-title i {
-            display: none;
-        }
-
-        .all-product .filter-title p {
-            position: relative;
-            width: fit-content;
-            margin: 0 auto;
-        }
-
-        .all-product .filter-title p::before {
-            content: '';
-            display: block;
-            background: url(../../images/common/icon-beer.svg) no-repeat center center;
-            width: 15px;
-            height: 50px;
-            position: absolute;
-            bottom: 20%;
-            left: -30%;
-        }
-
-        /* 分類內容區域 */
-        .all-product .filter {
-            min-width: 150px;
-            max-width: 180px;
-            margin: 0 auto 50px;
-        }
-
-         /* 篩選項目名稱 */
-         .all-product .filter-name {
-            margin: 20px 0 5px;
-            font-family:'Noto Serif TC', serif;
-            font-size: 2rem;
-            font-weight: bold;
-            border-bottom: 0.5px solid #fff;
-         }
-
-         /* 篩選子項目 */
-         .all-product .filter-sub-item-warp {
-            width: fit-content;
-            height: fit-content;
-            padding-left: 30px;
-         }
-
-         .all-product .filter-sub-item-warp input[type=checkbox] {
-            display: none;
-         }
-
-         .all-product .filter-sub-item-warp input[type=checkbox]+span {
-            margin-left: 10px;
-            cursor: pointer;
-            transition: .5s;
-            user-select: none;
-            position: relative;
-         }
-
-         .all-product .filter-sub-item-warp input[type=checkbox]:checked+span {
-            color: var(--gold);
-         }
-
-         .all-product .filter-sub-item-warp input[type=checkbox]+span::before {
-             content: '';
-             display: block;
-             width: 20px;
-             height: 20px;
-             position: absolute;
-             top: 50%;
-             transform: translateY(-50%);
-             left: -30px;
-             border: 1.5px solid var(--gold);
-             border-radius: 50%;
-         }
-
-         .all-product .filter-sub-item-warp input[type=checkbox]:checked+span::after {
-             content: '';
-             display: block;
-             width: 8px;
-             height: 8px;
-             position: absolute;
-             top: 50%;
-             transform: translateY(-50%);
-             left: -24px;
-             background-color: #fff;
-             border-radius: 50%;
-         }
-
-         .all-product .filter-sub-item-warp input[type=checkbox]+span:hover {
-            color: var(--gold);
-         }
-    } 
-        /* 手機版 */ 
-    @media (max-width: 991px) { 
-        .all-product .product-select {
-            background-color: var(--blue);
-            position: fixed;
-            z-index: 500;
-            width: 86%;
-            height: 60vh;
-            min-height: 450px;
-            top: 20%;
-            left: 0;
-            transition: .5s;
-            transform: translateX(-100.5%);
-        }
-
-        .all-product .product-select.on {
-            transform: translateX(0)
-        }
-
-        .all-product .fixed-btn {
-            width: 16%;
-            height: 12%;
-            position: absolute;
-            background-color: var(--blue);
-            top: 0;
-            right: -13%;
-            border-radius: 0 8px 8px 0;
-            text-align: right;
-            padding-right: 4px;
-        }
-
-        .all-product .fixed-btn::after {
-            content: '';
-            display: block;
-            width: 65%;
-            height: 2px;
-            background-color: var(--gold);
-            position: absolute;
-            right: 4px;
-            top: 27px;
-        }
-
-    
-
-         /* ---------商品排序(手機板)----------- */
-         .all-product .mobile-sort-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-top: 5%;
-        }
-
-        .all-product .mobile-sort-item {
-            width: fit-content;
-            margin: 5px auto;
-        }
-
-
-         /* ---------商品篩選----------- */
-         .all-product .filter-title {
-            font-size: 2.5rem;
-            text-align: center;
-            border-top: 2px solid var(--gold);
-            margin-top: 8%;
-        }
-
-        .all-product .filter-title p {
-            display: none;
-        }
-
-
-        /* 分類內容區域 */
-        .all-product .filter {
-            width: 100%;
-            justify-content: center;
-        }
-        
-
-        .all-product .filter-price {
-            width: 55%;
-        }
-
-        .all-product .filter-abv {
-            width: 45%;
-        }
-
-         /* 篩選項目名稱 */
-         .all-product .filter-name {
-            font-family:'Noto Serif TC', serif;
-            font-size: 1.8rem;
-            font-weight: bold;
-            border-bottom: 0.5px solid #fff;
-         }
-
-         /* 篩選子項目 */
-         .all-product .filter-sub-item-warp {
-            width: fit-content;
-            height: fit-content;
-            padding-left: 15px;
-         }
-
-         .all-product .filter-sub-item-warp input[type=checkbox] {
-            display: none;
-         }
-
-         .all-product .filter-sub-item-warp input[type=checkbox]+span {
-            margin-left: 5px;
-            cursor: pointer;
-            transition: .5s;
-            user-select: none;
-            position: relative;
-            font-size: 1.5rem;
-         }
-         .all-product .filter-sub-item-warp input[type=checkbox]:checked+span {
-            color: var(--gold);
-         }
-
-         .all-product .filter-sub-item-warp input[type=checkbox]+span::before {
-             content: '';
-             display: block;
-             width: 15px;
-             height: 15px;
-             position: absolute;
-             top: 50%;
-             transform: translateY(-50%);
-             left: -20px;
-             border: 1.5px solid var(--gold);
-             border-radius: 50%;
-         }
-
-         .all-product .filter-sub-item-warp input[type=checkbox]:checked+span::after {
-             content: '';
-             display: block;
-             width: 6px;
-             height: 6px;
-             position: absolute;
-             top: 50%;
-             transform: translateY(-50%);
-             left: -16px;
-             background-color: #fff;
-             border-radius: 50%;
-         }
-
-        
-    }
-        
-
-
-
-
-
-
-/* --------------------------商品展示區塊--------------------------- */
-        /* slogan */
-
-
-        /* 桌機版 */
-    @media (min-width: 992px) {
-        .all-product .product-show-title {
+        /* 商品展示區塊 */
+        .product-show-title {
             color: var(--blue);
             font-size: 2.6rem;
             font-family:'Noto Serif TC', serif;
             font-weight: bold;
             text-align: center;
-            width: 80%;
-            min-width: 800px;
+            width: 75%;
+            min-width: 700px;
             border: 1.5px solid var(--blue);
             margin: 40px auto;
             padding: 8px 0;
@@ -944,18 +677,6 @@
             font-weight: bold;
         }
         
-
-
-
-
-
-
-
-
-
-
-
-
         
 
 

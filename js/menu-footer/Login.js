@@ -1,3 +1,4 @@
+// 登入
 function checkform_Login(){
 
     let isPass = true;
@@ -10,6 +11,7 @@ function checkform_Login(){
             function(data){
                 console.log(data)
                 if(data.success){
+                    location.reload();
                     alert('登入成功');
                 } else {
                     alert(data.error);
@@ -20,4 +22,12 @@ function checkform_Login(){
 
     }
 
+}
+
+
+// 登出
+function Logout(){
+
+    location.href= 'Logout-api.php';
+    history.go(-1);
 }
