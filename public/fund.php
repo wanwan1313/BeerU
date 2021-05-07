@@ -1,9 +1,11 @@
 <?php include __DIR__ . '../../php/common/config.php' ?>
 
-<!-- 需要置換的變數們 -->
+
 <?php
 
 $page_title = '啤女BeerU:募資計畫';
+$f_SQL = "SELECT * FROM `fund`";
+$f_rows = $pdo->query($f_SQL)->fetchAll();
 
 
 
@@ -16,8 +18,8 @@ $page_title = '啤女BeerU:募資計畫';
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
 
 <!-- <section class="mobile-menu">
-    <?php include __DIR__ . '../../php/common/category.php' ?>
-</section> -->
+     <?php include __DIR__ . '../../php/common/category.php' ?>
+</section>
 
 <!-- 這裡開始寫html -->
 <section class="fund-wrap-1">
@@ -172,98 +174,88 @@ $page_title = '啤女BeerU:募資計畫';
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
-                <ul class="card-list">
-                    <li class="card" id="card1">
-                        <a class="card-description" href="../html/fund-step2.html?fund_id=" target="_blank">
-                            <!-- pic -->
-                            <img class="pic" src="../images/joyce_images/<?= $v[`pic`] ?> alt=""/>
-                            <!-- plan-price -->
-                            <h2 class=" [plan-price"><?= $v['plan-price'] ?></h2>
-                            <!-- c_name -->
-                            <p class="c-name" style="color: var(--gold);"><?= $v['c-name'] ?></p>
-                            <!-- plan-title -->
-                            <div class="plan-title">
-                                <p><?= $v['plan-title'] ?></p>
-                            </div>
-                            <!-- plan-content -->
-                            <div class="plan-content">
-                                <p><?= $v['plan-content'] ?></p>
-                                <p> ✓ Helles向藝術致敬IPA </p>
-                                <p> ✓ Hoppy little lager快腳步愛爾</p>
-                                <p> ✓ 加速腳步思陶特 Stout</p>
-                                <p> ✓ Light lager不斷進化淡愛爾</p>
-                                <hr>
-                                <p>注意事項</p>
-                                <p>⦿ 此價格已含運費</p>
-                                <p>⦿ 訂單若有異動，請至會員中心的訂單留言。</p>
-                            </div>
-                        </a>
-                    </li>
+                <?php foreach ($f_rows as $f) : ?>
+                    <ul class="card-list">
+                        <li class="card" id="card1">
+                            <a class="card-description" href="../html/fund-step2.html?fund_id=" target="_blank">
+                                <!-- pic -->
+                                <img class="pic" src="../images/joyce_images/<?= $f[`pic`] ?> alt="">
+                            <!-- plan_price -->
+                            <h2 class=" plan-price"><?= $f['plan-price'] ?></h2>
+                                <!-- c_name -->
+                                <p class="c_name" style="color: var(--gold);"><?= $f['c_name'] ?></p>
+                                <!-- plan_title -->
+                                <div class="plan_title">
+                                    <p><?= $f['plan_title'] ?></p>
+                                </div>
+                                <!-- plan_content -->
+                                <div class="plan_content">
+                                    <p><?= $f['plan_content'] ?></p>
+                                    <p> ✓ Helles向藝術致敬IPA </p>
+                                    <p> ✓ Hoppy little lager快腳步愛爾</p>
+                                    <p> ✓ 加速腳步思陶特 Stout</p>
+                                    <p> ✓ Light lager不斷進化淡愛爾</p>
+                                    <hr>
+                                    <p>注意事項</p>
+                                    <p>⦿ 此價格已含運費</p>
+                                    <p>⦿ 訂單若有異動，請至會員中心的訂單留言。</p>
+                                </div>
+                            </a>
+                        </li>
 
-                    <!-- 
-                    <div class="c-name">
-                                            <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $v['sid'] ?>">
-                                                <p><?= $v['c_name'] ?></p>
-                                            </a>
-                                        </div>
-                                        <div class="e-name d-none d-lg-block">
-                                            <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $v['sid'] ?>">
-                                                <p><?= $v['e_name'] ?></p>
-                                            </a>
-                                        </div> -->
 
-                    <li class="card" id="card2">
-                        <a class="card-description" href="../html/fund-step2.html" target="_blank">
-                            <!-- pic -->
-                            <img class="pic" src="../images/joyce_images/option-1.jpg" alt="" />
-                            <!-- option_price -->
-                            <h2 class="option_price"><?= $v['option_price'] ?></h2> <!-- c_name -->
-                            <p class="c-name" style="color: var(--gold);">【啤女獨家優惠 | 英國雲水精釀啤酒】</p>
-                            <!-- option -->
-                            <div class="option">
-                                <p><?= $v['option'] ?></p> //6入分享組｜三種口味各二(330ml)
-                            </div>
-                            <div class="option-content">
-                                <p>【口味】</p>
-                                <p> ✓ Helles向藝術致敬IPA </p>
-                                <p> ✓ Hoppy little lager快腳步愛爾</p>
-                                <p> ✓ Light lager不斷進化淡愛爾</p>
-                                <hr>
-                                <p>注意事項</p>
-                                <p>⦿ 此價格已含運費</p>
-                                <p>⦿ 訂單若有異動，請至會員中心的訂單留言。</p>
-                            </div>
-                        </a>
-                    </li>
+                        <li class="card" id="card2">
+                            <a class="card-description" href="../html/fund-step2.html" target="_blank">
+                                <!-- pic -->
+                                <img class="pic" src="../images/joyce_images/option-1.jpg" alt="" />
+                                <!-- option_price -->
+                                <h2 class="option_price"><?= $f['option_price'] ?></h2> <!-- c_name -->
+                                <p class="c-name" style="color: var(--gold);">【啤女獨家優惠 | 英國雲水精釀啤酒】</p>
+                                <!-- option -->
+                                <div class="option">
+                                    <p><?= $f['option'] ?></p> //6入分享組｜三種口味各二(330ml)
+                                </div>
+                                <div class="option-content">
+                                    <p>【口味】</p>
+                                    <p> ✓ Helles向藝術致敬IPA </p>
+                                    <p> ✓ Hoppy little lager快腳步愛爾</p>
+                                    <p> ✓ Light lager不斷進化淡愛爾</p>
+                                    <hr>
+                                    <p>注意事項</p>
+                                    <p>⦿ 此價格已含運費</p>
+                                    <p>⦿ 訂單若有異動，請至會員中心的訂單留言。</p>
+                                </div>
+                            </a>
+                        </li>
 
-                    <li class="card" id="card3">
-                        <a class="card-description" href="../html/fund-step2.html" target="_blank">
-                            <!-- pic -->
-                            <img class="pic" src="../images/joyce_images/option-1.jpg" alt="" />
-                            <!-- option_price -->
-                            <h2 class="option_price"><?= $v['option_price'] ?></h2> //$3050
-                            <!-- c_name -->
-                            <p class="c-name" style="color: var(--gold);"></p>
-                            <!-- 【啤女獨家優惠 | 英國雲水精釀啤酒】 -->
-                            <!-- option -->
-                            <div class="option">
-                                <p><?= $v['option'] ?></p>
-                                <!-- 8入趴踢組｜四種口味各二(330ml) -->
-                            </div>
-                            <div class="option-content">
-                                <p>【口味】</p>
-                                <p> ✓ Helles向藝術致敬IPA </p>
-                                <p> ✓ Hoppy little lager快腳步愛爾</p>
-                                <p> ✓ 加速腳步思陶特 Stout</p>
-                                <p> ✓ Light lager不斷進化淡愛爾</p>
-                                <hr>
-                                <p>注意事項</p>
-                                <p>⦿ 此價格已含運費</p>
-                                <p>⦿ 訂單若有異動，請至會員中心的訂單留言。</p>
-                        </a>
-                    </li>
-                </ul>
-
+                        <li class="card" id="card3">
+                            <a class="card-description" href="../html/fund-step2.html" target="_blank">
+                                <!-- pic -->
+                                <img class="pic" src="../images/joyce_images/option-1.jpg" alt="" />
+                                <!-- option_price -->
+                                <h2 class="option_price"><?= $v['option_price'] ?></h2> //$3050
+                                <!-- c_name -->
+                                <p class="c-name" style="color: var(--gold);"></p>
+                                <!-- 【啤女獨家優惠 | 英國雲水精釀啤酒】 -->
+                                <!-- option -->
+                                <div class="option">
+                                    <p><?= $v['option'] ?></p>
+                                    <!-- 8入趴踢組｜四種口味各二(330ml) -->
+                                </div>
+                                <div class="option-content">
+                                    <p>【口味】</p>
+                                    <p> ✓ Helles向藝術致敬IPA </p>
+                                    <p> ✓ Hoppy little lager快腳步愛爾</p>
+                                    <p> ✓ 加速腳步思陶特 Stout</p>
+                                    <p> ✓ Light lager不斷進化淡愛爾</p>
+                                    <hr>
+                                    <p>注意事項</p>
+                                    <p>⦿ 此價格已含運費</p>
+                                    <p>⦿ 訂單若有異動，請至會員中心的訂單留言。</p>
+                            </a>
+                        </li>
+                    </ul>
+                <?php endforeach; ?>
             </div>
 
         </div>

@@ -1,8 +1,9 @@
+
 <?php include __DIR__ . '../../php/common/config.php';
 
-if( ! isset($_SESSION['cart'])){
+if (!isset($_SESSION['fund'])) {
+    $_SESSION['fund'] = [];
     $_SESSION['cart'] = [];
-    $_SESSION['checkout'] = [];
 };
 
 
@@ -13,98 +14,84 @@ $output = [
 // 1.列表 2.加入 3.新增 4.刪除
 // 1.list 2.add 3.update 4.delete
 
-$action = isset($_GET['action']) ? $_GET['action']:'';
-$p_sid = isset($_GET['psid']) ? intval($_GET['psid']):0;
-$p_qty = isset($_GET['qty']) ? intval($_GET['qty']):0;
-$c_sid = isset($_GET['cSid']) ? intval($_GET['cSid']):NULL;
-$c_dla = isset($_GET['cdollar']) ? intval($_GET['cdollar']):NULL;
+// 抓取個方案資料
+$plan1_SQL = "SELECT * FROM `fund` WHERE`sid` = 1";
+$plan1_row = $pdo->query($c_SQL)->fetch();
+$plan2_SQL = "SELECT * FROM `fund` WHERE `sid`= 2";
+$plan2_row = $pdo->query($t_SQL)->fetch();
+$plan3_SQL = "SELECT * FROM `fund` WHERE `sid`= 3";
+$plan3_row = $pdo->query($b_SQL)->fetch();
 
-
-if(!empty($c_sid)) {
-    $_SESSION['checkout']['coupon-sid'] = $c_sid;
-    $output['msg'] = '有使用折價券';
-}else{
-    unset($_SESSION['checkout']['coupon-sid']);
-    $output['msg'] = '沒有使用折價券';
-}
-if(!empty($c_dla)){
-    $_SESSION['checkout']['discount'] = $c_dla;
-}else {
-    unset($_SESSION['checkout']['discount']);
-}
+$p_sid = isset($_GET['psid']) ? intval($_GET['psid']) : 0;
+$action = isset($_GET['action']) ? $_GET['action'] : '';
+$c_name = isset($_GET['c_name']) ? intval($_GET['[c_name']) : 0;
+$plan = isset($_GET['plan']) ? intval($_GET['[plan']) : "";
+$plan_title = isset($_GET['plan_title']) ? intval($_GET['[plan_title']) : 0;
+$p_qty = isset($_GET['qty']) ? intval($_GET['qty']) : 0; //?
 
 
 
-switch( $action ){
-    case 'update' :
-    case 'add' :
+
+// $c_sid = isset($_GET['cSid']) ? intval($_GET['cSid']):NULL;
+// $c_dla = isset($_GET['cdollar']) ? intval($_GET['cdollar'])
+
+
+
+switch ($action) {
+    case 'update':
+    case 'add':
 
         // 先判斷有沒有商品sid
-        if(! empty($p_sid)){
+        if (!empty($p_sid)) {
 
             // 判斷購物車內有沒有此項商品
-            if( ! empty($_SESSION['cart'][$p_sid])){
-                
+            if (!empty($_SESSION['cart'][$p_sid])) {
+
                 //代表購物車內有此商品只需要改數量
                 // 判斷有沒有數量
-                if( ! empty($p_qty)){
-                    $_SESSION['cart'][$p_sid]['quantity'] = $p_qty; 
+                if (!empty($p_qty)) {
+                    $_SESSION['cart'][$p_sid]['quantity'] = $p_qty;
                     $output['msg'] = '已將購物車內商品更新數量';
                 }
-                
             }
             // 代表是新加入的商品
-            else{
+            else {
 
                 // 判斷有沒有數量
-                if( ! empty($p_qty)){
+                if (!empty($p_qty)) {
 
                     $F_SQL = "SELECT * FROM `products` WHERE `sid` = $p_sid";
-                    $row = $pdo -> query($F_SQL) -> fetch();
+                    $row = $pdo->query($F_SQL)->fetch();
 
-                // 判斷有沒有從資料庫抓到商品資料
-                    if(! empty($row)){
+                    // 判斷有沒有從資料庫抓到商品資料
+                    if (!empty($row)) {
                         $_SESSION['cart'][$p_sid] = $row;
-                        $_SESSION['cart'][$p_sid]['quantity'] = $p_qty;
+                        $_SESSION['cart'][$p_sid]['total'] = $p_qty;
                         $output['msg'] = '已將商品加入購物車清單';
                     }
-
-                }else {
-                    unset( $_SESSION['cart'][$p_sid]);
+                } else {
+                    unset($_SESSION['cart'][$p_sid]);
                 };
-                
             }
-            
-
         };
 
 
         break;
 
-    case 'delete' :
-        if(! empty($p_sid)) {
-            unset($_SESSION['cart'][$p_sid]);
-            $output['msg'] = '已刪除此項商品';
-        }
-
-        break;
-
-    case 'deleteall':
-        $_SESSION['cart'] = [];
-        $output['msg'] = '已清空購物車內所有商品';
-        break;
-
     default:
-    case 'list' :
+    case 'list':
 };
 
 $output['cart'] = $_SESSION['cart'];
 
-if(isset($_SESSION['checkout']['coupon-sid'])){
-    $output['checkout']['coupon-sid'] = $_SESSION['checkout']['coupon-sid'];
-}
-if(isset($_SESSION['checkout']['discount'])){
-    $output['checkout']['discount'] = $_SESSION['checkout']['discount'];
-}
 
-echo json_encode($output,JSON_UNESCAPED_UNICODE)
+echo json_encode($output, JSON_UNESCAPED_UNICODE)
+
+?>
+
+
+
+
+
+
+
