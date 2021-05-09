@@ -49,10 +49,62 @@ if (!empty($payment) and !empty($totalPrice) and !empty($order_num)) {
     $_SESSION['checkout']['total-price'] = $totalPrice;
     $_SESSION['checkout']['order_num'] = $order_num;
 
+
+    // 寫進order資料庫
+    $o_SQL = "INSERT INTO `orders`
+                (`member_sid`, `order_num`, `total_price`, `discount`, `shipping`, `re_name`, `re_mobile`, `re_add`, `ship`, `payment`, `date`) 
+                VALUES 
+                (?,?,?,?,?,?,?,?,?,?,NOW())";
+
+    $o_stmt = $pdo->prepare($o_SQL);
+    $o_stmt->execute([
+        $_SESSION['user']['sid'],
+        $order_num,
+        $totalPrice,
+        isset($_SESSION['checkout']['discount']) ? $_SESSION['checkout']['discount'] : 0,
+        $_SESSION['checkout']['shipping'],
+        $_SESSION['checkout']['re_name'],
+        $_SESSION['checkout']['re_mobile'],
+        $_SESSION['checkout']['re_add'],
+        $_SESSION['checkout']['ship'],
+        $payment,
+    ]);
+
+
+    // 寫進order_detail資料庫
+    $order_sid =  $pdo->lastInsertId();
+
+    $d_SQL = "INSERT INTO `order_detail`
+                (`order_sid`, `product_sid`, `quantity`, `price`) 
+                VALUES 
+                (?,?,?,?)";
+
+    $d_stmt = $pdo->prepare($d_SQL);
+
+    foreach ($_SESSION['cart'] as $c) {
+        $d_stmt->execute([
+            $order_sid,
+            $c['sid'],
+            $c['quantity'],
+            $c['price'] * $c['quantity'],
+        ]);
+    };
+
+
+    // 刪除折價券
+    if( isset($_SESSION['checkout']['coupon-sid'])) {
+        $coupon_sid = $_SESSION['checkout']['coupon-sid'];
+        $delcou_SQL = "DELETE FROM `achievement` WHERE `sid` = $coupon_sid";
+        $pdo->query($delcou_SQL);
+    }
+
+
+    // 給前端資料
     $output['cart'] = $_SESSION['cart'];
     $output['checkout'] = $_SESSION['checkout'];
 
 
+    // 刪除SESSION
     unset($_SESSION['cart']);
     unset($_SESSION['checkout']);
 }
