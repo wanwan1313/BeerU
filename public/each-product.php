@@ -144,15 +144,15 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                             <p class="content type"><?= $row['type_name'] ?></p>
                         </div>
 
-                        <?php if( $row['flavor'] != 0 ): ?>
-                        <div class="key-content d-flex flex-lg-column">
-                            <div class="title">
-                                <p>風味</p>
+                        <?php if ($row['flavor'] != 0) : ?>
+                            <div class="key-content d-flex flex-lg-column">
+                                <div class="title">
+                                    <p>風味</p>
+                                </div>
+                                <p class="content flavor"><?= $row['flavor'] ?></p>
                             </div>
-                            <p class="content flavor"><?= $row['flavor'] ?></p>
-                        </div>
                         <?php endif; ?>
-                        
+
                         <div class="key-content d-flex flex-lg-column ">
                             <div class="title">
                                 <p>容量</p>
@@ -160,13 +160,13 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                             <p class="content capacity"><?= $row['capacity'] ?></p>
                         </div>
 
-                        <?php if( $row['abv'] != 0 ): ?>
-                        <div class="key-content d-flex flex-lg-column">
-                            <div class="title-4">
-                                <p>酒精濃度</p>
+                        <?php if ($row['abv'] != 0) : ?>
+                            <div class="key-content d-flex flex-lg-column">
+                                <div class="title-4">
+                                    <p>酒精濃度</p>
+                                </div>
+                                <p class="content abv"><?= $row['abv'] ?>%</p>
                             </div>
-                            <p class="content abv"><?= $row['abv'] ?>%</p>
-                        </div>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -587,11 +587,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                     <p class="average-score">5.0</p>
                     <div class="other d-flex flex-column jusyify-content-start align-items-center">
                         <div class="beer-score d-flex">
-                            <img src="../images/common/icon-beer-b.svg" alt="">
-                            <img src="../images/common/icon-beer-b.svg" alt="">
-                            <img src="../images/common/icon-beer-b.svg" alt="">
-                            <img src="../images/common/icon-beer-b.svg" alt="">
-                            <img src="../images/common/icon-beer-b.svg" alt="">
+                            <img src="../images/common/beerscore-5.svg" alt="">
                         </div>
                         <p class="total-comments">2則評論</p>
                     </div>
@@ -601,46 +597,39 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                     <!-- 留言BOX -->
                     <div class="user-comment d-flex flex-column">
                         <div class="user-imfo d-flex align-items-center justify-content-center justify-content-lg-start">
-                            <div class="user-img"><img src="../images/user/user1.svg" alt=""></div>
-                            <div class="user-name">
+                            <div class="col-4 col-lg-2 user-img"><img src="../images/user/user1.svg" alt=""></div>
+                            <div class="col-8 col-lg-10 user-name">
                                 <p>Christina C.</p>
                                 <p class="comment-time">March 21, 2021</p>
                             </div>
                         </div>
-                        <div class="user-msg d-flex flex-column flex-lg-row align-items-center">
-                            <div class="beer-score-icon d-flex justify-content-center">
-                                <img src="../images/common/icon-beer-b.svg" alt="">
-                                <img src="../images/common/icon-beer-b.svg" alt="">
-                                <img src="../images/common/icon-beer-b.svg" alt="">
-                                <img src="../images/common/icon-beer-b.svg" alt="">
-                                <img src="../images/common/icon-beer-b.svg" alt="">
+                        <div class="user-msg d-flex align-items-center">
+                            <div class="col-4 col-lg-2 beer-score-icon d-flex justify-content-center">
+                                <img src="../images/common/beerscore-5.svg" alt="">
                             </div>
-                            <div class="comment-text">
+                            <div class="col-8 col-lg-10 comment-text">
                                 <p>很喜歡有果香的啤酒，推薦！推薦推薦推薦推薦推薦推薦推薦推薦推薦推薦推薦推薦推薦推薦推薦</p>
                             </div>
                         </div>
                     </div>
                     <div class="user-comment d-flex flex-column">
                         <div class="user-imfo d-flex align-items-center justify-content-center justify-content-lg-start">
-                            <div class="user-img"><img src="../images/user/user1.svg" alt=""></div>
-                            <div class="user-name">
+                            <div class="col-4 col-lg-2 user-img"><img src="../images/user/user1.svg" alt=""></div>
+                            <div class="col-8 col-lg-10 user-name">
                                 <p>Christina C.</p>
                                 <p class="comment-time">March 21, 2021</p>
                             </div>
                         </div>
-                        <div class="user-msg d-flex flex-column flex-lg-row align-items-center">
-                            <div class="beer-score-icon d-flex justify-content-center">
-                                <img src="../images/common/icon-beer-b.svg" alt="">
-                                <img src="../images/common/icon-beer-b.svg" alt="">
-                                <img src="../images/common/icon-beer-b.svg" alt="">
-                                <img src="../images/common/icon-beer-b.svg" alt="">
-                                <img src="../images/common/icon-beer-b.svg" alt="">
+                        <div class="user-msg d-flex align-items-center">
+                            <div class="col-4 col-lg-2 beer-score-icon d-flex justify-content-center">
+                                <img src="../images/common/beerscore-3.svg" alt="">
                             </div>
-                            <div class="comment-text">
+                            <div class="col-8 col-lg-10 comment-text">
                                 <p>很喜歡有果香的啤酒，推薦！</p>
                             </div>
                         </div>
                     </div>
+
 
                 </div>
 
