@@ -540,6 +540,12 @@
 }
 
 
+/* 警告資訊 */
+.cart-list .warn{
+    color: var(--pink);
+}
+
+
 
 
 

@@ -6,12 +6,17 @@
 $page_title = '啤女-結帳';
 
 
-// $subPlus = 0;
-// foreach ($_SESSION['cart'] as $c) {
-//     $subPlus += $c['price'] * $c['quantity'];
-// };
-// if (isset($_SESSION['discount']) and isset($_SESSION['shipping'])) {
-//     $totalPrice = $subPlus - $_SESSION['discount'] + $_SESSION['shipping'];
+// 算總啤酒數量
+if (isset($_SESSION['cart'])) {
+    $Q_total = 0;
+    foreach ($_SESSION['cart'] as $c) {
+        $Q_total += $c['quantity'];
+    };
+}
+
+// 查看cart商品sid
+// if (isset($_SESSION['cart'])) {
+//     echo array_keys($_SESSION['cart'])[0];
 // }
 
 
@@ -427,7 +432,11 @@ $page_title = '啤女-結帳';
 <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
 
 <script>
-    // console.log(window.location.search.substr(6, 1));
+    let Q_total = <?= $Q_total ?>;
+    if (Q_total >= 15) {
+        $("#ship option[value='超商取貨']").remove();
+        $('#ship').next().html('<i class="fas fa-exclamation-circle"></i>目前選購之商品總數已超過超商取貨大小限制，僅能宅配取貨')
+    }
 
     // 台灣地址套件
     $("#twzipcode").twzipcode({
@@ -521,7 +530,7 @@ $page_title = '啤女-結帳';
     }
 
     init()
-    
+
     window.onpopstate = function() {
         init()
     }
