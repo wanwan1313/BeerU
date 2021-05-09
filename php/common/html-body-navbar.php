@@ -49,7 +49,7 @@
 
                      <p name=Logout class="logout d-none d-lg-block" onclick="Logout(); return false;" >LOG OUT</p> 
 
-                     <li class="user-pic"><a href="javascript: "><img src="<?= WEB_ROOT ?>/images/user/<?= htmlentities($_SESSION['user']['user-pic'])?>" alt=""></a></li>
+                     <li class="user-pic"><a href="member.php"><img src="<?= WEB_ROOT ?>/images/user/<?= htmlentities($_SESSION['user']['user-pic'])?>" alt=""></a></li>
 
 
                     
