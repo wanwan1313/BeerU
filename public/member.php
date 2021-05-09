@@ -5,6 +5,16 @@
 
 $page_title = '啤女BeerU-會員中心';
 
+// 從資料庫抓折價券
+
+if (isset($_SESSION['user'])) {
+
+    $m_sid = $_SESSION['user']['sid']; //抓會員sid
+
+    $SQL = "SELECT * FROM `achievement` WHERE `coupon` > 0 AND `member_sid` = $m_sid ORDER BY `create_at`";
+    $row = $pdo->query($SQL)->fetchAll();
+};
+
 
 
 
@@ -43,25 +53,14 @@ $page_title = '啤女BeerU-會員中心';
         </div>
         <div class="col-12 coupon-list d-flex flex-wrap align-content-start">
             <!-- 單張折價券 -->
-            <div class="col-6 col-lg-4 coupon-wrap">
-                <div class="coupon" data-sid="1" data-num="50">
-                    <p>折價券 <span class="num">$50</span>元</p>
-                    <p>有效期限:2021/12/31</p>
+            <?php foreach ($row as $d) : ?>
+                <div class="col-6 col-lg-4 coupon-wrap">
+                    <div class="coupon" data-sid="<?= $d['sid'] ?>" data-num="<?= $d['coupon'] ?>">
+                        <p>折價券 <span class="num">$<?= $d['coupon'] ?></span>元</p>
+                        <p>有效期限:<?= date("Y/m/d", strtotime($d['create_at'] . "+6 month")) ?></p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-6 col-lg-4 coupon-wrap">
-                <div class="coupon" data-sid="2" data-num="100">
-                    <p>折價券 <span class="num">$100</span>元</p>
-                    <p>有效期限:2021/12/31</p>
-                </div>
-            </div>
-            <div class="col-6 col-lg-4 coupon-wrap">
-                <div class="coupon" data-sid="3" data-num="300">
-                    <p>折價券 <span class="num">$300</span>元</p>
-                    <p>有效期限:2021/12/31</p>
-                </div>
-            </div>
-
+            <?php endforeach; ?>
 
         </div>
         <div class="button-wrap-3 mx-auto">
