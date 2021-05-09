@@ -6,7 +6,15 @@
 $page_title = '啤女-購物車';
 
 
+// 從資料庫抓折價券
 
+if (isset($_SESSION['user'])) {
+
+    $m_sid = $_SESSION['user']['sid']; //抓會員sid
+
+    $SQL = "SELECT * FROM `achievement` WHERE `coupon` > 0 AND `member_sid` = $m_sid ORDER BY `create_at`";
+    $row = $pdo->query($SQL)->fetchAll();
+};
 
 
 
@@ -41,25 +49,15 @@ $page_title = '啤女-購物車';
         <p class="col-12 exp">目前未選擇折價券</p>
         <div class="col-12 coupon-list d-flex flex-wrap align-content-start">
             <!-- 單張折價券 -->
-            <div class="col-6 col-lg-4 coupon-wrap">
-                <div class="coupon" data-sid="1" data-num="50">
-                    <p>折價券 <span class="num">$50</span>元</p>
-                    <p>有效期限:2021/12/31</p>
-                </div>
-            </div>
-            <div class="col-6 col-lg-4 coupon-wrap">
-                <div class="coupon" data-sid="2" data-num="100">
-                    <p>折價券 <span class="num">$100</span>元</p>
-                    <p>有效期限:2021/12/31</p>
-                </div>
-            </div>
-            <div class="col-6 col-lg-4 coupon-wrap">
-                <div class="coupon" data-sid="3" data-num="300">
-                    <p>折價券 <span class="num">$300</span>元</p>
-                    <p>有效期限:2021/12/31</p>
-                </div>
-            </div>
 
+            <?php foreach ($row as $d) : ?>
+                <div class="col-6 col-lg-4 coupon-wrap">
+                    <div class="coupon" data-sid="<?= $d['sid'] ?>" data-num="<?= $d['coupon'] ?>">
+                        <p>折價券 <span class="num">$<?= $d['coupon'] ?></span>元</p>
+                        <p>有效期限:<?= date("Y/m/d", strtotime($d['create_at'] . "+6 month")) ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
 
         </div>
         <div class="button-wrap-3 mx-auto">
@@ -123,6 +121,9 @@ $page_title = '啤女-購物車';
             <div class="col-11 col-lg-8 c-product-list">
 
 
+                <small class="warn"></small>
+
+
                 <?php if (empty($_SESSION['cart'])) : ?>
                     <!-- 購物車為空 -->
                     <div class="col-12 col-lg-9 empty-cart mx-auto d-flex flex-column justify-content-center">
@@ -164,8 +165,8 @@ $page_title = '啤女-購物車';
                                         <p class="sub-t-price"></p>
                                         <div class="intro d-flex flex-wrap ">
                                             <p class="col-12 px-0 price">單價-NT$<?= $v['price'] ?></p>
-                                            <?php if( $v['abv'] != 0 ): ?>
-                                            <p class="abv">ABV-<?= $v['abv'] ?>%</p>
+                                            <?php if ($v['abv'] != 0) : ?>
+                                                <p class="abv">ABV-<?= $v['abv'] ?>%</p>
                                             <?php endif; ?>
                                             <p class="cap">容量-<?= $v['capacity'] ?></p>
                                         </div>
@@ -205,14 +206,28 @@ $page_title = '啤女-購物車';
             <div class="row justify-content-center">
                 <div class="col-11 col-lg-9 d-flex justify-content-between checkout-wrap">
                     <div class="left d-flex align-items-center">
-                        <div class="user-pic d-none d-lg-block"><img src="../images/user/user.svg" alt=""></div>
+                        <div class="user-pic d-none d-lg-block">
+
+
+                            <?php if (!isset($_SESSION['user'])) : ?>
+                                <img src="../images/user/user.svg" alt="">
+                            <?php else : ?>
+                                <img src="../images/user/<?= $_SESSION['user']['user-pic'] ?>" alt="">
+                            <?php endif ?>
+
+
+                        </div>
                         <div class="mydiscount d-flex flex-column align-items-center">
                             <div class="use-coupon">
                                 <i class="fas fa-ticket-alt"></i>
                                 <span class="coupon-num">未選擇折價券</span>
                             </div>
-                            <!-- <button class="select-coupon-nologin">請登入會員</button> -->
-                            <button class="select-coupon">我的折價券</button>
+
+                            <?php if (!isset($_SESSION['user'])) : ?>
+                                <button class="select-coupon-nologin">請登入會員</button>
+                            <?php else : ?>
+                                <button class="select-coupon">我的折價券</button>
+                            <?php endif ?>
                         </div>
                     </div>
                     <div class="right d-flex flex-column align-items-end justify-content-center flex-lg-row align-items-lg-center">
@@ -223,7 +238,11 @@ $page_title = '啤女-購物車';
                             </div>
                             <p class="calc-price">NT$<span class="t-price-after"></span></p>
                         </div>
-                        <button class="go-checkout">去結帳</button>
+                        <?php if (!isset($_SESSION['user'])) : ?>
+                            <button class="go-checkout disabled" disabled>去結帳</button>
+                        <?php else : ?>
+                            <button class="go-checkout">去結帳</button>
+                        <?php endif ?>
                     </div>
                 </div>
             </div>
@@ -324,22 +343,28 @@ $page_title = '啤女-購物車';
 
 
         // 如果購物車內沒有商品的話，總價=0，關掉結帳按鈕
-        if (total > 0) {
-            $('.go-checkout').removeClass('disabled')
-            $('.go-checkout').attr('disabled', false)
 
-            if ($(window).width() >= 992) {
-                $('.go-checkout').on('mouseenter', function() {
-                    $(this).addClass('hover').css('transition', '.5s')
-                })
-                $('.go-checkout').on('mouseleave', function() {
-                    $(this).removeClass('hover').css('transition', '0')
-                })
+        if (<?= isset($_SESSION['user']) ? 'true' : 'false' ?> == true) {
+
+            if (total > 0) {
+                $('.go-checkout').removeClass('disabled')
+                $('.go-checkout').attr('disabled', false)
+
+                if ($(window).width() >= 992) {
+                    $('.go-checkout').on('mouseenter', function() {
+                        $(this).addClass('hover').css('transition', '.5s')
+                    })
+                    $('.go-checkout').on('mouseleave', function() {
+                        $(this).removeClass('hover').css('transition', '0')
+                    })
+                }
+            } else {
+                $('.go-checkout').addClass('disabled')
+                $('.go-checkout').attr('disabled', true)
             }
-        } else {
-            $('.go-checkout').addClass('disabled')
-            $('.go-checkout').attr('disabled', true)
         }
+
+
 
 
 
@@ -353,7 +378,7 @@ $page_title = '啤女-購物車';
 
 
 
-    // 商品checkbox選取
+    // 商品checkbox選取---------------------------------------------------------------------
     $('.c-product-list').on('click', '.pro-checkbox', function() {
         $(this).toggleClass('select')
         $(this).closest('.c-product').toggleClass('noselect')
@@ -412,6 +437,18 @@ $page_title = '啤女-購物車';
         }, 'json')
 
 
+        let Q_total = 0;
+        $('.buy-number').each(function() {
+            Q_total += $(this).val() * 1
+
+            if (Q_total >= 15) {
+                $('.warn').html('<i class="fas fa-exclamation-circle"></i>目前選購之商品總數已超過超商取貨大小限制，僅能宅配取貨')
+            } else {
+                $('.warn').html('')
+            }
+        })
+
+
     })
 
     // 按+更改
@@ -440,6 +477,18 @@ $page_title = '啤女-購物車';
             calcprice()
         }, 'json')
 
+
+        let Q_total = 0;
+        $('.buy-number').each(function() {
+            Q_total += $(this).val() * 1
+
+            if (Q_total >= 15) {
+                $('.warn').html('<i class="fas fa-exclamation-circle"></i>目前選購之商品總數已超過超商取貨大小限制，僅能宅配取貨')
+            } else {
+                $('.warn').html('')
+            }
+        })
+
     })
 
     // 按-更改
@@ -467,6 +516,18 @@ $page_title = '啤女-購物車';
             // console.log(data) //console.log回傳的資料以方便除錯
             calcprice()
         }, 'json')
+
+
+        let Q_total = 0;
+        $('.buy-number').each(function() {
+            Q_total += $(this).val() * 1
+
+            if (Q_total >= 15) {
+                $('.warn').html('<i class="fas fa-exclamation-circle"></i>目前選購之商品總數已超過超商取貨大小限制，僅能宅配取貨')
+            } else {
+                $('.warn').html('')
+            }
+        })
 
 
     })
@@ -580,7 +641,7 @@ $page_title = '啤女-購物車';
 
 
 
-    // 選擇折價券---------------------------------------------------------------------
+    // 選擇折價券----------------------------------------------------------------------
 
     // 開啟彈跳視窗
     $('.select-coupon').on('click', function() {
@@ -635,7 +696,7 @@ $page_title = '啤女-購物車';
     })
 
 
-    // 結帳--------------------------------------------------------------------
+    // 結帳----------------------------------------------------------------------------
     $('.go-checkout').on('click', function() {
         // let totalPrice = $('.t-price-after').attr('data-tprice')
         let cSid = $('.coupon-num').attr('coupon-sid')
@@ -671,10 +732,21 @@ $page_title = '啤女-購物車';
     })
 
 
-    // -------------------------------------------------------------
-    // 彈跳視窗
+    // 彈跳視窗-------------------------------------------------------------------------
     $('button.ok').on('click', function() {
         $('.general-pop-up').fadeOut(150)
+    })
+
+
+
+    // 超過超商限制----------------------------------------------------------------------
+    let Q_total = 0;
+    $('.buy-number').each(function() {
+        Q_total += $(this).val() * 1
+
+        if (Q_total >= 15) {
+            $('.warn').html('<i class="fas fa-exclamation-circle"></i>目前選購之商品總數已超過超商取貨大小限制，僅能宅配取貨')
+        }
     })
 </script>
 
