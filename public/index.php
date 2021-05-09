@@ -41,6 +41,8 @@ $page_title = '啤女BeerU';
 
 <!-- 會員登入 -->
 <?php include __DIR__ . '../../php/common/Login-Sign.php'?>
+<?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
 
 
 <!-- Landingpage門 -->
