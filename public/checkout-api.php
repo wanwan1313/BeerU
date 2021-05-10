@@ -75,15 +75,16 @@ if (!empty($payment) and !empty($totalPrice) and !empty($order_num)) {
     $order_sid =  $pdo->lastInsertId();
 
     $d_SQL = "INSERT INTO `order_detail`
-                (`order_sid`, `product_sid`, `quantity`, `price`) 
+                (`order_sid`, `member_sid`, `product_sid`, `quantity`, `price`) 
                 VALUES 
-                (?,?,?,?)";
+                (?,?,?,?,?)";
 
     $d_stmt = $pdo->prepare($d_SQL);
 
     foreach ($_SESSION['cart'] as $c) {
         $d_stmt->execute([
             $order_sid,
+            $_SESSION['user']['sid'],
             $c['sid'],
             $c['quantity'],
             $c['price'] * $c['quantity'],
