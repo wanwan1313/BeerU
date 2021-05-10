@@ -5,43 +5,51 @@
 
 $page_title = '啤女-世界精釀啤酒專賣';
 
-$psid = substr($_SERVER['QUERY_STRING'], 5);
 
 
-// 此頁商品
-$p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.`name` AS `type_name`,t4.`name` AS `merch_name` FROM `products` AS p 
-                JOIN `tags` AS t1 
-                ON p.`brand_sid` = t1.`sid`
-                JOIN `tags` AS t2 
-                ON p.`country_sid` = t2.`sid`
-                JOIN `tags` AS t3 
-                ON p.`type_sid` = t3.`sid`
-                JOIN `tags` AS t4 
-                ON p.`merch_sid` = t4.`sid`
-                WHERE p.`sid` = $psid";
-$row = $pdo->query($p_SQL)->fetch();
+$psid = isset($_GET['psid']) ? intval($_GET['psid']) : 0;
 
-$country_sid = $row['country_sid'];
-$type_sid = $row['type_sid'];
-$brands_sid = $row['brand_sid'];
-$merch_sid = $row['merch_sid'];
+if ($psid != 0) {
+    // 此頁商品
+    $p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.`name` AS `type_name`,t4.`name` AS `merch_name` 
+        FROM `products` AS p 
+        JOIN `tags` AS t1 
+        ON p.`brand_sid` = t1.`sid`
+        JOIN `tags` AS t2 
+        ON p.`country_sid` = t2.`sid`
+        JOIN `tags` AS t3 
+        ON p.`type_sid` = t3.`sid`
+        JOIN `tags` AS t4 
+        ON p.`merch_sid` = t4.`sid`
+        WHERE p.`sid` = $psid";
+    $row = $pdo->query($p_SQL)->fetch();
 
-// 相關商品
-$c_SQL = "SELECT * FROM `products` WHERE `type_sid` = $type_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
-$c_row = $pdo->query($c_SQL)->fetch();
-$c_row_sid = $c_row['sid'];
-$t_SQL = "SELECT * FROM `products` WHERE `type_sid` = $type_sid AND `sid` !=  $psid AND `sid` != $c_row_sid  ORDER BY RAND() LIMIT 1";
-$t_row = $pdo->query($t_SQL)->fetch();
-$b_SQL = "SELECT * FROM `products` WHERE `brand_sid` = $brands_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
-$b_row = $pdo->query($b_SQL)->fetch();
+    $country_sid = $row['country_sid'];
+    $type_sid = $row['type_sid'];
+    $brands_sid = $row['brand_sid'];
+    $merch_sid = $row['merch_sid'];
+
+    // 相關商品
+    $c_SQL = "SELECT * FROM `products` WHERE `type_sid` = $type_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
+    $c_row = $pdo->query($c_SQL)->fetch();
+    $c_row_sid = $c_row['sid'];
+    $t_SQL = "SELECT * FROM `products` WHERE `type_sid` = $type_sid AND `sid` !=  $psid AND `sid` != $c_row_sid  ORDER BY RAND() LIMIT 1";
+    $t_row = $pdo->query($t_SQL)->fetch();
+    $b_SQL = "SELECT * FROM `products` WHERE `brand_sid` = $brands_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
+    $b_row = $pdo->query($b_SQL)->fetch();
 
 
-// new標籤
-$deadline = strtotime('2021-05-01');
+    // new標籤
+    $deadline = strtotime('2021-05-01');
 
-// 從哪裡來
-$come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
-$come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
+    // 從哪裡來
+    $come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
+    $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
+}else {
+    header('Location: all-product.php');
+}
+
+
 
 ?>
 
@@ -144,7 +152,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                             <p class="content type"><?= $row['type_name'] ?></p>
                         </div>
 
-                        <?php if ($row['flavor'] != 0) : ?>
+                        <?php if ($row['flavor'] != '無') : ?>
                             <div class="key-content d-flex flex-lg-column">
                                 <div class="title">
                                     <p>風味</p>
