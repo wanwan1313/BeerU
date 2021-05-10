@@ -67,7 +67,9 @@ if(isset($_POST['newAccount'])){
 
     if($stmt->rowCount()){
         $_SESSION['user']['email']= $_POST['newAccount'];
-        $_SESSION['user']['user-pic']= 'user.svg';
+        $_SESSION['user']['user-pic']= 'user-pipi.svg';
+        $_SESSION['user']['sid'] = $m_id;
+
 
         $output['member_id']= $m_id; //註冊時的會員ID
         $output['achieve'] = $ac_stmt; //成就系統的資料表
