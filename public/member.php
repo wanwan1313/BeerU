@@ -48,7 +48,9 @@ if (isset($_SESSION['user'])) {
     $comment_SQL = "SELECT o.`sid`, o.`product_sid`, p.`c_name`, p.`e_name`, p.`pic` FROM `order_detail` o 
     JOIN `products` p 
     ON o.`product_sid` = p.`sid`
-    WHERE `member_sid` = 4 AND `product_sid` > 0 AND `comment` = 'false'";
+    WHERE `member_sid` = $m_sid AND `product_sid` > 0 AND `comment` = 'false'
+    ORDER BY o.`sid` DESC";
+    $com_row = $pdo->query($comment_SQL)->fetchAll();
 };
 
 
@@ -844,54 +846,66 @@ if (isset($_SESSION['user'])) {
 
                                         <div class="col-12 mycomment-items px-0 memberAccordion-content">
 
-                                            <!-- 單支產品評價 -->
-                                            <div class="comment-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="">
+                                            <?php if (!empty($com_row)) : ?>
 
-                                                <!-- 商品資訊 -->
-                                                <div class="col-12 col-lg-4 com-pro d-flex flex-wrap align-items-center px-lg-0">
-                                                    <div class="col-12 px-0">
-                                                        <p class="title">商品</p>
-                                                    </div>
-                                                    <div class="col-12 this-p d-flex align-items-center px-0">
-                                                        <div class="col-2 thisp-pic px-0"><img src="../images/products/8-wired-06.png" alt="">
+                                                <?php foreach( $com_row as $com ): ?>
+                                                <!-- 單支產品評價 -->
+                                                <div class="comment-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="<?= $com['product_sid']?>">
+
+                                                    <!-- 商品資訊 -->
+                                                    <div class="col-12 col-lg-4 com-pro d-flex flex-wrap align-items-center px-lg-0">
+                                                        <div class="col-12 px-0">
+                                                            <p class="title">商品</p>
                                                         </div>
-                                                        <div class="col-10 thisp-name px-0">
-                                                            <p class="c-name">奧斯陸 ．北歐瘋皮爾森</p>
-                                                            <p class="e-name ">Oslo - Nordic Pilsner</p>
+                                                        <div class="col-12 this-p d-flex align-items-center px-0">
+                                                            <div class="col-2 thisp-pic px-0"><img src="../images/products/<?= $com['pic']?>" alt="">
+                                                            </div>
+                                                            <div class="col-10 thisp-name px-0 pr-lg-4">
+                                                                <p class="c-name"><?= $com['c_name']?></p>
+                                                                <p class="e-name "><?= $com['e_name']?></p>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <!-- 打分數 -->
-                                                <div class="col-12 col-lg-2 com-score d-flex flex-wrap align-items-center px-lg-0">
-                                                    <div class="col-12 px-0">
-                                                        <p class="title">分數</p>
+                                                    <!-- 打分數 -->
+                                                    <div class="col-12 col-lg-2 com-score d-flex flex-wrap align-items-center px-lg-0">
+                                                        <div class="col-12 px-0">
+                                                            <p class="title">分數</p>
+                                                        </div>
+                                                        <div class="col-12 thisscore d-flex px-0 align-items-center">
+                                                            <select name="score" class="myscore">
+                                                                <option value="5">5</option>
+                                                                <option value="4">4</option>
+                                                                <option value="3">3</option>
+                                                                <option value="2">2</option>
+                                                                <option value="1">1</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-12 thisscore d-flex px-0 align-items-center">
-                                                        <select name="score" class="myscore">
-                                                            <option value="5">5</option>
-                                                            <option value="4">4</option>
-                                                            <option value="3">3</option>
-                                                            <option value="2">2</option>
-                                                            <option value="1">1</option>
-                                                        </select>
+                                                    <!-- 寫下評價 -->
+                                                    <div class="col-12 col-lg-5 com-txt d-flex flex-wrap align-items-center px-lg-0">
+                                                        <div class="col-12 px-0">
+                                                            <p class="title">評論</p>
+                                                        </div>
+                                                        <div class="col-12 thiscommtent d-flex px-0 align-items-center">
+                                                            <textarea name="commtent" rows="2" class="commenttextarea">請寫下對這支酒的感想!</textarea>
+                                                        </div>
+                                                        <small class="warn"></small>
                                                     </div>
-                                                </div>
-                                                <!-- 寫下評價 -->
-                                                <div class="col-12 col-lg-5 com-txt d-flex flex-wrap align-items-center px-lg-0">
-                                                    <div class="col-12 px-0">
-                                                        <p class="title">評論</p>
-                                                    </div>
-                                                    <div class="col-12 thiscommtent d-flex px-0 align-items-center">
-                                                        <textarea name="commtent" rows="2" class="commenttextarea">請寫下對這支酒的感想!</textarea>
-                                                    </div>
-                                                </div>
 
-                                                <!-- 送出 -->
-                                                <div class="col-12 col-lg-1 member-button com-button d-flex  align-items-center px-0 justify-content-center">
-                                                    <button class="btn_comment-confirm">送出</button>
-                                                </div>
+                                                    <!-- 送出 -->
+                                                    <div class="col-12 col-lg-1 member-button com-button d-flex  align-items-center px-0 justify-content-center">
+                                                        <button class="btn_comment-confirm">送出</button>
+                                                    </div>
 
-                                            </div>
+                                                </div>
+                                                <?php endforeach; ?>
+
+                                            <?php else : ?>
+                                                <div class="empty-status px-3 px-lg-5">
+                                                    <p>目前沒有待評價的商品</p>
+                                                    <a href="all-product.php"><button class="starttogo">開始購物<i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></button></a>
+                                                </div>
+                                            <?php endif; ?>
 
 
 
@@ -1323,20 +1337,6 @@ if (isset($_SESSION['user'])) {
                                                                                 NT.<?= $detail['price'] ?></div>
                                                                         </div>
                                                                     <?php endforeach; ?>
-                                                                    <!-- <div class="my-checkout-p d-flex align-items-center mb-2">
-                                                                    <div class="col-7 col-lg-8 d-flex align-items-center">
-                                                                        <div class="col-2 thisp-pic px-0"><img src="../images/products/8-wired-06.png" alt=""></div>
-                                                                        <div class="col-10 thisp-name px-0">
-                                                                            <p class="c-name">奧斯陸 ．北歐瘋皮爾森</p>
-                                                                            <p class="e-name d-none d-lg-block">Oslo -
-                                                                                Nordic Pilsner</p>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-2 thisp-qty px-0 text-center">2
-                                                                    </div>
-                                                                    <div class="col-3 col-lg-2 thisp-subp px-0 text-center">
-                                                                        NT.5000</div>
-                                                                </div> -->
 
                                                                     <!-- 最後金額計算 -->
                                                                     <div class="calc-price mt-4">
@@ -1677,7 +1677,7 @@ if (isset($_SESSION['user'])) {
 
     }
 
-    // 手機板
+    // 手機版
     if ($(window).width() < 992) {
 
         $('.menu-item').on('click', function() {
@@ -1781,6 +1781,41 @@ if (isset($_SESSION['user'])) {
     $('button.discount_ok').on('click', function() {
         $('.discount-popup').fadeOut(100)
     })
+
+
+
+    // 評論---------------------------------------------------------------------------------------------------------
+    
+    // 刪除placeholder
+    $(".commenttextarea").on('click',function(){
+        $(this).val('')
+    })
+    
+    // 送出
+
+    $('.btn_comment-confirm').on('click',function(){
+        let isPass = true
+        let psid = $(this).closest('.comment-box').attr('data-sid')
+        let score = $(this).parent().prevAll('.com-score').find('select.myscore').val()
+        let comment = $(this).parent().prevAll('.com-txt').find('textarea.commenttextarea').val()
+
+        // console.log(psid,score,comment)
+
+        if (isPass) {
+            $.post(
+                'member-comment-api.php',
+                {psid,score,comment},
+                function(data) {
+                    console.log(data)
+                    // $(this).closest('.comment-box').remove()
+                },
+                'json'
+            )
+        }
+    })
+
+
+
 </script>
 
 
