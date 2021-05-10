@@ -113,8 +113,9 @@ $(".option-wrap").click(function () {
 
 let totalScore = 0;
 $('.next-btn-wrap').click(function () {
-    console.log('已點擊下一步');
     totalScore += myScore;
+    console.log(totalScore);
+
 })
 
 
@@ -122,7 +123,6 @@ $('.result-btn').click(function (e) {
     e.preventDefault();
     console.log('.result-btn', totalScore > 0 <= 5);
     if (totalScore > 0 && totalScore <= 5) {
-        console.log('trueeeee');
         window.location.href = "quiz-result-1.php";
     } else if (totalScore > 5 && totalScore <= 10) {
         window.location.href = "quiz-result-2.php";
