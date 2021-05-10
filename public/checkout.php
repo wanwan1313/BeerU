@@ -512,19 +512,15 @@ if (isset($_SESSION['cart'])) {
                 $('.step-2').addClass('on')
                 $('.step-1').removeClass('on')
             }
-            if (window.location.search.substr(6, 1) == 3) {
 
-                location.href = 'cart-list.php'
-                // reloadData()
-                // checkshipform()
-                // checkpaymentform()
-                // $('#select-payment').css('display', 'none')
-                // $('#complete-order').fadeIn(150)
-                // $('.step-3').addClass('on')
-                // $('.step-2').removeClass('on')
-            }
         } else {
-            location.href = 'cart-list.php'
+            
+            if (window.location.search.substr(6, 1) == 3) {
+                location.href = 'member.php?memberOrder'
+            }else{
+                location.href = 'cart-list.php'
+            }
+            
         }
 
     }
