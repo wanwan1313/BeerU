@@ -113,7 +113,7 @@ $page_title = '啤女BeerU:餐酒搭配';
             <div class="col-12">
                 <div class="beer-type mt-5">
                     <h1 class="title-line mb-3">九種經典精釀啤酒種類</h1>
-                    <h2 class ="mt-5">台菜搭配哪款精釀啤酒最對味呢？</h2>
+                    <h2 class="mt-5">台菜搭配哪款精釀啤酒最對味呢？</h2>
                     <h2 class="animate__animated animate__headShake animate__delay-5s animate__infinite mt-5">馬上點選酒滴</h2>
 
                 </div>
@@ -1046,7 +1046,7 @@ $page_title = '啤女BeerU:餐酒搭配';
             <div class="row">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img src="../images/joyce_images/pair-4.svg" alt="">
+                        <img class="animatable bounceIn" src="../images/joyce_images/pair-4.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -1199,7 +1199,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                         </p>
                         <div class="pair-intro d-flex">
                             <span class="pair-icon">
-                                <img class="animatable bounceIn" src="../images/joyce_images/icon-dish.svg" alt=""></span>
+                                <img src="../images/joyce_images/icon-dish.svg" alt=""></span>
                             <h3>適合搭配餐點</h3>
                         </div>
                         <div class="pair-dish d-flex justify-content-between">
@@ -1312,7 +1312,7 @@ $page_title = '啤女BeerU:餐酒搭配';
             <div class="row">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img src="../images/joyce_images/pair-5.svg" alt="">
+                        <img class="animatable bounceIn" src="../images/joyce_images/pair-5.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
