@@ -56,10 +56,64 @@ function Logout(){
 function LogIn_btn(){
 
     // 進入登入頁 
+    if ($(window).width() >= 992){
+        $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
+
+    }
+    if ($(window).width() < 992){
+    $('.log-box').css('width','90%').css('max-width','338px').css('height','60%').css('min-height','400px').css('transition','.4s');
+
+    }
     $('.LogIn-Sign').fadeIn(100);
     $('.first-login-page').fadeOut(1);
-    $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
+    
     $('.LogIn-page').fadeIn(1000);
+    $('.back01').css('display','none')
+
+
+    // 立即註冊
+    $('.LogSign-rightNow').click(function(){
+
+    if ($(window).width() >= 992){
+
+        $('.log-box').css('width','50%').css('height','86%').css
+    }
+
+    if ($(window).width() < 992){
+        $('.log-box').css('width','90%').css('height','80%').css
+    }
+
+
+    // 馬上登入
+    $('.LogIn-page').fadeOut(1);
+    $('.LogSign-page').fadeIn(1000);
+
+    $('.back02').css('display','none')
+
+    $('.LogIn-rightNow').click(function(){
+
+
+
+        if ($(window).width() >= 992){
+            $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
+    
+        }
+    
+        if ($(window).width() < 992){
+            $('.log-box').css('width','90%').css('max-width','338px').css('height','60%').css('min-height','400px').css('transition','.4s');
+        }
+    
+    
+    
+        $('.first-login-page').fadeOut(1);
+        $('.LogSign-page').fadeOut(1);
+     
+        $('.LogIn-page').fadeIn(1000);
+     
+         
+     })
+
+})
 
 
 }
