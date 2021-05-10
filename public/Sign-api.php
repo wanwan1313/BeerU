@@ -33,7 +33,7 @@ if(isset($_POST['newAccount'])){
 
     
     // 建立註冊資料
-    $sql = "INSERT INTO `member`( `email`, `password`, `nickname`, `birthday`, `address`, `hash`, `created_at`,`user-pic`) VALUES (?,?,?,?,?,?,NOW(),'user.svg')";
+    $sql = "INSERT INTO `member`( `email`, `password`, `nickname`, `birthday`, `address`, `hash`, `created_at`,`user-pic`) VALUES (?,?,?,?,?,?,NOW(),'user-pipi.svg')";
 
     $stmt = $pdo -> prepare($sql);
      
