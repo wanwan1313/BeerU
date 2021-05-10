@@ -74,7 +74,7 @@ body,html{
 }
 
 
-.LandingPage .pip_push{
+.pip_push{
     opacity: 0;
     position: absolute;
     width: 150px;
@@ -233,7 +233,7 @@ body,html{
     width: 100%;
 }
 
-.home .pip_pick{
+.pip_pick{
     position: absolute;
     opacity: 1;
     width: 100px;
@@ -312,7 +312,7 @@ body,html{
      opacity: 0;
  }
 
- .Brew-school .title-wrap{
+ .title-wrap{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1017,14 +1017,14 @@ body,html{
     word-break:break-alll;
 }
 
-.BeerU-legend .pipi{
+.pipi{
     margin-top: 80px;
 }
 
-.BeerU-legend .pip-wrap{
+.pip-wrap{
     width: 100%;
 }
-.BeerU-legend .clouds{
+.clouds{
     height: 400px;
     background-image: url("../../images/common/clouds.svg");
     background-repeat: no-repeat;
@@ -1032,13 +1032,13 @@ body,html{
 }
 
 
-.BeerU-legend .pipi-left{
+.pipi-left{
     justify-content: center;
     align-items: center;
     margin-top: 80px
 }
 
-.BeerU-legend .pipi-name h3{
+.pipi-name h3{
     
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
@@ -1048,13 +1048,13 @@ body,html{
 
 }
 
-.BeerU-legend .pipi-name h3:nth-of-type(2){
+.pipi-name h3:nth-of-type(2){
     margin-top: 25px;
     color:#b69564;
 }
 
 
-.BeerU-legend .pipi-body{
+.pipi-body{
     cursor: pointer;
     position: relative;
     width: 200px;
@@ -1062,7 +1062,7 @@ body,html{
   
 }
 
-.BeerU-legend .pipi-arrow{
+.pipi-arrow{
     position: absolute;
     width: 70px;
     top: 33%;
@@ -1070,13 +1070,13 @@ body,html{
 }
 
     
-.BeerU-legend .pipi-intro{
+.pipi-intro{
     width: 100%;  
     
 }
 
 
-.BeerU-legend .pipi-intro p{
+.pipi-intro p{
    
     padding: 15px;
     font-family: 'Noto Serif TC', serif;
@@ -1090,7 +1090,7 @@ body,html{
 }
 
 
-.BeerU-legend .pipi-intro p span{
+.pipi-intro p span{
     color: var(--yellow);
 }
 
