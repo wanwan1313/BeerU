@@ -82,7 +82,7 @@ $page_title = '啤女BeerU';
 
 
 <!-- 內容開始 -->
- <div class="content-wrap" id="content-wrap">
+<div class="content-wrap" id="content-wrap">
     
     <!-- 首頁 -->
     <section class="home">
@@ -243,7 +243,7 @@ $page_title = '啤女BeerU';
         <div class="row  mt-4">
             <div class="know-more more-btn01">了解更多</div>
         </div>
-    </div>
+        </div>
     </section>
 
      <!-- 經典精釀啤酒種類 -->
@@ -536,21 +536,24 @@ $page_title = '啤女BeerU';
         </div>  
        </section>
 
-   <!-- 啤女精選 -->
-   <section class="BeerU-colllection">
-    <div class="container">
 
-     <div class="title-wrap">
-         <div class="container">
-             <div class="row">
-                 <div class="col-12 BeerU-colllection-title  ">
-                     <p>啤女精選</p>
-                 </div>
-             </div>
-         </div>
-     </div>
 
-        
+
+    <!-- 啤女精選 -->
+    <section class="BeerU-colllection">
+        <div class="container">
+
+        <div class="title-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 BeerU-colllection-title  ">
+                        <p>啤女精選</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
         <div class="row ">
 
@@ -682,57 +685,57 @@ $page_title = '啤女BeerU';
                     </div>
 
                     
-               </div>
+                </div>
             </div>
 
         </div>
 
 
-     
-</section>
 
-   <!-- 啤女分頁  -->
-   <section class="BeerU-feature">
-       <div class="container">
-           <div class="row feature-wrap ">
-               <div class="feature feature01 col-lg-5 col-md-5 col-12 ">
-                  
-                       <div class="feature-content">
-                          <p>試飲會</p> 
-                       </div>
-                   
-               </div>
-               <div class="feature feature02 col-lg-5 col-md-5 col-12 ">
-                  
+    </section>
+
+    <!-- 啤女分頁  -->
+    <section class="BeerU-feature">
+        <div class="container">
+        <div class="row feature-wrap ">
+            <div class="feature feature01 col-lg-5 col-md-5 col-12 ">
+                
                     <div class="feature-content">
-                        <p>募資計畫</p> 
-                     </div>
-
-                  
-               </div>        
+                        <p>試飲會</p> 
+                    </div>
+                
             </div>
-           <div class="row feature-wrap ">
-               <div class="feature feature03 col-lg-5 col-md-5 col-12 ">
-                  
-                       <div class="feature-content">
-                        <p>餐酒搭配</p> 
-                       </div>
-                   
-               </div>
-               <div class="feature feature04 col-lg-5 col-md-5 col-12 ">
-                  
+            <div class="feature feature02 col-lg-5 col-md-5 col-12 ">
+                
+                <div class="feature-content">
+                    <p>募資計畫</p> 
+                    </div>
+
+                
+            </div>        
+        </div>
+        <div class="row feature-wrap ">
+            <div class="feature feature03 col-lg-5 col-md-5 col-12 ">
+                
                     <div class="feature-content">
-                        <p>全部商品</p> 
-                     </div>
-               </div>        
+                    <p>餐酒搭配</p> 
+                    </div>
+                
             </div>
+            <div class="feature feature04 col-lg-5 col-md-5 col-12 ">
+                
+                <div class="feature-content">
+                    <p>全部商品</p> 
+                    </div>
+            </div>        
+        </div>
 
-   </section>
+    </section>
 
-   <!-- 啤女傳說 -->
-   <section class="BeerU-legend"> 
-       <div class="container">
-          
+    <!-- 啤女傳說 -->
+    <section class="BeerU-legend"> 
+        <div class="container">
+            
 
             <div class="title-wrap">
                 <div class="container">
@@ -747,42 +750,42 @@ $page_title = '啤女BeerU';
             
 
 
-       
-           <div class="row legned-story-warp ">
-               <div class="legned-story col-lg-3 col-12">
-                   <div class="legned">
-                       <h3>以酒<br>會友</h3>
-                   </div>
-                   <div class="legned-content">
+
+            <div class="row legned-story-warp ">
+                <div class="legned-story col-lg-3 col-12">
+                    <div class="legned">
+                        <h3>以酒<br>會友</h3>
+                    </div>
+                    <div class="legned-content">
                     <p>酒是最容易讓卸下心防的商品，在啤女裡，你可以找到與你志同道合的酒肉朋友！</p>
 
-                   </div>
-                   
-               </div>
-               <div class="legned-story col-lg-3 col-12">
-                   <div class="legned">
-                       <h3>信賴<br>專業</h3>
-                   </div>
-                   <div class="legned-content">
+                    </div>
+                    
+                </div>
+                <div class="legned-story col-lg-3 col-12">
+                    <div class="legned">
+                        <h3>信賴<br>專業</h3>
+                    </div>
+                    <div class="legned-content">
                     <p>我們有世界各國多元的商品，絕對能讓你找到屬於你的那支MR/MS.RIGHT!</p>
-                   </div>
-                  
-               </div>
-               <div class="legned-story col-lg-3 col-12">
-                   <div class="legned">
-                       <h3>學問<br>殿堂</h3>
-                   </div>
-                   <div class="legned-content">
+                    </div>
+                    
+                </div>
+                <div class="legned-story col-lg-3 col-12">
+                    <div class="legned">
+                        <h3>學問<br>殿堂</h3>
+                    </div>
+                    <div class="legned-content">
                     <p>我們致力於推廣世界釀啤酒的文化，讓你感受到濃濃的異國氣息，增添生活樂趣！</p>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
 
-   <!-- 啤啤 -->
-   <section class="pipi">
-    <div class="container clouds">
+        <!-- 啤啤 -->
+        <section class="pipi">
+        <div class="container clouds">
         <div class="row pipi-wrap">
 
             <div class="pipi-left col-lg-8 col-12 d-flex">
@@ -807,12 +810,12 @@ $page_title = '啤女BeerU';
                 <p>傳說中，酒精仙子<span>『啤啤』</span>，品嚐世界各國特色啤酒，
                     每當喝到好酒，總是忍不住想與人分享，射出<span>『酒仙之箭』</span>
                     就算你是新手經她的洗禮，也可以找到一隻最代表你的酒，成為你的獨家記憶。
-                 </p>
+                    </p>
             </div>
 
         </div>
-    </div>
-</section>
+        </div>
+    </section>
       
 </div>
 <!-- 內容結束 -->

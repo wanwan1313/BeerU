@@ -58,11 +58,27 @@
     height: 86% ;
     min-height: 250px; */
 
+
+
     /* 驗證頁大小 */
     /* height: calc(100vh - 48vh); */
 
 
     
+}
+
+@media (max-width: 991px) {
+
+    .LogIn-Sign .log-box{
+
+        max-width: 338px;
+        width: 90%;
+        margin-top: -100px;
+        height: 60%;
+        min-height: 460px;
+
+    }
+
 }
 
 
@@ -122,6 +138,20 @@
 
 }
 
+@media (max-width: 991px) {
+
+    .LogIn-Sign .login-title h4{
+        width: 70%;
+        transform: translateY(8px);
+        
+
+    }
+    .fb-01{
+        transform: translateY(-3px);
+    }
+
+}
+
 .LogIn-Sign .social-icon{
     cursor: pointer;
 
@@ -142,11 +172,24 @@
     font-family: 'Noto Sans TC', serif;
     margin: 0 10px;
     text-align: center;
+    
     width: 150px;
     height: 35px;
     background-color: var(--gold);
 }
 
+
+@media (max-width: 991px) {
+    .LogIn-Sign .log-btn{
+      
+        width: 120px;
+
+
+    }
+
+
+
+}
 
 /* //////登入畫面/////// */
 
@@ -331,6 +374,26 @@
     border-bottom: solid 2px var(--gold);
 }
 
+
+@media (max-width: 991px) {
+    .LogIn-Sign .logSign-content-wrap{
+        width: 80%;
+
+
+    }
+
+    .LogIn-Sign .account-password-wrap{
+        flex-direction: column;
+    }
+
+    .LogIn-Sign .member-wrap{
+        flex-direction: column;
+        
+    }
+
+}
+
+
 .LogIn-Sign .account-password-wrap{
     justify-content: space-between;
 }
@@ -370,6 +433,22 @@
     position: relative;
     width: 45%;
 }
+
+@media (max-width: 991px) {
+
+    .LogIn-Sign .logSign-account{
+        width: 100%;
+    }
+
+    .LogIn-Sign .logSign-password{
+        margin-top: 10px;
+        width: 100%;
+
+    }
+
+}
+
+
 
 
 .LogIn-Sign .logSign-password h3{
@@ -419,6 +498,24 @@
     position: relative;
     width: 45%;
 }
+
+
+@media (max-width: 991px) {
+
+    .LogIn-Sign .logSign-name{
+        margin-top: -10px;
+        width: 100%;
+    }
+
+    .LogIn-Sign .logSign-birthday{
+        margin-top: 20px;
+        width: 100%;
+
+    }
+
+}
+
+
 .LogIn-Sign .user-icon02{
     position: absolute;
     color: var(--gold);
@@ -469,6 +566,17 @@
 .LogIn-Sign .logSign-address .input-btn{
     padding-left: 10px;
 }
+
+
+@media (max-width: 991px) {
+
+    .LogIn-Sign .logSign-address{
+        margin-top: 22px;
+    }
+
+
+}
+
 
 
 .LogIn-Sign .logSign-notice{

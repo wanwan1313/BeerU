@@ -21,21 +21,27 @@ $(document).ready(function(){
 ////////////////////// 首頁效果///////////////////
 
             if ($(window).width() >= 992){
-             $('#pipi01').addClass('pipi-flyIn');
+                $('.LandingPage .pip_push').addClass('pipi-flyIn');
+
+                setTimeout(() => {
+                    $('.door_outside').addClass('DOOR-OPEN');
+
+                },2000);
 
             }
       
             if ($(window).width() < 992){
-                $('.pip_push').addClass('pipi-flyIn-RWD');
+                $('.LandingPage .pip_push').addClass('pipi-flyIn-RWD');
+                setTimeout(() => {
+                    $('.door_outside').addClass('DOOR-OPEN-RWD');
+
+                },2000);
             }
 
 
              $('.doorSign_warp').css('opacity','0');
              $('.button_warp').css('opacity','0');
-             setTimeout(() => {
-                  $('.door_outside').addClass('DOOR-OPEN');
-
-             },2000);
+            
 
 
              setTimeout(() => {

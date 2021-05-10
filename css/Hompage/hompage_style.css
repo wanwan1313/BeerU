@@ -27,7 +27,7 @@ body,html{
     max-height: 85px;
 } 
 
-.LandingPage_warp{
+.LandingPage .LandingPage_warp{
     
     display: flex;
     margin: 0 auto;
@@ -40,7 +40,7 @@ body,html{
   
     
 }
-.colum{
+.LandingPage .colum{
    
    transition:0.8s;
 
@@ -49,7 +49,7 @@ body,html{
 }
 
 
-.colum::after {
+.LandingPage .colum::after {
     content: '';
     display: block;
     width: 100%;
@@ -60,7 +60,7 @@ body,html{
 
 
 
-.DOOR{
+.LandingPage .DOOR{
     
     margin: 0 auto;
     width: 380px;
@@ -69,7 +69,7 @@ body,html{
     background-repeat: no-repeat;
 
 }
-.DOOR img{
+.LandingPage .DOOR img{
     width: 100%
 }
 
@@ -82,13 +82,13 @@ body,html{
 
 }
 
-.door_outside{
+.LandingPage .door_outside{
     transition: 2s;
     position: relative;
    
 }
 
-.doorSign_warp {
+.LandingPage .doorSign_warp {
     transition: 2s;
     position: absolute;
     text-align: center;
@@ -100,7 +100,7 @@ body,html{
  
 }
 
-.doorSign_warp h1:nth-of-type(1){
+.LandingPage .doorSign_warp h1:nth-of-type(1){
     font-size: 4rem;
     font-family: 'Noto Serif TC';
     font-weight: Bold;
@@ -109,23 +109,23 @@ body,html{
 
 }
 
-.doorSign_warp p{
+.LandingPage .doorSign_warp p{
     font-family: 'Noto Sans TC';
     color: #E9BF85;
     font-size: 1.8rem;
 }
-.doorSign_warp p:nth-of-type(1){
+.LandingPage .doorSign_warp p:nth-of-type(1){
   margin-top: 15px;
 }
 
-.doorSign_warp p:nth-of-type(2),p:nth-of-type(3),p:nth-of-type(4){
+.LandingPage .doorSign_warp p:nth-of-type(2),p:nth-of-type(3),p:nth-of-type(4){
     transform:  translateX(10px);
   
   }
 
   
 
-  .doorSign_warp h1:nth-of-type(2){
+.LandingPage .doorSign_warp h1:nth-of-type(2){
      margin-top: 15px;
      transform:  translateX(10px);
      color: #E9BF85;
@@ -135,7 +135,7 @@ body,html{
   }
 
 
-  .button_warp{
+.LandingPage .button_warp{
     transition: 2s;
     position: absolute;
     margin-top: 200px;
@@ -145,7 +145,7 @@ body,html{
 
   }
 
-  .btn01{
+.LandingPage .btn01{
      width: 60px;
      height: 40px;
      border-radius: 10px;
@@ -164,7 +164,7 @@ body,html{
        overflow: hidden;  
 
   }
-  .home_bg {
+  .home .home_bg {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -184,7 +184,7 @@ body,html{
   }
 
 
-  .Logo_wrap{
+  .home .Logo_wrap{
       display: flex;
       position: relative;
       width: 100%;
@@ -195,13 +195,13 @@ body,html{
   }
 
 
-.flag{
+.home .flag{
     width: 50%;
     overflow: hidden;
     
 }
 
-.flag_L{
+.home .flag_L{
     height: 0;
     background-size: cover;
     background-image: url('../../images/common/flag_L_V3.png'
@@ -209,7 +209,7 @@ body,html{
     padding-top: 21.84%;
   
 }
-.flag_R{
+.home .flag_R{
     height: 0;
     background-size: cover;
     background-image: url('../../images/common/flag_R_V3.png'
@@ -218,7 +218,7 @@ body,html{
 }
 
 
-.LOGO_Filter{
+.home .LOGO_Filter{
     position: absolute;
     z-index: 99;
     width: 500px;
@@ -229,7 +229,7 @@ body,html{
 }
 
 
-.LOGO_Filter img{
+.home .LOGO_Filter img{
     width: 100%;
 }
 
@@ -243,19 +243,19 @@ body,html{
 }
 
 
-.RWD-button-wrap .row{
+.home .RWD-button-wrap .row{
     display: none;
 }
 
 
 
-.Woman_warp{
+.home .Woman_warp{
     display: flex;
     justify-content: center;
   
 }
 
-.woman{
+.home .woman{
     cursor: pointer;
     position: relative;
     margin: 0 35px;
@@ -264,13 +264,13 @@ body,html{
 
 
 
-.woman-img{
+.home .woman-img{
     opacity: 0;
     width: 180px;
   
 }
 
-.woman-talk{
+.home .woman-talk{
     opacity: 0;
     top: 0;
     width: 70%;
@@ -278,25 +278,25 @@ body,html{
 }
 
 
-.woman03-img{
+.home .woman03-img{
     width: 240px;
     margin-left: 20px;
 }
 
-.talk01{
+.home .talk01{
     transform: scale(0.5) translate(-80px, -80px);
 }
-.talk02{
+.home .talk02{
     right: 0;
     transform: scale(0.5) translate(50px, -60px);
 
 }
-.talk03{
+.home .talk03{
     right: 0;
     width: 50%;
     transform: scale(0.5) translate(50px, -80px);
 }
-.talk04{
+.home .talk04{
     right: 0;
 
     transform: scale(0.5) translate(30px, -60px);
@@ -312,20 +312,20 @@ body,html{
      opacity: 0;
  }
 
-.title-wrap{
+ .title-wrap{
     display: flex;
     justify-content: center;
     align-items: center;
 }
     /* 圈圈圖案 */
-.Brew-school-title { 
+.Brew-school .Brew-school-title { 
     background: url(../../images/common/h1_5_w.svg) no-repeat center center;
     background-size: contain;
 
 }
 
 /* 標題文字 */
-.Brew-school-title p {
+.Brew-school .Brew-school-title p {
     color: white;
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
@@ -338,7 +338,7 @@ body,html{
 }
 
 /* 左邊雕飾 */
-.Brew-school-title p::before {
+.Brew-school .Brew-school-title p::before {
     content: '';
     display: block;
     position: absolute;
@@ -354,7 +354,7 @@ body,html{
 
 
 /* 右邊雕飾 */
-.Brew-school-title p::after {
+.Brew-school .Brew-school-title p::after {
     content: '';
     display: block;
     position: absolute;
@@ -370,19 +370,19 @@ body,html{
 
 /* 手機版 改字和雕飾大小*/
 @media (max-width: 991px) {
-.Brew-school-title p {
+.Brew-school .Brew-school-title p {
     font-size: 2.4rem;
     letter-spacing: 0.8rem;
     text-indent:0.8rem;
 }
 
-.Brew-school-title p::before {
+.Brew-school .Brew-school-title p::before {
     width: 60px;
     height: 32%;
 
 }
 
-.Brew-school-title p::after {
+.Brew-school .Brew-school-title p::after {
     width: 60px;
     height: 32%;
 
@@ -393,38 +393,38 @@ body,html{
 
 
 
-.Brew-school-intro {
+.Brew-school .Brew-school-intro {
     display: flex;
     justify-content: center;
     margin-top: 50px;
 }
 
 
-.brew-beer-left{
+.Brew-school .brew-beer-left{
     width: 550px;
     justify-content: space-between;
     text-align: right;
     
 }
 
-.brew-beer-img{
+.Brew-school .brew-beer-img{
     transform: translateX(-200px);
     opacity: 0.6;
 }
 
-.brew-beer-intro{
+.Brew-school .brew-beer-intro{
     border-bottom: solid 1px #fff;
 
 }
 
 
-.title-txt{
+.Brew-school .title-txt{
     width: 100%;
     max-width: 300px;
     border-bottom: solid 1px #fff;
     padding: 10px 0;
 }
-.title-txt h2{
+.Brew-school .title-txt h2{
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
     font-size: 3.5rem;
@@ -432,10 +432,10 @@ body,html{
 }
 
 
-.content-txt{
+.Brew-school .content-txt{
     margin-top: 40px;
 }
-.content-txt h6{
+.Brew-school .content-txt h6{
     font-family: 'Noto Sans TC', serif;
     font-size: 1.8rem;
     letter-spacing: 0.1rem;
@@ -444,27 +444,27 @@ body,html{
 
 }
 
-.content-txt h6:nth-of-type(1){
+.Brew-school .content-txt h6:nth-of-type(1){
     
     color:var(--yellow);
 }
-.content-txt h6:nth-of-type(3){
+.Brew-school .content-txt h6:nth-of-type(3){
     margin: 35px 0;
     color:var(--yellow);
 }
-.content-txt h6:nth-of-type(4){
+.Brew-school .content-txt h6:nth-of-type(4){
     margin:45px 0;
    
 }
-.content-txt h6:nth-of-type(5){
+.Brew-school .content-txt h6:nth-of-type(5){
     color:var(--yellow);
 }
 
-.category-middle{
+.Brew-school .category-middle{
     width: 100px;
     border-bottom: solid 1px #fff;
 }
-.category-middle h6{
+.Brew-school .category-middle h6{
    
     font-family: 'Noto Sans TC', serif;
     font-size: 1.8rem;
@@ -473,25 +473,25 @@ body,html{
     padding-bottom: 20px;
 
 }
-.category-middle h6:nth-of-type(1){
+.Brew-school .category-middle h6:nth-of-type(1){
     border-top: solid 1px #fff;
     margin-top: 67px;
     padding-top: 40px;
     color:var(--yellow);
 }
 
-.category-middle h6:nth-of-type(3){
+.Brew-school .category-middle h6:nth-of-type(3){
     color:var(--yellow);
 }
   
 
-.category-middle h6:nth-of-type(5){
+.Brew-school .category-middle h6:nth-of-type(5){
     color:var(--yellow);
 
    
 }
 
-.bussiness-beer-right{
+.Brew-school .bussiness-beer-right{
     width: 550px;
     justify-content: space-between;
     text-align: left;
@@ -499,17 +499,17 @@ body,html{
 
 }
 
-.bussiness-beer-intro{
+.Brew-school .bussiness-beer-intro{
     border-bottom: solid 1px #fff;
 
 }
 
-.bussiness-beer-img{
+.Brew-school .bussiness-beer-img{
     transform: translateX(200px);
     opacity: 0.6;
 }
 
-.more-btn01{
+.Brew-school .more-btn01{
     margin: 0 auto;
 }
 
@@ -530,7 +530,7 @@ body,html{
 
 
 
-.type-content{
+.Beer-type .type-content{
     margin-top: 25px;
     display: flex;
     align-items: center;
@@ -538,7 +538,7 @@ body,html{
 
 }
 
-.type-forward{
+.Beer-type .type-forward{
     z-index: 980;
     cursor: pointer;
     background-image: url("../../images/common/arrow_left.svg");
@@ -552,7 +552,7 @@ body,html{
 
 /* //////啤酒種類輪播牆/////// */
 
-.Beer-type-window{
+.Beer-type .Beer-type-window{
     position: relative;
     overflow: hidden;
     max-width: 720px;
@@ -560,7 +560,7 @@ body,html{
   
     
 }
-.Beer-type-content-warp{
+.Beer-type .Beer-type-content-warp{
     display: flex;
     flex-direction: row;
     position: absolute;
@@ -570,7 +570,7 @@ body,html{
 }
 
 
-.Beer-type-content{
+.Beer-type .Beer-type-content{
     display: flex;
     
     justify-content: space-around;
@@ -579,42 +579,42 @@ body,html{
     width: 100%;
 }
 
-.Beer-type-img {
+.Beer-type .Beer-type-img {
     width: 240px;
 }
 
-.type-img02{
+.Beer-type .type-img02{
     width: 180px;
 }
-.type-img03{
+.Beer-type .type-img03{
     /* width: 190px; */
     width: 180px;
 }
 
-.type-img04{
+.Beer-type .type-img04{
     /* width: 160px; */
     width: 190px;
 }
 
-.type-img05{
+.Beer-type .type-img05{
     /* width: 180px; */
     width: 160px;
 }
-.type-img06{
+.Beer-type .type-img06{
     width: 175px;
 }
-.type-img07{
+.Beer-type .type-img07{
     width: 155px;
 }
-.type-img08{
+.Beer-type .Beer-type.type-img08{
     width: 190px;
 }
-.type-img09{
+.Beer-type .type-img09{
     width: 190px;
 }
 
 
-.Beer-type-intro-wrap{
+.Beer-type .Beer-type-intro-wrap{
     position: relative;
     height: 350px;
     display: flex;
@@ -623,7 +623,7 @@ body,html{
     
 }
 
-.Beer-type-name h3{
+.Beer-type .Beer-type-name h3{
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
     font-size: 3rem;
@@ -633,19 +633,19 @@ body,html{
 
 }
 
-.Beer-type-name img{
+.Beer-type .Beer-type-name img{
     width: 30px;
  
 }
 
-.Beer-type-text{
+.Beer-type .Beer-type-text{
     /* margin-top: 20px; */
     width: 100%;
     max-width: 380px;
 }
 
 
-.Beer-type-text p{
+.Beer-type .Beer-type-text p{
     word-break: break-all;
     font-family: 'Noto Sans TC', serif;
     font-size: 1.6rem;
@@ -658,7 +658,7 @@ body,html{
 
 /* //////啤酒種類輪播牆/////// */
 
-.type-backward{
+.Beer-type .type-backward{
     cursor: pointer;
     background-image: url("../../images/common/arrow_right.svg");
     width: 80px;
@@ -670,13 +670,13 @@ body,html{
 }
 
 
-.type-colorDot {
+.Beer-type .type-colorDot {
     display: none;
     opacity: 0;
 }
 
 
-.hand{
+.Beer-type .hand{
     position: absolute;
     /* transform: translate(-30px,-155px); */
     transform: translate(-150px,-250px) rotate(-30deg);
@@ -684,13 +684,13 @@ body,html{
     width: 30%;
 }
 
-.type-color{
+.Beer-type .type-color{
     opacity: 0;
     justify-content: center;  
     margin-top: 55px;
 }
 
-.drop{
+.Beer-type .drop{
     cursor: pointer;
     margin: 0 30px;
     width: 4%
@@ -797,12 +797,12 @@ body,html{
 }
 
 
-.item{
+.BeerU-colllection .item{
     height: 100%;
 }
 
 
-.item-flag{
+.BeerU-colllection .item-flag{
     position: relative;
     z-index: 1;
     margin: 0 auto;
@@ -810,14 +810,14 @@ body,html{
 
     transform: rotate(-10deg) translate(0px,20px);
 }
-.item-img{
+.BeerU-colllection .item-img{
     position: relative;
     z-index: 2;
     margin: 0 auto;
     width: 150px;
 }
 
-.item-intro h4{
+.BeerU-colllection .item-intro h4{
     font-family: 'Noto Sans TC', serif;
     font-weight: Medium;
     font-size: 2rem;
@@ -830,14 +830,14 @@ body,html{
     margin-top: 65px;
 }
 
-.feature-wrap{
+.BeerU-feature .feature-wrap{
   
     display: flex;
     justify-content: center;
 }
 
 
-.feature{
+.BeerU-feature .feature{
     position: relative;
     margin: 15px 15px;
     width: 540px;
@@ -845,31 +845,31 @@ body,html{
 }
 
 
-.feature01{
+.BeerU-feature .feature01{
     background-image: url('../../images/Links/feature01.jpg') ;
     background-size: cover;
     background-repeat: no-repeat;
 }
-.feature02{
+.BeerU-feature .feature02{
     
     background-image: url('../../images/Links/feature02.jpg') ;
     background-size: cover;
     background-repeat: no-repeat;
 }
-.feature03{
+.BeerU-feature .feature03{
     background-image: url('../../images/Links/feature03.jpg') ;
     background-size: cover;
     background-repeat: no-repeat;
   
 }
-.feature04{
+.BeerU-feature .feature04{
     background-image: url('../../images/Links/feature04.jpg') ;
     background-size: cover;
     background-repeat: no-repeat;
 } 
 
 
-.feature-content{
+.BeerU-feature .feature-content{
     
     position: absolute;
     width: 100%;
@@ -879,7 +879,7 @@ body,html{
     background: linear-gradient(to right ,#000 0% , transparent 100% );
 }
 
-.feature-content p{
+.BeerU-feature .feature-content p{
     font-family: 'Noto Serif TC', serif;
     font-size: 3.5rem;
     font-weight: bold;
@@ -888,7 +888,7 @@ body,html{
   
 }
 
-.feature-content:hover{
+.BeerU-feature .feature-content:hover{
     transition: 3s;
     background: linear-gradient(to right ,#b69564 0% , transparent 100% );
 
@@ -974,18 +974,18 @@ body,html{
 
 }
 
-.legned-story-warp{
+.BeerU-legend .legned-story-warp{
     margin: 0 auto;
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.legned-story{
+.BeerU-legend .legned-story{
     margin-top: 50px;
 }
 
-.legned {
+.BeerU-legend .legned {
     margin: 0 auto;
     width: 125px;
     height: 125px;
@@ -995,7 +995,7 @@ body,html{
 
 }
 
-.legned h3{
+.BeerU-legend .legned h3{
      font-family: 'Noto Serif TC', serif;
      letter-spacing: 5px;
      line-height: 50px;
@@ -1005,13 +1005,13 @@ body,html{
      color: var(--yellow);
 }
 
-.legned-content{
+.BeerU-legend .legned-content{
     width: 100%;
     margin: 30px auto 0 auto;
     
 }
 
-.legned-content p{
+.BeerU-legend .legned-content p{
     font-family: 'Noto Sans TC', serif;
     font-size: 1.6rem;
     word-break:break-alll;
@@ -1069,6 +1069,7 @@ body,html{
     transform: translateX(-30px);
 }
 
+    
 .pipi-intro{
     width: 100%;  
     
