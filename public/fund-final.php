@@ -1,9 +1,23 @@
 <?php include __DIR__ . '../../php/common/config.php' ?>
+<!-- <?php include __DIR__ . '../../php/common/__connect_db.php' ?> -->
 
 <!-- 需要置換的變數們 -->
 <?php
 
 $page_title = '啤女BeerU:募資計畫-方案確認頁';
+$sid = substr($_SERVER['QUERY_STRING'], 5);
+
+$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
+// $pdo->query("UPDATE `event` SET `event_visited`=`event_visited`+1 WHERE $sid=3");
+
+$f_SQL = "SELECT * FROM `fund`";
+$f = $pdo->query($f_SQL)->fetch();
+
+
+if ($sid == 0) {
+    header('location:http://localhost/beeru/public/fund.php');
+}
+
 
 
 
@@ -33,7 +47,8 @@ $page_title = '啤女BeerU:募資計畫-方案確認頁';
             </div>
             <div class="product-main-text">
                 <h3>【CLOUDWATER | 英國知名精釀廠】</h3>
-                <p>全球第二名 / 英倫第一神廠強勢來台，啤女獨家首發，最強CP值!</p>
+                <p>全球第二名 / 英倫第一神廠強勢來台，啤女獨家首發，最強CP值!
+                    來自Manchester 的Cloudwater 酒廠，僅僅成立3年已大有名氣，今年更於Ratebeer 最佳酒廠前三名。</p>
                 <div class="product-sub-text d-flex">
                     <div class="goal mt-2">
                         <div class="current-value">
@@ -60,23 +75,24 @@ $page_title = '啤女BeerU:募資計畫-方案確認頁';
         <div class="row">
             <div class="col-sm-5">
                 <div class="card" id="card-click" onclick="changeColor();">
-                    <div class="card-description" \ target="_blank">
-                        <img src="../images/joyce_images/option-1.jpg" alt="" />
-                        <h2>$2650</h2>
-                        <p>【容量】</p>
-                        <p> 330ml/瓶 x 4 / 口味各1瓶</p>
-                        <p>【口味】</p>
+                    <div class="card-description" target="_blank">
+                        <!-- pic -->
+                        <img src="../images/joyce_images/<?= $f['pic'] ?>" alt="">
+                        <!-- plan_price -->
+                        <h2>$<?= $f['plan_price'] ?></h2>
+                        <p class="c_name" style="color: var(--gold);"><?= $f['c_name'] ?></p>
+                        <!-- plan_title在資料庫叫 e-name -->
+                        <div class="e_name mb-3">
+                            <p style="color: var(--gold);"><?= $f['e_name'] ?></p>
+                        </div>
+                        <!-- plan_content -->
+                        <div class="plan_content">
+                            <?= $f['plan_content'] ?>
 
-                        <p> ✓ Helles向藝術致敬IPA </p>
-                        <p> ✓ Hoppy little lager快腳步愛爾</p>
-                        <p> ✓ 加速腳步思陶特 Stout</p>
-                        <p> ✓ Light lager不斷進化淡愛爾</p>
-                        <hr>
-                        <p>注意事項</p>
-                        <p>⦿ 此價格已含運費</p>
-                        <p>⦿ 訂單若有異動，請至會員中心的訂單留言。</p>
+                        </div>
                     </div>
                 </div>
+
 
                 <!-- 更改方案按鈕 -->
                 <a href="../html/fund-step2.html"><button class="btn_edit"><i class="fas fa-edit"></i>更改方案</button></a>

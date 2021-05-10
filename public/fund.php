@@ -1,4 +1,5 @@
 <?php include __DIR__ . '../../php/common/config.php' ?>
+<?php include __DIR__ . '../../php/common/__connect_db.php' ?>
 
 
 <?php
@@ -88,9 +89,7 @@ $f_rows = $pdo->query($f_SQL)->fetchAll();
                     <h3>【CLOUDWATER | 英國知名精釀廠】</h3>
                 </div>
                 <div class="fund-intro-text">
-                    <p>
-                        新銳神級酒廠Cloudwater 在Raterbeer連續四年(2016-2019)名列在全球最佳酒廠Top 15內，最佳成績為Top
-                        2，也是英陸最強IPA代表之一！來自Manchester 的Cloudwater 酒廠，僅僅成立3年已大有名氣，今年更於Ratebeer 最佳酒廠第5名（去年投選）擢升至第2名。
+                    <p>全球第二名 / 英倫第一神廠強勢來台，啤女獨家首發，最強CP值!連續四年(2016-2019)名列在全球最佳酒廠Top 15內，最佳成績為Top2！來自Manchester 的Cloudwater 酒廠，僅僅成立3年已大有名氣，今年更於Ratebeer 最佳酒廠第5名（去年投選）擢升至第2名。
                     </p>
                 </div>
                 <div class="row d-flex">
@@ -177,16 +176,16 @@ $f_rows = $pdo->query($f_SQL)->fetchAll();
                 <?php foreach ($f_rows as $f) : ?>
                     <ul class="card-list">
                         <li class="card" id="card1">
-                            <a class="card-description" href="../html/fund-step2.html?fund_id=" target="_blank">
+                            <a class="card-description" href="../public/fund-final.php?sid=<?= $f['sid'] ?>">
                                 <!-- pic -->
                                 <img class="pic" src="../images/joyce_images/<?= $f['pic'] ?> " alt="">
                                 <!-- plan_price -->
                                 <h2 class=" plan_price">$<?= $f['plan_price'] ?></h2>
                                 <!-- c_name -->
                                 <p class="c_name" style="color: var(--gold);"><?= $f['c_name'] ?></p>
-                                <!-- plan_title -->
-                                <div class="plan_title mb-3">
-                                    <p style="color: var(--gold);"><?= $f['plan_title'] ?></p>
+                                <!-- plan_title在資料庫叫 e-name -->
+                                <div class="e_name mb-3">
+                                    <p style="color: var(--gold);"><?= $f['e_name'] ?></p>
                                 </div>
                                 <!-- plan_content -->
                                 <div class="plan_content">
