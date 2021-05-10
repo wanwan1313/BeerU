@@ -5,15 +5,55 @@
 
 $page_title = '啤女BeerU-會員中心';
 
-// 從資料庫抓折價券
+
 
 if (isset($_SESSION['user'])) {
 
+
+    // 判斷是哪個會員
     $m_sid = $_SESSION['user']['sid']; //抓會員sid
 
-    $SQL = "SELECT * FROM `achievement` WHERE `coupon` > 0 AND `member_sid` = $m_sid ORDER BY `create_at`";
-    $row = $pdo->query($SQL)->fetchAll();
+    // 從資料庫抓會員資料
+    $member_SQL = "SELECT * FROM `member` WHERE `sid` = $m_sid";
+    $m_row = $pdo->query($member_SQL)->fetch();
+
+
+    // 從資料庫抓折價券
+    $discount_SQL = "SELECT * FROM `achievement` WHERE `coupon` > 0 AND `member_sid` = $m_sid ORDER BY `create_at`";
+    $d_row = $pdo->query($discount_SQL)->fetchAll();
+
+    // 從資料庫撈酒仙指數
+    $achieve_SQL = "SELECT `achieve` FROM `achievement` WHERE `achieve` > 0 AND `member_sid` = $m_sid ";
+    $a_row = $pdo->query($achieve_SQL)->fetchAll(PDO::FETCH_NUM);
+    $a_total = 0;
+    if (!empty($a_row)) {
+        foreach ($a_row as $a) {
+            $a_total += $a[0];
+        }
+    }
+
+    // 從資料庫抓目前訂單資料
+    $order_SQL = "SELECT * FROM `orders` WHERE `member_sid` = $m_sid AND `status` = '處理中' ORDER BY `sid` DESC";
+    $or_row = $pdo->query($order_SQL)->fetchAll();
+
+
+    // 從資料庫抓過往訂單資料
+    $past_SQL = "SELECT * FROM `orders` WHERE `member_sid` = $m_sid AND `status` = '已完成' ORDER BY `sid` DESC";
+    $pa_row = $pdo->query($past_SQL)->fetchAll();
+
+
+
+
+    // 從資料庫裡撈要評價的商品
+    $comment_SQL = "SELECT o.`sid`, o.`product_sid`, p.`c_name`, p.`e_name`, p.`pic` FROM `order_detail` o 
+    JOIN `products` p 
+    ON o.`product_sid` = p.`sid`
+    WHERE `member_sid` = 4 AND `product_sid` > 0 AND `comment` = 'false'";
 };
+
+
+
+
 
 
 
@@ -52,15 +92,26 @@ if (isset($_SESSION['user'])) {
             <p>折價券列表</p>
         </div>
         <div class="col-12 coupon-list d-flex flex-wrap align-content-start">
-            <!-- 單張折價券 -->
-            <?php foreach ($row as $d) : ?>
-                <div class="col-6 col-lg-4 coupon-wrap">
-                    <div class="coupon" data-sid="<?= $d['sid'] ?>" data-num="<?= $d['coupon'] ?>">
-                        <p>折價券 <span class="num">$<?= $d['coupon'] ?></span>元</p>
-                        <p>有效期限:<?= date("Y/m/d", strtotime($d['create_at'] . "+6 month")) ?></p>
+
+            <?php if (!empty($d_row)) : ?>
+                <!-- 單張折價券 -->
+                <?php foreach ($d_row as $d) : ?>
+                    <div class="col-6 col-lg-4 coupon-wrap">
+                        <div class="coupon" data-sid="<?= $d['sid'] ?>" data-num="<?= $d['coupon'] ?>">
+                            <p>折價券 <span class="num">$<?= $d['coupon'] ?></span>元</p>
+                            <p>有效期限:<?= date("Y/m/d", strtotime($d['create_at'] . "+6 month")) ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <div class="col-12 empty-status d-flex flex-column justify-content-center align-items-center">
+                    <p>目前沒有折價券喔!</p>
+                    <p>快到會員中心>我的成就，來累積更多的券吧！</p>
+                    <div class="pipi mt-4">
+                        <img src="../images/common/pipi_empty.svg" alt="">
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php endif; ?>
 
         </div>
         <div class="button-wrap-3 mx-auto">
@@ -87,14 +138,14 @@ if (isset($_SESSION['user'])) {
                 <div class="col-12 col-lg-5 member-overveiw d-flex">
                     <div class="col-4 col-lg-6 memberpic px-0 p-lg-5 d-flex align-items-center justify-content-center">
                         <div class="user-pic">
-                            <img src="../images/user/user1.svg" alt="">
+                            <img src="../images/user/<?= $m_row['user-pic'] ?>" alt="">
                             <div class="edit-pic"></div>
                         </div>
                     </div>
                     <div class="col-8 col-lg-6 memberinfo d-flex flex-column justify-content-center align-items-center">
-                        <div class="helloname">Hello, Christina</div>
+                        <div class="helloname">Hello, <?= $m_row['nickname'] ?></div>
                         <p>我的成就</p>
-                        <div class="beerpercent">酒仙指數<span class="beerpercent-num"> 65</span>%</div>
+                        <div class="beerpercent">酒仙指數<span class="beerpercent-num"><?= $a_total ?></span>%</div>
                         <button class="checkmydiscount mt-2">查看折價券</button>
 
                     </div>
@@ -136,19 +187,19 @@ if (isset($_SESSION['user'])) {
                                     <div class="col-12 col-lg-5 mydata">
                                         <div class="mydata-txt mydata-email mb-3">
                                             <p>信箱</p>
-                                            <p class="myEmail">Christina@gmail.com</p>
+                                            <p class="myEmail"><?= $m_row['email'] ?></p>
                                         </div>
                                         <div class="mydata-txt mydata-nickname mb-3">
                                             <p>姓名</p>
-                                            <p class="myNickname">Christina</p>
+                                            <p class="myNickname"><?= $m_row['nickname'] ?></p>
                                         </div>
                                         <div class="mydata-txt mydata-birthday mb-3">
                                             <p>生日</p>
-                                            <p class="myBirthday">1990-01-01</p>
+                                            <p class="myBirthday"><?= $m_row['birthday'] ?></p>
                                         </div>
                                         <div class="mydata-txt mydata-address mb-5">
                                             <p>地址</p>
-                                            <p class="myADD">台北市仁愛路三段152號</p>
+                                            <p class="myADD"><?= $m_row['address'] ?></p>
                                         </div>
                                         <div class="data-button-wrap d-flex justify-content-center">
                                             <button class="btn_edit-data">編輯資料</button>
@@ -161,12 +212,12 @@ if (isset($_SESSION['user'])) {
                                         <P class="d-none d-lg-block">修改會員資料</P>
                                         <div class="mydata-txt mydata-email mb-3">
                                             <p>信箱</p>
-                                            <p class="myEmail">Christina@gmail.com</p>
+                                            <p class="myEmail"><?= $m_row['email'] ?></p>
                                         </div>
                                         <div class="mydata-txt mydata-nickname mb-3">
                                             <p>姓名</p>
                                             <i class="fas fa-user-alt user-icon02"></i>
-                                            <input type="text" class="input-btn" name="nickname" required>
+                                            <input type="text" class="input-btn" name="nickname" required value="<?= $m_row['nickname'] ?>">
                                             <small class="warn"><i class="far fa-times-circle"></i>姓名不得為空白</small>
 
                                         </div>
@@ -178,7 +229,7 @@ if (isset($_SESSION['user'])) {
                                         </div>
                                         <div class="mydata-txt mydata-address mb-5">
                                             <p>地址</p>
-                                            <textarea class="input-btn2" name="address" rows="2"></textarea>
+                                            <textarea class="input-btn2" name="address" rows="2"><?= $m_row['address'] ?></textarea>
 
 
                                         </div>
@@ -1204,142 +1255,169 @@ if (isset($_SESSION['user'])) {
                                         <div class="col-12 myordernow-items px-0 memberAccordion-content">
 
                                             <!-- 單筆訂單 -->
-                                            <div class="order-detail">
-                                                <p class="text-center text-lg-left">訂單編號：202105031234</p>
-                                                <div class="order-d-box px-3 px-lg-5 py-4 d-flex flex-wrap">
 
-                                                    <!-- 訂單 -->
-                                                    <div class="col-12 col-lg-10 order-part px-0">
-                                                        <!-- 訂單資訊 -->
-                                                        <div class="overview">
-                                                            <div class="view-head d-flex">
-                                                                <div class="v-thead col-3 px-0 text-center text-lg-left">
-                                                                    日期</div>
-                                                                <div class="v-thead col-3 px-0 text-center text-lg-left">
-                                                                    總金額</div>
-                                                                <div class="v-thead col-3 px-0 text-center text-lg-left">
-                                                                    付款方式</div>
-                                                                <div class="v-thead col-3 px-0 text-center text-lg-left">
-                                                                    訂單狀態</div>
+                                            <?php if (!empty($or_row)) : ?>
+
+                                                <?php foreach ($or_row as $or) : ?>
+                                                    <div class="order-detail">
+                                                        <p class="text-center text-lg-left">訂單編號：<?= $or['order_num'] ?></p>
+                                                        <div class="order-d-box px-3 px-lg-5 py-4 d-flex flex-wrap">
+
+                                                            <!-- 訂單 -->
+                                                            <div class="col-12 col-lg-10 order-part px-0">
+                                                                <!-- 訂單資訊 -->
+                                                                <div class="overview">
+                                                                    <div class="view-head d-flex">
+                                                                        <div class="v-thead col-3 px-0 text-center text-lg-left">
+                                                                            日期</div>
+                                                                        <div class="v-thead col-3 px-0 text-center text-lg-left">
+                                                                            總金額</div>
+                                                                        <div class="v-thead col-3 px-0 text-center text-lg-left">
+                                                                            付款方式</div>
+                                                                        <div class="v-thead col-3 px-0 text-center text-lg-left">
+                                                                            訂單狀態</div>
+                                                                    </div>
+                                                                    <div class="view-content d-flex">
+                                                                        <div class="v-tbody col-3 px-0 text-center text-lg-left">
+                                                                            <?= $or['date'] ?></div>
+                                                                        <div class="v-tbody col-3 px-0 text-center text-lg-left">
+                                                                            NT$<?= $or['total_price'] ?></div>
+                                                                        <div class="v-tbody col-3 px-0 text-center text-lg-left">
+                                                                            <?= $or['payment'] ?></div>
+                                                                        <div class="v-tbody col-3 px-0 text-center text-lg-left">
+                                                                            <?= $or['status'] ?></div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 商品列表 -->
+                                                                <p class="col-12 px-2 detail-header">訂單明細<i class="fas fa-caret-up ml-1"></i></p>
+                                                                <div class="product-detail">
+                                                                    <!-- 表頭 -->
+                                                                    <div class="d-header d-flex flex-wrap">
+                                                                        <div class="p-thead col-7 col-lg-8 pl-2">商品名稱</div>
+                                                                        <div class="p-thead col-2 px-0 text-center">數量</div>
+                                                                        <div class="p-thead col-3 col-lg-2 px-0 text-center">
+                                                                            小計</div>
+                                                                    </div>
+
+                                                                    <!-- 從資料庫抓產品細節 -->
+                                                                    <?php
+                                                                    $order_sid = $or['sid'];
+                                                                    $detail_SQL = "SELECT o.`product_sid`, p.`c_name`, p.`e_name`, p.`pic`, o.`quantity`, o.`price` 
+                                                                    FROM `order_detail` o JOIN `products` p ON o.`product_sid` = p.`sid` 
+                                                                    WHERE `order_sid` = $order_sid";
+                                                                    $detail_row = $pdo->query($detail_SQL)->fetchAll();
+                                                                    ?>
+                                                                    <!-- 單支產品開始 -->
+                                                                    <?php foreach ($detail_row as $detail) : ?>
+                                                                        <div class="my-checkout-p d-flex align-items-center mb-2">
+                                                                            <div class="col-7 col-lg-8 d-flex align-items-center">
+                                                                                <div class="col-2 thisp-pic px-0"><img src="../images/products/<?= $detail['pic'] ?>" alt=""></div>
+                                                                                <div class="col-10 thisp-name px-0">
+                                                                                    <p class="c-name"><?= $detail['c_name'] ?></p>
+                                                                                    <p class="e-name d-none d-lg-block"><?= $detail['e_name'] ?></p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-2 thisp-qty px-0 text-center"><?= $detail['quantity'] ?>
+                                                                            </div>
+                                                                            <div class="col-3 col-lg-2 thisp-subp px-0 text-center">
+                                                                                NT.<?= $detail['price'] ?></div>
+                                                                        </div>
+                                                                    <?php endforeach; ?>
+                                                                    <!-- <div class="my-checkout-p d-flex align-items-center mb-2">
+                                                                    <div class="col-7 col-lg-8 d-flex align-items-center">
+                                                                        <div class="col-2 thisp-pic px-0"><img src="../images/products/8-wired-06.png" alt=""></div>
+                                                                        <div class="col-10 thisp-name px-0">
+                                                                            <p class="c-name">奧斯陸 ．北歐瘋皮爾森</p>
+                                                                            <p class="e-name d-none d-lg-block">Oslo -
+                                                                                Nordic Pilsner</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-2 thisp-qty px-0 text-center">2
+                                                                    </div>
+                                                                    <div class="col-3 col-lg-2 thisp-subp px-0 text-center">
+                                                                        NT.5000</div>
+                                                                </div> -->
+
+                                                                    <!-- 最後金額計算 -->
+                                                                    <div class="calc-price mt-4">
+                                                                        <div class="coupon d-flex justify-content-end">
+
+                                                                            <?php if ($or['discount'] > 0) : ?>
+                                                                                <div class="col-4 col-lg-2 text-right">折價券</div>
+                                                                                <div class="col-4 col-lg-2 text-right">-NT.<?= $or['discount'] ?>
+                                                                                </div>
+                                                                            <?php endif; ?>
+
+                                                                        </div>
+                                                                        <div class="shipping d-flex justify-content-end">
+                                                                            <div class="col-4 col-lg-2 text-right">運費</div>
+                                                                            <div class="col-4 col-lg-2 text-right">NT.<?= $or['shipping'] ?>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="total-price d-flex justify-content-end">
+                                                                            <div class="col-4 col-lg-3 text-right">金額總計
+                                                                            </div>
+                                                                            <div class="col-4 col-lg-2 text-right">NT.<?= $or['total_price'] ?>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- 收件人資訊 -->
+                                                                    <div class="re-detail mt-5">
+                                                                        <div class="d-header d-flex flex-wrap">
+                                                                            <p class="col-12 px-2">收件人資訊</p>
+                                                                        </div>
+                                                                        <div class="re-content d-flex px-3 flex-column flex-lg-row">
+                                                                            <div class="re01 col-lg-2 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
+                                                                                <div class="col-3 col-lg-12 re-thead px-0 pl-lg-1">
+                                                                                    收件人</div>
+                                                                                <div class="col-9 col-lg-12 re-tbody pl-3 pl-lg-1">
+                                                                                    <?= $or['re_name'] ?></div>
+                                                                            </div>
+                                                                            <div class="re02 col-lg-3 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
+                                                                                <div class="col-3 col-lg-12 re-thead px-0">收件人電話
+                                                                                </div>
+                                                                                <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
+                                                                                    <?= $or['re_mobile'] ?></div>
+                                                                            </div>
+                                                                            <div class="re03 col-lg-5 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
+                                                                                <div class="col-3 col-lg-12 re-thead px-0">收件地址
+                                                                                </div>
+                                                                                <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
+                                                                                    <?= $or['re_add'] ?></div>
+                                                                            </div>
+                                                                            <div class="re04 col-lg-2 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
+                                                                                <div class="col-3 col-lg-12 re-thead px-0">運送方式
+                                                                                </div>
+                                                                                <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
+                                                                                    <?= $or['ship'] ?></div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                </div>
+
                                                             </div>
-                                                            <div class="view-content d-flex">
-                                                                <div class="v-tbody col-3 px-0 text-center text-lg-left">
-                                                                    2021-05-03</div>
-                                                                <div class="v-tbody col-3 px-0 text-center text-lg-left">
-                                                                    NT$1380</div>
-                                                                <div class="v-tbody col-3 px-0 text-center text-lg-left">
-                                                                    信用卡付款</div>
-                                                                <div class="v-tbody col-3 px-0 text-center text-lg-left">
-                                                                    處理中</div>
+
+                                                            <!-- 按鈕 -->
+                                                            <div class="col-12 col-lg-2 member-button fund-button d-flex flex-lg-column align-items-center px-0 justify-content-center">
+                                                                <button>取消</button>
+                                                                <button>留言</button>
                                                             </div>
+
                                                         </div>
-                                                        <!-- 商品列表 -->
-                                                        <p class="col-12 px-2 detail-header">訂單明細<i class="fas fa-caret-up ml-1"></i></p>
-                                                        <div class="product-detail">
-                                                            <!-- 表頭 -->
-                                                            <div class="d-header d-flex flex-wrap">
-                                                                <div class="p-thead col-7 col-lg-8 pl-2">商品名稱</div>
-                                                                <div class="p-thead col-2 px-0 text-center">數量</div>
-                                                                <div class="p-thead col-3 col-lg-2 px-0 text-center">
-                                                                    小計</div>
-                                                            </div>
-                                                            <!-- 單支產品開始 -->
-                                                            <div class="my-checkout-p d-flex align-items-center mb-2">
-                                                                <div class="col-7 col-lg-8 d-flex align-items-center">
-                                                                    <div class="col-2 thisp-pic px-0"><img src="../images/products/8-wired-06.png" alt=""></div>
-                                                                    <div class="col-10 thisp-name px-0">
-                                                                        <p class="c-name">奧斯陸 ．北歐瘋皮爾森</p>
-                                                                        <p class="e-name d-none d-lg-block">Oslo -
-                                                                            Nordic Pilsner</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-2 thisp-qty px-0 text-center">2
-                                                                </div>
-                                                                <div class="col-3 col-lg-2 thisp-subp px-0 text-center">
-                                                                    NT.5000</div>
-                                                            </div>
-                                                            <div class="my-checkout-p d-flex align-items-center mb-2">
-                                                                <div class="col-7 col-lg-8 d-flex align-items-center">
-                                                                    <div class="col-2 thisp-pic px-0"><img src="../images/products/8-wired-06.png" alt=""></div>
-                                                                    <div class="col-10 thisp-name px-0">
-                                                                        <p class="c-name">奧斯陸 ．北歐瘋皮爾森</p>
-                                                                        <p class="e-name d-none d-lg-block">Oslo -
-                                                                            Nordic Pilsner</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-2 thisp-qty px-0 text-center">2
-                                                                </div>
-                                                                <div class="col-3 col-lg-2 thisp-subp px-0 text-center">
-                                                                    NT.5000</div>
-                                                            </div>
-
-                                                            <!-- 最後金額計算 -->
-                                                            <div class="calc-price mt-4">
-                                                                <div class="coupon d-flex justify-content-end">
-                                                                    <div class="col-4 col-lg-2 text-right">折價券</div>
-                                                                    <div class="col-4 col-lg-2 text-right">-NT.100
-                                                                    </div>
-                                                                </div>
-                                                                <div class="shipping d-flex justify-content-end">
-                                                                    <div class="col-4 col-lg-2 text-right">運費</div>
-                                                                    <div class="col-4 col-lg-2 text-right">NT.60
-                                                                    </div>
-                                                                </div>
-                                                                <div class="total-price d-flex justify-content-end">
-                                                                    <div class="col-4 col-lg-3 text-right">金額總計
-                                                                    </div>
-                                                                    <div class="col-4 col-lg-2 text-right">NT.1380
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <!-- 收件人資訊 -->
-                                                            <div class="re-detail mt-5">
-                                                                <div class="d-header d-flex flex-wrap">
-                                                                    <p class="col-12 px-2">收件人資訊</p>
-                                                                </div>
-                                                                <div class="re-content d-flex px-3 flex-column flex-lg-row">
-                                                                    <div class="re01 col-lg-2 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
-                                                                        <div class="col-3 col-lg-12 re-thead px-0 pl-lg-1">
-                                                                            收件人</div>
-                                                                        <div class="col-9 col-lg-12 re-tbody pl-3 pl-lg-1">
-                                                                            蔡依林</div>
-                                                                    </div>
-                                                                    <div class="re02 col-lg-3 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
-                                                                        <div class="col-3 col-lg-12 re-thead px-0">收件人電話
-                                                                        </div>
-                                                                        <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
-                                                                            0912-345678</div>
-                                                                    </div>
-                                                                    <div class="re03 col-lg-5 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
-                                                                        <div class="col-3 col-lg-12 re-thead px-0">收件地址
-                                                                        </div>
-                                                                        <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
-                                                                            基隆市仁愛區延華門市-台北市大同區延平北路一段89號91號93號1樓</div>
-                                                                    </div>
-                                                                    <div class="re04 col-lg-2 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
-                                                                        <div class="col-3 col-lg-12 re-thead px-0">運送方式
-                                                                        </div>
-                                                                        <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
-                                                                            宅配</div>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-
-
-                                                        </div>
-
                                                     </div>
+                                                <?php endforeach; ?>
 
-                                                    <!-- 按鈕 -->
-                                                    <div class="col-12 col-lg-2 member-button fund-button d-flex flex-lg-column align-items-center px-0 justify-content-center">
-                                                        <button>取消</button>
-                                                        <button>留言</button>
-                                                    </div>
 
+                                            <?php else : ?>
+                                                <div class="empty-status px-3 px-lg-5">
+                                                    <p>目前沒有處理中的訂單</p>
+                                                    <a href="all-product.php"><button class="starttogo">開始購物<i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></button></a>
                                                 </div>
-                                            </div>
+                                            <?php endif; ?>
 
 
 
@@ -1353,142 +1431,154 @@ if (isset($_SESSION['user'])) {
                                         <div class="col-12 myorderpast-items px-0 memberAccordion-content">
 
 
-                                            <!-- 單筆訂單 -->
-                                            <div class="order-detail">
-                                                <p class="text-center text-lg-left">訂單編號：202105031234</p>
-                                                <div class="order-d-box px-3 px-lg-5 py-4 d-flex flex-wrap">
+                                            <?php if (!empty($pa_row)) : ?>
 
-                                                    <!-- 訂單 -->
-                                                    <div class="col-12 col-lg-10 order-part px-0">
-                                                        <!-- 訂單資訊 -->
-                                                        <div class="overview">
-                                                            <div class="view-head d-flex">
-                                                                <div class="v-thead col-3 px-0 text-center text-lg-left">
-                                                                    日期</div>
-                                                                <div class="v-thead col-3 px-0 text-center text-lg-left">
-                                                                    總金額</div>
-                                                                <div class="v-thead col-3 px-0 text-center text-lg-left">
-                                                                    付款方式</div>
-                                                                <div class="v-thead col-3 px-0 text-center text-lg-left">
-                                                                    訂單狀態</div>
+                                                <?php foreach ($pa_row as $pa) : ?>
+                                                    <div class="order-detail">
+                                                        <p class="text-center text-lg-left">訂單編號：<?= $pa['order_num'] ?></p>
+                                                        <div class="order-d-box px-3 px-lg-5 py-4 d-flex flex-wrap">
+
+                                                            <!-- 訂單 -->
+                                                            <div class="col-12 col-lg-10 order-part px-0">
+                                                                <!-- 訂單資訊 -->
+                                                                <div class="overview">
+                                                                    <div class="view-head d-flex">
+                                                                        <div class="v-thead col-3 px-0 text-center text-lg-left">
+                                                                            日期</div>
+                                                                        <div class="v-thead col-3 px-0 text-center text-lg-left">
+                                                                            總金額</div>
+                                                                        <div class="v-thead col-3 px-0 text-center text-lg-left">
+                                                                            付款方式</div>
+                                                                        <div class="v-thead col-3 px-0 text-center text-lg-left">
+                                                                            訂單狀態</div>
+                                                                    </div>
+                                                                    <div class="view-content d-flex">
+                                                                        <div class="v-tbody col-3 px-0 text-center text-lg-left">
+                                                                            <?= $pa['date'] ?></div>
+                                                                        <div class="v-tbody col-3 px-0 text-center text-lg-left">
+                                                                            NT$<?= $pa['total_price'] ?></div>
+                                                                        <div class="v-tbody col-3 px-0 text-center text-lg-left">
+                                                                            <?= $pa['payment'] ?></div>
+                                                                        <div class="v-tbody col-3 px-0 text-center text-lg-left">
+                                                                            <?= $pa['status'] ?></div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 商品列表 -->
+                                                                <p class="col-12 px-2 detail-header">訂單明細<i class="fas fa-caret-up ml-1"></i></p>
+                                                                <div class="product-detail">
+                                                                    <!-- 表頭 -->
+                                                                    <div class="d-header d-flex flex-wrap">
+                                                                        <div class="p-thead col-7 col-lg-8 pl-2">商品名稱</div>
+                                                                        <div class="p-thead col-2 px-0 text-center">數量</div>
+                                                                        <div class="p-thead col-3 col-lg-2 px-0 text-center">
+                                                                            小計</div>
+                                                                    </div>
+
+                                                                    <!-- 從資料庫抓產品細節 -->
+                                                                    <?php
+                                                                    $order_sid = $pa['sid'];
+                                                                    $detail_SQL = "SELECT o.`product_sid`, p.`c_name`, p.`e_name`, p.`pic`, o.`quantity`, o.`price` 
+                                                                    FROM `order_detail` o 
+                                                                    JOIN `products` p ON o.`product_sid` = p.`sid` 
+                                                                    WHERE `order_sid` = $order_sid";
+                                                                    $detail_row = $pdo->query($detail_SQL)->fetchAll();
+                                                                    ?>
+                                                                    <!-- 單支產品開始 -->
+                                                                    <?php foreach ($detail_row as $detail) : ?>
+                                                                        <div class="my-checkout-p d-flex align-items-center mb-2">
+                                                                            <div class="col-7 col-lg-8 d-flex align-items-center">
+                                                                                <div class="col-2 thisp-pic px-0"><img src="../images/products/<?= $detail['pic'] ?>" alt=""></div>
+                                                                                <div class="col-10 thisp-name px-0">
+                                                                                    <p class="c-name"><?= $detail['c_name'] ?></p>
+                                                                                    <p class="e-name d-none d-lg-block"><?= $detail['e_name'] ?></p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-2 thisp-qty px-0 text-center"><?= $detail['quantity'] ?>
+                                                                            </div>
+                                                                            <div class="col-3 col-lg-2 thisp-subp px-0 text-center">
+                                                                                NT.<?= $detail['price'] ?></div>
+                                                                        </div>
+                                                                    <?php endforeach; ?>
+
+                                                                    <!-- 最後金額計算 -->
+                                                                    <div class="calc-price mt-4">
+                                                                        <div class="coupon d-flex justify-content-end">
+
+                                                                            <?php if ($pa['discount'] > 0) : ?>
+                                                                                <div class="col-4 col-lg-2 text-right">折價券</div>
+                                                                                <div class="col-4 col-lg-2 text-right">-NT.<?= $pa['discount'] ?>
+                                                                                </div>
+                                                                            <?php endif; ?>
+
+                                                                        </div>
+                                                                        <div class="shipping d-flex justify-content-end">
+                                                                            <div class="col-4 col-lg-2 text-right">運費</div>
+                                                                            <div class="col-4 col-lg-2 text-right">NT.<?= $pa['shipping'] ?>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="total-price d-flex justify-content-end">
+                                                                            <div class="col-4 col-lg-3 text-right">金額總計
+                                                                            </div>
+                                                                            <div class="col-4 col-lg-2 text-right">NT.<?= $pa['total_price'] ?>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- 收件人資訊 -->
+                                                                    <div class="re-detail mt-5">
+                                                                        <div class="d-header d-flex flex-wrap">
+                                                                            <p class="col-12 px-2">收件人資訊</p>
+                                                                        </div>
+                                                                        <div class="re-content d-flex px-3 flex-column flex-lg-row">
+                                                                            <div class="re01 col-lg-2 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
+                                                                                <div class="col-3 col-lg-12 re-thead px-0 pl-lg-1">
+                                                                                    收件人</div>
+                                                                                <div class="col-9 col-lg-12 re-tbody pl-3 pl-lg-1">
+                                                                                    <?= $pa['re_name'] ?></div>
+                                                                            </div>
+                                                                            <div class="re02 col-lg-3 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
+                                                                                <div class="col-3 col-lg-12 re-thead px-0">收件人電話
+                                                                                </div>
+                                                                                <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
+                                                                                    <?= $pa['re_mobile'] ?></div>
+                                                                            </div>
+                                                                            <div class="re03 col-lg-5 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
+                                                                                <div class="col-3 col-lg-12 re-thead px-0">收件地址
+                                                                                </div>
+                                                                                <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
+                                                                                    <?= $pa['re_add'] ?></div>
+                                                                            </div>
+                                                                            <div class="re04 col-lg-2 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
+                                                                                <div class="col-3 col-lg-12 re-thead px-0">運送方式
+                                                                                </div>
+                                                                                <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
+                                                                                    <?= $pa['ship'] ?></div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                </div>
+
                                                             </div>
-                                                            <div class="view-content d-flex">
-                                                                <div class="v-tbody col-3 px-0 text-center text-lg-left">
-                                                                    2021-05-03</div>
-                                                                <div class="v-tbody col-3 px-0 text-center text-lg-left">
-                                                                    NT$1380</div>
-                                                                <div class="v-tbody col-3 px-0 text-center text-lg-left">
-                                                                    信用卡付款</div>
-                                                                <div class="v-tbody col-3 px-0 text-center text-lg-left">
-                                                                    處理中</div>
+
+                                                            <!-- 按鈕 -->
+                                                            <div class="col-12 col-lg-2 member-button fund-button d-flex flex-lg-column align-items-center px-0 justify-content-center">
+                                                                <button>留言</button>
                                                             </div>
+
                                                         </div>
-                                                        <!-- 商品列表 -->
-                                                        <p class="col-12 px-2 detail-header">訂單明細<i class="fas fa-caret-up ml-1"></i></p>
-                                                        <div class="product-detail">
-                                                            <!-- 表頭 -->
-                                                            <div class="d-header d-flex flex-wrap">
-                                                                <div class="p-thead col-7 col-lg-8 pl-2">商品名稱</div>
-                                                                <div class="p-thead col-2 px-0 text-center">數量</div>
-                                                                <div class="p-thead col-3 col-lg-2 px-0 text-center">
-                                                                    小計</div>
-                                                            </div>
-                                                            <!-- 單支產品開始 -->
-                                                            <div class="my-checkout-p d-flex align-items-center mb-2">
-                                                                <div class="col-7 col-lg-8 d-flex align-items-center">
-                                                                    <div class="col-2 thisp-pic px-0"><img src="../images/products/8-wired-06.png" alt=""></div>
-                                                                    <div class="col-10 thisp-name px-0">
-                                                                        <p class="c-name">奧斯陸 ．北歐瘋皮爾森</p>
-                                                                        <p class="e-name d-none d-lg-block">Oslo -
-                                                                            Nordic Pilsner</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-2 thisp-qty px-0 text-center">2
-                                                                </div>
-                                                                <div class="col-3 col-lg-2 thisp-subp px-0 text-center">
-                                                                    NT.5000</div>
-                                                            </div>
-                                                            <div class="my-checkout-p d-flex align-items-center mb-2">
-                                                                <div class="col-7 col-lg-8 d-flex align-items-center">
-                                                                    <div class="col-2 thisp-pic px-0"><img src="../images/products/8-wired-06.png" alt=""></div>
-                                                                    <div class="col-10 thisp-name px-0">
-                                                                        <p class="c-name">奧斯陸 ．北歐瘋皮爾森</p>
-                                                                        <p class="e-name d-none d-lg-block">Oslo -
-                                                                            Nordic Pilsner</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-2 thisp-qty px-0 text-center">2
-                                                                </div>
-                                                                <div class="col-3 col-lg-2 thisp-subp px-0 text-center">
-                                                                    NT.5000</div>
-                                                            </div>
-
-                                                            <!-- 最後金額計算 -->
-                                                            <div class="calc-price mt-4">
-                                                                <div class="coupon d-flex justify-content-end">
-                                                                    <div class="col-4 col-lg-2 text-right">折價券</div>
-                                                                    <div class="col-4 col-lg-2 text-right">-NT.100
-                                                                    </div>
-                                                                </div>
-                                                                <div class="shipping d-flex justify-content-end">
-                                                                    <div class="col-4 col-lg-2 text-right">運費</div>
-                                                                    <div class="col-4 col-lg-2 text-right">NT.60
-                                                                    </div>
-                                                                </div>
-                                                                <div class="total-price d-flex justify-content-end">
-                                                                    <div class="col-4 col-lg-3 text-right">金額總計
-                                                                    </div>
-                                                                    <div class="col-4 col-lg-2 text-right">NT.1380
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <!-- 收件人資訊 -->
-                                                            <div class="re-detail mt-5">
-                                                                <div class="d-header d-flex flex-wrap">
-                                                                    <p class="col-12 px-2">收件人資訊</p>
-                                                                </div>
-                                                                <div class="re-content d-flex px-3 flex-column flex-lg-row">
-                                                                    <div class="re01 col-lg-2 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
-                                                                        <div class="col-3 col-lg-12 re-thead px-0 pl-lg-1">
-                                                                            收件人</div>
-                                                                        <div class="col-9 col-lg-12 re-tbody pl-3 pl-lg-1">
-                                                                            蔡依林</div>
-                                                                    </div>
-                                                                    <div class="re02 col-lg-3 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
-                                                                        <div class="col-3 col-lg-12 re-thead px-0">收件人電話
-                                                                        </div>
-                                                                        <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
-                                                                            0912-345678</div>
-                                                                    </div>
-                                                                    <div class="re03 col-lg-5 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
-                                                                        <div class="col-3 col-lg-12 re-thead px-0">收件地址
-                                                                        </div>
-                                                                        <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
-                                                                            基隆市仁愛區延華門市-台北市大同區延平北路一段89號91號93號1樓</div>
-                                                                    </div>
-                                                                    <div class="re04 col-lg-2 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
-                                                                        <div class="col-3 col-lg-12 re-thead px-0">運送方式
-                                                                        </div>
-                                                                        <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
-                                                                            宅配</div>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-
-
-                                                        </div>
-
                                                     </div>
+                                                <?php endforeach; ?>
 
-                                                    <!-- 按鈕 -->
-                                                    <div class="col-12 col-lg-2 member-button fund-button d-flex flex-lg-column align-items-center px-0 justify-content-center">
-                                                        <button>留言</button>
-                                                    </div>
 
+                                            <?php else : ?>
+                                                <div class="empty-status px-3 px-lg-5">
+                                                    <p>目前沒有過往的訂單</p>
+                                                    <a href="all-product.php"><button class="starttogo">開始購物<i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></button></a>
                                                 </div>
-                                            </div>
+                                            <?php endif; ?>
 
 
                                         </div>

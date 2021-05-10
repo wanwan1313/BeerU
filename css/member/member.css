@@ -1040,6 +1040,7 @@
 .member .order-d-box {
     border: 2px solid var(--blue);
     border-radius: 25px;
+    margin-bottom: 20px;
 }
 
 /* 手機版 */ 
@@ -1156,4 +1157,26 @@
 
 
 }
+
+/* 訂單空白狀態 */
+.member .empty-status>p  {
+    color: #b69564d0;
+    margin-bottom: 10px;
+}
+
+.member .starttogo {
+    background-color: transparent;
+    border: 1px solid var(--gold);
+    border-radius: 5px;
+    color:  var(--gold);
+    transition: .3s;
+}
+
+.member .starttogo:hover {
+    background-color: var(--gold);
+    color: #fff;
+}
+
+
+
 
