@@ -83,13 +83,14 @@
     position: relative;
     width: fit-content;
     transition: .5s;
+    cursor: pointer;
 }
 
 .know-more::before {
     content: '';
     display: block;
     position: absolute;
-    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    background: url(../images/common/ear_left_yellow.svg) 0 0 no-repeat;
     width: 18px;
     height: 18px;
     left: -25%;
@@ -101,7 +102,7 @@
     content: '';
     display: block;
     position: absolute;
-    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    background: url(../images/common/ear_right_yellow.svg) 0 0 no-repeat;
     width: 18px;
     height: 18px;
     right: -33%;
@@ -118,7 +119,7 @@
     content: '';
     display: block;
     position: absolute;
-    background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+    background: url(../images/common/ear_right_yellow.svg) 0 0 no-repeat;
     width: 18px;
     height: 18px;
     right: -33%;
@@ -130,7 +131,7 @@
     content: '';
     display: block;
     position: absolute;
-    background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+    background: url(../images/common/ear_left_yellow.svg) 0 0 no-repeat;
     width: 18px;
     height: 18px;
     left: -25%;
