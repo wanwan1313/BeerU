@@ -224,9 +224,9 @@ if (isset($_SESSION['user'])) {
                             </div>
 
                             <?php if (!isset($_SESSION['user'])) : ?>
-                                <button class="select-coupon-nologin">請登入會員</button>
+                                <button class="select-coupon-nologin" onclick="LogIn_btn()">請登入會員</button>
                             <?php else : ?>
-                                <button class="select-coupon">我的折價券</button>
+                                <button class="select-coupon" >我的折價券</button>
                             <?php endif ?>
                         </div>
                     </div>
