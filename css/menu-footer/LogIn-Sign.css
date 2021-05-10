@@ -242,7 +242,7 @@
 .LogIn-Sign ::placeholder{
     font-size: 1.6rem;
     color: var(--gold);
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.25rem;
        
 }
 
