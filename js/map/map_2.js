@@ -3,7 +3,7 @@ $('.us, .eu, .as, .au').hide()
 // 桌機版
 // 點選飛到:美洲
 
-$('.world>svg>a:nth-of-type(1)>path, .title_us, .part:nth-of-type(1)').click(function () {
+$('.world>svg>a:nth-of-type(1)>path, .part:nth-of-type(1)').click(function () {
     console.log("us");
     $('.pipi_plane_big img').toggleClass('animate__animated animate__pulse')
         .removeClass('infinite')
@@ -24,7 +24,7 @@ $('.world>svg>a:nth-of-type(1)>path, .title_us, .part:nth-of-type(1)').click(fun
 })
 
 // 點選飛到:歐洲
-$('.world>svg>a:nth-of-type(2)>path, .title_eu, .part:nth-of-type(2)').click(function () {
+$('.world>svg>a:nth-of-type(2)>path, .part:nth-of-type(2)').click(function () {
     $('.pipi_plane_big img').toggleClass('animate__animated animate__pulse')
         .removeClass('infinite')
         .toggleClass('pipi_plane_to_eu')
@@ -45,7 +45,7 @@ $('.world>svg>a:nth-of-type(2)>path, .title_eu, .part:nth-of-type(2)').click(fun
     $('.eu .arrow-left, .eu .arrow-right').toggleClass('animate__animated animate__pulse').toggleClass('infinite')
 })
 // 點選飛到:亞洲
-$('.world>svg>a:nth-of-type(3)>path, .title_as ,.part:nth-of-type(3)').click(function () {
+$('.world>svg>a:nth-of-type(3)>path, .part:nth-of-type(3)').click(function () {
     $('.pipi_plane_big img').toggleClass('animate__animated animate__pulse')
         .removeClass('infinite')
         .toggleClass('pipi_plane_to_eu')
@@ -66,7 +66,7 @@ $('.world>svg>a:nth-of-type(3)>path, .title_as ,.part:nth-of-type(3)').click(fun
     $('.as .arrow-left, .eu .arrow-right').toggleClass('animate__animated animate__pulse').toggleClass('infinite')
 })
 // 點選飛到:大洋洲
-$('.world>svg>a:nth-of-type(4)>path, .title_au ,.part:nth-of-type(4)').click(function () {
+$('.world>svg>a:nth-of-type(4)>path, .part:nth-of-type(4)').click(function () {
     $('.pipi_plane_big img').toggleClass('animate__animated animate__pulse')
         .removeClass('infinite')
         .toggleClass('pipi_plane_to_au')

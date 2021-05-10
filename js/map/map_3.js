@@ -1,7 +1,7 @@
 // 卡片跑出-------------------------------------
 $('.map .country').click(function () {
     $('.bg-black').show();
-    // $('.map-card').addClass('animate__animated animate__flip');
+    $('.map-card').addClass('animate__animated animate__flip');
 })
 
 

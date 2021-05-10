@@ -1,7 +1,18 @@
-if ($(window).height() < 815) {
-    $("html, body").animate({ scrollTop: 0 }, "slow")
-}
+// if ($(window).height() < 815) {
+//     $("html, body").animate({ scrollTop: 0 }, "slow")
+// }
 // --------------------------------------------
+// $('.event-card').hide()
+
+$('.event-card').mouseenter(function () {
+    $(this).css('transform','scale(10)')
+}).mouseleave(function () {
+    $(this).css('transform','scale(1)')
+})
+
+// --------------------------------------------
+
+
 // 選擇人數：預設關閉
 $('.one_people, .two_people').hide()
 

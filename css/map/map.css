@@ -118,6 +118,7 @@
     /* width:130px; */
     z-index: 3;
     cursor: pointer;
+    pointer-events: none;
 }
 
 .title_eu{
@@ -127,6 +128,7 @@
     height:45px;
     z-index: 3;
     cursor: pointer;
+    pointer-events: none;
 }
 
 .title_as{
@@ -135,6 +137,7 @@
     height:45px;
     z-index: 3;
     cursor: pointer;
+    pointer-events: none;
 }
 .title_au{
     top:440px;
@@ -142,6 +145,7 @@
     height:45px;
     z-index: 3;
     cursor: pointer;
+    pointer-events: none;
 }
 .title_af{
     top:330px;
@@ -149,6 +153,7 @@
     height:45px;
     z-index: 3;
     cursor: pointer;
+    pointer-events: none;
 }
 
 .title_co{
@@ -157,6 +162,7 @@
     height:45px;
     z-index: 3;
     /* cursor: pointer; */
+    pointer-events: none;
 }
 @media (max-width: 990px) {
     .title_us{
