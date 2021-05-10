@@ -8,7 +8,8 @@
     position: fixed;
     height:calc(100vh - 85px);
     width: 100%;
-    z-index: 990;  
+    z-index: 996;  
+    /* pointer-events: none; */
 }
    
 
@@ -614,6 +615,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 25px;
+    padding-bottom: 15px;
 }
 
 .LogIn-Sign .already-account h3{
@@ -630,7 +632,7 @@
 }
 
 .LogIn-Sign .back02{
-    margin: 10px auto 12px auto;
+    margin: 0px auto 12px auto;
 }
 
 
