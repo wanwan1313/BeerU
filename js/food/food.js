@@ -3,10 +3,10 @@
 if ($(window).width() >= 992) {
     $(window).scroll(function () {
 
-        if ($(this).scrollTop() >= 2140) {
+        if ($(this).scrollTop() >= 1450) {
             $('#return-to-top').fadeIn(200);
         } else {
-            $('#return-to-top').fadeIn(200);
+            $('#return-to-top').fadeOut(200);
         }
     })
 
