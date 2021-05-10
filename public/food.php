@@ -112,8 +112,9 @@ $page_title = '啤女BeerU:餐酒搭配';
         <div class="row">
             <div class="col-12">
                 <div class="beer-type mt-5">
-                    <h1 class="title-line">九種經典精釀啤酒種類</h1>
-                    <h2 class="animate__animated animate__headShake animate__delay-5s animate__infinite mt-5">點選酒滴看類型</h2>
+                    <h1 class="title-line mb-3">九種經典精釀啤酒種類</h1>
+                    <h2 class ="mt-5">台菜搭配哪款精釀啤酒最對味呢？</h2>
+                    <h2 class="animate__animated animate__headShake animate__delay-5s animate__infinite mt-5">馬上點選酒滴</h2>
 
                 </div>
                 <!-------- 酒杯-banner-底圖 --------->

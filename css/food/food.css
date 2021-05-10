@@ -1,6 +1,10 @@
 /* 桌機版 */
 /*-----視窗大小----- */
 @media (min-width: 992px) {
+.container-fluid{
+    width: 100%;
+}
+
 .food-wrap {
     height: 80vh;
 }
@@ -75,20 +79,28 @@ h2 {
 .pipi-flyup{
     width: 60%;
     position: absolute;
-    top: 245px;
+    top: 265px;
     left: 155px;
     z-index: 99;
   margin-left: auto;
   margin-right: auto;
-  animation: mymove 3s infinite;
+  animation: mymove 3s linear infinite;
   animation-delay: 1s;
-  animation-fill-mode: forwards;
+  /* animation-fill-mode: forwards; */
+  animation-fill-mode: backwards;
 }
 
 @keyframes mymove{
-    from {top:245px;}
-    to {top: 5px;}
-  }
+    0%, 100% {
+        top: 265px;
+        /* left: 155px; */
+      }
+      50% {
+        top: 5px;
+        /* left:255px ; */
+      }
+
+    }
 
 
 .plate{
@@ -97,18 +109,19 @@ h2 {
   margin-left: auto;
   margin-right: auto;
   position:absolute;
-  top: 600px;
+  top: 700px;
   left: 200px;
 }
 
 .food-left-text{
+    padding-right: 10%;
 }
 
 /* 現在我想來點 */
 .food-left-text h2 {
     position: absolute;
-    top: 455px;
-    left: 315px;
+    top: 555px;
+    left: 365px;
     color: var(--gold);
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
@@ -127,15 +140,8 @@ h2 {
     @media (max-width: 991px) {
 
         .food-left{
-            margin-bottom: 70%;
-        
+            margin-bottom: 70%;    
         }
-
-        .food-intro {
-
-        }
-    
-
         .pipi-flyup{
             margin-top: 10%;
             width:85%;
@@ -144,15 +150,21 @@ h2 {
             top: 100px;
           margin-left: auto;
           margin-right: auto;
-          animation: mymove 2s;
           animation-delay: 0.3s;
-          animation-fill-mode: forwards;
+          animation: mymove 3s linear infinite;
+          animation-fill-mode: backwards;
         }
         
         @keyframes mymove{
-            from {top:100px;}
-            to {top: 0px;}
-          }
+            0%, 100% {
+                top: 100px;
+              }
+              50% {
+                top: 0px;
+              }
+            }
+
+      
         
         .plate{
           width: 80%;
@@ -202,6 +214,8 @@ h2 {
  .food-title {
     background: url(../../images/common/h1_4_w.svg) no-repeat center center;
     background-size: contain;
+    margin-right: 25%;
+    /* margin-left: auto; */
 }
 
 /* 標題文字 */
@@ -227,7 +241,7 @@ h2 {
     transform: translate(-115%, -50%);
     width: 150px;
     height: 50%;
-    background: url(../../images/common/h1_ear_left.svg) no-repeat center center;
+    background: url(../../images/joyce_images/title-line.svg) no-repeat center center;
     background-size: contain;
 }
 
@@ -243,7 +257,7 @@ h2 {
     transform: translate(115%, -50%);
     width: 150px;
     height: 50%;
-    background: url(../../images/common/h1_ear_right.svg) no-repeat center center;
+    background: url(../../images/joyce_images/title-line.svg) no-repeat center center;
     background-size: contain;
 
 }
@@ -283,6 +297,38 @@ h2 {
     height: 32%;
 
 }
+
+
+/* 左邊雕飾 */
+.food-title p::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-115%, -50%);
+    width: 100px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_left.svg) no-repeat center center;
+    background-size: contain;
+} 
+
+
+
+/* 右邊雕飾 */
+.food-title p::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right:0;
+    transform: translate(115%, -50%);
+    width: 100px;
+    height: 50%;
+    background: url(../../images/common/h1_ear_right.svg) no-repeat center center;
+    background-size: contain;
+
+} 
 }
 
 
@@ -293,7 +339,7 @@ h2 {
 /* 桌機版 */
 .food-right-text  {
    width: 70%;
-   margin: 0 auto;
+   /* margin: 0 auto; */
    margin-top: 5%;
 }
 
@@ -418,6 +464,12 @@ h2 {
 .pair-now {
     display: none;
 }
+
+.beer-type h2{
+    display: none;
+}
+
+
  }
 /*-------------- food-page-2 ------------- */
 /* 文字置中:酒搭配三大原則 */
@@ -582,6 +634,8 @@ h2 {
         margin-bottom: 100px;
     }
 
+
+
        
     }
     
@@ -590,6 +644,12 @@ h2 {
     .beer-type {
         text-align: center;
         margin-bottom: 10%;
+  
+
+    }
+
+    .beer-type h2 {
+        font-family: 'Noto Sans TC', sans-serif;
     }
     
     /* 手 */
