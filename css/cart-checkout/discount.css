@@ -112,6 +112,26 @@
     box-shadow: 0px 0px 10px rgb(196, 183, 147);
 }
 
+.discount-popup button.discount_ok{
+    background-color: #fff;
+    border: 1.5px solid var(--gold);
+    border-radius: 10px;
+    padding: 0 10px;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    transition: .5s;
+    margin: 8px 5px;
+}
+
+.discount-popup button.discount_ok:hover {
+    box-shadow: 0px 0px 10px rgb(196, 183, 147);
+}
 
 
+/*  空白狀態 */
+.discount-popup .empty-status {
+    color: #b69564d0;
+    height: 100%;
+}
 

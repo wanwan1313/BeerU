@@ -41,6 +41,7 @@ if (isset($_SESSION['user'])) {
 
 <!-- 折價券pop-up-->
 <section class="discount-popup">
+<?php if (!empty($row)) : ?>
     <div class="discount-box d-flex flex-wrap align-content-start">
         <div class="col-12 box-title d-flex justify-content-center align-items-center">
             <img src="../images/logo/logo_beeru_gold.svg" alt="">
@@ -48,16 +49,16 @@ if (isset($_SESSION['user'])) {
         </div>
         <p class="col-12 exp">目前未選擇折價券</p>
         <div class="col-12 coupon-list d-flex flex-wrap align-content-start">
-            <!-- 單張折價券 -->
 
-            <?php foreach ($row as $d) : ?>
-                <div class="col-6 col-lg-4 coupon-wrap">
-                    <div class="coupon" data-sid="<?= $d['sid'] ?>" data-num="<?= $d['coupon'] ?>">
-                        <p>折價券 <span class="num">$<?= $d['coupon'] ?></span>元</p>
-                        <p>有效期限:<?= date("Y/m/d", strtotime($d['create_at'] . "+6 month")) ?></p>
+                <!-- 單張折價券 -->
+                <?php foreach ($row as $d) : ?>
+                    <div class="col-6 col-lg-4 coupon-wrap">
+                        <div class="coupon" data-sid="<?= $d['sid'] ?>" data-num="<?= $d['coupon'] ?>">
+                            <p>折價券 <span class="num">$<?= $d['coupon'] ?></span>元</p>
+                            <p>有效期限:<?= date("Y/m/d", strtotime($d['create_at'] . "+6 month")) ?></p>
+                        </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
 
         </div>
         <div class="button-wrap-3 mx-auto">
@@ -65,6 +66,26 @@ if (isset($_SESSION['user'])) {
             <button class="cancel">取消</button>
         </div>
     </div>
+<?php else : ?>
+    <div class="discount-box d-flex flex-wrap align-content-start">
+        <div class="col-12 box-title d-flex justify-content-center align-items-center mb-4">
+            <img src="../images/logo/logo_beeru_gold.svg" alt="">
+            <p>折價券列表</p>
+        </div>
+        <div class="col-12 coupon-list d-flex flex-wrap align-content-start">
+                <div class="col-12 empty-status d-flex flex-column justify-content-center align-items-center">
+                    <p>目前沒有折價券喔!</p>
+                    <p>快到會員中心>我的成就，來累積更多的券吧！</p>
+                    <div class="pipi mt-4">
+                        <img src="../images/common/pipi_empty.svg" alt="">
+                    </div>
+                </div>
+        </div>
+        <div class="button-wrap-3 mx-auto">
+            <button class="discount_ok">我知道了</button>
+        </div>
+    </div>
+<?php endif; ?>
 </section>
 
 <section class="cart-list">
@@ -226,7 +247,7 @@ if (isset($_SESSION['user'])) {
                             <?php if (!isset($_SESSION['user'])) : ?>
                                 <button class="select-coupon-nologin" onclick="LogIn_btn()">請登入會員</button>
                             <?php else : ?>
-                                <button class="select-coupon" >我的折價券</button>
+                                <button class="select-coupon">我的折價券</button>
                             <?php endif ?>
                         </div>
                     </div>
@@ -661,6 +682,11 @@ if (isset($_SESSION['user'])) {
     $('button.cancel').on('click', function() {
         $('.discount-popup').fadeOut()
         $('.coupon').removeClass('choose')
+    })
+
+    // 我知道了
+    $('button.discount_ok').on('click', function() {
+        $('.discount-popup').fadeOut(100)
     })
 
     // 選擇單張折價券

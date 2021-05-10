@@ -52,9 +52,9 @@ if (!empty($payment) and !empty($totalPrice) and !empty($order_num)) {
 
     // 寫進order資料庫
     $o_SQL = "INSERT INTO `orders`
-                (`member_sid`, `order_num`, `total_price`, `discount`, `shipping`, `re_name`, `re_mobile`, `re_add`, `ship`, `payment`, `date`) 
+                (`member_sid`, `order_num`, `total_price`, `discount`, `shipping`, `re_name`, `re_mobile`, `re_add`, `ship`, `payment`, `date` ,`status`) 
                 VALUES 
-                (?,?,?,?,?,?,?,?,?,?,NOW())";
+                (?,?,?,?,?,?,?,?,?,?,NOW(),'處理中')";
 
     $o_stmt = $pdo->prepare($o_SQL);
     $o_stmt->execute([
