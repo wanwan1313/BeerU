@@ -7,18 +7,37 @@
 .join{
     letter-spacing: .25rem;
 }
+
+
+/*webkit瀏覽器專用*/
+.join form  ::-webkit-input-placeholder { letter-spacing: .25rem; }
+/*Firefox 4-18瀏覽器專用*/
+.join form  input::-moz-placeholder { letter-spacing: .25rem; }
+/*Firefox 19+瀏覽器專用*/
+.join form  input::-moz-placeholder{letter-spacing: .25rem;}
+/*IE10瀏覽器專用*/
+.join form :-ms-input-placeholder{letter-spacing:.25rem;}
+
+
 /* 1 */
    /* 2.banner */
    .join .event-banner {
     min-height:350px;
     /* max-height:600px; */
-    background-image:url(../../images/event/event-join-w.jpg);
+    background-image:url(../../images/event/event_3_b.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
     width:100%;
     position: relative;
    }
+   @media (max-width: 577px) {
+   .join .event-banner {
+    background-image:url(../../images/event/event_3_s.jpg);
+   }
+   }
+
+
 /* 2.1. */
    .join .event-banner .row{
        margin:0;
@@ -28,7 +47,7 @@
         left:50%;
         width:100%;
        height:40%;
-       background: linear-gradient(rgba(22, 61, 80, 0) 0%, #163d50 75%, #163d50 100%);
+       background: linear-gradient(rgba(22, 61, 80, 0) 2%, #163d50 75%, #163d50 100%);
     padding: 30px;
    }
    @media (min-width: 992px) {

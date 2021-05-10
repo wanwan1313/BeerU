@@ -4,7 +4,18 @@
 <?php
 
 $page_title = '啤女BeerU:品飲會:花絮回顧';
+$sid=isset($_GET['sid']) ? intval($_GET['sid']) :1 ;
+$pdo->query("UPDATE `event` SET `event_visited`=`event_visited`+1 WHERE `sid` = 1");
 
+$e_SQL = "SELECT * FROM `event` WHERE sid=$sid";
+$e = $pdo->query($e_SQL)->fetch();
+
+
+// 如果sid＝0,跳轉回去event.php
+if($sid== 0){ 
+    // header('Location: http://192.168.21.56/beeru/public/event-over.php');
+    // exit;
+}
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -12,6 +23,7 @@ $page_title = '啤女BeerU:品飲會:花絮回顧';
     <link rel="stylesheet" href="../css/event/title.css">
     <link rel="stylesheet" href="../css/event/event.css">
     <link rel="stylesheet" href="../css/event/event-join.css">
+    <link rel="stylesheet" href="../css/event/event-over.css">
     <link rel="stylesheet" href="../css/tool.css">
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
@@ -20,7 +32,7 @@ $page_title = '啤女BeerU:品飲會:花絮回顧';
     <!-- event品飲會:花絮回顧 -->
     <section class="event join">
         <!-- 2.banner -->
-        <div class="container event-banner pd0">
+        <div class="container event-banner pd0   animatable fadeInUp">
             <!-- 2.1關注按鈕+分享 -->
             <div class="row justify-content-end justify-content-md-end align-items-end
             flex-nowrap">
@@ -184,26 +196,26 @@ $page_title = '啤女BeerU:品飲會:花絮回顧';
         <!-- 3.content -->
         <div class="container event-content px-5">
             <!-- 3.1.title -->
-            <div class='name'>
-                <p>藏酒『嚐酒會』四月『啤酒不簡單</p>
+            <div class='name   animatable fadeInUp'>
+                <p>酒花國度的美式精釀啤酒</p>
                 <hr>
             </div>
             <!-- 3.2.時間+地點 + 名額+價格 -->
             <div class='row mx-0 align-items-stretch'>
                 <!--時間+地點-->
                 <div class="timelocation col-md-6">
-                    <div class="time">
+                    <div class="time   animatable fadeInUp">
                         <div class="d-flex align-items-center">
                             <p class='t1-i'><i class="far fa-clock"></i>活動時間</p>
                             <!-- <div class='btn_join over calender'><a href=""><i class="fas fa-calendar-plus"></i>加入行事曆</a>
                             </div> -->
                         </div>
-                        <p class='t1-c'>2021-06-06(日) 19:30 ~ 21:30 (GMT+8)</p>
+                        <p class='t1-c'>2021-05-09(日) 16:00 ~ 19:00</p>
                     </div>
-                    <div class="location">
+                    <div class="location   animatable fadeInUp">
                         <p class='t1-i'><i class="fas fa-map-marker-alt"></i>活動地點</p>
-                        <p class='t1-c'>台灣台北市忠孝東路4段270號11樓之3
-                            <br> <span>忠孝／延吉，凱基銀行樓上）（藏酒論壇／禾創）</span>
+                        <p class='t1-c'>悄悄話 chinese whispers
+                            <br> <span>106台北市大安區仁愛路四段345巷2弄11號</span>
                         </p>
                     </div>
                 </div>
@@ -211,15 +223,15 @@ $page_title = '啤女BeerU:品飲會:花絮回顧';
                 <div
                     class="row mx-5 mx-md-0 px-2 quotaprice col-md-6 justify-content-center flex-sm-nowrap flex-md-wrap">
                     <!-- <div class="col-sm-6 col-md-12 block quota">剩餘名額：0/20</div> -->
-                    <div class="col-sm-6 col-md-12 block price">價格：NT$200</div>
+                    <div class="col-sm-6 col-md-12 block price   animatable fadeInUp">價格：NT$200</div>
                 </div>
             </div>
 
         </div>
         <!-- 4.overview -->
-        <div class="row mx-0 px-5">
+        <div class="row mx-0 px-5   animatable fadeInUp">
             <div class="overview">
-                “ 連假準備展開！ 拋下平日的煩惱，讓快樂跟著肉肉一起燃！燒！🥩🔥 美景、美酒、美食，在Rooftop Bar XOXO同時滿足吧！”
+            “ 美國啤酒為市場上最主流的啤酒之一，美式精釀常兼具著復古、大膽與創新，以當地的啤酒花或麥芽得到新的詮釋和演繹，本次活動會以美國歷史作為開端走進花花世界的美國精釀啤酒。”
             </div>
         </div>
         <!-- 5.活動介紹 -->
@@ -229,35 +241,33 @@ $page_title = '啤女BeerU:品飲會:花絮回顧';
                     <p>活動介紹</p>
                 </div>
             </div>
-            <!-- 3.4.1-現場供應+文字 -->
+            <!-- 3.4.1-特別精選+文字 -->
             <div class="row px-md-5 justify-content-around mx-0 mx-5">
-                <!-- 3.4.1.1.現場供應 -->
-                <div class="serve col-md-6 mb-4 mb-md-0">
-                    <p class='t1 text-center'>現場供應</p>
+                <!-- 3.4.1.1.特別精選 -->
+                <div class="serve col-md-6 mb-4 mb-md-0   animatable fadeInUp">
+                    <p class='t1 text-center'>特別精選</p>
                     <div class="row mx-0">
                         <div class="product col-6">
-                            <div class="product-img"> <img src="../images/products/Heart of Darkness-01.png" alt="">
+                            <div class="product-img"> <img class="" src="../images/products/MT-Themisto.png" alt="">
                             </div>
-                            <div class="product-name">維恩雪弗✕內華達山脊•熊掌酒花小麥啤酒</div>
+                            <div class="product-name">摩登時代．水澤神女IPA<br></div>
                             <div class='know-more'>
-                                <a href="">進入購物車</a>
+                                <a href="/beeru/public/each-product.php?psid=203">進入購物車</a>
                             </div>
                         </div>
                         <div class="product col-6">
-                            <div class="product-img"> <img src="../images/products/Heart of Darkness-01.png" alt="">
+                            <div class="product-img"> <img src="../images/products/LC-Vanilla Latte Chocolate Milk Stout.png" alt="">
                             </div>
-                            <div class="product-name">維恩雪弗✕內華達山脊•熊掌酒花小麥啤酒</div>
+                            <div class="product-name">迷情海岸．香草拿鐵巧克力牛奶司陶特</div>
                             <div class='know-more'>
-                                <a href="">進入購物車</a>
+                                <a href="/beeru/public/each-product.php?psid=153">進入購物車</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- 3.4.1.2.說明 -->
-                <div class="intro-content col-md-5 pt-0 px-0 pr-md-0">
-                    當ABV世界精釀啤酒餐廳，邁入一個新的里程碑，我們要帶領更多的好朋友，一起進入精釀啤酒的世界，因為我們推廣精釀啤酒文化不遺餘力。
-                    透過品飲會的引路，從精釀的歷史、發展沿革，再聽各國對於精釀啤酒的發展、變化，至於工業啤酒的興起，爾後又再掀起精釀的風潮…在品飲會裡，聽ABV
-                    Camilo講故事，貫串古今。ＡＢＶ不只是餐廳，我們更建立了全中文最豐富的精釀啤酒百科。想認識更多啤酒知識，精釀啤酒文化；從啤酒原料、專有名詞、酒杯、類型解說，以及每一瓶的啤酒介紹，ＡＢＶ精釀啤酒資料庫將給您最完整的資訊集合。
+                <div class="intro-content col-md-5 pt-0 px-0 pr-md-0   animatable fadeInUp">
+                每個客人來到美式餐酒館，都會問有美國啤酒嗎？<br>是的！這次就帶領大家，尋找，美國土生土長的美式精釀啤酒！<br>一切都要從禁酒令開始說起，1919年至1933年長達13年的時間， 全美國禁止販賣運輸生產，從事任何啤酒相關的業務，對當時的釀酒業來說，可說是遭受相當大的打擊。解禁後，現在大眾所熟悉的啤酒品牌如雨後春筍般茁壯，至今美國已經有超過6,000家酒廠登記設立。接著就讓我們細說更多元的美式精釀啤酒，品嘗酒花國度的美式風味吧！本次活動特別推薦：摩登時代．水澤神女IPA、迷情海岸．香草拿鐵巧克力牛奶司陶特。
                 </div>
             </div>
         </div>
@@ -272,25 +282,28 @@ $page_title = '啤女BeerU:品飲會:花絮回顧';
                     </div>
                 </div>
                 <div class="row mx-0 px-0">
+
+                </div>  
+                <div class="row mx-0 px-0">
                     <div class="mx-0 col-md-8 mb-5 mb-md-0">
-                        <div class="photo1"><img src="../images/event/shutterstock_546366517.jpg" alt="">
-                            <p class='lh15 pt-2 pb-5'>說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字</p>
+                        <div class="photo1  animatable fadeInUp"><img src="../images/event/event_1_1.jpg" alt="">
+                            <p class='lh15 pt-2 pb-5'>➺精釀啤酒們列隊歡迎品飲者的到來</p>
                         </div>
-                        <div class="row mx-auto">
-                            <div class="col-md-6 mb-5 mb-md-0 pl-0 pr-0 pr-md-4 photo2"><img src="../images/event/shutterstock_734725183.jpg" alt="">
-                                <p class='lh15 pt-2'>說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字</p>
+                        <div class="row mx-aut">
+                            <div class="col-md-6 mb-5 mb-md-0 pl-0 pr-0 pr-md-4 photo2   animatable fadeInUp"><img src="../images/event/event_1_2.jpg" alt="">
+                                <p class='lh15 pt-2'>➺The Bruery布魯里有自己的特殊酒杯</p>
                             </div>
-                            <div class="col-md-6 pl-0 pl-md-4 pr-0 photo3"><img src="../images/event/shutterstock_579551032.jpg" alt="">
-                                <p class='lh15 pt-2'>說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字</p>
+                            <div class="col-md-6 pl-0 pl-md-4 pr-0 photo3   animatable fadeInUp"><img src="../images/event/event_1_3.jpg" alt="">
+                                <p class='lh15 pt-2'>➺迷人的琥珀色澤，厚實飽滿的泡沫</p>
                             </div>
                         </div>
                     </div>
                     <div class="mx-0 col-md-4">
-                        <div class="photo4"><img src="../images/event/shutterstock_1073044775.jpg" alt="">
-                            <p class='lh15 pt-2 pb-5'>說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字</p>
+                        <div class="photo4  animatable fadeInUp"><img src="../images/event/event_1_4.jpg" alt="">
+                            <p class='lh15 pt-2 pb-5'>➺LOST COAST迷情海岸創始人Barbara Groom芭芭拉</p>
                         </div>
-                        <div class="photo5"><img src="../images/event/shutterstock_662619631.jpg" alt="">
-                            <p class='lh15 pt-2 pb-5 text-justify'>說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字</p>
+                        <div class="photo5  animatable fadeInUp"><img src="../images/event/event_1_5.jpg" alt="">
+                            <p class='lh15 pt-2 pb-5 text-justify'>➺LOST COAST迷情海岸的酒標有種怪誕的畫風，極具特色。</p>
                         </div>
                         <!-- <div class="photo"><img src="../images/event/event-over-photo.jpg" alt="">
                             <p class='lh15 pt-2 pb-5'>說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字說明文字</p>
@@ -311,7 +324,7 @@ $page_title = '啤女BeerU:品飲會:花絮回顧';
 <?php include __DIR__ . '../../php/common/script.php' ?>
 
   <!-- my script -->
-  <script src='../js/map/map.js'></script>
+  <script src='../js/event/event_anime_scroll.js'></script>
 
 
 

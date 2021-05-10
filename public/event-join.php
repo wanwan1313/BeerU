@@ -1,10 +1,23 @@
 <?php include __DIR__ . '../../php/common/config.php' ?>
-
-<!-- 需要置換的變數們 -->
 <?php
-
+// <!-- 需要置換的變數們 -->
 $page_title = '啤女BeerU:品飲會:立即報名';
 
+$sid=isset($_GET['sid']) ? intval($_GET['sid']) :0 ;
+
+// 瀏覽人次
+$pdo->query("UPDATE `event` SET `event_visited`=`event_visited`+1 WHERE `sid` = $sid");
+
+$e_SQL = "SELECT * FROM `event` WHERE sid=$sid";
+$e = $pdo->query($e_SQL)->fetch();
+
+
+// 如果sid＝0,跳轉回去event.php
+if($sid== 0){ 
+    header('Location: http://192.168.21.56/beeru/public/event.php');
+    // exit;
+}
+$exp = strtotime($e['event_date']) < time();
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -13,14 +26,33 @@ $page_title = '啤女BeerU:品飲會:立即報名';
 <link rel="stylesheet" href="../css/event/event.css">
 <link rel="stylesheet" href="../css/event/event-join.css">
 <link rel="stylesheet" href="../css/tool.css">
+<style>
+    /* 更改bg-image */
+.join .event-banner {
+    background-image:url(../images/event/<?= $e['event_pic_b'] ?>);
+}
 
+@media (max-width: 577px) {
+   .join .event-banner {
+    background-image:url(../images/event/<?= $e['event_pic_s'] ?>);
+   }}
+
+   .join .serve .row .product:nth-of-type(1) .product-img:before{
+    background: url(../<?= $e['event_beer_1_country'] ?>) 0 0 no-repeat;
+    }
+    .join .serve .row .product:nth-of-type(2) .product-img:before{
+    background: url(../<?= $e['event_beer_2_country'] ?>) 0 0 no-repeat;
+    }
+
+</style>
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
 
 <!-- 可變動區 -->
 <!-- event品飲會:立即報名 -->
 <section class="event join">
+
     <!-- 2.banner -->
-    <div class="container event-banner pd0">
+    <div class="container event-banner pd0 animatable fadeInUp">
         <!-- 2.1關注按鈕+分享 -->
         <div class="row justify-content-between justify-content-md-end align-items-end
             flex-nowrap">
@@ -171,41 +203,41 @@ $page_title = '啤女BeerU:品飲會:立即報名';
     <!-- 3.content -->
     <div class="container event-content px-5">
         <!-- 3.1.title -->
-        <div class='name'>
-            <p>藏酒『嚐酒會』四月『啤酒不簡單</p>
+        <div class='name  animatable fadeInUp'>
+            <p><?= $e['event_title'] ?></p>
             <hr>
         </div>
         <!-- 3.2.時間+地點 + 名額+價格 -->
         <div class='row mx-0 align-items-stretch'>
             <!--時間+地點-->
             <div class="timelocation col-md-6">
-                <div class="time">
+                <div class="time animatable fadeInUp">
                     <div class="d-flex align-items-center">
                         <p class='t1-i'><i class="far fa-clock"></i>活動時間</p>
-                        <div class='btn_join over calender'><a href="https://www.google.com/calendar/render?action=TEMPLATE&trp=true&sf=true&output=xml&dates=20210530T080000Z/20210530T110000Z&details=活動詳情%0Ahttp://192.168.8.157:3002/beeru/public/event-join.php&location=活動地點&text=活動名稱"><i class="fas fa-calendar-plus"></i>加入行事曆</a>
+                        <div class='btn_join over calender'><a href="<?= $e['event_calender'] ?>"><i class="fas fa-calendar-plus"></i>加入行事曆</a>
                         </div>
                     </div>
-                    <p class='t1-c'>2021-06-06(日) 19:30 ~ 21:30 (GMT+8)</p>
+                    <p class='t1-c'><?= $e['event_time'] ?></p>
                 </div>
-                <div class="location">
+                <div class="location animatable fadeInUp">
                     <p class='t1-i'><i class="fas fa-map-marker-alt"></i>活動地點</p>
-                    <p class='t1-c'>台灣台北市忠孝東路4段270號11樓之3
-                        <br> <span>忠孝／延吉，凱基銀行樓上）（藏酒論壇／禾創）</span>
+                    <p class='t1-c'><?= $e['event_place'] ?>
+                        <br> <span><?= $e['event_address'] ?></span>
                     </p>
                 </div>
             </div>
             <!-- 名額+價格 -->
             <div class="row mx-5 mx-md-0 px-2 quotaprice col-md-6 justify-content-center flex-sm-nowrap flex-md-wrap">
-                <div class="col-sm-6 col-md-12 block quota">剩餘名額：18/20</div>
-                <div class="col-sm-6 col-md-12 block price">價格：NT$200</div>
+                <div class="col-sm-6 col-md-12 block quota animatable fadeInUp">剩餘名額：<?= $e['event_join'] ?>/<?= $e['event_people'] ?></div>
+                <div class="col-sm-6 col-md-12 block price animatable fadeInUp">價格：NT$<?= $e['event_price'] ?></div>
             </div>
         </div>
 
     </div>
     <!-- 4.overview -->
-    <div class="row mx-0 px-5">
+    <div class="row mx-0 px-5 animatable fadeInUp">
         <div class="overview">
-            “ 連假準備展開！ 拋下平日的煩惱，讓快樂跟著肉肉一起燃！燒！🥩🔥 美景、美酒、美食，在Rooftop Bar XOXO同時滿足吧！”
+        <?= $e['event_overview'] ?>
         </div>
     </div>
     <!-- 5.活動介紹 -->
@@ -215,40 +247,39 @@ $page_title = '啤女BeerU:品飲會:立即報名';
                 <p>活動介紹</p>
             </div>
         </div>
-        <!-- 3.4.1-現場供應+文字 -->
+        <!-- 3.4.1-特別精選+文字 -->
         <div class="row px-md-5 justify-content-around mx-0 mx-5">
-            <!-- 3.4.1.1.現場供應 -->
-            <div class="serve col-md-6 mb-4 mb-md-0">
-                <p class='t1 text-center'>現場供應</p>
+            <!-- 3.4.1.1.特別精選 -->
+            <div class="serve col-md-6 mb-4 mb-md-0 animatable fadeInUp">
+                <p class='t1 text-center'>特別精選</p>
                 <div class="row mx-0">
                     <div class="product col-6">
-                        <div class="product-img"> <img src="../images/products/Heart of Darkness-01.png" alt="">
+                        <div class="product-img"> <img src="../<?= $e['event_beer_1_pic'] ?>" alt="">
                         </div>
-                        <div class="product-name">維恩雪弗✕內華達山脊•熊掌酒花小麥啤酒</div>
+                        <div class="product-name"><?= $e['event_beer_1_name'] ?></div>
                         <div class='know-more'>
-                            <a href="">進入購物車</a>
+                            <a href="each-product.php?psid=<?= $e['event_beer_1_link'] ?>">進入購物車</a>
                         </div>
                     </div>
                     <div class="product col-6">
-                        <div class="product-img"> <img src="../images/products/Heart of Darkness-01.png" alt="">
+                        <div class="product-img"> <img src="../<?= $e['event_beer_2_pic'] ?>" alt="">
                         </div>
-                        <div class="product-name">維恩雪弗✕內華達山脊•熊掌酒花小麥啤酒</div>
+                        <div class="product-name"><?= $e['event_beer_2_name'] ?></div>
                         <div class='know-more'>
-                            <a href="">進入購物車</a>
+                        <a href="each-product.php?psid=<?= $e['event_beer_2_link'] ?>">進入購物車</a>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- 3.4.1.2.說明 -->
-            <div class="intro-content col-md-5 pt-0 px-0 pr-md-0">
-                當ABV世界精釀啤酒餐廳，邁入一個新的里程碑，我們要帶領更多的好朋友，一起進入精釀啤酒的世界，因為我們推廣精釀啤酒文化不遺餘力。
-                透過品飲會的引路，從精釀的歷史、發展沿革，再聽各國對於精釀啤酒的發展、變化，至於工業啤酒的興起，爾後又再掀起精釀的風潮…在品飲會裡，聽ABV
-                Camilo講故事，貫串古今。ＡＢＶ不只是餐廳，我們更建立了全中文最豐富的精釀啤酒百科。想認識更多啤酒知識，精釀啤酒文化；從啤酒原料、專有名詞、酒杯、類型解說，以及每一瓶的啤酒介紹，ＡＢＶ精釀啤酒資料庫將給您最完整的資訊集合。
+            <div class="intro-content col-md-5 pt-0 px-0 pr-md-0 animatable fadeInUp">
+            <?= $e['event_intro'] ?>
             </div>
         </div>
     </div>
+
     <!-- 6.活動地點 -->
-    <div class="container event-map px-0">
+    <div class="container event-map px-0 animatable fadeInUp">
         <div class="row mx-0">
             <div class="title">
                 <p>活動地點</p>
@@ -256,13 +287,14 @@ $page_title = '啤女BeerU:品飲會:立即報名';
         </div>
         <!-- 地址 -->
         <div class="row mx-0">
-            <p class="address">台灣台北市忠孝東路4段270號11樓之3</p>
+            <p class="address"><?= $e['event_address'] ?></p>
         </div>
-        <div class="row mx-0 w-100"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d35727.53422513179!2d121.52958781909861!3d25.036727979722496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aa29379b8db9%3A0x6c7f37e71cce4568!2z6LOH562W5pyD!5e0!3m2!1szh-TW!2stw!4v1619082372147!5m2!1szh-TW!2stw" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+        <div class="row mx-0 w-100"><?= $e['event_map'] ?></div>
     </div>
 
+
     <!-- 判斷：已登入 -->
-    <div class='can_join'>
+    <div class='can_join animatable fadeInUp'>
         <!-- 7.報名活動 -->
         <div class="container event-join-sign">
             <div class="row mx-0 px-5">
@@ -273,12 +305,12 @@ $page_title = '啤女BeerU:品飲會:立即報名';
             <!-- form+intro -->
             <div class="row mx-0 px-5 justify-content-around">
                 <!--表單-->
-                <form class='col-md-5 px-0 pl-md-0 mr-0 order-2 order-md-1' action="">
-                    <div class="form-title">姓名 <input type="text" class='col-10' placeholder="啤啤"></div>
-                    <div class="form-title">電話 <input class='col-10' type="tel" placeholder="0912-345-678"></div>
+                <form class='col-md-5 px-0 pl-md-0 mr-0 order-2 order-md-1' action="" name='event_join' method="post" novalidate onsubmit="checkform_join(); return false;" > 
+                    <div class="form-title">姓名 <input type="text" class='col-10' placeholder="啤啤" style='letter-spacing: 0;' required></div>
+                    <div class="form-title">電話 <input class='col-10' type="tel" placeholder="0912-345-678" required></div>
                     <p class='memo'>＊請輸入正確，以便現場核對身份</p>
                     <div class="form-title row justify-content-start">
-                        <div>攜伴人數 <span class="memo ㄊㄟ">＊最多可攜戴<span class="number_big">2</span>位朋友</span></div>
+                        <div>攜伴人數 <span class="memo ">＊最多可攜戴<span class="number_big">2</span>位朋友</span></div>
 
                     </div>
 
@@ -341,20 +373,20 @@ $page_title = '啤女BeerU:品飲會:立即報名';
                             <div class="time">
                                 <div class="d-flex align-items-md-center align-items-start justify-content-start">
                                     <p class='t1-i mx-0 px-0 text-nowrap'><i class="far fa-clock"></i>活動時間</p>
-                                    <div class='btn_join over calender mx-0'><a href="https://www.google.com/calendar/render?action=TEMPLATE&trp=true&sf=true&output=xml&dates=20210530T080000Z/20210530T110000Z&details=活動詳情%0Ahttp://192.168.8.157:3002/beeru/public/event-join.php&location=活動地點&text=活動名稱"><i class="fas fa-calendar-plus"></i>加入行事曆</a></div>
+                                    <div class='btn_join over calender mx-0'><a href="<?= $e['event_calender'] ?>"><i class="fas fa-calendar-plus"></i>加入行事曆</a></div>
                                 </div>
-                                <p class='t1-c'>2021-06-06(日) 19:30 ~ 21:30 (GMT+8)</p>
+                                <p class='t1-c'><?= $e['event_time'] ?></p>
                             </div>
                             <div class="location">
                                 <p class='t1-i'><i class="fas fa-map-marker-alt"></i>活動地點</p>
-                                <p class='t1-c'>台灣台北市忠孝東路4段270號11樓之3
-                                    <br><span>（忠孝／延吉，凱基銀行樓上）（藏酒論壇／禾創）</span>
+                                <p class='t1-c'><?= $e['event_place'] ?>
+                                    <br><span><?= $e['event_address'] ?></span>
                                 </p>
                             </div>
                         </div>
                         <!-- 價格 -->
                         <div class="row align-items-start mx-auto jusitify-content-around">
-                            <div class="block price col-8 col-lg-6 mt-0 mx-auto px-0 text-center">價格：NT$200</div>
+                            <div class="block price col-8 col-lg-6 mt-0 mx-auto px-0 text-center">價格：NT$<?= $e['event_price'] ?></div>
                             <div class="memo mb-0 col-8 col-lg-6 text-justify px-0 px-lg-4 mx-auto">
                                 *費用為當天當場繳交，活動前一個禮拜不開放取消</div>
                         </div>
@@ -364,7 +396,7 @@ $page_title = '啤女BeerU:品飲會:立即報名';
         <!-- 8.按鈕 -->
         <div class="col all-button flex-nowrap px-0">
             <!-- 立即報名 -->
-            <button class='btn_join over d-block mx-auto w-75 mb-2 col-md-5 ' type='submit'>立即報名</button>
+            <button class='btn_join over d-block mx-auto w-75 mb-2 col-md-5' type='submit'>立即報名</button>
             <!-- 說明 -->
             <div class="d-flex w-75 mx-auto col-md-5 memo-check lh15 px-0 align-items-baseline">
                 <input class='d-block mr-2' type="checkbox" checked />
@@ -375,8 +407,9 @@ $page_title = '啤女BeerU:品飲會:立即報名';
         </div>
     </div>
 
+
     <!-- 判斷：尚未登入 -->
-    <div class="need_login">
+    <div class="need_login animatable fadeInUp">
         <!-- 標題：報名活動 -->
         <div class="container event-join-sign">
             <div class="row mx-0 px-5">
@@ -396,14 +429,16 @@ $page_title = '啤女BeerU:品飲會:立即報名';
             <a href="../public/event.php"><button class='btn_join return d-block mx-auto w-75 col-md-5'> 返回上頁</button></a>
         </div>
     </div>
+
 </section>
 
 <?php include __DIR__ . '../../php/common/html-body-footer.php' ?>
 <?php include __DIR__ . '../../php/common/script.php' ?>
 
 <!-- my script -->
-<script src='../js/event/event_vaild.js'></script>
 <script src='../js/event/event.js'></script>
+<script src='../js/event/event_vaild.js'></script>
+<script src='../js/event/event_anime_scroll.js'></script>
 
 
 

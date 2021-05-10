@@ -6,6 +6,8 @@
 <!-- 需要置換的變數們 -->
 <?php
 $page_title = '啤女BeerU:啤酒地圖';
+// $m_SQL = "SELECT * FROM `map`";
+// $m_rows = $pdo->query($m_SQL)->fetchAll();
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -513,7 +515,7 @@ $page_title = '啤女BeerU:啤酒地圖';
                 <!--返回上頁 -->
                 <div class="pipi_plane position-absolute"><a href="javascript:history.go(-1);location.reload()">
                         <div class="return-img"><img src="../images/map/SVG/pipi_plane.svg" alt=""></div>
-                        <div class="return-text text-center">返回世界地圖</div>
+                        <div class="return-text text-center">返回</div>
                     </a>
                 </div>
             </div>
@@ -928,8 +930,8 @@ $page_title = '啤女BeerU:啤酒地圖';
                     <div class="row card-close justify-content-end "><i class="fas fa-times-circle"></i>
                     </div>
                     <!-- deco-bg -->
-                    <div class="bg_country position-absolute d-md-block d-sm-none"><img src="../images/map/bg-us.jpg" alt=""></div>
-                    <div class="bg_country position-absolute d-sm-block d-md-none"><img src="../images/map/bg-us-s.jpg" alt=""></div>
+                    <div class="bg_country position-absolute d-md-block d-sm-none"><img src="../images/map/bg_b_us.jpg" alt=""></div>
+                    <div class="bg_country position-absolute d-sm-block d-md-none"><img src="../images/map/bg_s_us.jpg" alt=""></div>
                     <!-- deco-郵票 -->
                     <div class="stamp_country position-absolute"><img src="../images/map/SVG/stamp_us.svg" alt=""></div>
                     <!-- deco-郵戳 -->
@@ -939,11 +941,11 @@ $page_title = '啤女BeerU:啤酒地圖';
                         <div class="col-md-5">
                             <div class="row align-items-center">
                                 <!-- 2.國家名 -->
-                                <div class="row country-name justify-content-center col-md-12 mb-3 mb-md-2">
+                                <div class="row country-name justify-content-center col-md-12 mb-3 mb-md-2 animatable bounceIn">
                                     <p>美國</p>
                                 </div>
                                 <!-- 3.代理廠牌 -->
-                                <div class="row beer-brand justify-content-center col-md-12 mb-3 mb-md-5">
+                                <div class="row beer-brand justify-content-center col-md-12 mb-3 mb-md-5 animatable bounceIn">
                                     <li><a href="javascript: "><img src="../images/tagespic/12.svg" alt=""></a></li>
                                     <li><a href="javascript: "><img src="../images/tagespic/14.svg" alt=""></a>
                                     </li>
@@ -953,7 +955,7 @@ $page_title = '啤女BeerU:啤酒地圖';
                                 </div>
                             </div>
                             <!-- 4.介紹文字 -->
-                            <div class="row beer-intro mb-3 mx-md-1 justify-content-center">
+                            <div class="row beer-intro mb-3 mx-md-1 justify-content-center animatable bounceIn">
                                 <p>1870~1910年這期間美國拉格（輔料拉格）所領導的啤酒革命，讓這國家真正擁有啤酒自由釀造的權利，進而可以發揮精釀啤酒的精神！幾乎全世界的啤酒風格都可以在美國找到，並且常以當地的啤酒花或麥芽得到新的詮釋和演繹。</p>
                             </div>
                         </div>
@@ -962,7 +964,7 @@ $page_title = '啤女BeerU:啤酒地圖';
                         </div>
                         <div class="col-md-5">
                             <!-- 5.搭配酒杯 -->
-                            <div class="col cups mb-3 align-items-center ">
+                            <div class="col cups mb-3 align-items-center  animatable bounceIn">
                                 <!--標題-->
                                 <div class="row title justify-content-center mb-1 mt-4">
                                     <p>搭配酒杯</p>
@@ -1005,7 +1007,7 @@ $page_title = '啤女BeerU:啤酒地圖';
                                 </div>
                             </div>
                             <!-- 6.搭配啤酒 -->
-                            <div class="col beers align-items-center justify-content-center mb-2 mb-md-5">
+                            <div class="col beers align-items-center justify-content-center mb-2 mb-md-5 animatable bounceIn">
                                 <!-- 標題 -->
                                 <div class="row title justify-content-center mb-1 mt-4">
                                     <p>推薦啤酒</p>
@@ -1051,7 +1053,7 @@ $page_title = '啤女BeerU:啤酒地圖';
                         </div>
                     </div>
                     <!-- 7.按鈕 -->
-                    <div class=" row buttons justify-content-center flex-nowrap">
+                    <div class=" row buttons justify-content-center flex-nowrap animatable bounceIn">
                         <!--加入關注-->
                         <button class="btn_attention px-3 py-1 mx-5"><i class="fas fa-plus"></i>加入關注</button>
                         <!-- 看更多商品 -->
@@ -1079,6 +1081,7 @@ $page_title = '啤女BeerU:啤酒地圖';
 <script src='../js/map/map_4.js'></script>
 <script src='../js/map/map_phone_option.js'></script>
 <script src='../js/map/map-rwd-show-hide.js'></script>
+<script src='../js/map/map_anime_scroll.js'></script>
 
 
 <!-- 返回上一頁時，強迫改網址！ -->
