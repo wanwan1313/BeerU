@@ -6,7 +6,7 @@ $(document).ready(function(){
 //navbar登入起始畫面按鈕
 $('.user-login').click(function(){
 
-    $(window).resize
+    $(window).resize(function() {
 
     if ($(window).width() >= 992){
         $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
@@ -14,10 +14,11 @@ $('.user-login').click(function(){
     }
 
     if ($(window).width() < 992){
-    $('.log-box').css('width','90%').css('height','50%').css('min-height','460px').css('transition','.4s');
+    $('.log-box').css('width','90%').css('max-width','338px').css('height','50%').css('min-height','460px').css('transition','.4s');
 
 
     }
+   })
 
     $('.LogIn-Sign').fadeIn(100);
     $('.first-login-page').fadeIn(1);
@@ -50,6 +51,10 @@ $('.later-check').click(function(){
 
 //進入登入頁
 $('.LogIn-btn01').click(function(){
+
+
+    $(window).resize(function() {
+
    
     if ($(window).width() >= 992){
         $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
@@ -57,10 +62,12 @@ $('.LogIn-btn01').click(function(){
     }
 
     if ($(window).width() < 992){
-    $('.log-box').css('width','90%').css('height','60%').css('min-height','494px').css('transition','.4s');
+    $('.log-box').css('width','90%').css('max-width','338px').css('height','60%').css('min-height','494px').css('transition','.4s');
 
 
     }
+
+  })
 
 
    $('.first-login-page').fadeOut(1);
@@ -76,16 +83,22 @@ $('.LogIn-btn01').click(function(){
 $('.LogOut-btn02').click(function(){
 
 
+    $(window).resize(function() {
+
+
+
     if ($(window).width() >= 992){
 
         $('.log-box').css('width','50%').css('height','86%').css
     }
 
     if ($(window).width() < 992){
-        $('.log-box').css('width','90%').css('height','80%').css
+        $('.log-box').css('width','90%').css('max-width','338px').css('height','80%').css
 
 
     }
+
+})
 
     $('.first-login-page').fadeOut(1);
 
@@ -112,6 +125,7 @@ $('.Sign').click(function(){
 $('.LogSign-rightNow').click(function(){
 
 
+    $(window).resize(function() {
 
     if ($(window).width() >= 992){
 
@@ -122,6 +136,8 @@ $('.LogSign-rightNow').click(function(){
         $('.log-box').css('width','90%').css('height','80%').css
     }
 
+})
+
     $('.LogIn-page').fadeOut(1);
     $('.LogSign-page').fadeIn(1000);
 
@@ -131,6 +147,7 @@ $('.LogSign-rightNow').click(function(){
 // 馬上登入
 $('.LogIn-rightNow').click(function(){
 
+    $(window).resize(function() {
 
     if ($(window).width() >= 992){
         $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
@@ -138,9 +155,11 @@ $('.LogIn-rightNow').click(function(){
     }
 
     if ($(window).width() < 992){
-    $('.log-box').css('width','90%').css('height','60%').css('min-height','494px').css('transition','.4s');
+    $('.log-box').css('width','90%').css('max-width','338px').css('height','60%').css('min-height','494px').css('transition','.4s');
    
     }
+
+})
 
     $('.first-login-page').fadeOut(1);
     $('.LogSign-page').fadeOut(1);
@@ -154,16 +173,20 @@ $('.LogIn-rightNow').click(function(){
 //回到起始畫面
 $('.backward h3').click(function(){
    
+    $(window).resize(function() {
+
     if ($(window).width() >= 992){
         $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
 
     }
 
     if ($(window).width() < 992){
-        $('.log-box').css('width','90%').css('height','50%').css('min-height','460px').css('transition','.4s');
+        $('.log-box').css('width','90%').css('max-width','338px').css('height','50%').css('min-height','460px').css('transition','.4s');
     
     
     }
+
+})
 
     
 

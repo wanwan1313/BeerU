@@ -1,6 +1,6 @@
 .LogIn-Sign{
    
-    /* display: none; */
+    display: none;
 
 }
 
@@ -70,6 +70,8 @@
 @media (max-width: 991px) {
 
     .LogIn-Sign .log-box{
+
+        max-width: 338px;
         width: 90%;
         margin-top: -100px;
         height: 60%;
