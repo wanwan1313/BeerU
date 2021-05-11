@@ -1,13 +1,51 @@
 <?php include __DIR__ . '../../php/common/config.php' ?>
+<?php include __DIR__ . '../../php/common/__connect_db.php' ?>
+
 
 <!-- 需要置換的變數們 -->
 <?php
 
 $page_title = '啤女BeerU:餐酒搭配';
+$psid = 0;
+
+//     // 此頁商品
+$p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.`name` AS `type_name`,t4.`name` AS `merch_name` 
+        FROM `products` AS p 
+        JOIN `tags` AS t1 
+        ON p.`brand_sid` = t1.`sid`
+        JOIN `tags` AS t2 
+        ON p.`country_sid` = t2.`sid`
+        JOIN `tags` AS t3 
+        ON p.`type_sid` = t3.`sid`
+        JOIN `tags` AS t4 
+        ON p.`merch_sid` = t4.`sid`
+        WHERE p.`sid` = $psid";
+$row = $pdo->query($p_SQL)->fetch();
+
+$country_sid = $row['country_sid'];
+$type_sid = $row['type_sid'];
+$brands_sid = $row['brand_sid'];
+$merch_sid = $row['merch_sid'];
+
+//     // 相關商品
+$c_SQL = "SELECT * FROM `products` WHERE `type_sid` = 52 AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
+$c_row = $pdo->query($c_SQL)->fetch();
+$c_row_sid = $c_row['sid'];
 
 
+$t_SQL = "SELECT * FROM `products` WHERE `type_sid` = 52 AND `sid` !=  $psid AND `sid` != $c_row_sid  ORDER BY RAND() LIMIT 1";
+$t_row = $pdo->query($t_SQL)->fetch();
+$t_row_sid = $t_row['sid'];
 
+$b_SQL = "SELECT * FROM `products` WHERE `type_sid` = 52 AND `sid` !=  $t_row_sid AND $c_row_sid ORDER BY RAND() LIMIT 1";
+$b_row = $pdo->query($b_SQL)->fetch();
 
+// new標籤
+$deadline = strtotime('2021-05-01');
+
+// 從哪裡來
+$come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
+$come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
 
 
 
@@ -88,7 +126,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                     <h3>共鳴<br>原則</h3>
                 </div>
                 <div class="rules-inner animatable fadeInUp mt-5">
-                    <p>此為最常見的餐酒搭配方式，當啤酒與食物擁有共同的味道和香氣時，彼此映襯對方的風味。這樣的搭配法就像照鏡子一樣，相互映照並勾勒出酒與料理兩者的細膩味道。</p>
+                    <p>啤酒與食物擁有共同味道和香氣，這樣的搭配法就像照鏡子一樣，相互映照並勾勒出酒與料理兩者的細膩味道。</p>
                 </div>
             </div>
 
@@ -158,8 +196,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                             <img src="../images/joyce_images/drop-3.svg" alt=""></a>
                     </div>
                     <div class="food-drop-name">
-                        <!-- <p>印度<br>淡艾爾<br>IPA</p> -->
-                        <p>印度<br>淡艾爾</p>
+                        <p>印度<br>淡愛爾</p>
                         <p>IPA</p>
                     </div>
                 </div>
@@ -189,8 +226,8 @@ $page_title = '啤女BeerU:餐酒搭配';
                             <img src="../images/joyce_images/drop-6.svg" alt=""></a>
                     </div>
                     <div class="food-drop-name">
-                        <p>淡色艾爾
-                            <br>Pale Ale
+                        <p>愛爾
+                            <br>Ale
                         </p>
                     </div>
                 </div>
@@ -452,7 +489,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                         </div>
                                         <!-- 了解更多 -->
 
-                                        <a href="each-product.php? psid=<?= $psid = 99 ?>">
+                                        <a href="each-product.php? psid=<?= $psid = 18 ?>">
                                             <div class="know-more">了解更多</div>
                                         </a>
 
@@ -719,7 +756,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                             <p class="p-name-e">Heart of Darkness - The Island </p>
                                         </div>
                                         <!-- 了解更多 -->
-                                        <a href="">
+                                        <a href="each-product.php?psid=<?= $psid = 2 ?>">
                                             <div class="know-more">了解更多</div>
                                         </a>
 
@@ -786,7 +823,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>印度淡艾爾 IPA<img class="drop" src="../images/joyce_images/drop-3.svg" alt=""></h2>
+                        <h2>印度淡愛爾 IPA<img class="drop" src="../images/joyce_images/drop-3.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- 分享按鈕們 -->
@@ -929,7 +966,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                 <i class="fas fa-share-alt"></i>
                             </div>
                         </div>
-                        <p>一種酒花香氣更濃郁的淡色艾爾，釀造時加入了大量具有防腐性能的啤酒花以確保啤酒的新鮮，從此漸漸形成一種風味獨特的啤酒類型。IPA的苦味在重口味的食物之後，會有意想不到的回甘。
+                        <p>一種酒花香氣更濃郁的淡色愛爾，釀造時加入了大量具有防腐性能的啤酒花以確保啤酒的新鮮，從此漸漸形成一種風味獨特的啤酒類型。IPA的苦味在重口味的食物之後，會有意想不到的回甘。
                         </p>
                         <div class="pair-intro d-flex">
                             <span class="pair-icon">
@@ -992,7 +1029,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                             <p class="p-name-e">Civale - Thunderhop</p>
                                         </div>
                                         <!-- 了解更多 -->
-                                        <a href="">
+                                        <a href="each-product.php?psid=<?= $psid = 148 ?>">
                                             <div class="know-more">了解更多</div>
                                         </a>
 
@@ -1258,7 +1295,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                             <p class="p-name-e">Oslo - Nordic Pilsner </p>
                                         </div>
                                         <!-- 了解更多 -->
-                                        <a href="">
+                                        <a href="each-product.php?psid=<?= $psid = 135 ?>">
                                             <div class="know-more">了解更多</div>
                                         </a>
 
@@ -1523,7 +1560,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                             <p class="p-name-e">8 Wired - Mandarin Hippy</p>
                                         </div>
                                         <!-- 了解更多 -->
-                                        <a href="">
+                                        <a href="each-product.php?psid=<?= $psid = 42 ?>">
                                             <div class="know-more">了解更多</div>
                                         </a>
 
@@ -1582,7 +1619,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>淡色艾爾 Pale Ale<img class="drop" src="../images/joyce_images/drop-6.svg" alt=""></h2>
+                        <h2>愛爾 Ale<img class="drop" src="../images/joyce_images/drop-6.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- 分享按鈕們 -->
@@ -1788,7 +1825,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                             <p class="p-name-e">Brewlander - Hope Summer</p>
                                         </div>
                                         <!-- 了解更多 -->
-                                        <a href="">
+                                        <a href="each-product.php?psid=<?= $psid = 40 ?>">
                                             <div class="know-more">了解更多</div>
                                         </a>
 
@@ -1817,7 +1854,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                             <br>電話：02-2927-7183
                         </h4>
                         <!-- 線上訂位 -->
-                        <a href="">
+                        <a href="each-product.php?psid=<?= $psid = 164 ?>">
                             <div class="book-now">線上訂位</div>
                         </a>
                     </div>
@@ -1990,7 +2027,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                 <i class="fas fa-share-alt"></i>
                             </div>
                         </div>
-                        <p>源於北德城市Einbeck，為當時僧侶齋戒時的營養來源，17世紀巴伐利亞王室請了釀酒師到慕尼黑釀酒，原先為艾爾，但因1516年的醇酒令而轉成底層發酵的烈性拉格。烘焙麥芽的風味鮮明，口感滑順，顏色較深。
+                        <p>源於北德城市Einbeck，為當時僧侶齋戒時的營養來源，17世紀巴伐利亞王室請了釀酒師到慕尼黑釀酒，原先為愛爾，但因1516年的醇酒令而轉成底層發酵的烈性拉格。烘焙麥芽的風味鮮明，口感滑順，顏色較深。
                         </p>
                         <div class="pair-intro d-flex">
                             <span class="pair-icon">
@@ -2053,7 +2090,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                             <p class="p-name-e">Ayinger - Weizen</p>
                                         </div>
                                         <!-- 了解更多 -->
-                                        <a href="">
+                                        <a href="each-product.php?psid=<?= $psid = 164 ?>">
                                             <div class="know-more">了解更多</div>
                                         </a>
 
@@ -2317,7 +2354,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                             <p class="p-name-e">Fuller's - London Porter</p>
                                         </div>
                                         <!-- 了解更多 -->
-                                        <a href="">
+                                        <a href="each-product.php?psid=<?= $psid = 85 ?>">
                                             <div class="know-more">了解更多</div>
                                         </a>
 
@@ -2581,7 +2618,7 @@ $page_title = '啤女BeerU:餐酒搭配';
                                             <p class="p-name-e">Lost Coast-Peanut Butter Chocolate Milk Stout</p>
                                         </div>
                                         <!-- 了解更多 -->
-                                        <a href="">
+                                        <a href="each-product.php?psid=<?= $psid = 151 ?>">
                                             <div class="know-more">了解更多</div>
                                         </a>
 

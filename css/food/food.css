@@ -255,6 +255,9 @@ h2 {
         letter-spacing: 0.8rem;
         text-indent: 0.8rem;
     }
+    .food-title {
+        margin: 0 auto;
+    }
     .food-title p::before {
         width: 60px;
         height: 32%;
@@ -606,26 +609,6 @@ h2 {
     }
 }
 
-/* 手機版 */
-
-@media (max-width: 991px) {
-    /*手 */
-    .hand {
-        transform: translate(-30px, -100px);
-        width: 200px;
-        position: absolute;
-    }
-    .food-drop {
-        display: none;
-    }
-    .m-beer-drops {
-        min-width: 100px;
-        max-width: 250px;
-        display: block;
-        margin: 0 auto;
-    }
-}
-
 /* ----------------酒杯-banner ----------------*/
 
 /* 桌機版 */
@@ -710,7 +693,7 @@ h2 {
 @media (max-width: 991px) {
     /*手 */
     .hand {
-        transform: translate(-30px, -100px);
+        transform: translate(-30px, -30px);
         width: 200px;
         position: absolute;
     }
@@ -722,6 +705,8 @@ h2 {
         max-width: 250px;
         display: block;
         margin: 0 auto;
+        margin-bottom: 20%;
+        margin-top: 25%;
     }
 }
 
@@ -818,27 +803,6 @@ h2 {
     }
 }
 
-/* 手機版 */
-
-@media (max-width: 991px) {
-    /*手 */
-    .hand {
-        transform: translate(-30px, -100px);
-        width: 200px;
-        position: absolute;
-    }
-    .food-drop {
-        display: none;
-    }
-    .m-beer-drops {
-        min-width: 100px;
-        max-width: 250px;
-        display: block;
-        margin: 0 auto;
-        margin-bottom: 20%;
-    }
-}
-
 /* 分享按鈕*/
 
 /* 桌機版 */
@@ -867,9 +831,6 @@ h2 {
     .pair .share-icons .fb, .pair .share-icons .line {
         margin-right: 8px;
         margin-left: 8px;
-    }
-    .pair .share-icons .fb svg, .pair .share-icons .line svg {
-        width: 16px;
     }
     .pair .share-icons .share {
         font-size: 1.6rem;

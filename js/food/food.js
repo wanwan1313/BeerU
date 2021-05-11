@@ -12,7 +12,7 @@ if ($(window).width() >= 992) {
 
     $('#return-to-top').click(function () {
         $('body,html').animate({
-            scrollTop: 1350
+            scrollTop: 1450
         }, 300, 'swing');
 
     })
