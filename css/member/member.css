@@ -812,7 +812,7 @@
 
 /* 內容 */
 .this-p, .thisscore, .thiscommtent {
-    height: 80px;
+    min-height: 80px;
 }
 
 
@@ -888,6 +888,12 @@
     padding: 0 10px;
     font-size: 1.5rem;
     outline: none;
+    line-height: 2.2rem;
+    height: 70px;
+}
+
+.mycommenttxt {
+    line-height: 2.2rem;
 }
 
 /* 送出按鈕 */

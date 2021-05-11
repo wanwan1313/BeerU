@@ -998,7 +998,7 @@ if (isset($_SESSION['user'])) {
                                                             <div class="edit-buttons-wrap d-none">
                                                                 <div class="edit-buttons d-flex flex-wrap align-content-center px-0 justify-content-center ">
                                                                     <button class="btn_comment-confirm" onclick="commentProduct('edit')">送出</button>
-                                                                    <button class="btn_comment-cancel">取消</button>
+                                                                    <button class="btn_comment-cancel"onclick="canceleditComment()" >取消</button>
                                                                 </div>
 
                                                             </div>
@@ -1853,7 +1853,9 @@ if (isset($_SESSION['user'])) {
 
     // 刪除placeholder
     $(".commenttextarea").on('click', function() {
-        $(this).val('')
+        if( $(this).val() == '請寫下對這支酒的感想!' ) {
+            $(this).val('')
+        }
     })
 
     // 送出
@@ -1897,7 +1899,6 @@ if (isset($_SESSION['user'])) {
 
     // 編輯評論
     function editComment() {
-        let isPass = true
         let edit_btn = $(event.currentTarget)
         let thisScore = edit_btn.closest('.member-button').prevAll('.com-score').find('.beer-score').attr('data-score')
         let thisComment = edit_btn.closest('.member-button').prevAll('.com-txt').find('.mycommenttxt').text()
@@ -1913,6 +1914,21 @@ if (isset($_SESSION['user'])) {
         edit_btn.next().removeClass('d-none')
         edit_btn.addClass('d-none')
     }
+    // 取消編輯評論
+    function canceleditComment() {
+        let cancel_btn = $(event.currentTarget)
+        // 分數
+        cancel_btn.closest('.member-button').prevAll('.com-score').find('.beer-score').removeClass('d-none')
+        cancel_btn.closest('.member-button').prevAll('.com-score').find('.myscore-edit').addClass('d-none')
+        // 評論
+        cancel_btn.closest('.member-button').prevAll('.com-txt').find('.mycommenttxt').removeClass('d-none')
+        cancel_btn.closest('.member-button').prevAll('.com-txt').find('.commenttextarea-edit').addClass('d-none')
+        // 按鈕
+        cancel_btn.closest('.edit-buttons-wrap').prev().removeClass('d-none')
+        cancel_btn.closest('.edit-buttons-wrap').addClass('d-none')
+    }
+
+
 </script>
 
 
