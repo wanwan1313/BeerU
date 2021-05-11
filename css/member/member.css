@@ -832,6 +832,11 @@
     width: 30px;
     height: 80px;
     margin-top: 10px;
+    transition: .5s;
+}
+
+.com-pro .thisp-pic:hover {
+    opacity: .7;
 }
 
 .com-pro .thisp-pic img {
@@ -849,6 +854,16 @@
     font-weight: 600;
     margin-top: 10px;
 }
+
+.com-pro .c-name {
+    transition: .5s;
+}
+.com-pro .c-name:hover {
+    color: rgb(160, 109, 15);
+    text-decoration: underline;
+}
+
+
 .com-pro .e-name {
     font-size: 1.3rem;
     opacity: .8;
@@ -1062,35 +1077,48 @@
     padding: 10px 0 ;
 }
 
-.member .thisp-pic {
+.member .my-checkout-p .thisp-pic {
     width: 30px;
     height: 80px;
+    transition: .5s;
 }
 
-.member .thisp-pic img {
+.member .my-checkout-p .thisp-pic:hover {
+    opacity: .7;
+}
+
+.member .my-checkout-p .thisp-pic img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.member .thisp-name {
+.member .my-checkout-p .thisp-name {
     color: var(--gold);
     font-family: 'Noto Serif TC', serif;
     line-height: 1.8rem;
     margin-left: 10px;
     font-weight: 600;
 }
-.member .e-name {
+.member .my-checkout-p .c-name {
+    transition: .5s;
+}
+.member .my-checkout-p .c-name:hover {
+    color: rgb(160, 109, 15);
+    text-decoration: underline;
+}
+
+.member .my-checkout-p .e-name {
     font-size: 1.3rem;
     opacity: .8;
 }
 
-.member .coupon, .member .shipping {
+.member .my-checkout-p .coupon, .member .my-checkout-p .shipping {
     font-size: 1.5rem;
     line-height: 2rem;
 }
 
-.member .total-price {
+.member .my-checkout-p .total-price {
     color: var(--red);
 }
 
@@ -1109,7 +1137,7 @@
 
 
 /* 訂單明細&收件人標題 */
-.product-detail {
+.member .product-detail {
     transition: .5s;
     overflow: hidden;
     height: fit-content;
