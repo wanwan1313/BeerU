@@ -107,6 +107,7 @@ if (!empty($payment) and !empty($totalPrice) and !empty($order_num)) {
 
     // 刪除SESSION
     unset($_SESSION['cart']);
+    $_SESSION['cart'] = [];
     unset($_SESSION['checkout']);
 }
 

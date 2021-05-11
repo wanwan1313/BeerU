@@ -443,7 +443,8 @@ if (isset($_SESSION['cart'])) {
         zipcodeIntoDistrict: true, // 郵遞區號自動顯示在區別選單中
         css: ["re_city", "re_dist"], // 自訂 "城市"、"地別" class 名稱 
         countyName: "re_city", // 自訂城市 select 標籤的 name 值
-        districtName: "re_dist" // 自訂區別 select 標籤的 name 值
+        districtName: "re_dist", // 自訂區別 select 標籤的 name 值
+        countySel: "<?= isset($_SESSION['checkout']['re_city']) ? $_SESSION['checkout']['re_city'] : '' ?>"
 
     });
 
@@ -514,13 +515,13 @@ if (isset($_SESSION['cart'])) {
             }
 
         } else {
-            
+
             if (window.location.search.substr(6, 1) == 3) {
                 location.href = 'member.php?memberOrder'
-            }else{
+            } else {
                 location.href = 'cart-list.php'
             }
-            
+
         }
 
     }
@@ -853,6 +854,7 @@ if (isset($_SESSION['cart'])) {
                     $('.cart-pnum').addClass('d-none')
                     renderOrderDetail()
                     renderRecipient()
+                    $('.cart-pnum').text('')
                     $('#select-payment').css('display', 'none')
                     $('#complete-order').fadeIn(150)
                     $('.step-3').addClass('on')
