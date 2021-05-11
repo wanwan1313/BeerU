@@ -871,13 +871,15 @@ if (isset($_SESSION['user'])) {
                                                             </div>
                                                             <div class="col-12 this-p d-flex align-items-center px-0">
                                                                 <div class="col-2 thisp-pic px-0">
-                                                                    <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $com['product_sid'] ?>"><img src="../images/products/<?= $com['pic'] ?>" alt=""></a>
+                                                                    <a href="each-product.php?psid=<?= $com['product_sid'] ?>"><img src="../images/products/<?= $com['pic'] ?>" alt=""></a>
                                                                 </div>
                                                                 <div class="col-10 thisp-name px-0 pr-lg-4">
-                                                                    <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $com['product_sid'] ?>">
+                                                                    <a href="each-product.php?psid=<?= $com['product_sid'] ?>">
                                                                         <p class="c-name"><?= $com['c_name'] ?></p>
                                                                     </a>
+                                                                    <a href="each-product.php?psid=<?= $com['product_sid'] ?>">
                                                                     <p class="e-name "><?= $com['e_name'] ?></p>
+                                                                    </a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -946,15 +948,17 @@ if (isset($_SESSION['user'])) {
                                                             </div>
                                                             <div class="col-12 this-p d-flex align-items-center px-0">
                                                                 <div class="col-2 thisp-pic px-0">
-                                                                    <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $comdone['product_sid'] ?>">
+                                                                    <a href="each-product.php?psid=<?= $comdone['product_sid'] ?>">
                                                                         <img src="../images/products/<?= $comdone['pic'] ?>" alt="">
                                                                     </a>
                                                                 </div>
                                                                 <div class="col-10 thisp-name px-0 pr-lg-4">
-                                                                    <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $comdone['product_sid'] ?>">
+                                                                    <a href="each-product.php?psid=<?= $comdone['product_sid'] ?>">
                                                                         <p class="c-name"><?= $comdone['c_name'] ?></p>
                                                                     </a>
+                                                                    <a href="each-product.php?psid=<?= $comdone['product_sid'] ?>">
                                                                     <p class="e-name "><?= $comdone['e_name'] ?></p>
+                                                                    </a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1357,10 +1361,12 @@ if (isset($_SESSION['user'])) {
                                                                         <div class="my-checkout-p d-flex align-items-center mb-2">
                                                                             <div class="col-7 col-lg-8 d-flex align-items-center">
                                                                                 <div class="col-2 thisp-pic px-0">
-                                                                                    <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $detail['product_sid'] ?>"><img src="../images/products/<?= $detail['pic'] ?>" alt=""></div></a>
+                                                                                    <a href="each-product.php?psid=<?= $detail['product_sid'] ?>"><img src="../images/products/<?= $detail['pic'] ?>" alt=""></div></a>
                                                                                 <div class="col-10 thisp-name px-0">
-                                                                                    <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $detail['product_sid'] ?>"><p class="c-name"><?= $detail['c_name'] ?></p></a>
+                                                                                    <a href="each-product.php?psid=<?= $detail['product_sid'] ?>"><p class="c-name"><?= $detail['c_name'] ?></p></a>
+                                                                                    <a href="each-product.php?psid=<?= $detail['product_sid'] ?>">
                                                                                     <p class="e-name d-none d-lg-block"><?= $detail['e_name'] ?></p>
+                                                                                    </a>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-2 thisp-qty px-0 text-center"><?= $detail['quantity'] ?>
@@ -1520,12 +1526,14 @@ if (isset($_SESSION['user'])) {
                                                                         <div class="my-checkout-p d-flex align-items-center mb-2">
                                                                             <div class="col-7 col-lg-8 d-flex align-items-center">
                                                                                 <div class="col-2 thisp-pic px-0">
-                                                                                    <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $detail['product_sid'] ?>"><img src="../images/products/<?= $detail['pic'] ?>" alt=""></div></a>
+                                                                                    <a href="each-product.php?psid=<?= $detail['product_sid'] ?>"><img src="../images/products/<?= $detail['pic'] ?>" alt=""></div></a>
                                                                                 <div class="col-10 thisp-name px-0">
-                                                                                    <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $detail['product_sid'] ?>">
+                                                                                    <a href="each-product.php?psid=<?= $detail['product_sid'] ?>">
                                                                                     <p class="c-name"><?= $detail['c_name'] ?></p>
                                                                                     </a>
+                                                                                    <a href="each-product.php?psid=<?= $detail['product_sid'] ?>">
                                                                                     <p class="e-name d-none d-lg-block"><?= $detail['e_name'] ?></p>
+                                                                                    </a>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-2 thisp-qty px-0 text-center"><?= $detail['quantity'] ?>

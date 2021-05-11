@@ -168,16 +168,16 @@ if (isset($_SESSION['user'])) {
                             </div>
                             <!-- 商品內容 -->
                             <div class="col-10 col-lg-8 d-flex pro-content">
-                                <div class="col-2 pro-img"><a href="http://localhost/BeerU/public/each-product.php?psid=<?= $v['sid'] ?>"><img src="../images/products/<?= $v['pic'] ?>" alt=""></a></div>
+                                <div class="col-2 pro-img"><a href="each-product.php?psid=<?= $v['sid'] ?>"><img src="../images/products/<?= $v['pic'] ?>" alt=""></a></div>
                                 <div class="col-10 pro-detail d-flex flex-column justify-content-center  flex-lg-row align-items-lg-center justify-content-lg-between p-0 ">
                                     <div class="col-lg-6 pro-name p-lg-0">
                                         <div class="c-name">
-                                            <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $v['sid'] ?>">
+                                            <a href="each-product.php?psid=<?= $v['sid'] ?>">
                                                 <p><?= $v['c_name'] ?></p>
                                             </a>
                                         </div>
                                         <div class="e-name d-none d-lg-block">
-                                            <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $v['sid'] ?>">
+                                            <a href="each-product.php?psid=<?= $v['sid'] ?>">
                                                 <p><?= $v['e_name'] ?></p>
                                             </a>
                                         </div>
