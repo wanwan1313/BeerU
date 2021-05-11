@@ -1784,8 +1784,14 @@ if (isset($_SESSION['user'])) {
                     
                     if(data.success){
                 
-                        alert('資料修改成功')
+                    $('.pop-up-1').fadeIn(150);
+                    $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+                    $('.pop-up-1 .pop-up-text').text('修改成功');
+                    $('button.ok').on('click', function () {
                         location.reload();
+                        
+                    })
+                        
                     }else{
                         alert(data.error)
 
