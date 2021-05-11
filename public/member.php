@@ -220,7 +220,7 @@ if (isset($_SESSION['user'])) {
                                     </div>
 
                                     <!-- 編輯資料 -->
-                                    <div class="col-12 col-lg-5 mydata-edit mydata-editall ">
+                                    <form name="Edit_data" class="col-12 col-lg-5 mydata-edit mydata-editall" method="post"  novalidate onsubmit="checkForm_edit(); return false;">
                                         <P class="d-none d-lg-block">修改會員資料</P>
                                         <div class="mydata-txt mydata-email mb-3">
                                             <p>信箱</p>
@@ -230,7 +230,7 @@ if (isset($_SESSION['user'])) {
                                             <p>姓名</p>
                                             <i class="fas fa-user-alt user-icon02"></i>
                                             <input type="text" class="input-btn" name="nickname" required value="<?= $m_row['nickname'] ?>">
-                                            <small class="warn"><i class="far fa-times-circle"></i>姓名不得為空白</small>
+                                            <!-- <small class="warn"><i class="far fa-times-circle"></i>姓名不得為空白</small> -->
 
                                         </div>
                                         <div class="mydata-txt mydata-birthday mb-3">
@@ -246,10 +246,12 @@ if (isset($_SESSION['user'])) {
 
                                         </div>
                                         <div class="data-button-wrap d-flex justify-content-center">
-                                            <button class="btn_edit-confirm">送出</button>
+
+                                            <button type="submit" class="btn_edit-confirm">送出</button>
                                             <button class="btn_edit-cancel">取消</button>
+
                                         </div>
-                                    </div>
+                                    </form>
 
 
                                     <!-- 重設密碼 -->
@@ -1764,6 +1766,36 @@ if (isset($_SESSION['user'])) {
         $('.mobile-title').text('會員資料')
         scrollToTop()
     })
+
+
+    function checkForm_edit(){
+
+        let isPass = true;
+
+        if(isPass)
+            $.post(
+
+                'Edit-data-api.php',
+
+                $(document.Edit_data).serialize(),
+
+                function(data){
+                        
+                    
+                    if(data.success){
+                
+                        alert('資料修改成功')
+                        location.reload();
+                    }else{
+                        alert(data.error)
+
+                    }
+
+
+        },'json')
+
+}
+
 
 
 
