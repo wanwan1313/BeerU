@@ -259,8 +259,12 @@ $page_title = '啤女-精釀啤酒商品';
 
                                     <!-- 收藏按鈕 -->
                                     <div class="collect">
+                                        <?php if(!isset($_SESSION['user'])): ?>
+                                        <button class="btn_collect btn_collect_nologin" onclick="LogIn_btn()" ><i class="far fa-heart"></i></button>
+                                        <?php else: ?>
                                         <button class="btn_collect"><i class="far fa-heart"></i></button>
-                                        <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                        <button class="btn_collect_active d-none"><i class="fas fa-heart"></i></button>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
 
@@ -868,6 +872,8 @@ $page_title = '啤女-精釀啤酒商品';
         product_tag.append(allproductTag(p_data))
 
     }
+
+
 </script>
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>
