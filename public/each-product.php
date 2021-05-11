@@ -45,6 +45,50 @@ if ($psid != 0) {
     // 從哪裡來
     $come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
     $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
+
+
+    // 從資料庫抓商品評論
+    
+    //抓總評論數
+    $comment_total_SQL = "SELECT COUNT(1) FROM `comment` WHERE `product_sid` = $psid"; 
+    $comment_total = $pdo->query($comment_total_SQL)->fetch(PDO::FETCH_NUM)[0];
+
+    if( $comment_total > 0 ){
+        // 抓評論
+    $comment_SQL = "SELECT c.*, m.`nickname`, m.`user-pic` FROM `comment` c
+    JOIN `member` m
+    ON c.`member_sid` = m.`sid`
+    WHERE `product_sid` = $psid
+    ORDER BY c.`sid` DESC";
+    $comment_row = $pdo->query($comment_SQL)->fetchAll();
+
+    // 算平均分數
+    $totalScore = 0;
+    foreach( $comment_row as $c){
+        $totalScore += $c['score'];
+    };
+    $averageScore = sprintf( "%.1f",$totalScore / $comment_total);
+    $averageScore_int = floor($averageScore);
+
+    // 算分數百分比
+    $percent_SQL = "SELECT `score`,COUNT(*) AS `quantity` FROM `comment` 
+    WHERE `product_sid` = $psid
+    GROUP BY `score`";
+    $percent_row = $pdo->query($percent_SQL)->fetchAll();
+
+    $score_5 = 0;
+    $score_4 = 0;
+    $score_3 = 0;
+    $score_2 = 0;
+    $score_1 = 0;
+
+    foreach( $percent_row as $pe ){
+        $socre = "score_".$pe['score'];
+        $$socre = $pe['quantity'] / $comment_total * 100 ;
+    };
+    }
+
+
 }else {
     header('Location: all-product.php');
 }
@@ -524,6 +568,8 @@ if ($psid != 0) {
                 <div class="col-12 rpco-title">
                     <p>啤女評價</p>
                 </div>
+
+                <?php if($comment_total > 0 ): ?>
                 <div class="col-12 sub-title d-none d-lg-block">
                     <p>評論摘要</p>
                 </div>
@@ -535,10 +581,10 @@ if ($psid != 0) {
                             <p>5.0分</p>
                         </div>
                         <div class="percent-bar-wrap">
-                            <div class="percent-bar score5-percrnt-bar"></div>
+                            <div class="percent-bar" style="width: <?= $score_5?>%;"></div>
                         </div>
                         <div class="score-percrnt ">
-                            <p>82%</p>
+                            <p><?= $score_5?>%</p>
                         </div>
                     </div>
                     <!-- 4分 -->
@@ -547,10 +593,10 @@ if ($psid != 0) {
                             <p>4.0分</p>
                         </div>
                         <div class="percent-bar-wrap">
-                            <div class="percent-bar"></div>
+                            <div class="percent-bar" style="width: <?= $score_4?>%;"></div>
                         </div>
                         <div class="score-percrnt">
-                            <p>15%</p>
+                            <p><?= $score_4?>%</p>
                         </div>
                     </div>
                     <!-- 3分 -->
@@ -559,10 +605,10 @@ if ($psid != 0) {
                             <p>3.0分</p>
                         </div>
                         <div class="percent-bar-wrap">
-                            <div class="percent-bar"></div>
+                            <div class="percent-bar" style="width: <?= $score_3?>%;"></div>
                         </div>
                         <div class="score-percrnt">
-                            <p>3%</p>
+                            <p><?= $score_3?>%</p>
                         </div>
                     </div>
                     <!-- 2分 -->
@@ -571,10 +617,10 @@ if ($psid != 0) {
                             <p>2.0分</p>
                         </div>
                         <div class="percent-bar-wrap">
-                            <div class="percent-bar"></div>
+                            <div class="percent-bar" style="width: <?= $score_2?>%;"></div>
                         </div>
                         <div class="score-percrnt">
-                            <p>0%</p>
+                            <p><?= $score_2?>%</p>
                         </div>
                     </div>
                     <!-- 1分 -->
@@ -583,60 +629,54 @@ if ($psid != 0) {
                             <p>1.0分</p>
                         </div>
                         <div class="percent-bar-wrap">
-                            <div class="percent-bar"></div>
+                            <div class="percent-bar" style="width: <?= $score_1?>%;"></div>
                         </div>
                         <div class="score-percrnt">
-                            <p>0%</p>
+                            <p><?= $score_1?>%</p>
                         </div>
                     </div>
                 </div>
                 <!-- 分數總攬 -->
                 <div class="col-7 col-lg-4 score-general d-flex flex-lg-column jusyify-content-lg-start align-items-lg-center">
-                    <p class="average-score">5.0</p>
+                    <p class="average-score"><?= $averageScore?></p>
                     <div class="other d-flex flex-column jusyify-content-start align-items-center">
                         <div class="beer-score d-flex">
-                            <img src="../images/common/beerscore-5.svg" alt="">
+                            <img src="../images/common/beerscore-<?= $averageScore_int?>.svg" alt="">
                         </div>
-                        <p class="total-comments">2則評論</p>
+                        <p class="total-comments"><?= $comment_total?>則評論</p>
                     </div>
                 </div>
                 <!-- 使用者評論 -->
                 <div class="col-12 col-lg-8 comments-for-product">
+                    
+                <?php foreach( $comment_row as $c): ?>
                     <!-- 留言BOX -->
                     <div class="user-comment d-flex flex-column">
                         <div class="user-imfo d-flex align-items-center justify-content-center justify-content-lg-start">
-                            <div class="col-4 col-lg-2 user-img"><img src="../images/user/user1.svg" alt=""></div>
+                            <div class="col-4 col-lg-2 user-img"><img src="../images/user/<?= $c['user-pic']?>" alt=""></div>
                             <div class="col-8 col-lg-10 user-name">
-                                <p>Christina C.</p>
-                                <p class="comment-time">March 21, 2021</p>
+                                <p><?= $c['nickname']?></p>
+                                <p class="comment-time"><?= $c['created_at']?></p>
                             </div>
                         </div>
                         <div class="user-msg d-flex align-items-center">
                             <div class="col-4 col-lg-2 beer-score-icon d-flex justify-content-center">
-                                <img src="../images/common/beerscore-5.svg" alt="">
+                                <img src="../images/common/beerscore-<?= $c['score']?>.svg" alt="">
                             </div>
                             <div class="col-8 col-lg-10 comment-text">
-                                <p>很喜歡有果香的啤酒，推薦！推薦推薦推薦推薦推薦推薦推薦推薦推薦推薦推薦推薦推薦推薦推薦</p>
+                                <p><?= $c['text']?></p>
                             </div>
                         </div>
                     </div>
-                    <div class="user-comment d-flex flex-column">
-                        <div class="user-imfo d-flex align-items-center justify-content-center justify-content-lg-start">
-                            <div class="col-4 col-lg-2 user-img"><img src="../images/user/user1.svg" alt=""></div>
-                            <div class="col-8 col-lg-10 user-name">
-                                <p>Christina C.</p>
-                                <p class="comment-time">March 21, 2021</p>
-                            </div>
-                        </div>
-                        <div class="user-msg d-flex align-items-center">
-                            <div class="col-4 col-lg-2 beer-score-icon d-flex justify-content-center">
-                                <img src="../images/common/beerscore-3.svg" alt="">
-                            </div>
-                            <div class="col-8 col-lg-10 comment-text">
-                                <p>很喜歡有果香的啤酒，推薦！</p>
-                            </div>
-                        </div>
+                <?php endforeach; ?>
+                
+                <?php else: ?>
+                    <p class="col-12 empty-comment">目前尚無愛好者的評價</p>
+                    <div class="col-8 col-lg-3 empty-beer">
+                        <img src="../images/common/combuy.svg" alt="">
                     </div>
+                <?php endif; ?>
+                    
 
 
                 </div>
