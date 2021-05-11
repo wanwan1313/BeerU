@@ -46,3 +46,16 @@ function checkform_sign(){
 
 
 }
+
+
+// 設定註冊只能18歲
+let maxYear = new Date().getFullYear()-18;
+let maxDate = new Date().getDate()
+let maxMonth = new Date().getMonth()+1
+
+function setMonth(s){
+   return s<10 ? '0'+s : s;
+}
+
+let maxAge = maxYear +'-'+setMonth(maxMonth)+'-'+maxDate ;
+$('.birthday').attr('max',maxAge);

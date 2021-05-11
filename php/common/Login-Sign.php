@@ -130,8 +130,8 @@
 
                         <div class="logSign-birthday">
                             <h3>生日 </h3>
-                            <input class="input-btn" 
-                            type="date" id="birthday" name="birthday"  max="2003-12-31">
+                            <input class="input-btn birthday" 
+                            type="date" id="birthday" name="birthday"  >
                         </div>
                     </div>
 

@@ -235,7 +235,7 @@ if (isset($_SESSION['user'])) {
                                         </div>
                                         <div class="mydata-txt mydata-birthday mb-3">
                                             <p>生日</p>
-                                            <input class="input-btn" type="date" name="birthday" max="2003-12-31">
+                                            <input class="input-btn birthday" type="date" name="birthday"required value="<?= $m_row['birthday'] ?>">
                                             <small class="warn"></small>
 
                                         </div>
@@ -1648,6 +1648,7 @@ if (isset($_SESSION['user'])) {
 
 
 <script>
+
     function scrollToTop() {
         $('html, body').animate({
             scrollTop: 0
@@ -1766,6 +1767,19 @@ if (isset($_SESSION['user'])) {
         $('.mobile-title').text('會員資料')
         scrollToTop()
     })
+
+
+    //設定只能18歲
+    let maxYear = new Date().getFullYear()-18;
+    let maxDate = new Date().getDate()
+    let maxMonth = new Date().getMonth()+1
+    
+    function setMonth(s){
+       return s<10 ? '0'+s : s;
+    }
+
+    let maxAge = maxYear +'-'+setMonth(maxMonth)+'-'+maxDate ;
+    $('.birthday').attr('max',maxAge);
 
 
     function checkForm_edit(){
