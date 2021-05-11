@@ -51,6 +51,16 @@ if (isset($_SESSION['user'])) {
     WHERE `member_sid` = $m_sid AND `product_sid` > 0 AND `comment` = 'false'
     ORDER BY o.`sid` DESC";
     $com_row = $pdo->query($comment_SQL)->fetchAll();
+
+
+
+    // 從資料庫抓已評論的商品
+    $commentdone_SQL = "SELECT c.`sid`, c.`product_sid`,c.`score`,c.`text`, p.`c_name`, p.`e_name`, p.`pic` FROM `comment` c
+    JOIN `products` p 
+    ON c.`product_sid` = p.`sid`
+    WHERE `member_sid` = $m_sid 
+    ORDER BY `sid` DESC";
+    $comdone_row = $pdo->query($commentdone_SQL)->fetchAll();
 };
 
 
@@ -848,56 +858,59 @@ if (isset($_SESSION['user'])) {
 
                                             <?php if (!empty($com_row)) : ?>
 
-                                                <?php foreach( $com_row as $com ): ?>
-                                                <!-- 單支產品評價 -->
-                                                <div class="comment-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="<?= $com['product_sid']?>">
+                                                <?php foreach ($com_row as $com) : ?>
+                                                    <!-- 單支產品評價 -->
+                                                    <div class="comment-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-pro="<?= $com['product_sid'] ?>">
 
-                                                    <!-- 商品資訊 -->
-                                                    <div class="col-12 col-lg-4 com-pro d-flex flex-wrap align-items-center px-lg-0">
-                                                        <div class="col-12 px-0">
-                                                            <p class="title">商品</p>
-                                                        </div>
-                                                        <div class="col-12 this-p d-flex align-items-center px-0">
-                                                            <div class="col-2 thisp-pic px-0"><img src="../images/products/<?= $com['pic']?>" alt="">
+                                                        <!-- 商品資訊 -->
+                                                        <div class="col-12 col-lg-4 com-pro d-flex flex-wrap align-items-center px-lg-0">
+                                                            <div class="col-12 px-0">
+                                                                <p class="title">商品</p>
                                                             </div>
-                                                            <div class="col-10 thisp-name px-0 pr-lg-4">
-                                                                <p class="c-name"><?= $com['c_name']?></p>
-                                                                <p class="e-name "><?= $com['e_name']?></p>
+                                                            <div class="col-12 this-p d-flex align-items-center px-0">
+                                                                <div class="col-2 thisp-pic px-0">
+                                                                    <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $com['product_sid'] ?>"><img src="../images/products/<?= $com['pic'] ?>" alt=""></a>
+                                                                </div>
+                                                                <div class="col-10 thisp-name px-0 pr-lg-4">
+                                                                    <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $com['product_sid'] ?>">
+                                                                        <p class="c-name"><?= $com['c_name'] ?></p>
+                                                                    </a>
+                                                                    <p class="e-name "><?= $com['e_name'] ?></p>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <!-- 打分數 -->
-                                                    <div class="col-12 col-lg-2 com-score d-flex flex-wrap align-items-center px-lg-0">
-                                                        <div class="col-12 px-0">
-                                                            <p class="title">分數</p>
+                                                        <!-- 打分數 -->
+                                                        <div class="col-12 col-lg-2 com-score d-flex flex-wrap align-items-center px-lg-0">
+                                                            <div class="col-12 px-0">
+                                                                <p class="title">分數</p>
+                                                            </div>
+                                                            <div class="col-12 thisscore d-flex px-0 align-items-center">
+                                                                <select name="score" class="myscore">
+                                                                    <option value="5">5</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="1">1</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-12 thisscore d-flex px-0 align-items-center">
-                                                            <select name="score" class="myscore">
-                                                                <option value="5">5</option>
-                                                                <option value="4">4</option>
-                                                                <option value="3">3</option>
-                                                                <option value="2">2</option>
-                                                                <option value="1">1</option>
-                                                            </select>
+                                                        <!-- 寫下評價 -->
+                                                        <div class="col-12 col-lg-5 com-txt d-flex flex-wrap align-items-center px-lg-0">
+                                                            <div class="col-12 px-0">
+                                                                <p class="title">評論</p>
+                                                            </div>
+                                                            <div class="col-12 thiscommtent d-flex px-0 align-items-center">
+                                                                <textarea name="commtent" rows="2" class="commenttextarea">請寫下對這支酒的感想!</textarea>
+                                                            </div>
+                                                            <small class="warn"></small>
                                                         </div>
-                                                    </div>
-                                                    <!-- 寫下評價 -->
-                                                    <div class="col-12 col-lg-5 com-txt d-flex flex-wrap align-items-center px-lg-0">
-                                                        <div class="col-12 px-0">
-                                                            <p class="title">評論</p>
-                                                        </div>
-                                                        <div class="col-12 thiscommtent d-flex px-0 align-items-center">
-                                                            <textarea name="commtent" rows="2" class="commenttextarea">請寫下對這支酒的感想!</textarea>
-                                                        </div>
-                                                        <small class="warn"></small>
-                                                    </div>
 
-                                                    <!-- 送出 -->
-                                                    <div class="col-12 col-lg-1 member-button com-button d-flex  align-items-center px-0 justify-content-center">
-                                                        <button class="btn_comment-confirm">送出</button>
-                                                    </div>
+                                                        <!-- 送出 -->
+                                                        <div class="col-12 col-lg-1 member-button com-button d-flex  align-items-center px-0 justify-content-center">
+                                                            <button class="btn_comment-confirm" onclick="commentProduct('add')">送出</button>
+                                                        </div>
 
-                                                </div>
+                                                    </div>
                                                 <?php endforeach; ?>
 
                                             <?php else : ?>
@@ -918,72 +931,88 @@ if (isset($_SESSION['user'])) {
 
                                         <div class="col-12 mydonecomment-items px-0 memberAccordion-content">
 
-                                            <!-- 單支產品評價 -->
-                                            <div class="comment-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="">
+                                            <?php if (!empty($comdone_row)) : ?>
 
-                                                <!-- 商品資訊 -->
-                                                <div class="col-12 col-lg-4 com-pro d-flex flex-wrap align-items-center px-lg-0">
-                                                    <div class="col-12 px-0">
-                                                        <p class="title">商品</p>
-                                                    </div>
-                                                    <div class="col-12 this-p d-flex align-items-center px-0">
-                                                        <div class="col-2 thisp-pic px-0"><img src="../images/products/8-wired-06.png" alt="">
+                                                <?php foreach ($comdone_row as $comdone) : ?>
+                                                    <!-- 單支產品評價 -->
+                                                    <div class="comment-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="<?= $comdone['sid'] ?>" data-pro="<?= $comdone['product_sid'] ?>">
+
+                                                        <!-- 商品資訊 -->
+                                                        <div class="col-12 col-lg-4 com-pro d-flex flex-wrap align-items-center px-lg-0">
+                                                            <div class="col-12 px-0">
+                                                                <p class="title">商品</p>
+                                                            </div>
+                                                            <div class="col-12 this-p d-flex align-items-center px-0">
+                                                                <div class="col-2 thisp-pic px-0">
+                                                                    <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $comdone['product_sid'] ?>">
+                                                                        <img src="../images/products/<?= $comdone['pic'] ?>" alt="">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-10 thisp-name px-0 pr-lg-4">
+                                                                    <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $comdone['product_sid'] ?>">
+                                                                        <p class="c-name"><?= $comdone['c_name'] ?></p>
+                                                                    </a>
+                                                                    <p class="e-name "><?= $comdone['e_name'] ?></p>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-10 thisp-name px-0">
-                                                            <p class="c-name">奧斯陸 ．北歐瘋皮爾森</p>
-                                                            <p class="e-name ">Oslo - Nordic Pilsner</p>
+                                                        <!-- 打分數 -->
+                                                        <div class="col-12 col-lg-2 com-score d-flex flex-wrap align-items-center px-lg-0">
+                                                            <div class="col-12 px-0">
+                                                                <p class="title">分數</p>
+                                                            </div>
+                                                            <div class="col-12 thisscore d-flex px-0 align-items-center">
+
+                                                                <div class="beer-score" data-score="<?= $comdone['score'] ?>">
+                                                                    <img src="../images/common/beerscore-<?= $comdone['score'] ?>.svg" alt="">
+                                                                </div>
+
+                                                                <select name="score" class="myscore myscore-edit d-none">
+                                                                    <option value="5">5</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="1">1</option>
+                                                                </select>
+
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <!-- 打分數 -->
-                                                <div class="col-12 col-lg-2 com-score d-flex flex-wrap align-items-center px-lg-0">
-                                                    <div class="col-12 px-0">
-                                                        <p class="title">分數</p>
-                                                    </div>
-                                                    <div class="col-12 thisscore d-flex px-0 align-items-center">
+                                                        <!-- 寫下評價 -->
+                                                        <div class="col-12 col-lg-5 com-txt d-flex flex-wrap align-items-center px-lg-0">
+                                                            <div class="col-12 px-0">
+                                                                <p class="title">評論</p>
+                                                            </div>
+                                                            <div class="col-12 thiscommtent d-flex px-0 align-items-center">
+                                                                <p class="mycommenttxt"><?= $comdone['text'] ?></p>
 
-                                                        <div class="beer-score">
-                                                            <img src="../images/common/beerscore-5.svg" alt="">
-                                                        </div>
-
-                                                        <select name="score" class="myscore-edit d-none">
-                                                            <option value="5">5</option>
-                                                            <option value="4">4</option>
-                                                            <option value="3">3</option>
-                                                            <option value="2">2</option>
-                                                            <option value="1">1</option>
-                                                        </select>
-
-                                                    </div>
-                                                </div>
-                                                <!-- 寫下評價 -->
-                                                <div class="col-12 col-lg-5 com-txt d-flex flex-wrap align-items-center px-lg-0">
-                                                    <div class="col-12 px-0">
-                                                        <p class="title">評論</p>
-                                                    </div>
-                                                    <div class="col-12 thiscommtent d-flex px-0 align-items-center">
-                                                        <p class="mycommenttxt">帶有果香的啤酒！非常推薦給新手喔！</p>
-
-                                                        <textarea name="commtent" rows="2" class="commenttextarea-edit d-none">請寫下對這支酒的感想!</textarea>
-                                                    </div>
-                                                </div>
-
-                                                <!-- 修改 -->
-                                                <div class="col-12 col-lg-1 member-button com-button d-flex align-items-center px-0 justify-content-center ">
-                                                    <button class="btn_comment-edit"><i class="fas fa-pencil-alt"></i></button>
-
-                                                    <div class="edit-buttons-wrap d-none">
-                                                        <div class="edit-buttons d-flex flex-wrap align-content-center px-0 justify-content-center ">
-                                                            <button class="btn_comment-confirm">送出</button>
-                                                            <button class="btn_comment-cancel">取消</button>
+                                                                <textarea name="commtent" rows="2" class="commenttextarea commenttextarea-edit d-none">請寫下對這支酒的感想!</textarea>
+                                                            </div>
                                                         </div>
 
+                                                        <!-- 修改 -->
+                                                        <div class="col-12 col-lg-1 member-button com-button d-flex align-items-center px-0 justify-content-center ">
+                                                            <button class="btn_comment-edit" onclick="editComment()"><i class="fas fa-pencil-alt"></i></button>
+
+                                                            <div class="edit-buttons-wrap d-none">
+                                                                <div class="edit-buttons d-flex flex-wrap align-content-center px-0 justify-content-center ">
+                                                                    <button class="btn_comment-confirm" onclick="commentProduct('edit')">送出</button>
+                                                                    <button class="btn_comment-cancel">取消</button>
+                                                                </div>
+
+                                                            </div>
+
+
+                                                        </div>
+
                                                     </div>
+                                                <?php endforeach; ?>
 
-
+                                            <?php else : ?>
+                                                <div class="empty-status px-3 px-lg-5">
+                                                    <p>目前沒有已評價的商品</p>
+                                                    <a href="all-product.php"><button class="starttogo">開始購物<i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></button></a>
                                                 </div>
-
-                                            </div>
+                                            <?php endif; ?>
 
 
                                         </div>
@@ -1325,9 +1354,10 @@ if (isset($_SESSION['user'])) {
                                                                     <?php foreach ($detail_row as $detail) : ?>
                                                                         <div class="my-checkout-p d-flex align-items-center mb-2">
                                                                             <div class="col-7 col-lg-8 d-flex align-items-center">
-                                                                                <div class="col-2 thisp-pic px-0"><img src="../images/products/<?= $detail['pic'] ?>" alt=""></div>
+                                                                                <div class="col-2 thisp-pic px-0">
+                                                                                    <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $detail['product_sid'] ?>"><img src="../images/products/<?= $detail['pic'] ?>" alt=""></div></a>
                                                                                 <div class="col-10 thisp-name px-0">
-                                                                                    <p class="c-name"><?= $detail['c_name'] ?></p>
+                                                                                    <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $detail['product_sid'] ?>"><p class="c-name"><?= $detail['c_name'] ?></p></a>
                                                                                     <p class="e-name d-none d-lg-block"><?= $detail['e_name'] ?></p>
                                                                                 </div>
                                                                             </div>
@@ -1487,9 +1517,12 @@ if (isset($_SESSION['user'])) {
                                                                     <?php foreach ($detail_row as $detail) : ?>
                                                                         <div class="my-checkout-p d-flex align-items-center mb-2">
                                                                             <div class="col-7 col-lg-8 d-flex align-items-center">
-                                                                                <div class="col-2 thisp-pic px-0"><img src="../images/products/<?= $detail['pic'] ?>" alt=""></div>
+                                                                                <div class="col-2 thisp-pic px-0">
+                                                                                    <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $detail['product_sid'] ?>"><img src="../images/products/<?= $detail['pic'] ?>" alt=""></div></a>
                                                                                 <div class="col-10 thisp-name px-0">
+                                                                                    <a href="http://localhost/BeerU/public/each-product.php?psid=<?= $detail['product_sid'] ?>">
                                                                                     <p class="c-name"><?= $detail['c_name'] ?></p>
+                                                                                    </a>
                                                                                     <p class="e-name d-none d-lg-block"><?= $detail['e_name'] ?></p>
                                                                                 </div>
                                                                             </div>
@@ -1785,37 +1818,69 @@ if (isset($_SESSION['user'])) {
 
 
     // 評論---------------------------------------------------------------------------------------------------------
-    
+
     // 刪除placeholder
-    $(".commenttextarea").on('click',function(){
+    $(".commenttextarea").on('click', function() {
         $(this).val('')
     })
-    
+
     // 送出
 
-    $('.btn_comment-confirm').on('click',function(){
+    function commentProduct(myaction) {
         let isPass = true
-        let psid = $(this).closest('.comment-box').attr('data-sid')
-        let score = $(this).parent().prevAll('.com-score').find('select.myscore').val()
-        let comment = $(this).parent().prevAll('.com-txt').find('textarea.commenttextarea').val()
+        let action = myaction
+        let com_btn = $(event.currentTarget)
+        let csid = com_btn.closest('.comment-box').attr('data-sid') != undefined ? com_btn.closest('.comment-box').attr('data-sid') : 0;
+        let psid = com_btn.closest('.comment-box').attr('data-pro')
+        let score = com_btn.closest('.member-button').prevAll('.com-score').find('select.myscore').val()
+        let comment = com_btn.closest('.member-button').prevAll('.com-txt').find('textarea.commenttextarea').val()
 
-        // console.log(psid,score,comment)
+        // console.log(action,psid,score,comment)
 
         if (isPass) {
             $.post(
-                'member-comment-api.php',
-                {psid,score,comment},
+                'member-comment-api.php', {
+                    action,
+                    csid,
+                    psid,
+                    score,
+                    comment
+                },
                 function(data) {
                     console.log(data)
-                    // $(this).closest('.comment-box').remove()
+                    // com_btn.closest('.comment-box').remove()
+                    $('.pop-up-1').fadeIn(150)
+                    $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
+                    $('.pop-up-1 .pop-up-text').text(data.msg)
+
+                    $('button.ok').on('click', function() {
+                        $('.general-pop-up').fadeOut(150)
+                        location.href = 'member.php?memberComment'
+                    })
                 },
                 'json'
             )
         }
-    })
+    }
 
-
-
+    // 編輯評論
+    function editComment() {
+        let isPass = true
+        let edit_btn = $(event.currentTarget)
+        let thisScore = edit_btn.closest('.member-button').prevAll('.com-score').find('.beer-score').attr('data-score')
+        let thisComment = edit_btn.closest('.member-button').prevAll('.com-txt').find('.mycommenttxt').text()
+        // 分數
+        edit_btn.closest('.member-button').prevAll('.com-score').find('.beer-score').addClass('d-none')
+        edit_btn.closest('.member-button').prevAll('.com-score').find('.myscore-edit').removeClass('d-none')
+        edit_btn.closest('.member-button').prevAll('.com-score').find('.myscore-edit').val(thisScore)
+        // 評論
+        edit_btn.closest('.member-button').prevAll('.com-txt').find('.mycommenttxt').addClass('d-none')
+        edit_btn.closest('.member-button').prevAll('.com-txt').find('.commenttextarea-edit').removeClass('d-none')
+        edit_btn.closest('.member-button').prevAll('.com-txt').find('.commenttextarea-edit').val(thisComment)
+        // 按鈕
+        edit_btn.next().removeClass('d-none')
+        edit_btn.addClass('d-none')
+    }
 </script>
 
 
