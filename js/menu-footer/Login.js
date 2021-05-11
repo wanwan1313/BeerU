@@ -24,12 +24,13 @@ function checkform_Login(){
 
 
                 } else {
-                    $('.pop-up-1').fadeIn(150);
-                    $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color','var(--red)')
-                    $('.pop-up-1 .pop-up-text').text('登入失敗');
-                    $('button.ok').on('click', function () {
-                        location.reload();
-                    })
+                    // $('.pop-up-1').fadeIn(150);
+                    // $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color','var(--red)')
+                    // $('.pop-up-1 .pop-up-text').text('登入失敗');
+                    // $('button.ok').on('click', function () {
+                    //     location.reload();
+                    // })
+                    alert('登入失敗');
                     
                 }
             },
@@ -119,3 +120,7 @@ function LogIn_btn(){
 
 
 }
+
+
+
+
