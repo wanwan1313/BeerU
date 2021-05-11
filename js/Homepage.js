@@ -87,30 +87,30 @@ $(document).ready(function(){
 
    
 
-        if ($(window).width() >= 992){
-       
-       
-        setTimeout(()=>{
-            $('.woman01-img').css('opacity','1').css('transition','0.8s');
+            if ($(window).width() >= 992){
+        
+        
+            setTimeout(()=>{
+                $('.woman01-img').css('opacity','1').css('transition','0.8s');
 
-        },9000)
+            },9000)
 
-        setTimeout(()=>{
-            $('.woman02-img').css('opacity','1').css('transition','0.8s');
+            setTimeout(()=>{
+                $('.woman02-img').css('opacity','1').css('transition','0.8s');
 
-        },9500)
+            },9500)
 
-        setTimeout(()=>{
-            $('.woman03-img').css('opacity','1').css('transition','0.8s');
+            setTimeout(()=>{
+                $('.woman03-img').css('opacity','1').css('transition','0.8s');
 
-        },10000)
-        setTimeout(()=>{
-            $('.woman04-img').css('opacity','1').css('transition','0.8s');
+            },10000)
+            setTimeout(()=>{
+                $('.woman04-img').css('opacity','1').css('transition','0.8s');
 
-        },10500)
+            },10500)
 
-         // 說話的女人們
-         setTimeout(() => {
+            // 說話的女人們
+            setTimeout(() => {
                     
 
             $('.woman01').on({
@@ -165,21 +165,22 @@ $(document).ready(function(){
            
 
        
-        }
+            }
      
-        if ($(window).width() < 992){
-            setTimeout(()=>{
-                $('.RWD-button').css('opacity','1').css('transition','0.8s');
-    
-            },9000)
+            if ($(window).width() < 992){
+                setTimeout(()=>{
+                    $('.RWD-button').css('opacity','1').css('transition','0.8s');
+        
+                },9000)
+            }
+
+
+        
         }
-
-
-       
-    }
 
     //若沒開門
     else{
+
         $('#LandingPage').addClass('OUT');
         $('#content-wrap').css('display','block').css('opacity','1');
 
@@ -190,7 +191,7 @@ $(document).ready(function(){
     
         },3000)
 
-    
+       //網頁效果
         if ($(window).width() >= 992){
             setTimeout(()=>{
                 $('.woman01-img').css('opacity','1').css('transition','0.8s');
@@ -214,70 +215,70 @@ $(document).ready(function(){
 
 
             // 說話的女人們
-                setTimeout(() => {
-                    
+            setTimeout(() => {
+                
 
-                    $('.woman01').on({
+                $('.woman01').on({
+                
+                    mouseenter:function(){
+                    $('.talk01').css('transform','scale(1) translate(-80px, -80px)').css('opacity','1').css('transition','0.5s')
+                    },
+                    mouseleave:function(){
+                    $('.talk01').css('transform','scale(0.5)  translate(-80px, -80px)').css('opacity','0').css('transition','0.5s')
+                
+                    }
                     
-                        mouseenter:function(){
-                        $('.talk01').css('transform','scale(1) translate(-80px, -80px)').css('opacity','1').css('transition','0.5s')
-                        },
-                        mouseleave:function(){
-                        $('.talk01').css('transform','scale(0.5)  translate(-80px, -80px)').css('opacity','0').css('transition','0.5s')
+                })
+                
+                $('.woman02').on({
+                
+                    mouseenter:function(){
+                    $('.talk02').css('transform','scale(1) translate(50px, -60px)').css('opacity','1').css('transition','0.5s')
+                    },
+                    mouseleave:function(){
+                    $('.talk02').css('transform','scale(0.5) translate(50px, -60px)').css('opacity','0').css('transition','0.5s')
+                
+                    }
                     
-                        }
-                        
-                    })
+                })
+                
+                $('.woman03').on({
+                
+                    mouseenter:function(){
+                    $('.talk03').css('transform','scale(1) translate(50px, -80px)').css('opacity','1').css('transition','0.5s')
+                    },
+                    mouseleave:function(){
+                    $('.talk03').css('transform','scale(0.5) translate(50px, -80px)').css('opacity','0').css('transition','0.5s')
+                
+                    }
                     
-                    $('.woman02').on({
+                })
+                
+                $('.woman04').on({
+                
+                    mouseenter:function(){
+                    $('.talk04').css('transform','scale(1) translate(30px, -60px)').css('opacity','1').css('transition','0.5s')
+                    },
+                    mouseleave:function(){
+                    $('.talk04').css('transform','scale(0.5) translate(30px, -60px)').css('opacity','0').css('transition','0.5s')
+                
+                    }
                     
-                        mouseenter:function(){
-                        $('.talk02').css('transform','scale(1) translate(50px, -60px)').css('opacity','1').css('transition','0.5s')
-                        },
-                        mouseleave:function(){
-                        $('.talk02').css('transform','scale(0.5) translate(50px, -60px)').css('opacity','0').css('transition','0.5s')
-                    
-                        }
-                        
-                    })
-                    
-                    $('.woman03').on({
-                    
-                        mouseenter:function(){
-                        $('.talk03').css('transform','scale(1) translate(50px, -80px)').css('opacity','1').css('transition','0.5s')
-                        },
-                        mouseleave:function(){
-                        $('.talk03').css('transform','scale(0.5) translate(50px, -80px)').css('opacity','0').css('transition','0.5s')
-                    
-                        }
-                        
-                    })
-                    
-                    $('.woman04').on({
-                    
-                        mouseenter:function(){
-                        $('.talk04').css('transform','scale(1) translate(30px, -60px)').css('opacity','1').css('transition','0.5s')
-                        },
-                        mouseleave:function(){
-                        $('.talk04').css('transform','scale(0.5) translate(30px, -60px)').css('opacity','0').css('transition','0.5s')
-                    
-                        }
-                        
-                    })
-                    
-                    }, 3500);
+                })
+                
+                }, 3500);
 
-       }
+        }
 
 
-    //    首頁RWD按鈕出現
-       if ($(window).width() < 992){
-        setTimeout(()=>{
-            $('.RWD-button').css('opacity','1').css('transition','0.8s');
+        //    首頁RWD按鈕出現
+        if ($(window).width() < 992){
+            setTimeout(()=>{
+                $('.RWD-button').css('opacity','1').css('transition','0.8s');
 
-        },1500)
-     
-       }
+            },1500)
+        
+        }
 
     
       
