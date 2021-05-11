@@ -219,8 +219,8 @@ if (isset($_SESSION['user'])) {
                                         </div>
                                     </div>
 
-                                    <!-- 編輯資料 -->
-                                    <form name="Edit_data" class="col-12 col-lg-5 mydata-edit mydata-editall" method="post"  novalidate onsubmit="checkForm_edit(); return false;">
+                                     <!-- 編輯資料 -->
+                                    <form name="Edit_data" class="col-12 col-lg-5 mydata-edit mydata-editall" method="post"  novalidate >
                                         <P class="d-none d-lg-block">修改會員資料</P>
                                         <div class="mydata-txt mydata-email mb-3">
                                             <p>信箱</p>
@@ -235,7 +235,7 @@ if (isset($_SESSION['user'])) {
                                         </div>
                                         <div class="mydata-txt mydata-birthday mb-3">
                                             <p>生日</p>
-                                            <input class="input-btn" type="date" name="birthday">
+                                            <input class="input-btn" type="date" name="birthday" max="2003-12-31">
                                             <small class="warn"></small>
 
                                         </div>
@@ -247,7 +247,7 @@ if (isset($_SESSION['user'])) {
                                         </div>
                                         <div class="data-button-wrap d-flex justify-content-center">
 
-                                            <button type="submit" class="btn_edit-confirm">送出</button>
+                                             <button type="submit" class="btn_edit-confirm" onclick="checkForm_edit(); return false;">送出</button>
                                             <button class="btn_edit-cancel">取消</button>
 
                                         </div>
