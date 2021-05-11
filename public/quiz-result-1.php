@@ -279,12 +279,16 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
             <div class="share-wrap">
                 <p class="share-title mt-5">分享測驗結果</p>
                 <!-- 分享按鈕們 -->
-                <div class="share-icons d-flex align-items-center">
+                <div class="share-icons d-flex">
 
                     <div class="fb-share-button" data-href="quiz-result-1.php" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">分享</a></div>
 
+                    <div href='javascript: void(window.open(&apos;https://lineit.line.me/share/ui?url=&apos; .concat(encodeURIComponent(location.href)) ));' title='分享給 LINE 好友'>
+                        <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-ver="3" data-size="large"></div>
+                    </div>
 
                     <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-ver="3" data-url="https://org-media.line.me/zh_TW/how_to_install#lineitbutton" data-color="default" data-size="large" data-count="false" style="display: none;"></div>
+
                     <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
 
                 </div>
