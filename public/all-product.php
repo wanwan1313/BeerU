@@ -5,6 +5,7 @@
 
 $page_title = '啤女-精釀啤酒商品';
 
+
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -260,10 +261,66 @@ $page_title = '啤女-精釀啤酒商品';
                                     <!-- 收藏按鈕 -->
                                     <div class="collect">
                                         <?php if(!isset($_SESSION['user'])): ?>
-                                        <button class="btn_collect btn_collect_nologin" onclick="LogIn_btn()" ><i class="far fa-heart"></i></button>
+                                        <button class="btn_collect_nologin" onclick="LogIn_btn()" ><i class="far fa-heart"></i></button>
                                         <?php else: ?>
                                         <button class="btn_collect"><i class="far fa-heart"></i></button>
                                         <button class="btn_collect_active d-none"><i class="fas fa-heart"></i></button>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+
+                                <!-- 商品介紹 -->
+                                <div class="pro-intro d-flex flex-column justify-content-between">
+                                    <!-- 商品名稱 -->
+                                    <a href="each-product.php?psid=${p.sid}">
+                                        <div class="p-name">
+                                            <p class="p-name-c">${p.c_name}</p>
+                                            <p class="p-name-e">${p.e_name}</p>
+                                        </div>
+                                    </a>
+                                    <!-- 購買 -->
+                                    <div class="p-buy d-flex flex-wrap">
+                                        <!-- 選擇數量 -->
+                                        <div class="col-12 quantity d-flex justify-content-between">
+                                            <div class="minus"><i class="fas fa-minus"></i></div>
+                                            <input type="text" class="buy-number" value="1">
+                                            <div class="plus"><i class="fas fa-plus"></i></div>
+                                        </div>
+                                        <!-- 價格 -->
+                                        <div class="col-5 p-price">
+                                            <p class="price" >$${p.price}</p>
+                                        </div>
+                                        <!-- 加入購物車按鈕 -->
+                                        <button class="col-7 add-cart"><i class="fas fa-shopping-bag"></i>加入購物車</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        `
+    }
+    const allproductTpl2 = p => {
+        return `
+        <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                            <div class="beer-product" data-sid=${p.sid} data-price=${p.price} data-abv=${p.abv}>
+                                <div class="pro-pic">
+                                    <!-- 商品圖 -->
+                                    <a href="each-product.php?psid=${p.sid}">
+                                        <img class="beer-pic" src="../images/products/${p.pic}" alt="">
+                                    </a>
+                                    <!-- 標籤 -->
+                                    <div class="label ${p.sid}-label">
+                                    </div>
+
+                                    <!-- 國家圖片 -->
+                                    <div class="country"><img src="../images/country/${p.country_pic}" alt=""></div>
+
+                                    <!-- 收藏按鈕 -->
+                                    <div class="collect">
+                                        <?php if(!isset($_SESSION['user'])): ?>
+                                        <button class="btn_collect_nologin" onclick="LogIn_btn()" ><i class="far fa-heart"></i></button>
+                                        <?php else: ?>
+                                        <button class="btn_collect d-none"><i class="far fa-heart"></i></button>
+                                        <button class="btn_collect_active"><i class="fas fa-heart"></i></button>
                                         <?php endif; ?>
                                     </div>
                                 </div>
@@ -811,7 +868,17 @@ $page_title = '啤女-精釀啤酒商品';
         product_arrang.html('')
         if (p_data.rows && p_data.rows.forEach) {
             p_data.rows.forEach(el => {
-                product_arrang.append(allproductTpl(el))
+                
+                let psid = el.sid
+                // 判斷商品有沒有被收藏
+                if( p_data.collect.indexOf(psid) > -1){
+                    product_arrang.append(allproductTpl2(el))
+                }else{
+                    product_arrang.append(allproductTpl(el))
+                }
+                
+                
+                
                 let ishot = el.hot //抓熱門的值
                 let created_at = Date.parse(el.created_at).valueOf() //抓建立時間
                 let deadline = Date.parse('2021-05-01').valueOf() //設定要有new標籤的時間點

@@ -139,9 +139,25 @@ if ($page < 1) {
     $page = $total_pages;
 };
 
+
 $s_SQL = sprintf("SELECT * FROM `products` $where ORDER BY $sort LIMIT %s,%s", ($page - 1) * $page_p, $page_p);
 
 $rows = $pdo->query($s_SQL)->fetchAll();
+
+
+// 登入會員的狀態，抓收藏商品
+$c_arr = [];
+if( isset($_SESSION['user'])){
+
+    $m_sid = $_SESSION['user']['sid'] ; 
+    $c_SQL = "SELECT `product_sid` FROM `collect` WHERE `member_sid` = $m_sid";
+    $c_row = $pdo -> query($c_SQL) -> fetchAll();
+    if( !empty($c_row)){
+        foreach( $c_row as $c){
+            array_push($c_arr, $c['product_sid']);
+        }
+    }
+}
 
 echo json_encode([
     'page' => $page,
@@ -151,4 +167,5 @@ echo json_encode([
     'cate' => $cate,
     'cate_name' => $cate_name,
     'rows' => $rows,
+    'collect' => $c_arr,
 ], JSON_UNESCAPED_UNICODE);
