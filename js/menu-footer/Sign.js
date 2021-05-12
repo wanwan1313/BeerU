@@ -49,13 +49,13 @@ function checkform_sign(){
 
 
 // 設定註冊只能18歲
-let maxYear = new Date().getFullYear()-18;
-let maxDate = new Date().getDate()
-let maxMonth = new Date().getMonth()+1
+let Sign_maxYear = new Date().getFullYear()-18;
+let Sign_maxDate = new Date().getDate()
+let Sign_maxMonth = new Date().getMonth()+1
 
-function setMonth(s){
+function Sign_setMonth(s){
    return s<10 ? '0'+s : s;
 }
 
-let maxAge = maxYear +'-'+setMonth(maxMonth)+'-'+maxDate ;
-$('.birthday').attr('max',maxAge);
+let Sign_maxAge = Sign_maxYear +'-'+Sign_setMonth(Sign_maxMonth)+'-'+Sign_maxDate ;
+$('.birthday').attr('max',Sign_maxAge);
