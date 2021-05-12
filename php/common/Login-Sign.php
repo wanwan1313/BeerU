@@ -51,21 +51,18 @@
 
                     <div class="input-account">
                     <i class="fas fa-user-alt user-icon01"></i>
-                    <input class="input-btn" type="email" placeholder="啤女帳號" name="account" id="account">
-
+                    <input class="input-btn account" type="email" placeholder="啤女帳號" name="account" id="account">
                     </div>
+                    <small class='warn account-warn'><i class="far fa-times-circle"></i>帳號格式錯誤</small>
 
                     <div class="input-password">
                     <i class="fas fa-lock lock-icon01"></i>
-                    <input class="input-btn" type="password" placeholder="密碼" id="password" name="password">
+                    <input class="input-btn password" type="password" placeholder="密碼" id="password" name="password">
                     </div>
 
 
+                    <small class='warn enter-warn'><i class="far fa-times-circle"></i>帳號或密碼錯誤</small>
 
-                    <!-- <div class="wrong-alert d-flex">
-                    <i class="far fa-times-circle"></i>
-                    <p>帳號或密碼錯誤</p>
-                    </div> -->
 
                     <button class="LogIn-btn02 Login" type="submit"> 登入</button>
 
@@ -107,14 +104,14 @@
                         <div class="logSign-account">
                             <h3>啤女帳號</h3>
                             <i class="far fa-envelope email-icon01"></i>
-                            <input class="input-btn" type="email" id="newAccount" name="newAccount" required >
+                            <input class="input-btn newAccount" type="email" id="newAccount" name="newAccount" required >
                             <p>帳號為您的電子信箱</p>
                         </div>
 
                         <div class="logSign-password">
                             <h3>密碼</h3>
                             <i class="fas fa-lock lock-icon02"></i>
-                            <input class="input-btn" name="newPassword" type="password" id="newPassword">
+                            <input class="input-btn newPassword" name="newPassword" type="password" id="newPassword">
                             <p>密碼為 6 碼以上的英文或數字</p>
                         </div>    
                     </div>
@@ -125,7 +122,7 @@
                         <div class="logSign-name">
                             <h3>姓名</h3>
                             <i class="fas fa-user-alt user-icon02"></i>
-                            <input type="text" class="input-btn"  id="nickname"  name="nickname" required>
+                            <input type="text" class="input-btn nickname"  id="nickname"  name="nickname" required>
                         </div>
 
                         <div class="logSign-birthday">
@@ -138,7 +135,7 @@
 
                     <div class="logSign-address">
                         <h3>地址</h3>
-                        <input type="text" class="input-btn"  id="address"  name="address">
+                        <input type="text" class="input-btn address"  id="address"  name="address">
 
                     </div>
 

@@ -1,7 +1,22 @@
 // 登入
+
+const account_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+
+const $account = $('.account'), $password = $('.password');
+
+
 function checkform_Login(){
 
     let isPass = true;
+
+
+    if(!account_re.test($account.val())){
+        isPass = false;
+        $('.account').css('border', 'solid 1px var(--pink)');
+        $('.account-warn').css('display','block')
+
+    }
+    
 
     if(isPass){
 
@@ -24,13 +39,11 @@ function checkform_Login(){
 
 
                 } else {
-                    // $('.pop-up-1').fadeIn(150);
-                    // $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color','var(--red)')
-                    // $('.pop-up-1 .pop-up-text').text('登入失敗');
-                    // $('button.ok').on('click', function () {
-                    //     location.reload();
-                    // })
-                    alert('登入失敗');
+                     
+                   
+                    $('.enter-warn').css('display','block')
+                    $('.input-btn').css('border', 'solid 1px var(--pink)');
+                 
                     
                 }
             },
