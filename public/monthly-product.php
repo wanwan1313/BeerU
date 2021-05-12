@@ -310,8 +310,12 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                     <h5 class="title2 mb-2">Lindemans-Pecheresse</h5>
                     <!-- 收藏按鈕 -->
                     <div class="collect">
-                        <button class="btn_collect2"><i class="far fa-heart"></i></i>加入收藏</button>
-                        <!-- <button class="btn_collect2_active"><i class="fas fa-heart"></i>已收藏</button> -->
+                        <?php if (!isset($_SESSION['user'])) : ?>
+                            <button class="btn_collect2 btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
+                        <?php else : ?>
+                            <button class="btn_collect2 btn_collect d-none"><i class="far fa-heart"></i>加入收藏</button>
+                            <button class="btn_collect2 btn_collect_active"><i class="fas fa-heart"></i>加入收藏</button>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <!-- 4月推薦 -->
