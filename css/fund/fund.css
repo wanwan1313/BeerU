@@ -631,7 +631,7 @@
         text-align: center;
         text-decoration: none;
     }
-    a:hover {
+    .tab-active a:hover {
         color: var(--red);
     }
     .tab-active a {
@@ -747,7 +747,7 @@
         text-align: center;
         text-decoration: none;
     }
-    a:hover {
+    .tab-active a:hover {
         color: var(--red);
     }
     .tab-active a {
