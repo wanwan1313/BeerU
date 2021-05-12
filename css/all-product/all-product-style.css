@@ -717,7 +717,7 @@
     right: 20px;
 }
 
-.all-product .btn_collect, .btn_collect_active {
+.all-product .btn_collect, .btn_collect_active, .btn_collect_nologin {
     background-color: transparent;
     border: none;
     color: var(--red);
@@ -727,11 +727,11 @@
     transition: .3s;
 }
 
-.all-product .btn_collect:hover, .btn_collect_active:hover {
+.all-product .btn_collect:hover, .btn_collect_active:hover, .btn_collect_nologin:hover {
     transform: scale(1.1,1.1);
 }
 
-.all-product .btn_collect::after {
+.all-product .btn_collect::after, .btn_collect_nologin::after {
     content: '加入收藏';
     display: block;
     position:absolute;
@@ -743,7 +743,7 @@
     transition: .3s;
 }
 
-.all-product .btn_collect:hover::after {
+.all-product .btn_collect:hover::after , .btn_collect_nologin:hover::after {
     color: var(--red);
 }
 
