@@ -239,6 +239,18 @@
     border-radius: 5px;
 }
 
+.LogIn-Sign .warn{
+    
+    display: none;
+    color : var(--pink);
+}
+
+
+
+
+
+
+
 .LogIn-Sign ::placeholder{
     font-size: 1.6rem;
     color: var(--gold);
@@ -251,7 +263,7 @@
     position: absolute;
     color: var(--gold);
     top: 30%;
-   left: 3%;
+    left: 3%;
 
 }
 
@@ -259,7 +271,7 @@
     display: flex;
     justify-content: center;
     position: relative;
-    margin-top: 15px;
+    margin-top: 10px;
     
 }
 
@@ -271,22 +283,12 @@
 
 }
 
-.LogIn-Sign .wrong-alert{
-    margin-top: 10px;
-    align-items: center;
-    color:  var(--pink);
-}
 
-
-.LogIn-Sign .wrong-alert p{
-    margin-left: 5px;
-    font-size: 1.4rem;
-}
 
 .LogIn-Sign .LogIn-btn02{
     color: white;
     border: transparent;
-    margin-top: 30px;
+    margin-top: 25px;
     width: 100%;
     background-color: var(--gold);
     text-align: center;
@@ -347,7 +349,7 @@
 }
 
 .LogIn-Sign .back01{
-    margin-top: 30px;
+    margin-top: 15px;
 
 }
 

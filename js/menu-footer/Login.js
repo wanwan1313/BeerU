@@ -17,7 +17,6 @@ function checkform_Login(){
 
     }
     
-
     if(isPass){
 
         $.post(
