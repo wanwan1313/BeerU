@@ -5,18 +5,19 @@
 <?php
 
 $page_title = '啤女BeerU:募資計畫-方案確認頁';
-$sid = substr($_SERVER['QUERY_STRING'], 5);
 
+//用sid號碼抓方案資料 
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
-// $pdo->query("UPDATE `event` SET `event_visited`=`event_visited`+1 WHERE $sid=3");
 
-$f_SQL = "SELECT * FROM `fund`";
+
+
+$f_SQL = "SELECT * FROM `fund` WHERE sid=$sid";
 $f = $pdo->query($f_SQL)->fetch();
 
 
-if ($sid == 0) {
-    header('location:http://localhost/beeru/public/fund.php');
-}
+// if ($sid == 0) {
+//     header('location:http://localhost/beeru/public/fund.php');
+// }
 
 
 
@@ -36,7 +37,7 @@ if ($sid == 0) {
 <!-- 手機版 -->
 <!-- <section class="mobile-menu">
     <?php include __DIR__ . '../../php/common/category.php' ?>
-</section> -->
+</section>
 
 <!-- 這裡開始寫html -->
 <section class="fund-step3">
@@ -56,13 +57,13 @@ if ($sid == 0) {
                         </div>
                         <div class="goal-value">
                             <p><span class="goal-title">目標 |</span>
-                                NT$50,180</p>
+                                NT$<?= $f['goal_price'] ?></p>
                         </div>
                     </div>
                     <div class="sub-intro mt-2">
                         <p>贊助人數 | 6215 </p>
-                        <p>剩餘時間 | 6小時</p>
-                        <p>時程 | 2021/05/01 - 2021/05/30</p>
+                        <p>剩餘時間 | <span id="countdown"></span></p>
+                        <p>時程 | <?= $f['end_date'] ?></p>
                     </div>
 
 
@@ -95,9 +96,9 @@ if ($sid == 0) {
 
 
                 <!-- 更改方案按鈕 -->
-                <a href="../html/fund-step2.html"><button class="btn_edit"><i class="fas fa-edit"></i>更改方案</button></a>
+                <a href="../public/fund.php" class="btn_edit"><i class="fas fa-edit"></i>更改方案</button></a>
             </div>
-            <div class="col-sm-7">
+            <form class="col-sm-7">
 
                 <div class="fund-amount-title">
                     <h2 class="mb-3">贊助金額</h2>
@@ -105,7 +106,8 @@ if ($sid == 0) {
                 <div class="fund-amount">
                     <div class="unit">
                         <button class="minus"><i class="fas fa-minus mb-5"></i></button>
-                        <input class="price" value="$2650" data-price="2650" />
+                        <span class="" style="">$</span><input class="price" value="<?= $f['plan_price' ] ?> " data-price="$<?= $f['plan_price'] ?> ">
+
                         <button class="add"><i class="fas fa-plus"></i></button>
                     </div>
 
@@ -113,14 +115,11 @@ if ($sid == 0) {
                     <p> 可向上加碼，以100元為單位，幫助計畫加速成功。</p>
                     <p><i class="fas fa-medal"></i>啤啤送好禮：加碼500元以上，可增加酒仙指數5%。</p>
 
-
-                    <!-- <a href=""><button class="btn_fundnow"><i class="fas fa-coins"></i>立刻付款贊助</button></a> -->
-
                 </div>
 
-                <a href=""><button class="btn_fundnow"><i class="fas fa-coins"></i>立刻付款贊助</button></a>
+                <div class="btn_fundnow" onclick="gotoCheckout()"><i class="fas fa-coins"></i>立刻付款贊助</div>
 
-            </div>
+            </form>
 
         </div>
     </div>
@@ -135,9 +134,85 @@ if ($sid == 0) {
 <?php include __DIR__ . '../../php/common/script.php' ?>
 <!-- 這裡開始寫jQuery或JS -->
 
-
 <!-- my script -->
-<script src='../js/fund/fund-final.js'></script>
+<script>
+    //  倒數計畫計時器 
+    var countDownDate = new Date("May 30, 2021 00:00:00").getTime();
+    var x = setInterval(function() {
+        var now = new Date().getTime();
+
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = days + "天 " + hours + "小時 " +
+            minutes + "分 " + seconds + "秒 ";
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+
+
+
+    // 加減贊助金額
+    $('.minus').click(function() {
+        var $input = $(this).parent().find('input');
+        var $amount = $(this).parent().find('.price');
+        var minPrice = $amount.data('price');
+        console.log('minPrice', minPrice);
+        console.log('amount', $amount.val().replace('$', ''))
+
+        if (parseInt($amount.val().replace('$', '')) > minPrice) {
+            $amount.val('$' + (parseInt($amount.val().replace('$', '')) - 100))
+        }
+    });
+
+    $('.add').click(function() {
+        var $input = $(this).parent().find('input');
+        var $amount = $(this).parent().find('.price');
+        var minPrice = $amount.data('price');
+        console.log('minPrice', minPrice);
+        console.log('amount', $amount.val().replace('$', ''))
+        $amount.val('$' + (parseInt($amount.val().replace('$', '')) + 100))
+
+    });
+
+    
+
+    // 傳送資料到cart
+    function gotoCheckout() {
+        let fsid = window.location.search.substr(5, 1)
+        let totalPrice = $('.price').val() * 1
+
+        // console.log(fsid,totalPrice)
+
+        $.get('fund2-api.php', {
+            fsid,
+            totalPrice
+            }, function(data) {
+                console.log(data)
+                location.href = 'checkout.php'
+            }, 'json')
+    }
+    // $('.btn_fundnow').on('click', function() {
+    //     let fsid = window.location.search.substr(5, 1)
+    //     let totalPrice = $('.price').val() * 1
+
+    //     $.get('fund2-api.php', {
+    //         fsid,
+    //         totalPrice
+    //         }, function(data) {
+    //             console.log(data)
+    //             // location.href = 'checkout.php'
+    //         }, 'json')
+
+    // })
+</script>
 
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>
