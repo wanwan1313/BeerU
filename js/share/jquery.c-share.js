@@ -10,8 +10,9 @@
 
 (function (factory) {
   typeof define === 'function' && define.amd ? define(factory) :
-  factory();
-}((function () { 'use strict';
+    factory();
+}((function () {
+  'use strict';
 
   if ($.fn) {
     $.fn.cShare = function (options) {
@@ -59,14 +60,6 @@
             name: 'Twitter',
             href: function href(url, description) {
               return "https://twitter.com/intent/tweet?original_referer=".concat(url, "&url=").concat(url, "&text=").concat(description);
-            },
-            show: false
-          },
-          tumblr: {
-            fa: 'fab fa-tumblr',
-            name: 'Tumblr',
-            href: function href(url, description) {
-              return "http://www.tumblr.com/share/link?name=".concat(description, " ").concat(url, "&url=").concat(url);
             },
             show: false
           },

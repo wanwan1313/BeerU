@@ -318,7 +318,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 <script>
     $('#shareBlock').cShare({
-        description: '啤女BeerU - 世界精釀啤酒',
+        description: '啤女BeerU - 世 界 精 釀 啤 酒',
         showButtons: ['fb', 'line']
     });
 </script>
