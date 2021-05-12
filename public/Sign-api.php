@@ -67,6 +67,7 @@ if(isset($_POST['newAccount'])){
 
     if($stmt->rowCount()){
         $_SESSION['user']['email']= $_POST['newAccount'];
+        $_SESSION['user']['password']= $_POST['newAccount'];
         $_SESSION['user']['user-pic']= 'user-pipi.svg';
         $_SESSION['user']['sid'] = $m_id;
 
