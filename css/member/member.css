@@ -4,7 +4,7 @@
 }
 
 /* 背景圖 */
-.member-wrap {
+.member .member-wrap {
     width: 100%;
     height: 100%;
     background: url(../../images/common/bg/marble-bg-l.png);
@@ -17,14 +17,14 @@
 /* ---------------------------------------大標---------------------------------- */
 
         /* 圈圈圖案 */
-        .member-title {
+        .member .member-title {
             background: url(../../images/common/h1_4_b.svg) no-repeat center center;
             background-size: contain;
 
         }
 
         /* 標題文字 */
-        .member-title p {
+        .member .member-title p {
             color: var(--blue);
             font-family: 'Noto Serif TC', serif;
             font-weight: bold;
@@ -37,7 +37,7 @@
         }
 
         /* 左邊雕飾 */
-        .member-title p::before {
+        .member .member-title p::before {
             content: '';
             display: block;
             position: absolute;
@@ -53,7 +53,7 @@
 
 
         /* 右邊雕飾 */
-        .member-title p::after {
+        .member .member-title p::after {
             content: '';
             display: block;
             position: absolute;
@@ -69,19 +69,19 @@
 
         /* 手機版 改字和雕飾大小*/
     @media (max-width: 991px) {
-        .member-title p {
+        .member .member-title p {
             font-size: 2.4rem;
             letter-spacing: 0.8rem;
             text-indent:0.8rem;
         }
 
-        .member-title p::before {
+        .member .member-title p::before {
             width: 60px;
             height: 32%;
 
         }
 
-        .member-title p::after {
+        .member .member-title p::after {
             width: 60px;
             height: 32%;
 
@@ -93,25 +93,25 @@
 
 
 /* -----------------------------會員概況------------------------------- */
-.member-overveiw {
+.member .member-overveiw {
     font-family: 'Noto Serif TC', serif;
     margin-top: 10px;
 }
 
 /* 頭像 */
-.user-pic.small {
+.member .user-pic.small {
     width: 70%;
 }
 
 /* 名字 */
-.helloname {
+.member .helloname {
     font-size: 1.8rem;
     font-weight: 600;
     border-bottom: 1.5px solid var(--blue);
 }
 
 /* 我的成就 */
-.memberinfo p {
+.member .memberinfo p {
     color: var(--gold);
     font-weight: 600;
     font-size: 1.8rem;
@@ -119,7 +119,7 @@
     margin-top: 10px;
 }
 
-.memberinfo p::before {
+.member .memberinfo p::before {
     content: '';
     display: block;
     position: absolute;
@@ -130,7 +130,7 @@
     bottom: 23%;
 }
 
-.memberinfo p::after {
+.member .memberinfo p::after {
     content: '';
     display: block;
     position: absolute;
@@ -142,13 +142,13 @@
 }
 
 /* 酒仙指數 */
-.beerpercent {
+.member .beerpercent {
     font-size: 1.8rem;
     font-weight: 600;
 }
 
 /* 折價券按鈕 */
-.checkmydiscount {
+.member .checkmydiscount {
     font-family: 'Noto Sans TC', serif;
     background-color: var(--blue);
     color: #fff;
@@ -158,7 +158,7 @@
     border: 1.5px solid var(--gold);
 }
 
-.checkmydiscount:hover {
+.member .checkmydiscount:hover {
     background-color: var(--gold);
 }
 
@@ -167,34 +167,34 @@
 /* -----------------------------------功能區域------------------------------------ */
 
 /* ---------選單-------- */
-.member-func{
+.member .member-func{
     overflow-x: hidden;
 }
 
 /* 桌機版 */ 
 @media (min-width: 992px) { 
-    .member-menu {
+    .member .member-menu {
         position: relative;
         border-bottom: 0.5px solid #d5d5d5;
         padding: 0;
     }
     
-    .member-item-grop {
+    .member .member-item-grop {
         font-size: 1.8rem;
         font-family: 'Noto Serif TC', serif;
         font-weight: 600;
         padding-bottom: 5px;
     }
 
-    .menu-item {
+    .member .menu-item {
         cursor: pointer;
     }
 
-    .menu-item i {
+    .member .menu-item i {
         display: none;
     }
     
-    .menu-active-line {
+    .member .menu-active-line {
         width: 76px;
         height: 5px;
         background-color: transparent;
@@ -204,11 +204,11 @@
         transition: .2s;
         transition-timing-function:cubic-bezier(.17,.49,.48,.88);
     }
-    .menu-active-line.on {
+    .member .menu-active-line.on {
         background-color: var(--gold);
     }
     
-    .menu-active-line2 {
+    .member .menu-active-line2 {
         width: 76px;
         height: 5px;
         background-color: var(--gold);
@@ -217,7 +217,7 @@
         left:0;
         transition: .2s;
     }
-    .menu-active-line2.out {
+    .member .menu-active-line2.out {
         background-color: transparent;
     }
 } 
@@ -225,29 +225,29 @@
 
 /* 手機版 */ 
 @media (max-width: 991px) { 
-    .member-menu {
+    .member .member-menu {
         margin-top: 10px;
         padding: 0 15%;
 
     }
     
-    .member-item-grop {
+    .member .member-item-grop {
         font-size: 1.8rem;
         font-family: 'Noto Serif TC', serif;
         font-weight: 600;
         color: var(--gold);
     }
 
-    .menu-item {
+    .member .menu-item {
         padding: 7px;
         border-top: 1px dashed var(--blue);
     }
 
-    .menu-item i:nth-of-type(1){
+    .member .menu-item i:nth-of-type(1){
         width: 22px;
         margin-right: 10px;   
     }
-    .menu-item i:nth-of-type(2){
+    .member .menu-item i:nth-of-type(2){
         margin-left: 20px;   
     }
 
@@ -257,19 +257,19 @@
 /* ---------------------------------------------功能內容--------------------------------------- */
 
 
-.member-func-show {
+.member .member-func-show {
     margin-top: 10px;
     padding-top: 30px;
 }
 /* 手機版 */
 @media (max-width: 991px) {
-    .member-func-show {
+    .member .member-func-show {
     padding: 0 15px;
     margin-top: 0;
 }
 
 /* 回上一頁 */
-    .backtomenu {
+    .member .backtomenu {
         position: absolute;
         font-size: 1.8rem;
         top: 115px;
@@ -277,7 +277,7 @@
         color: transparent;
         transition: .2s;
     }
-    .backtomenu.on {
+    .member .backtomenu.on {
         color: var(--blue);
     }
 
@@ -285,7 +285,7 @@
 
 
 /* 手機板所有功能的標題 */
-.mobile-title {
+.member .mobile-title {
     font-size:2rem;
     font-family: 'Noto Serif TC', serif;
     font-weight: 700;
@@ -294,7 +294,7 @@
     text-align: center;
 }
 
-.mobile-title::after {
+.member .mobile-title::after {
     content: '';
     display: block;
     width: 100%;
@@ -305,7 +305,7 @@
 
 
 /* ---------------------------------所有的功能每個區域------------------------------- */ 
-.member-func-box {
+.member .member-func-box {
     display: none;
 }
 
@@ -434,7 +434,7 @@
 
 
 /* 手風琴 */
-.memberAccordion {
+.member .memberAccordion {
     background-color: var(--blue);
     font-family: 'Noto Serif TC', serif;
     color: #fff;
@@ -444,7 +444,7 @@
     cursor: pointer;
 }
 
-.memberAccordion-content {
+.member .memberAccordion-content {
     transition: .5s;
     height: fit-content;
     overflow: hidden;
@@ -453,14 +453,14 @@
 
 /* 手機版 */
 @media (max-width: 991px) {
-.memberAccordion-content {
+.member .memberAccordion-content {
     margin: 15px 0;
 }
 }
 
 
 
-.memberAccordion-content.no {
+.member .memberAccordion-content.no {
     margin: 5px 0;
 }
 
@@ -469,11 +469,11 @@
 
 
 
-.myattention-items input[type=checkbox] {
+.member .myattention-items input[type=checkbox] {
     display: none;
 }
 
-.myattention-items input[type=checkbox]+span {
+.member .myattention-items input[type=checkbox]+span {
     color: var(--gold);
     cursor: pointer;
     transition: .5s;
@@ -482,7 +482,7 @@
     margin-right: 10px;
     padding-left:20px ;
 }
-.myattention-items input[type=checkbox]+span::before {
+.member .myattention-items input[type=checkbox]+span::before {
     content: '';
     display: block;
     width: 16px;
@@ -494,7 +494,7 @@
     border: 1.5px solid var(--gold);
     border-radius: 50%;
 }
-.myattention-items input[type=checkbox]:checked+span::after{
+.member .myattention-items input[type=checkbox]:checked+span::after{
     content: '';
     display: block;
     width: 8px;
@@ -507,7 +507,7 @@
     border-radius: 50%;
 }
 
-.myattention-items button {
+.member .myattention-items button {
     background-color: var(--gold);
     color: #fff;
     border: none;
@@ -570,7 +570,7 @@
 
 
 /* --------商品陳列--------- */
-.product-arrang {
+.member .product-arrang {
     color: #fff;
     padding: 40px 0;
 }
@@ -796,7 +796,7 @@
 /* --------------------------我的評價------------------------------- */
 
 /* 評價的box */
-.comment-box {
+.member .comment-box {
     border: 2px solid var(--blue);
     border-radius: 25px;
     margin-bottom: 20px;
@@ -804,21 +804,21 @@
 
 
 /* 標題 */
-.comment-box .title {
+.member .comment-box .title {
     border-bottom: 0.5px solid #BABABA;
 }
 
 
 
 /* 內容 */
-.this-p, .thisscore, .thiscommtent {
+.member .this-p, .member .thisscore, .member .thiscommtent {
     min-height: 80px;
 }
 
 
 /* 手機版 改高度*/
 @media (max-width: 991px) {
-.this-p, .thisscore, .thiscommtent {
+.member .this-p, .member .thisscore, .member .thiscommtent {
     height: fit-content;
     margin-bottom: 15px;
 }
@@ -828,18 +828,18 @@
 
 
 /* 商品圖 */
-.com-pro .thisp-pic {
+.member .com-pro .thisp-pic {
     width: 30px;
     height: 80px;
     margin-top: 10px;
     transition: .5s;
 }
 
-.com-pro .thisp-pic:hover {
+.member .com-pro .thisp-pic:hover {
     opacity: .7;
 }
 
-.com-pro .thisp-pic img {
+.member .com-pro .thisp-pic img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -847,7 +847,7 @@
 }
 
 /* 商品名稱 */
-.com-pro .thisp-name {
+.member .com-pro .thisp-name {
     color: var(--gold);
     font-family: 'Noto Serif TC', serif;
     line-height: 1.8rem;
@@ -855,22 +855,22 @@
     margin-top: 10px;
 }
 
-.com-pro .c-name {
+.member .com-pro .c-name {
     transition: .5s;
 }
-.com-pro .c-name:hover {
+.member .com-pro .c-name:hover {
     color: rgb(160, 109, 15);
     text-decoration: underline;
 }
 
 
-.com-pro .e-name {
+.member .com-pro .e-name {
     font-size: 1.3rem;
     opacity: .8;
 }
 
 /* 分數 */
-.com-score .myscore {
+.member .com-score .myscore {
     width: 80%;
     border: 1px solid var(--gold);
     color: var(--gold);
@@ -879,7 +879,7 @@
 }
 
 /* 評論 */
-.commenttextarea {
+.member .commenttextarea {
     width: 100%;
     margin-top: 15px;
     border: 1px solid var(--gold);
@@ -892,23 +892,23 @@
     height: 70px;
 }
 
-.mycommenttxt {
+.member .mycommenttxt {
     line-height: 2.2rem;
 }
 
 /* 送出按鈕 */
-.member-button{
+.member .member-button{
     height: 112px;
 }
 
 /* 手機版 */
 @media (max-width: 991px) {
-.member-button{
+.member .member-button{
     height: fit-content;
 }
 }
 
-.member-button button{
+.member .member-button button{
     background-color: var(--gold);
     border: none;
     border-radius: 5px;
@@ -920,11 +920,11 @@
     transform: translateY(0);
 }
 
-.member-button button:hover {
+.member .member-button button:hover {
     transform: translateY(-3px);
 }
 
-.member-button .btn_comment-edit {
+.member .member-button .btn_comment-edit {
     background-color: var(--gold);
     border: none;
     border-radius: 50%;
@@ -935,12 +935,12 @@
 
 /* 啤酒分數 */
 
-.beer-score {
+.member .beer-score {
     height: 40px;
     margin-top: 10px;
 }
 
-.beer-score img {
+.member .beer-score img {
     width: 100%;
     height: 100%;
     object-fit:contain;
@@ -948,19 +948,19 @@
 }
 
 /* ------------------------我的預約---------------------------- */
-.event-box {
+.member .event-box {
     border: 2px solid var(--blue);
     border-radius: 25px;
     margin-bottom: 20px;
 }
 
 /* 標題 */
-.event-box .title {
+.member .event-box .title {
     border-bottom: 0.5px solid #BABABA;
 }
 /* 手機版 */
 @media (max-width: 991px) {
-.event-box .title {
+.member .event-box .title {
     border-bottom: none;
 }
 }
@@ -968,31 +968,31 @@
 
 
 /* 照片 */
-.event-pic {
+.member .event-pic {
     height: 112px;
 }
 
 /* 手機版 */
 @media (max-width: 991px) {
-.event-pic {
+.member .event-pic {
     height: fit-content;
     margin-bottom: 20px;
 } 
 }
 
-.event-pic img {
+.member .event-pic img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
 /* 字 */
-.event-box p {
+.member .event-box p {
     line-height: 2.2rem;
 }
 
 /* 額滿字 */
-.fullsign {
+.member .fullsign {
     color: var(--red);
 }
 
@@ -1000,53 +1000,53 @@
 
 
 /* ----------------------------我的贊助---------------------------- */
-.fund-box {
+.member .fund-box {
     border: 2px solid var(--blue);
     border-radius: 25px;
     margin-bottom: 20px;
 }
 
 /* 標題 */
-.fund-box .title {
+.member .fund-box .title {
     border-bottom: 0.5px solid #BABABA;
 }
 /* 手機版 */
 @media (max-width: 991px) {
-.fund-box .title {
+.member .fund-box .title {
     border-bottom: none;
 }
 }
 
 
 /* 照片 */
-.fund-pic {
+.member .fund-pic {
     height: 90px;
 }
 
 /* 手機版 */
 @media (max-width: 991px) {
-.fund-pic {
+.member .fund-pic {
     height: fit-content;
     margin-bottom: 20px;
 } 
 }
 
 /* 字 */
-.fund-box p {
+.member .fund-box p {
     line-height: 2.2rem;
 }
 
-.fund-total {
+.member .fund-total {
     color: var(--gold);
 }
 
-.fund-button {
+.member .fund-button {
     height: 90px;
 }
 
 /* 手機版 */
 @media (max-width: 991px) {
-.fund-button{
+.member .fund-button{
     height: fit-content;
 }
 }
