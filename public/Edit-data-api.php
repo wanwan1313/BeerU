@@ -54,7 +54,7 @@ if(isset( $_POST['nickname']) and isset( $_POST['birthday'])){
         $output['error'] = '';
 
      } else {
-        $output['error'] = '註冊發生錯誤';
+        $output['error'] = '修改發生錯誤';
      }
 }
 
