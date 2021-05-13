@@ -7,9 +7,9 @@ $page_title = '啤女BeerU:本月之星';
 
 $psid = 17;
 
-
-// 此頁商品
-$p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.`name` AS `type_name`,t4.`name` AS `merch_name` FROM `products` AS p 
+if ($psid != 0) {
+    // 此頁商品
+    $p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.`name` AS `type_name`,t4.`name` AS `merch_name` FROM `products` AS p 
                 JOIN `tags` AS t1 
                 ON p.`brand_sid` = t1.`sid`
                 JOIN `tags` AS t2 
@@ -19,29 +19,45 @@ $p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.
                 JOIN `tags` AS t4 
                 ON p.`merch_sid` = t4.`sid`
                 WHERE p.`sid` = $psid";
-$row = $pdo->query($p_SQL)->fetch();
+    $row = $pdo->query($p_SQL)->fetch();
 
-$country_sid = $row['country_sid'];
-$type_sid = $row['type_sid'];
-$brands_sid = $row['brand_sid'];
-$merch_sid = $row['merch_sid'];
+    $country_sid = $row['country_sid'];
+    $type_sid = $row['type_sid'];
+    $brands_sid = $row['brand_sid'];
+    $merch_sid = $row['merch_sid'];
 
-// 相關商品
-$c_SQL = "SELECT * FROM `products` WHERE `type_sid` = $type_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
-$c_row = $pdo->query($c_SQL)->fetch();
-$c_row_sid = $c_row['sid'];
-$t_SQL = "SELECT * FROM `products` WHERE `type_sid` = $type_sid AND `sid` !=  $psid AND `sid` != $c_row_sid  ORDER BY RAND() LIMIT 1";
-$t_row = $pdo->query($t_SQL)->fetch();
-$b_SQL = "SELECT * FROM `products` WHERE `brand_sid` = $brands_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
-$b_row = $pdo->query($b_SQL)->fetch();
+    // 相關商品
+    $c_SQL = "SELECT * FROM `products` WHERE `sid` = 133";
+    $c_row = $pdo->query($c_SQL)->fetch();
+    $c_row_sid = $c_row['sid'];
+    $t_SQL = "SELECT * FROM `products` WHERE `type_sid` = $type_sid AND `sid` !=  $psid AND `sid` != $c_row_sid";
+    $t_row = $pdo->query($t_SQL)->fetch();
+    $b_SQL = "SELECT * FROM `products` WHERE `brand_sid` = $brands_sid AND `sid` !=  $psid";
+    $b_row = $pdo->query($b_SQL)->fetch();
 
 
-// new標籤
-$deadline = strtotime('2021-05-01');
+    // new標籤
+    $deadline = strtotime('2021-05-01');
 
-// 從哪裡來
-$come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
-$come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
+    // 從哪裡來
+    $come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
+    $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
+
+    $c_arr = [];
+    if (isset($_SESSION['user'])) {
+
+        $m_sid = $_SESSION['user']['sid'];
+        $co_SQL = "SELECT `product_sid` FROM `collect` WHERE `member_sid` = $m_sid";
+        $co_row = $pdo->query($co_SQL)->fetchAll();
+        if (!empty($co_row)) {
+            foreach ($co_row as $co) {
+                array_push($c_arr, $co['product_sid']);
+            }
+        }
+    }
+} else {
+    header('Location: all-product.php');
+}
 
 ?>
 
@@ -52,6 +68,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 <link rel="stylesheet" href="../css/monthly-product/monthly-product-1-style.css">
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<!-- 會員登入 -->
+<?php include __DIR__ . '../../php/common/Login-Sign.php' ?>
 <?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
 <?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
 <section class="mobile-menu">
@@ -311,10 +329,15 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                     <!-- 收藏按鈕 -->
                     <div class="collect">
                         <?php if (!isset($_SESSION['user'])) : ?>
-                            <button class="btn_collect2 btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
+                            <button class="btn_collect2" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
                         <?php else : ?>
-                            <button class="btn_collect2 btn_collect d-none"><i class="far fa-heart"></i>加入收藏</button>
-                            <button class="btn_collect2 btn_collect_active"><i class="fas fa-heart"></i>加入收藏</button>
+                            <?php if (in_array($c_row['sid'], $c_arr)) : ?>
+                                <button class="btn_collect2_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
+                                <button class="btn_collect2 d-none" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
+                            <?php else : ?>
+                                <button class="btn_collect2" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
+                                <button class="btn_collect2_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
+                            <?php endif; ?>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -332,8 +355,17 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                     <h5 class="title2 mb-2">Far Yeast-Grapevine</h5>
                     <!-- 收藏按鈕 -->
                     <div class="collect">
-                        <button class="btn_collect2"><i class="far fa-heart"></i></i>加入收藏</button>
-                        <!-- <button class="btn_collect2_active"><i class="fas fa-heart"></i>已收藏</button> -->
+                        <?php if (!isset($_SESSION['user'])) : ?>
+                            <button class="btn_collect2" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
+                        <?php else : ?>
+                            <?php if (in_array($psid = 21, $c_arr)) : ?>
+                                <button class="btn_collect2_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
+                                <button class="btn_collect2 d-none" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
+                            <?php else : ?>
+                                <button class="btn_collect2" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
+                                <button class="btn_collect2_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
+                            <?php endif; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <!-- 5月推薦 -->
@@ -350,8 +382,17 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                     <h5 class="title2 mb-2">La Sirène-Rosè Wild</h5>
                     <!-- 收藏按鈕 -->
                     <div class="collect">
-                        <button class="btn_collect2"><i class="far fa-heart"></i></i>加入收藏</button>
-                        <!-- <button class="btn_collect2_active"><i class="fas fa-heart"></i>已收藏</button> -->
+                        <?php if (!isset($_SESSION['user'])) : ?>
+                            <button class="btn_collect2" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
+                        <?php else : ?>
+                            <?php if (in_array($psid = 99, $c_arr)) : ?>
+                                <button class="btn_collect2_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
+                                <button class="btn_collect2 d-none" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
+                            <?php else : ?>
+                                <button class="btn_collect2" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
+                                <button class="btn_collect2_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
+                            <?php endif; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
