@@ -238,7 +238,7 @@ if (isset($_SESSION['cart']['fund'])) {
                                                         <option>02</option>
                                                         <option>03</option>
                                                         <option>04</option>
-                                                        <option>05</option>
+                                                        <option value="05">05</option>
                                                         <option>06</option>
                                                         <option>07</option>
                                                         <option>08</option>
@@ -256,7 +256,7 @@ if (isset($_SESSION['cart']['fund'])) {
                                                         <option>2023</option>
                                                         <option>2024</option>
                                                         <option>2025</option>
-                                                        <option>2026</option>
+                                                        <option value="26">2026</option>
                                                         <option>2027</option>
                                                         <option>2028</option>
                                                         <option>2029</option>
@@ -271,6 +271,7 @@ if (isset($_SESSION['cart']['fund'])) {
                                         </div>
                                     </div>
                                 </div>
+                                <div class="auto_data" >自動輸入</div>
                             </div>
 
                             <!-- 結帳商品 -->
@@ -616,7 +617,7 @@ if (isset($_SESSION['cart']['fund'])) {
                                                 alt=""></div>
                                         <div class="col-10 thisp-name px-0">
                                             <p class="c-name">${p.c_name}</p>
-                                            <p class="e-name d-none d-lg-block">${p.e_name !=undefined ?p.e_name:'' }</p>
+                                            <p class="e-name">${p.e_name !=undefined ?p.e_name:'' }</p>
                                         </div>
                                     </div>
                                     <div class="col-2 thisp-qty px-0 text-center">${p.quantity}</div>
@@ -835,6 +836,18 @@ if (isset($_SESSION['cart']['fund'])) {
     }).on('keyup change', function() {
         $('.ccv div').html($(this).val());
     });
+
+
+    // 信用卡自動輸入
+    $('.auto_data').on('click',function(){
+        $('#card-number').val('3568')
+        $('#card-number-1').val('4476')
+        $('#card-number-2').val('2185')
+        $('#card-number-3').val('6653')
+        $('.credit-card-box .number').text('3568 4476 2185 6653')
+        $('#card-holder').val('WU WAN JUNG')
+        $('.credit-card-box .card-holder div').text('WU WAN JUNG')
+    })
 
     // 檢查表格與AJAX傳送
     function checkpaymentform() {
