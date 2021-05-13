@@ -27,9 +27,11 @@
 
     }
 
-    $.get('cartforcount-api.php', function(data) {
-        showCartCount(data.cart)
-    }, 'json')
-
+    let thischeckoutType = '<?= isset($_SESSION['type']) ? $_SESSION['type']:'' ?>';
+    if ( thischeckoutType != 'fund') {
+        $.get('cartforcount-api.php', function(data) {
+            showCartCount(data.cart)
+        }, 'json')
+    }
 
 </script>

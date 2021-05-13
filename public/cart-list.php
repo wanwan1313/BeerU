@@ -145,7 +145,7 @@ if (isset($_SESSION['user'])) {
                 <small class="warn"></small>
 
 
-                <?php if (empty($_SESSION['cart'])) : ?>
+                <?php if (empty($_SESSION['cart']) or isset($_SESSION['cart']['fund'])) : ?>
                     <!-- 購物車為空 -->
                     <div class="col-12 col-lg-9 empty-cart mx-auto d-flex flex-column justify-content-center">
                         <p>購物車內是空的喔！<span class="d-block d-lg-inline">請繼續逛逛我們的世界精釀啤酒吧！</span></p>
