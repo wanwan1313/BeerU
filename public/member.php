@@ -1305,8 +1305,7 @@ if (isset($_SESSION['user'])) {
     let maxAge = maxYear + '-' + setMonth(maxMonth) + '-' + maxDate;
     $('.birthday').attr('max', maxAge);
 
-    //錯誤初始狀態
-    $('.warn').css('display', 'none');
+   
 
     //檢查修改資料
     function checkForm_edit() {
@@ -1352,6 +1351,9 @@ if (isset($_SESSION['user'])) {
                 }, 'json')
 
     }
+        
+        //初始錯誤狀態
+        $('.warn').css('display','none');
     
         // 重設密碼
         function checkform_restPassword(){
@@ -1361,6 +1363,21 @@ if (isset($_SESSION['user'])) {
         const $resetPassword_again = $('.resetPassword-again');
         let isPass = true;
 
+        const fileds = [$oldPassword,$resetPassword,$resetPassword_again];
+
+
+        //初始狀態
+        fileds.forEach(el =>{
+
+            el.css('border','1px solid var(--gold)');
+            $('.warn').css('display','none');
+            
+            
+        });
+       
+
+        
+         
 
         // 舊密碼和新密碼要不一樣
         if($oldPassword.val() == $resetPassword.val()){
@@ -1372,9 +1389,6 @@ if (isset($_SESSION['user'])) {
             $resetPassword.css('border','3px solid var(--pink)');
             $resetPassword.next().css('display','block').children().text('密碼不可以相同');
 
-
-            $oldPassword.css('border','1px solid var(--gold)');
-            $oldPassword.next().css('display','none');
 
 
 
@@ -1391,8 +1405,7 @@ if (isset($_SESSION['user'])) {
             $resetPassword_again.css('border','3px solid var(--pink)');
             $resetPassword_again.next().css('display','block').children().text('輸入不可以為空');
 
-            $oldPassword.css('border','1px solid var(--gold)');
-            $oldPassword.next().css('display','none');
+            
 
             
             
@@ -1408,8 +1421,7 @@ if (isset($_SESSION['user'])) {
             $resetPassword_again.next().css('display','block').children().text('新密碼不相同');
     
 
-            $oldPassword.css('border','1px solid var(--gold)');
-            $oldPassword.next().css('display','none');
+            
 
         }
 
