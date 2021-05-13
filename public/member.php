@@ -1373,6 +1373,11 @@ if (isset($_SESSION['user'])) {
             $resetPassword.next().css('display','block').children().text('密碼不可以相同');
 
 
+            $oldPassword.css('border','1px solid var(--gold)');
+            $oldPassword.next().css('display','none');
+
+
+
         }
 
         //輸入不能為空
@@ -1385,6 +1390,10 @@ if (isset($_SESSION['user'])) {
 
             $resetPassword_again.css('border','3px solid var(--pink)');
             $resetPassword_again.next().css('display','block').children().text('輸入不可以為空');
+
+            $oldPassword.css('border','1px solid var(--gold)');
+            $oldPassword.next().css('display','none');
+
             
             
         }
@@ -1397,7 +1406,10 @@ if (isset($_SESSION['user'])) {
 
             $resetPassword_again.css('border','3px solid var(--pink)');
             $resetPassword_again.next().css('display','block').children().text('新密碼不相同');
+    
 
+            $oldPassword.css('border','1px solid var(--gold)');
+            $oldPassword.next().css('display','none');
 
         }
 
