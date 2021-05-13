@@ -1,7 +1,9 @@
 <?php include __DIR__ . '../../php/common/config.php';
 
+unset($_SESSION['cart']['fund']);
+$_SESSION['type'] = 'beer';
 if( ! isset($_SESSION['cart'])){
-    $_SESSION['cart'] = [];
+    $_SESSION['cart'] = []; 
     $_SESSION['checkout'] = [];
 };
 

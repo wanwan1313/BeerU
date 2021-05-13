@@ -1,5 +1,6 @@
 .credit-card {
     display: none;
+    position: relative;
 }
 
 .credit-cart-input {
@@ -264,4 +265,16 @@
 .credit-card-box .ccv label {
     margin: -35px 0 5px;
     color: #fff;
+}
+
+
+
+
+/* 自動輸入 */
+.auto_data {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: transparent;
 }

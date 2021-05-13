@@ -48,48 +48,63 @@ if ($psid != 0) {
 
 
     // 從資料庫抓商品評論
-    
+
     //抓總評論數
-    $comment_total_SQL = "SELECT COUNT(1) FROM `comment` WHERE `product_sid` = $psid"; 
+    $comment_total_SQL = "SELECT COUNT(1) FROM `comment` WHERE `product_sid` = $psid";
     $comment_total = $pdo->query($comment_total_SQL)->fetch(PDO::FETCH_NUM)[0];
 
-    if( $comment_total > 0 ){
+    if ($comment_total > 0) {
         // 抓評論
-    $comment_SQL = "SELECT c.*, m.`nickname`, m.`user-pic` FROM `comment` c
+        $comment_SQL = "SELECT c.*, m.`nickname`, m.`user-pic` FROM `comment` c
     JOIN `member` m
     ON c.`member_sid` = m.`sid`
     WHERE `product_sid` = $psid
     ORDER BY c.`sid` DESC";
-    $comment_row = $pdo->query($comment_SQL)->fetchAll();
+        $comment_row = $pdo->query($comment_SQL)->fetchAll();
 
-    // 算平均分數
-    $totalScore = 0;
-    foreach( $comment_row as $c){
-        $totalScore += $c['score'];
-    };
-    $averageScore = sprintf( "%.1f",$totalScore / $comment_total);
-    $averageScore_int = floor($averageScore);
+        // 算平均分數
+        $totalScore = 0;
+        foreach ($comment_row as $c) {
+            $totalScore += $c['score'];
+        };
+        $averageScore = sprintf("%.1f", $totalScore / $comment_total);
+        $averageScore_int = floor($averageScore);
 
-    // 算分數百分比
-    $percent_SQL = "SELECT `score`,COUNT(*) AS `quantity` FROM `comment` 
+        // 算分數百分比
+        $percent_SQL = "SELECT `score`,COUNT(*) AS `quantity` FROM `comment` 
     WHERE `product_sid` = $psid
     GROUP BY `score`";
-    $percent_row = $pdo->query($percent_SQL)->fetchAll();
+        $percent_row = $pdo->query($percent_SQL)->fetchAll();
 
-    $score_5 = 0;
-    $score_4 = 0;
-    $score_3 = 0;
-    $score_2 = 0;
-    $score_1 = 0;
+        $score_5 = 0;
+        $score_4 = 0;
+        $score_3 = 0;
+        $score_2 = 0;
+        $score_1 = 0;
 
-    foreach( $percent_row as $pe ){
-        $socre = "score_".$pe['score'];
-        $$socre = $pe['quantity'] / $comment_total * 100 ;
-    };
+        foreach ($percent_row as $pe) {
+            $socre = "score_" . $pe['score'];
+            $$socre = floor($pe['quantity'] / $comment_total * 100);
+        };
     }
 
 
-}else {
+
+    // 從資料庫抓收藏清單
+    // 登入會員的狀態，抓收藏商品
+    $c_arr = [];
+    if (isset($_SESSION['user'])) {
+
+        $m_sid = $_SESSION['user']['sid'];
+        $co_SQL = "SELECT `product_sid` FROM `collect` WHERE `member_sid` = $m_sid";
+        $co_row = $pdo->query($co_SQL)->fetchAll();
+        if (!empty($co_row)) {
+            foreach ($co_row as $co) {
+                array_push($c_arr, $co['product_sid']);
+            }
+        }
+    }
+} else {
     header('Location: all-product.php');
 }
 
@@ -106,6 +121,8 @@ if ($psid != 0) {
 
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<!-- 會員登入 -->
+<?php include __DIR__ . '../../php/common/Login-Sign.php' ?>
 <?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
 <?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
 <section class="mobile-menu">
@@ -145,8 +162,17 @@ if ($psid != 0) {
                 </div>
                 <!-- 收藏按鈕 -->
                 <div class="collect">
-                    <button class="btn_collect2"><i class="far fa-heart"></i></i>加入收藏</button>
-                    <!-- <button class="btn_collect2_active"><i class="fas fa-heart"></i>已收藏</button> -->
+                    <?php if (!isset($_SESSION['user'])) : ?>
+                        <button class="btn_collect2" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
+                    <?php else : ?>
+                        <?php if (in_array($psid, $c_arr)) : ?>
+                            <button class="btn_collect2_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
+                            <button class="btn_collect2 d-none" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
+                        <?php else : ?>
+                            <button class="btn_collect2" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
+                            <button class="btn_collect2_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
+                        <?php endif; ?>
+                    <?php endif; ?>
                 </div>
             </div>
 
@@ -406,8 +432,17 @@ if ($psid != 0) {
 
                                 <!-- 收藏按鈕 -->
                                 <div class="collect">
-                                    <button class="btn_collect"><i class="far fa-heart"></i></button>
-                                    <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                    <?php if (!isset($_SESSION['user'])) : ?>
+                                        <button class="btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></button>
+                                    <?php else : ?>
+                                        <?php if (in_array($c_row['sid'], $c_arr)) : ?>
+                                            <button class="btn_collect_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                            <button class="btn_collect d-none" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                        <?php else : ?>
+                                            <button class="btn_collect" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                            <button class="btn_collect_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
 
@@ -465,8 +500,17 @@ if ($psid != 0) {
 
                                 <!-- 收藏按鈕 -->
                                 <div class="collect">
-                                    <button class="btn_collect"><i class="far fa-heart"></i></button>
-                                    <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                    <?php if (!isset($_SESSION['user'])) : ?>
+                                        <button class="btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></button>
+                                    <?php else : ?>
+                                        <?php if (in_array($t_row['sid'], $c_arr)) : ?>
+                                            <button class="btn_collect_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                            <button class="btn_collect d-none" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                        <?php else : ?>
+                                            <button class="btn_collect" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                            <button class="btn_collect_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
 
@@ -524,8 +568,17 @@ if ($psid != 0) {
 
                                 <!-- 收藏按鈕 -->
                                 <div class="collect">
-                                    <button class="btn_collect"><i class="far fa-heart"></i></button>
-                                    <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                    <?php if (!isset($_SESSION['user'])) : ?>
+                                        <button class="btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></button>
+                                    <?php else : ?>
+                                        <?php if (in_array($b_row['sid'], $c_arr)) : ?>
+                                            <button class="btn_collect_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                            <button class="btn_collect d-none" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                        <?php else : ?>
+                                            <button class="btn_collect" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                            <button class="btn_collect_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
 
@@ -569,117 +622,117 @@ if ($psid != 0) {
                     <p>啤女評價</p>
                 </div>
 
-                <?php if($comment_total > 0 ): ?>
-                <div class="col-12 sub-title d-none d-lg-block">
-                    <p>評論摘要</p>
-                </div>
-                <!-- 分數列表百分比 -->
-                <div class="col-4 comment-bar d-none d-lg-block">
-                    <!-- 5分 -->
-                    <div class="comment-score score-5 d-flex align-items-center justify-content-around">
-                        <div class="score">
-                            <p>5.0分</p>
-                        </div>
-                        <div class="percent-bar-wrap">
-                            <div class="percent-bar" style="width: <?= $score_5?>%;"></div>
-                        </div>
-                        <div class="score-percrnt ">
-                            <p><?= $score_5?>%</p>
-                        </div>
+                <?php if ($comment_total > 0) : ?>
+                    <div class="col-12 sub-title d-none d-lg-block">
+                        <p>評論摘要</p>
                     </div>
-                    <!-- 4分 -->
-                    <div class="comment-score score-4 d-flex align-items-center justify-content-around">
-                        <div class="score">
-                            <p>4.0分</p>
-                        </div>
-                        <div class="percent-bar-wrap">
-                            <div class="percent-bar" style="width: <?= $score_4?>%;"></div>
-                        </div>
-                        <div class="score-percrnt">
-                            <p><?= $score_4?>%</p>
-                        </div>
-                    </div>
-                    <!-- 3分 -->
-                    <div class="comment-score score-3 d-flex align-items-center justify-content-around">
-                        <div class="score">
-                            <p>3.0分</p>
-                        </div>
-                        <div class="percent-bar-wrap">
-                            <div class="percent-bar" style="width: <?= $score_3?>%;"></div>
-                        </div>
-                        <div class="score-percrnt">
-                            <p><?= $score_3?>%</p>
-                        </div>
-                    </div>
-                    <!-- 2分 -->
-                    <div class="comment-score score-2 d-flex align-items-center justify-content-around">
-                        <div class="score">
-                            <p>2.0分</p>
-                        </div>
-                        <div class="percent-bar-wrap">
-                            <div class="percent-bar" style="width: <?= $score_2?>%;"></div>
-                        </div>
-                        <div class="score-percrnt">
-                            <p><?= $score_2?>%</p>
-                        </div>
-                    </div>
-                    <!-- 1分 -->
-                    <div class="comment-score score-1 d-flex align-items-center justify-content-around">
-                        <div class="score">
-                            <p>1.0分</p>
-                        </div>
-                        <div class="percent-bar-wrap">
-                            <div class="percent-bar" style="width: <?= $score_1?>%;"></div>
-                        </div>
-                        <div class="score-percrnt">
-                            <p><?= $score_1?>%</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- 分數總攬 -->
-                <div class="col-7 col-lg-4 score-general d-flex flex-lg-column jusyify-content-lg-start align-items-lg-center">
-                    <p class="average-score"><?= $averageScore?></p>
-                    <div class="other d-flex flex-column jusyify-content-start align-items-center">
-                        <div class="beer-score d-flex">
-                            <img src="../images/common/beerscore-<?= $averageScore_int?>.svg" alt="">
-                        </div>
-                        <p class="total-comments"><?= $comment_total?>則評論</p>
-                    </div>
-                </div>
-                <!-- 使用者評論 -->
-                <div class="col-12 col-lg-8 comments-for-product">
-                    
-                <?php foreach( $comment_row as $c): ?>
-                    <!-- 留言BOX -->
-                    <div class="user-comment d-flex flex-column">
-                        <div class="user-imfo d-flex align-items-center justify-content-center justify-content-lg-start">
-                            <div class="col-4 col-lg-2 user-img"><img src="../images/user/<?= $c['user-pic']?>" alt=""></div>
-                            <div class="col-8 col-lg-10 user-name">
-                                <p><?= $c['nickname']?></p>
-                                <p class="comment-time"><?= $c['created_at']?></p>
+                    <!-- 分數列表百分比 -->
+                    <div class="col-4 comment-bar d-none d-lg-block">
+                        <!-- 5分 -->
+                        <div class="comment-score score-5 d-flex align-items-center justify-content-around">
+                            <div class="score">
+                                <p>5.0分</p>
+                            </div>
+                            <div class="percent-bar-wrap">
+                                <div class="percent-bar" style="width: <?= $score_5 ?>%;"></div>
+                            </div>
+                            <div class="score-percrnt ">
+                                <p><?= $score_5 ?>%</p>
                             </div>
                         </div>
-                        <div class="user-msg d-flex align-items-center">
-                            <div class="col-4 col-lg-2 beer-score-icon d-flex justify-content-center">
-                                <img src="../images/common/beerscore-<?= $c['score']?>.svg" alt="">
+                        <!-- 4分 -->
+                        <div class="comment-score score-4 d-flex align-items-center justify-content-around">
+                            <div class="score">
+                                <p>4.0分</p>
                             </div>
-                            <div class="col-8 col-lg-10 comment-text">
-                                <p><?= $c['text']?></p>
+                            <div class="percent-bar-wrap">
+                                <div class="percent-bar" style="width: <?= $score_4 ?>%;"></div>
+                            </div>
+                            <div class="score-percrnt">
+                                <p><?= $score_4 ?>%</p>
+                            </div>
+                        </div>
+                        <!-- 3分 -->
+                        <div class="comment-score score-3 d-flex align-items-center justify-content-around">
+                            <div class="score">
+                                <p>3.0分</p>
+                            </div>
+                            <div class="percent-bar-wrap">
+                                <div class="percent-bar" style="width: <?= $score_3 ?>%;"></div>
+                            </div>
+                            <div class="score-percrnt">
+                                <p><?= $score_3 ?>%</p>
+                            </div>
+                        </div>
+                        <!-- 2分 -->
+                        <div class="comment-score score-2 d-flex align-items-center justify-content-around">
+                            <div class="score">
+                                <p>2.0分</p>
+                            </div>
+                            <div class="percent-bar-wrap">
+                                <div class="percent-bar" style="width: <?= $score_2 ?>%;"></div>
+                            </div>
+                            <div class="score-percrnt">
+                                <p><?= $score_2 ?>%</p>
+                            </div>
+                        </div>
+                        <!-- 1分 -->
+                        <div class="comment-score score-1 d-flex align-items-center justify-content-around">
+                            <div class="score">
+                                <p>1.0分</p>
+                            </div>
+                            <div class="percent-bar-wrap">
+                                <div class="percent-bar" style="width: <?= $score_1 ?>%;"></div>
+                            </div>
+                            <div class="score-percrnt">
+                                <p><?= $score_1 ?>%</p>
                             </div>
                         </div>
                     </div>
-                <?php endforeach; ?>
-                
-                <?php else: ?>
-                    <p class="col-12 empty-comment">目前尚無愛好者的評價</p>
-                    <div class="col-8 col-lg-3 empty-beer">
-                        <img src="../images/common/combuy.svg" alt="">
+                    <!-- 分數總攬 -->
+                    <div class="col-7 col-lg-4 score-general d-flex flex-lg-column jusyify-content-lg-start align-items-lg-center">
+                        <p class="average-score"><?= $averageScore ?></p>
+                        <div class="other d-flex flex-column jusyify-content-start align-items-center">
+                            <div class="beer-score d-flex">
+                                <img src="../images/common/beerscore-<?= $averageScore_int ?>.svg" alt="">
+                            </div>
+                            <p class="total-comments"><?= $comment_total ?>則評論</p>
+                        </div>
                     </div>
-                <?php endif; ?>
-                    
+                    <!-- 使用者評論 -->
+                    <div class="col-12 col-lg-8 comments-for-product">
+
+                        <?php foreach ($comment_row as $c) : ?>
+                            <!-- 留言BOX -->
+                            <div class="user-comment d-flex flex-column">
+                                <div class="user-imfo d-flex align-items-center justify-content-center justify-content-lg-start">
+                                    <div class="col-4 col-lg-2 user-img"><img src="../images/user/<?= $c['user-pic'] ?>" alt=""></div>
+                                    <div class="col-8 col-lg-10 user-name">
+                                        <p><?= $c['nickname'] ?></p>
+                                        <p class="comment-time"><?= $c['created_at'] ?></p>
+                                    </div>
+                                </div>
+                                <div class="user-msg d-flex align-items-center">
+                                    <div class="col-4 col-lg-2 beer-score-icon d-flex justify-content-center">
+                                        <img src="../images/common/beerscore-<?= $c['score'] ?>.svg" alt="">
+                                    </div>
+                                    <div class="col-8 col-lg-10 comment-text">
+                                        <p><?= $c['text'] ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+
+                    <?php else : ?>
+                        <p class="col-12 empty-comment">目前尚無愛好者的評價</p>
+                        <div class="col-8 col-lg-3 empty-beer">
+                            <img src="../images/common/combuy.svg" alt="">
+                        </div>
+                    <?php endif; ?>
 
 
-                </div>
+
+                    </div>
 
 
             </div>
@@ -784,6 +837,45 @@ if ($psid != 0) {
         }, 'json')
 
     })
+
+    // --------------------------------------------------------
+    // 收藏清單功能
+
+    // 加入
+    function collectProduct() {
+        let btn = $(event.currentTarget)
+        let psid = btn.closest('.beer-product').attr('data-sid')
+
+        $.get('member-collect-api.php', {
+            'action': 'add',
+            'psid': psid
+        }, function(data) {
+            // console.log(data)
+            $('.pop-up-1').fadeIn(150)
+            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
+            $('.pop-up-1 .pop-up-text').text(data.msg)
+        }, 'json')
+        btn.addClass('d-none')
+        btn.next().removeClass('d-none')
+    }
+
+    // 取消
+    function cancelCollectProduct() {
+        let btn = $(event.currentTarget)
+        let psid = btn.closest('.beer-product').attr('data-sid')
+
+        $.get('member-collect-api.php', {
+            'action': 'delete',
+            'psid': psid
+        }, function(data) {
+            // console.log(data)
+            $('.pop-up-1').fadeIn(150)
+            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
+            $('.pop-up-1 .pop-up-text').text(data.msg)
+        }, 'json')
+        btn.addClass('d-none')
+        btn.prev().removeClass('d-none')
+    }
 
     // -------------------------------------------------------------
     // 彈跳視窗

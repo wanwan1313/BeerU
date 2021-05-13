@@ -14,10 +14,13 @@ if (isset($_SESSION['cart'])) {
     };
 }
 
-// 查看cart商品sid
-// if (isset($_SESSION['cart'])) {
-//     echo array_keys($_SESSION['cart'])[0];
-// }
+// 查看cart商品是哪個類型
+if (isset($_SESSION['cart']['fund'])) {
+    $_SESSION['type'] = 'fund';
+    // echo array_keys($_SESSION['cart'])[0];
+}else{
+    $_SESSION['type'] = 'beer';
+}
 
 
 
@@ -235,7 +238,7 @@ if (isset($_SESSION['cart'])) {
                                                         <option>02</option>
                                                         <option>03</option>
                                                         <option>04</option>
-                                                        <option>05</option>
+                                                        <option value="05">05</option>
                                                         <option>06</option>
                                                         <option>07</option>
                                                         <option>08</option>
@@ -253,7 +256,7 @@ if (isset($_SESSION['cart'])) {
                                                         <option>2023</option>
                                                         <option>2024</option>
                                                         <option>2025</option>
-                                                        <option>2026</option>
+                                                        <option value="26">2026</option>
                                                         <option>2027</option>
                                                         <option>2028</option>
                                                         <option>2029</option>
@@ -268,6 +271,7 @@ if (isset($_SESSION['cart'])) {
                                         </div>
                                     </div>
                                 </div>
+                                <div class="auto_data" >自動輸入</div>
                             </div>
 
                             <!-- 結帳商品 -->
@@ -337,10 +341,10 @@ if (isset($_SESSION['cart'])) {
                                         <div class="v-thead col-3 px-0 text-center text-lg-left">訂單狀態</div>
                                     </div>
                                     <div class="view-content d-flex">
-                                        <div class="v-tbody col-3 px-0 text-center text-lg-left" id="orderDay">2021-05-03</div>
+                                        <div class="v-tbody col-3 px-0 text-center text-lg-left" id="orderDay"></div>
                                         <div class="v-tbody col-3 px-0 text-center text-lg-left" id="mytotalprice"></div>
                                         <div class="v-tbody col-3 px-0 text-center text-lg-left" id="mypayment"></div>
-                                        <div class="v-tbody col-3 px-0 text-center text-lg-left">處理中</div>
+                                        <div class="v-tbody col-3 px-0 text-center text-lg-left" id="orderStatus">處理中</div>
                                     </div>
                                 </div>
                                 <!-- 商品列表 -->
@@ -432,11 +436,33 @@ if (isset($_SESSION['cart'])) {
 <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
 
 <script>
+    
+    // 檢查商品有沒有超過超商取貨限制
     let Q_total = <?= $Q_total ?>;
     if (Q_total >= 15) {
         $("#ship option[value='超商取貨']").remove();
         $('#ship').next().html('<i class="fas fa-exclamation-circle"></i>目前選購之商品總數已超過超商取貨大小限制，僅能宅配取貨')
     }
+
+    // 檢查是不是募資方案
+    let checkoutType = '<?= $_SESSION['type'] ?>';
+    
+    if( checkoutType == 'fund'){
+        $("#payment").val('信用卡付款')
+        $('.credit-card').fadeIn(150)
+        $('#payment').next().html('<i class="fas fa-exclamation-circle"></i>募資方案僅能使用信用卡付款')
+        $('#orderStatus').text('感謝您的贊助！')
+
+        let fsid = <?= isset($_SESSION['cart']['fund']['sid']) ? $_SESSION['cart']['fund']['sid'] : 0 ?>;
+        $('.backtocart').html(`<a href="fund-final.php?sid=${fsid}">
+                        <i class="fas fa-arrow-alt-circle-left mr-2"></i>返回募資方案
+                    </a>`)
+
+        
+        $("#payment option[value='取貨付款']").remove();
+
+    }
+    
 
     // 台灣地址套件
     $("#twzipcode").twzipcode({
@@ -479,7 +505,7 @@ if (isset($_SESSION['cart'])) {
             re_dist.value = "<?= isset($_SESSION['checkout']['re_dist']) ? $_SESSION['checkout']['re_dist'] : '' ?>"
         }
 
-        $('#payment').val('取貨付款')
+        // $('#payment').val('取貨付款')
     }
 
 
@@ -591,7 +617,7 @@ if (isset($_SESSION['cart'])) {
                                                 alt=""></div>
                                         <div class="col-10 thisp-name px-0">
                                             <p class="c-name">${p.c_name}</p>
-                                            <p class="e-name d-none d-lg-block">${p.e_name !=undefined ?p.e_name:'' }</p>
+                                            <p class="e-name">${p.e_name !=undefined ?p.e_name:'' }</p>
                                         </div>
                                     </div>
                                     <div class="col-2 thisp-qty px-0 text-center">${p.quantity}</div>
@@ -810,6 +836,18 @@ if (isset($_SESSION['cart'])) {
     }).on('keyup change', function() {
         $('.ccv div').html($(this).val());
     });
+
+
+    // 信用卡自動輸入
+    $('.auto_data').on('click',function(){
+        $('#card-number').val('3568')
+        $('#card-number-1').val('4476')
+        $('#card-number-2').val('2185')
+        $('#card-number-3').val('6653')
+        $('.credit-card-box .number').text('3568 4476 2185 6653')
+        $('#card-holder').val('WU WAN JUNG')
+        $('.credit-card-box .card-holder div').text('WU WAN JUNG')
+    })
 
     // 檢查表格與AJAX傳送
     function checkpaymentform() {
