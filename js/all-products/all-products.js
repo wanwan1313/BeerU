@@ -132,6 +132,69 @@ $(function () {
     })
 
 
+    // -----------------------------------------------------------------
+    // 關注功能
+    // 加入
+
+    btn_attention.on('click','.btn_attention_be',function(){
+        let tsid = $(this).parent().prev('.product-tag').find('p').attr('data-cate')
+        // console.log(tsid)
+
+        $.get('member-attention-api.php',{'action':'add','tsid':tsid},function(data){
+            // console.log(data)
+            $('.pop-up-1').fadeIn(150)
+            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+            $('.pop-up-1 .pop-up-text').text(data.msg)
+        }, 'json')
+        $(this).addClass('d-none')
+        $(this).next().removeClass('d-none')
+    })
+    // 取消
+    btn_attention.on('click','.btn_attention_active',function(){
+        let tsid = $(this).parent().prev('.product-tag').find('p').attr('data-cate')
+        // console.log(tsid)
+
+        $.get('member-attention-api.php',{'action':'delete','tsid':tsid},function(data){
+            // console.log(data)
+            $('.pop-up-1').fadeIn(150)
+            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+            $('.pop-up-1 .pop-up-text').text(data.msg)
+        }, 'json')
+        $(this).addClass('d-none')
+        $(this).prev().removeClass('d-none')
+    })
+
+
+
+
+    // $('.btn_attention_be').on('click',function () {
+    //     let tsid = $(this).parent().prev('.product-tag').find('p').attr('data-cate')
+    //     // console.log(tsid)
+
+    //     $.get('member-attention-api.php',{'action':'add','tsid':tsid},function(data){
+    //         // console.log(data)
+    //         $('.pop-up-1').fadeIn(150)
+    //         $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+    //         $('.pop-up-1 .pop-up-text').text(data.msg)
+    //     }, 'json')
+    //     $(this).addClass('d-none')
+    //     $(this).next().removeClass('d-none')
+    // })
+    
+    // $('.btn_attention_active').on('click',function () {
+    //     let tsid = $(this).parent().prev('.product-tag').find('p').attr('data-cate')
+    //     console.log(tsid)
+
+    //     $.get('member-attention-api.php',{'action':'delete','tsid':tsid},function(data){
+    //         // console.log(data)
+    //         $('.pop-up-1').fadeIn(150)
+    //         $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+    //         $('.pop-up-1 .pop-up-text').text(data.msg)
+    //     }, 'json')
+    //     $(this).addClass('d-none')
+    //     $(this).prev().removeClass('d-none')
+    // })
+
 
     // -------------------------------------------------------------
     // 彈跳視窗

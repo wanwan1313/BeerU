@@ -159,6 +159,26 @@ if( isset($_SESSION['user'])){
     }
 }
 
+
+// 抓資料庫裡的關注清單
+$a_arr = [];
+$attention = false;
+if (isset($_SESSION['user'])) {
+
+    $m_sid = $_SESSION['user']['sid'];
+    $a_SQL = "SELECT `tag_sid` FROM `attention` WHERE `tag_sid` > 0 AND `member_sid` = $m_sid";
+    $a_row = $pdo->query($a_SQL)->fetchAll();
+    if (!empty($a_row)) {
+        foreach ($a_row as $a) {
+            array_push($a_arr, $a['tag_sid']);
+        }
+    }
+
+    if( in_array($cate, $a_arr)){
+        $attention = true;
+    }
+}
+
 echo json_encode([
     'page' => $page,
     'page_p' => $page_p,
@@ -168,4 +188,5 @@ echo json_encode([
     'cate_name' => $cate_name,
     'rows' => $rows,
     'collect' => $c_arr,
+    'attention' => $attention,
 ], JSON_UNESCAPED_UNICODE);

@@ -159,9 +159,10 @@ $page_title = '啤女-精釀啤酒商品';
                             <div class="product-tag d-flex align-items-center">
                             </div>
 
-                            <!-- 加入關注按鈕 -->
-                            <button class="btn_attention d-none"><i class="fas fa-plus"></i>加入關注</button>
-                            <!-- <button class="btn_attention_active"><i class="fas fa-check"></i>已關注</button> -->
+                            <div class="btn_attention_wrap d-none">
+                                <!-- 加入關注按鈕 -->
+                            </div>
+
                         </div>
 
 
@@ -234,6 +235,7 @@ $page_title = '啤女-精釀啤酒商品';
     let product_arrang = $('.all-product .product-arrang')
     let pages_wrap = $('.all-product .pages')
     let product_tag = $('.all-product .product-tag')
+    let btn_attention = $('.all-product .btn_attention_wrap')
     let btn_pages = $('.all-product .btn_page')
     let btn_cates = $('.product-category .category-sub-item')
     let btn_first_cates = $('.product-category .category-out-item')
@@ -260,9 +262,9 @@ $page_title = '啤女-精釀啤酒商品';
 
                                     <!-- 收藏按鈕 -->
                                     <div class="collect">
-                                        <?php if(!isset($_SESSION['user'])): ?>
+                                        <?php if (!isset($_SESSION['user'])) : ?>
                                         <button class="btn_collect_nologin" onclick="LogIn_btn()" ><i class="far fa-heart"></i></button>
-                                        <?php else: ?>
+                                        <?php else : ?>
                                         <button class="btn_collect"><i class="far fa-heart"></i></button>
                                         <button class="btn_collect_active d-none"><i class="fas fa-heart"></i></button>
                                         <?php endif; ?>
@@ -316,9 +318,9 @@ $page_title = '啤女-精釀啤酒商品';
 
                                     <!-- 收藏按鈕 -->
                                     <div class="collect">
-                                        <?php if(!isset($_SESSION['user'])): ?>
+                                        <?php if (!isset($_SESSION['user'])) : ?>
                                         <button class="btn_collect_nologin" onclick="LogIn_btn()" ><i class="far fa-heart"></i></button>
-                                        <?php else: ?>
+                                        <?php else : ?>
                                         <button class="btn_collect d-none"><i class="far fa-heart"></i></button>
                                         <button class="btn_collect_active"><i class="fas fa-heart"></i></button>
                                         <?php endif; ?>
@@ -374,6 +376,27 @@ $page_title = '啤女-精釀啤酒商品';
         return `
             <div class="tagpic"><img src="../images/tagespic/${t.cate}.svg" alt=""></div>
             <p data-cate="${t.cate}" >#${t.cate_name}</p>
+        `
+    }
+    // 設定一個關注按鈕的字樣
+    const btnAttentionTPL = t => {
+        return `
+        <?php if (!isset($_SESSION['user'])) : ?>
+           <button class="btn_attention btn_attention_nologin" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
+        <?php else : ?>
+           <button class="btn_attention btn_attention_be"><i class="fas fa-plus"></i>加入關注</button>
+           <button class="btn_attention_active d-none"><i class="fas fa-check"></i>已關注</button>
+        <?php endif; ?>
+        `
+    }
+    const btnAttentionTPL2 = t => {
+        return `
+        <?php if (!isset($_SESSION['user'])) : ?>
+           <button class="btn_attention btn_attention_nologin" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
+        <?php else : ?>
+            <button class="btn_attention btn_attention_be d-none"><i class="fas fa-plus"></i>加入關注</button>
+           <button class="btn_attention_active"><i class="fas fa-check"></i>已關注</button>
+        <?php endif; ?>
         `
     }
 
@@ -434,16 +457,16 @@ $page_title = '啤女-精釀啤酒商品';
             if (p_data.cate != 0) {
                 product_tag.html('')
                 renderallTags()
-                $('.all-product .btn_attention').removeClass('d-none')
+                $('.all-product .btn_attention_wrap').removeClass('d-none')
 
                 // 啤酒杯，隱藏關注按鈕
                 if (p_data.cate == 54 || p_data.cate == 53) {
-                    $('.all-product .btn_attention').addClass('d-none')
+                    $('.all-product .btn_attention_wrap').addClass('d-none')
                 }
             }
             // 熱門商品/全部商品
             else {
-                $('.all-product .btn_attention').addClass('d-none')
+                $('.all-product .btn_attention_wrap').addClass('d-none')
             }
 
 
@@ -656,7 +679,7 @@ $page_title = '啤女-精釀啤酒商品';
         page = 1
         getallproductData()
         toProductTop()
-        getURL(cate, page, hot, order,userSearch)
+        getURL(cate, page, hot, order, userSearch)
         pages_wrap.css('transform', 'translateX(0px)')
 
     }
@@ -730,7 +753,7 @@ $page_title = '啤女-精釀啤酒商品';
     // 查詢事件
     $('#search2').on('keypress', function(event) {
         let pressBtn = event.keyCode
-        if (pressBtn == 13 && $(this).val() != "" ) {
+        if (pressBtn == 13 && $(this).val() != "") {
             userSearch = $(this).val()
             cate = 0
             page = 1
@@ -868,17 +891,17 @@ $page_title = '啤女-精釀啤酒商品';
         product_arrang.html('')
         if (p_data.rows && p_data.rows.forEach) {
             p_data.rows.forEach(el => {
-                
+
                 let psid = el.sid
                 // 判斷商品有沒有被收藏
-                if( p_data.collect.indexOf(psid) > -1){
+                if (p_data.collect.indexOf(psid) > -1) {
                     product_arrang.append(allproductTpl2(el))
-                }else{
+                } else {
                     product_arrang.append(allproductTpl(el))
                 }
-                
-                
-                
+
+
+
                 let ishot = el.hot //抓熱門的值
                 let created_at = Date.parse(el.created_at).valueOf() //抓建立時間
                 let deadline = Date.parse('2021-05-01').valueOf() //設定要有new標籤的時間點
@@ -937,10 +960,13 @@ $page_title = '啤女-精釀啤酒商品';
     function renderallTags() {
         product_tag.html('')
         product_tag.append(allproductTag(p_data))
-
+        btn_attention.html('')
+        if( p_data.attention == true ){
+            btn_attention.html(btnAttentionTPL2())
+        }else{
+            btn_attention.html(btnAttentionTPL())
+        }
     }
-
-
 </script>
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>
