@@ -230,7 +230,7 @@ if (isset($_SESSION['user'])) {
                                             <p>姓名</p>
                                             <i class="fas fa-user-alt user-icon02"></i>
                                             <input type="text" class="input-btn" name="nickname" required value="<?= $m_row['nickname'] ?>">
-                                            <!-- <small class="warn"><i class="far fa-times-circle"></i>姓名不得為空白</small> -->
+                                            <!-- <small class="warn"><i class="far fa-times-circle"></i>錯誤</small> -->
 
                                         </div>
                                         <div class="mydata-txt mydata-birthday mb-3">
@@ -255,29 +255,34 @@ if (isset($_SESSION['user'])) {
 
 
                                     <!-- 重設密碼 -->
-                                    <div class="col-12 col-lg-5 password-reset mydata-editall">
+                                    <form name="Resetpassword" method="post" class="col-12 col-lg-5 password-reset mydata-editall" novalidate>
                                         <P class="d-none d-lg-block">重設我的密碼</P>
                                         <div class="mydata-txt old-password mb-3">
                                             <p>目前密碼</p>
                                             <i class="fas fa-lock lock-icon02"></i>
-                                            <input class="input-btn" name="oldPassword" type="password">
+                                            <input class="input-btn oldPassword" name="oldPassword"  required >
+                                            <small class="warn"><i class="far fa-times-circle"></i></small> 
                                         </div>
+                                        
                                         <div class="mydata-txt old-password mb-3">
                                             <p>輸入新密碼</p>
                                             <i class="fas fa-lock lock-icon02"></i>
-                                            <input class="input-btn" name="newPassword" type="password">
+                                            <input class="input-btn resetPassword" name="resetPassword" required>
+                                            <small class="warn"><i class="far fa-times-circle"></i></small> 
                                         </div>
                                         <div class="mydata-txt old-password mb-3">
                                             <p>再次輸入密碼</p>
                                             <i class="fas fa-lock lock-icon02"></i>
-                                            <input class="input-btn" name="newPassword-again" type="password">
+                                            <input class="input-btn resetPassword-again" name="resetPassword-again" required>
+                                            <small class="warn"><i class="far fa-times-circle"></i></small> 
                                         </div>
 
                                         <div class="data-button-wrap d-flex justify-content-center">
-                                            <button class="btn_password-confirm">送出</button>
+                                            <button type="submit"  class="btn_password-confirm" onclick="checkform_restPassword(); return false;">送出</button>
+                                            
                                             <button class="btn_password-cancel">取消</button>
                                         </div>
-                                    </div>
+                                    </form>
 
                                 </div>
                             </section>
@@ -1285,6 +1290,8 @@ if (isset($_SESSION['user'])) {
         scrollToTop()
     })
 
+    
+
 
     //設定只能18歲
     let maxYear = new Date().getFullYear() - 18;
@@ -1298,7 +1305,10 @@ if (isset($_SESSION['user'])) {
     let maxAge = maxYear + '-' + setMonth(maxMonth) + '-' + maxDate;
     $('.birthday').attr('max', maxAge);
 
+    //錯誤初始狀態
+    $('.warn').css('display', 'none');
 
+    //檢查修改資料
     function checkForm_edit() {
 
         let isPass = true;
@@ -1324,7 +1334,17 @@ if (isset($_SESSION['user'])) {
                         })
 
                     } else {
-                        alert(data.error)
+
+                        $('.pop-up-1').fadeIn(150);
+                        $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color', 'var(--red)')
+                        $('.pop-up-1 .pop-up-text').text('資料不能相同');
+                        $('button.ok').on('click', function() {
+
+                            $('.pop-up-1').fadeOut(150);
+
+                        })
+
+                        // alert(data.error)
 
                     }
 
@@ -1332,7 +1352,89 @@ if (isset($_SESSION['user'])) {
                 }, 'json')
 
     }
+    
+        // 重設密碼
+        function checkform_restPassword(){
 
+        const $oldPassword = $('.oldPassword')
+        const $resetPassword = $('.resetPassword');
+        const $resetPassword_again = $('.resetPassword-again');
+        let isPass = true;
+
+
+        // 舊密碼和新密碼要不一樣
+        if($oldPassword.val() == $resetPassword.val()){
+            isPass = false;
+            $oldPassword.css('border','3px solid var(--pink)');
+            $oldPassword.next().css('display','block').children().text('密碼不可以相同');
+
+
+            $resetPassword.css('border','3px solid var(--pink)');
+            $resetPassword.next().css('display','block').children().text('密碼不可以相同');
+
+
+        }
+
+        //輸入不能為空
+        if($resetPassword.val() == '' && $resetPassword_again.val() == ''){
+
+            isPass = false;
+            
+            $resetPassword.css('border','3px solid var(--pink)');
+            $resetPassword.next().css('display','block').children().text('輸入不可以為空');
+
+            $resetPassword_again.css('border','3px solid var(--pink)');
+            $resetPassword_again.next().css('display','block').children().text('輸入不可以為空');
+            
+            
+        }
+
+        //再次輸入密碼要跟新密碼一樣
+        if($resetPassword.val() != $resetPassword_again.val() ){
+            isPass = false;
+            $resetPassword.css('border','3px solid var(--pink)');
+            $resetPassword.next().css('display','block').children().text('新密碼不相同');
+
+            $resetPassword_again.css('border','3px solid var(--pink)');
+            $resetPassword_again.next().css('display','block').children().text('新密碼不相同');
+
+
+        }
+
+
+
+        if(isPass){
+            $.post(
+                
+            'Rest-password-api.php',
+            $(document.Resetpassword).serialize(),
+            function(data){
+
+                if (data.success) {
+
+                    $('.pop-up-1').fadeIn(150);
+                            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
+                            $('.pop-up-1 .pop-up-text').text('修改密碼成功');
+                            $('button.ok').on('click', function() {
+                                location.reload();
+
+                            })
+
+                }else {
+                    
+
+                    $oldPassword.css('border','3px solid var(--pink)');
+                    $oldPassword.next().css('display','block').children().text('密碼輸入錯誤')
+               
+                }
+
+            }, 'json'
+
+
+            )
+        }
+
+        }
 
 
 
