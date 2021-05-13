@@ -61,6 +61,16 @@ if (isset($_SESSION['user'])) {
     WHERE `member_sid` = $m_sid 
     ORDER BY `sid` DESC";
     $comdone_row = $pdo->query($commentdone_SQL)->fetchAll();
+
+
+
+    // 從資料庫抓已關注的標籤
+    $attendone_SQL = "SELECT a.`sid`, a.`tag_sid`, t.`name` FROM `attention` a
+    JOIN `tags` t
+    ON a.`tag_sid` = t.`sid`
+    WHERE `tag_sid` > 0 AND `member_sid` = $m_sid
+    ORDER BY a.`sid` DESC";
+    $atten_row = $pdo->query($attendone_SQL)->fetchAll();
 };
 
 
@@ -260,26 +270,26 @@ if (isset($_SESSION['user'])) {
                                         <div class="mydata-txt old-password mb-3">
                                             <p>目前密碼</p>
                                             <i class="fas fa-lock lock-icon02"></i>
-                                            <input class="input-btn oldPassword" name="oldPassword"  required >
-                                            <small class="warn"><i class="far fa-times-circle"></i></small> 
+                                            <input class="input-btn oldPassword" name="oldPassword" required>
+                                            <small class="warn"><i class="far fa-times-circle"></i></small>
                                         </div>
-                                        
+
                                         <div class="mydata-txt old-password mb-3">
                                             <p>輸入新密碼</p>
                                             <i class="fas fa-lock lock-icon02"></i>
                                             <input class="input-btn resetPassword" name="resetPassword" required>
-                                            <small class="warn"><i class="far fa-times-circle"></i></small> 
+                                            <small class="warn"><i class="far fa-times-circle"></i></small>
                                         </div>
                                         <div class="mydata-txt old-password mb-3">
                                             <p>再次輸入密碼</p>
                                             <i class="fas fa-lock lock-icon02"></i>
                                             <input class="input-btn resetPassword-again" name="resetPassword-again" required>
-                                            <small class="warn"><i class="far fa-times-circle"></i></small> 
+                                            <small class="warn"><i class="far fa-times-circle"></i></small>
                                         </div>
 
                                         <div class="data-button-wrap d-flex justify-content-center">
-                                            <button type="submit"  class="btn_password-confirm" onclick="checkform_restPassword(); return false;">送出</button>
-                                            
+                                            <button type="submit" class="btn_password-confirm" onclick="checkform_restPassword(); return false;">送出</button>
+
                                             <button class="btn_password-cancel">取消</button>
                                         </div>
                                     </form>
@@ -298,19 +308,26 @@ if (isset($_SESSION['user'])) {
                                     <!-- 關注 -->
                                     <div class="col-12 myattention d-flex flex-wrap align-items-center justify-content-center ">
                                         <p class="col-12 memberAccordion">關注<i class="fas fa-chevron-circle-up ml-1"></i></p>
-                                        <form class="col-12 col-lg-11 myattention-items memberAccordion-content" name="myattention">
-                                            <label for="Belgium">
-                                                <input type="checkbox" id="Belgium" name="" value=""><span>比利時</span>
-                                            </label>
-                                            <label for="IPA">
-                                                <input type="checkbox" id="IPA" name="" value=""><span>印度淡愛爾</span>
-                                            </label>
-                                            <label for="moondog">
-                                                <input type="checkbox" id="moondog" name="" value=""><span>月亮狗</span>
-                                            </label>
-                                            <br>
-                                            <button class="btn_cancelAtten">取消關注</button>
-                                        </form>
+                                        <div class="col-12 myattention-items memberAccordion-content">
+                                            <?php if (!empty($atten_row)) : ?>
+                                                <div class="attentag-wrap px-3 px-lg-5">
+                                                    <?php foreach ($atten_row as $atten) : ?>
+                                                        <label for="attentag-<?= $atten['tag_sid'] ?>">
+                                                            <input type="checkbox" id="attentag-<?= $atten['tag_sid'] ?>" name="myattentionitem" value="<?= $atten['tag_sid'] ?>"><span><?= $atten['name'] ?></span>
+                                                        </label>
+                                                    <?php endforeach; ?>
+                                                    <br>
+                                                    <button class="btn_cancelAtten">取消關注</button>
+                                                </div>
+
+                                            <?php else : ?>
+                                                <div class="empty-status px-3 px-lg-5">
+                                                    <p>目前沒有已關注的標籤</p>
+                                                    <a href="all-product.php"><button class="starttogo">開始關注<i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></button></a>
+                                                </div>
+                                            <?php endif; ?>
+
+                                        </div>
 
                                     </div>
 
@@ -346,7 +363,7 @@ if (isset($_SESSION['user'])) {
                                             </div>
 
                                             <!-- 商品排列 -->
-                                            <div class="col-12 product-arrang d-flex flex-wrap">
+                                            <div class="col-12 product-arrang d-flex flex-wrap px-0">
                                             </div>
                                         </div>
 
@@ -1243,6 +1260,12 @@ if (isset($_SESSION['user'])) {
             let content = $(this).attr('data-content')
             $(`.${content}`).fadeIn(150)
 
+            let url = location.pathname + `?${content}`
+            history.pushState({
+                url: url,
+                title: document.title
+            }, document.title, url)
+
             // 樣式修改
             $('.helloname').nextAll().addClass('d-none')
             $('.user-pic').addClass('small')
@@ -1254,11 +1277,37 @@ if (isset($_SESSION['user'])) {
             $('.member-menu').fadeIn(150)
             $('.member-func-box').fadeOut(0)
 
+            let url = location.pathname
+            history.pushState({
+                url: url,
+                title: document.title
+            }, document.title, url)
+
             // 樣式修改
             $('.helloname').nextAll().removeClass('d-none')
             $('.user-pic').removeClass('small')
             $('.backtomenu').removeClass('on')
         })
+
+        if (window.location.search == '') {
+            $('.member-menu').fadeIn(150)
+            $('.member-func-box').fadeOut(0)
+
+            // 樣式修改
+            $('.helloname').nextAll().removeClass('d-none')
+            $('.user-pic').removeClass('small')
+            $('.backtomenu').removeClass('on')
+        } else {
+            let showContent = window.location.search.substr(1)
+            $('.member-menu').fadeOut(0)
+            $('.member-func-box').fadeOut(0)
+            $(`.${showContent}`).fadeIn(150)
+
+            // 樣式修改
+            $('.helloname').nextAll().addClass('d-none')
+            $('.user-pic').addClass('small')
+            $('.backtomenu').addClass('on')
+        }
 
 
     }
@@ -1290,7 +1339,7 @@ if (isset($_SESSION['user'])) {
         scrollToTop()
     })
 
-    
+
 
 
     //設定只能18歲
@@ -1305,7 +1354,7 @@ if (isset($_SESSION['user'])) {
     let maxAge = maxYear + '-' + setMonth(maxMonth) + '-' + maxDate;
     $('.birthday').attr('max', maxAge);
 
-   
+
 
     //檢查修改資料
     function checkForm_edit() {
@@ -1351,43 +1400,43 @@ if (isset($_SESSION['user'])) {
                 }, 'json')
 
     }
-        
-        //初始錯誤狀態
-        $('.warn').css('display','none');
-    
-        // 重設密碼
-        function checkform_restPassword(){
+
+    //初始錯誤狀態
+    $('.warn').css('display', 'none');
+
+    // 重設密碼
+    function checkform_restPassword() {
 
         const $oldPassword = $('.oldPassword')
         const $resetPassword = $('.resetPassword');
         const $resetPassword_again = $('.resetPassword-again');
         let isPass = true;
 
-        const fileds = [$oldPassword,$resetPassword,$resetPassword_again];
+        const fileds = [$oldPassword, $resetPassword, $resetPassword_again];
 
 
         //初始狀態
-        fileds.forEach(el =>{
+        fileds.forEach(el => {
 
-            el.css('border','1px solid var(--gold)');
-            $('.warn').css('display','none');
-            
-            
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+
+
         });
-       
 
-        
-         
+
+
+
 
         // 舊密碼和新密碼要不一樣
-        if($oldPassword.val() == $resetPassword.val()){
+        if ($oldPassword.val() == $resetPassword.val()) {
             isPass = false;
-            $oldPassword.css('border','3px solid var(--pink)');
-            $oldPassword.next().css('display','block').children().text('密碼不可以相同');
+            $oldPassword.css('border', '3px solid var(--pink)');
+            $oldPassword.next().css('display', 'block').children().text('密碼不可以相同');
 
 
-            $resetPassword.css('border','3px solid var(--pink)');
-            $resetPassword.next().css('display','block').children().text('密碼不可以相同');
+            $resetPassword.css('border', '3px solid var(--pink)');
+            $resetPassword.next().css('display', 'block').children().text('密碼不可以相同');
 
 
 
@@ -1395,70 +1444,70 @@ if (isset($_SESSION['user'])) {
         }
 
         //輸入不能為空
-        if($resetPassword.val() == '' && $resetPassword_again.val() == ''){
+        if ($resetPassword.val() == '' && $resetPassword_again.val() == '') {
 
             isPass = false;
-            
-            $resetPassword.css('border','3px solid var(--pink)');
-            $resetPassword.next().css('display','block').children().text('輸入不可以為空');
 
-            $resetPassword_again.css('border','3px solid var(--pink)');
-            $resetPassword_again.next().css('display','block').children().text('輸入不可以為空');
+            $resetPassword.css('border', '3px solid var(--pink)');
+            $resetPassword.next().css('display', 'block').children().text('輸入不可以為空');
 
-            
+            $resetPassword_again.css('border', '3px solid var(--pink)');
+            $resetPassword_again.next().css('display', 'block').children().text('輸入不可以為空');
 
-            
-            
+
+
+
+
         }
 
         //再次輸入密碼要跟新密碼一樣
-        if($resetPassword.val() != $resetPassword_again.val() ){
+        if ($resetPassword.val() != $resetPassword_again.val()) {
             isPass = false;
-            $resetPassword.css('border','3px solid var(--pink)');
-            $resetPassword.next().css('display','block').children().text('新密碼不相同');
+            $resetPassword.css('border', '3px solid var(--pink)');
+            $resetPassword.next().css('display', 'block').children().text('新密碼不相同');
 
-            $resetPassword_again.css('border','3px solid var(--pink)');
-            $resetPassword_again.next().css('display','block').children().text('新密碼不相同');
-    
+            $resetPassword_again.css('border', '3px solid var(--pink)');
+            $resetPassword_again.next().css('display', 'block').children().text('新密碼不相同');
 
-            
+
+
 
         }
 
 
 
-        if(isPass){
+        if (isPass) {
             $.post(
-                
-            'Rest-password-api.php',
-            $(document.Resetpassword).serialize(),
-            function(data){
 
-                if (data.success) {
+                'Rest-password-api.php',
+                $(document.Resetpassword).serialize(),
+                function(data) {
 
-                    $('.pop-up-1').fadeIn(150);
-                            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
-                            $('.pop-up-1 .pop-up-text').text('修改密碼成功');
-                            $('button.ok').on('click', function() {
-                                location.reload();
+                    if (data.success) {
 
-                            })
+                        $('.pop-up-1').fadeIn(150);
+                        $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
+                        $('.pop-up-1 .pop-up-text').text('修改密碼成功');
+                        $('button.ok').on('click', function() {
+                            location.reload();
 
-                }else {
-                    
+                        })
 
-                    $oldPassword.css('border','3px solid var(--pink)');
-                    $oldPassword.next().css('display','block').children().text('密碼輸入錯誤')
-               
-                }
+                    } else {
 
-            }, 'json'
+
+                        $oldPassword.css('border', '3px solid var(--pink)');
+                        $oldPassword.next().css('display', 'block').children().text('密碼輸入錯誤')
+
+                    }
+
+                }, 'json'
 
 
             )
         }
 
-        }
+    }
 
 
 
@@ -1663,7 +1712,10 @@ if (isset($_SESSION['user'])) {
 
     //  傳送AJAX取得收藏商品清單
     function getCollectProductData() {
-        $.get('member-collect-api.php',{order,userSearch}, function(data) {
+        $.get('member-collect-api.php', {
+            order,
+            userSearch
+        }, function(data) {
             // console.log(data)
             p_data = data //把資料拉到全域變數
             renderallProducts()
@@ -1744,7 +1796,7 @@ if (isset($_SESSION['user'])) {
 
         $(this).closest('.beer-product-wrap').remove()
 
-        if( beerProduct.length == 0){
+        if (beerProduct.length == 0) {
             product_arrang.append(noCollectTpl())
             sortandsearch.addClass('d-none')
         }
@@ -1762,7 +1814,7 @@ if (isset($_SESSION['user'])) {
     // 查詢--------------------------------------
     $('#search3').on('keypress', function(event) {
         let pressBtn = event.keyCode
-        if (pressBtn == 13 && $(this).val() != "" ) {
+        if (pressBtn == 13 && $(this).val() != "") {
             userSearch = $(this).val()
             order = 1
             getCollectProductData()
@@ -1852,6 +1904,18 @@ if (isset($_SESSION['user'])) {
         }, 'json')
 
     })
+
+
+
+
+
+
+    // 關注-----------------------------------------------------------
+    $('.btn_cancelAtten').on('click',function(){
+        let attentag = $(this).closest('.attentag-wrap').find('input[type="checkbox"]:checked')
+        console.log(attentag)
+    })
+
 
     // -------------------------------------------------------------
     // 彈跳視窗
