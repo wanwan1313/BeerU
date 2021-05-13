@@ -842,27 +842,27 @@ $(document).ready(function(){
 // 起始navbar、footer、header的狀態
 let scrollNow = $(window).scrollTop();
 
-if (scrollNow == 0){
+// if (scrollNow == 0){
 
-    $('.header').addClass('nav-headerOut');
-    $('.beeru-nav-bar').addClass('OUT');
+//     $('.header').addClass('nav-headerOut');
+//     $('.beeru-nav-bar').addClass('OUT');
     
-    $('footer').addClass('OUT')
+//     $('footer').addClass('OUT')
 
-    $('#YES').click(function(){
+//     $('#YES').click(function(){
 
-         setTimeout(()=>{
+//          setTimeout(()=>{
             
-            $('.header').removeClass('nav-headerOut');
-            $('.beeru-nav-bar').removeClass('OUT');
-            $('.beeru-nav-bar').fadeIn();
-            $('footer').removeClass('OUT');
+//             $('.header').removeClass('nav-headerOut');
+//             $('.beeru-nav-bar').removeClass('OUT');
+//             $('.beeru-nav-bar').fadeIn();
+//             $('footer').removeClass('OUT');
 
     
-        },5200)  
+//         },5200)  
 
-    });
-}
+//     });
+// }
 
 
 //navbar登入起始畫面按鈕
