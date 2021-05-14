@@ -12,6 +12,13 @@ $page_title = '啤女BeerU:新手入門';
 <link rel="stylesheet" href="../css/newbie/newbie-style-1.css">
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<!-- 會員登入 -->
+<?php include __DIR__ . '../../php/common/Login-Sign.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
+<section class="mobile-menu">
+    <?php include __DIR__ . '../../php/common/category.php' ?>
+</section>
 
 <section class="newbie-wrap">
     <div class="container-fluid">
