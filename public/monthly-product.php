@@ -94,6 +94,9 @@ if ($psid != 0) {
 </section>
 
 <section class="may-product-info">
+    <!-- return to top -->
+    <a href="javascript:" id="return-to-top"><img src="../images/common/top.svg" alt=""></a>
+    
     <div class="container-fluid e-product-intro-warp">
         <img class="sakura" src="../images/glori_images/sakura.png" alt="">
         <div class="row e-product-intro justify-content-center align-items-center beer-product" data-sid=<?= $row['sid'] ?> data-price=<?= $row['price'] ?> data-abv=<?= $row['abv'] ?>>

@@ -58,6 +58,9 @@ $page_title = '啤女BeerU:新手入門';
 </section>
 
 <section class="knowledge-wrap" id="knowledge-wrap">
+    <!-- return to top -->
+    <a href="javascript:" id="return-to-top"><img src="../images/common/top.svg" alt=""></a>
+    
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-4 knowledge-intro-wrap">

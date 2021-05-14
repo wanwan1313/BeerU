@@ -899,3 +899,46 @@ body {
     -o-animation-name: fadeInUp;
     animation-name: fadeInUp;
 }
+
+/* -------------return to top -------------*/
+
+#return-to-top {
+    position: fixed;
+    z-index: 999;
+    bottom: 100px;
+    right: 100px;
+    width: 100px;
+    height: 100px;
+    display: none;
+}
+
+#return-to-top img {
+    color: #F2D5C4;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+}
+
+#return-to-top:hover img {
+    color: #fff;
+    top: 5px;
+}
+
+/* 手機版 */
+
+@media (max-width: 991px) {
+    #return-to-top {
+        width: 70px;
+        height: 70px;
+        bottom: 100px;
+        right: 20px;
+    }
+}
+
+/* scroll - swing - 特效 */
+
+html {
+    scroll-behavior: swing;
+}
