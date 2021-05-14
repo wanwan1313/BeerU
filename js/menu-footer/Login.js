@@ -1,21 +1,52 @@
 // 登入
-
 const account_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
-const $account = $('.account'), $password = $('.password');
+const $account = $('.account');
+const $password = $('.password');
 
+
+//初始錯誤狀態
+$('.warn').css('display', 'none');
 
 function checkform_Login(){
 
     let isPass = true;
+    
+    const fileds01 = [$account,$password];
+
+    fileds01.forEach(el =>{
+   
+        el.css('border', '1px solid var(--gold)');
+        $('.warn').css('display', 'none');
+       
+
+    });
 
 
+
+ 
+    //帳號不符合格式
     if(!account_re.test($account.val())){
         isPass = false;
-        $('.account').css('border', 'solid 1px var(--pink)');
-        $('.account-warn').css('display','block')
+        $account.css('border', 'solid 3px var(--pink)');
+        $account.parent().next().css('display', 'block').children().text('帳號為E-mail格式');
+        ;
 
     }
+    
+    //輸入不能為空
+    if($account.val() == '' && $password.val()== ''){
+        isPass = false;
+        $account.css('border', 'solid 3px var(--pink)');
+        $password.css('border', 'solid 3px var(--pink)');
+
+        $account.parent().next().css('display', 'block').children().text('輸入不可以為空');
+        $password.parent().next().css('display', 'block').children().text('輸入不可以為空');
+
+
+
+    }
+
     
     if(isPass){
 
@@ -25,23 +56,27 @@ function checkform_Login(){
             function(data){
                 console.log(data)
                 if(data.success){
-               
-                    // $('.pop-up-1').fadeIn(150);
-                    // $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
-                    // $('.pop-up-1 .pop-up-text').text('登入成功');
-                    // $('button.ok').on('click', function () {
-                        
-                    // })
+                    
 
-                    location.reload();
+
+                    $('.LogIn-Sign').fadeOut(100);
+                    $('.pop-up-1').fadeIn(150);
+                    $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+                    $('.pop-up-1 .pop-up-text').text('登入成功');
+                    $('button.ok').on('click', function () {
+                        location.reload();
+                    })
+
+                   
                     
 
 
                 } else {
                      
-                   
-                    $('.enter-warn').css('display','block')
-                    $('.input-btn').css('border', 'solid 1px var(--pink)');
+                
+                    $account.css('border', 'solid 3px var(--pink)');
+                    $password.css('border', 'solid 3px var(--pink)');
+                    $password.parent().next().css('display', 'block').children().text('帳號或密碼錯誤');
                  
                     
                 }

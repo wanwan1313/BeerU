@@ -53,7 +53,7 @@
                     <i class="fas fa-user-alt user-icon01"></i>
                     <input class="input-btn account" type="email" placeholder="啤女帳號" name="account" id="account">
                     </div>
-                    <small class='warn account-warn'><i class="far fa-times-circle"></i>帳號格式錯誤</small>
+                    <small class="warn "><i class="far fa-times-circle"></i></small>
 
                     <div class="input-password">
                     <i class="fas fa-lock lock-icon01"></i>
@@ -61,7 +61,7 @@
                     </div>
 
 
-                    <small class='warn enter-warn'><i class="far fa-times-circle"></i>帳號或密碼錯誤</small>
+                    <small class="warn"><i class="far fa-times-circle"></i></small>
 
 
                     <button class="LogIn-btn02 Login" type="submit"> 登入</button>

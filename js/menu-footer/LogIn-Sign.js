@@ -1,10 +1,22 @@
 $(document).ready(function(){
 
-
+const $account = $('.account');
+const $password = $('.password');
+    
 //會員登入的視覺效果
 
 //navbar登入起始畫面按鈕
 $('.user-login').click(function(){
+
+    const fileds01 = [$account,$password];
+
+    fileds01.forEach(el =>{
+    
+        el.css('border', '1px solid var(--gold)');
+        $('.warn').css('display', 'none');
+        
+
+    });
 
 
 
@@ -29,22 +41,55 @@ $('.user-login').click(function(){
 
 });
 
+
+
+
+
 //按周圍區域退出
 $('.log-sandbox').click(function(){
 
    $('.LogIn-Sign').fadeOut(300);
+   const fileds01 = [$account,$password];
+
+   fileds01.forEach(el =>{
+  
+       el.css('border', '1px solid var(--gold)');
+       $('.warn').css('display', 'none');
+      
+
+   });
+
+ 
 
 })
 
 $('.cancel-quit').click(function(){
     $('.Check-page').fadeOut(300);
    $('.LogIn-Sign').fadeOut(300);
+   const fileds01 = [$account,$password];
+
+   fileds01.forEach(el =>{
+  
+       el.css('border', '1px solid var(--gold)');
+       $('.warn').css('display', 'none');
+      
+
+   });
 
 })
 
 $('.later-check').click(function(){
    $('.Check-page').fadeOut(300);
    $('.LogIn-Sign').fadeOut(300);
+   const fileds01 = [$account,$password];
+
+   fileds01.forEach(el =>{
+  
+       el.css('border', '1px solid var(--gold)');
+       $('.warn').css('display', 'none');
+      
+
+   });
 
 })
 
@@ -81,7 +126,15 @@ $('.LogIn-btn01').click(function(){
 //進入註冊畫面
 
 $('.LogOut-btn02').click(function(){
+    const fileds01 = [$account,$password];
 
+    fileds01.forEach(el =>{
+    
+        el.css('border', '1px solid var(--gold)');
+        $('.warn').css('display', 'none');
+        
+
+    });
 
  
 
@@ -124,6 +177,16 @@ $('.Sign').click(function(){
 // 立即註冊
 $('.LogSign-rightNow').click(function(){
 
+    const fileds01 = [$account,$password];
+
+    fileds01.forEach(el =>{
+    
+        el.css('border', '1px solid var(--gold)');
+        $('.warn').css('display', 'none');
+        
+
+    });
+
 
 
 
@@ -146,6 +209,16 @@ $('.LogSign-rightNow').click(function(){
 
 // 馬上登入
 $('.LogIn-rightNow').click(function(){
+
+    const fileds01 = [$account,$password];
+
+    fileds01.forEach(el =>{
+    
+        el.css('border', '1px solid var(--gold)');
+        $('.warn').css('display', 'none');
+        
+
+    });
 
 
 
@@ -172,6 +245,16 @@ $('.LogIn-rightNow').click(function(){
 
 //回到起始畫面
 $('.backward h3').click(function(){
+
+    const fileds01 = [$account,$password];
+
+    fileds01.forEach(el =>{
+    
+        el.css('border', '1px solid var(--gold)');
+        $('.warn').css('display', 'none');
+        
+
+    });
    
 
 
