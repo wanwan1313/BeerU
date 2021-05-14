@@ -27,13 +27,18 @@ if ($psid != 0) {
     $merch_sid = $row['merch_sid'];
 
     // 相關商品
-    $c_SQL = "SELECT * FROM `products` WHERE `sid` = 133";
+    $c_SQL = "SELECT * FROM `products` WHERE `sid` = 133 AND `sid` =  $psid";
     $c_row = $pdo->query($c_SQL)->fetch();
     $c_row_sid = $c_row['sid'];
-    $t_SQL = "SELECT * FROM `products` WHERE `type_sid` = $type_sid AND `sid` !=  $psid AND `sid` != $c_row_sid";
+
+    $t_SQL = "SELECT * FROM `products` WHERE `sid` = 21 AND `sid` =  $psid";
     $t_row = $pdo->query($t_SQL)->fetch();
-    $b_SQL = "SELECT * FROM `products` WHERE `brand_sid` = $brands_sid AND `sid` !=  $psid";
+    $t_row_sid = $t_row['sid'];
+
+
+    $b_SQL = "SELECT * FROM `products` WHERE `sid` = 99 AND `sid` =  $psid";
     $b_row = $pdo->query($b_SQL)->fetch();
+    $b_row_sid = $b_row['sid'];
 
 
     // new標籤
@@ -96,7 +101,7 @@ if ($psid != 0) {
 <section class="may-product-info">
     <!-- return to top -->
     <a href="javascript:" id="return-to-top"><img src="../images/common/top.svg" alt=""></a>
-    
+
     <div class="container-fluid e-product-intro-warp">
         <img class="sakura" src="../images/glori_images/sakura.png" alt="">
         <div class="row e-product-intro justify-content-center align-items-center beer-product" data-sid=<?= $row['sid'] ?> data-price=<?= $row['price'] ?> data-abv=<?= $row['abv'] ?>>
@@ -334,7 +339,7 @@ if ($psid != 0) {
                         <?php if (!isset($_SESSION['user'])) : ?>
                             <button class="btn_collect2" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
                         <?php else : ?>
-                            <?php if (in_array($c_row['sid'], $c_arr)) : ?>
+                            <?php if (in_array($c_row['133'], $c_arr)) : ?>
                                 <button class="btn_collect2_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
                                 <button class="btn_collect2 d-none" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
                             <?php else : ?>
@@ -361,7 +366,7 @@ if ($psid != 0) {
                         <?php if (!isset($_SESSION['user'])) : ?>
                             <button class="btn_collect2" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
                         <?php else : ?>
-                            <?php if (in_array($psid = 21, $c_arr)) : ?>
+                            <?php if (in_array($t_row['sid'], $c_arr)) : ?>
                                 <button class="btn_collect2_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
                                 <button class="btn_collect2 d-none" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
                             <?php else : ?>
@@ -388,7 +393,7 @@ if ($psid != 0) {
                         <?php if (!isset($_SESSION['user'])) : ?>
                             <button class="btn_collect2" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
                         <?php else : ?>
-                            <?php if (in_array($psid = 99, $c_arr)) : ?>
+                            <?php if (in_array($b_row['sid'], $c_arr)) : ?>
                                 <button class="btn_collect2_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
                                 <button class="btn_collect2 d-none" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
                             <?php else : ?>
