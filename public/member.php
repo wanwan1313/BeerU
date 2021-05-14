@@ -71,16 +71,39 @@ if (isset($_SESSION['user'])) {
     WHERE `tag_sid` > 0 AND `member_sid` = $m_sid
     ORDER BY a.`sid` DESC";
     $atten_row = $pdo->query($attendone_SQL)->fetchAll();
+
+    // 從資料庫抓已贊助的募資計畫
+    $fund_SQL = "SELECT o.`fund_sid`, o.`price`, f.`c_name`, f.`e_name`, f.`main_pic` ,f.`end_date` 
+    FROM `order_detail` o 
+    JOIN `fund` f
+    ON o.fund_sid = f.sid
+    WHERE o.`member_sid` = $m_sid AND o.`fund_sid` > 0 LIMIT 1";
+    $fund_row = $pdo->query($fund_SQL)->fetch();
+
+    // 從資料庫抓已關注的募資計畫
+    $fundatten_SQL = "SELECT a.`fund_sid`, f.`c_name`, f.`main_pic` ,f.`end_date` 
+    FROM `attention` a
+    JOIN `fund` f
+    ON a.fund_sid = f.sid
+    WHERE a.`fund_sid` > 0 AND a.`member_sid` = $m_sid";
+    $fundatten_row = $pdo->query($fundatten_SQL)->fetch();
+
+
+    // 從資料庫抓已預約的品飲會
+    $event_SQL = "SELECT j.`event_sid`,e.event_title,e.event_pic_m,e.event_time,e.event_place,e.event_address 
+    FROM `event_join` j 
+    JOIN `event` e ON j.`event_sid` = e.sid 
+    WHERE j.`member_sid` = $m_sid 
+    LIMIT 1";
+    $event_row = $pdo->query($event_SQL)->fetch();
+
+    // 從資料庫抓已關注的品飲會
+    $eventatten_SQL = "SELECT a.`event_sid`,e.event_title,e.event_pic_m,e.event_time,e.event_place,e.event_address 
+    FROM `attention` a
+    JOIN `event` e ON a.`event_sid` = e.sid 
+    WHERE a.`member_sid` = $m_sid ";
+    $eventatten_row = $pdo->query($eventatten_SQL)->fetchAll();
 };
-
-
-
-
-
-
-
-
-
 
 
 ?>
@@ -258,7 +281,7 @@ if (isset($_SESSION['user'])) {
                                         <div class="data-button-wrap d-flex justify-content-center">
 
                                             <button type="submit" class="btn_edit-confirm" onclick="checkForm_edit(); return false;">送出</button>
-                                            <button class="btn_edit-cancel">取消</button>
+                                            <div class="btn_edit-cancel">取消</div>
 
                                         </div>
                                     </form>
@@ -290,7 +313,7 @@ if (isset($_SESSION['user'])) {
                                         <div class="data-button-wrap d-flex justify-content-center">
                                             <button type="submit" class="btn_password-confirm" onclick="checkform_restPassword(); return false;">送出</button>
 
-                                            <button class="btn_password-cancel">取消</button>
+                                            <div class="btn_password-cancel">取消</div>
                                         </div>
                                     </form>
 
@@ -313,7 +336,7 @@ if (isset($_SESSION['user'])) {
                                                 <div class="attentag-wrap px-3 px-lg-5">
                                                     <?php foreach ($atten_row as $atten) : ?>
                                                         <label for="attentag-<?= $atten['tag_sid'] ?>">
-                                                            <input type="checkbox" id="attentag-<?= $atten['tag_sid'] ?>" name="myattentionitem" value="<?= $atten['tag_sid'] ?>"><span><?= $atten['name'] ?></span>
+                                                            <input type="checkbox" id="attentag-<?= $atten['tag_sid'] ?>" name="myattentionitem" value="<?= $atten['tag_sid'] ?>" data-name="<?= $atten['name'] ?>"><span><?= $atten['name'] ?></span>
                                                         </label>
                                                     <?php endforeach; ?>
                                                     <br>
@@ -569,53 +592,60 @@ if (isset($_SESSION['user'])) {
 
                                         <div class="col-12 myevent-items px-0 memberAccordion-content">
 
-                                            <!-- 單個活動 -->
-                                            <div class="event-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="">
+                                            <?php if (!empty($event_row)) : ?>
+                                                <!-- 單個活動 -->
+                                                <div class="event-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="<?= $event_row['event_sid'] ?>">
 
-                                                <!-- 活動照片資訊 -->
-                                                <div class="col-12 col-lg-2 event-pic d-flex flex-wrap align-items-center px-lg-0">
-                                                    <a href=""><img src="../images/event/event-open.jpeg" alt=""></a>
-                                                </div>
-                                                <!-- 活動主題 -->
-                                                <div class="col-12 col-lg-3 event-name d-flex flex-wrap align-items-lg-center px-lg-0 pl-lg-4 ">
-                                                    <div class="col-2 col-lg-12 px-0">
-                                                        <p class="title d-none d-lg-block">試飲會主題</p>
-                                                        <p class="title d-block d-lg-none">主題</p>
+                                                    <!-- 活動照片資訊 -->
+                                                    <div class="col-12 col-lg-2 event-pic d-flex flex-wrap align-items-center px-lg-0">
+                                                        <a href="event-join.php?sid=<?= $event_row['event_sid'] ?>"><img src="../images/event/<?= $event_row['event_pic_m'] ?>" alt=""></a>
                                                     </div>
-                                                    <div class="col-10 col-lg-12 thisname d-flex px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                        <a href="">
-                                                            <p>六月『啤酒不簡單』</p>
-                                                        </a>
+                                                    <!-- 活動主題 -->
+                                                    <div class="col-12 col-lg-3 event-name d-flex flex-wrap align-items-lg-center px-lg-0 pl-lg-4 ">
+                                                        <div class="col-2 col-lg-12 px-0">
+                                                            <p class="title d-none d-lg-block">品飲會主題</p>
+                                                            <p class="title d-block d-lg-none">主題</p>
+                                                        </div>
+                                                        <div class="col-10 col-lg-12 thisname d-flex px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
+                                                            <a href="event-join.php?sid=<?= $event_row['event_sid'] ?>">
+                                                                <p><?= $event_row['event_title'] ?></p>
+                                                            </a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!-- 活動地點 -->
-                                                <div class="col-12 col-lg-3 event-location d-flex flex-wrap align-items-lg-center px-lg-0 ">
-                                                    <div class="col-2 col-lg-12 px-0">
-                                                        <p class="title">地點</p>
+                                                    <!-- 活動地點 -->
+                                                    <div class="col-12 col-lg-3 event-location d-flex flex-wrap align-items-lg-center px-lg-0 ">
+                                                        <div class="col-2 col-lg-12 px-0">
+                                                            <p class="title">地點</p>
+                                                        </div>
+                                                        <div class="col-10 col-lg-12 thislocation d-flex flex-wrap px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
+                                                            <p class="col-12 px-0"><?= $event_row['event_place'] ?></p>
+                                                            <p class="col-12 px-0"><?= $event_row['event_address'] ?></p>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-10 col-lg-12 thislocation d-flex px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                        <p>忠孝東路四段270號
-                                                            11樓之311樓之311樓之3</p>
+                                                    <!-- 活動日期 -->
+                                                    <div class="col-12 col-lg-3 event-time d-flex flex-wrap align-items-lg-center px-lg-0 ">
+                                                        <div class="col-2 col-lg-12 px-0">
+                                                            <p class="title">日期</p>
+                                                        </div>
+                                                        <div class="col-10 col-lg-12 thistime px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
+                                                            <p><?= substr($event_row['event_time'], 0, 15) ?></p>
+                                                            <p><?= substr($event_row['event_time'], 16) ?></p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!-- 活動日期 -->
-                                                <div class="col-12 col-lg-3 event-time d-flex flex-wrap align-items-lg-center px-lg-0 ">
-                                                    <div class="col-2 col-lg-12 px-0">
-                                                        <p class="title">日期</p>
-                                                    </div>
-                                                    <div class="col-10 col-lg-12 thistime px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                        <p>2021/06/06(日)</p>
-                                                        <p>19:30-21:00</p>
-                                                    </div>
-                                                </div>
 
 
-                                                <!-- 取消 -->
-                                                <div class="col-12 col-lg-1 member-button event-button d-flex  align-items-center px-0 justify-content-center">
-                                                    <button class="btn_event-cancel">取消</button>
-                                                </div>
+                                                    <!-- 取消 -->
+                                                    <div class="col-12 col-lg-1 member-button event-button d-flex  align-items-center px-0 justify-content-center">
+                                                        <button class="btn_event-cancel">取消</button>
+                                                    </div>
 
-                                            </div>
+                                                </div>
+                                            <?php else : ?>
+                                                <div class="empty-status px-3 px-lg-5">
+                                                    <p>目前沒有已預約的品飲會</p>
+                                                    <a href="event.php"><button class="starttogo">了解品飲會<i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></button></a>
+                                                </div>
+                                            <?php endif; ?>
 
 
 
@@ -628,54 +658,65 @@ if (isset($_SESSION['user'])) {
 
                                         <div class="col-12 myattenevent-items px-0 memberAccordion-content">
 
-                                            <!-- 單個活動 -->
-                                            <div class="event-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="">
+                                            <?php if (!empty($eventatten_row)) : ?>
 
-                                                <!-- 活動照片資訊 -->
-                                                <div class="col-12 col-lg-2 event-pic d-flex flex-wrap align-items-center px-lg-0">
-                                                    <a href=""><img src="../images/event/shutterstock_662619631.jpg" alt=""></a>
-                                                </div>
-                                                <!-- 活動主題 -->
-                                                <div class="col-12 col-lg-3 event-name d-flex flex-wrap align-items-lg-center px-lg-0 pl-lg-4 ">
-                                                    <div class="col-2 col-lg-12 px-0">
-                                                        <p class="title d-none d-lg-block">試飲會主題</p>
-                                                        <p class="title d-block d-lg-none">主題</p>
+                                                <?php foreach($eventatten_row as $eva ): ?>
+                                                <!-- 單個活動 -->
+                                                <div class="event-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="<?= $eva['event_sid'] ?>">
+
+                                                    <!-- 活動照片資訊 -->
+                                                    <div class="col-12 col-lg-2 event-pic d-flex flex-wrap align-items-center px-lg-0">
+                                                        <a href="event-join.php?sid=<?= $eva['event_sid'] ?>"><img src="../images/event/<?= $eva['event_pic_m'] ?>" alt=""></a>
                                                     </div>
-                                                    <div class="col-10 col-lg-12 thisname d-flex px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                        <a href="">
-                                                            <p>六月『啤酒不簡單』</p>
-                                                        </a>
+                                                    <!-- 活動主題 -->
+                                                    <div class="col-12 col-lg-3 event-name d-flex flex-wrap align-items-lg-center px-lg-0 pl-lg-4 ">
+                                                        <div class="col-2 col-lg-12 px-0">
+                                                            <p class="title d-none d-lg-block">品飲會主題</p>
+                                                            <p class="title d-block d-lg-none">主題</p>
+                                                        </div>
+                                                        <div class="col-10 col-lg-12 thisname d-flex px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
+                                                            <a href="event-join.php?sid=<?= $eva['event_sid'] ?>">
+                                                                <p><?= $eva['event_title'] ?></p>
+                                                            </a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!-- 活動地點 -->
-                                                <div class="col-12 col-lg-3 event-location d-flex flex-wrap align-items-lg-center px-lg-0 ">
-                                                    <div class="col-2 col-lg-12 px-0">
-                                                        <p class="title">地點</p>
+                                                    <!-- 活動地點 -->
+                                                    <div class="col-12 col-lg-3 event-location d-flex flex-wrap align-items-lg-center px-lg-0 ">
+                                                        <div class="col-2 col-lg-12 px-0">
+                                                            <p class="title">地點</p>
+                                                        </div>
+                                                        <div class="col-10 col-lg-12 thislocation d-flex flex-wrap px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
+                                                            <p class="col-12 px-0"><?= $eva['event_place'] ?></p>
+                                                            <p class="col-12 px-0"><?= $eva['event_address'] ?></p>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-10 col-lg-12 thislocation d-flex px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                        <p>忠孝東路四段270號
-                                                            11樓之311樓之311樓之3</p>
+                                                    <!-- 活動日期 -->
+                                                    <div class="col-12 col-lg-3 event-time d-flex flex-wrap align-items-lg-center px-lg-0 ">
+                                                        <div class="col-2 col-lg-12 px-0">
+                                                            <p class="title">日期</p>
+                                                        </div>
+                                                        <div class="col-10 col-lg-12 thistime px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
+                                                            <p><?= substr($eva['event_time'], 0, 15) ?></p>
+                                                            <p><?= substr($eva['event_time'], 16) ?></p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!-- 活動日期 -->
-                                                <div class="col-12 col-lg-3 event-time d-flex flex-wrap align-items-lg-center px-lg-0 ">
-                                                    <div class="col-2 col-lg-12 px-0">
-                                                        <p class="title">日期</p>
-                                                    </div>
-                                                    <div class="col-10 col-lg-12 thistime px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                        <p>2021/06/06(日)</p>
-                                                        <p>19:30-21:00</p>
-                                                    </div>
-                                                </div>
 
 
-                                                <!-- 報名/已額滿 -->
-                                                <div class="col-12 col-lg-1 member-button event-button d-flex  align-items-center px-0 justify-content-center">
-                                                    <!-- <a href=""><button>報名</button></a> -->
-                                                    <p class="fullsign">已額滿</p>
-                                                </div>
+                                                    <!-- 取消 -->
+                                                    <div class="col-12 col-lg-1 member-button event-button d-flex  align-items-center px-0 justify-content-center">
+                                                        <a href="event-join.php?sid=<?= $eva['event_sid'] ?>"><button class="btn_event-cancel">報名</button></a>
+                                                        <p class="fullsign d-none">已額滿</p>
+                                                    </div>
 
-                                            </div>
+                                                </div>
+                                                <?php endforeach; ?>
+
+                                            <?php else : ?>
+                                                <div class="empty-status px-3 px-lg-5">
+                                                    <p>目前沒有已關注的品飲會</p>
+                                                    <a href="event.php"><button class="starttogo">了解品飲會<i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></button></a>
+                                                </div>
+                                            <?php endif; ?>
 
 
 
@@ -700,56 +741,64 @@ if (isset($_SESSION['user'])) {
 
                                         <div class="col-12 myfund-items px-0 memberAccordion-content">
 
-                                            <!-- 單個贊助方案 -->
-                                            <div class="fund-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="">
+                                            <?php if (!empty($fund_row)) : ?>
+                                                <!-- 單個贊助方案 -->
+                                                <div class="fund-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="<?= $fund_row['fund_sid'] ?>">
 
-                                                <!-- 募資照片資訊 -->
-                                                <div class="col-12 col-lg-2 fund-pic d-flex flex-wrap align-items-center px-lg-0">
-                                                    <a href=""><img src="../images/joyce_images/fund-p-9.jpg" alt=""></a>
-                                                </div>
-                                                <!-- 計畫主題 -->
-                                                <div class="col-12 col-lg-3 fund-name d-flex flex-wrap align-items-lg-center px-lg-0 pl-lg-4 ">
-                                                    <div class="col-3 col-lg-12 px-0">
-                                                        <p class="title">募資計畫</p>
+                                                    <!-- 募資照片資訊 -->
+                                                    <div class="col-12 col-lg-2 fund-pic d-flex flex-wrap align-items-center px-lg-0">
+                                                        <a href="fund.php"><img src="../images/joyce_images/<?= $fund_row['main_pic'] ?>" alt=""></a>
                                                     </div>
-                                                    <div class="col-9 col-lg-12 thisname d-flex px-lg-0 pl-2 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                        <a href="">
-                                                            <p>酸啤酒愛好者『黑暗之心』</p>
-                                                        </a>
+                                                    <!-- 計畫主題 -->
+                                                    <div class="col-12 col-lg-3 fund-name d-flex flex-wrap align-items-lg-center px-lg-0 pl-lg-4 ">
+                                                        <div class="col-3 col-lg-12 px-0">
+                                                            <p class="title">募資計畫</p>
+                                                        </div>
+                                                        <div class="col-9 col-lg-12 thisname d-flex px-lg-0 pl-2 pr-2 pr-lg-3 mt-lg-4 mb-3 mb-lg-0">
+                                                            <a href="fund.php">
+                                                                <p><?= $fund_row['c_name'] ?></p>
+                                                            </a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!-- 截止時間 -->
-                                                <div class="col-12 col-lg-2 fund-endtime d-flex flex-wrap align-items-lg-center px-lg-0 ">
-                                                    <div class="col-3 col-lg-12 px-0">
-                                                        <p class="title">截止時間</p>
+                                                    <!-- 截止時間 -->
+                                                    <div class="col-12 col-lg-2 fund-endtime d-flex flex-wrap align-items-lg-center px-lg-0 ">
+                                                        <div class="col-3 col-lg-12 px-0">
+                                                            <p class="title">截止時間</p>
+                                                        </div>
+                                                        <div class="col-9 col-lg-12 thisendtime d-flex px-lg-0 pl-2 pr-2 mt-lg-4 mb-3 mb-lg-0">
+                                                            <p><?= date("Y/m/d", strtotime($fund_row['end_date'])) ?></p>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-9 col-lg-12 thisendtime d-flex px-lg-0 pl-2 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                        <p>2021/08/06</p>
+                                                    <!-- 目前進度 -->
+                                                    <div class="col-12 col-lg-2 fund-schedule d-flex flex-wrap align-items-lg-center px-lg-0 ">
+                                                        <div class="col-3 col-lg-12 px-0">
+                                                            <p class="title">目前進度</p>
+                                                        </div>
+                                                        <div class="col-9 col-lg-12 thisschedule px-lg-0 pl-2 pr-2 mt-lg-4 mb-3 mb-lg-0">
+                                                            <p>50%</p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!-- 目前進度 -->
-                                                <div class="col-12 col-lg-2 fund-schedule d-flex flex-wrap align-items-lg-center px-lg-0 ">
-                                                    <div class="col-3 col-lg-12 px-0">
-                                                        <p class="title">目前進度</p>
+
+                                                    <!-- 贊助方案 -->
+                                                    <div class="col-12 col-lg-3 fund-confirm d-flex flex-wrap align-items-lg-center px-lg-0 ">
+                                                        <div class="col-3 col-lg-12 px-0">
+                                                            <p class="title">贊助方案</p>
+                                                        </div>
+                                                        <div class="col-9 col-lg-12 thisconfirm px-lg-0 pl-2 pr-2 mt-lg-4 mb-3 mb-lg-0">
+                                                            <p>方案<?= $fund_row['fund_sid'] ?>：<span><?= $fund_row['e_name'] ?></span></p>
+                                                            <p class="fund-total">贊助金額NT.<?= $fund_row['price'] ?>元</p>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-9 col-lg-12 thisschedule px-lg-0 pl-2 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                        <p>50%</p>
-                                                    </div>
+
+
                                                 </div>
 
-                                                <!-- 贊助方案 -->
-                                                <div class="col-12 col-lg-3 fund-confirm d-flex flex-wrap align-items-lg-center px-lg-0 ">
-                                                    <div class="col-3 col-lg-12 px-0">
-                                                        <p class="title">贊助方案</p>
-                                                    </div>
-                                                    <div class="col-9 col-lg-12 thisconfirm px-lg-0 pl-2 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                        <p>方案一</p>
-                                                        <p class="fund-total">贊助金額1330元</p>
-                                                    </div>
+                                            <?php else : ?>
+                                                <div class="empty-status px-3 px-lg-5">
+                                                    <p>目前沒有已贊助的募資計畫</p>
+                                                    <a href="fund.php"><button class="starttogo">了解募資<i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></button></a>
                                                 </div>
-
-
-                                            </div>
+                                            <?php endif; ?>
 
 
 
@@ -762,52 +811,59 @@ if (isset($_SESSION['user'])) {
 
                                         <div class="col-12 myattenfund-items px-0 memberAccordion-content">
 
-                                            <!-- 單個贊助方案 -->
-                                            <div class="fund-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="">
+                                            <?php if (!empty($fundatten_row)) : ?>
+                                                <!-- 單個贊助方案 -->
+                                                <div class="fund-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="">
 
-                                                <!-- 募資照片資訊 -->
-                                                <div class="col-12 col-lg-2 fund-pic d-flex flex-wrap align-items-center px-lg-0">
-                                                    <a href=""><img src="../images/joyce_images/fund-p-9.jpg" alt=""></a>
+                                                    <!-- 募資照片資訊 -->
+                                                    <div class="col-12 col-lg-2 fund-pic d-flex flex-wrap align-items-center px-lg-0">
+                                                        <a href="fund.php"><img src="../images/joyce_images/<?= $fundatten_row['main_pic'] ?>" alt=""></a>
+                                                    </div>
+                                                    <!-- 計畫主題 -->
+                                                    <div class="col-12 col-lg-3 fund-name d-flex flex-wrap align-items-lg-center px-lg-0 pl-lg-4 ">
+                                                        <div class="col-3 col-lg-12 px-0">
+                                                            <p class="title">募資計畫</p>
+                                                        </div>
+                                                        <div class="col-9 col-lg-12 thisname d-flex px-lg-0 pl-2 pr-2 pr-lg-3 mt-lg-4 mb-3 mb-lg-0">
+                                                            <a href="fund.php">
+                                                                <p><?= $fundatten_row['c_name'] ?></p>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 截止時間 -->
+                                                    <div class="col-12 col-lg-2 fund-endtime d-flex flex-wrap align-items-lg-center px-lg-0 ">
+                                                        <div class="col-3 col-lg-12 px-0">
+                                                            <p class="title">截止時間</p>
+                                                        </div>
+                                                        <div class="col-9 col-lg-12 thisendtime d-flex px-lg-0 pl-2 pr-2 mt-lg-4 mb-3 mb-lg-0">
+                                                            <p><?= date("Y/m/d", strtotime($fundatten_row['end_date'])) ?></p>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 目前進度 -->
+                                                    <div class="col-12 col-lg-3 fund-schedule d-flex flex-wrap align-items-lg-center px-lg-0 ">
+                                                        <div class="col-3 col-lg-12 px-0">
+                                                            <p class="title">目前進度</p>
+                                                        </div>
+                                                        <div class="col-9 col-lg-12 thisschedule px-lg-0 pl-2 pr-2 mt-lg-4 mb-3 mb-lg-0">
+                                                            <p>50%</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- 贊助 -->
+                                                    <div class="col-12 col-lg-2 member-button fund-button d-flex  align-items-center px-0 justify-content-center">
+                                                        <a href="fund.php"><button>贊助</button></a>
+                                                    </div>
+
+
+
+
                                                 </div>
-                                                <!-- 計畫主題 -->
-                                                <div class="col-12 col-lg-3 fund-name d-flex flex-wrap align-items-lg-center px-lg-0 pl-lg-4 ">
-                                                    <div class="col-3 col-lg-12 px-0">
-                                                        <p class="title">募資計畫</p>
-                                                    </div>
-                                                    <div class="col-9 col-lg-12 thisname d-flex px-lg-0 pl-2 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                        <a href="">
-                                                            <p>酸啤酒愛好者『黑暗之心』</p>
-                                                        </a>
-                                                    </div>
+                                            <?php else : ?>
+                                                <div class="empty-status px-3 px-lg-5">
+                                                    <p>目前沒有已關注的募資計畫</p>
+                                                    <a href="fund.php"><button class="starttogo">了解募資<i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></button></a>
                                                 </div>
-                                                <!-- 截止時間 -->
-                                                <div class="col-12 col-lg-2 fund-endtime d-flex flex-wrap align-items-lg-center px-lg-0 ">
-                                                    <div class="col-3 col-lg-12 px-0">
-                                                        <p class="title">截止時間</p>
-                                                    </div>
-                                                    <div class="col-9 col-lg-12 thisendtime d-flex px-lg-0 pl-2 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                        <p>2021/08/06</p>
-                                                    </div>
-                                                </div>
-                                                <!-- 目前進度 -->
-                                                <div class="col-12 col-lg-3 fund-schedule d-flex flex-wrap align-items-lg-center px-lg-0 ">
-                                                    <div class="col-3 col-lg-12 px-0">
-                                                        <p class="title">目前進度</p>
-                                                    </div>
-                                                    <div class="col-9 col-lg-12 thisschedule px-lg-0 pl-2 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                        <p>50%</p>
-                                                    </div>
-                                                </div>
-
-                                                <!-- 贊助 -->
-                                                <div class="col-12 col-lg-2 member-button fund-button d-flex  align-items-center px-0 justify-content-center">
-                                                    <a href=""><button>贊助</button></a>
-                                                </div>
-
-
-
-
-                                            </div>
+                                            <?php endif; ?>
 
 
 
@@ -1911,9 +1967,60 @@ if (isset($_SESSION['user'])) {
 
 
     // 關注-----------------------------------------------------------
-    $('.btn_cancelAtten').on('click',function(){
+    $('.btn_cancelAtten').on('click', function() {
         let attentag = $(this).closest('.attentag-wrap').find('input[type="checkbox"]:checked')
-        console.log(attentag)
+        if (attentag.length > 0) {
+
+            let name_arr = []
+            attentag.each(function() {
+                let tagName = $(this).attr('data-name')
+                name_arr.push(tagName)
+            })
+            let name_str = name_arr.join('、')
+
+            $('.pop-up-2').fadeIn(150)
+            $('.pop-up-2 .button-wrap-1').removeClass('d-none')
+            $('.pop-up-2 .button-wrap-2').addClass('d-none')
+            $('.pop-up-2 .icon').html('<i class="fas fa-exclamation"></i>').css('background-color', 'var(--red)')
+            $('.pop-up-2 .pop-up-text').text(`確定要刪除${name_str}嗎？`)
+
+            $('button.no').on('click', function() {
+                $('.general-pop-up').fadeOut(150)
+            })
+
+            $('button.yes').on('click', function() {
+                attentag.each(function() {
+                    let tsid = $(this).val()
+                    // console.log(tsid)
+
+                    $.get('member-attention-api.php', {
+                        'action': 'delete',
+                        'tsid': tsid
+                    }, function(data) {
+                        // console.log(data)
+                    }, 'json')
+
+                    $(this).parent('label').remove()
+                })
+
+                $('.pop-up-2 .button-wrap-2').removeClass('d-none')
+                $('.pop-up-2 .button-wrap-1').addClass('d-none')
+                $('.pop-up-2 .pop-up-text').text('已從我的關注清單中刪除')
+
+                $('button.ok').on('click', function() {
+                    $('.general-pop-up').fadeOut(150)
+
+                    if ($('input[name="myattentionitem"]').length < 1) {
+                        location.reload()
+                    }
+                })
+            })
+
+        } else {
+            $('.pop-up-1').css('display', 'block')
+            $('.pop-up-1 .icon').html('<i class="fas fa-exclamation"></i>').css('background-color', 'var(--red)')
+            $('.pop-up-1 .pop-up-text').text('您未選擇想取消的關注標籤')
+        }
     })
 
 

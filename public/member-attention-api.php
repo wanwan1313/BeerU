@@ -43,7 +43,7 @@ if(!empty($action) ){
     
             if( !empty($t_sid)){
     
-                // 寫入collect資料表裡
+                //從attention資料表裡刪資料
                 $d_SQL= " DELETE FROM `attention` WHERE `member_sid`=? AND `tag_sid`=?";
     
                 $d_stmt = $pdo->prepare($d_SQL);

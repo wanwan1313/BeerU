@@ -45,7 +45,7 @@ if(!empty($action) ){
     
             if( !empty($p_sid)){
     
-                // 寫入collect資料表裡
+                // 從collect資料表裡刪資料
                 $d_SQL= " DELETE FROM `collect` WHERE `member_sid`=? AND `product_sid`=?";
     
                 $d_stmt = $pdo->prepare($d_SQL);
