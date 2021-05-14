@@ -408,6 +408,6 @@
 }
 
 .checkout .recipient input[type=text].borderispink, .checkout .re_city.borderispink, .re_dist.borderispink {
-    border: 1.2px solid var(--pink);
+    border: 2px solid var(--pink);
 }
 
