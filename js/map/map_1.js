@@ -204,7 +204,7 @@ $(window).resize(function () {
         let nh = $('.beeru-nav-bar').height()
         let fh = $('.beer-warning').height()
         let ph = $('.parts').height()
-        $('.parts').removeClass('display-none').css('bottom', fh + 40 + 'px').removeClass('top625');
+        $('.parts').removeClass('display-none').addClass('display-flex').css('bottom', fh + 40 + 'px').removeClass('top625');
         $('.phone-option').removeClass('display-none')
     }
     else {

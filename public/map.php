@@ -8,6 +8,44 @@
 $page_title = '啤女BeerU:啤酒地圖';
 // $m_SQL = "SELECT * FROM `map`";
 // $m_rows = $pdo->query($m_SQL)->fetchAll();
+
+$psid = 1;
+
+// 此頁商品
+$p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.`name` AS `type_name`,t4.`name` AS `merch_name` FROM `products` AS p 
+                JOIN `tags` AS t1 
+                ON p.`brand_sid` = t1.`sid`
+                JOIN `tags` AS t2 
+                ON p.`country_sid` = t2.`sid`
+                JOIN `tags` AS t3 
+                ON p.`type_sid` = t3.`sid`
+                JOIN `tags` AS t4 
+                ON p.`merch_sid` = t4.`sid`
+                WHERE p.`sid` = $psid";
+$m_row = $pdo->query($p_SQL)->fetch();
+
+$country_sid = $m_row['country_sid'];
+$type_sid = $m_row['type_sid'];
+// $brands_sid = $row['brand_sid'];
+// $merch_sid = $row['merch_sid'];
+
+// 相關商品
+$c_SQL = "SELECT * FROM `products` WHERE `type_sid` = 54 AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
+$c_row = $pdo->query($c_SQL)->fetch();
+$c_row_sid = $c_row['sid'];
+
+$t_SQL = "SELECT * FROM `products` WHERE `country_sid` = $country_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
+$t_row = $pdo->query($t_SQL)->fetch();
+
+
+
+
+// new標籤
+$deadline = strtotime('2021-05-01');
+
+// 從哪裡來
+$come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
+$come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -19,30 +57,34 @@ $page_title = '啤女BeerU:啤酒地圖';
 <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" /> -->
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<!-- 會員登入 -->
+<?php include __DIR__ . '../../php/common/Login-Sign.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
+<section class="mobile-menu">
+    <?php include __DIR__ . '../../php/common/category.php' ?>
+</section>
 
-    <!-- 可變動區 -->
-    <section class="map">
-        <div class="container overflow-hidden">
-            <!-- 1.大標:啤酒地圖 -->
-            <div class="row">
-                <div class="col-12 member-title mt-5 ">
-                    <p>啤酒地圖</p>
-                </div>
+<!-- 可變動區 -->
+<section class="map">
+    <div class="container overflow-hidden">
+        <!-- 1.大標:啤酒地圖 -->
+        <div class="row">
+            <div class="col-12 member-title mt-5 ">
+                <p>啤酒地圖</p>
             </div>
-            <!-- 2.底圖+地圖 -->
-            <div class="row justify-content-center mt-3 mb-3 mb-md-5 position-relative">
-                <!-- 底圖 -->
-                <div class="map_bg position-absolute"><img class='' src="../images/map/map_bg.png" alt=""></div>
-                <!-- 世界地圖 -->
-                <div class="world position-absolute" id="world">
-                    <!-- 五大洲 -->
-                    <svg class='d-block mx-auto' version="1.1" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1008.3px" height="650.9px"
-                        viewBox="0 0 1008.3 650.9" style="overflow:visible;enable-background:new 0 0 1008.3 650.9;"
-                        xml:space="preserve">
-                        <!-- us -->
-                        <a xlink:href="javascript:" href="#us">
-                            <path d="M47.5,264.1l1.2,1.6l-2.4,2.5l-2.8,2l-1.4-1.3l-0.4-2.4l2.5-1.9l1.5-0.8L47.5,264.1z M105.9,283.1l-2.7,0.4l-1.3-0.6
+        </div>
+        <!-- 2.底圖+地圖 -->
+        <div class="row justify-content-center mt-3 mb-3 mb-md-5 position-relative">
+            <!-- 底圖 -->
+            <div class="map_bg position-absolute"><img class='' src="../images/map/map_bg.png" alt=""></div>
+            <!-- 世界地圖 -->
+            <div class="world position-absolute" id="world">
+                <!-- 五大洲 -->
+                <svg class='d-block mx-auto' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1008.3px" height="650.9px" viewBox="0 0 1008.3 650.9" style="overflow:visible;enable-background:new 0 0 1008.3 650.9;" xml:space="preserve">
+                    <!-- us -->
+                    <a xlink:href="javascript:" href="#us">
+                        <path d="M47.5,264.1l1.2,1.6l-2.4,2.5l-2.8,2l-1.4-1.3l-0.4-2.4l2.5-1.9l1.5-0.8L47.5,264.1z M105.9,283.1l-2.7,0.4l-1.3-0.6
                        l-0.2,1.5l0.5,2.1l1.4,1.5l1,2.1l1.7,2.1l1.1,0l-2.4-3.7L105.9,283.1z M129,308.2l-1.2-2.3l-2.8-1.8l-1.4-2l-0.9-1.5l-2.6-0.5
                        l-1.7-0.7l-2.9-1l-0.2,1l1.1,2.4l2.9,0.8l0.5,1.2l2.5,1.5l0.8,1.5l4.6,1.9L129,308.2z M40,406.5l-0.5-0.3l-1.1-0.5l-0.2-0.1
                        l-0.2,0.3l0.2,0.6l-0.5,0.5l-0.1,0.3l0.5,1.1l-0.1,0.8l0.7,0.4l0.4-0.5l0.9-0.5l1.1-0.6l0.1-0.2l-0.7-1L40,406.5z M309.4,631.6
@@ -177,10 +219,10 @@ $page_title = '啤女BeerU:啤酒地圖';
                         M209,82.9l5.1-0.1l-2.2,4l0,5.3l3,5.8l5.8,1.8l5-1l5.2-10.7l3.8-4.4l-3.4-5L229,67.8l-4.6-3.2l-4.7-3.7l-3.6-9.6l-6.5,0.9l1.2,4.2
                        l-2.9,1.2L206,63l-1.9,7.5l1.8,7.3L209,82.9z M248.5,155.8l3.1,5.1l0.8,0.6l3.1-1.3l3,0.2l3,0.3l-0.2-2.6l-4.8-5.4l-6.4-1.1
                        l-1.3,0.7L248.5,155.8z" />
-                        </a>
-                        <!-- eu -->
-                        <a xlink:href="javascript:" href="#eu">
-                            <path d="M518.8,347.9l-1,2.8l0.4,1.1l-0.6,1.8l-2.1-1.3l-1.4-0.4l-3.9-1.8l0.4-1.8l3.3,0.3l2.9-0.4L518.8,347.9z M559.5,231.7
+                    </a>
+                    <!-- eu -->
+                    <a xlink:href="javascript:" href="#eu">
+                        <path d="M518.8,347.9l-1,2.8l0.4,1.1l-0.6,1.8l-2.1-1.3l-1.4-0.4l-3.9-1.8l0.4-1.8l3.3,0.3l2.9-0.4L518.8,347.9z M559.5,231.7
                        l1.2-4.1l-2.5-4.9l1.9-5.8l-3.3-8l2.6-5.5l-4.3-5l0.4-5.4l0.1-0.4c0,0,0,0,0,0l-0.1,0.4l2.3-0.7l4.8-3.2l-3.1-5.1l3.6-2.2l-8.8-6.2
                        l-5,1.7l-5.1-0.4l-4.3,7l-4.6-0.4l-6.2,3.6l-7.7,9.9l-4.7,5.7l-6.7,13.8l-5.1,9.3l-5.5,6.6l-7.4,5.2l-2.6,3.9l0.9,13.3l1,5.9
                        l3.9,2.7l3.7-1.2l5.5-6.3l1.9,3.3l0,0l2.1,7.5l2.4,5.8l0.9,4.7l3.2-0.2l1.6-4l3.4,0.5l1.6-4.8l1.1-8.8l2.9-1.3l2.6-6.2l-2.7-3.1
@@ -216,11 +258,10 @@ $page_title = '啤女BeerU:啤酒地圖';
                        l0.3-2.9l-3.4-0.9l-0.8-1.8l-1.7-5.4l-1.9-0.8l-2.5-5.8l-0.2-0.5l-2.9-0.3l2.5-4.5l0.7-4.2l-3.1,0l-2.9,0.7l3-5.7l-3.4,0.4l-2.2-0.4
                        l-2.2,4.3l-1,5.4l1.4,2.6L459.6,277.3z M434.6,212.4l-4.6-0.5l-4.6,3.7l-3.5-2l-4.3,3.8l-4.4-4.7l-4.2,1l-1.9,4.5l5.9,1.6l0.1,2
                        l-5,1.3l6.1,3.2l-2.8,2.8l7.8,2l3.7,0.9l2.4-1.2l8.1-4.4l3.6-5l-3.2-4.6L434.6,212.4z" />
-                        </a>
-                        <!--as-->
-                        <a xlink:href="javascript:" href="#as">
-                            <path
-                                d="M818.7,430.9h1.8l0,1.2l-1.3,1.2l-1.8,0.8l-0.1-1.3l0.2-1.5L817,430L818.7,430.9z M825.6,488.3l-2.8,1.1l-1.2,1.7l-0.2,1
+                    </a>
+                    <!--as-->
+                    <a xlink:href="javascript:" href="#as">
+                        <path d="M818.7,430.9h1.8l0,1.2l-1.3,1.2l-1.8,0.8l-0.1-1.3l0.2-1.5L817,430L818.7,430.9z M825.6,488.3l-2.8,1.1l-1.2,1.7l-0.2,1
                        l0.3,0.3l2.4-0.6l1.8-2.1l0-0.9L825.6,488.3z M814.1,427.7l1.2,1.4l0.7-2.5l-1-1l-2.4-0.1L814.1,427.7z M830.4,486.9l-2,0.1
                        l-2.4,0.6l-0.3,0.7l0.3,0.6l0,0.9l2.4-0.8l2.9-1.2l1-0.8l-1.1-0.3L830.4,486.9z M820,432.9l-0.3,1.8l-0.7,0.8l-0.6,0.8l1.7,2
                        l0.9-0.8l0.9-1.8l1-0.9l0.3-2.7l-2.1,2.7l0.4-1.9L820,432.9z M811.5,420l0.4,1.3l1.4,1.6l0.4-1l0.8,0.7l-0.9,0.7l-0.1,1.2l1.4,0.6
@@ -322,11 +363,10 @@ $page_title = '啤女BeerU:啤酒地圖';
                        l-1.9-1.6l-1.3,4.6l0.5,4l1.3,2.2l2.4-0.6l1.2-0.8l0.4-2.9l-1.4-2.9L701.9,437.5z M772.1,475.4l0.7-3.5l-1.4-1.8l-2.1-0.2l-1-1.6
                        l-0.5-1.9l-1-0.1l-1.6-1l1.1-2.3l-2.1-1.3l-1.6-2.3l-2.4-1.9l-2.9,0l-2.7-3l-1.6-1.2l-2.2-1.9l-2.5-2.7l-4.3-0.5l-1.8-0.1l0.2,1.4
                        l2.9,3.1l2.1,1.6l1.5,2.4l2.5,1.8l1,2.2l0.8,2.4l2.5,2.3l2.1,3.9l1.4,2.1l2.1,2.3l1.2,1.7l3.6,2.3l2.4,2.3l3.1-0.1L772.1,475.4z" />
-                        </a>
-                        <!-- austria -->
-                        <a xlink:href="javascript:" href="#au">
-                            <path
-                                d="M891,588.5l0.2,4.4l-1,1.3l-0.3,3.1l-1-1l-2,2.7l-0.6-0.2l-1.7-0.1l-1.7-3.3l-0.4-2.5l-1.6-3.2l0.1-1.7l1.8,0.3l2.7,1.3
+                    </a>
+                    <!-- austria -->
+                    <a xlink:href="javascript:" href="#au">
+                        <path d="M891,588.5l0.2,4.4l-1,1.3l-0.3,3.1l-1-1l-2,2.7l-0.6-0.2l-1.7-0.1l-1.7-3.3l-0.4-2.5l-1.6-3.2l0.1-1.7l1.8,0.3l2.7,1.3
                        l1.5-0.5l2.2-0.7L891,588.5z M904.7,540.5l-0.1-1.8l-0.8-2.5l-2.2-2.5l-1.3-1.2l-2-1.9l-0.5-3.2l-0.7,0.5l-1.1-1.3l-1.1,0.7
                        l-1.1-3.2l-1.6-1.9l0.4-0.7l-1.9-1.3l-2-1.4l-3-1.5l-0.9-2l0.3-1.5l-0.8-2.5l-0.7-0.3l-0.4-1.5l-0.6-2.5l0.3-1.3l-1.4-1.1l-0.9-1.2
                        l-1.8,1.1l-1-2.2l0.1-1l-0.2-1.6l-1-1.5l-0.1-1.2l-0.7-0.3l-0.2-1.8l-0.8-1.4l-1,1.1l-0.1,0.8l-0.5,1.6l-0.7,1.5l0.4,1l-0.5,0.6
@@ -358,10 +398,10 @@ $page_title = '啤女BeerU:啤酒地圖';
                        l1.1,1.7l2,0l-0.8-1L929.2,492.7z M923.5,486.7l-0.7-0.9l-2.3-1.3l-1.3-0.7l-0.4,0.3l1.1,0.9l1.5,1l2.2,1.2L923.5,486.7z
                         M914.2,481.8l-0.1,0.5l1.2,1.1l1.2,0.6l0.6-0.2l-1.1-0.9L914.2,481.8z M980,508.7l-1.6,0.9l-0.9,0.2l-1.4,0.6l0.4,1.1l1.8-0.6
                        l1.8-0.7l0.2-0.2l0.3-1.4L980,508.7z M974.7,512.9l-1.3-0.4l-1.1,1l0.3,1.3l1.5,0.4l1.7-0.4l0.5-1.5l-1-0.8L974.7,512.9z" />
-                        </a>
-                        <!-- afric -->
-                        <a>
-                            <path d="M618.4,432.1l0,1.5l-0.6,1l-0.8,3l-1.3,3.1l-1.7,3.6l-2.4,4.1l-2.4,3.1l-3.3,3.8l-2.8,2.3l-4.2,2.8l-2.6,2.1l-3.1,3.4
+                    </a>
+                    <!-- afric -->
+                    <a>
+                        <path d="M618.4,432.1l0,1.5l-0.6,1l-0.8,3l-1.3,3.1l-1.7,3.6l-2.4,4.1l-2.4,3.1l-3.3,3.8l-2.8,2.3l-4.2,2.8l-2.6,2.1l-3.1,3.4
                        l-0.7,1.5l-0.6,0.7l-2,1.1l-0.7,1.2l-1.1,0.2l-0.4,2l-0.9,1.1l-0.6,1.9l-1.1,0.9l-1.3,3.4l0.2,1.6l1.8,1l0.1,0.7l-0.8,1.7l0.2,0.8
                        l-0.2,1.3l1,1.8l1.2,2.8l1,0.6l0.5,1.3l-0.1,2.8l0.3,2.5l0.1,4.5l0.5,1.4l-0.8,2.1l-1.1,2l-1.8,1.8l-2.6,1.1l-3.2,1.4l-3.2,3.2
                        l-1.1,0.5l-2,2.1l-1.2,0.7l-0.2,2.1l1.3,2.2l0.5,1.8l0,0.9l0.5-0.1l-0.1,3l-0.5,1.4l0.7,0.5l-0.4,1.3l-1.2,1.1l-2.3,1l-3.4,1.7
@@ -389,29 +429,28 @@ $page_title = '啤女BeerU:啤酒地圖';
                        l-1,1.6l0.2,2.7l0.5,1.9l0.7,1.4l-0.2,1.9l-1.3,2.3l0,1l-1.3,0.5l-0.5,2.2l0.3,2.2l1,2.4l0.2,2.7l0.8,1.6l2.2,1.1l1.6,0.8l2.4-1.3
                        l2.3-0.7l1.3-3.5l1.1-4.2l1.7-5.7l1.4-4.1l1.1-3.4l0.2-2.5l0.8-0.7l0.2-1.2l-0.5-2.1l0.5-0.9l1,1.7l0.5-0.9l0.3-1.4l-0.7-1.3
                        L615.6,501.5z" />
-                        </a>
-                    </svg>
-                    <!-- 各州名 -->
-                    <div class="world_titles">
-                        <!-- <img class='title_us position-absolute' src="../images/map/SVG/us_t.svg" alt="">
+                    </a>
+                </svg>
+                <!-- 各州名 -->
+                <div class="world_titles">
+                    <!-- <img class='title_us position-absolute' src="../images/map/SVG/us_t.svg" alt="">
                         <img class='title_eu position-absolute' src="../images/map/SVG/eu_t.svg" alt="">
                         <img class='title_as position-absolute' src="../images/map/SVG/as_t.svg" alt="">
                         <img class='title_au position-absolute' src="../images/map/SVG/au_t.svg" alt="">
                         <img class='title_af position-absolute' src="../images/map/SVG/af_t.svg" alt=""> -->
-                        <img class='title_us position-absolute' src="../images/map/SVG/us_t_c.svg" alt="">
-                        <img class='title_eu position-absolute' src="../images/map/SVG/eu_t_c.svg" alt="">
-                        <img class='title_as position-absolute' src="../images/map/SVG/as_t_c.svg" alt="">
-                        <img class='title_au position-absolute' src="../images/map/SVG/au_t_c.svg" alt="">
-                        <img class='title_af position-absolute' src="../images/map/SVG/af_t_c.svg" alt="">
-                        <img class='title_co position-absolute' src="../images/map/SVG/coming_soon.svg" alt="">
-                    </div>
-                    <!-- pipi plane -->
-                    <div class="pipi_plane_big">
-                        <img class='position-absolute' style='width:250px;bottom:0px;left:0px'
-                            src="../images/map/SVG/pipi_plane_big.svg" alt="">
-                    </div>
+                    <img class='title_us position-absolute' src="../images/map/SVG/us_t_c.svg" alt="">
+                    <img class='title_eu position-absolute' src="../images/map/SVG/eu_t_c.svg" alt="">
+                    <img class='title_as position-absolute' src="../images/map/SVG/as_t_c.svg" alt="">
+                    <img class='title_au position-absolute' src="../images/map/SVG/au_t_c.svg" alt="">
+                    <img class='title_af position-absolute' src="../images/map/SVG/af_t_c.svg" alt="">
+                    <img class='title_co position-absolute' src="../images/map/SVG/coming_soon.svg" alt="">
+                </div>
+                <!-- pipi plane -->
+                <div class="pipi_plane_big">
+                    <img class='position-absolute' style='width:250px;bottom:0px;left:0px' src="../images/map/SVG/pipi_plane_big.svg" alt="">
                 </div>
             </div>
+        </div>
         <!-- 3.各大洲 -->
         <div class="row world-eachs mx-auto position-relative">
             <!-- 美洲 -->
@@ -501,7 +540,7 @@ $page_title = '啤女BeerU:啤酒地圖';
                     <!-- <div class="countries_wrap"> -->
                     <!-- <div class="slider row manycountry flex-nowrap"> -->
                     <div class="country position-relative">
-                    <div class="country_name position-absolute">
+                        <div class="country_name position-absolute">
                             美國
                         </div>
                         <img src="../images/map/SVG/stamp_us.svg" alt="">
@@ -627,7 +666,7 @@ $page_title = '啤女BeerU:啤酒地圖';
                             </div>
                             <div class="country">
                                 <div class="country_name position-absolute">
-                                法國
+                                    法國
                                 </div>
                                 <img src="../images/map/SVG/stamp_france.svg" alt="">
                             </div>
@@ -888,186 +927,173 @@ $page_title = '啤女BeerU:啤酒地圖';
                 </a>
             </div>
         </div>
-        </div>
+    </div>
 
-        <!-- 4.手機版：四大洲選項 -->
-        <div class="phone-option">
-            <!-- 四大洲 -->
-            <div class="row w-75 mx-auto parts text-center justify-content-around flex-nowrap ">
-                <!-- 美洲 -->
-                <div class="part col-3"><a href="javascript: ">
-                        <div class="plane"><img src="../images/map/SVG/pipi_plane_big.svg" alt=""></div>
-                        <div class="part_name">美洲</div>
-                    </a>
+    <!-- 4.手機版：四大洲選項 -->
+    <div class="phone-option">
+        <!-- 四大洲 -->
+        <div class="row w-75 mx-auto parts text-center justify-content-around flex-nowrap ">
+            <!-- 美洲 -->
+            <div class="part col-3"><a href="javascript: ">
+                    <div class="plane"><img src="../images/map/SVG/pipi_plane_big.svg" alt=""></div>
+                    <div class="part_name">美洲</div>
+                </a>
+            </div>
+            <!-- 歐洲 -->
+            <div class="part col-3"><a href="javascript: ">
+                    <div class="plane"><img src="../images/map/SVG/pipi_plane_big.svg" alt=""></div>
+                    <div class="part_name">歐洲</div>
+                </a>
+            </div>
+            <!-- 亞洲 -->
+            <div class="part col-3"><a href="javascript: ">
+                    <div class="plane"><img src="../images/map/SVG/pipi_plane_big.svg" alt=""></div>
+                    <div class="part_name">亞洲</div>
+                </a>
+            </div>
+            <!-- 澳洲 -->
+            <div class="part col-3"><a href="javascript: ">
+                    <div class="plane"><img src="../images/map/SVG/pipi_plane_big.svg" alt=""></div>
+                    <div class="part_name oc_name">大洋洲</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- popup -->
+    <div class="comtainer-fulid popup align-items-center">
+        <div class="row bg-black">
+            <div class="map-card align-items-center position-relative">
+                <!-- 1.關閉按鈕 -->
+                <div class="row card-close justify-content-end "><i class="fas fa-times-circle"></i>
                 </div>
-                <!-- 歐洲 -->
-                <div class="part col-3"><a href="javascript: ">
-                        <div class="plane"><img src="../images/map/SVG/pipi_plane_big.svg" alt=""></div>
-                        <div class="part_name">歐洲</div>
-                    </a>
+                <!-- deco-bg -->
+                <div class="bg_country bg_b position-absolute d-md-block d-sm-none"><img src="../images/map/bg_b_us.jpg" alt=""></div>
+                <div class="bg_country bg_s position-absolute d-sm-block d-md-none"><img src="../images/map/bg_s_us.jpg" alt=""></div>
+                <!-- deco-郵票 -->
+                <div class="stamp_country position-absolute"><img src="../images/map/SVG/stamp_us.svg" alt=""></div>
+                <!-- deco-郵戳 -->
+                <div class="stamp position-absolute"><img src="../images/map/SVG/stamp.svg" alt=""></div>
+
+                <div class="row align-items-md-center justify-content-md-around">
+                    <div class="col-md-5">
+                        <div class="row align-items-center">
+                            <!-- 2.國家名 -->
+                            <div class="row country-name justify-content-center col-md-12 mb-3 mb-md-2 animatable bounceIn">
+                                <p>美國</p>
+                            </div>
+                            <!-- 3.代理廠牌 -->
+                            <div class="row beer-brand justify-content-center col-md-12 mb-3 mb-md-5 animatable bounceIn">
+                                <ul class='d-flex'>
+                                    <li><a href="all-product.php?cate=12&page=1&hot=0&order=1 "><img src="../images/tagespic/12.svg" alt=""></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 4.介紹文字 -->
+                        <div class="row beer-intro mb-3 mx-md-1 justify-content-center animatable bounceIn">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="seprate-line h-100">
+                        <img src="../images/map/SVG/line.svg" alt="">
+                    </div>
+                    <div class="col-md-5">
+                        <!-- 5.搭配酒杯 -->
+                        <div class="col cups mb-3 align-items-center  animatable bounceIn" data-sid=<?= $c_row['sid']?>>
+                            <!--標題-->
+                            <div class="row title justify-content-center mb-1 mt-4">
+                                <p>搭配酒杯</p>
+                            </div>
+                            <!--酒杯-->
+                            <div class="row flex-nowrap justify-content-around" >
+                                <div class="cup">
+                                    <a class="cup1" href="">
+                                        <div class="cup-img d-flex position-relative"><img src="../images/map/beer_glass_Foot.png" alt="">
+                                            <div class="cup-name position-absolute">1</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="cup">
+                                <a class="cup2" href="">
+                                        <div class="cup-img d-flex position-relative"><img src="../images/map/beer_glass_Foot.png" alt="">
+                                            <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="cup">
+                                <a class="cup3" href="">
+                                        <div class="cup-img d-flex position-relative"><img src="../images/map/beer_glass_Foot.png" alt="">
+                                            <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 6.搭配啤酒 -->
+                        <!-- data-sid=<?= $c_row['sid']?> -->
+                        <div class="col beers align-items-center justify-content-center mb-2 mb-md-5 animatable bounceIn">
+                            <!-- 標題 -->
+                            <div class="row title justify-content-center mb-1 mt-4">
+                                <p>推薦啤酒</p>
+                            </div>
+                            <!-- 啤酒 -->
+                            <div class="row flex-nowrap justify-content-around">
+                                <div class="beer">
+                                <!-- <?= $c_row['sid'] ?> -->
+                                    <a href="each-product.php?psid=">
+                                        <div class="beer-img d-flex position-relative">  
+                                        <!-- <?= $c_row['pic'] ?> -->
+                                             <img class="beer-pic" src="../images/products/" alt="">
+                                             <!-- <?=$c_row['c_name']?> -->
+                                            <div class="cup-name position-absolute"></div>
+                                        </div>
+                                        <!-- <div class='know-more'>
+                                            了解更多
+                                        </div> -->
+                                    </a>
+                                </div>
+                                <div class="beer">
+                                    <a href="javascript: ">
+                                        <div class="beer-img d-flex position-relative"><img src="../images/products/Heart of Darkness-01.png" alt="">
+                                            <div class="beer-name position-absolute">英式鬱金香<br>品脫杯</div>
+                                        </div>
+                                        <!-- <div class='know-more'>
+                                            了解更多
+                                        </div> -->
+                                    </a>
+                                </div>
+                                <div class="beer">
+                                    <a href="javascript: ">
+                                        <div class="beer-img d-flex position-relative"><img src="../images/products/Heart of Darkness-01.png" alt="">
+                                            <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
+                                        </div>
+                                        <!-- <div class='know-more'>
+                                            了解更多
+                                        </div> -->
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- 亞洲 -->
-                <div class="part col-3"><a href="javascript: ">
-                        <div class="plane"><img src="../images/map/SVG/pipi_plane_big.svg" alt=""></div>
-                        <div class="part_name">亞洲</div>
-                    </a>
-                </div>
-                <!-- 澳洲 -->
-                <div class="part col-3"><a href="javascript: ">
-                        <div class="plane"><img src="../images/map/SVG/pipi_plane_big.svg" alt=""></div>
-                        <div class="part_name oc_name">大洋洲</div>
-                    </a>
+                <!-- 7.按鈕 -->
+                <div class=" row buttons justify-content-center flex-nowrap animatable bounceIn">
+                    <!--加入關注-->
+                    <button class="btn_attention px-3 py-1 mx-5"><i class="fas fa-plus"></i>加入關注</button>
+                    <!-- 看更多商品 -->
+                    <button class="see_more btn_attention px-3 py-1 mx-5">
+                        <a class="" href='all-product.php'>
+                            看更多
+                        </a>
+                    </button>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 
-        <!-- popup -->
-        <div class="comtainer-fulid popup align-items-center">
-            <div class="row bg-black">
-                <div class="map-card align-items-center position-relative">
-                    <!-- 1.關閉按鈕 -->
-                    <div class="row card-close justify-content-end "><i class="fas fa-times-circle"></i>
-                    </div>
-                    <!-- deco-bg -->
-                    <div class="bg_country position-absolute d-md-block d-sm-none"><img src="../images/map/bg_b_us.jpg" alt=""></div>
-                    <div class="bg_country position-absolute d-sm-block d-md-none"><img src="../images/map/bg_s_us.jpg" alt=""></div>
-                    <!-- deco-郵票 -->
-                    <div class="stamp_country position-absolute"><img src="../images/map/SVG/stamp_us.svg" alt=""></div>
-                    <!-- deco-郵戳 -->
-                    <div class="stamp position-absolute"><img src="../images/map/SVG/stamp.svg" alt=""></div>
-
-                    <div class="row align-items-md-center justify-content-md-around">
-                        <div class="col-md-5">
-                            <div class="row align-items-center">
-                                <!-- 2.國家名 -->
-                                <div class="row country-name justify-content-center col-md-12 mb-3 mb-md-2 animatable bounceIn">
-                                    <p>美國</p>
-                                </div>
-                                <!-- 3.代理廠牌 -->
-                                <div class="row beer-brand justify-content-center col-md-12 mb-3 mb-md-5 animatable bounceIn">
-                                    <li><a href="javascript: "><img src="../images/tagespic/12.svg" alt=""></a></li>
-                                    <li><a href="javascript: "><img src="../images/tagespic/14.svg" alt=""></a>
-                                    </li>
-                                    <li><a href="javascript: "><img src="../images/tagespic/16.svg" alt=""></a></li>
-                                    <li><a href="javascript: "><img src="../images/tagespic/15.svg" alt=""></a></li>
-                                    <li><a href="javascript: "><img src="../images/tagespic/13.svg" alt=""></a></li>
-                                </div>
-                            </div>
-                            <!-- 4.介紹文字 -->
-                            <div class="row beer-intro mb-3 mx-md-1 justify-content-center animatable bounceIn">
-                                <p>1870~1910年這期間美國拉格（輔料拉格）所領導的啤酒革命，讓這國家真正擁有啤酒自由釀造的權利，進而可以發揮精釀啤酒的精神！幾乎全世界的啤酒風格都可以在美國找到，並且常以當地的啤酒花或麥芽得到新的詮釋和演繹。</p>
-                            </div>
-                        </div>
-                        <div class="seprate-line h-100">
-                            <img src="../images/map/SVG/line.svg" alt="">
-                        </div>
-                        <div class="col-md-5">
-                            <!-- 5.搭配酒杯 -->
-                            <div class="col cups mb-3 align-items-center  animatable bounceIn">
-                                <!--標題-->
-                                <div class="row title justify-content-center mb-1 mt-4">
-                                    <p>搭配酒杯</p>
-                                </div>
-                                <!--酒杯-->
-                                <div class="row flex-nowrap justify-content-around">
-                                    <div class="cup">
-                                        <a class="" href="">
-                                            <div class="cup-img d-flex position-relative"><img
-                                                    src="../images/map/beer_glass_Foot.png" alt="">
-                                                <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
-                                            </div>
-                                            <div class='know-more mx-auto'>
-                                                了解更多
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="cup">
-                                        <a href="javascript: ">
-                                            <div class="cup-img d-flex position-relative"><img
-                                                    src="../images/map/beer_glass_Foot.png" alt="">
-                                                <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
-                                            </div>
-                                            <div class='know-more'>
-                                                了解更多
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="cup">
-                                        <a href="javascript: ">
-                                            <div class="cup-img d-flex position-relative"><img
-                                                    src="../images/map/beer_glass_Foot.png" alt="">
-                                                <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
-                                            </div>
-                                            <div class='know-more'>
-                                                了解更多
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 6.搭配啤酒 -->
-                            <div class="col beers align-items-center justify-content-center mb-2 mb-md-5 animatable bounceIn">
-                                <!-- 標題 -->
-                                <div class="row title justify-content-center mb-1 mt-4">
-                                    <p>推薦啤酒</p>
-                                </div>
-                                <!-- 啤酒 -->
-                                <div class="row flex-nowrap justify-content-around">
-                                    <div class="beer">
-                                        <a href="javascript: ">
-                                            <div class="beer-img d-flex position-relative"><img
-                                                    src="../images/products/Heart of Darkness-01.png" alt="">
-                                                <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
-                                            </div>
-                                            <div class='know-more'>
-                                                了解更多
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="beer">
-                                        <a href="javascript: ">
-                                            <div class="beer-img d-flex position-relative"><img
-                                                    src="../images/products/Heart of Darkness-01.png" alt="">
-                                                <div class="beer-name position-absolute">英式鬱金香<br>品脫杯</div>
-                                            </div>
-                                            <div class='know-more'>
-                                                了解更多
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="beer">
-                                        <a href="javascript: ">
-                                            <div class="beer-img d-flex position-relative"><img
-                                                    src="../images/products/Heart of Darkness-01.png" alt="">
-                                                <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
-                                            </div>
-                                            <div class='know-more'>
-                                                了解更多
-                                            </div>
-                                        </a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 7.按鈕 -->
-                    <div class=" row buttons justify-content-center flex-nowrap animatable bounceIn">
-                        <!--加入關注-->
-                        <button class="btn_attention px-3 py-1 mx-5"><i class="fas fa-plus"></i>加入關注</button>
-                        <!-- 看更多商品 -->
-                        <button class="btn_attention px-3 py-1 mx-5">看更多</button>
-                    </div>
-                    <!-- 0.deco -->
-                    <!-- <div class="deco position-relative">
-                        <div class="stamp positive-absolute"><img src="" alt=""></div>
-                    </div> -->
-                </div>
-            </div>
-        </div>
-
-    </section>
+</section>
 
 
 <?php include __DIR__ . '../../php/common/html-body-footer.php' ?>
@@ -1080,17 +1106,7 @@ $page_title = '啤女BeerU:啤酒地圖';
 <script src='../js/map/map_3.js'></script>
 <script src='../js/map/map_4.js'></script>
 <script src='../js/map/map_phone_option.js'></script>
-<script src='../js/map/map-rwd-show-hide.js'></script>
+<!-- <script src='../js/map/map-rwd-show-hide.js'></script> -->
 <script src='../js/map/map_anime_scroll.js'></script>
-
-
-<!-- 返回上一頁時，強迫改網址！ -->
-<!-- <script>
-let url = location.pathname + '#world'
-history.pushState({
-    url: url,
-    title: document.title
-}, document.title, url)
-</script> -->
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>
