@@ -341,9 +341,22 @@
     transition: .5s;
 }
 
-.member .data-button-wrap button:hover {
+.member .btn_edit-cancel, .btn_password-cancel {
+    background-color: var(--blue);
+    border: 1px solid var(--gold);
+    color: #fff;
+    border-radius: 5px;
+    margin: 0 5px;
+    width: 50%;
+    cursor: pointer;
+    text-align: center;
+    transition: .5s;
+}
+
+.member .data-button-wrap button:hover , .btn_edit-cancel:hover, .btn_password-cancel:hover{
     background-color: var(--gold);
 }
+
 
 /* 編輯會員  &   重設密碼 */
 .member .mydata-editall>p:nth-of-type(1) {
@@ -971,6 +984,11 @@
 /* 照片 */
 .member .event-pic {
     height: 112px;
+    transition: .5s;
+}
+
+.member .event-pic:hover {
+    opacity: .7;
 }
 
 /* 手機版 */
@@ -990,6 +1008,11 @@
 /* 字 */
 .member .event-box p {
     line-height: 2.2rem;
+}
+
+.member .thislocation p:nth-of-type(2) {
+    font-size: 1.3rem;
+    color: #163d50a6;
 }
 
 /* 額滿字 */
@@ -1021,7 +1044,12 @@
 
 /* 照片 */
 .member .fund-pic {
-    height: 90px;
+    height: 100px;
+    transition: .5s;
+}
+
+.member .fund-pic:hover {
+    opacity: .7;
 }
 
 /* 手機版 */
@@ -1037,12 +1065,27 @@
     line-height: 2.2rem;
 }
 
-.member .fund-total {
+.member .thisname p {
+    color: var(--gold);
+    transition: .5s;
+}
+
+.member .thisname p:hover {
+    color: rgb(160, 109, 15);
+    text-decoration: underline;
+}
+
+.member .thisconfirm span {
+    font-size: 1.5rem;
     color: var(--gold);
 }
 
+.member .fund-total {
+    color: var(--red);
+}
+
 .member .fund-button {
-    height: 90px;
+    height: 100px;
 }
 
 /* 手機版 */
