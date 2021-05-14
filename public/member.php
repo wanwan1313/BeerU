@@ -212,7 +212,7 @@ if (isset($_SESSION['user'])) {
                                 </li>
                                 <li class="menu-item memberAchievement-item" data-content="memberAchievement"><i class="fas fa-trophy"></i>我的成就<i class="fas fa-chevron-right"></i></li>
                                 <li class="menu-item memberOrder-item" data-content="memberOrder"><i class="fas fa-copy"></i>我的訂單<i class="fas fa-chevron-right"></i></li>
-                                <li class="menu-item d-block d-lg-none" data-content="logout"><i class="fas fa-sign-out-alt"></i>會員登出<i class="fas fa-chevron-right"></i>
+                                <li class="menu-item d-block d-lg-none" data-content="logout" onclick="Logout()"><i class="fas fa-sign-out-alt"></i>會員登出<i class="fas fa-chevron-right"></i>
                                 </li>
                             </ul>
                             <div class="menu-active-line"></div>
