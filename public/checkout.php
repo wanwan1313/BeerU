@@ -135,7 +135,7 @@ if (isset($_SESSION['cart']['fund'])) {
             <!-- 金流 -->
             <div id="select-payment">
                 <div class="backtoship">
-                    <a href="http://localhost/BeerU/public/checkout.php?step=1">
+                    <a href="checkout.php?step=1">
                         <i class="fas fa-arrow-alt-circle-left mr-2"></i>返回物流選項
                     </a>
                 </div>
@@ -554,9 +554,9 @@ if (isset($_SESSION['cart']['fund'])) {
 
     init()
 
-    window.onpopstate = function() {
-        init()
-    }
+    // window.onpopstate = function() {
+    //     init()
+    // }
 
 
     // 宅配vs超商
