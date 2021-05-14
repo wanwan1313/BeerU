@@ -18,12 +18,12 @@
                         <ul class="nav-sub-menu list-unstyled">
                             <li class="nav-sub-menu-item"><a href="map.php">啤酒地圖</a></li>
                             <li class="nav-sub-menu-item"><a href="food.php">餐酒搭配</a></li>
-                            <li class="nav-sub-menu-item"><a href="">風味輪</a></li>
+                            <!-- <li class="nav-sub-menu-item"><a href="">風味輪</a></li> -->
                         </ul>
                     </li>
                     <li class="nav-item">啤酒活動
                         <ul class="nav-sub-menu list-unstyled">
-                            <li class="nav-sub-menu-item"><a href="event.php">預約試飲會</a></li>
+                            <li class="nav-sub-menu-item"><a href="event.php">預約品飲會</a></li>
                             <li class="nav-sub-menu-item"><a href="fund.php">募資計畫</a></li>
                         </ul>
                     </li>
