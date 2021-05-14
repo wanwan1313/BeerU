@@ -1,6 +1,7 @@
-body{
+body {
     background-color: #fff;
 }
+
 /* ------------------------------推薦商品------------------------------ */
 
 .quiz-result-wrap {
@@ -8,26 +9,26 @@ body{
     background: url(../../images/common/bg/marble-bg.png);
     background-size: 100% auto;
     padding-bottom: 100px;
-} 
+}
 
-.result-info-wrap{
+.result-info-wrap {
     text-align: center;
 }
 
-.result-info-wrap .result-title{
+.result-info-wrap .result-title {
     color: var(--gold);
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
     font-size: 3.6rem;
 }
 
-.result-info-wrap .result-title span{
+.result-info-wrap .result-title span {
     font-size: 4.0rem;
     margin-top: -1%;
     display: block;
 }
 
-.result-info-wrap .result-info{
+.result-info-wrap .result-info {
     padding: 2%;
     color: var(--blue);
     font-size: 2.0rem;
@@ -38,7 +39,7 @@ body{
     line-height: 3.6rem;
 }
 
-.quiz-result-wrap .share-title{
+.quiz-result-wrap .share-title {
     color: var(--blue);
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
@@ -46,48 +47,48 @@ body{
     text-align: center;
 }
 
-
 /* 手機版 */
-@media (max-width: 991px) {
-.quiz-result-wrap {
-    padding-bottom: 50px;
-} 
 
+@media (max-width: 991px) {
+    .quiz-result-wrap {
+        padding-bottom: 50px;
+    }
 }
 
-
 /* 標題(相關商品&商品評論) */
+
 /* 圈圈圖案 */
+
 .quiz-result-wrap .rpco-title {
     background: url(../../images/common/h1_4_b.svg) no-repeat center center;
     background-size: contain;
     margin: 100px 0 50px;
-
 }
 
 /* 手機版 */
+
 @media (max-width: 991px) {
-.quiz-result-wrap .rpco-title {
-    margin: 60px 0 40px;
-
+    .quiz-result-wrap .rpco-title {
+        margin: 60px 0 40px;
+    }
 }
-}
-
 
 /* 標題文字 */
+
 .quiz-result-wrap .rpco-title p {
     color: var(--blue);
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
     font-size: 3.6rem;
     letter-spacing: 1.2rem;
-    text-indent:1.2rem;
+    text-indent: 1.2rem;
     width: fit-content;
     margin: 0 auto;
     position: relative;
 }
 
 /* 左邊雕飾 */
+
 .quiz-result-wrap .rpco-title p::before {
     content: '';
     display: block;
@@ -99,74 +100,69 @@ body{
     height: 50%;
     background: url(../../images/common/h1_ear_left_b.svg) no-repeat center center;
     background-size: contain;
-
 }
 
-
 /* 右邊雕飾 */
+
 .quiz-result-wrap .rpco-title p::after {
     content: '';
     display: block;
     position: absolute;
     top: 50%;
-    right:0;
+    right: 0;
     transform: translate(115%, -50%);
     width: 150px;
     height: 50%;
     background: url(../../images/common/h1_ear_right_b.svg) no-repeat center center;
     background-size: contain;
-
 }
 
 /* 手機版 改字和雕飾大小*/
+
 @media (max-width: 991px) {
-.quiz-result-wrap.quiz-result-wrap .rpco-title p {
-    font-size: 2.4rem;
-    letter-spacing: 0.8rem;
-    text-indent:0.8rem;
+    .quiz-result-wrap.quiz-result-wrap .rpco-title p {
+        font-size: 2.4rem;
+        letter-spacing: 0.8rem;
+        text-indent: 0.8rem;
+    }
+    .quiz-result-wrap .rpco-title p::before {
+        width: 60px;
+        height: 32%;
+    }
+    .quiz-result-wrap .rpco-title p::after {
+        width: 60px;
+        height: 32%;
+    }
 }
-
-.quiz-result-wrap .rpco-title p::before {
-    width: 60px;
-    height: 32%;
-
-}
-
-.quiz-result-wrap .rpco-title p::after {
-    width: 60px;
-    height: 32%;
-
-}
-
-
-}
-
 
 /* 商品BOX */
+
 .quiz-result-wrap .related-p {
     overflow: hidden;
 }
 
 /* 商品圖片 */
+
 .quiz-result-wrap .related-p .pro-pic {
     width: 75%;
     min-width: 200px;
     max-width: 250px;
     background-color: #fff;
-    margin: 0 auto ;
+    margin: 0 auto;
     height: 200px;
     padding: 10px;
     border-radius: 20px;
     position: relative;
 }
 
-.quiz-result-wrap .related-p .pro-pic > img {
+.quiz-result-wrap .related-p .pro-pic>img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
 /* new標籤 */
+
 .quiz-result-wrap .related-p .new-label {
     font-size: 1.3rem;
     font-weight: 600;
@@ -176,11 +172,12 @@ body{
     border-radius: 5px;
     position: absolute;
     top: 0;
-    left: 0;   
+    left: 0;
 }
 
- /* hot標籤 */
- .quiz-result-wrap .related-p .hot-label {
+/* hot標籤 */
+
+.quiz-result-wrap .related-p .hot-label {
     font-size: 1.3rem;
     font-weight: 600;
     text-align: center;
@@ -193,38 +190,40 @@ body{
 }
 
 /* 國家圖片 */
+
 .quiz-result-wrap .related-p .pro-pic .country {
     width: 25px;
-    position:absolute;
+    position: absolute;
     bottom: 20px;
     left: 20px;
 }
 
 /* 收藏按鈕 */
-.quiz-result-wrap .related-p .pro-pic .collect {
+
+.quiz-result-wrap .pro-pic .collect {
     position: absolute;
     bottom: 10px;
     right: 20px;
 }
 
-.quiz-result-wrap .btn_collect, .btn_collect_active {
+.quiz-result-wrap .btn_collect, .btn_collect_active, .btn_collect_nologin {
     background-color: transparent;
     border: none;
     color: var(--red);
     padding: 0;
-    font-size: 24px;  
-    cursor: pointer; 
+    font-size: 24px;
+    cursor: pointer;
     transition: .3s;
 }
 
-.quiz-result-wrap .btn_collect:hover, .btn_collect_active:hover {
-    transform: scale(1.1,1.1);
+.quiz-result-wrap .btn_collect:hover, .btn_collect_active:hover, .btn_collect_nologin:hover {
+    transform: scale(1.1, 1.1);
 }
 
-.quiz-result-wrap .btn_collect::after {
+.quiz-result-wrap .btn_collect::after, .btn_collect_nologin::after {
     content: '加入收藏';
     display: block;
-    position:absolute;
+    position: absolute;
     top: -10px;
     left: -70%;
     font-size: 1.2rem;
@@ -233,12 +232,12 @@ body{
     transition: .3s;
 }
 
-.quiz-result-wrap .btn_collect:hover::after {
+.quiz-result-wrap .btn_collect:hover::after, .btn_collect_nologin:hover::after {
     color: var(--red);
 }
 
-
 /* 商品介紹 */
+
 .quiz-result-wrap .related-p .pro-intro {
     width: 100%;
     max-width: 320px;
@@ -247,21 +246,22 @@ body{
     margin: -20px auto 0;
     padding: 40px 20px 15px;
     height: 200px;
-
 }
 
 /* 手機版 改高度*/
+
 @media (max-width: 991px) {
-.quiz-result-wrap .related-p .pro-intro {
-    height: 180px;
-}
+    .quiz-result-wrap .related-p .pro-intro {
+        height: 180px;
+    }
 }
 
 /* 品名 */
+
 .quiz-result-wrap .related-p .p-name-c {
     line-height: 2rem;
-    
 }
+
 .quiz-result-wrap .related-p .p-name-e {
     font-size: 1.4rem;
     line-height: 1.8rem;
@@ -269,9 +269,10 @@ body{
 }
 
 /* 購買數量 */
+
 .quiz-result-wrap .related-p .quantity {
     border: 1px solid #fff;
-    padding: 0 15% ;
+    padding: 0 15%;
 }
 
 .quiz-result-wrap .related-p .buy-number {
@@ -294,58 +295,55 @@ body{
     color: var(--yellow);
 }
 
-
 /* 商品價格 */
+
 .quiz-result-wrap .related-p .p-price {
     border: 1px solid #fff;
     text-align: center;
-    font-size: 1.8rem; 
-    font-weight: 600;   
+    font-size: 1.8rem;
+    font-weight: 600;
 }
+
 .quiz-result-wrap .related-p .p-price span {
     font-size: 1.4rem;
 }
 
 /* 加入購物車按鈕 */
+
 .quiz-result-wrap .related-p .add-cart {
     background-color: transparent;
     border: 1px solid #fff;
     color: #fff;
-    font-size: 1.6rem; 
+    font-size: 1.6rem;
     cursor: pointer;
     transition: .3s;
     padding: 0 3px;
-    
 }
 
 /* 手機版 */
+
 @media (max-width: 991px) {
-
-.quiz-result-wrap .result-title{
-    font-size: 2.6rem;
+    .quiz-result-wrap .result-title {
+        font-size: 2.6rem;
+    }
+    .quiz-result-wrap .result-title span {
+        font-size: 3.0rem;
+    }
+    .quiz-result-wrap .result-info {
+        margin: 0 auto;
+        width: 90%;
+        font-size: 1.6rem;
+        line-height: 3.0rem;
+    }
+    .quiz-result-wrap .related-p .add-cart {
+        background-color: #fff;
+        color: var(--gold);
+    }
 }
 
-.quiz-result-wrap .result-title span{
-    font-size: 3.0rem;
-}
-
-.quiz-result-wrap .result-info{
-    margin: 0 auto;
-    width: 90%;
-    font-size: 1.6rem;
-    line-height: 3.0rem;
-}
-
-.quiz-result-wrap .related-p .add-cart {
-    background-color: #fff;
-    color: var(--gold);
-}
-
-}
 .quiz-result-wrap .related-p .add-cart i {
     margin-right: 8px;
 }
-
 
 .quiz-result-wrap .related-p .add-cart:hover {
     background-color: #fff;
@@ -354,21 +352,22 @@ body{
 
 /* 分享按鈕*/
 
-.quiz-result-wrap .share-icons{
+.quiz-result-wrap .share-icons {
     justify-content: center;
-
 }
+
 .quiz-result-wrap .share-icons svg path {
     fill: var(--blue);
 }
 
-.quiz-result-wrap .fb, .quiz-result-wrap .line{
+.quiz-result-wrap .fb, .quiz-result-wrap .line {
     margin-right: 8px;
 }
 
-.fb_iframe_widget{
+.fb_iframe_widget {
     margin-right: 10px;
 }
+
 /* ----------------返回按鈕開始---------------------- */
 
 .back-btn {
@@ -409,7 +408,7 @@ body{
 }
 
 .back-btn:hover {
-    transform: scale(1.1,1.1);
+    transform: scale(1.1, 1.1);
 }
 
 .back-btn:hover::after {
@@ -444,49 +443,50 @@ body{
     background: url(../../images/common/bg/marble-bg.png);
     background-size: 100% auto;
     padding-bottom: 100px;
-} 
-
-/* 手機版 */
-@media (max-width: 991px) {
-.quiz-result-wrap .related-comment-wrap {
-    padding-bottom: 50px;
-} 
-
 }
 
+/* 手機版 */
+
+@media (max-width: 991px) {
+    .quiz-result-wrap .related-comment-wrap {
+        padding-bottom: 50px;
+    }
+}
 
 /* 標題(相關商品&商品評論) */
+
 /* 圈圈圖案 */
+
 .quiz-result-wrap .rpco-title {
     background: url(../../images/common/h1_4_b.svg) no-repeat center center;
     background-size: contain;
     margin: 100px 0 50px;
-
 }
 
 /* 手機版 */
+
 @media (max-width: 991px) {
-.quiz-result-wrap .rpco-title {
-    margin: 60px 0 40px;
-
+    .quiz-result-wrap .rpco-title {
+        margin: 60px 0 40px;
+    }
 }
-}
-
 
 /* 標題文字 */
+
 .quiz-result-wrap .rpco-title p {
     color: var(--blue);
     font-family: 'Noto Serif TC', serif;
     font-weight: bold;
     font-size: 3.6rem;
     letter-spacing: 1.2rem;
-    text-indent:1.2rem;
+    text-indent: 1.2rem;
     width: fit-content;
     margin: 0 auto;
     position: relative;
 }
 
 /* 左邊雕飾 */
+
 .quiz-result-wrap .rpco-title p::before {
     content: '';
     display: block;
@@ -498,55 +498,49 @@ body{
     height: 50%;
     background: url(../../images/common/h1_ear_left_b.svg) no-repeat center center;
     background-size: contain;
-
 }
 
-
 /* 右邊雕飾 */
+
 .quiz-result-wrap .rpco-title p::after {
     content: '';
     display: block;
     position: absolute;
     top: 50%;
-    right:0;
+    right: 0;
     transform: translate(115%, -50%);
     width: 150px;
     height: 50%;
     background: url(../../images/common/h1_ear_right_b.svg) no-repeat center center;
     background-size: contain;
-
 }
 
 /* 手機版 改字和雕飾大小*/
+
 @media (max-width: 991px) {
-.quiz-result-wrap .rpco-title p {
-    font-size: 2.4rem;
-    letter-spacing: 0.8rem;
-    text-indent:0.8rem;
+    .quiz-result-wrap .rpco-title p {
+        font-size: 2.4rem;
+        letter-spacing: 0.8rem;
+        text-indent: 0.8rem;
+    }
+    .quiz-result-wrap .rpco-title p::before {
+        width: 60px;
+        height: 32%;
+    }
+    .quiz-result-wrap .rpco-title p::after {
+        width: 60px;
+        height: 32%;
+    }
 }
-
-.quiz-result-wrap .rpco-title p::before {
-    width: 60px;
-    height: 32%;
-
-}
-
-.quiz-result-wrap .rpco-title p::after {
-    width: 60px;
-    height: 32%;
-
-}
-
-
-}
-
 
 /* 商品BOX */
+
 .quiz-result-wrap .related-p {
     overflow: hidden;
 }
 
 /* 商品圖片 */
+
 .quiz-result-wrap .related-p .pro-pic {
     width: 75%;
     min-width: 200px;
@@ -579,6 +573,7 @@ body{
 }
 
 /* new標籤 */
+
 .quiz-result-wrap .related-p .new-label {
     font-size: 1.3rem;
     font-weight: 600;
@@ -589,8 +584,9 @@ body{
     margin-bottom: 5px;
 }
 
- /* hot標籤 */
- .quiz-result-wrap .related-p .hot-label {
+/* hot標籤 */
+
+.quiz-result-wrap .related-p .hot-label {
     font-size: 1.3rem;
     font-weight: 600;
     text-align: center;
@@ -601,21 +597,24 @@ body{
 }
 
 /* 國家圖片 */
+
 .quiz-result-wrap .related-p .pro-pic .country {
     width: 25px;
-    position:absolute;
+    position: absolute;
     bottom: 20px;
     left: 20px;
 }
 
 /* 收藏按鈕 */
-.quiz-result-wrap .related-p .pro-pic .collect {
+
+/* 收藏按鈕 */
+.quiz-result-wrap .pro-pic .collect {
     position: absolute;
     bottom: 10px;
     right: 20px;
 }
 
-.quiz-result-wrap .btn_collect, .btn_collect_active {
+.quiz-result-wrap .btn_collect, .btn_collect_active, .btn_collect_nologin {
     background-color: transparent;
     border: none;
     color: var(--red);
@@ -625,11 +624,11 @@ body{
     transition: .3s;
 }
 
-.quiz-result-wrap .btn_collect:hover, .btn_collect_active:hover {
+.quiz-result-wrap .btn_collect:hover, .btn_collect_active:hover, .btn_collect_nologin:hover {
     transform: scale(1.1,1.1);
 }
 
-.quiz-result-wrap .btn_collect::after {
+.quiz-result-wrap .btn_collect::after, .btn_collect_nologin::after {
     content: '加入收藏';
     display: block;
     position:absolute;
@@ -641,12 +640,12 @@ body{
     transition: .3s;
 }
 
-.quiz-result-wrap .btn_collect:hover::after {
+.quiz-result-wrap .btn_collect:hover::after , .btn_collect_nologin:hover::after {
     color: var(--red);
 }
 
-
 /* 商品介紹 */
+
 .quiz-result-wrap .related-p .pro-intro {
     width: 100%;
     max-width: 320px;
@@ -655,29 +654,31 @@ body{
     margin: -20px auto 0;
     padding: 40px 20px 15px;
     height: 200px;
-
 }
 
 /* 手機版 改高度*/
+
 @media (max-width: 991px) {
-.quiz-result-wrap .related-p .pro-intro {
-    height: 180px;
-}
+    .quiz-result-wrap .related-p .pro-intro {
+        height: 180px;
+    }
 }
 
 /* 品名 */
+
 .quiz-result-wrap .related-p .p-name {
     transition: .6s;
 }
 
-.quiz-result-wrap .related-p .p-name:hover .p-name-c{
+.quiz-result-wrap .related-p .p-name:hover .p-name-c {
     color: var(--yellow);
 }
+
 .quiz-result-wrap .related-p .p-name-c {
     line-height: 2rem;
     transition: .6s;
-    
 }
+
 .quiz-result-wrap .related-p .p-name-e {
     font-size: 1.4rem;
     line-height: 1.8rem;
@@ -685,9 +686,10 @@ body{
 }
 
 /* 購買數量 */
+
 .quiz-result-wrap .related-p .quantity {
     border: 1px solid #fff;
-    padding: 0 15% ;
+    padding: 0 15%;
 }
 
 .quiz-result-wrap .related-p .buy-number {
@@ -710,42 +712,43 @@ body{
     color: var(--yellow);
 }
 
-
 /* 商品價格 */
+
 .quiz-result-wrap .related-p .p-price {
     border: 1px solid #fff;
     text-align: center;
-    font-size: 1.8rem; 
-    font-weight: 600;   
+    font-size: 1.8rem;
+    font-weight: 600;
 }
+
 .quiz-result-wrap .related-p .p-price span {
     font-size: 1.4rem;
 }
 
 /* 加入購物車按鈕 */
+
 .quiz-result-wrap .related-p .add-cart {
     background-color: transparent;
     border: 1px solid #fff;
     color: #fff;
-    font-size: 1.6rem; 
+    font-size: 1.6rem;
     cursor: pointer;
     transition: .3s;
     padding: 0 3px;
-    
 }
 
 /* 手機版 */
+
 @media (max-width: 991px) {
-.quiz-result-wrap .related-p .add-cart {
-    background-color: #fff;
-    color: var(--gold);
+    .quiz-result-wrap .related-p .add-cart {
+        background-color: #fff;
+        color: var(--gold);
+    }
 }
 
-}
 .quiz-result-wrap .related-p .add-cart i {
     margin-right: 8px;
 }
-
 
 .quiz-result-wrap .related-p .add-cart:hover {
     background-color: #fff;

@@ -73,13 +73,51 @@ $('.add-cart').on('click', function () {
         'qty': qty
     }, function (data) {
         // console.log(data)
-        // $('.pop-up-1').zIndex(1000);
+        showCartCount(data.cart)
         $('.pop-up-1').fadeIn(150)
         $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
         $('.pop-up-1 .pop-up-text').text(data.msg)
     }, 'json')
 
 })
+
+// 收藏清單功能
+
+// 加入
+function collectProduct() {
+    let btn = $(event.currentTarget)
+    let psid = btn.closest('.beer-product').attr('data-sid')
+
+    $.get('member-collect-api.php', {
+        'action': 'add',
+        'psid': psid
+    }, function (data) {
+        // console.log(data)
+        $('.pop-up-1').fadeIn(150)
+        $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
+        $('.pop-up-1 .pop-up-text').text(data.msg)
+    }, 'json')
+    btn.addClass('d-none')
+    btn.next().removeClass('d-none')
+}
+
+// 取消
+function cancelCollectProduct() {
+    let btn = $(event.currentTarget)
+    let psid = btn.closest('.beer-product').attr('data-sid')
+
+    $.get('member-collect-api.php', {
+        'action': 'delete',
+        'psid': psid
+    }, function (data) {
+        // console.log(data)
+        $('.pop-up-1').fadeIn(150)
+        $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
+        $('.pop-up-1 .pop-up-text').text(data.msg)
+    }, 'json')
+    btn.addClass('d-none')
+    btn.prev().removeClass('d-none')
+}
 
 // -------------------------------------------------------------
 // 彈跳視窗
@@ -90,34 +128,76 @@ $('button.ok').on('click', function () {
 // ----------------------text animation 1----------------------------
 
 jQuery(function ($) {
-
     // Function which adds the 'animated' class to any '.animatable' in view
-    var doAnimations = function () {
-
+    let doAnimations = function () {
         // Calc current offset and get all animatables
-        var offset = $(window).scrollTop() + $(window).height(),
+        let offset = $(window).scrollTop() + $(window).height(),
             $animatables = $('.animatable');
-
         // Unbind scroll handler if we have no animatables
         if ($animatables.length == 0) {
-            $(window).off('scroll', doAnimations);
+            // $(window).off('scroll', doAnimations);
         }
-
         // Check all animatables and animate them if necessary
         $animatables.each(function (i) {
-            var $animatable = $(this);
+            let $animatable = $(this);
+            // console.log('($animatable.offset().top + $animatable.height() - 100) < offset',($animatable.offset().top + $animatable.height() - 100) < offset);
             if (($animatable.offset().top + $animatable.height() - 20) < offset) {
                 $animatable.removeClass('animatable').addClass('animated');
             }
         });
 
-    };
+        $('.animated').each(function (i) {
+            let $animatable = $(this);
 
+            if (($(this).offset().top + $(this).height() - 40) > offset) {
+                $(this).removeClass('animated').addClass('animatable');
+            }
+        });
+    };
     // Hook doAnimations on scroll, and trigger a scroll
     $(window).on('scroll', doAnimations);
     $(window).trigger('scroll');
-
-
 });
 
+// Scroll to top button 
+// 桌機版 
+if ($(window).width() >= 992) {
+    $(window).scroll(function () {
+
+        if ($(this).scrollTop() >= 400) {
+            $('#return-to-top').fadeIn(200);
+        } else {
+            $('#return-to-top').fadeOut(200);
+        }
+    })
+
+    $('#return-to-top').click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 500, 'swing');
+
+    })
+
+}
+
+
+// 手機版
+if ($(window).width() < 992) {
+    $(window).scroll(function () {
+
+        if ($(this).scrollTop() >= 50) {
+            $('#return-to-top').fadeIn(200);
+        } else {
+            $('#return-to-top').fadeOut(200);
+        }
+
+
+    })
+
+    $('#return-to-top').click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 500);
+    })
+}
 

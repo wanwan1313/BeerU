@@ -9,7 +9,7 @@ $page_title = '啤女BeerU:心理測驗結果';
 
 $psid = 5;
 
-
+if ($psid != 0) {
 // 此頁商品
 $p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.`name` AS `type_name`,t4.`name` AS `merch_name` FROM `products` AS p 
                 JOIN `tags` AS t1 
@@ -50,6 +50,23 @@ $deadline = strtotime('2021-05-01');
 $come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
 $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
 
+    // 從資料庫抓收藏清單
+    // 登入會員的狀態，抓收藏商品
+    $c_arr = [];
+    if (isset($_SESSION['user'])) {
+
+        $m_sid = $_SESSION['user']['sid'];
+        $co_SQL = "SELECT `product_sid` FROM `collect` WHERE `member_sid` = $m_sid";
+        $co_row = $pdo->query($co_SQL)->fetchAll();
+        if (!empty($co_row)) {
+            foreach ($co_row as $co) {
+                array_push($c_arr, $co['product_sid']);
+            }
+        }
+    }
+} else {
+    header('Location: all-product.php');
+}
 
 ?>
 
@@ -117,8 +134,17 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
                                 <!-- 收藏按鈕 -->
                                 <div class="collect">
-                                    <button class="btn_collect"><i class="far fa-heart"></i></button>
-                                    <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                <?php if (!isset($_SESSION['user'])) : ?>
+                                        <button class="btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></button>
+                                    <?php else : ?>
+                                        <?php if (in_array($c_row['sid'], $c_arr)) : ?>
+                                            <button class="btn_collect_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                            <button class="btn_collect d-none" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                        <?php else : ?>
+                                            <button class="btn_collect" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                            <button class="btn_collect_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
 
@@ -176,8 +202,17 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
                                 <!-- 收藏按鈕 -->
                                 <div class="collect">
-                                    <button class="btn_collect"><i class="far fa-heart"></i></button>
-                                    <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                <?php if (!isset($_SESSION['user'])) : ?>
+                                        <button class="btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></button>
+                                    <?php else : ?>
+                                        <?php if (in_array($t_row['sid'], $c_arr)) : ?>
+                                            <button class="btn_collect_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                            <button class="btn_collect d-none" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                        <?php else : ?>
+                                            <button class="btn_collect" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                            <button class="btn_collect_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
 
@@ -235,8 +270,17 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
                                 <!-- 收藏按鈕 -->
                                 <div class="collect">
-                                    <button class="btn_collect"><i class="far fa-heart"></i></button>
-                                    <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
+                                <?php if (!isset($_SESSION['user'])) : ?>
+                                        <button class="btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></button>
+                                    <?php else : ?>
+                                        <?php if (in_array($b_row['sid'], $c_arr)) : ?>
+                                            <button class="btn_collect_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                            <button class="btn_collect d-none" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                        <?php else : ?>
+                                            <button class="btn_collect" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                            <button class="btn_collect_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
 
