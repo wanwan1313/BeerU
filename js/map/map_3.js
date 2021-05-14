@@ -1,7 +1,69 @@
 // 卡片跑出-------------------------------------
-$('.map .country').click(function () {
+
+$('.map .country, .flag img').click(function () {
+    // console.log('this', $(this));
+    // 動畫設置---------------------------
+    // 1.卡片跑出
     $('.bg-black').show();
-    $('.map-card').addClass('animate__animated animate__flip');
+    // 2.卡片動畫
+    // $('.map-card').hide()
+    // $('.map-card').addClass('animate__animated animate__flip');
+    // -------------------------------------------------
+    // 使用javascript動態修改內容(不使用php)：搜尋country-name 的p<ru; 將內容改成郵票選項的名字(.map .country)的.country_name
+    // $('.country-name p').text($(this).find('.country_name').text());
+
+    // 1.設定countryName為找到的國家名稱('.country_name')並刪除多餘空格.trim()
+    const countryName = $(this).find('.country_name').text().trim();
+
+    // 2.用jquery引入php,$.post
+    $.post(
+        // 2.1'api放入位置',
+        'map-api.php',
+        // 2.2{剛才設定的變數const},
+        { countryName },
+
+        // 執行function
+        function (data) {
+            let {map_row, cups, beers} = data;
+            // console.log(data)
+            // 改國家名
+            $('.country-name p').text(map_row.country);
+            // 改國家介紹
+            $('.beer-intro p').text(map_row.intro);
+            // console.log(map_row.stamp);
+            // 改郵票圖片位址
+            $('.stamp_country img').attr("src", map_row.stamp);
+            // 改看更多位址
+            $('.see_more a').attr("href", map_row.see_more);
+            // 改背景圖（桌機）
+            $('.bg_b img').attr("src", map_row.bg_b);
+            // 改背景圖（手機）
+            $('.bg_s img').attr("src", map_row.bg_s);
+            // 改brand
+            $('.beer-brand').html(map_row.brands);
+
+            // cup1
+            for(let i=1; i<=3; i++){
+                $('.cup' + i).attr("href", cups[i-1].cup_1_link);
+                $('.cup' + i + ' .cup-name').text(cups[i-1].cup_1_name);
+                $('.cup' + i + ' img').attr("src", cups[i-1].cup_1_pic);
+            }
+
+
+/*
+            // cup2
+            $('.cup2').attr("href", data.cup_2_link);
+            $('.cup2 .cup-name').text(data.cup_2_name);
+            $('.cup2 img').attr("src", data.cup_2_pic);
+            // cup3
+            $('.cup3').attr("href", data.cup_3_link);
+            $('.cup3 .cup-name').text(data.cup_3_name);
+            $('.cup3 img').attr("src", data.cup_3_pic);
+*/
+            // beers?隨機出現國家分類的酒
+        },
+        'json'
+    )
 })
 
 
@@ -21,7 +83,7 @@ $('.popup .card-close i').mouseenter(function () {
 //郵票動畫---------------------------------------
 $('.stamp_country').addClass('animate__animated animate__fadeInBottomLeft')
 
- $('.bg_country').addClass('animate__animated animate__fadeIn').addClass('time-2s')
+$('.bg_country').addClass('animate__animated animate__fadeIn').addClass('time-2s')
 
 
 
@@ -30,7 +92,7 @@ $('.stamp_country').addClass('animate__animated animate__fadeInBottomLeft')
 // 郵戳動畫--------------------------------------
 $('.stamp').addClass('animate__animated animate__fadeInBottomLeft')
 // 商品hover--------------------------------------
-$('.map .cup, .map .beer').mouseenter(function () {{$(this).css('transform','scale(1.2)')}}).mouseleave(function () {{$(this).css('transform','scale(1)')}})
+$('.map .cup, .map .beer').mouseenter(function () { { $(this).css('transform', 'scale(1.2)') } }).mouseleave(function () { { $(this).css('transform', 'scale(1)') } })
 
 // $('.map .know-more').mouseenter(function () {
 //     {

@@ -26,7 +26,14 @@ if($sid== 0){
     <link rel="stylesheet" href="../css/event/event-over.css">
     <link rel="stylesheet" href="../css/tool.css">
 
-<?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+    <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<!-- 會員登入 -->
+<?php include __DIR__ . '../../php/common/Login-Sign.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
+<section class="mobile-menu">
+    <?php include __DIR__ . '../../php/common/category.php' ?>
+</section>
 
     <!-- 可變動區 -->
     <!-- event品飲會:花絮回顧 -->

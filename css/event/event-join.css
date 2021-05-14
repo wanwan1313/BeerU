@@ -422,9 +422,11 @@ margin-right: 3px;
 .join .memo-check{
     text-align: justify;
     margin-bottom: 50px;
-
     /* margin-left: 50px; */
+}
 
+.join .memo-check input{
+height:auto;
 }
 
 .join .gold-line-wrap{

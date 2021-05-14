@@ -1,9 +1,9 @@
 $('.us, .eu, .as, .au').hide()
-
+// $('.world_titles').hide()
 // 桌機版
 // 點選飛到:美洲
 
-$('.world>svg>a:nth-of-type(1)>path, .part:nth-of-type(1)').click(function () {
+$('.world>svg>a:nth-of-type(1)>path, .title_us, .part:nth-of-type(1)').click(function () {
     console.log("us");
     $('.pipi_plane_big img').toggleClass('animate__animated animate__pulse')
         .removeClass('infinite')
@@ -20,11 +20,12 @@ $('.world>svg>a:nth-of-type(1)>path, .part:nth-of-type(1)').click(function () {
     setTimeout(function () {
         $('.flag').show()
             .toggleClass('animate__animated animate__bounceInDown');
-    }, 1000);
+    }, 500);
+    
 })
 
 // 點選飛到:歐洲
-$('.world>svg>a:nth-of-type(2)>path, .part:nth-of-type(2)').click(function () {
+$('.world>svg>a:nth-of-type(2)>path, .title_eu, .part:nth-of-type(2)').click(function () {
     $('.pipi_plane_big img').toggleClass('animate__animated animate__pulse')
         .removeClass('infinite')
         .toggleClass('pipi_plane_to_eu')
@@ -38,14 +39,21 @@ $('.world>svg>a:nth-of-type(2)>path, .part:nth-of-type(2)').click(function () {
     }, 3000);
     $('.pipi_plane').toggleClass('animate__animated animate__pulse').toggleClass('infinite');
     // 國旗飛下來
-    setTimeout(function () {
-        $('.flag').show()
-            .toggleClass('animate__animated animate__bounceInDown');
-    }, 1000);
+    let timeLag = 100;
+    $('.eu_flags .flag').each(function(){
+        let $that = $(this);
+        console.log('first $that', $that);
+        timeLag +=200;
+        setTimeout(function () {
+            console.log('2nd $that', $that);
+            $that.show().toggleClass('animate__animated animate__bounceInDown');
+            
+        }, 200+timeLag);
+    })
     $('.eu .arrow-left, .eu .arrow-right').toggleClass('animate__animated animate__pulse').toggleClass('infinite')
 })
 // 點選飛到:亞洲
-$('.world>svg>a:nth-of-type(3)>path, .part:nth-of-type(3)').click(function () {
+$('.world>svg>a:nth-of-type(3)>path, .title_as, .part:nth-of-type(3)').click(function () {
     $('.pipi_plane_big img').toggleClass('animate__animated animate__pulse')
         .removeClass('infinite')
         .toggleClass('pipi_plane_to_eu')
@@ -59,14 +67,21 @@ $('.world>svg>a:nth-of-type(3)>path, .part:nth-of-type(3)').click(function () {
     }, 3000);
     $('.pipi_plane').toggleClass('animate__animated animate__pulse').toggleClass('infinite');
     // 國旗飛下來
-    setTimeout(function () {
-        $('.flag').show()
-            .toggleClass('animate__animated animate__bounceInDown');
-    }, 1000);
+    let timeLag = 100;
+    $('.as_flags .flag').each(function(){
+        let $that = $(this);
+        console.log('first $that', $that);
+        timeLag +=200;
+        setTimeout(function () {
+            console.log('2nd $that', $that);
+            $that.show().toggleClass('animate__animated animate__bounceInDown');
+            
+        }, 200+timeLag);
+    })
     $('.as .arrow-left, .eu .arrow-right').toggleClass('animate__animated animate__pulse').toggleClass('infinite')
 })
 // 點選飛到:大洋洲
-$('.world>svg>a:nth-of-type(4)>path, .part:nth-of-type(4)').click(function () {
+$('.world>svg>a:nth-of-type(4)>path, .title_au, .part:nth-of-type(4)').click(function () {
     $('.pipi_plane_big img').toggleClass('animate__animated animate__pulse')
         .removeClass('infinite')
         .toggleClass('pipi_plane_to_au')
@@ -80,10 +95,23 @@ $('.world>svg>a:nth-of-type(4)>path, .part:nth-of-type(4)').click(function () {
     }, 3000);
     $('.pipi_plane').toggleClass('animate__animated animate__pulse').toggleClass('infinite');
     // 國旗飛下來
-    setTimeout(function () {
-        $('.flag').show()
-            .toggleClass('animate__animated animate__bounceInDown');
-    }, 1000);
+    let timeLag = 100;
+    $('.au_flags .flag').each(function(){
+        let $that = $(this);
+        console.log('first $that', $that);
+        timeLag +=250;
+        setTimeout(function () {
+            console.log('2nd $that', $that);
+            $that.show().toggleClass('animate__animated animate__bounceInDown');
+            
+        }, 500+timeLag);
+    })
+
+
+    // setTimeout(function () {
+    //     $('.flag').show()
+    //         .toggleClass('animate__animated animate__bounceInDown');
+    // }, 1000);
     $('.as .arrow-left, .eu .arrow-right').toggleClass('animate__animated animate__pulse').toggleClass('infinite')
 
 })
@@ -135,7 +163,7 @@ if ($(window).width() < 700) {
 }
 
 // 輪播牆-亞洲
-// let slick = 0
+slick = 0
 
 // 左箭頭
 $('.as .arrow-right').click(function () {

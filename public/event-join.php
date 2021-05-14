@@ -3,21 +3,27 @@
 // <!-- 需要置換的變數們 -->
 $page_title = '啤女BeerU:品飲會:立即報名';
 
-$sid=isset($_GET['sid']) ? intval($_GET['sid']) :0 ;
+$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 
 // 瀏覽人次
 $pdo->query("UPDATE `event` SET `event_visited`=`event_visited`+1 WHERE `sid` = $sid");
 
+// 從上一頁找sid
 $e_SQL = "SELECT * FROM `event` WHERE sid=$sid";
 $e = $pdo->query($e_SQL)->fetch();
 
-
+$exp = strtotime($e['event_date']) < time();
 // 如果sid＝0,跳轉回去event.php
-if($sid== 0){ 
+if ($sid == 0) {
     header('Location: http://192.168.21.56/beeru/public/event.php');
     // exit;
 }
 $exp = strtotime($e['event_date']) < time();
+
+// 算出目前報名人數
+$en_SQL = "SELECT `e`.`event_people`,COUNT(`event_sid`) FROM `event` AS `e` INNER JOIN `event_join` AS `ej` WHERE `e`.`sid` = `ej`.`event_sid` GROUP BY `event_sid`";
+
+$e = $pdo->query($e_SQL)->fetch();;
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -28,24 +34,34 @@ $exp = strtotime($e['event_date']) < time();
 <link rel="stylesheet" href="../css/tool.css">
 <style>
     /* 更改bg-image */
-.join .event-banner {
-    background-image:url(../images/event/<?= $e['event_pic_b'] ?>);
-}
-
-@media (max-width: 577px) {
-   .join .event-banner {
-    background-image:url(../images/event/<?= $e['event_pic_s'] ?>);
-   }}
-
-   .join .serve .row .product:nth-of-type(1) .product-img:before{
-    background: url(../<?= $e['event_beer_1_country'] ?>) 0 0 no-repeat;
-    }
-    .join .serve .row .product:nth-of-type(2) .product-img:before{
-    background: url(../<?= $e['event_beer_2_country'] ?>) 0 0 no-repeat;
+    .join .event-banner {
+        background-image: url(../images/event/<?= $e['event_pic_b'] ?>);
     }
 
+    @media (max-width: 577px) {
+        .join .event-banner {
+            background-image: url(../images/event/<?= $e['event_pic_s'] ?>);
+        }
+    }
+
+    .join .serve .row .product:nth-of-type(1) .product-img:before {
+        background: url(../<?= $e['event_beer_1_country'] ?>) 0 0 no-repeat;
+    }
+
+    .join .serve .row .product:nth-of-type(2) .product-img:before {
+        background: url(../<?= $e['event_beer_2_country'] ?>) 0 0 no-repeat;
+    }
 </style>
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<!-- 會員登入 -->
+<?php include __DIR__ . '../../php/common/Login-Sign.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
+
+<section class="mobile-menu">
+    <?php include __DIR__ . '../../php/common/category.php' ?>
+</section>
+
 
 <!-- 可變動區 -->
 <!-- event品飲會:立即報名 -->
@@ -58,6 +74,7 @@ $exp = strtotime($e['event_date']) < time();
             flex-nowrap">
             <!-- 2.2.1.關注 -->
             <button class="btn_attention px-3 py-1"><i class="fas fa-plus"></i>加入關注</button>
+            <!-- <button class="btn_attention_active"><i class="fas fa-check"></i>已關注</button> -->
             <!-- 2.2.2.分享 -->
             <div class="share-icons d-flex ">
                 <div class="fb">
@@ -237,7 +254,7 @@ $exp = strtotime($e['event_date']) < time();
     <!-- 4.overview -->
     <div class="row mx-0 px-5 animatable fadeInUp">
         <div class="overview">
-        <?= $e['event_overview'] ?>
+            <?= $e['event_overview'] ?>
         </div>
     </div>
     <!-- 5.活動介紹 -->
@@ -266,14 +283,14 @@ $exp = strtotime($e['event_date']) < time();
                         </div>
                         <div class="product-name"><?= $e['event_beer_2_name'] ?></div>
                         <div class='know-more'>
-                        <a href="each-product.php?psid=<?= $e['event_beer_2_link'] ?>">進入購物車</a>
+                            <a href="each-product.php?psid=<?= $e['event_beer_2_link'] ?>">進入購物車</a>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- 3.4.1.2.說明 -->
             <div class="intro-content col-md-5 pt-0 px-0 pr-md-0 animatable fadeInUp">
-            <?= $e['event_intro'] ?>
+                <?= $e['event_intro'] ?>
             </div>
         </div>
     </div>
@@ -292,143 +309,148 @@ $exp = strtotime($e['event_date']) < time();
         <div class="row mx-0 w-100"><?= $e['event_map'] ?></div>
     </div>
 
-
-    <!-- 判斷：已登入 -->
-    <div class='can_join animatable fadeInUp'>
-        <!-- 7.報名活動 -->
-        <div class="container event-join-sign">
-            <div class="row mx-0 px-5">
-                <div class="title">
-                    <p>報名活動</p>
+    <?php if (isset($_SESSION['user'])) : ?>
+        <!-- 判斷：已登入 -->
+        <div class='can_join animatable fadeInUp'>
+            <!-- 7.報名活動 -->
+            <div class="container event-join-sign">
+                <div class="row mx-0 px-5">
+                    <div class="title">
+                        <p>報名活動</p>
+                    </div>
                 </div>
-            </div>
-            <!-- form+intro -->
-            <div class="row mx-0 px-5 justify-content-around">
-                <!--表單-->
-                <form class='col-md-5 px-0 pl-md-0 mr-0 order-2 order-md-1' action="" name='event_join' method="post" novalidate onsubmit="checkform_join(); return false;" > 
-                    <div class="form-title">姓名 <input type="text" class='col-10' placeholder="啤啤" style='letter-spacing: 0;' required></div>
-                    <div class="form-title">電話 <input class='col-10' type="tel" placeholder="0912-345-678" required></div>
-                    <p class='memo'>＊請輸入正確，以便現場核對身份</p>
-                    <div class="form-title row justify-content-start">
-                        <div>攜伴人數 <span class="memo ">＊最多可攜戴<span class="number_big">2</span>位朋友</span></div>
+                <!-- form+intro -->
+                <div class="row mx-0 px-5 justify-content-around">
+                    <!--表單-->
+                    <form class='col-md-5 px-0 pl-md-0 mr-0 order-2 order-md-1' action="" name='event_join' method="post" novalidate onsubmit=" event_submit()">
+                        <input type="hidden" name="event_sid" value="<?= $_GET['sid'] ?>">
+                        <div class="form-title">
+                            <label for='p0_name'>姓名
+                                <i class="fas fa-check"></i>
+                            </label>
+                            <input type="text" class='col-10' name='p0_name' id='p0_name' placeholder="啤啤" style='letter-spacing: 0;' required>
+                        </div>
+                        <div class="form-title">
+                            <label for='p0_mobile'>電話 <i class="fas fa-check"></i></label>
+                            <input class='col-10' type="tel" name='p0_mobile' id='p0_mobile' placeholder="0912-345-678" required>
+                        </div>
+                        <p class='memo'>＊請輸入正確，以便現場核對身份</p>
 
-                    </div>
+                        <div class="form-title row justify-content-start">
+                            <div>攜伴人數 <span class="memo ">＊最多可攜戴<span class="number_big">2</span>位朋友</span></div>
 
-                    <select class='col-12' id="people">
-                        <option value="0" selected>0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
-                    <div class="one_people">
+                        </div>
+                        <select class='col-12' id="people" name="total_p">
+                            <option value="0" selected>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                        <div class="two_people">
+                            <div class="gold-line-wrap">
+                                <hr class='gold-line mx-0'>
+                            </div>
+                            <!--攜伴人數第1列-->
+                            <div class='one'>
+                                <div class="row mx-0 px-0 flex-wrap justify-content-start">
+                                    <div class="form-title-s col-12 col-md-6">姓名 <input type="text" placeholder="啤啤" name='p1_name'></div>
+                                    <div class="form-title-s col-12 col-md-6">電話 <input type="tel" placeholder="0912-345-678" name='p1_mobile'>
+                                    </div>
+                                </div>
+                                <p class='memo ml-3'>＊請輸入正確，以便現場核對身份</p>
+                            </div>
+                            <!--攜伴人數第2列-->
+                            <div class='two'>
+                                <div class="row mx-0 px-0 flex-wrap justify-content-start">
+                                    <div class="form-title-s col-12 col-md-6">姓名 <input type="text" placeholder="啤啤" name='p2_name'></div>
+                                    <div class="form-title-s col-12 col-md-6">電話 <input type="tel" placeholder="0912-345-678" name='p2_mobile'>
+                                    </div>
+                                </div>
+                                <p class='memo ml-3'>＊請輸入正確，以便現場核對身份</p>
+                            </div>
+                        </div>
                         <div class="gold-line-wrap">
-                            <hr class='gold-line mx-0'>
+                            <hr class='gold-line-2 mx-0'>
                         </div>
-                        <!--攜伴人數第1列-->
-                        <div class='one'>
-                            <div class="row mx-0 px-0 flex-wrap justify-content-start">
-                                <div class="form-title-s col-12 col-md-6">姓名 <input type="text" placeholder="啤啤"></div>
-                                <div class="form-title-s col-12 col-md-6">電話 <input type="tel" placeholder="0912-345-678">
+                        <!-- 驗證碼 -->
+                        <form action="">
+                            <div class="cant_copy form-title mb-5 mt-5 flex-nowrap text-center text-md-left pb-4 pb-md-0 js5-input-div" id="js5-form" ng-controller="enterCtrl">
+                                <span class="js5-input-divSpan">驗證碼
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                <input type="text" placeholder="不區分大小寫" class='check_code js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:150px">
+                                <input type="text" class="js5-authCode mx-3" style="width:100px;background-color:var(--red);color:var(--yellow);font-size:2rem;font-weight:bold;text-align:center;letter-spacing:.25rem;border:1px solid white;font-family:'Noto Serif TC', serif;" value="" id="js5-authCode" ng-model="showAuthCode" disabled="disabled" oncopy="return false">
+                                <a class='recode' href="javascript:"><i class="fas fa-undo-alt" style="font-size:1.4rem;letter-spacing:0"> 重新獲取驗證碼</i></a>
+                            </div>
+                        </form>
+                        <!-- 活動資訊 -->
+                        <div class="serve col-md-5 h-100 px-4 pr-lg-3 order-1 order-md-2">
+                            <p class='t1 text-center'>活動資訊</p>
+                            <!-- 活動時間地點 -->
+                            <div class="timelocation lh15 w-75 mx-auto">
+                                <div class="time">
+                                    <div class="d-flex align-items-md-center align-items-start justify-content-start">
+                                        <p class='t1-i mx-0 px-0 text-nowrap'><i class="far fa-clock"></i>活動時間</p>
+                                        <div class='btn_join over calender mx-0'><a href="<?= $e['event_calender'] ?>"><i class="fas fa-calendar-plus"></i>加入行事曆</a></div>
+                                    </div>
+                                    <p class='t1-c'><?= $e['event_time'] ?></p>
+                                </div>
+                                <div class="location">
+                                    <p class='t1-i'><i class="fas fa-map-marker-alt"></i>活動地點</p>
+                                    <p class='t1-c'><?= $e['event_place'] ?>
+                                        <br><span><?= $e['event_address'] ?></span>
+                                    </p>
                                 </div>
                             </div>
-                            <p class='memo ml-3'>＊請輸入正確，以便現場核對身份</p>
-                        </div>
-                    </div>
-                    <div class="two_people">
-                        <div class="gold-line-wrap">
-                            <hr class='gold-line mx-0'>
-                        </div>
-                        <!--攜伴人數第1列-->
-                        <div class='one'>
-                            <div class="row mx-0 px-0 flex-wrap justify-content-start">
-                                <div class="form-title-s col-12 col-md-6">姓名 <input type="text" placeholder="啤啤"></div>
-                                <div class="form-title-s col-12 col-md-6">電話 <input type="tel" placeholder="0912-345-678">
-                                </div>
+                            <!-- 價格 -->
+                            <div class="row align-items-start mx-auto jusitify-content-around">
+                                <div class="block price col-8 col-lg-6 mt-0 mx-auto px-0 text-center">價格：NT$<?= $e['event_price'] ?></div>
+                                <div class="memo mb-0 col-8 col-lg-6 text-justify px-0 px-lg-4 mx-auto">
+                                    *費用為當天當場繳交，活動前一個禮拜不開放取消</div>
                             </div>
-                            <p class='memo ml-3'>＊請輸入正確，以便現場核對身份</p>
                         </div>
-                        <!--攜伴人數第2列-->
-                        <div class='two'>
-                            <div class="row mx-0 px-0 flex-wrap justify-content-start">
-                                <div class="form-title-s col-12 col-md-6">姓名 <input type="text" placeholder="啤啤"></div>
-                                <div class="form-title-s col-12 col-md-6">電話 <input type="tel" placeholder="0912-345-678">
-                                </div>
+                        <!-- 送出 -->
+                        <div class='col-md-6 w-100 order-3 order-md-3 px-0'>
+                            <!-- 立即報名 -->
+                            <button class='btn_join w-100 over d-block mx-auto mb-2' type='submit' onclick="event_submit()">立即報名</button>
+                            <!-- 說明 -->
+                            <div class="d-flex mx-auto w-100 memo-check lh15 px-0 align-items-baseline">
+                                <input class='d-block mr-2' type="checkbox" checked />
+                                <div class="memo mx-auto d-inline mt-2">按下報名鈕的同時，表示您已詳閱我們的資料使用政策與使用條款，同意使用《啤女》所提供的服務並訂閱電子報。</div>
                             </div>
-                            <p class='memo ml-3'>＊請輸入正確，以便現場核對身份</p>
-                        </div>
-                    </div>
-                    <div class="gold-line-wrap">
-                        <hr class='gold-line-2 mx-0'>
-                    </div>
-                    <!-- 驗證碼 -->
-                    <form action="">
-                        <div class="cant_copy form-title mb-5 mt-5 flex-nowrap text-center text-md-left pb-4 pb-md-0 js5-input-div" id="js5-form" ng-controller="enterCtrl"><span class="js5-input-divSpan">驗證碼 </span><input type="text" placeholder="不區分大小寫" class='check_code js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:150px"><input type="text" class="js5-authCode mx-3" style="width:100px;background-color:var(--red);color:var(--yellow);font-size:2rem;font-weight:bold;text-align:center;letter-spacing:.25rem;border:1px solid white" value="" id="js5-authCode" ng-model="showAuthCode" disabled="disabled" oncopy="return false">
-                            <a class='recode' href="javascript:"><i class="fas fa-undo-alt" style="font-size:1.4rem;letter-spacing:0"> 重新獲取驗證碼</i></a>
                         </div>
                     </form>
-                    <!-- 活動資訊 -->
-                    <div class="serve col-md-5 h-100 px-4 pr-lg-3 order-1 order-md-2">
-                        <p class='t1 text-center'>活動資訊</p>
-                        <!-- 活動時間地點 -->
-                        <div class="timelocation lh15 w-75 mx-auto">
-                            <div class="time">
-                                <div class="d-flex align-items-md-center align-items-start justify-content-start">
-                                    <p class='t1-i mx-0 px-0 text-nowrap'><i class="far fa-clock"></i>活動時間</p>
-                                    <div class='btn_join over calender mx-0'><a href="<?= $e['event_calender'] ?>"><i class="fas fa-calendar-plus"></i>加入行事曆</a></div>
-                                </div>
-                                <p class='t1-c'><?= $e['event_time'] ?></p>
-                            </div>
-                            <div class="location">
-                                <p class='t1-i'><i class="fas fa-map-marker-alt"></i>活動地點</p>
-                                <p class='t1-c'><?= $e['event_place'] ?>
-                                    <br><span><?= $e['event_address'] ?></span>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- 價格 -->
-                        <div class="row align-items-start mx-auto jusitify-content-around">
-                            <div class="block price col-8 col-lg-6 mt-0 mx-auto px-0 text-center">價格：NT$<?= $e['event_price'] ?></div>
-                            <div class="memo mb-0 col-8 col-lg-6 text-justify px-0 px-lg-4 mx-auto">
-                                *費用為當天當場繳交，活動前一個禮拜不開放取消</div>
-                        </div>
-                    </div>
-            </div>
-        </div>
-        <!-- 8.按鈕 -->
-        <div class="col all-button flex-nowrap px-0">
-            <!-- 立即報名 -->
-            <button class='btn_join over d-block mx-auto w-75 mb-2 col-md-5' type='submit'>立即報名</button>
-            <!-- 說明 -->
-            <div class="d-flex w-75 mx-auto col-md-5 memo-check lh15 px-0 align-items-baseline">
-                <input class='d-block mr-2' type="checkbox" checked />
-                <div class="memo mx-auto d-inline">按下報名鈕的同時，表示您已詳閱我們的資料使用政策與使用條款，同意使用《啤女》所提供的服務並訂閱電子報。</div>
-            </div>
-            <!-- 返回上頁 -->
-            <a href="../public/event.php"><button class='btn_join return d-block mx-auto w-75 col-md-5'> 返回上頁</button></a>
-        </div>
-    </div>
-
-
-    <!-- 判斷：尚未登入 -->
-    <div class="need_login animatable fadeInUp">
-        <!-- 標題：報名活動 -->
-        <div class="container event-join-sign">
-            <div class="row mx-0 px-5">
-                <div class="title">
-                    <p>報名活動</p>
                 </div>
             </div>
-        </div>
-        <!-- 按鈕 -->
-        <div class="col all-button flex-nowrap px-0">
-            <!-- 登入會員 -->
-            <button class='btn_join over d-block mx-auto w-75 mb-2 col-md-5' type='submit'>登入會員</button>
-            <div class="d-flex w-75 mx-auto col-md-5 memo-check lh15 px-0 align-items-baseline">
-                <div class="memo mx-auto d-inline">*登入會員即可填寫報名表參加活動</div>
+            <!-- 8.按鈕 -->
+            <div class="col all-button flex-nowrap px-0">
+                <!-- 返回上頁 -->
+                <a href="../public/event.php"><button class='btn_join return d-block mx-auto w-75 w-md-25 col-md-5'> 返回上頁</button></a>
             </div>
-            <!-- 返回上頁 -->
-            <a href="../public/event.php"><button class='btn_join return d-block mx-auto w-75 col-md-5'> 返回上頁</button></a>
         </div>
-    </div>
+
+    <?php else : ?>
+        <!-- 判斷：尚未登入 -->
+        <div class="need_login animatable fadeInUp">
+            <!-- 標題：報名活動 -->
+            <div class="container event-join-sign">
+                <div class="row mx-0 px-5">
+                    <div class="title">
+                        <p>報名活動</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 按鈕 -->
+            <div class="col all-button flex-nowrap px-0">
+                <!-- 登入會員 -->
+                <button class='over d-block mx-auto  w-75 w-md-25 mb-2 col-md-5' onclick="LogIn_btn()">登入會員</button>
+                <div class="d-flex w-75 mx-auto col-md-5 memo-check lh15 px-0 align-items-baseline">
+                    <div class="memo mx-auto d-inline">*登入會員即可填寫報名表參加活動</div>
+                </div>
+                <!-- 返回上頁 -->
+                <a href="../public/event.php"><button class='btn_join return d-block mx-auto w-75 w-md-25 col-md-5'> 返回上頁</button></a>
+            </div>
+        </div>
+    <?php endif ?>
 
 </section>
 
@@ -439,6 +461,9 @@ $exp = strtotime($e['event_date']) < time();
 <script src='../js/event/event.js'></script>
 <script src='../js/event/event_vaild.js'></script>
 <script src='../js/event/event_anime_scroll.js'></script>
+<script src='../js/event/event_submit.js'></script>
+<script src='../js/event/event_popup.js'></script>
+<script src='../js/event/event_attention.js'></script>
 
 
 

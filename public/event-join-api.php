@@ -1,63 +1,87 @@
 
 <?php include __DIR__ . '../../php/common/config.php';
 
-// if (!isset($_SESSION['event'])) {
-//     $_SESSION['event'] = [];
-// };
-
+//預設------------------------------
 $output = [
     'success' => false,
     'code' => 0,
-    'error' => '資料沒有新增'
+    // 可以更換error文字
+    'error' => '填寫資料有誤，資料沒有新增',
+    'post' => $_POST
 ];
+//預設------------------------------
+
+// event_sid
+$event_sid = isset($_POST['event_sid']) ? intval($_POST['event_sid']) : NULL;
+
+// total_p
+$total_p = isset($_POST['total_p']) ? intval($_POST['total_p']) + 1 : 0;
+// p0
+$p0_name = isset($_POST['p0_name']) ? $_POST['p0_name'] : '';
+$p0_mobile = isset($_POST['p0_mobile']) ? $_POST['p0_mobile'] : '';
+// p1
+$p1_name = isset($_POST['p1_name']) ? $_POST['p1_name'] : '無';
+$p1_mobile = isset($_POST['p1_mobile']) ? $_POST['p1_mobile'] : '無';
+// p2
+$p2_name = isset($_POST['p2_name']) ? $_POST['p2_name'] : '無';
+$p2_mobile = isset($_POST['p2_mobile']) ? $_POST['p2_mobile'] : '無';
+$user_sid = $_SESSION['user']['sid'];
 
 
-$output['自己的名字'] = $_POST['p0_name'];
-$output['自己的電話'] = $_POST['p0_mobile'];
-$output['1號的名字'] = $_POST['p1_name'];
-$output['1號的電話'] = $_POST['p1_mobile'];
-$output['2號的名字'] = $_POST['p2_name'];
-$output['2號的電話'] = $_POST['p2_mobile'];
 
+if(empty($p0_name) or empty($p0_mobile) or empty($event_sid)){
+    echo json_encode($output);
+    exit;
+}
 
-// ?b
-// if(isset($_POST['newAccount'])){
+$join_SQL = "SELECT COUNT(*) FROM `event_join` WHERE `event_sid` = $event_sid AND`member_sid`= $user_sid";
+$Join = $pdo->query($join_SQL)->fetch(PDO::FETCH_NUM)[0];
 
-//     $e_sql = "SELECT `email` FROM `member` WHERE `email`=?";
-//     $e_stmt = $pdo->prepare($a_sql);
-//     $e_stmt->execute([ $_POST['sid'] ]);
-
-//     if($e_stmt->rowCount()) {
-//         $output['error'] = '您已報名成功';
-//         echo json_encode($output, JSON_UNESCAPED_UNICODE);
-//         exit;  // 程式結束
-//     }
-
-//     $hash = sha1( $_POST['sid']. uniqid() );
-
-
-//     $sql = "INSERT INTO `member`( `email`, `password`, `nickname`, `birthday`, `address`, `hash`, `created_at`,`user-pic`) VALUES (?,?,?,?,?,?,NOW(),'user.svg')";
-
-//     $stmt = $pdo -> prepare($sql);
-     
-//     $stmt -> execute([
-//         $_POST['newAccount'],
-//         password_hash($_POST['newPassword'],PASSWORD_DEFAULT),
-//         // $_POST['nickname'],
-//         // $_POST['birthday'],
-//         // $_POST['address'],
-//         $hash
-     
-        
-//     ]);
+if( $Join > 0) {
+    $output['error'] = '重複報名';
+}else{
+    $sql = "INSERT INTO `event_join` (
+        `event_sid`,
+        `p0_name`,
+        `p0_mobile`,
+        `member_sid`,
+        `p1_name`,
+        `p1_mobile`,
+        `p2_name`,
+        `p2_mobile`,
+        `total_p`,
+        `created_at`) 
+        VALUES (
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            NOW())";
     
-//     if($stmt->rowCount()){
-//        $output['success'] = true;
-//        $output['error'] = '';
-//      } else {
-//         $output['error'] = '填寫錯誤';
-//      }
-// }
+    $stmt = $pdo->prepare($sql);
+    
+    $stmt->execute([
+        $event_sid,
+        $p0_name,
+        $p0_mobile,
+        $_SESSION['user']['sid'],
+        $p1_name,
+        $p1_mobile,
+        $p2_name,
+        $p2_mobile,
+        $total_p,
+    ]);
+    
+    if($stmt->rowCount()){
+        $output['success'] = true;
+    }
+}
+
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
 

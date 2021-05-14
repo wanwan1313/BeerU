@@ -296,6 +296,9 @@ padding-right:0
 .display-block{
     display: block;
 }
+.display-flex{
+    display: flex;
+}
 
 
 /* 無限重複 */
