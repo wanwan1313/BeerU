@@ -6,7 +6,7 @@ const $password = $('.password');
 
 
 //初始錯誤狀態
-$('.warn').css('display', 'none');
+$('.LogIn-Sign .warn').css('display', 'none');
 
 function checkform_Login(){
 
@@ -17,7 +17,7 @@ function checkform_Login(){
     fileds01.forEach(el =>{
    
         el.css('border', '1px solid var(--gold)');
-        $('.warn').css('display', 'none');
+        $('.LogIn-Sign .warn').css('display', 'none');
        
 
     });
