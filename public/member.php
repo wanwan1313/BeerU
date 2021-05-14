@@ -184,7 +184,7 @@ if (isset($_SESSION['user'])) {
                     <div class="col-4 col-lg-6 memberpic px-0 p-lg-5 d-flex align-items-center justify-content-center">
                         <div class="user-pic">
                             <img src="../images/user/<?= $m_row['user-pic'] ?>" alt="">
-                            <div class="edit-pic"></div>
+                            <div class="edit-pic"><i class="fas fa-pencil-alt"></i></div>
                         </div>
                     </div>
                     <div class="col-8 col-lg-6 memberinfo d-flex flex-column justify-content-center align-items-center">
