@@ -28,7 +28,7 @@ function checkform_Login(){
     //帳號不符合格式
     if(!account_re.test($account.val())){
         isPass = false;
-        $account.css('border', 'solid 3px var(--pink)');
+        $account.css('border', 'solid 2px var(--pink)');
         $account.parent().next().css('display', 'block').children().text('帳號為E-mail格式');
         ;
 
@@ -37,8 +37,8 @@ function checkform_Login(){
     //輸入不能為空
     if($account.val() == '' && $password.val()== ''){
         isPass = false;
-        $account.css('border', 'solid 3px var(--pink)');
-        $password.css('border', 'solid 3px var(--pink)');
+        $account.css('border', 'solid 2px var(--pink)');
+        $password.css('border', 'solid 2px var(--pink)');
 
         $account.parent().next().css('display', 'block').children().text('輸入不可以為空');
         $password.parent().next().css('display', 'block').children().text('輸入不可以為空');
@@ -74,8 +74,8 @@ function checkform_Login(){
                 } else {
                      
                 
-                    $account.css('border', 'solid 3px var(--pink)');
-                    $password.css('border', 'solid 3px var(--pink)');
+                    $account.css('border', 'solid 2px var(--pink)');
+                    $password.css('border', 'solid 2px var(--pink)');
                     $password.parent().next().css('display', 'block').children().text('帳號或密碼錯誤');
                  
                     

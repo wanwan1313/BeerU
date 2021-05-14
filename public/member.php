@@ -1487,11 +1487,11 @@ if (isset($_SESSION['user'])) {
         // 舊密碼和新密碼要不一樣
         if ($oldPassword.val() == $resetPassword.val()) {
             isPass = false;
-            $oldPassword.css('border', '3px solid var(--pink)');
+            $oldPassword.css('border', '2px solid var(--pink)');
             $oldPassword.next().css('display', 'block').children().text('密碼不可以相同');
 
 
-            $resetPassword.css('border', '3px solid var(--pink)');
+            $resetPassword.css('border', '2px solid var(--pink)');
             $resetPassword.next().css('display', 'block').children().text('密碼不可以相同');
 
 
@@ -1504,10 +1504,10 @@ if (isset($_SESSION['user'])) {
 
             isPass = false;
 
-            $resetPassword.css('border', '3px solid var(--pink)');
+            $resetPassword.css('border', '2px solid var(--pink)');
             $resetPassword.next().css('display', 'block').children().text('輸入不可以為空');
 
-            $resetPassword_again.css('border', '3px solid var(--pink)');
+            $resetPassword_again.css('border', '2px solid var(--pink)');
             $resetPassword_again.next().css('display', 'block').children().text('輸入不可以為空');
 
 
@@ -1519,10 +1519,10 @@ if (isset($_SESSION['user'])) {
         //再次輸入密碼要跟新密碼一樣
         if ($resetPassword.val() != $resetPassword_again.val()) {
             isPass = false;
-            $resetPassword.css('border', '3px solid var(--pink)');
+            $resetPassword.css('border', '2px solid var(--pink)');
             $resetPassword.next().css('display', 'block').children().text('新密碼不相同');
 
-            $resetPassword_again.css('border', '3px solid var(--pink)');
+            $resetPassword_again.css('border', '2px solid var(--pink)');
             $resetPassword_again.next().css('display', 'block').children().text('新密碼不相同');
 
 
@@ -1552,7 +1552,7 @@ if (isset($_SESSION['user'])) {
                     } else {
 
 
-                        $oldPassword.css('border', '3px solid var(--pink)');
+                        $oldPassword.css('border', '2px solid var(--pink)');
                         $oldPassword.next().css('display', 'block').children().text('密碼輸入錯誤')
 
                     }
