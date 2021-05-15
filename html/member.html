@@ -103,16 +103,15 @@
                             class="col-4 col-lg-6 memberpic px-0 p-lg-5 d-flex align-items-center justify-content-center ">
                             <div class="user-pic ">
                                 <img src="../images/user/user1.svg" alt="">
-                                <div class="edit-pic"><i class="fas fa-pencil-alt"></i></div>
+                                <div class="btn_edit-pic"><i class="fas fa-pencil-alt"></i></div>
                             </div>
                         </div>
                         <div
                             class="col-8 col-lg-6 memberinfo d-flex flex-column justify-content-center align-items-center">
                             <div class="helloname">Hello, Christina</div>
-                            <p class="myachieve-title d-none">我的成就</p>
-                            <p>今天要換什麼造型呢？</p>
-                            <div class="beerpercent d-none">酒仙指數<span class="beerpercent-num"> 65</span>%</div>
-                            <button class="checkmydiscount mt-2 d-none">查看折價券</button>
+                            <p class="myachieve-title">我的成就</p>
+                            <div class="beerpercent">酒仙指數<span class="beerpercent-num"> 65</span>%</div>
+                            <button class="checkmydiscount mt-2">查看折價券</button>
 
                         </div>
                     </div>
@@ -121,7 +120,7 @@
                     <div class="col-12 member-func px-0">
                         <div class="member-func-content d-flex flex-lg-wrap mt-3 justify-content-lg-center">
                             <!-- 選單 -->
-                            <div class="col-12 col-lg-10 member-menu d-none">
+                            <div class="col-12 col-lg-10 member-menu">
                                 <ul class="member-item-grop d-flex flex-column flex-lg-row justify-content-between">
                                     <li class="menu-item" data-content="memberData"><i
                                             class="fas fa-user-tag"></i>會員資料<i class="fas fa-chevron-right"></i></li>
@@ -152,11 +151,13 @@
                             <div class="col-12 col-lg-10 member-func-show">
 
                                 <!-- 編輯頭像 -->
-                                <section class="member-func-box editUserpic">
-                                    <div class="userpic-wrap d-flex flex-wrap align-items-center justify-content-center">
+                                <section class="member-func-box editUserpic d-none">
+                                    <div
+                                        class="userpic-wrap d-flex flex-wrap align-items-center justify-content-center">
 
                                         <!-- 頭像選擇 -->
-                                        <div class="col-12 select-userpic d-flex flex-wrap justify-content-between align-items-center">
+                                        <div
+                                            class="col-12 select-userpic d-flex flex-wrap justify-content-between align-items-center">
                                             <div class="col-12 col-lg-6 new-userpic">
                                                 <div class="myselectpic" data-pic="custom-pic/9.svg">
                                                     <img src="../images/user/custom-pic/9.svg" alt="">
@@ -164,7 +165,8 @@
                                             </div>
                                             <div class="col-12 col-lg-6 selectitem">
                                                 <p class="col-12 title">選擇頭像</p>
-                                                <div class="col-12 d-flex flex-wrap picitems-wrap justify-content-around">
+                                                <div
+                                                    class="col-12 d-flex flex-wrap picitems-wrap justify-content-around">
                                                     <div class="col-4 col-lg-3 pic-item">
                                                         <img src="../images/user/custom-pic/head1.svg" alt="">
                                                     </div>
@@ -1440,6 +1442,318 @@
                                     </div>
                                 </section>
 
+                                <!-- 我的成就 -->
+                                <section class="member-func-box memberAchievement">
+                                    <div class="achievement-wrap d-flex flex-wrap align-items-center justify-content-center">
+
+                                        <p class="d-block d-lg-none mobile-title">我的成就</p>
+
+                                        <!-- 消費金額 -->
+                                        <div
+                                            class="col-12 col-lg-10 my-consume myachieve-box d-flex flex-wrap align-items-center justify-content-center mt-5 mb-5">
+
+                                            <div class="col-12">
+                                                <p class="a-title">消費金額</p>
+                                            </div>
+                                            <div class="col-12 consume-wrap d-flex justify-content-center">
+                                                <div class="col-6 col-lg-2 consume-over d-flex flex-column justify-content-center align-items-center">
+                                                    <div class="achieveitem-box d-flex flex-column justify-content-center">
+                                                        <p>單筆消費</p>
+                                                        <p>尚無成就</p>
+                                                    </div>
+                                                    <button class="not-getachieve">再接再厲</button>
+                                                    <button class="getachieve d-none">領取獎勵</button>
+                                                </div>
+                                                <div class="col-6 col-lg-2 consume-accumu d-flex flex-column justify-content-center align-items-center">
+                                                    <div class="achieveitem-box d-flex flex-column justify-content-center">
+                                                        <p>目前累積</p>
+                                                        <p>NT.0元</p>
+                                                        <div class="mycircle"></div>
+                                                    </div>
+                                                    <button class="not-getachieve">滿6000達標</button>
+                                                    <button class="getachieve d-none">領取獎勵</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- 國家集章 -->
+                                        <div class="col-12 col-lg-10 my-country myachieve-box d-flex flex-wrap align-items-center justify-content-center mt-5 mb-5">
+                                        
+                                            <div class="col-12">
+                                                <p class="a-title">啤酒國家集章</p>
+                                            </div>
+                                            <div class="col-12 col-lg-5 country-wrap d-flex justify-content-center flex-wrap">
+                                                <div class="col-12 d-flex justify-content-around flex-wrap px-0">
+                                                    <div class="country-item country-item-29 d-flex flex-column justify-content-center" data-cate="29">
+                                                        <img src="../images/tagespic/29.svg" alt="">
+                                                        <p>美國</p>
+                                                    </div>
+                                                    <div class="country-item d-flex flex-column justify-content-center" data-cate="29">
+                                                        <img src="../images/tagespic/30.svg" alt="">
+                                                        <p>美國</p>
+                                                    </div>
+                                                    <div class="country-item d-flex flex-column justify-content-center" data-cate="29">
+                                                        <img src="../images/tagespic/31.svg" alt="">
+                                                        <p>美國</p>
+                                                    </div>
+                                                    <div class="country-item d-flex flex-column justify-content-center" data-cate="29">
+                                                        <img src="../images/tagespic/32.svg" alt="">
+                                                        <p>美國</p>
+                                                    </div>
+                                                    <div class="country-item d-flex flex-column justify-content-center" data-cate="29">
+                                                        <img src="../images/tagespic/33.svg" alt="">
+                                                        <p>美國</p>
+                                                    </div>
+                                                    <div class="country-item d-flex flex-column justify-content-center" data-cate="29">
+                                                        <img src="../images/tagespic/34.svg" alt="">
+                                                        <p>美國</p>
+                                                    </div>
+                                                    <div class="country-item d-flex flex-column justify-content-center" data-cate="29">
+                                                        <img src="../images/tagespic/35.svg" alt="">
+                                                        <p>美國</p>
+                                                    </div>
+                                                    <div class="country-item d-flex flex-column justify-content-center" data-cate="29">
+                                                        <img src="../images/tagespic/36.svg" alt="">
+                                                        <p>美國</p>
+                                                    </div>
+                                                    <div class="country-item d-flex flex-column justify-content-center" data-cate="29">
+                                                        <img src="../images/tagespic/37.svg" alt="">
+                                                        <p>美國</p>
+                                                    </div>
+                                                    <div class="country-item d-flex flex-column justify-content-center" data-cate="29">
+                                                        <img src="../images/tagespic/38.svg" alt="">
+                                                        <p>美國</p>
+                                                    </div>
+                                                    <div class="country-item d-flex flex-column justify-content-center" data-cate="29">
+                                                        <img src="../images/tagespic/39.svg" alt="">
+                                                        <p>美國</p>
+                                                    </div>
+                                                    <div class="country-item d-flex flex-column justify-content-center" data-cate="29">
+                                                        <img src="../images/tagespic/40.svg" alt="">
+                                                        <p>美國</p>
+                                                    </div>
+                                                    <div class="country-item d-flex flex-column justify-content-center" data-cate="29">
+                                                        <img src="../images/tagespic/41.svg" alt="">
+                                                        <p>美國</p>
+                                                    </div>
+                                                    <div class="country-item d-flex flex-column justify-content-center" data-cate="29">
+                                                        <img src="../images/tagespic/42.svg" alt="">
+                                                        <p>美國</p>
+                                                    </div>
+                                                    <div class="country-item d-flex flex-column justify-content-center" data-cate="29">
+                                                        <img src="../images/tagespic/43.svg" alt="">
+                                                        <p>美國</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 a-button-wrap mt-4 px-0">
+                                                    <p class="geta-text mb-2">集1/3徽章，即可領取優惠喔！</p>
+                                                    <button class="not-getachieve">再接再厲</button>
+                                                    <button class="getachieve d-none">領取獎勵</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 類型集章 -->
+                                        <div
+                                            class="col-12 col-lg-10 my-beertype myachieve-box d-flex flex-wrap align-items-center justify-content-center mt-5 mb-5">
+                                        
+                                            <div class="col-12">
+                                                <p class="a-title">啤酒類型集章</p>
+                                            </div>
+                                            <div class="col-10 col-lg-4 beertype-wrap d-flex justify-content-center flex-wrap">
+                                                <div class="col-12 d-flex justify-content-around flex-wrap px-0">
+                                                    <div class="type-item country-item-44 d-flex flex-column justify-content-center" data-cate="44">
+                                                        <img src="../images/tagespic/44.svg" alt="">
+                                                        <p>酸啤酒</p>
+                                                    </div>
+                                                    <div class="type-item country-item-44 d-flex flex-column justify-content-center" data-cate="44">
+                                                        <img src="../images/tagespic/45.svg" alt="">
+                                                        <p>酸啤酒</p>
+                                                    </div>
+                                                    <div class="type-item country-item-44 d-flex flex-column justify-content-center get" data-cate="44">
+                                                        <img src="../images/tagespic/46.svg" alt="">
+                                                        <p>酸啤酒</p>
+                                                    </div>
+                                                    <div class="type-item country-item-44 d-flex flex-column justify-content-center" data-cate="44">
+                                                        <img src="../images/tagespic/47.svg" alt="">
+                                                        <p>酸啤酒</p>
+                                                    </div>
+                                                    <div class="type-item country-item-44 d-flex flex-column justify-content-center" data-cate="44">
+                                                        <img src="../images/tagespic/48.svg" alt="">
+                                                        <p>酸啤酒</p>
+                                                    </div>
+                                                    <div class="type-item country-item-44 d-flex flex-column justify-content-center" data-cate="44">
+                                                        <img src="../images/tagespic/49.svg" alt="">
+                                                        <p>酸啤酒</p>
+                                                    </div>
+                                                    <div class="type-item country-item-44 d-flex flex-column justify-content-center" data-cate="44">
+                                                        <img src="../images/tagespic/50.svg" alt="">
+                                                        <p>酸啤酒</p>
+                                                    </div>
+                                                    <div class="type-item country-item-44 d-flex flex-column justify-content-center" data-cate="44">
+                                                        <img src="../images/tagespic/51.svg" alt="">
+                                                        <p>酸啤酒</p>
+                                                    </div>
+                                                    <div class="type-item country-item-44 d-flex flex-column justify-content-center" data-cate="44">
+                                                        <img src="../images/tagespic/52.svg" alt="">
+                                                        <p>酸啤酒</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 a-button-wrap mt-4 px-0">
+                                                    <p class="geta-text mb-2">集1/3徽章，即可領取優惠喔！</p>
+                                                    <button class="not-getachieve">再接再厲</button>
+                                                    <button class="getachieve d-none">領取獎勵</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 酒廠集章 -->
+                                        <div
+                                            class="col-12 col-lg-10 my-brand myachieve-box d-flex flex-wrap align-items-center justify-content-center mt-5 mb-5">
+                                        
+                                            <div class="col-12">
+                                                <p class="a-title">啤酒酒廠集章</p>
+                                            </div>
+                                            <div class="col-12 col-lg-6 brand-wrap d-flex justify-content-center flex-wrap">
+                                                <div class="col-12 d-flex justify-content-around flex-wrap px-0">
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/5.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/6.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/7.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/8.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/5.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/6.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/7.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/8.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/5.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/6.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/7.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/8.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/5.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/6.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/7.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/8.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/5.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/6.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/7.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/8.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/5.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/6.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/7.svg" alt="">
+                                                    </div>
+                                                    <div class="brand-item country-item-5 d-flex flex-column justify-content-center" data-cate="5">
+                                                        <img src="../images/tagespic/8.svg" alt="">
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="col-12 a-button-wrap mt-4 px-0">
+                                                    <p class="geta-text mb-2">集1/3徽章，即可領取優惠喔！</p>
+                                                    <button class="not-getachieve">再接再厲</button>
+                                                    <button class="getachieve d-none">領取獎勵</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 評價 -->
+                                        <div class="col-10 col-lg-3 my-comment-a myachieve-box d-flex flex-wrap justify-content-center mt-5 mb-5 mx-lg-4">
+                                            <div class="col-12">
+                                                <p class="a-title">評價</p>
+                                            </div>
+                                            <div class="col-12 comment-accumu d-flex flex-column justify-content-center align-items-center">
+                                                <div class="achieveitem-box d-flex flex-column justify-content-center">
+                                                    <p>尚無累積</p>
+                                                    <p>次數</p>
+                                                    <div class="mycircle"></div>
+                                                </div>
+                                                <p class="geta-text mb-2">累積3筆，即可領優惠！</p>
+                                                <button class="not-getachieve">再接再厲</button>
+                                                <button class="getachieve d-none">領取獎勵</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- 預約 -->
+                                        <div class="col-10 col-lg-3 my-event-a myachieve-box d-flex flex-wrap justify-content-center mt-5 mb-5 mx-lg-4">
+                                            <div class="col-12">
+                                                <p class="a-title">預約</p>
+                                            </div>
+                                            <div class="col-12 event-accumu d-flex flex-column justify-content-center align-items-center">
+                                                <div class="achieveitem-box d-flex flex-column justify-content-center">
+                                                    <p>尚無累積</p>
+                                                    <p>次數</p>
+                                                    <div class="mycircle"></div>
+                                                </div>
+                                                <p class="geta-text mb-2">累積3筆，即可領優惠！</p>
+                                                <button class="not-getachieve">再接再厲</button>
+                                                <button class="getachieve d-none">領取獎勵</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- 贊助 -->
+                                        <div class="col-10 col-lg-3 my-fund-a myachieve-box d-flex flex-wrap justify-content-center mt-5 mb-5 mx-lg-4">
+                                            <div class="col-12">
+                                                <p class="a-title">贊助</p>
+                                            </div>
+                                            <div class="col-12 fund-accumu d-flex flex-column justify-content-center align-items-center">
+                                                <div class="achieveitem-box d-flex flex-column justify-content-center">
+                                                    <p>尚無累積</p>
+                                                    <p>次數</p>
+                                                    <div class="mycircle"></div>
+                                                </div>
+                                                <p class="geta-text mb-2">累積3筆，即可領優惠！</p>
+                                                <button class="not-getachieve">再接再厲</button>
+                                                <button class="getachieve d-none">領取獎勵</button>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </section>
+
 
                                 <!-- 我的訂單 -->
                                 <section class="member-func-box memberOrder d-none">
@@ -1448,7 +1762,8 @@
                                         <p class="d-block d-lg-none mobile-title">我的訂單</p>
 
                                         <!-- 目前訂單 -->
-                                        <div class="col-12 order-now d-flex flex-wrap align-items-center justify-content-center mb-5 px-0 px-lg-4 ">
+                                        <div
+                                            class="col-12 order-now d-flex flex-wrap align-items-center justify-content-center mb-5 px-0 px-lg-4 ">
                                             <p class="col-12 memberAccordion">目前訂單<i
                                                     class="fas fa-chevron-circle-up ml-1"></i></p>
 
@@ -1610,7 +1925,8 @@
                                                         </div>
 
                                                         <!-- 按鈕 -->
-                                                        <div class="col-12 col-lg-2 member-button fund-button d-flex flex-lg-column align-items-center px-0 justify-content-center">
+                                                        <div
+                                                            class="col-12 col-lg-2 member-button fund-button d-flex flex-lg-column align-items-center px-0 justify-content-center">
                                                             <button>取消</button>
                                                             <button>留言</button>
                                                         </div>
@@ -1624,7 +1940,8 @@
                                         </div>
 
                                         <!-- 過往訂單 -->
-                                        <div class="col-12 order-past d-flex flex-wrap align-items-center justify-content-center  px-0 px-lg-4">
+                                        <div
+                                            class="col-12 order-past d-flex flex-wrap align-items-center justify-content-center  px-0 px-lg-4">
                                             <p class="col-12 memberAccordion">過往訂單<i
                                                     class="fas fa-chevron-circle-up ml-1"></i></p>
 
@@ -1635,29 +1952,37 @@
                                                 <div class="order-detail">
                                                     <p class="text-center text-lg-left">訂單編號：202105031234</p>
                                                     <div class="order-d-box px-3 px-lg-5 py-4 d-flex flex-wrap">
-                                                
+
                                                         <!-- 訂單 -->
                                                         <div class="col-12 col-lg-10 order-part px-0">
                                                             <!-- 訂單資訊 -->
                                                             <div class="overview">
                                                                 <div class="view-head d-flex">
-                                                                    <div class="v-thead col-3 px-0 text-center text-lg-left">
+                                                                    <div
+                                                                        class="v-thead col-3 px-0 text-center text-lg-left">
                                                                         日期</div>
-                                                                    <div class="v-thead col-3 px-0 text-center text-lg-left">
+                                                                    <div
+                                                                        class="v-thead col-3 px-0 text-center text-lg-left">
                                                                         總金額</div>
-                                                                    <div class="v-thead col-3 px-0 text-center text-lg-left">
+                                                                    <div
+                                                                        class="v-thead col-3 px-0 text-center text-lg-left">
                                                                         付款方式</div>
-                                                                    <div class="v-thead col-3 px-0 text-center text-lg-left">
+                                                                    <div
+                                                                        class="v-thead col-3 px-0 text-center text-lg-left">
                                                                         訂單狀態</div>
                                                                 </div>
                                                                 <div class="view-content d-flex">
-                                                                    <div class="v-tbody col-3 px-0 text-center text-lg-left">
+                                                                    <div
+                                                                        class="v-tbody col-3 px-0 text-center text-lg-left">
                                                                         2021-05-03</div>
-                                                                    <div class="v-tbody col-3 px-0 text-center text-lg-left">
+                                                                    <div
+                                                                        class="v-tbody col-3 px-0 text-center text-lg-left">
                                                                         NT$1380</div>
-                                                                    <div class="v-tbody col-3 px-0 text-center text-lg-left">
+                                                                    <div
+                                                                        class="v-tbody col-3 px-0 text-center text-lg-left">
                                                                         信用卡付款</div>
-                                                                    <div class="v-tbody col-3 px-0 text-center text-lg-left">
+                                                                    <div
+                                                                        class="v-tbody col-3 px-0 text-center text-lg-left">
                                                                         處理中</div>
                                                                 </div>
                                                             </div>
@@ -1665,16 +1990,22 @@
                                                             <div class="product-detail">
                                                                 <!-- 表頭 -->
                                                                 <div class="d-header d-flex flex-wrap">
-                                                                    <p class="col-12 px-2">訂單明細<i class="fas fa-caret-down ml-1"></i></p>
+                                                                    <p class="col-12 px-2">訂單明細<i
+                                                                            class="fas fa-caret-down ml-1"></i></p>
                                                                     <div class="p-thead col-7 col-lg-8 pl-2">商品名稱</div>
                                                                     <div class="p-thead col-2 px-0 text-center">數量</div>
-                                                                    <div class="p-thead col-3 col-lg-2 px-0 text-center">
+                                                                    <div
+                                                                        class="p-thead col-3 col-lg-2 px-0 text-center">
                                                                         小計</div>
                                                                 </div>
                                                                 <!-- 單支產品開始 -->
-                                                                <div class="my-checkout-p d-flex align-items-center mb-2">
-                                                                    <div class="col-7 col-lg-8 d-flex align-items-center">
-                                                                        <div class="col-2 thisp-pic px-0"><img src="../images/products/8-wired-06.png" alt=""></div>
+                                                                <div
+                                                                    class="my-checkout-p d-flex align-items-center mb-2">
+                                                                    <div
+                                                                        class="col-7 col-lg-8 d-flex align-items-center">
+                                                                        <div class="col-2 thisp-pic px-0"><img
+                                                                                src="../images/products/8-wired-06.png"
+                                                                                alt=""></div>
                                                                         <div class="col-10 thisp-name px-0">
                                                                             <p class="c-name">奧斯陸 ．北歐瘋皮爾森</p>
                                                                             <p class="e-name d-none d-lg-block">Oslo -
@@ -1683,12 +2014,17 @@
                                                                     </div>
                                                                     <div class="col-2 thisp-qty px-0 text-center">2
                                                                     </div>
-                                                                    <div class="col-3 col-lg-2 thisp-subp px-0 text-center">
+                                                                    <div
+                                                                        class="col-3 col-lg-2 thisp-subp px-0 text-center">
                                                                         NT.5000</div>
                                                                 </div>
-                                                                <div class="my-checkout-p d-flex align-items-center mb-2">
-                                                                    <div class="col-7 col-lg-8 d-flex align-items-center">
-                                                                        <div class="col-2 thisp-pic px-0"><img src="../images/products/8-wired-06.png" alt=""></div>
+                                                                <div
+                                                                    class="my-checkout-p d-flex align-items-center mb-2">
+                                                                    <div
+                                                                        class="col-7 col-lg-8 d-flex align-items-center">
+                                                                        <div class="col-2 thisp-pic px-0"><img
+                                                                                src="../images/products/8-wired-06.png"
+                                                                                alt=""></div>
                                                                         <div class="col-10 thisp-name px-0">
                                                                             <p class="c-name">奧斯陸 ．北歐瘋皮爾森</p>
                                                                             <p class="e-name d-none d-lg-block">Oslo -
@@ -1697,10 +2033,11 @@
                                                                     </div>
                                                                     <div class="col-2 thisp-qty px-0 text-center">2
                                                                     </div>
-                                                                    <div class="col-3 col-lg-2 thisp-subp px-0 text-center">
+                                                                    <div
+                                                                        class="col-3 col-lg-2 thisp-subp px-0 text-center">
                                                                         NT.5000</div>
                                                                 </div>
-                                                
+
                                                                 <!-- 最後金額計算 -->
                                                                 <div class="calc-price mt-4">
                                                                     <div class="coupon d-flex justify-content-end">
@@ -1726,42 +2063,52 @@
                                                                 <div class="d-header d-flex flex-wrap">
                                                                     <p class="col-12 px-2">收件人資訊</p>
                                                                 </div>
-                                                                <div class="re-content d-flex px-3 flex-column flex-lg-row">
-                                                                    <div class="re01 col-lg-2 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
-                                                                        <div class="col-3 col-lg-12 re-thead px-0 pl-lg-1">
+                                                                <div
+                                                                    class="re-content d-flex px-3 flex-column flex-lg-row">
+                                                                    <div
+                                                                        class="re01 col-lg-2 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
+                                                                        <div
+                                                                            class="col-3 col-lg-12 re-thead px-0 pl-lg-1">
                                                                             收件人</div>
-                                                                        <div class="col-9 col-lg-12 re-tbody pl-3 pl-lg-1">
+                                                                        <div
+                                                                            class="col-9 col-lg-12 re-tbody pl-3 pl-lg-1">
                                                                             蔡依林</div>
                                                                     </div>
-                                                                    <div class="re02 col-lg-3 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
+                                                                    <div
+                                                                        class="re02 col-lg-3 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
                                                                         <div class="col-3 col-lg-12 re-thead px-0">收件人電話
                                                                         </div>
-                                                                        <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
+                                                                        <div
+                                                                            class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
                                                                             0912-345678</div>
                                                                     </div>
-                                                                    <div class="re03 col-lg-5 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
+                                                                    <div
+                                                                        class="re03 col-lg-5 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
                                                                         <div class="col-3 col-lg-12 re-thead px-0">收件地址
                                                                         </div>
-                                                                        <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
+                                                                        <div
+                                                                            class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
                                                                             基隆市仁愛區延華門市-台北市大同區延平北路一段89號91號93號1樓</div>
                                                                     </div>
-                                                                    <div class="re04 col-lg-2 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
+                                                                    <div
+                                                                        class="re04 col-lg-2 px-0 d-flex flex-row flex-lg-wrap align-items-lg-start">
                                                                         <div class="col-3 col-lg-12 re-thead px-0">運送方式
                                                                         </div>
-                                                                        <div class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
+                                                                        <div
+                                                                            class="col-9 col-lg-12 re-tbody pl-3 px-lg-0">
                                                                             宅配</div>
                                                                     </div>
-                                                
+
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                
+
                                                         <!-- 按鈕 -->
                                                         <div
                                                             class="col-12 col-lg-2 member-button fund-button d-flex flex-lg-column align-items-center px-0 justify-content-center">
                                                             <button>留言</button>
                                                         </div>
-                                                
+
                                                     </div>
                                                 </div>
 

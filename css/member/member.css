@@ -1227,6 +1227,294 @@
 }
 }
 
+/* ------------------------------我的成就-------------------------- */
+
+/* 大框 */
+.member .myachieve-box {
+    border: 2px solid var(--gold);
+    border-radius: 25px;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+/* 標題 */
+.member .a-title {
+    font-size: 2rem;
+    color: var(--gold);
+    font-weight: 600;
+    font-family: 'Noto Serif TC', serif;
+    background-color: #fff;
+    width: fit-content;
+    margin: -52px auto 0;
+    padding: 0 50px;
+    position: relative;
+    letter-spacing: 0.15rem;
+}
+
+.member .a-title::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_left_g.svg) 0 0 no-repeat;
+    width: 10px;
+    height: 18px;
+    left: 15px;
+    bottom: 10px;
+}
+
+.member .a-title::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(../../images/common/ear_right_g.svg) 0 0 no-repeat;
+    width: 10px;
+    height: 18px;
+    right: 15px;
+    bottom: 10px;
+}
+
+/* 圓餅進度的box */
+.member .achieveitem-box {
+    border-radius: 50%;
+    width: 105px;
+    height: 105px;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 10;
+}
+
+/* 圓形灰底 */
+.member .achieveitem-box::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #c9c9cc;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+
+/* 可領取狀態 */
+.member .achieveitem-box.get::after {
+    background-color: #fff;
+}
+
+.member .achieveitem-box.get::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    background-color: var(--gold);
+    border-radius: 50%;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+/* 圓餅進度條 */
+.member .mycircle {
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    background: var(--gold);
+    border-radius: 100%;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)  rotate(45deg);
+    clip-path: polygon(50% 50%, 0% 0%)
+}
+
+.member .mycircle.c-30 {
+     clip-path: polygon(50% 50%, 0% 0%, 100% 0%, 100% 60%)
+}
+.member .mycircle.c-60 {
+     clip-path: polygon(50% 50%, 0% 0%, 100% 0%, 100% 100%, 40% 100%)
+}
+.member .mycircle.c-100 {
+    clip-path: polygon(50% 50%, 0% 0%, 100% 0%, 100% 100%, 0 100% , 0 0)
+}
+
+
+/* 圓形內的字 */
+.member .achieveitem-box p {
+    color: #fff;
+    line-height: 2rem;
+}
+
+.member .achieveitem-box.get p {
+    color: var(--gold);
+}
+
+
+/* 獎勵/再接再厲按鈕 */
+.member .not-getachieve {
+    border: none;
+    background-color: #c9c9c9;
+    border-radius: 5px;
+    color: #fff;
+    width: fit-content;
+    padding: 0 10px;
+}
+.member .getachieve {
+    border: none;
+    background-color: var(--red);
+    border-radius: 5px;
+    color: #fff;
+    width: fit-content;
+    padding: 0 10px;
+}
+
+/* 國家徽章 */
+
+.member .country-item {
+    background: #666666;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    color: #fff;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    opacity: .2;
+    margin: 0 5px 10px;
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+.member .country-item {
+    width: 55px;
+    height: 55px;
+    margin: 0  0 10px;
+}
+}
+
+.member .country-item.get {
+    background: var(--gold);
+    opacity: 1;
+}
+
+.member .country-item img {
+    width: 55%;
+    margin: 0 auto 5px;
+}
+
+
+
+/* 類型徽章 */
+.member .type-item {
+    background: #666666;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    color: #fff;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    opacity: .2;
+    margin: 0 0 10px;
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+.member .type-item {
+    margin: 0 5px 10px;
+}
+}
+
+.member .type-item.get {
+    background: var(--blue);
+    opacity: 1;
+}
+
+.member .type-item img {
+    width: 15%;
+    margin: 0 auto 5px;
+}
+
+/* 酒廠徽章 */
+.member .brand-item {
+    background: #c4c4c4;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    opacity: .5;
+    margin-bottom: 10px;
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+.member .brand-item {
+    width: 50px;
+    height: 50px;
+}
+}
+
+.member .brand-item.get {
+    background: #ffd86c86;
+    opacity: 1;
+}
+
+.member .brand-item img {
+    width: 60%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    margin: 0 auto 5px;
+
+}
+
+/* 集章完成說明 */
+.member .geta-text {
+    font-size: 1.4rem;
+    color: #c9c9c9;
+    position: relative;
+    padding-left: 30px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.member .geta-text.ispink {
+    color: var(--pink);
+}
+
+.member .geta-text::before {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 100%;
+    background: url(../../images/common/pink-pipi.svg) center center no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: grayscale(1);
+    opacity: .5;
+}
+
+.member .geta-text.ispink::before {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 100%;
+    background: url(../../images/common/pink-pipi.svg) center center no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: none;
+    opacity: 1;
+}
+
+
+
+
+
+
 
 
 /* ------------------------------我的訂單-------------------------- */

@@ -103,6 +103,17 @@ if (isset($_SESSION['user'])) {
     JOIN `event` e ON a.`event_sid` = e.sid 
     WHERE a.`member_sid` = $m_sid ";
     $eventatten_row = $pdo->query($eventatten_SQL)->fetchAll();
+
+
+    // 從資料庫抓所有標籤
+    $a_brands_SQL = "SELECT * FROM `tags` WHERE `pre_sid` = 1";
+    $a_total_brands = $pdo->query($a_brands_SQL)->fetchAll();
+
+    $a_countries_SQL = "SELECT * FROM `tags` WHERE `pre_sid` = 2";
+    $a_total_countries =  $pdo->query($a_countries_SQL)->fetchAll();
+
+    $a_type_SQL = "SELECT * FROM `tags` WHERE `pre_sid` = 3 AND `sid` < 53 ";
+    $a_total_type =  $pdo->query($a_type_SQL)->fetchAll();
 };
 
 
@@ -936,6 +947,167 @@ if (isset($_SESSION['user'])) {
                                 </div>
                             </section>
 
+                            <!-- 我的成就 -->
+                            <section class="member-func-box memberAchievement">
+                                <div class="achievement-wrap d-flex flex-wrap align-items-center justify-content-center">
+
+                                    <p class="d-block d-lg-none mobile-title">我的成就</p>
+
+                                    <!-- 消費金額 -->
+                                    <div class="col-12 col-lg-10 my-consume myachieve-box d-flex flex-wrap align-items-center justify-content-center mt-5 mb-5">
+
+                                        <div class="col-12">
+                                            <p class="a-title">消費金額</p>
+                                        </div>
+                                        <div class="col-12 consume-wrap d-flex justify-content-center">
+                                            <div class="col-6 col-lg-2 consume-over d-flex flex-column justify-content-center align-items-center">
+                                                <div class="achieveitem-box d-flex flex-column justify-content-center">
+                                                    <p>單筆消費</p>
+                                                    <p>尚無成就</p>
+                                                </div>
+                                                <button class="not-getachieve">再接再厲</button>
+                                                <button class="getachieve d-none">領取獎勵</button>
+                                            </div>
+                                            <div class="col-6 col-lg-2 consume-accumu d-flex flex-column justify-content-center align-items-center">
+                                                <div class="achieveitem-box d-flex flex-column justify-content-center">
+                                                    <p>目前累積</p>
+                                                    <p>NT.0元</p>
+                                                    <div class="mycircle"></div>
+                                                </div>
+                                                <button class="not-getachieve">滿6000達標</button>
+                                                <button class="getachieve d-none">領取獎勵</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- 國家集章 -->
+                                    <div class="col-12 col-lg-10 my-country myachieve-box d-flex flex-wrap align-items-center justify-content-center mt-5 mb-5">
+
+                                        <div class="col-12">
+                                            <p class="a-title">啤酒國家集章</p>
+                                        </div>
+                                        <div class="col-12 col-lg-6 country-wrap d-flex justify-content-center flex-wrap">
+                                            <div class="col-12 d-flex justify-content-around flex-wrap px-0">
+                                                <?php foreach ($a_total_countries as $tc) : ?>
+                                                    <div class="country-item country-item-<?= $tc['sid'] ?> d-flex flex-column justify-content-center" data-cate="<?= $tc['sid'] ?>">
+                                                        <img src="../images/tagespic/<?= $tc['sid'] ?>.svg" alt="">
+                                                        <p><?= $tc['name'] ?></p>
+                                                    </div>
+                                                <?php endforeach; ?>
+
+                                            </div>
+                                            <div class="col-12 a-button-wrap mt-4 px-0">
+                                                <p class="geta-text mb-2">集1/3徽章，即可領取優惠喔！</p>
+                                                <button class="not-getachieve">再接再厲</button>
+                                                <button class="getachieve d-none">領取獎勵</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 類型集章 -->
+                                    <div class="col-12 col-lg-10 my-beertype myachieve-box d-flex flex-wrap align-items-center justify-content-center mt-5 mb-5">
+
+                                        <div class="col-12">
+                                            <p class="a-title">啤酒類型集章</p>
+                                        </div>
+                                        <div class="col-10 col-lg-4 beertype-wrap d-flex justify-content-center flex-wrap">
+                                            <div class="col-12 d-flex justify-content-around flex-wrap px-0">
+                                                <?php foreach ($a_total_type as $tp) : ?>
+                                                    <div class="type-item country-item-<?= $tp['sid'] ?> d-flex flex-column justify-content-center" data-cate="<?= $tp['sid'] ?>">
+                                                        <img src="../images/tagespic/<?= $tp['sid'] ?>.svg" alt="">
+                                                        <p><?= $tp['name'] ?></p>
+                                                    </div>
+                                                <?php endforeach; ?>
+
+                                            </div>
+                                            <div class="col-12 a-button-wrap mt-4 px-0">
+                                                <p class="geta-text mb-2">集1/3徽章，即可領取優惠喔！</p>
+                                                <button class="not-getachieve">再接再厲</button>
+                                                <button class="getachieve d-none">領取獎勵</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 酒廠集章 -->
+                                    <div class="col-12 col-lg-10 my-brand myachieve-box d-flex flex-wrap align-items-center justify-content-center mt-5 mb-5">
+
+                                        <div class="col-12">
+                                            <p class="a-title">啤酒酒廠集章</p>
+                                        </div>
+                                        <div class="col-12 col-lg-6 brand-wrap d-flex justify-content-center flex-wrap">
+                                            <div class="col-12 d-flex justify-content-around flex-wrap px-0">
+                                                <?php foreach ($a_total_brands as $tb) : ?>
+                                                    <div class="brand-item country-item-<?= $tb['sid'] ?> d-flex flex-column justify-content-center" data-cate="<?= $tb['sid'] ?>">
+                                                        <img src="../images/tagespic/<?= $tb['sid'] ?>.svg" alt="">
+                                                    </div>
+                                                <?php endforeach; ?>
+
+
+                                            </div>
+                                            <div class="col-12 a-button-wrap mt-4 px-0">
+                                                <p class="geta-text mb-2">集1/3徽章，即可領取優惠喔！</p>
+                                                <button class="not-getachieve">再接再厲</button>
+                                                <button class="getachieve d-none">領取獎勵</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 評價 -->
+                                    <div class="col-10 col-lg-3 my-comment-a myachieve-box d-flex flex-wrap justify-content-center mt-5 mb-5 mx-lg-4">
+                                        <div class="col-12">
+                                            <p class="a-title">評價</p>
+                                        </div>
+                                        <div class="col-12 comment-accumu d-flex flex-column justify-content-center align-items-center">
+                                            <div class="achieveitem-box d-flex flex-column justify-content-center">
+                                                <p>尚無累積</p>
+                                                <p>次數</p>
+                                                <div class="mycircle"></div>
+                                            </div>
+                                            <p class="geta-text mb-2">累積3筆，即可領優惠！</p>
+                                            <button class="not-getachieve">再接再厲</button>
+                                            <button class="getachieve d-none">領取獎勵</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- 預約 -->
+                                    <div class="col-10 col-lg-3 my-event-a myachieve-box d-flex flex-wrap justify-content-center mt-5 mb-5 mx-lg-4">
+                                        <div class="col-12">
+                                            <p class="a-title">預約</p>
+                                        </div>
+                                        <div class="col-12 event-accumu d-flex flex-column justify-content-center align-items-center">
+                                            <div class="achieveitem-box d-flex flex-column justify-content-center">
+                                                <p>尚無累積</p>
+                                                <p>次數</p>
+                                                <div class="mycircle"></div>
+                                            </div>
+                                            <p class="geta-text mb-2">累積3筆，即可領優惠！</p>
+                                            <button class="not-getachieve">再接再厲</button>
+                                            <button class="getachieve d-none">領取獎勵</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- 贊助 -->
+                                    <div class="col-10 col-lg-3 my-fund-a myachieve-box d-flex flex-wrap justify-content-center mt-5 mb-5 mx-lg-4">
+                                        <div class="col-12">
+                                            <p class="a-title">贊助</p>
+                                        </div>
+                                        <div class="col-12 fund-accumu d-flex flex-column justify-content-center align-items-center">
+                                            <div class="achieveitem-box d-flex flex-column justify-content-center">
+                                                <p>尚無累積</p>
+                                                <p>次數</p>
+                                                <div class="mycircle"></div>
+                                            </div>
+                                            <p class="geta-text mb-2">累積3筆，即可領優惠！</p>
+                                            <button class="not-getachieve">再接再厲</button>
+                                            <button class="getachieve d-none">領取獎勵</button>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </section>
+
 
                             <!-- 我的訂單 -->
                             <section class="member-func-box memberOrder">
@@ -1420,6 +1592,7 @@ if (isset($_SESSION['user'])) {
             $('.helloname').nextAll().addClass('d-none')
             $('.user-pic').addClass('small')
             $('.backtomenu').addClass('on')
+            $('.btn_edit-pic').addClass('d-none')
         })
 
 
@@ -1438,6 +1611,7 @@ if (isset($_SESSION['user'])) {
             $('.helloname').nextAll().removeClass('d-none')
             $('.user-pic').removeClass('small')
             $('.backtomenu').removeClass('on')
+            $('.btn_edit-pic').removeClass('d-none')
         })
 
         // 編輯頭像
