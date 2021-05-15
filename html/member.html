@@ -100,8 +100,8 @@
                     <!-- 概況 -->
                     <div class="col-12 col-lg-5 member-overveiw d-flex">
                         <div
-                            class="col-4 col-lg-6 memberpic px-0 p-lg-5 d-flex align-items-center justify-content-center">
-                            <div class="user-pic">
+                            class="col-4 col-lg-6 memberpic px-0 p-lg-5 d-flex align-items-center justify-content-center ">
+                            <div class="user-pic ">
                                 <img src="../images/user/user1.svg" alt="">
                                 <div class="edit-pic"><i class="fas fa-pencil-alt"></i></div>
                             </div>
@@ -109,9 +109,10 @@
                         <div
                             class="col-8 col-lg-6 memberinfo d-flex flex-column justify-content-center align-items-center">
                             <div class="helloname">Hello, Christina</div>
-                            <p>我的成就</p>
-                            <div class="beerpercent">酒仙指數<span class="beerpercent-num"> 65</span>%</div>
-                            <button class="checkmydiscount mt-2">查看折價券</button>
+                            <p class="myachieve-title d-none">我的成就</p>
+                            <p>今天要換什麼造型呢？</p>
+                            <div class="beerpercent d-none">酒仙指數<span class="beerpercent-num"> 65</span>%</div>
+                            <button class="checkmydiscount mt-2 d-none">查看折價券</button>
 
                         </div>
                     </div>
@@ -154,29 +155,57 @@
                                 <section class="member-func-box editUserpic">
                                     <div class="userpic-wrap d-flex flex-wrap align-items-center justify-content-center">
 
-                                        <p class="title">選擇頭像</p>
-
-                                        <!-- 會員資料 -->
-                                        <div class="col-12 col-lg-5 mydata">
-                                            <div class="mydata-txt mydata-email mb-3">
-                                                <p>信箱</p>
-                                                <p class="myEmail">Christina@gmail.com</p>
+                                        <!-- 頭像選擇 -->
+                                        <div class="col-12 select-userpic d-flex flex-wrap justify-content-between align-items-center">
+                                            <div class="col-12 col-lg-6 new-userpic">
+                                                <div class="myselectpic" data-pic="custom-pic/9.svg">
+                                                    <img src="../images/user/custom-pic/9.svg" alt="">
+                                                </div>
                                             </div>
-                                            <div class="mydata-txt mydata-nickname mb-3">
-                                                <p>姓名</p>
-                                                <p class="myNickname">Christina</p>
-                                            </div>
-                                            <div class="mydata-txt mydata-birthday mb-3">
-                                                <p>生日</p>
-                                                <p class="myBirthday">1990-01-01</p>
-                                            </div>
-                                            <div class="mydata-txt mydata-address mb-5">
-                                                <p>地址</p>
-                                                <p class="myADD">台北市仁愛路三段152號</p>
-                                            </div>
-                                            <div class="data-button-wrap d-flex justify-content-center">
-                                                <button class="btn_edit-data">編輯資料</button>
-                                                <button class="btn_reset-password">重設密碼</button>
+                                            <div class="col-12 col-lg-6 selectitem">
+                                                <p class="col-12 title">選擇頭像</p>
+                                                <div class="col-12 d-flex flex-wrap picitems-wrap justify-content-around">
+                                                    <div class="col-4 col-lg-3 pic-item">
+                                                        <img src="../images/user/custom-pic/head1.svg" alt="">
+                                                    </div>
+                                                    <div class="col-4 col-lg-3 pic-item">
+                                                        <img src="../images/user/custom-pic/head2.svg" alt="">
+                                                    </div>
+                                                    <div class="col-4 col-lg-3 pic-item">
+                                                        <img src="../images/user/custom-pic/head3.svg" alt="">
+                                                    </div>
+                                                    <div class="col-4 col-lg-3 pic-item">
+                                                        <img src="../images/user/custom-pic/head4.svg" alt="">
+                                                    </div>
+                                                    <div class="col-4 col-lg-3 pic-item">
+                                                        <img src="../images/user/custom-pic/head5.svg" alt="">
+                                                    </div>
+                                                    <div class="col-4 col-lg-3 pic-item">
+                                                        <img src="../images/user/custom-pic/head6.svg" alt="">
+                                                    </div>
+                                                    <div class="col-4 col-lg-3 pic-item">
+                                                        <img src="../images/user/custom-pic/head7.svg" alt="">
+                                                    </div>
+                                                    <div class="col-4 col-lg-3 pic-item">
+                                                        <img src="../images/user/custom-pic/head8.svg" alt="">
+                                                    </div>
+                                                    <div class="col-4 col-lg-3 pic-item select">
+                                                        <img src="../images/user/custom-pic/head9.svg" alt="">
+                                                    </div>
+                                                    <div class="col-4 col-lg-3 pic-item">
+                                                        <img src="../images/user/custom-pic/head10.svg" alt="">
+                                                    </div>
+                                                    <div class="col-4 col-lg-3 pic-item">
+                                                        <img src="../images/user/custom-pic/head11.svg" alt="">
+                                                    </div>
+                                                    <div class="col-4 col-lg-3 pic-item">
+                                                        <img src="../images/user/custom-pic/head12.svg" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 userpic-button-wrap d-flex justify-content-center">
+                                                    <button class="btn_confirm-pic">完成送出</button>
+                                                    <button class="btn_cancal-pic">取消編輯</button>
+                                                </div>
                                             </div>
                                         </div>
 

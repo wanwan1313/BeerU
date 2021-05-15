@@ -184,15 +184,14 @@ if (isset($_SESSION['user'])) {
                     <div class="col-4 col-lg-6 memberpic px-0 p-lg-5 d-flex align-items-center justify-content-center">
                         <div class="user-pic">
                             <img src="../images/user/<?= $m_row['user-pic'] ?>" alt="">
-                            <div class="edit-pic"><i class="fas fa-pencil-alt"></i></div>
+                            <div class="btn_edit-pic"><i class="fas fa-pencil-alt"></i></div>
                         </div>
                     </div>
                     <div class="col-8 col-lg-6 memberinfo d-flex flex-column justify-content-center align-items-center">
                         <div class="helloname">Hello, <?= $m_row['nickname'] ?></div>
-                        <p>我的成就</p>
+                        <div class="myachieve-title">我的成就</div>
                         <div class="beerpercent">酒仙指數<span class="beerpercent-num"><?= $a_total ?></span>%</div>
                         <button class="checkmydiscount mt-2">查看折價券</button>
-
                     </div>
                 </div>
 
@@ -221,6 +220,69 @@ if (isset($_SESSION['user'])) {
 
                         <!-- 內容 -->
                         <div class="col-12 col-lg-10 member-func-show">
+
+
+
+                            <!-- 編輯頭像 -->
+                            <section class="member-func-box editUserpic">
+                                <div class="userpic-wrap d-flex flex-wrap align-items-center justify-content-center mt-5 mt-lg-0 mb-5">
+
+                                    <!-- 頭像選擇 -->
+                                    <div class="col-12 select-userpic d-flex flex-wrap justify-content-between align-items-center mt-5 mt-lg-0">
+                                        <div class="col-12 col-lg-6 new-userpic px-0">
+                                            <div class="myselectpic" data-pic="<?= $m_row['user-pic'] ?>">
+                                                <img src="../images/user/<?= $m_row['user-pic'] ?>" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 selectitem px-0">
+                                            <p class="col-12 title">選擇頭像</p>
+                                            <div class="col-12 d-flex flex-wrap picitems-wrap justify-content-around">
+                                                <div class="col-4 col-lg-3 pic-item">
+                                                    <img src="../images/user/head1.svg" alt="">
+                                                </div>
+                                                <div class="col-4 col-lg-3 pic-item">
+                                                    <img src="../images/user/head2.svg" alt="">
+                                                </div>
+                                                <div class="col-4 col-lg-3 pic-item">
+                                                    <img src="../images/user/head3.svg" alt="">
+                                                </div>
+                                                <div class="col-4 col-lg-3 pic-item">
+                                                    <img src="../images/user/head4.svg" alt="">
+                                                </div>
+                                                <div class="col-4 col-lg-3 pic-item">
+                                                    <img src="../images/user/head5.svg" alt="">
+                                                </div>
+                                                <div class="col-4 col-lg-3 pic-item">
+                                                    <img src="../images/user/head6.svg" alt="">
+                                                </div>
+                                                <div class="col-4 col-lg-3 pic-item">
+                                                    <img src="../images/user/head7.svg" alt="">
+                                                </div>
+                                                <div class="col-4 col-lg-3 pic-item">
+                                                    <img src="../images/user/head8.svg" alt="">
+                                                </div>
+                                                <div class="col-4 col-lg-3 pic-item">
+                                                    <img src="../images/user/head9.svg" alt="">
+                                                </div>
+                                                <div class="col-4 col-lg-3 pic-item">
+                                                    <img src="../images/user/head10.svg" alt="">
+                                                </div>
+                                                <div class="col-4 col-lg-3 pic-item">
+                                                    <img src="../images/user/head11.svg" alt="">
+                                                </div>
+                                                <div class="col-4 col-lg-3 pic-item">
+                                                    <img src="../images/user/head12.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 userpic-button-wrap d-flex justify-content-center">
+                                                <button class="btn_confirm-pic">完成送出</button>
+                                                <button class="btn_cancal-pic">取消編輯</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </section>
 
                             <!-- 會員資料 -->
                             <section class="member-func-box memberData">
@@ -660,55 +722,55 @@ if (isset($_SESSION['user'])) {
 
                                             <?php if (!empty($eventatten_row)) : ?>
 
-                                                <?php foreach($eventatten_row as $eva ): ?>
-                                                <!-- 單個活動 -->
-                                                <div class="event-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="<?= $eva['event_sid'] ?>">
+                                                <?php foreach ($eventatten_row as $eva) : ?>
+                                                    <!-- 單個活動 -->
+                                                    <div class="event-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="<?= $eva['event_sid'] ?>">
 
-                                                    <!-- 活動照片資訊 -->
-                                                    <div class="col-12 col-lg-2 event-pic d-flex flex-wrap align-items-center px-lg-0">
-                                                        <a href="event-join.php?sid=<?= $eva['event_sid'] ?>"><img src="../images/event/<?= $eva['event_pic_m'] ?>" alt=""></a>
-                                                    </div>
-                                                    <!-- 活動主題 -->
-                                                    <div class="col-12 col-lg-3 event-name d-flex flex-wrap align-items-lg-center px-lg-0 pl-lg-4 ">
-                                                        <div class="col-2 col-lg-12 px-0">
-                                                            <p class="title d-none d-lg-block">品飲會主題</p>
-                                                            <p class="title d-block d-lg-none">主題</p>
+                                                        <!-- 活動照片資訊 -->
+                                                        <div class="col-12 col-lg-2 event-pic d-flex flex-wrap align-items-center px-lg-0">
+                                                            <a href="event-join.php?sid=<?= $eva['event_sid'] ?>"><img src="../images/event/<?= $eva['event_pic_m'] ?>" alt=""></a>
                                                         </div>
-                                                        <div class="col-10 col-lg-12 thisname d-flex px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                            <a href="event-join.php?sid=<?= $eva['event_sid'] ?>">
-                                                                <p><?= $eva['event_title'] ?></p>
-                                                            </a>
+                                                        <!-- 活動主題 -->
+                                                        <div class="col-12 col-lg-3 event-name d-flex flex-wrap align-items-lg-center px-lg-0 pl-lg-4 ">
+                                                            <div class="col-2 col-lg-12 px-0">
+                                                                <p class="title d-none d-lg-block">品飲會主題</p>
+                                                                <p class="title d-block d-lg-none">主題</p>
+                                                            </div>
+                                                            <div class="col-10 col-lg-12 thisname d-flex px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
+                                                                <a href="event-join.php?sid=<?= $eva['event_sid'] ?>">
+                                                                    <p><?= $eva['event_title'] ?></p>
+                                                                </a>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <!-- 活動地點 -->
-                                                    <div class="col-12 col-lg-3 event-location d-flex flex-wrap align-items-lg-center px-lg-0 ">
-                                                        <div class="col-2 col-lg-12 px-0">
-                                                            <p class="title">地點</p>
+                                                        <!-- 活動地點 -->
+                                                        <div class="col-12 col-lg-3 event-location d-flex flex-wrap align-items-lg-center px-lg-0 ">
+                                                            <div class="col-2 col-lg-12 px-0">
+                                                                <p class="title">地點</p>
+                                                            </div>
+                                                            <div class="col-10 col-lg-12 thislocation d-flex flex-wrap px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
+                                                                <p class="col-12 px-0"><?= $eva['event_place'] ?></p>
+                                                                <p class="col-12 px-0"><?= $eva['event_address'] ?></p>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-10 col-lg-12 thislocation d-flex flex-wrap px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                            <p class="col-12 px-0"><?= $eva['event_place'] ?></p>
-                                                            <p class="col-12 px-0"><?= $eva['event_address'] ?></p>
+                                                        <!-- 活動日期 -->
+                                                        <div class="col-12 col-lg-3 event-time d-flex flex-wrap align-items-lg-center px-lg-0 ">
+                                                            <div class="col-2 col-lg-12 px-0">
+                                                                <p class="title">日期</p>
+                                                            </div>
+                                                            <div class="col-10 col-lg-12 thistime px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
+                                                                <p><?= substr($eva['event_time'], 0, 15) ?></p>
+                                                                <p><?= substr($eva['event_time'], 16) ?></p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <!-- 活動日期 -->
-                                                    <div class="col-12 col-lg-3 event-time d-flex flex-wrap align-items-lg-center px-lg-0 ">
-                                                        <div class="col-2 col-lg-12 px-0">
-                                                            <p class="title">日期</p>
-                                                        </div>
-                                                        <div class="col-10 col-lg-12 thistime px-0 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                            <p><?= substr($eva['event_time'], 0, 15) ?></p>
-                                                            <p><?= substr($eva['event_time'], 16) ?></p>
-                                                        </div>
-                                                    </div>
 
 
-                                                    <!-- 取消 -->
-                                                    <div class="col-12 col-lg-1 member-button event-button d-flex  align-items-center px-0 justify-content-center">
-                                                        <a href="event-join.php?sid=<?= $eva['event_sid'] ?>"><button class="btn_event-cancel">報名</button></a>
-                                                        <p class="fullsign d-none">已額滿</p>
-                                                    </div>
+                                                        <!-- 取消 -->
+                                                        <div class="col-12 col-lg-1 member-button event-button d-flex  align-items-center px-0 justify-content-center">
+                                                            <a href="event-join.php?sid=<?= $eva['event_sid'] ?>"><button class="btn_event-cancel">報名</button></a>
+                                                            <p class="fullsign d-none">已額滿</p>
+                                                        </div>
 
-                                                </div>
+                                                    </div>
                                                 <?php endforeach; ?>
 
                                             <?php else : ?>
@@ -1292,6 +1354,25 @@ if (isset($_SESSION['user'])) {
         })
 
 
+        // 編輯頭像
+        $('.btn_edit-pic').on('click', function() {
+            $('.member-menu').fadeOut(0)
+            $('.member-func-box').fadeOut(0)
+            $('.editUserpic').fadeIn(150)
+
+            let url = location.pathname + `?editUserpic`
+            history.pushState({
+                url: url,
+                title: document.title
+            }, document.title, url)
+
+            $(this).addClass('d-none')
+            $('.helloname').nextAll().addClass('d-none')
+            $('.memberinfo').append(`<p>今天想換什麼造型呢...</p>`)
+
+        })
+
+
         // 初始狀態
         if (window.location.search == '') {
             let url = location.pathname + `?memberData`
@@ -1300,11 +1381,24 @@ if (isset($_SESSION['user'])) {
                 title: document.title
             }, document.title, url)
         }
+
         let showContent = window.location.search.substr(1)
-        $('.member-func-box').fadeOut(0)
-        $(`.${showContent}`).fadeIn(150)
-        let itemleft = $(`.${showContent+'-item'}`).position().left
-        $('.menu-active-line2').css('left', itemleft)
+        if (showContent == 'editUserpic') {
+            $('.member-menu').fadeOut(0)
+            $('.member-func-box').fadeOut(0)
+            $('.editUserpic').fadeIn(150)
+            $('.btn_edit-pic').addClass('d-none')
+            $('.helloname').nextAll().addClass('d-none')
+            $('.memberinfo').append(`<p>今天想換什麼造型呢...</p>`)
+        } else {
+            $('.member-func-box').fadeOut(0)
+            $(`.${showContent}`).fadeIn(150)
+            let itemleft = $(`.${showContent+'-item'}`).position().left
+            $('.menu-active-line2').css('left', itemleft)
+        }
+
+
+
 
     }
 
@@ -1329,6 +1423,7 @@ if (isset($_SESSION['user'])) {
         })
 
 
+        // 回選單
         $('.backtomenu').on('click', function() {
             $('.member-menu').fadeIn(150)
             $('.member-func-box').fadeOut(0)
@@ -1343,6 +1438,24 @@ if (isset($_SESSION['user'])) {
             $('.helloname').nextAll().removeClass('d-none')
             $('.user-pic').removeClass('small')
             $('.backtomenu').removeClass('on')
+        })
+
+        // 編輯頭像
+        $('.btn_edit-pic').on('click', function() {
+            $('.member-menu').fadeOut(0)
+            $('.member-func-box').fadeOut(0)
+            $('.editUserpic').fadeIn(150)
+
+            let url = location.pathname + `?editUserpic`
+            history.pushState({
+                url: url,
+                title: document.title
+            }, document.title, url)
+
+            $(this).addClass('d-none')
+            $('.helloname').nextAll().addClass('d-none')
+            $('.memberinfo').append(`<p>今天想換什麼造型呢...</p>`)
+
         })
 
         if (window.location.search == '') {
@@ -1367,6 +1480,43 @@ if (isset($_SESSION['user'])) {
 
 
     }
+
+    // 編輯頭像功能-------------------------------------------------------------------------
+
+    // 取消編輯
+    $('.btn_cancal-pic').on('click', function() {
+        $('.member-menu').fadeIn(150)
+        $('.member-func-box').fadeOut(0)
+        $('.memberData').fadeIn(150)
+
+        let url = location.pathname
+        history.pushState({
+            url: url,
+            title: document.title
+        }, document.title, url)
+
+        $('.btn_edit-pic').removeClass('d-none')
+        $('.memberinfo p').remove()
+        $('.helloname').nextAll().removeClass('d-none')
+
+        $('.pic-item').removeClass('select')
+        let SelectShow = $('.myselectpic')
+        SelectShow.attr('data-pic', '<?= $m_row['user-pic'] ?>')
+        SelectShow.find('img').attr('src', '../images/user/<?= $m_row['user-pic'] ?>')
+
+        scrollToTop()
+
+
+    })
+
+    // 選圖
+    $('.pic-item').on('click', function() {
+        $(this).addClass('select').siblings().removeClass('select')
+        let SelectShow = $('.myselectpic')
+        let myIndex = $(this).index() * 1 + 1
+        SelectShow.attr('data-pic', `${myIndex}.svg`)
+        SelectShow.find('img').attr('src', `../images/user/${myIndex}.svg`)
+    })
 
 
     // 會員資料功能---- 編輯資料&重設密碼-----------------------------------------------------------------------
@@ -1458,7 +1608,7 @@ if (isset($_SESSION['user'])) {
     }
 
     //初始錯誤狀態
-    $('.warn').css('display', 'none');
+    $('.member .warn').css('display', 'none');
 
     // 重設密碼
     function checkform_restPassword() {
