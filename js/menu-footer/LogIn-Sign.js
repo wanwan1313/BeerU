@@ -2,6 +2,13 @@ $(document).ready(function(){
 
 const $account = $('.account');
 const $password = $('.password');
+
+
+const $newAccount = $('.newAccount');
+const $newPassword = $('.newPassword');
+const $nickname = $('.nickname');
+const $birthday = $('.birthday');
+
     
 //會員登入的視覺效果
 
@@ -51,12 +58,22 @@ $('.log-sandbox').click(function(){
    $('.LogIn-Sign').fadeOut(300);
    const fileds01 = [$account,$password];
 
-   fileds01.forEach(el =>{
+   const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+
+   fileds01.forEach(el2 =>{
   
-       el.css('border', '1px solid var(--gold)');
+       el2.css('border', '1px solid var(--gold)');
        $('.warn').css('display', 'none');
       
 
+   });
+
+   fileds02.forEach(el =>{
+   
+    el.css('border', '1px solid var(--gold)');
+    $('.LogIn-Sign .warn').css('display', 'none');
+
+  
    });
 
  
@@ -67,6 +84,7 @@ $('.cancel-quit').click(function(){
     $('.Check-page').fadeOut(300);
    $('.LogIn-Sign').fadeOut(300);
    const fileds01 = [$account,$password];
+   const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
 
    fileds01.forEach(el =>{
   
@@ -76,12 +94,21 @@ $('.cancel-quit').click(function(){
 
    });
 
+   fileds02.forEach(el2 =>{
+   
+    el2.css('border', '1px solid var(--gold)');
+    $('.LogIn-Sign .warn').css('display', 'none');
+
+  
+   });
+
 })
 
 $('.later-check').click(function(){
    $('.Check-page').fadeOut(300);
    $('.LogIn-Sign').fadeOut(300);
    const fileds01 = [$account,$password];
+   const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
 
    fileds01.forEach(el =>{
   
@@ -89,6 +116,14 @@ $('.later-check').click(function(){
        $('.warn').css('display', 'none');
       
 
+   });
+
+   fileds02.forEach(el2 =>{
+   
+    el2.css('border', '1px solid var(--gold)');
+    $('.LogIn-Sign .warn').css('display', 'none');
+
+  
    });
 
 })
@@ -127,6 +162,7 @@ $('.LogIn-btn01').click(function(){
 
 $('.LogOut-btn02').click(function(){
     const fileds01 = [$account,$password];
+    const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
 
     fileds01.forEach(el =>{
     
@@ -136,17 +172,24 @@ $('.LogOut-btn02').click(function(){
 
     });
 
- 
+
+    fileds02.forEach(el2 =>{
+   
+        el2.css('border', '1px solid var(--gold)');
+        $('.LogIn-Sign .warn').css('display', 'none');
+
+      
+       });
 
 
 
     if ($(window).width() >= 992){
 
-        $('.log-box').css('width','50%').css('height','86%').css
+        $('.log-box').css('width','50%').css('height','86%').css('transition','.4s');
     }
 
     if ($(window).width() < 992){
-        $('.log-box').css('width','90%').css('max-width','338px').css('height','80%').css
+        $('.log-box').css('width','90%').css('max-width','338px').css('height','80%').css('transition','.4s');
 
 
     }
@@ -164,20 +207,22 @@ $('.LogOut-btn02').click(function(){
 
 
 // 進入驗證頁
-$('.Sign').click(function(){
+// $('.Sign').click(function(){
 
-    $('.LogSign-page').fadeOut(1);
-    $('.Check-page').fadeIn(1000);
-    $('.log-box').css('width','35%').css('height','500px').css('transition','.4s');
+//     $('.LogSign-page').fadeOut(1);
+//     $('.Check-page').fadeIn(1000);
+//     $('.log-box').css('width','35%').css('height','500px').css('transition','.4s');
 
 
-})
+// })
 
 
 // 立即註冊
 $('.LogSign-rightNow').click(function(){
 
     const fileds01 = [$account,$password];
+
+    const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
 
     fileds01.forEach(el =>{
     
@@ -186,6 +231,14 @@ $('.LogSign-rightNow').click(function(){
         
 
     });
+
+    fileds02.forEach(el2 =>{
+   
+        el2.css('border', '1px solid var(--gold)');
+        $('.LogIn-Sign .warn').css('display', 'none');
+
+      
+     });
 
 
 
@@ -212,6 +265,8 @@ $('.LogIn-rightNow').click(function(){
 
     const fileds01 = [$account,$password];
 
+    const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+
     fileds01.forEach(el =>{
     
         el.css('border', '1px solid var(--gold)');
@@ -219,6 +274,14 @@ $('.LogIn-rightNow').click(function(){
         
 
     });
+
+    fileds02.forEach(el2 =>{
+   
+        el2.css('border', '1px solid var(--gold)');
+        $('.LogIn-Sign .warn').css('display', 'none');
+
+      
+       });
 
 
 
@@ -244,9 +307,11 @@ $('.LogIn-rightNow').click(function(){
 
 
 //回到起始畫面
-$('.backward h3').click(function(){
+$('.back01 h3').click(function(){
 
     const fileds01 = [$account,$password];
+
+    const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
 
     fileds01.forEach(el =>{
     
@@ -255,6 +320,14 @@ $('.backward h3').click(function(){
         
 
     });
+
+    fileds02.forEach(el2 =>{
+   
+        el2.css('border', '1px solid var(--gold)');
+        $('.LogIn-Sign .warn').css('display', 'none');
+
+      
+       });
    
 
 
@@ -280,6 +353,85 @@ $('.backward h3').click(function(){
  
 })
 
+//回到起始畫面
+$('.back02 h3').click(function(){
+
+    const fileds01 = [$account,$password];
+    const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+
+    fileds01.forEach(el =>{
+    
+        el.css('border', '1px solid var(--gold)');
+        $('.warn').css('display', 'none');
+        
+
+    });
+
+    fileds02.forEach(el2 =>{
+   
+        el2.css('border', '1px solid var(--gold)');
+        $('.LogIn-Sign .warn').css('display', 'none');
+
+      
+       });
+   
+
+
+    if ($(window).width() >= 992){
+        $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
+
+    }
+
+    if ($(window).width() < 992){
+        $('.log-box').css('width','90%').css('max-width','338px').css('height','50%').css('min-height','460px').css('transition','.4s');
+    
+    
+    }
+
+
+    
+
+    $('.LogIn-page').fadeOut(1);
+    $('.LogSign-page').fadeOut(1);
+    $('.first-login-page').fadeIn(100);
+    // $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
+
+ 
+})
+
+//驗證頁返回
+$('.back03 h3').click(function(){
+
+    const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+
+    fileds02.forEach(el2 =>{
+
+    el2.css('border', '1px solid var(--gold)');
+    $('.LogIn-Sign .warn').css('display', 'none');
+
+    
+    });
+
+
+
+
+    $('.Check-page').fadeOut(1);
+    $('.LogSign-page').fadeIn(1000);
+
+    if ($(window).width() >= 992){
+
+        $('.log-box').css('width','50%').css('height','86%').css
+    }
+
+    if ($(window).width() < 992){
+        $('.log-box').css('width','90%').css('max-width','338px').css('height','80%').css
+
+
+    }
+  
+
+
+})
 
 
 

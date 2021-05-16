@@ -49,7 +49,7 @@ $page_title = '登入測試';
 
      <br>  <br>  <br> 
      <!-- 註冊畫面 -->
-         <form name="Sign" method="post"  novalidate onsubmit="checkform_sign(); return false;">
+         <form name="Sign" method="post"  novalidate  onsubmit="Sign_email();return false">
            
     
            <h3>註冊帳號</h3>
@@ -72,11 +72,25 @@ $page_title = '登入測試';
           <input type="date" name="birthday">
           
       
-          <button type="submit" class="btn btn-primary">註冊</button>
-            
+          <button type="submit" class="btn btn-primary" >註冊</button>
 
-            
+
      </form>     
+
+     <br><br> 
+     
+     <form name="Sign_submit" method="post"  novalidate onsubmit="SignSubmit();return false">
+
+
+
+        <h3>驗證碼</h3>
+        <input type="text" name="check_number">
+        
+
+        <button type="submit" class="btn btn-primary">驗證</button>
+
+
+     </form>
 
 
 

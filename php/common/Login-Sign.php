@@ -97,7 +97,7 @@
 
                 <!-- 註冊表單 -->
                 <form name="Sign" class="logSign-content-wrap"
-                novalidate onsubmit="checkform_sign(); return false;">
+                novalidate onsubmit="Sign_email();return false">
                         
                     <div class="account-password-wrap d-flex">
 
@@ -105,14 +105,19 @@
                             <h3>啤女帳號</h3>
                             <i class="far fa-envelope email-icon01"></i>
                             <input class="input-btn newAccount" type="email" id="newAccount" name="newAccount" required >
-                            <p>帳號為您的電子信箱</p>
+                            <small class="warn-text ">帳號為您的電子信箱</small>
+                            <small class="warn"><i class="far fa-times-circle"></i></small>
+                            
                         </div>
 
                         <div class="logSign-password">
                             <h3>密碼</h3>
                             <i class="fas fa-lock lock-icon02"></i>
                             <input class="input-btn newPassword" name="newPassword" type="password" id="newPassword">
-                            <p>密碼為 6 碼以上的英文或數字</p>
+                            <small class="warn-text ">密碼為 6 碼以上的英文或數字</small>
+                            <small class="warn"><i class="far fa-times-circle"></i></small>
+                            
+                            
                         </div>    
                     </div>
 
@@ -123,12 +128,14 @@
                             <h3>姓名</h3>
                             <i class="fas fa-user-alt user-icon02"></i>
                             <input type="text" class="input-btn nickname"  id="nickname"  name="nickname" required>
+                            <small class="warn"><i class="far fa-times-circle"></i></small>
                         </div>
 
                         <div class="logSign-birthday">
                             <h3>生日 </h3>
                             <input class="input-btn birthday" 
-                            type="date" id="birthday" name="birthday"  >
+                            type="date" id="birthday" name="birthday">
+                            <small class="warn"><i class="far fa-times-circle"></i></small>
                         </div>
                     </div>
 
@@ -173,37 +180,40 @@
 
 
             <!-- 驗證畫面 -->
-                <div class="log-content Check-page">
-                <div class="Check-title">
-                    <h3>請查看您的 Email</h3>
-                </div>
-                
-                <div class="Check-warp">
-                    <div class="Check-content-warp">
+                <form class="log-content Check-page" name="Sign_submit" method="post"  novalidate onsubmit="SignSubmit();return false" >
+                    <div class="Check-title">
+                        <h3>請查看您的 Email</h3>
+                    </div>
+                    
+                    <div class="Check-warp">
+                        <div class="Check-content-warp">
 
-                        <div class="Check-content content01">
-                            <p>為了確保是你本人，我們已寄送一封認證信到你的 Email，請點擊信裡的確認連結以開通帳號。
-                            </p>
+                            <div class="Check-content content01">
+                                <p>為了確保是你本人，我們已寄送一封認證信到你的 Email，請點擊信裡的確認連結以開通帳號。
+                                </p>
+                            </div>
+                            <div class="Check-content content02 mt-4">
+                                <p>找不到認證信時，請到「垃圾信件」分類查找，或在信箱搜尋「啤女」或 「BEERU」。</p>
+                            </div>
                         </div>
-                        <div class="Check-content content02 mt-4">
-                            <p>找不到認證信時，請到「垃圾信件」分類查找，或在信箱搜尋「啤女」或 「BEERU」。</p>
+
+
+                        <div class="Check-Email">
+                            <i class="far fa-envelope email-icon02"></i>
+                            <input class="input-btn check_number" placeholder="您的驗證碼" id="email-check" name="check_number">
+                            <small class="warn"><i class="far fa-times-circle"></i></small>
                         </div>
+
+                        <button type="submit" class="check-email-btn">驗證信箱</button>
+
+                        <div class="backward back03" >
+                            <h3>回上頁</h3>
+                        </div>
+
+                        
                     </div>
 
-
-                    <div class="Check-Email">
-                        <i class="far fa-envelope email-icon02"></i>
-                        <input class="input-btn" placeholder="beeru2021@gmail.com" id="email-check">
-                    </div>
-
-                    <div class="resent-btn">重新送出認證信</div>
-
-                    <div class="later-check">
-                        <h3>稍後認證</h3>
-                    </div>
-                </div>
-
-                </div>   
+                </form>   
 
             
             <!-- 註冊成功畫面 -->

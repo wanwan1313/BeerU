@@ -1,43 +1,163 @@
-const newAccount_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-const $nickname = $('#nickname'),
-      $newAccount = $('#newAccount');
-
-const fileds = [$nickname, $newAccount];
-
-
-function checkform_sign(){
-
-    // 回復原來的狀態
-    // fileds.forEach(el=>{
-    //         el.css('border', '1px solid #CCCCCC');
-    //         el.next().text('');
-    //     });
+//註冊
+const $newAccount = $('.newAccount');
+const $newPassword = $('.newPassword');
+const $nickname = $('.nickname');
+const $birthday = $('.birthday');
 
 
 
+//註冊會員,傳送驗證email
+function Sign_email(){
 
+       let isPass = true;
+
+       const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+
+       fileds02.forEach(el2 =>{
+   
+        el2.css('border', '1px solid var(--gold)');
+        $('.LogIn-Sign .warn').css('display', 'none');
+
+      
+       });
+
+         // $newAccount.next().css('display','block');
+        // $newPassword.next().css('display','block');
+
+      
+      
+        //帳號不符合格式
+        if(!account_re.test($newAccount.val())){
+            isPass = false;
+            $newAccount.css('border', 'solid 2px var(--pink)');
+            $newAccount.next().css('display','none');
+            $newAccount.next().next().css('display','block').children().text('帳號為E-mail格式');
+
+        }
+
+
+       //不可為空
+       if($newAccount.val() == '' ){
+
+        isPass = false;
+
+        $newAccount.css('border', 'solid 2px var(--pink)');
+        $newAccount.next().css('display','none');
+        $newAccount.next().next().css('display','block').children().text('此處不可為空');
+
+       }
+
+
+       if($newPassword.val() == ''){
+
+        isPass = false;
+        $newPassword.css('border', 'solid 2px var(--pink)');
+        $newPassword.next().css('display','none');
+        $newPassword.next().next().css('display','block').children().text('此處不可為空');
+
+
+       }
+
+
+       if( $nickname.val() == ''){
+
+        isPass = false;
+
+        $nickname.css('border', 'solid 2px var(--pink)');
+        $nickname.next().css('display','block').children().text('此處不可為空');
+
+    
+       }
+        
+
+
+       if($birthday.val() == ''){
+
+        isPass = false;
+
+        $birthday.css('border', 'solid 2px var(--pink)');
+        $birthday.next().css('display','block').children().text('此處不可為空');
+
+       }
+       
+
+   
+
+       
+
+      
+       if(isPass){
+        $.post(
+            'Email-check-api.php',
+            $(document.Sign).serialize(),
+            function(data){
+                console.log(data)
+                if(data.success){
+                      
+                        //進入驗證頁面
+                        $('.LogSign-page').fadeOut(1);
+                        $('.Check-page').fadeIn(1000);
+
+
+                     if ($(window).width() >= 992){
+                        $('.log-box').css('width','35%').css('height','500px').css('min-width','583px').css('transition','.4s');
+                    }
+
+                    if ($(window).width() < 992){
+                        $('.log-box').css('width','90%').css('max-width','338px').css('height','70%').css('transition','.4s');
+
+
+                    }
+                    
+                    
+             
+
+
+                } else {
+                    
+                    $newAccount.css('border', 'solid 2px var(--pink)');
+                    $newAccount.next().css('display','none');
+                    $newAccount.next().next().css('display','block').children().text('帳號已註冊');
+                }
+            },'json'
+        )
+    }
+
+
+}
+
+
+
+
+//註冊會員,建立會員資料
+function SignSubmit(){
+
+    const $check_number = $('.check_number');
+
+    
     let isPass = true;
-
-
-    // 錯誤狀態
-    // if(! newAccount_re.test($newAccount.val())){
-    //         isPass = false;
-    //         $newAccount.css('border', '1px solid red');
-    //         $newAccount.next().text('請輸入正確的 email');
-    //     }
 
 
     if(isPass){
             $.post(
                 'Sign-api.php',
-                $(document.Sign).serialize(),
+                $(document.Sign_submit).serialize(),
                 function(data){
                     console.log(data)
                     if(data.success){
-                        // location.reload();
-                         alert('註冊成功');
+                        
+                            
+                        $('.LogIn-Sign').fadeOut(100);
+                        $('.pop-up-1').fadeIn(150);
+                        $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+                        $('.pop-up-1 .pop-up-text').text('註冊成功');
+                        $('button.ok').on('click', function () {
+                            location.reload();
+                        })
+                        
                     } else {
-                        alert(data.error);
+                        $check_number.css('border', 'solid 2px var(--pink)');
+                        $check_number.next().css('display','block').children().text('驗證碼錯誤');
                     }
                 },
                 'json'

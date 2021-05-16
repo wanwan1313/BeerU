@@ -240,10 +240,17 @@
 }
 
 .LogIn-Sign .warn{
-    
-  
     color : var(--pink);
 }
+
+
+.LogIn-Sign .warn-text{
+    color :  #7F7F7F;
+}
+
+
+
+
 
 
 
@@ -425,13 +432,13 @@
     top: 40px;
     left: 4%;;
 }
-
+/* 
 .LogIn-Sign .logSign-account p{
     font-size: 1.4rem;
     font-family: 'Noto Sans TC', serif;
     font-weight: normal;
     color: #7F7F7F;
-}
+} */
 
 .LogIn-Sign .logSign-password{
     position: relative;
@@ -474,12 +481,12 @@
     left: 4%;
 }
 
-.LogIn-Sign .logSign-password p{
+/* .LogIn-Sign .logSign-password p{
     font-size: 1.4rem;
     font-family: 'Noto Sans TC', serif;
     font-weight: normal;
     color: #7F7F7F;
-}
+} */
 
 
 .LogIn-Sign .member-wrap{
@@ -703,13 +710,13 @@
     left: 2.5%;;
 }
 
-.LogIn-Sign .resent-btn{
+.LogIn-Sign .check-email-btn{
     width: 100%;
     margin: 10px auto 0 auto;
     border-radius: 5px;
     font-family: 'Noto Sans TC', serif;
     font-weight: normal;
-    
+    border: transparent;
     cursor: pointer;
     color: white;
     text-align: center;
@@ -719,18 +726,8 @@
 }
 
 
-.LogIn-Sign .later-check{
-    cursor: pointer;
-}
-
-.LogIn-Sign .later-check h3{
-   
+.LogIn-Sign .back03{
     margin-top: 20px;
-   text-align: center;
-   font-size: 1.6rem;
-   font-family: 'Noto Sans TC', serif;
-    font-weight: normal;
-    color: var(--blue);
-
-
 }
+
+
