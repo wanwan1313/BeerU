@@ -148,27 +148,6 @@ if (isset($_SESSION['user'])) {
             <p>折價券列表</p>
         </div>
         <div class="col-12 coupon-list d-flex flex-wrap align-content-start">
-
-            <?php if (!empty($d_row)) : ?>
-                <!-- 單張折價券 -->
-                <?php foreach ($d_row as $d) : ?>
-                    <div class="col-6 col-lg-4 coupon-wrap">
-                        <div class="coupon" data-sid="<?= $d['sid'] ?>" data-num="<?= $d['coupon'] ?>">
-                            <p>折價券 <span class="num">$<?= $d['coupon'] ?></span>元</p>
-                            <p>有效期限:<?= date("Y/m/d", strtotime($d['create_at'] . "+6 month")) ?></p>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            <?php else : ?>
-                <div class="col-12 empty-status d-flex flex-column justify-content-center align-items-center">
-                    <p>目前沒有折價券喔!</p>
-                    <p>快到會員中心>我的成就，來累積更多的券吧！</p>
-                    <div class="pipi mt-4">
-                        <img src="../images/common/pipi_empty.svg" alt="">
-                    </div>
-                </div>
-            <?php endif; ?>
-
         </div>
         <div class="button-wrap-3 mx-auto">
             <button class="discount_ok">我知道了</button>
@@ -1671,6 +1650,88 @@ if (isset($_SESSION['user'])) {
 
     }
 
+
+    // 折價券-----------------------------------------------------------------------------------------------
+
+    const discountTpl = d => {
+        return `
+        <div class="col-6 col-lg-4 coupon-wrap">
+            <div class="coupon" data-sid="${d.sid}" data-num="${d.coupon}">
+                <p>折價券 <span class="num">$${d.coupon}</span>元</p>
+                <p>有效期限:${d.create_at}</p>
+            </div>
+        </div>
+        `
+    }
+
+    const nodiscountTpl = d => {
+        return `
+        <div class="col-12 empty-status d-flex flex-column justify-content-center align-items-center">
+            <p>目前沒有折價券喔!</p>
+            <p>快到會員中心>我的成就，來累積更多的券吧！</p>
+            <div class="pipi mt-4">
+                <img src="../images/common/pipi_empty.svg" alt="">
+            </div>
+        </div>
+        `
+    }
+
+    $('button.checkmydiscount').on('click', function() {
+        $('.discount-popup').fadeIn(150)
+        $.get('member-achieve-api.php', function(data) {
+            // console.log(data)
+            a_data = data
+            renderdiscpunt()
+        }, 'json')
+    })
+
+    let coupon_list = $('.discount-popup .coupon-list')
+
+    Date.prototype.format = function(fmt) {
+        var o = {
+            "M+": this.getMonth() + 1, //月份 
+            "d+": this.getDate(), //日 
+            "h+": this.getHours(), //小时 
+            "m+": this.getMinutes(), //分 
+            "s+": this.getSeconds(), //秒 
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+            "S": this.getMilliseconds() //毫秒 
+        };
+        if (/(y+)/.test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        }
+        for (var k in o) {
+            if (new RegExp("(" + k + ")").test(fmt)) {
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            }
+        }
+        return fmt;
+    }
+
+    // 產生折價券畫面
+    function renderdiscpunt() {
+        coupon_list.html('')
+        if (a_data.discount.length == 0) {
+            coupon_list.append(nodiscountTpl())
+
+        } else {
+            a_data.discount.forEach(el => {
+                let thisdata = el.create_at
+                let d1 = new Date(thisdata)
+                d1.setMonth(d1.getMonth() + 6)
+                el.create_at = d1.format("yyyy/MM/dd")
+                coupon_list.append(discountTpl(el))
+
+            })
+        }
+    }
+
+    $('button.discount_ok').on('click', function() {
+        $('.discount-popup').fadeOut(100)
+    })
+
+
+
     // 編輯頭像功能-------------------------------------------------------------------------------------------
 
     // 取消編輯
@@ -1949,14 +2010,7 @@ if (isset($_SESSION['user'])) {
 
 
 
-    // 折價券開啟/關閉-----------------------------------------------------------------------------------------------
-    $('button.checkmydiscount').on('click', function() {
-        $('.discount-popup').fadeIn(150)
-    })
 
-    $('button.discount_ok').on('click', function() {
-        $('.discount-popup').fadeOut(100)
-    })
 
 
 
@@ -2379,6 +2433,8 @@ if (isset($_SESSION['user'])) {
             // console.log(data)
             a_data = data
             renderAchievement()
+
+
         }, 'json')
     }
 
@@ -2392,25 +2448,44 @@ if (isset($_SESSION['user'])) {
             $('.consume-over .achieveitem-box .get').text('滿1000元')
             $('.consume-over button.getachieve').removeClass('d-none')
             $('.consume-over button.not-getachieve').addClass('d-none')
-            $('.haveachieve').fadeIn(150)
+        } else {
+            $('.consume-over .achieveitem-box').removeClass('get')
+            $('.consume-over .achieveitem-box .get').text('尚無成就')
+            $('.consume-over button.getachieve').addClass('d-none')
+            $('.consume-over button.not-getachieve').removeClass('d-none')
         }
 
         // 累積金額
         $('.consume-accumu .accum_spend').text(a_data.accum_spend)
+        if (a_data.accum_spend == 0) {
+            $('.consume-accumu .mycircle').removeClass('c-30 c-60 c-90')
+            $('.consume-accumu .achieveitem-box').removeClass('get')
+            $('.consume-accumu button.getachieve').addClass('d-none')
+            $('.consume-accumu button.not-getachieve').removeClass('d-none')
+        }
+
         if (a_data.accum_spend <= 2000 && a_data.accum_spend > 0) {
             $('.consume-accumu .mycircle').addClass('c-30')
+            $('.consume-accumu .achieveitem-box').removeClass('get')
+            $('.consume-accumu button.getachieve').addClass('d-none')
+            $('.consume-accumu button.not-getachieve').removeClass('d-none')
         }
         if (a_data.accum_spend <= 4000 && a_data.accum_spend > 2000) {
             $('.consume-accumu .mycircle').addClass('c-60')
+            $('.consume-accumu .achieveitem-box').removeClass('get')
+            $('.consume-accumu button.getachieve').addClass('d-none')
+            $('.consume-accumu button.not-getachieve').removeClass('d-none')
         }
         if (a_data.accum_spend < 6000 && a_data.accum_spend > 4000) {
             $('.consume-accumu .mycircle').addClass('c-90')
+            $('.consume-accumu .achieveitem-box').removeClass('get')
+            $('.consume-accumu button.getachieve').addClass('d-none')
+            $('.consume-accumu button.not-getachieve').removeClass('d-none')
         }
-        if (a_data.accum_spend > 6000) {
+        if (a_data.accum_spend >= 6000) {
             $('.consume-accumu .achieveitem-box').addClass('get')
             $('.consume-accumu button.getachieve').removeClass('d-none')
             $('.consume-accumu button.not-getachieve').addClass('d-none')
-            $('.haveachieve').fadeIn(150)
         }
 
         // 集章
@@ -2426,10 +2501,11 @@ if (isset($_SESSION['user'])) {
                 $('.my-country .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
                 $('.my-country button.getachieve').removeClass('d-none')
                 $('.my-country button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_country == 1) {
-                $('.my-country .geta-text').text('集2/3徽章，即可領取優惠喔！')
+                $('.my-country .geta-text').removeClass('ispink').text('集2/3徽章，即可領取優惠喔！')
+                $('.my-country button.getachieve').addClass('d-none')
+                $('.my-country button.not-getachieve').removeClass('d-none')
             }
         }
         if ($('.country-items .get').length >= 10 && $('.country-items .get').length < 15) {
@@ -2437,16 +2513,17 @@ if (isset($_SESSION['user'])) {
                 $('.my-country .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
                 $('.my-country button.getachieve').removeClass('d-none')
                 $('.my-country button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_country == 1) {
                 $('.my-country .geta-text').addClass('ispink').text('已成功2/3完成，點選領取獎勵！')
                 $('.my-country button.getachieve').removeClass('d-none')
                 $('.my-country button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_country == 2) {
-                $('.my-country .geta-text').text('集完全部徽章，即可領取優惠喔！')
+                $('.my-country .geta-text').removeClass('ispink').text('集完全部徽章，即可領取優惠喔！')
+                $('.my-country button.getachieve').addClass('d-none')
+                $('.my-country button.not-getachieve').removeClass('d-none')
+
             }
         }
         if ($('.country-items .get').length == 15) {
@@ -2454,23 +2531,22 @@ if (isset($_SESSION['user'])) {
                 $('.my-country .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
                 $('.my-country button.getachieve').removeClass('d-none')
                 $('.my-country button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_country == 1) {
                 $('.my-country .geta-text').addClass('ispink').text('已成功2/3完成，點選領取獎勵！')
                 $('.my-country button.getachieve').removeClass('d-none')
                 $('.my-country button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_country == 2) {
                 $('.my-country .geta-text').addClass('ispink').text('已成功集完國家，點選領取獎勵！')
                 $('.my-country button.getachieve').removeClass('d-none')
                 $('.my-country button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
+
             if (a_data.accum_country == 3) {
                 $('.my-country .geta-text').addClass('ispink').text('已成功集完國家，你就是啤酒愛好者！')
                 $('.my-country button.not-getachieve').addClass('d-none')
+                $('.my-country button.getachieve').addClass('d-none')
             }
         }
 
@@ -2480,10 +2556,11 @@ if (isset($_SESSION['user'])) {
                 $('.my-beertype .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
                 $('.my-beertype button.getachieve').removeClass('d-none')
                 $('.my-beertype button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_type == 1) {
-                $('.my-beertype .geta-text').text('集2/3徽章，即可領取優惠喔！')
+                $('.my-beertype .geta-text').removeClass('ispink').text('集2/3徽章，即可領取優惠喔！')
+                $('.my-beertype button.getachieve').addClass('d-none')
+                $('.my-beertype button.not-getachieve').removeClass('d-none')
             }
         }
         if ($('.type-items .get').length >= 6 && $('.type-items .get').length < 9) {
@@ -2491,16 +2568,16 @@ if (isset($_SESSION['user'])) {
                 $('.my-beertype .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
                 $('.my-beertype button.getachieve').removeClass('d-none')
                 $('.my-beertype button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_type == 1) {
                 $('.my-beertype .geta-text').addClass('ispink').text('已成功2/3完成，點選領取獎勵！')
                 $('.my-beertype button.getachieve').removeClass('d-none')
                 $('.my-beertype button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_type == 2) {
-                $('.my-beertype .geta-text').text('集完全部徽章，即可領取優惠喔！')
+                $('.my-beertype .geta-text').removeClass('ispink').text('集完全部徽章，即可領取優惠喔！')
+                $('.my-beertype button.getachieve').addClass('d-none')
+                $('.my-beertype button.not-getachieve').removeClass('d-none')
             }
         }
         if ($('.type-items .get').length == 15) {
@@ -2508,23 +2585,21 @@ if (isset($_SESSION['user'])) {
                 $('.my-beertype .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
                 $('.my-beertype button.getachieve').removeClass('d-none')
                 $('.my-beertype button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_type == 1) {
                 $('.my-beertype .geta-text').addClass('ispink').text('已成功2/3完成，點選領取獎勵！')
                 $('.my-beertype button.getachieve').removeClass('d-none')
                 $('.my-beertype button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_type == 2) {
                 $('.my-beertype .geta-text').addClass('ispink').text('已成功集完類型，點選領取獎勵！')
                 $('.my-beertype button.getachieve').removeClass('d-none')
                 $('.my-beertype button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_type == 3) {
                 $('.my-beertype .geta-text').addClass('ispink').text('已成功集完類型，你就是啤酒愛好者！')
                 $('.my-beertype button.not-getachieve').addClass('d-none')
+                $('.my-beertype button.getachieve').addClass('d-none')
             }
         }
 
@@ -2534,10 +2609,11 @@ if (isset($_SESSION['user'])) {
                 $('.my-brand .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
                 $('.my-brand button.getachieve').removeClass('d-none')
                 $('.my-brand button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_brand == 1) {
-                $('.my-brand .geta-text').text('集2/3徽章，即可領取優惠喔！')
+                $('.my-brand .geta-text').removeClass('ispink').text('集2/3徽章，即可領取優惠喔！')
+                $('.my-brand button.getachieve').addClass('d-none')
+                $('.my-brand button.not-getachieve').removeClass('d-none')
             }
         }
         if ($('.brand-items .get').length >= 16 && $('.type-items .get').length < 24) {
@@ -2545,16 +2621,16 @@ if (isset($_SESSION['user'])) {
                 $('.my-brand .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
                 $('.my-brand button.getachieve').removeClass('d-none')
                 $('.my-brand button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_brand == 1) {
                 $('.my-brand .geta-text').addClass('ispink').text('已成功2/3完成，點選領取獎勵！')
                 $('.my-brand button.getachieve').removeClass('d-none')
                 $('.my-brand button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_brand == 2) {
-                $('.my-brand .geta-text').text('集完全部徽章，即可領取優惠喔！')
+                $('.my-brand .geta-text').removeClass('ispink').text('集完全部徽章，即可領取優惠喔！')
+                $('.my-brand button.getachieve').addClass('d-none')
+                $('.my-brand button.not-getachieve').removeClass('d-none')
             }
         }
         if ($('.brand-items .get').length == 24) {
@@ -2562,27 +2638,33 @@ if (isset($_SESSION['user'])) {
                 $('.my-brand .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
                 $('.my-brand button.getachieve').removeClass('d-none')
                 $('.my-brand button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_brand == 1) {
                 $('.my-brand .geta-text').addClass('ispink').text('已成功2/3完成，點選領取獎勵！')
                 $('.my-brand button.getachieve').removeClass('d-none')
                 $('.my-brand button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_brand == 2) {
                 $('.my-brand .geta-text').addClass('ispink').text('已成功集完類型，點選領取獎勵！')
                 $('.my-brand button.getachieve').removeClass('d-none')
                 $('.my-brand button.not-getachieve').addClass('d-none')
-                $('.haveachieve').fadeIn(150)
             }
             if (a_data.accum_brand == 3) {
                 $('.my-brand .geta-text').addClass('ispink').text('已成功集完類型，你就是啤酒愛好者！')
                 $('.my-brand button.not-getachieve').addClass('d-none')
+                $('.my-brand button.getachieve').addClass('d-none')
             }
         }
 
         // 評價
+        if (a_data.accum_comment == 0) {
+            $('.my-comment-a .c-title').text('尚無累積')
+            $('.my-comment-a .num').text('次數')
+            $('.my-comment-a .achieveitem-box').removeClass('get')
+            $('.my-comment-a .geta-text').removeClass('ispink').text('累積3筆，即可領優惠')
+            $('.my-comment-a button.getachieve').addClass('d-none')
+            $('.my-comment-a button.not-getachieve').removeClass('d-none')
+        }
         if (a_data.accum_comment == 1) {
             $('.my-comment-a .c-title').text('目前累積')
             $('.my-comment-a .num').text('1筆')
@@ -2595,17 +2677,25 @@ if (isset($_SESSION['user'])) {
             $('.my-comment-a .mycircle').addClass('c-60')
             $('.my-comment-a .geta-text').text('距離領獎還差1筆，加油！')
         }
-        if (a_data.accum_comment == 3) {
+        if (a_data.accum_comment >= 3) {
             $('.my-comment-a .c-title').text('累積3筆')
             $('.my-comment-a .num').text('達標!')
             $('.my-comment-a .achieveitem-box').addClass('get')
             $('.my-comment-a button.getachieve').removeClass('d-none')
             $('.my-comment-a button.not-getachieve').addClass('d-none')
             $('.my-comment-a .geta-text').addClass('ispink').text('點選下方領取獎勵！')
-            $('.haveachieve').fadeIn(150)
+            // $('.haveachieve').fadeIn(150)
         }
 
         // 贊助
+        if (a_data.accum_fund == 0) {
+            $('.my-fund-a .c-title').text('尚無累積')
+            $('.my-fund-a .num').text('次數')
+            $('.my-fund-a .achieveitem-box').removeClass('get')
+            $('.my-fund-a .geta-text').removeClass('ispink').text('累積3筆，即可領優惠')
+            $('.my-fund-a button.getachieve').addClass('d-none')
+            $('.my-fund-a button.not-getachieve').removeClass('d-none')
+        }
         if (a_data.accum_fund == 1) {
             $('.my-fund-a .c-title').text('目前累積')
             $('.my-fund-a .num').text('1筆')
@@ -2618,17 +2708,25 @@ if (isset($_SESSION['user'])) {
             $('.my-fund-a .mycircle').addClass('c-60')
             $('.my-fund-a .geta-text').text('距離領獎還差1筆，加油！')
         }
-        if (a_data.accum_fund == 3) {
+        if (a_data.accum_fund >= 3) {
             $('.my-fund-a .c-title').text('累積3筆')
             $('.my-fund-a .num').text('達標!')
             $('.my-fund-a .achieveitem-box').addClass('get')
             $('.my-fund-a button.getachieve').removeClass('d-none')
             $('.my-fund-a button.not-getachieve').addClass('d-none')
             $('.my-fund-a .geta-text').addClass('ispink').text('點選下方領取獎勵！')
-            $('.haveachieve').fadeIn(150)
+            // $('.haveachieve').fadeIn(150)
         }
 
         // 預約
+        if (a_data.accum_event == 0) {
+            $('.my-event-a .c-title').text('尚無累積')
+            $('.my-event-a .num').text('次數')
+            $('.my-event-a .achieveitem-box').removeClass('get')
+            $('.my-event-a .geta-text').removeClass('ispink').text('累積3筆，即可領優惠')
+            $('.my-event-a button.getachieve').addClass('d-none')
+            $('.my-event-a button.not-getachieve').removeClass('d-none')
+        }
         if (a_data.accum_event == 1) {
             $('.my-event-a .c-title').text('目前累積')
             $('.my-event-a .num').text('1筆')
@@ -2641,14 +2739,41 @@ if (isset($_SESSION['user'])) {
             $('.my-event-a .mycircle').addClass('c-60')
             $('.my-event-a .geta-text').text('距離領獎還差1筆，加油！')
         }
-        if (a_data.accum_event == 3) {
+        if (a_data.accum_event >= 3) {
             $('.my-event-a .c-title').text('累積3筆')
             $('.my-event-a .num').text('達標!')
             $('.my-event-a .achieveitem-box').addClass('get')
             $('.my-event-a button.getachieve').removeClass('d-none')
             $('.my-event-a button.not-getachieve').addClass('d-none')
             $('.my-event-a .geta-text').addClass('ispink').text('點選下方領取獎勵！')
+            // $('.haveachieve').fadeIn(150)
+        }
+
+        $('.haveachieve').fadeOut(0)
+        $('.beeru-nav-bar .havegift').fadeOut(0)
+
+        // 禮物小圖判斷
+        if (a_data.consume > 0 || a_data.accum_spend >= 6000 || a_data.accum_comment >= 3 || a_data.accum_event >= 3 || a_data.accum_fund >= 3) {
             $('.haveachieve').fadeIn(150)
+            $('.beeru-nav-bar .havegift').fadeIn(150)
+        }
+        let brandnumber = a_data.gather.filter(e => e <= 28).length
+        let countrynumber = a_data.gather.filter(e => e >= 29 && e <= 43).length
+        let typenumber = a_data.gather.filter(e => e >= 44 && e <= 52).length
+
+        if ((a_data.accum_brand == 0 && brandnumber >= 8 && brandnumber < 16) || (a_data.accum_brand > 0 && a_data.accum_brand < 2 && brandnumber >= 16 && brandnumber < 24) || (a_data.accum_brand != 3 && brandnumber == 24)) {
+            $('.haveachieve').fadeIn(150)
+            $('.beeru-nav-bar .havegift').fadeIn(150)
+        }
+
+        if ((a_data.accum_country == 0 && countrynumber >= 5 && countrynumber < 10) || (a_data.accum_country > 0 && a_data.accum_country < 2 && countrynumber >= 10 && countrynumber < 15) || (a_data.accum_country != 3 && countrynumber == 15)) {
+            $('.haveachieve').fadeIn(150)
+            $('.beeru-nav-bar .havegift').fadeIn(150)
+        }
+
+        if ((a_data.accum_type == 0 && typenumber >= 3 && typenumber < 6) || (a_data.accum_type > 0 && a_data.accum_type < 2 && typenumber >= 6 && typenumber < 9) || (a_data.accum_type != 3 && typenumber == 9)) {
+            $('.beeru-nav-bar .havegift').fadeIn(150)
+            $('.beeru-nav-bar .havegift').fadeIn(150)
         }
 
 
@@ -2672,12 +2797,16 @@ if (isset($_SESSION['user'])) {
             discount,
             percent
         }, function(data) {
-            // console.log(data)
+            console.log(data)
+            a_data = data
+            renderAchievement()
+            renderdiscpunt()
         }, 'json')
 
         $('.achieve-pop-up .a-ok').on('click', function() {
             $('.achieve-pop-up').fadeOut(150)
-            location.href = 'member.php?memberAchievement'
+            // location.href = 'member.php?memberAchievement'
+            // renderAchievement()
         })
 
     }

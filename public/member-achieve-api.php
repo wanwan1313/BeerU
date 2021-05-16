@@ -8,6 +8,7 @@ $output = [
 
 $user = $_SESSION['user']['sid'];
 
+
 // 查詢單筆消費狀況
 $com_SQL = "SELECT COUNT(*) FROM `orders` WHERE `member_sid` = $user AND `total_price` > 1000 AND `reward` = 'false' ";
 $com = $pdo->query($com_SQL)->fetch(PDO::FETCH_NUM)[0];
@@ -121,6 +122,7 @@ if (!empty($genre)) {
             $consume_stmt->execute([
                 'true',
             ]);
+            $output['consume'] = $com - 1;
 
             break;
 
@@ -133,6 +135,8 @@ if (!empty($genre)) {
                 $new_spend,
             ]);
 
+            $output['accum_spend'] = $new_spend;
+
             break;
 
         case 'country':
@@ -143,6 +147,8 @@ if (!empty($genre)) {
             $acoin_stmt->execute([
                 $new_country,
             ]);
+
+            $output['accum_country'] = $new_country;
 
 
             break;
@@ -156,6 +162,8 @@ if (!empty($genre)) {
                 $new_type,
             ]);
 
+            $output['accum_type'] = $new_type;
+
             break;
 
         case 'brand':
@@ -167,6 +175,8 @@ if (!empty($genre)) {
                 $new_brand,
             ]);
 
+            $output['accum_brand'] = $new_brand;
+
             break;
 
         case 'comment':
@@ -177,6 +187,7 @@ if (!empty($genre)) {
             $acin_stmt->execute([
                 $new_comment,
             ]);
+            $output['accum_comment'] = $new_comment;
             
 
             break;
@@ -189,6 +200,7 @@ if (!empty($genre)) {
             $aein_stmt->execute([
                 $new_event,
             ]);
+            $output['accum_event'] = $new_event;
 
             break;
 
@@ -200,10 +212,17 @@ if (!empty($genre)) {
             $afin_stmt->execute([
                 $new_fund,
             ]);
+            $output['accum_fund'] = $new_fund;
 
             break;
     };
 }
+
+
+// 從資料庫抓折價券
+$discount_SQL = "SELECT * FROM `achievement` WHERE `coupon` > 0 AND `member_sid` = $user ORDER BY `sid`";
+$discount_row = $pdo->query($discount_SQL)->fetchAll();
+$output['discount'] = $discount_row;
 
 
 

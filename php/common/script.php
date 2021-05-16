@@ -39,8 +39,8 @@
     //  傳送AJAX取得成就狀況
     function showAchievement() {
         $.get('member-achieve-api.php', function(data) {
-            console.log(data)
-            if (data.consume > 0 || data.accum_spend >= 6000 || data.accum_comment == 3 || data.accum_event == 3 || data.accum_fund == 3) {
+            // console.log(data)
+            if (data.consume > 0 || data.accum_spend >= 6000 || data.accum_comment >= 3 || data.accum_event >= 3 || data.accum_fund >= 3) {
                 $('.beeru-nav-bar .havegift').fadeIn(150)
             }
             let brandnumber = data.gather.filter(e => e <= 28).length
