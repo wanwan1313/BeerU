@@ -18,7 +18,7 @@ if (isset($_SESSION['cart'])) {
 if (isset($_SESSION['cart']['fund'])) {
     $_SESSION['type'] = 'fund';
     // echo array_keys($_SESSION['cart'])[0];
-}else{
+} else {
     $_SESSION['type'] = 'beer';
 }
 
@@ -271,7 +271,7 @@ if (isset($_SESSION['cart']['fund'])) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="auto_data" >自動輸入</div>
+                                <div class="auto_data">自動輸入</div>
                             </div>
 
                             <!-- 結帳商品 -->
@@ -436,7 +436,6 @@ if (isset($_SESSION['cart']['fund'])) {
 <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
 
 <script>
-    
     // 檢查商品有沒有超過超商取貨限制
     let Q_total = <?= $Q_total ?>;
     if (Q_total >= 15) {
@@ -446,8 +445,8 @@ if (isset($_SESSION['cart']['fund'])) {
 
     // 檢查是不是募資方案
     let checkoutType = '<?= $_SESSION['type'] ?>';
-    
-    if( checkoutType == 'fund'){
+
+    if (checkoutType == 'fund') {
         $("#payment").val('信用卡付款')
         $('.credit-card').fadeIn(150)
         $('#payment').next().html('<i class="fas fa-exclamation-circle"></i>募資方案僅能使用信用卡付款')
@@ -458,11 +457,11 @@ if (isset($_SESSION['cart']['fund'])) {
                         <i class="fas fa-arrow-alt-circle-left mr-2"></i>返回募資方案
                     </a>`)
 
-        
+
         $("#payment option[value='取貨付款']").remove();
 
     }
-    
+
 
     // 台灣地址套件
     $("#twzipcode").twzipcode({
@@ -839,7 +838,7 @@ if (isset($_SESSION['cart']['fund'])) {
 
 
     // 信用卡自動輸入
-    $('.auto_data').on('click',function(){
+    $('.auto_data').on('click', function() {
         $('#card-number').val('3568')
         $('#card-number-1').val('4476')
         $('#card-number-2').val('2185')
@@ -890,9 +889,10 @@ if (isset($_SESSION['cart']['fund'])) {
                     // console.log(data)
                     p_data = data
                     $('.cart-pnum').addClass('d-none')
+                    showAchievement()
                     renderOrderDetail()
                     renderRecipient()
-                    $('.cart-pnum').text('')
+                    // $('.cart-pnum').text('')
                     $('#select-payment').css('display', 'none')
                     $('#complete-order').fadeIn(150)
                     $('.step-3').addClass('on')
@@ -900,6 +900,7 @@ if (isset($_SESSION['cart']['fund'])) {
                     $('body,html').animate({
                         scrollTop: 0
                     }, 150, 'swing');
+
                 },
                 'json'
             )
