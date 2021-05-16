@@ -36,7 +36,6 @@ if (!empty($ship) and !empty($re_name) and !empty($re_mobile) and !empty($shippi
         unset($_SESSION['checkout']['re_city']);
         unset($_SESSION['checkout']['re_dist']);
         unset($_SESSION['checkout']['re_address']);
-
     }
 
     $output['cart'] = $_SESSION['cart'];
@@ -49,102 +48,124 @@ if (!empty($payment) and !empty($totalPrice) and !empty($order_num)) {
     $_SESSION['checkout']['total-price'] = $totalPrice;
     $_SESSION['checkout']['order_num'] = $order_num;
 
-    if( $_SESSION['type'] == 'beer'){
-    
-    // 寫進order資料庫
-    $o_SQL = "INSERT INTO `orders`
+    if ($_SESSION['type'] == 'beer') {
+
+        // 寫進order資料庫
+        $o_SQL = "INSERT INTO `orders`
                 (`member_sid`, `order_num`, `total_price`, `discount`, `shipping`, `re_name`, `re_mobile`, `re_add`, `ship`, `payment`, `date` ,`status`) 
                 VALUES 
                 (?,?,?,?,?,?,?,?,?,?,NOW(),'處理中')";
 
-    $o_stmt = $pdo->prepare($o_SQL);
-    $o_stmt->execute([
-        $_SESSION['user']['sid'],
-        $order_num,
-        $totalPrice,
-        isset($_SESSION['checkout']['discount']) ? $_SESSION['checkout']['discount'] : 0,
-        $_SESSION['checkout']['shipping'],
-        $_SESSION['checkout']['re_name'],
-        $_SESSION['checkout']['re_mobile'],
-        $_SESSION['checkout']['re_add'],
-        $_SESSION['checkout']['ship'],
-        $payment,
-    ]);
+        $o_stmt = $pdo->prepare($o_SQL);
+        $o_stmt->execute([
+            $_SESSION['user']['sid'],
+            $order_num,
+            $totalPrice,
+            isset($_SESSION['checkout']['discount']) ? $_SESSION['checkout']['discount'] : 0,
+            $_SESSION['checkout']['shipping'],
+            $_SESSION['checkout']['re_name'],
+            $_SESSION['checkout']['re_mobile'],
+            $_SESSION['checkout']['re_add'],
+            $_SESSION['checkout']['ship'],
+            $payment,
+        ]);
 
 
-    // 寫進order_detail資料庫
-    $order_sid =  $pdo->lastInsertId();
+        // 寫進order_detail資料庫
+        $order_sid =  $pdo->lastInsertId();
 
-    $d_SQL = "INSERT INTO `order_detail`
+        $d_SQL = "INSERT INTO `order_detail`
                 (`order_sid`, `member_sid`, `product_sid`, `quantity`, `price`) 
                 VALUES 
                 (?,?,?,?,?)";
 
-    $d_stmt = $pdo->prepare($d_SQL);
+        $d_stmt = $pdo->prepare($d_SQL);
 
-    foreach ($_SESSION['cart'] as $c) {
-        $d_stmt->execute([
-            $order_sid,
-            $_SESSION['user']['sid'],
-            $c['sid'],
-            $c['quantity'],
-            $c['price'] * $c['quantity'],
+        foreach ($_SESSION['cart'] as $c) {
+            $d_stmt->execute([
+                $order_sid,
+                $_SESSION['user']['sid'],
+                $c['sid'],
+                $c['quantity'],
+                $c['price'] * $c['quantity'],
+            ]);
+        };
+
+
+        // 改總金額累積
+        $user = $_SESSION['user']['sid'];
+        $aget_SQL = "SELECT `accum_spend` FROM `member` WHERE `sid` = $user";
+        $new_spend = $pdo->query($aget_SQL)->fetch(PDO::FETCH_NUM)[0] + $totalPrice;
+        $ain_SQL = "UPDATE `member` SET `accum_spend`= ? WHERE `sid` = $user";
+        $ain_stmt = $pdo->prepare($ain_SQL);
+        $ain_stmt->execute([
+            $new_spend,
         ]);
+
+
+        // 刪除折價券
+        if (isset($_SESSION['checkout']['coupon-sid'])) {
+            $coupon_sid = $_SESSION['checkout']['coupon-sid'];
+            $delcou_SQL = "DELETE FROM `achievement` WHERE `sid` = $coupon_sid";
+            $pdo->query($delcou_SQL);
+        }
     };
 
 
-    // 刪除折價券
-    if( isset($_SESSION['checkout']['coupon-sid'])) {
-        $coupon_sid = $_SESSION['checkout']['coupon-sid'];
-        $delcou_SQL = "DELETE FROM `achievement` WHERE `sid` = $coupon_sid";
-        $pdo->query($delcou_SQL);
-    }
-    };
+    if ($_SESSION['type'] == 'fund') {
 
-
-    if( $_SESSION['type'] == 'fund'){
-    
-    // 寫進order資料庫
-    $o_SQL = "INSERT INTO `orders`
-                (`member_sid`, `order_num`, `total_price`, `shipping`, `re_name`, `re_mobile`, `re_add`, `ship`, `payment`, `date` ,`status`) 
+        // 寫進order資料庫
+        $o_SQL = "INSERT INTO `orders`
+                (`member_sid`, `order_num`, `total_price`, `shipping`, `re_name`, `re_mobile`, `re_add`, `ship`, `payment`, `date` ,`status`,`reward`) 
                 VALUES 
-                (?,?,?,?,?,?,?,?,?,NOW(),'感謝您的贊助！')";
+                (?,?,?,?,?,?,?,?,?,NOW(),'感謝您的贊助！',? )";
 
-    $o_stmt = $pdo->prepare($o_SQL);
-    $o_stmt->execute([
-        $_SESSION['user']['sid'],
-        $order_num,
-        $totalPrice,
-        $_SESSION['checkout']['shipping'],
-        $_SESSION['checkout']['re_name'],
-        $_SESSION['checkout']['re_mobile'],
-        $_SESSION['checkout']['re_add'],
-        $_SESSION['checkout']['ship'],
-        $payment,
-    ]);
+        $o_stmt = $pdo->prepare($o_SQL);
+        $o_stmt->execute([
+            $_SESSION['user']['sid'],
+            $order_num,
+            $totalPrice,
+            $_SESSION['checkout']['shipping'],
+            $_SESSION['checkout']['re_name'],
+            $_SESSION['checkout']['re_mobile'],
+            $_SESSION['checkout']['re_add'],
+            $_SESSION['checkout']['ship'],
+            $payment,
+            'noneed',
+        ]);
+
+        // 改贊助總數
+        $user = $_SESSION['user']['sid'];
+        $aget_SQL = "SELECT `accum_fund` FROM `member` WHERE `sid` = $user";
+        $new_num = $pdo->query($aget_SQL)->fetch(PDO::FETCH_NUM)[0] + 1;
+        $ain_SQL = "UPDATE `member` SET `accum_fund`= ? WHERE `sid` = $user";
+        $ain_stmt = $pdo->prepare($ain_SQL);
+        $ain_stmt->execute([
+            $new_num,
+        ]);
 
 
-    // 寫進order_detail資料庫
-    $order_sid =  $pdo->lastInsertId();
+        // 寫進order_detail資料庫
+        $order_sid =  $pdo->lastInsertId();
 
-    $d_SQL = "INSERT INTO `order_detail`
+        $d_SQL = "INSERT INTO `order_detail`
                 (`order_sid`, `member_sid`, `fund_sid`, `quantity`, `price`) 
                 VALUES 
                 (?,?,?,?,?)";
 
-    $d_stmt = $pdo->prepare($d_SQL);
+        $d_stmt = $pdo->prepare($d_SQL);
 
-    foreach ($_SESSION['cart'] as $c) {
-        $d_stmt->execute([
-            $order_sid,
-            $_SESSION['user']['sid'],
-            $c['sid'],
-            $c['quantity'],
-            $c['price'],
-        ]);
-    };
+        foreach ($_SESSION['cart'] as $c) {
+            $d_stmt->execute([
+                $order_sid,
+                $_SESSION['user']['sid'],
+                $c['sid'],
+                $c['quantity'],
+                $c['price'],
+            ]);
+        };
     }
-    
+
 
 
     // 給前端資料
