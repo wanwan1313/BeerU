@@ -27,11 +27,40 @@
 
     }
 
-    let thischeckoutType = '<?= isset($_SESSION['type']) ? $_SESSION['type']:'' ?>';
-    if ( thischeckoutType != 'fund') {
+    let thischeckoutType = '<?= isset($_SESSION['type']) ? $_SESSION['type'] : '' ?>';
+    if (thischeckoutType != 'fund') {
         $.get('cartforcount-api.php', function(data) {
             showCartCount(data.cart)
         }, 'json')
     }
 
+
+    // 更新禮物小圖
+    //  傳送AJAX取得成就狀況
+    function showAchievement() {
+        $.get('member-achieve-api.php', function(data) {
+            console.log(data)
+            if (data.consume > 0 || data.accum_spend >= 6000 || data.accum_comment == 3 || data.accum_event == 3 || data.accum_fund == 3) {
+                $('.beeru-nav-bar .havegift').fadeIn(150)
+            }
+            let brandnumber = data.gather.filter(e => e <= 28).length
+            let countrynumber = data.gather.filter(e => e >= 29 && e <= 43).length
+            let typenumber = data.gather.filter(e => e >= 44 && e <= 52).length
+
+            if ((data.accum_brand == 0 && brandnumber >= 8 && brandnumber < 16) || (data.accum_brand > 0 && data.accum_brand < 2 && brandnumber >= 16 && brandnumber < 24) || (data.accum_brand != 3 && brandnumber == 24)) {
+                $('.beeru-nav-bar .havegift').fadeIn(150)
+            }
+
+            if ((data.accum_country == 0 && countrynumber >= 5 && countrynumber < 10) || (data.accum_country > 0 && data.accum_country < 2 && countrynumber >= 10 && countrynumber < 15) || (data.accum_country != 3 && countrynumber == 15)) {
+                $('.beeru-nav-bar .havegift').fadeIn(150)
+            }
+
+            if ((data.accum_type == 0 && typenumber >= 3 && typenumber < 6) || (data.accum_type > 0 && data.accum_type < 2 && typenumber >= 6 && typenumber < 9) || (data.accum_type != 3 && typenumber == 9)) {
+                $('.beeru-nav-bar .havegift').fadeIn(150)
+            }
+
+        }, 'json')
+    }
+
+    showAchievement()
 </script>
