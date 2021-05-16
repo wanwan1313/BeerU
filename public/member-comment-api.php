@@ -34,6 +34,15 @@ if (!empty($psid) and !empty($action)) {
                 $comment,
             ]);
 
+            // 改評論總數
+            $aget_SQL = "SELECT `accum_comment` FROM `member` WHERE `sid` = $user";
+            $new_num = $pdo->query($aget_SQL)->fetch(PDO::FETCH_NUM)[0] + 1;
+            $ain_SQL = "UPDATE `member` SET `accum_comment`= ? WHERE `sid` = $user";
+            $ain_stmt = $pdo->prepare($ain_SQL);
+            $ain_stmt->execute([
+                $new_num,
+            ]);
+
 
             // 改order_detail的評論狀態
             $p_SQL = "UPDATE `order_detail` SET `comment`=? 

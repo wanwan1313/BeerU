@@ -125,7 +125,7 @@ if (isset($_SESSION['user'])) {
 
 <link rel="stylesheet" href="../css/member/member.css">
 <link rel="stylesheet" href="../css/member/memberdiscount.css">
-
+<link rel="stylesheet" href="../css/member/memberpopup.css">
 
 
 
@@ -176,6 +176,19 @@ if (isset($_SESSION['user'])) {
     </div>
 </section>
 
+<!-- 成就領獎pop-up -->
+<section class="achieve-pop-up">
+    <div class="pop-up-box d-flex flex-column justify-content-center align-items-center">
+        <div class="icon animate__animated animate__rubberBand "><i class="fas fa-gift"></i></div>
+        <div class="pop-up-discount-wrap">
+            <p>領取折價券</p>
+            <p>恭喜獲得折價券<span class="pop-up-discount">100</span>元</p>
+        </div>
+        <p class="pop-up-percent">酒仙指數提升<span>5</span>%</p>
+        <button class="a-ok">我知道了</button>
+    </div>
+</section>
+
 
 <section class="member">
     <div class="member-wrap">
@@ -220,7 +233,10 @@ if (isset($_SESSION['user'])) {
                                 </li>
                                 <li class="menu-item memberFund-item" data-content="memberFund"><i class="fas fa-hand-holding-usd"></i>我的贊助<i class="fas fa-chevron-right"></i>
                                 </li>
-                                <li class="menu-item memberAchievement-item" data-content="memberAchievement"><i class="fas fa-trophy"></i>我的成就<i class="fas fa-chevron-right"></i></li>
+                                <li class="menu-item memberAchievement-item" data-content="memberAchievement">
+                                    <i class="fas fa-trophy"></i>我的成就<i class="fas fa-chevron-right"></i>
+                                    <div class="haveachieve"><img src="../images/common/achieve-icon.svg" alt=""></div>
+                                </li>
                                 <li class="menu-item memberOrder-item" data-content="memberOrder"><i class="fas fa-copy"></i>我的訂單<i class="fas fa-chevron-right"></i></li>
                                 <li class="menu-item d-block d-lg-none" data-content="logout" onclick="Logout()"><i class="fas fa-sign-out-alt"></i>會員登出<i class="fas fa-chevron-right"></i>
                                 </li>
@@ -963,19 +979,19 @@ if (isset($_SESSION['user'])) {
                                             <div class="col-6 col-lg-2 consume-over d-flex flex-column justify-content-center align-items-center">
                                                 <div class="achieveitem-box d-flex flex-column justify-content-center">
                                                     <p>單筆消費</p>
-                                                    <p>尚無成就</p>
+                                                    <p class="get">尚無成就</p>
                                                 </div>
                                                 <button class="not-getachieve">再接再厲</button>
-                                                <button class="getachieve d-none">領取獎勵</button>
+                                                <button class="getachieve d-none" data-discount="100" data-percent="5" onclick="getmyachivement('consume')">領取獎勵</button>
                                             </div>
                                             <div class="col-6 col-lg-2 consume-accumu d-flex flex-column justify-content-center align-items-center">
                                                 <div class="achieveitem-box d-flex flex-column justify-content-center">
                                                     <p>目前累積</p>
-                                                    <p>NT.0元</p>
+                                                    <p>NT.<span class="accum_spend">0</span>元</p>
                                                     <div class="mycircle"></div>
                                                 </div>
                                                 <button class="not-getachieve">滿6000達標</button>
-                                                <button class="getachieve d-none">領取獎勵</button>
+                                                <button class="getachieve d-none" data-discount="300" data-percent="10" onclick="getmyachivement('accumspend')">領取獎勵</button>
                                             </div>
                                         </div>
                                     </div>
@@ -988,9 +1004,9 @@ if (isset($_SESSION['user'])) {
                                             <p class="a-title">啤酒國家集章</p>
                                         </div>
                                         <div class="col-12 col-lg-6 country-wrap d-flex justify-content-center flex-wrap">
-                                            <div class="col-12 d-flex justify-content-around flex-wrap px-0">
+                                            <div class="country-items col-12 d-flex justify-content-around flex-wrap px-0">
                                                 <?php foreach ($a_total_countries as $tc) : ?>
-                                                    <div class="country-item country-item-<?= $tc['sid'] ?> d-flex flex-column justify-content-center" data-cate="<?= $tc['sid'] ?>">
+                                                    <div class="country-item badgeitem-<?= $tc['sid'] ?> d-flex flex-column justify-content-center" data-cate="<?= $tc['sid'] ?>">
                                                         <img src="../images/tagespic/<?= $tc['sid'] ?>.svg" alt="">
                                                         <p><?= $tc['name'] ?></p>
                                                     </div>
@@ -1000,7 +1016,7 @@ if (isset($_SESSION['user'])) {
                                             <div class="col-12 a-button-wrap mt-4 px-0">
                                                 <p class="geta-text mb-2">集1/3徽章，即可領取優惠喔！</p>
                                                 <button class="not-getachieve">再接再厲</button>
-                                                <button class="getachieve d-none">領取獎勵</button>
+                                                <button class="getachieve d-none" data-discount="50" data-percent="5" onclick="getmyachivement('country')">領取獎勵</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1011,10 +1027,10 @@ if (isset($_SESSION['user'])) {
                                         <div class="col-12">
                                             <p class="a-title">啤酒類型集章</p>
                                         </div>
-                                        <div class="col-10 col-lg-4 beertype-wrap d-flex justify-content-center flex-wrap">
-                                            <div class="col-12 d-flex justify-content-around flex-wrap px-0">
+                                        <div class="col-10 col-lg-5 beertype-wrap d-flex justify-content-center flex-wrap">
+                                            <div class="type-items col-12 d-flex justify-content-around flex-wrap px-0">
                                                 <?php foreach ($a_total_type as $tp) : ?>
-                                                    <div class="type-item country-item-<?= $tp['sid'] ?> d-flex flex-column justify-content-center" data-cate="<?= $tp['sid'] ?>">
+                                                    <div class="type-item badgeitem-<?= $tp['sid'] ?> d-flex flex-column justify-content-center" data-cate="<?= $tp['sid'] ?>">
                                                         <img src="../images/tagespic/<?= $tp['sid'] ?>.svg" alt="">
                                                         <p><?= $tp['name'] ?></p>
                                                     </div>
@@ -1024,7 +1040,7 @@ if (isset($_SESSION['user'])) {
                                             <div class="col-12 a-button-wrap mt-4 px-0">
                                                 <p class="geta-text mb-2">集1/3徽章，即可領取優惠喔！</p>
                                                 <button class="not-getachieve">再接再厲</button>
-                                                <button class="getachieve d-none">領取獎勵</button>
+                                                <button class="getachieve d-none" data-discount="50" data-percent="5" onclick="getmyachivement('type')">領取獎勵</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1036,9 +1052,9 @@ if (isset($_SESSION['user'])) {
                                             <p class="a-title">啤酒酒廠集章</p>
                                         </div>
                                         <div class="col-12 col-lg-6 brand-wrap d-flex justify-content-center flex-wrap">
-                                            <div class="col-12 d-flex justify-content-around flex-wrap px-0">
+                                            <div class="brand-items col-12 d-flex justify-content-around flex-wrap px-0">
                                                 <?php foreach ($a_total_brands as $tb) : ?>
-                                                    <div class="brand-item country-item-<?= $tb['sid'] ?> d-flex flex-column justify-content-center" data-cate="<?= $tb['sid'] ?>">
+                                                    <div class="brand-item badgeitem-<?= $tb['sid'] ?> d-flex flex-column justify-content-center" data-cate="<?= $tb['sid'] ?>">
                                                         <img src="../images/tagespic/<?= $tb['sid'] ?>.svg" alt="">
                                                     </div>
                                                 <?php endforeach; ?>
@@ -1048,7 +1064,7 @@ if (isset($_SESSION['user'])) {
                                             <div class="col-12 a-button-wrap mt-4 px-0">
                                                 <p class="geta-text mb-2">集1/3徽章，即可領取優惠喔！</p>
                                                 <button class="not-getachieve">再接再厲</button>
-                                                <button class="getachieve d-none">領取獎勵</button>
+                                                <button class="getachieve d-none" data-discount="100" data-percent="5" onclick="getmyachivement('brand')">領取獎勵</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1060,13 +1076,13 @@ if (isset($_SESSION['user'])) {
                                         </div>
                                         <div class="col-12 comment-accumu d-flex flex-column justify-content-center align-items-center">
                                             <div class="achieveitem-box d-flex flex-column justify-content-center">
-                                                <p>尚無累積</p>
-                                                <p>次數</p>
+                                                <p class="c-title">尚無累積</p>
+                                                <p class="num">次數</p>
                                                 <div class="mycircle"></div>
                                             </div>
                                             <p class="geta-text mb-2">累積3筆，即可領優惠！</p>
                                             <button class="not-getachieve">再接再厲</button>
-                                            <button class="getachieve d-none">領取獎勵</button>
+                                            <button class="getachieve d-none" data-discount="50" data-percent="2" onclick="getmyachivement('comment')">領取獎勵</button>
                                         </div>
                                     </div>
 
@@ -1077,13 +1093,13 @@ if (isset($_SESSION['user'])) {
                                         </div>
                                         <div class="col-12 event-accumu d-flex flex-column justify-content-center align-items-center">
                                             <div class="achieveitem-box d-flex flex-column justify-content-center">
-                                                <p>尚無累積</p>
-                                                <p>次數</p>
+                                                <p class="c-title">尚無累積</p>
+                                                <p class="num">次數</p>
                                                 <div class="mycircle"></div>
                                             </div>
                                             <p class="geta-text mb-2">累積3筆，即可領優惠！</p>
                                             <button class="not-getachieve">再接再厲</button>
-                                            <button class="getachieve d-none">領取獎勵</button>
+                                            <button class="getachieve d-none" data-discount="100" data-percent="5" onclick="getmyachivement('event')">領取獎勵</button>
                                         </div>
                                     </div>
 
@@ -1094,13 +1110,13 @@ if (isset($_SESSION['user'])) {
                                         </div>
                                         <div class="col-12 fund-accumu d-flex flex-column justify-content-center align-items-center">
                                             <div class="achieveitem-box d-flex flex-column justify-content-center">
-                                                <p>尚無累積</p>
-                                                <p>次數</p>
+                                                <p class="c-title">尚無累積</p>
+                                                <p class="num">次數</p>
                                                 <div class="mycircle"></div>
                                             </div>
                                             <p class="geta-text mb-2">累積3筆，即可領優惠！</p>
                                             <button class="not-getachieve">再接再厲</button>
-                                            <button class="getachieve d-none">領取獎勵</button>
+                                            <button class="getachieve d-none" data-discount="100" data-percent="5" onclick="getmyachivement('fund')">領取獎勵</button>
                                         </div>
                                     </div>
 
@@ -1484,7 +1500,7 @@ if (isset($_SESSION['user'])) {
         }, 300, 'swing');
     }
 
-    // 桌機板-選單hover效果--------------------------------------------------------------------------------------
+    // 桌機板-選單hover效果-----------------------------------------------------------------------------------
     if ($(window).width() >= 992) {
 
         $('.menu-item').on('mouseenter', function() {
@@ -1655,7 +1671,7 @@ if (isset($_SESSION['user'])) {
 
     }
 
-    // 編輯頭像功能-------------------------------------------------------------------------
+    // 編輯頭像功能-------------------------------------------------------------------------------------------
 
     // 取消編輯
     $('.btn_cancal-pic').on('click', function() {
@@ -1668,6 +1684,9 @@ if (isset($_SESSION['user'])) {
             url: url,
             title: document.title
         }, document.title, url)
+
+        let itemleft = $('.memberData-item').position().left
+        $('.menu-active-line2').css('left', itemleft)
 
         $('.btn_edit-pic').removeClass('d-none')
         $('.memberinfo p').remove()
@@ -2006,6 +2025,7 @@ if (isset($_SESSION['user'])) {
         edit_btn.next().removeClass('d-none')
         edit_btn.addClass('d-none')
     }
+
     // 取消編輯評論
     function canceleditComment() {
         let cancel_btn = $(event.currentTarget)
@@ -2021,7 +2041,7 @@ if (isset($_SESSION['user'])) {
     }
 
 
-    // 收藏---------------------------------------------------------------------------------------------------------------------
+    // 收藏----------------------------------------------------------------------------------------------------
 
     // 設定一個產品介紹的字樣
     let product_arrang = $('.member .product-arrang')
@@ -2183,7 +2203,7 @@ if (isset($_SESSION['user'])) {
 
     })
 
-    // 排序--------------------------------------
+    // 排序
     function changeSort() {
 
         order = $('#sort-option').val()
@@ -2191,7 +2211,7 @@ if (isset($_SESSION['user'])) {
 
     }
 
-    // 查詢--------------------------------------
+    // 查詢
     $('#search3').on('keypress', function(event) {
         let pressBtn = event.keyCode
         if (pressBtn == 13 && $(this).val() != "") {
@@ -2202,9 +2222,7 @@ if (isset($_SESSION['user'])) {
 
     })
 
-
-    // ----------------------------------------------------------
-    // 加入購物車功能
+    // 加入購物車功能---------------
 
     // 手寫數量
     product_arrang.on('input', '.buy-number', function() {
@@ -2265,7 +2283,6 @@ if (isset($_SESSION['user'])) {
         }
     })
 
-    // -------------------------------------------------------
     // 加入購物車
     product_arrang.on('click', '.add-cart', function() {
         let qty = $(this).closest('.p-buy').find('.buy-number').val()
@@ -2290,7 +2307,7 @@ if (isset($_SESSION['user'])) {
 
 
 
-    // 關注-----------------------------------------------------------
+    // 關注----------------------------------------------------------------------------------------------------
     $('.btn_cancelAtten').on('click', function() {
         let attentag = $(this).closest('.attentag-wrap').find('input[type="checkbox"]:checked')
         if (attentag.length > 0) {
@@ -2341,11 +2358,329 @@ if (isset($_SESSION['user'])) {
             })
 
         } else {
-            $('.pop-up-1').css('display', 'block')
+            $('.pop-up-1').fadeIn(150)
             $('.pop-up-1 .icon').html('<i class="fas fa-exclamation"></i>').css('background-color', 'var(--red)')
             $('.pop-up-1 .pop-up-text').text('您未選擇想取消的關注標籤')
         }
     })
+
+
+
+
+
+
+
+
+    // 成就-------------------------------------------------------------------------------------------------------
+
+    //  傳送AJAX取得成就狀況
+    function getAchievementData() {
+        $.get('member-achieve-api.php', function(data) {
+            // console.log(data)
+            a_data = data
+            renderAchievement()
+        }, 'json')
+    }
+
+    getAchievementData()
+
+    function renderAchievement() {
+
+        // 單筆消費
+        if (a_data.consume > 0) {
+            $('.consume-over .achieveitem-box').addClass('get')
+            $('.consume-over .achieveitem-box .get').text('滿1000元')
+            $('.consume-over button.getachieve').removeClass('d-none')
+            $('.consume-over button.not-getachieve').addClass('d-none')
+            $('.haveachieve').fadeIn(150)
+        }
+
+        // 累積金額
+        $('.consume-accumu .accum_spend').text(a_data.accum_spend)
+        if (a_data.accum_spend <= 2000 && a_data.accum_spend > 0) {
+            $('.consume-accumu .mycircle').addClass('c-30')
+        }
+        if (a_data.accum_spend <= 4000 && a_data.accum_spend > 2000) {
+            $('.consume-accumu .mycircle').addClass('c-60')
+        }
+        if (a_data.accum_spend < 6000 && a_data.accum_spend > 4000) {
+            $('.consume-accumu .mycircle').addClass('c-90')
+        }
+        if (a_data.accum_spend > 6000) {
+            $('.consume-accumu .achieveitem-box').addClass('get')
+            $('.consume-accumu button.getachieve').removeClass('d-none')
+            $('.consume-accumu button.not-getachieve').addClass('d-none')
+            $('.haveachieve').fadeIn(150)
+        }
+
+        // 集章
+        if (a_data.gather.length != 0) {
+            a_data.gather.forEach(el => {
+                $(`.badgeitem-${el}`).addClass('get')
+            })
+        }
+
+        // 國家達標
+        if ($('.country-items .get').length >= 5 && $('.country-items .get').length < 10) {
+            if (a_data.accum_country == 0) {
+                $('.my-country .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
+                $('.my-country button.getachieve').removeClass('d-none')
+                $('.my-country button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_country == 1) {
+                $('.my-country .geta-text').text('集2/3徽章，即可領取優惠喔！')
+            }
+        }
+        if ($('.country-items .get').length >= 10 && $('.country-items .get').length < 15) {
+            if (a_data.accum_country == 0) {
+                $('.my-country .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
+                $('.my-country button.getachieve').removeClass('d-none')
+                $('.my-country button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_country == 1) {
+                $('.my-country .geta-text').addClass('ispink').text('已成功2/3完成，點選領取獎勵！')
+                $('.my-country button.getachieve').removeClass('d-none')
+                $('.my-country button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_country == 2) {
+                $('.my-country .geta-text').text('集完全部徽章，即可領取優惠喔！')
+            }
+        }
+        if ($('.country-items .get').length == 15) {
+            if (a_data.accum_country == 0) {
+                $('.my-country .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
+                $('.my-country button.getachieve').removeClass('d-none')
+                $('.my-country button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_country == 1) {
+                $('.my-country .geta-text').addClass('ispink').text('已成功2/3完成，點選領取獎勵！')
+                $('.my-country button.getachieve').removeClass('d-none')
+                $('.my-country button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_country == 2) {
+                $('.my-country .geta-text').addClass('ispink').text('已成功集完國家，點選領取獎勵！')
+                $('.my-country button.getachieve').removeClass('d-none')
+                $('.my-country button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_country == 3) {
+                $('.my-country .geta-text').addClass('ispink').text('已成功集完國家，你就是啤酒愛好者！')
+                $('.my-country button.not-getachieve').addClass('d-none')
+            }
+        }
+
+        // 類型達標
+        if ($('.type-items .get').length >= 3 && $('.type-items .get').length < 6) {
+            if (a_data.accum_type == 0) {
+                $('.my-beertype .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
+                $('.my-beertype button.getachieve').removeClass('d-none')
+                $('.my-beertype button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_type == 1) {
+                $('.my-beertype .geta-text').text('集2/3徽章，即可領取優惠喔！')
+            }
+        }
+        if ($('.type-items .get').length >= 6 && $('.type-items .get').length < 9) {
+            if (a_data.accum_type == 0) {
+                $('.my-beertype .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
+                $('.my-beertype button.getachieve').removeClass('d-none')
+                $('.my-beertype button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_type == 1) {
+                $('.my-beertype .geta-text').addClass('ispink').text('已成功2/3完成，點選領取獎勵！')
+                $('.my-beertype button.getachieve').removeClass('d-none')
+                $('.my-beertype button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_type == 2) {
+                $('.my-beertype .geta-text').text('集完全部徽章，即可領取優惠喔！')
+            }
+        }
+        if ($('.type-items .get').length == 15) {
+            if (a_data.accum_type == 0) {
+                $('.my-beertype .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
+                $('.my-beertype button.getachieve').removeClass('d-none')
+                $('.my-beertype button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_type == 1) {
+                $('.my-beertype .geta-text').addClass('ispink').text('已成功2/3完成，點選領取獎勵！')
+                $('.my-beertype button.getachieve').removeClass('d-none')
+                $('.my-beertype button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_type == 2) {
+                $('.my-beertype .geta-text').addClass('ispink').text('已成功集完類型，點選領取獎勵！')
+                $('.my-beertype button.getachieve').removeClass('d-none')
+                $('.my-beertype button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_type == 3) {
+                $('.my-beertype .geta-text').addClass('ispink').text('已成功集完類型，你就是啤酒愛好者！')
+                $('.my-beertype button.not-getachieve').addClass('d-none')
+            }
+        }
+
+        // 酒廠達標
+        if ($('.brand-items .get').length >= 8 && $('.type-items .get').length < 16) {
+            if (a_data.accum_brand == 0) {
+                $('.my-brand .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
+                $('.my-brand button.getachieve').removeClass('d-none')
+                $('.my-brand button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_brand == 1) {
+                $('.my-brand .geta-text').text('集2/3徽章，即可領取優惠喔！')
+            }
+        }
+        if ($('.brand-items .get').length >= 16 && $('.type-items .get').length < 24) {
+            if (a_data.accum_brand == 0) {
+                $('.my-brand .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
+                $('.my-brand button.getachieve').removeClass('d-none')
+                $('.my-brand button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_brand == 1) {
+                $('.my-brand .geta-text').addClass('ispink').text('已成功2/3完成，點選領取獎勵！')
+                $('.my-brand button.getachieve').removeClass('d-none')
+                $('.my-brand button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_brand == 2) {
+                $('.my-brand .geta-text').text('集完全部徽章，即可領取優惠喔！')
+            }
+        }
+        if ($('.brand-items .get').length == 24) {
+            if (a_data.accum_brand == 0) {
+                $('.my-brand .geta-text').addClass('ispink').text('已成功1/3完成，點選領取獎勵！')
+                $('.my-brand button.getachieve').removeClass('d-none')
+                $('.my-brand button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_brand == 1) {
+                $('.my-brand .geta-text').addClass('ispink').text('已成功2/3完成，點選領取獎勵！')
+                $('.my-brand button.getachieve').removeClass('d-none')
+                $('.my-brand button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_brand == 2) {
+                $('.my-brand .geta-text').addClass('ispink').text('已成功集完類型，點選領取獎勵！')
+                $('.my-brand button.getachieve').removeClass('d-none')
+                $('.my-brand button.not-getachieve').addClass('d-none')
+                $('.haveachieve').fadeIn(150)
+            }
+            if (a_data.accum_brand == 3) {
+                $('.my-brand .geta-text').addClass('ispink').text('已成功集完類型，你就是啤酒愛好者！')
+                $('.my-brand button.not-getachieve').addClass('d-none')
+            }
+        }
+
+        // 評價
+        if (a_data.accum_comment == 1) {
+            $('.my-comment-a .c-title').text('目前累積')
+            $('.my-comment-a .num').text('1筆')
+            $('.my-comment-a .mycircle').addClass('c-30')
+            $('.my-comment-a .geta-text').text('距離領獎還差2筆，加油！')
+        }
+        if (a_data.accum_comment == 2) {
+            $('.my-comment-a .c-title').text('目前累積')
+            $('.my-comment-a .num').text('2筆')
+            $('.my-comment-a .mycircle').addClass('c-60')
+            $('.my-comment-a .geta-text').text('距離領獎還差1筆，加油！')
+        }
+        if (a_data.accum_comment == 3) {
+            $('.my-comment-a .c-title').text('累積3筆')
+            $('.my-comment-a .num').text('達標!')
+            $('.my-comment-a .achieveitem-box').addClass('get')
+            $('.my-comment-a button.getachieve').removeClass('d-none')
+            $('.my-comment-a button.not-getachieve').addClass('d-none')
+            $('.my-comment-a .geta-text').addClass('ispink').text('點選下方領取獎勵！')
+            $('.haveachieve').fadeIn(150)
+        }
+
+        // 贊助
+        if (a_data.accum_fund == 1) {
+            $('.my-fund-a .c-title').text('目前累積')
+            $('.my-fund-a .num').text('1筆')
+            $('.my-fund-a .mycircle').addClass('c-30')
+            $('.my-fund-a .geta-text').text('距離領獎還差2筆，加油！')
+        }
+        if (a_data.accum_fund == 2) {
+            $('.my-fund-a .c-title').text('目前累積')
+            $('.my-fund-a .num').text('2筆')
+            $('.my-fund-a .mycircle').addClass('c-60')
+            $('.my-fund-a .geta-text').text('距離領獎還差1筆，加油！')
+        }
+        if (a_data.accum_fund == 3) {
+            $('.my-fund-a .c-title').text('累積3筆')
+            $('.my-fund-a .num').text('達標!')
+            $('.my-fund-a .achieveitem-box').addClass('get')
+            $('.my-fund-a button.getachieve').removeClass('d-none')
+            $('.my-fund-a button.not-getachieve').addClass('d-none')
+            $('.my-fund-a .geta-text').addClass('ispink').text('點選下方領取獎勵！')
+            $('.haveachieve').fadeIn(150)
+        }
+
+        // 預約
+        if (a_data.accum_event == 1) {
+            $('.my-event-a .c-title').text('目前累積')
+            $('.my-event-a .num').text('1筆')
+            $('.my-event-a .mycircle').addClass('c-30')
+            $('.my-event-a .geta-text').text('距離領獎還差2筆，加油！')
+        }
+        if (a_data.accum_event == 2) {
+            $('.my-event-a .c-title').text('目前累積')
+            $('.my-event-a .num').text('2筆')
+            $('.my-event-a .mycircle').addClass('c-60')
+            $('.my-event-a .geta-text').text('距離領獎還差1筆，加油！')
+        }
+        if (a_data.accum_event == 3) {
+            $('.my-event-a .c-title').text('累積3筆')
+            $('.my-event-a .num').text('達標!')
+            $('.my-event-a .achieveitem-box').addClass('get')
+            $('.my-event-a button.getachieve').removeClass('d-none')
+            $('.my-event-a button.not-getachieve').addClass('d-none')
+            $('.my-event-a .geta-text').addClass('ispink').text('點選下方領取獎勵！')
+            $('.haveachieve').fadeIn(150)
+        }
+
+
+
+
+    }
+
+    // 領取獎勵
+    function getmyachivement(mygenre) {
+        let a_btn = $(event.currentTarget)
+        let discount = a_btn.attr('data-discount')
+        let percent = a_btn.attr('data-percent')
+        let genre = mygenre
+
+        $('.achieve-pop-up').fadeIn(150)
+        $('.achieve-pop-up .pop-up-discount').text(discount)
+        $('.achieve-pop-up .pop-up-percent span').text(percent)
+
+        $.get('member-achieve-api.php', {
+            genre,
+            discount,
+            percent
+        }, function(data) {
+            // console.log(data)
+        }, 'json')
+
+        $('.achieve-pop-up .a-ok').on('click', function() {
+            $('.achieve-pop-up').fadeOut(150)
+            location.href = 'member.php?memberAchievement'
+        })
+
+    }
 
 
     // -------------------------------------------------------------
