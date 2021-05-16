@@ -477,7 +477,7 @@
 
 /* ----------------購物車小字------------------ */
 
-        .cart-pnum {
+        .beeru-nav-bar .cart-pnum {
             position: absolute;
             bottom: 0;
             right: -10px;
@@ -490,6 +490,37 @@
             line-height: 15px;
             text-align: center;
         }
+
+
+
+/* ----------------禮物小圖---------------------- */
+        .beeru-nav-bar .havegift {
+            position: absolute;
+            bottom: -10px;
+            right: -5px;
+            color: var(--red);
+            font-size: 1.4rem;
+            animation-name: bigbig;
+            animation-duration: .5s;
+            animation-iteration-count: infinite;
+            display: none;
+            cursor: pointer;
+        }
+
+
+@keyframes bigbig {
+    0% {
+        transform: scale(1) rotate(10deg);   
+    }
+    50% {
+        transform: scale(1.1) rotate(10deg);   
+    }
+    100% {
+        transform: scale(1) rotate(10deg);   
+    }
+}
+
+
 
 
 

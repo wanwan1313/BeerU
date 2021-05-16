@@ -31,7 +31,7 @@
                 </ul>
                 <!-- 會員&搜尋 -->
                 <ul class="nav-bar-member list-unstyled d-flex ">
-                    
+
                     <!-- 搜尋 -->
                     <input type="text" id="search" name="search" class="search-bar" placeholder="找啤酒">
                     <li class="search"><i class="fas fa-search"></i></li>
@@ -41,26 +41,29 @@
                         <li class="shopping-cart"><a href="cart-list.php"><img src="<?= WEB_ROOT ?>/images/common/icon_shopbag.svg" alt=""></a></li>
                         <span class="cart-pnum d-none"></span>
                     </div>
-                    
-                 
-                     <!-- 登入後頭像 -->
-
-                     <?php if(isset($_SESSION['user'])): ?>
-
-                     <p name=Logout class="logout d-none d-lg-block" onclick="Logout(); return false;" >LOG OUT</p> 
-
-                     <li class="user-pic"><a href="member.php"><img src="<?= WEB_ROOT ?>/images/user/<?= htmlentities($_SESSION['user']['user-pic'])?>" alt=""></a></li>
 
 
-                    
-                    <?php else: ?>
-                    <!-- 未登入按鈕 --> 
-                   <li class="user-login"><a href="javascript: "><img src="<?= WEB_ROOT ?>/images/common/icon_member.svg" alt=""></a></li> 
+                    <!-- 登入後頭像 -->
 
-             
-                   <?php endif ?>
+                    <?php if (isset($_SESSION['user'])) : ?>
 
-                
+                        <p name=Logout class="logout d-none d-lg-block" onclick="Logout(); return false;">LOG OUT</p>
+
+                        <li class="user-pic">
+                            <a href="member.php"><img src="<?= WEB_ROOT ?>/images/user/<?= htmlentities($_SESSION['user']['user-pic']) ?>" alt=""></a>
+                            <div class="havegift"><i class="fas fa-gift"></i></div>
+                        </li>
+
+
+
+                    <?php else : ?>
+                        <!-- 未登入按鈕 -->
+                        <li class="user-login"><a href="javascript: "><img src="<?= WEB_ROOT ?>/images/common/icon_member.svg" alt=""></a></li>
+
+
+                    <?php endif ?>
+
+
                 </ul>
             </div>
         </div>
