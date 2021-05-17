@@ -166,41 +166,75 @@ $(function () {
 
 
 
-
-    // $('.btn_attention_be').on('click',function () {
-    //     let tsid = $(this).parent().prev('.product-tag').find('p').attr('data-cate')
-    //     // console.log(tsid)
-
-    //     $.get('member-attention-api.php',{'action':'add','tsid':tsid},function(data){
-    //         // console.log(data)
-    //         $('.pop-up-1').fadeIn(150)
-    //         $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
-    //         $('.pop-up-1 .pop-up-text').text(data.msg)
-    //     }, 'json')
-    //     $(this).addClass('d-none')
-    //     $(this).next().removeClass('d-none')
-    // })
-    
-    // $('.btn_attention_active').on('click',function () {
-    //     let tsid = $(this).parent().prev('.product-tag').find('p').attr('data-cate')
-    //     console.log(tsid)
-
-    //     $.get('member-attention-api.php',{'action':'delete','tsid':tsid},function(data){
-    //         // console.log(data)
-    //         $('.pop-up-1').fadeIn(150)
-    //         $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
-    //         $('.pop-up-1 .pop-up-text').text(data.msg)
-    //     }, 'json')
-    //     $(this).addClass('d-none')
-    //     $(this).prev().removeClass('d-none')
-    // })
-
-
     // -------------------------------------------------------------
     // 彈跳視窗
     $('button.ok').on('click', function () {
         $('.general-pop-up').fadeOut(150)
     })
+
+
+    // --------------------------------------------------------------
+    // banner自動輪播
+
+    let index = 0;
+    $('.all-product .product-banner-box').eq(0).addClass('w-opacity-1')
+
+    if ($('.all-product .product-banner-box').eq(0).hasClass('w-opacity-1')) {
+        $('.all-product .product-banner-box').eq(0).find('.product-banner-intro p').addClass('anima-on')
+        $('.all-product .product-banner-box').eq(0).find('.product-banner-intro a').addClass('anima-on')
+        $('.all-product .product-banner-box').eq(0).find('.product-banner-pic img').addClass('anima-on')
+    }
+
+    setInterval(() => {
+        index = index + 1;
+        if (index > 1) {
+            index = 0
+        }
+        $('.all-product .product-banner-box').eq(index).addClass('w-opacity-1').siblings().removeClass('w-opacity-1')
+        if ($('.all-product .product-banner-box').eq(index).hasClass('w-opacity-1')) {
+            $('.all-product .product-banner-box').eq(index).find('.product-banner-intro p').addClass('anima-on')
+            $('.all-product .product-banner-box').eq(index).find('.product-banner-intro a').addClass('anima-on')
+            $('.all-product .product-banner-box').eq(index).find('.product-banner-pic').addClass('anima-on')
+            $('.all-product .product-banner-box').eq(index).find('.product-banner-pic img').addClass('anima-on')
+            $('.all-product .product-banner-box').eq(index).siblings().find('.product-banner-intro p').removeClass('anima-on')
+            $('.all-product .product-banner-box').eq(index).siblings().find('.product-banner-intro a').removeClass('anima-on')
+            $('.all-product .product-banner-box').eq(index).siblings().find('.product-banner-pic').removeClass('anima-on')
+            $('.all-product .product-banner-box').eq(index).siblings().find('.product-banner-pic img').removeClass('anima-on')
+        }
+    }, 6000);
+
+
+
+    // ----------------------------element scrollin視窗滾動-----------------------------//
+
+    $(window).scroll(function () {
+
+        // 桌機板 width > 992
+        if ($(window).width() >= 992) {
+
+            let userScrollTop = $(window).scrollTop()
+            let halfWindowHeight = $(window).height() / 4 * 3
+            $('.w-scrollin-start').each(function () {
+                let elemPos = $(this).offset().top
+                if (elemPos < userScrollTop + halfWindowHeight) {
+                    $(this).addClass('w-scrollin-on')
+                }else{
+                    $(this).removeClass('w-scrollin-on')
+                }
+            })
+            $('.w-scrollin-anima').each(function () {
+                let elemPos = $(this).offset().top
+                if (elemPos < userScrollTop + halfWindowHeight) {
+                    $(this).addClass('w-scrollin-on animate__animated animate__flipInX')
+                }else{
+                    $(this).removeClass('w-scrollin-on animate__animated animate__flipInX')
+                }
+            })
+
+        }
+
+    })
+
 
 
 
