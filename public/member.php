@@ -1793,7 +1793,7 @@ if (isset($_SESSION['user'])) {
                     $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
                     $('.pop-up-1 .pop-up-text').text('造型已更換');
                     $('button.ok').on('click', function () {
-                        location.reload();
+                        location.href ='member.php';
                     })
 
                 }else{
