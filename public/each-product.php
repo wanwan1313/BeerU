@@ -136,7 +136,7 @@ if ($psid != 0) {
     <!-- 麵包屑 -->
     <div class="beeru-breadcrumb d-none d-lg-flex animate__animated animate__fadeInDown">
         <p><a href="">首頁</a> ｜</p>
-        <p><a href="all-product.php">全部酒款</a> ｜ </p>
+        <p><a href="all-product.php?cate=0&page=1&hot=0&order=1">全部酒款</a> ｜ </p>
         <?php if ($come_cate <= 4) : ?>
         <?php elseif ($come_cate >= 5 and $come_cate <= 28) : ?>
             <p><a href="all-product.php?cate=<?= $row['brand_sid'] ?>"><?= $row['brand_name'] ?></a> ｜ </p>
