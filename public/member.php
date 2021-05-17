@@ -281,7 +281,7 @@ if (isset($_SESSION['user'])) {
                                                 </div>
                                             </div>
                                             <div class="col-12 userpic-button-wrap d-flex justify-content-center">
-                                                <button class="btn_confirm-pic">完成送出</button>
+                                                <button class="btn_confirm-pic" onclick="selectPic()">完成送出</button>
                                                 <button class="btn_cancal-pic">取消編輯</button>
                                             </div>
                                         </div>
@@ -1771,6 +1771,60 @@ if (isset($_SESSION['user'])) {
         SelectShow.attr('data-pic', `${myIndex}.svg`)
         SelectShow.find('img').attr('src', `../images/user/${myIndex}.svg`)
     })
+
+
+
+    //選擇頭貼
+    function selectPic(){
+
+        let $data_pic = $('.myselectpic').attr("data-pic")
+
+        // console.log(data_pic);
+
+        $.get(
+            'Select-headpic-api.php',
+            {data_pic: $data_pic},
+
+            function(data){
+                if(data.success){
+
+                    $('.LogIn-Sign').fadeOut(100);
+                    $('.pop-up-1').fadeIn(150);
+                    $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+                    $('.pop-up-1 .pop-up-text').text('造型已更換');
+                    $('button.ok').on('click', function () {
+                        location.reload();
+                    })
+
+                }else{
+
+                    $('.pop-up-1').fadeIn(150);
+                    $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color', 'var(--red)')
+                    $('.pop-up-1 .pop-up-text').text('造型沒變');
+                    $('button.ok').on('click', function() {
+
+                        $('.pop-up-1').fadeOut(150);
+
+                    })
+
+
+
+                }
+
+
+            },'json'
+
+
+        )
+
+
+
+    }
+
+
+
+
+
 
 
     // 會員資料功能---- 編輯資料&重設密碼-----------------------------------------------------------------------
