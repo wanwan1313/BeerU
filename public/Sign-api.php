@@ -66,6 +66,8 @@ if($check_code == $check_number){
         $_SESSION['user']['user-pic']= 'user-pipi.svg';
         $_SESSION['user']['sid'] = $m_sid;
 
+        unset($_SESSION['check-user']);
+
 
         $output['member_id']= $m_sid; //註冊時的會員ID
         $output['achieve'] = $ac_stmt; //成就系統的資料表
