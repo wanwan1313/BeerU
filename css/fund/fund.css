@@ -228,7 +228,7 @@
         animation: loading-1 1.8s linear forwards
     }
     .progress .progress-value {
-        font-family: 'Noto San TC';
+        font-family: 'Noto Sans TC';
         width: 90%;
         height: 90%;
         border-radius: 50%;
@@ -283,11 +283,11 @@
         margin-top: 5%;
     }
     .fund .goal .current-value h3 {
-        font-family: 'Noto San TC';
+        font-family: 'Noto Sans TC';
         font-size: 2.0rem;
     }
     .fund .goal .goal-value p {
-        font-family: 'Noto San TC';
+        font-family: 'Noto Sans TC';
         font-size: 1.7rem;
     }
     .fund .goal .goal-value .goal-title {
@@ -295,8 +295,8 @@
         font-size: 1.7rem;
     }
     /* 加入關注按鈕 */
-    .btn_attention {
-        /* margin-left: 10%; */
+.fund-wrap-1 .btn_attention {
+
         margin-top: 20%;
         font-family: 'Noto Serif TC', serif;
         color: var(--gold);
@@ -308,14 +308,14 @@
         cursor: pointer;
         transition: .3s;
     }
-    .btn_attention i, .btn_attention_active i {
+    .fund-wrap-1 .btn_attention i, .btn_attention_active i {
         margin: 5px;
     }
-    .btn_attention:hover {
+    .fund-wrap-1 .btn_attention:hover {
         background-color: var(--gold);
         color: #fff;
     }
-    .btn_attention_active {
+    .fund-wrap-1 .btn_attention_active {
         font-family: 'Noto Serif TC', serif;
         color: #fff;
         font-size: 1.8rem;
@@ -326,11 +326,14 @@
         cursor: pointer;
         transition: .3s;
     }
-    .btn_attention_active:hover {
+    .fund-wrap-1 .btn_attention_active:hover {
         background-color: #fff;
         color: var(--gold);
     }
-    /* 我要贊助按鈕 */
+
+    
+    /* -----我要贊助按鈕--------- */
+    
     .btn_fundnow {
         /* margin-left: 20%; */
         margin-top: 5%;
@@ -458,7 +461,7 @@
         animation: loading-1 1.8s linear forwards
     }
     .progress .progress-value {
-        font-family: 'Noto San TC';
+        font-family: 'Noto Sans TC';
         width: 90%;
         height: 90%;
         border-radius: 50%;
@@ -509,16 +512,16 @@
     }
     /* 募資目標 */
     .fund .goal {
-        font-family: 'Noto San TC';
+        font-family: 'Noto Sans TC';
         margin-top: 20%;
         color: var(--blue);
     }
     .fund .goal .current-value h3 {
-        font-family: 'Noto San TC';
+        font-family: 'Noto Sans TC';
         font-size: 2.4rem;
     }
     .fund .goal .goal-value p {
-        font-family: 'Noto San TC';
+        font-family: 'Noto Sans TC';
         font-size: 1.8rem;
     }
     .fund .goal .goal-value .goal-title {
@@ -828,7 +831,7 @@
 
 /* fund-sucess */
 
-/*------------ 過去成功案例 ------------ */
+/*------------ 過去成功計畫 ------------ */
 
 /* 桌機版 */
 
@@ -895,12 +898,14 @@
 @media (min-width: 992px) {
     .beer-product.product-1, .beer-product.product-2, .beer-product.product-3 {
         flex-direction: column;
+        text-align: center;
     }
+
     /* 商品圖片 */
     .beer-product .pro-pic {
-        width: 100%;
-        min-width: 150px;
-        max-width: 200px;
+        width: 20%;
+        min-width: 200px;
+        max-width: 250px;
         background-color: #fff;
         margin: 0 auto;
         height: 200px;
@@ -908,11 +913,19 @@
         border-radius: 20px;
         position: relative;
     }
-    .beer-product .pro-pic>img {
+    .pro-pic .beer-pic {
         width: 100%;
         height: 100%;
         object-fit: contain;
+        transition: .6s;
     }
+
+    .p-name .p-name-c,
+    .p-name .p-name-e {
+        color: #fff;
+
+    }
+ 
     /* new標籤 */
     .beer-product .new-label {
         font-size: 1.3rem;
@@ -983,12 +996,8 @@
     .beer-product .pro-intro {
         width: 100%;
         width: 320px;
-        /* background-color: var(--gold); */
         border-radius: 10px;
-        margin-left: 12%;
-        /* margin: -20px auto 0; */
-        /* padding: 40px 20px 15px; */
-        /* height: 200px; */
+        margin-left: 7%;
         font-family: 'Noto sans TC', serif;
     }
     /* 品名 */
@@ -1009,16 +1018,10 @@
 /* 手機版 */
 
 @media (max-width: 991px) {
-    /* .beer-product.product-1,
-    .beer-product.product-2,
-    .beer-product.product-3 {
-        flex-direction: column;
-    } */
-    /* 商品圖片 */
     .beer-product .pro-pic {
-        width: 100%;
-        min-width: 150px;
-        max-width: 200px;
+        width: 20%;
+        min-width: 200px;
+        max-width: 250px;
         background-color: #fff;
         margin: 0 auto;
         height: 200px;
@@ -1026,11 +1029,13 @@
         border-radius: 20px;
         position: relative;
     }
-    .beer-product .pro-pic>img {
+    .pro-pic .beer-pic {
         width: 100%;
         height: 100%;
         object-fit: contain;
+        transition: .6s;
     }
+
     /* new標籤 */
     .beer-product .new-label {
         font-size: 1.3rem;
@@ -1126,7 +1131,7 @@
         font-family: 'Noto Serif TC', serif;
         font-size: 2rem;
         font-weight: bold;
-        margin-left: 35%;
+        margin-left: 38%;
         margin-bottom: 10%;
         position: relative;
         width: fit-content;
