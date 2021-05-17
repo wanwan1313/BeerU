@@ -1,0 +1,178 @@
+/* banner動畫的部分 */
+
+.all-product .product-banner-intro p.anima-on, .product-banner-intro a.anima-on{
+    animation-name: w-objtoleft;
+    animation-duration: 5s;
+}
+
+.all-product .product-banner-pic img.anima-on {
+    animation-name: w-objtoright;
+    animation-duration: 5s;
+}
+
+.all-product .product-banner-01 .product-banner-pic::before {
+    animation-name: w-rotate;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.all-product .product-banner-01 .product-banner-pic::after {
+    animation-name: w-objtodown;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+.all-product .product-banner-01 .product-banner-intro::before {
+    animation-name: w-objtoup;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+}
+
+@keyframes w-objtoleft {
+    0% {
+        transform: translateX(50px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes w-objtoright {
+    0% {
+        transform: translateX(-50px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes w-rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes w-objtodown {
+    0% {
+        transform: rotate(0deg);
+        transform-origin: 0 10%;
+    }
+    50% {
+        transform: rotate(-5deg);
+        transform-origin: 0 10%;
+        
+    }
+    100% {
+        transform: rotate(0deg);
+        transform-origin: 0 10%;
+    }
+}
+
+@keyframes w-objtoup {
+    0% {
+        transform: rotate(0);
+        transform-origin: 80% 100%;
+    }
+    50% {
+        transform: rotate(5deg);
+        transform-origin: 80% 100%;
+    }
+    100% {
+        transform: rotate(0);
+        transform-origin: 80% 100%;
+    }
+}
+
+
+.all-product .product-banner-02 .product-banner-pic::before {
+    animation-name: w-objtupdown;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    
+}
+
+.all-product .product-banner-02 .product-banner-pic.anima-on::after {
+    animation-name: w-objtodown2;
+    animation-duration: 6s;
+}
+
+.all-product .product-banner-02 .product-banner-intro::before {
+    animation-name: w-objtoup2;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+}
+
+
+@keyframes w-objtupdown {
+    0% {
+        transform: rotate(0) translateY(-10px);
+        
+    }
+    50% {
+        transform: rotate(5deg) translateY(0);
+        
+    }
+    100% {
+        transform: rotate(0) translateY(-10px);
+        
+    }
+}
+
+@keyframes w-objtodown2 {
+    0% {
+        transform: rotate(180deg);
+        transform-origin: 0 0;
+    }
+    50% {
+        transform: rotate(-10deg);
+        transform-origin: 0 0;
+        
+    }
+    100% {
+        transform: rotate(0);
+        transform-origin: 0 0;
+    }
+}
+
+@keyframes w-objtoup2 {
+    0% {
+        transform: rotate(0);
+        transform-origin: 100% 40%;
+    }
+    50% {
+        transform: rotate(-10deg);
+        transform-origin: 100% 40%;
+    }
+    100% {
+        transform: rotate(0);
+        transform-origin: 100% 40%;
+    }
+}
+
+
+/* 下方商品區塊簡單動畫 */
+
+/* 往上滑動出現 */
+.w-scrollin-start {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: .5s;
+}
+
+.w-scrollin-anima {
+    opacity: 0;
+    transition: .5s;
+}
+
+.w-scrollin-on {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+

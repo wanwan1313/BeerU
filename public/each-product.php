@@ -117,6 +117,7 @@ if ($psid != 0) {
 <!-- 包含自己的css和js -->
 
 <link rel="stylesheet" href="../css/all-product/each-product-style.css">
+<link rel="stylesheet" href="../css/all-product/each-product-anima.css">
 
 
 
@@ -133,7 +134,7 @@ if ($psid != 0) {
 <section class="each-product">
 
     <!-- 麵包屑 -->
-    <div class="beeru-breadcrumb d-none d-lg-flex">
+    <div class="beeru-breadcrumb d-none d-lg-flex animate__animated animate__fadeInDown">
         <p><a href="">首頁</a> ｜</p>
         <p><a href="all-product.php">全部酒款</a> ｜ </p>
         <?php if ($come_cate <= 4) : ?>
@@ -157,19 +158,19 @@ if ($psid != 0) {
                     <p class="c-name-m"><?= $row['c_name'] ?></p>
                     <p class="e-name-m"><?= $row['e_name'] ?></p>
                 </div>
-                <div class="pic">
+                <div class="pic animate__animated animate__fadeInLeft">
                     <img src="../images/products/<?= $row['pic'] ?>" alt="">
                 </div>
                 <!-- 收藏按鈕 -->
                 <div class="collect">
                     <?php if (!isset($_SESSION['user'])) : ?>
-                        <button class="btn_collect2" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
+                        <button class="btn_collect2 animate__animated animate__fadeIn" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
                     <?php else : ?>
                         <?php if (in_array($psid, $c_arr)) : ?>
-                            <button class="btn_collect2_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
+                            <button class="btn_collect2_active animate__animated animate__fadeIn" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
                             <button class="btn_collect2 d-none" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
                         <?php else : ?>
-                            <button class="btn_collect2" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
+                            <button class="btn_collect2 animate__animated animate__fadeIn" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
                             <button class="btn_collect2_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
                         <?php endif; ?>
                     <?php endif; ?>
@@ -400,12 +401,12 @@ if ($psid != 0) {
 
             <!-- 相關商品 -->
             <div class="row related flex-wrap">
-                <div class="col-12 rpco-title">
+                <div class="col-12 rpco-title w-scrollin-start">
                     <p>相關商品</p>
                 </div>
                 <div class="col-12 d-flex related-p">
                     <!-- 商品BOX -->
-                    <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                    <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap w-scrollin-anima">
                         <div class="beer-product" data-sid=<?= $c_row['sid'] ?> data-price=<?= $c_row['price'] ?> data-abv=<?= $c_row['abv'] ?>>
                             <div class="pro-pic">
                                 <!-- 商品圖 -->
@@ -473,7 +474,7 @@ if ($psid != 0) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                    <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap w-scrollin-anima">
                         <div class="beer-product" data-sid=<?= $t_row['sid'] ?> data-price=<?= $t_row['price'] ?> data-abv=<?= $t_row['abv'] ?>>
                             <div class="pro-pic">
                                 <!-- 商品圖 -->
@@ -541,7 +542,7 @@ if ($psid != 0) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                    <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap w-scrollin-anima">
                         <div class="beer-product" data-sid=<?= $b_row['sid'] ?> data-price=<?= $b_row['price'] ?> data-abv=<?= $b_row['abv'] ?>>
                             <div class="pro-pic">
                                 <!-- 商品圖 -->
@@ -618,18 +619,18 @@ if ($psid != 0) {
 
             <!-- 商品評價 -->
             <div class="row comment flex-wrap justify-content-center">
-                <div class="col-12 rpco-title">
+                <div class="col-12 rpco-title w-scrollin-start">
                     <p>啤女評價</p>
                 </div>
 
                 <?php if ($comment_total > 0) : ?>
-                    <div class="col-12 sub-title d-none d-lg-block">
+                    <div class="col-12 sub-title d-none d-lg-block w-scrollin-start">
                         <p>評論摘要</p>
                     </div>
                     <!-- 分數列表百分比 -->
-                    <div class="col-4 comment-bar d-none d-lg-block">
+                    <div class="col-4 comment-bar d-none d-lg-block w-scrollin-start">
                         <!-- 5分 -->
-                        <div class="comment-score score-5 d-flex align-items-center justify-content-around">
+                        <div class="comment-score score-5 d-flex align-items-center justify-content-around w-scrollin-anima">
                             <div class="score">
                                 <p>5.0分</p>
                             </div>
@@ -641,7 +642,7 @@ if ($psid != 0) {
                             </div>
                         </div>
                         <!-- 4分 -->
-                        <div class="comment-score score-4 d-flex align-items-center justify-content-around">
+                        <div class="comment-score score-4 d-flex align-items-center justify-content-around w-scrollin-anima">
                             <div class="score">
                                 <p>4.0分</p>
                             </div>
@@ -653,7 +654,7 @@ if ($psid != 0) {
                             </div>
                         </div>
                         <!-- 3分 -->
-                        <div class="comment-score score-3 d-flex align-items-center justify-content-around">
+                        <div class="comment-score score-3 d-flex align-items-center justify-content-around w-scrollin-anima">
                             <div class="score">
                                 <p>3.0分</p>
                             </div>
@@ -665,7 +666,7 @@ if ($psid != 0) {
                             </div>
                         </div>
                         <!-- 2分 -->
-                        <div class="comment-score score-2 d-flex align-items-center justify-content-around">
+                        <div class="comment-score score-2 d-flex align-items-center justify-content-around w-scrollin-anima">
                             <div class="score">
                                 <p>2.0分</p>
                             </div>
@@ -677,7 +678,7 @@ if ($psid != 0) {
                             </div>
                         </div>
                         <!-- 1分 -->
-                        <div class="comment-score score-1 d-flex align-items-center justify-content-around">
+                        <div class="comment-score score-1 d-flex align-items-center justify-content-around w-scrollin-anima">
                             <div class="score">
                                 <p>1.0分</p>
                             </div>
@@ -690,8 +691,8 @@ if ($psid != 0) {
                         </div>
                     </div>
                     <!-- 分數總攬 -->
-                    <div class="col-7 col-lg-4 score-general d-flex flex-lg-column jusyify-content-lg-start align-items-lg-center">
-                        <p class="average-score"><?= $averageScore ?></p>
+                    <div class="col-7 col-lg-4 score-general d-flex flex-lg-column jusyify-content-lg-start align-items-lg-center w-scrollin-start">
+                        <p class="average-score w-scrollin-anima"><?= $averageScore ?></p>
                         <div class="other d-flex flex-column jusyify-content-start align-items-center">
                             <div class="beer-score d-flex">
                                 <img src="../images/common/beerscore-<?= $averageScore_int ?>.svg" alt="">
@@ -700,11 +701,11 @@ if ($psid != 0) {
                         </div>
                     </div>
                     <!-- 使用者評論 -->
-                    <div class="col-12 col-lg-8 comments-for-product">
+                    <div class="col-12 col-lg-8 comments-for-product w-scrollin-start">
 
                         <?php foreach ($comment_row as $c) : ?>
                             <!-- 留言BOX -->
-                            <div class="user-comment d-flex flex-column">
+                            <div class="user-comment d-flex flex-column ">
                                 <div class="user-imfo d-flex align-items-center justify-content-center justify-content-lg-start">
                                     <div class="col-4 col-lg-2 user-img"><img src="../images/user/<?= $c['user-pic'] ?>" alt=""></div>
                                     <div class="col-8 col-lg-10 user-name">
@@ -724,8 +725,8 @@ if ($psid != 0) {
                         <?php endforeach; ?>
 
                     <?php else : ?>
-                        <p class="col-12 empty-comment">目前尚無愛好者的評價</p>
-                        <div class="col-8 col-lg-3 empty-beer">
+                        <p class="col-12 empty-comment w-scrollin-start">目前尚無愛好者的評價</p>
+                        <div class="col-8 col-lg-3 empty-beer w-scrollin-start">
                             <img src="../images/common/combuy.svg" alt="">
                         </div>
                     <?php endif; ?>
@@ -882,6 +883,84 @@ if ($psid != 0) {
     $('button.ok').on('click', function() {
         $('.general-pop-up').fadeOut(150)
     })
+
+
+    // ------------------------------------------------------------
+    // ----------------------------element scrollin視窗滾動-----------------------------//
+    $(window).scroll(function() {
+
+        // 桌機板 width > 992
+        if ($(window).width() >= 992) {
+
+            let userScrollTop = $(window).scrollTop()
+            let halfWindowHeight = $(window).height() / 4 * 3
+            $('.w-scrollin-start').each(function() {
+                let elemPos = $(this).offset().top
+                if (elemPos < userScrollTop + halfWindowHeight) {
+                    $(this).addClass('w-scrollin-on')
+                } else {
+                    $(this).removeClass('w-scrollin-on')
+                }
+            })
+
+        }
+
+        if ($('.rpco-title').hasClass('w-scrollin-on')) {
+            setTimeout(function() {
+                let beer_i = 0
+                $('.beer-product-wrap').eq(0).addClass('animate__animated animate__flipInX').css('opacity', '1')
+                var bt = setInterval(function() {
+                    beer_i = beer_i + 1;
+                    $('.beer-product-wrap').eq(beer_i).addClass('animate__animated animate__flipInX').css('opacity', '1')
+                    if (beer_i == 2) {
+                        clearInterval(bt)
+                    }
+                }, 150);
+            }, 300)
+        } else {
+            $('.beer-product-wrap').removeClass('animate__animated animate__flipInX').css('opacity', '0')
+        }
+
+        if ($('.score-general').hasClass('w-scrollin-on')) {
+            setTimeout(function() {
+                $('.average-score').addClass('animate__animated animate__bounceIn').css('opacity', '1')
+            }, 100)
+        } else {
+            $('.average-score').removeClass('animate__animated animate__bounceIn').css('opacity', '0')
+        }
+
+        if ($('.comment-bar').hasClass('w-scrollin-on')) {
+            setTimeout(function() {
+                let score_i = 0
+                $('.comment-score').eq(0).addClass('animate__animated animate__fadeInDown').css('opacity', '1')
+                var st = setInterval(function() {
+                    score_i = score_i + 1;
+                    $('.comment-score').eq(score_i).addClass('animate__animated animate__fadeInDown').css('opacity', '1')
+                    if (score_i == 4) {
+                        clearInterval(st)
+                    }
+                }, 50);
+            }, 100)
+        } else {
+            $('.comment-score').removeClass('animate__animated animate__fadeInDown').css('opacity', '0')
+        }
+
+
+
+    })
+
+
+    // 動畫--------------------------------------------------------------------------------
+    // 產品關鍵字
+    let key_i = 0
+    $('.key-content').eq(0).addClass('anima-on')
+    var key_t = setInterval(function() {
+        key_i = key_i + 1;
+        $('.key-content').eq(key_i).addClass('anima-on')
+        if (key_i == 3) {
+            clearInterval(key_t)
+        }
+    }, 150);
 </script>
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>

@@ -19,7 +19,7 @@ $total_merch =  $pdo->query($merch_SQL)->fetchAll();
 ?>
 
 
-<div class="product-category " style="display:none">
+<div class="product-category w-scrollin-start" style="display:none">
 
     <div class="trigger on"><span></span></div>
 
@@ -133,5 +133,7 @@ $total_merch =  $pdo->query($merch_SQL)->fetchAll();
         </div>
     </div>
 
-    <div class="menu-logo-wrap"><a href=""><div class="menu-logo"><img src="/BeerU/images/logo/logo_beeru_white.svg" alt=""></div></a></div>
+    <div class="menu-logo-wrap"><a href="">
+            <div class="menu-logo"><img src="/BeerU/images/logo/logo_beeru_white.svg" alt=""></div>
+        </a></div>
 </div>

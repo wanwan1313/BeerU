@@ -1,0 +1,74 @@
+/* 往上滑動出現 */
+.w-scrollin-start {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: .5s;
+}
+
+.w-scrollin-anima {
+    opacity: 0;
+    transition: .5s;
+}
+
+.w-scrollin-on {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+/* ------------------------------------------------------ */
+
+
+.each-product .e-product-intro .pro-name {
+    animation: w-objshow .5s .3s;
+    animation-fill-mode: forwards;
+}
+
+.each-product .e-product-intro .c-pic {
+    animation: bounce;
+    animation-duration: 1s;
+    animation-delay: .3s;
+}
+
+.each-product .e-product-intro .intro-text {
+    animation: w-objshow .5s .5s;
+    animation-fill-mode: forwards;
+}
+
+.each-product .e-product-intro .p-buy {
+    animation: w-objshow .5s .7s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes w-objshow {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
+.each-product .e-product-intro .key-content.anima-on {
+    animation: transformbig .3s 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes transformbig {
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0.6;
+        transform: scale(1.15, 1.15);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+

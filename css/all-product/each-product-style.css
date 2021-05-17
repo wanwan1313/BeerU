@@ -189,6 +189,7 @@
             font-size: 2.6rem;
             font-weight: bold;
             line-height: 3.6rem;
+            opacity: 0
         }
 
         .each-product .e-product-intro .pro-name>p:nth-of-type(1) {
@@ -253,6 +254,7 @@
             margin: 5% 0;
             width: 90%;
             font-size: 1.7rem;
+            opacity: 0;
         }
 
         /* 手機版 */
@@ -270,6 +272,7 @@
         .each-product .e-product-intro .p-buy {
             width: 100%;
             max-width: 300px;
+            opacity: 0;
         }
 
         .each-product .e-product-intro .quantity {
@@ -353,6 +356,7 @@
         .each-product .e-product-intro .key-content {
             margin-right: 20px;
             margin-bottom: 20px;
+            opacity: 0;
         }
 
         .each-product .e-product-intro .title {
@@ -640,7 +644,7 @@
             right: 20px;
         }
 
-        .each-product .btn_collect, .btn_collect_active {
+        .each-product .btn_collect, .btn_collect_active, .btn_collect_nologin {
             background-color: transparent;
             border: none;
             color: var(--red);
@@ -650,11 +654,11 @@
             transition: .3s;
         }
 
-        .each-product .btn_collect:hover, .btn_collect_active:hover {
+        .each-product .btn_collect:hover, .btn_collect_active:hover ,.btn_collect_nologin:hover {
             transform: scale(1.1,1.1);
         }
 
-        .each-product .btn_collect::after {
+        .each-product .btn_collect::after, .btn_collect_nologin::after {
             content: '加入收藏';
             display: block;
             position:absolute;
@@ -666,7 +670,7 @@
             transition: .3s;
         }
 
-        .each-product .btn_collect:hover::after {
+        .each-product .btn_collect:hover::after, .btn_collect_nologin:hover::after {
             color: var(--red);
         }
 
@@ -831,6 +835,7 @@
             font-weight: bold;
             line-height:5rem;
             margin-bottom: 15px;
+            color: var(--red);
         }
         .each-product .beer-score {
             width: 100%;
@@ -851,6 +856,7 @@
             font-weight: bold;
             line-height:6rem;
             margin-right: 20px;
+            color: var(--red);
         }
         .each-product .beer-score {
             width: 100%;

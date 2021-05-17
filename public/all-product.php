@@ -13,6 +13,7 @@ $page_title = '啤女-精釀啤酒商品';
 <!-- 包含自己的css和js -->
 
 <link rel="stylesheet" href="../css/all-product/all-product-style.css">
+<link rel="stylesheet" href="../css/all-product/all-product-anima.css">
 <script src="../js/all-products/all-products.js" defer></script>
 
 
@@ -32,14 +33,24 @@ $page_title = '啤女-精釀啤酒商品';
     <div class="product-banner d-none d-lg-block">
         <div class="container">
             <div class="row ">
-                <div class="product-banner-01  d-flex align-items-center">
-                    <div class="col-7 product-banner-pic"><img src="../images/products/Heart of Darkness-01.png" alt=""></div>
+                <div class="product-banner-box product-banner-01  d-flex align-items-center">
+                    <div class="col-7 product-banner-pic"><img src="../images/products/Brewlander 01.png" alt=""></div>
                     <div class="col-4 product-banner-intro">
-                        <p>奧斯陸 Oslo<span>血橙印度淡愛爾</span></p>
-                        <p>Blood Orange IPA</p>
-                        <p>這是一款果香味濃郁，相當易飲的美式西岸IPA。使用了滿滿的 Mandarina Bavaria & Cascade
-                            啤酒花，加上帶點甜味的血橙果汁。啤酒花跟血橙的搭配將讓你一飲而盡!</p>
-                        <a href="">
+                        <p>釀酒島主<img src="../images/brands/logo_beer_brewlander.svg" alt=""><span>希望夏日愛爾</span></p>
+                        <p>Brewlander-Hope Summer</p>
+                        <p>HOPE是一款喝了會讓你對明天感到興奮，充滿期待的啤酒，它會讓你想起夏天的太陽與果香飄逸的橘子園！這款夏日愛爾清脆爽口，無論是配著烈日炎炎的午休，或是夕陽西下的泳池畔暢飲都非常合適喔！</p>
+                        <a href="each-product.php?psid=40">
+                            <div class="know-more">了解更多</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="product-banner-box product-banner-02  d-flex align-items-center">
+                    <div class="col-7 product-banner-pic"><img src="../images/products/MT-Dream Speaker.png" alt=""></div>
+                    <div class="col-4 product-banner-intro">
+                        <p>摩登時代<img src="../images/brands/logo_beer_modern times.svg" alt=""><span>作夢也要喝NEIPA</span></p>
+                        <p>Modern Times-Dream Speaker</p>
+                        <p>本酒款在麥芽比例上用盡心機，先層了二稜麥芽與白雪小麥，再層了燕麥片與焦糖泡沫麥芽，聽了就覺得泡沫綿密，酒體肯定滑順乾爽，再層上去芒果，柳橙、萊姆等熱帶果香與多汁口感。</p>
+                        <a href="each-product.php?psid=202">
                             <div class="know-more">了解更多</div>
                         </a>
                     </div>
@@ -78,7 +89,7 @@ $page_title = '啤女-精釀啤酒商品';
                     </div>
 
                     <!-- 產品篩選 -->
-                    <div class="product-filter">
+                    <div class="product-filter w-scrollin-start">
                         <div class="filter-title">
                             <i class="fas fa-filter"></i>
                             <p>商品篩選</p>
@@ -146,13 +157,13 @@ $page_title = '啤女-精釀啤酒商品';
 
 
                 <!-- 右邊商品區塊 -->
-                <div class="col-12 col-lg-9 product-show">
+                <div class="col-12 col-lg-9 product-show ">
                     <!-- 大標 -->
-                    <div class="product-show-title">
+                    <div class="product-show-title w-scrollin-anima ">
                         <p>“ 在啤女，你可以找到<span>一瓶最適合你的精釀啤酒！”</span></p>
                     </div>
                     <!-- 標籤/排序/搜尋 -->
-                    <div class="product-header d-flex">
+                    <div class="product-header d-flex w-scrollin-start">
 
                         <!-- 標籤 -->
                         <div class="col-12 col-lg-6 d-flex align-items-center flex-column flex-lg-row justify-content-center justify-content-lg-start">
@@ -191,7 +202,7 @@ $page_title = '啤女-精釀啤酒商品';
                         </div>
                     </div>
                     <!-- 商品排列 -->
-                    <div class="product-arrang d-flex  flex-wrap">
+                    <div class="product-arrang d-flex  flex-wrap w-scrollin-start">
                         <!-- 單支商品 -->
                     </div>
 
@@ -961,9 +972,9 @@ $page_title = '啤女-精釀啤酒商品';
         product_tag.html('')
         product_tag.append(allproductTag(p_data))
         btn_attention.html('')
-        if( p_data.attention == true ){
+        if (p_data.attention == true) {
             btn_attention.html(btnAttentionTPL2())
-        }else{
+        } else {
             btn_attention.html(btnAttentionTPL())
         }
     }
