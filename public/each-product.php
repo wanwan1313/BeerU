@@ -905,6 +905,23 @@ if ($psid != 0) {
 
         }
 
+        if ($(window).width() < 992) {
+
+            let userScrollTop = $(window).scrollTop()
+            let halfWindowHeight = $(window).height() / 5 * 4
+            $('.w-scrollin-start').each(function() {
+                let elemPos = $(this).offset().top
+                if (elemPos < userScrollTop + halfWindowHeight) {
+                    $(this).addClass('w-scrollin-on')
+                } else {
+                    $(this).removeClass('w-scrollin-on')
+                }
+            })
+
+            
+
+        }
+
         if ($('.rpco-title').hasClass('w-scrollin-on')) {
             setTimeout(function() {
                 let beer_i = 0

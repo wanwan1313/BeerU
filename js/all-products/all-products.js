@@ -226,14 +226,17 @@ $(function () {
                 let elemPos = $(this).offset().top
                 if (elemPos < userScrollTop + halfWindowHeight) {
                     $(this).addClass('w-scrollin-on animate__animated animate__flipInX')
-                }else{
-                    $(this).removeClass('w-scrollin-on animate__animated animate__flipInX')
                 }
             })
 
         }
 
     })
+
+    if ($(window).width() < 992) {
+        $('.w-scrollin-start').removeClass('w-scrollin-start')
+        $('.w-scrollin-anima').addClass('w-scrollin-on animate__animated animate__flipInX')
+    }
 
 
 

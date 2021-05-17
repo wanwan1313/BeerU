@@ -19,7 +19,7 @@ $total_merch =  $pdo->query($merch_SQL)->fetchAll();
 ?>
 
 
-<div class="product-category w-scrollin-start" style="display:none">
+<div class="product-category" style="display:none">
 
     <div class="trigger on"><span></span></div>
 
