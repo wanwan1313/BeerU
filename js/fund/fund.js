@@ -54,37 +54,3 @@ var x = setInterval(function () {
         document.getElementById("countdown").innerHTML = "EXPIRED";
     }
 }, 1000);
-
-
-// -----------------------------------------------------------------
-    // 關注功能
-    // 加入
-
-    btn_attention.on('click','.btn_attention_be',function(){
-        let fsid = 1
-
-        // console.log(fsid)
-
-        $.get('fund-attention-api.php',{'action':'add','fsid':fsid},function(data){
-            // console.log(data)
-            $('.pop-up-1').fadeIn(150)
-            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
-            $('.pop-up-1 .pop-up-text').text(data.msg)
-        }, 'json')
-        $(this).addClass('d-none')
-        $(this).next().removeClass('d-none')
-    })
-    // 取消
-    btn_attention.on('click','.btn_attention_active',function(){
-        let fsid = $(this).parent().prev('.product-tag').find('p').attr('data-cate')
-        console.log(fsid)
-
-        $.get('fund-attention-api.php',{'action':'delete','fsid':fsid},function(data){
-            // console.log(data)
-            $('.pop-up-1').fadeIn(150)
-            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
-            $('.pop-up-1 .pop-up-text').text(data.msg)
-        }, 'json')
-        $(this).addClass('d-none')
-        $(this).prev().removeClass('d-none')
-    })
