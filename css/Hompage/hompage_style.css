@@ -1,6 +1,3 @@
-*{
-    /* outline: solid 1px white; */
-}
 body,html{
     margin: 0;
     padding: 0;
@@ -43,8 +40,8 @@ body,html{
 .LandingPage .colum{
    
    transition:0.8s;
-
-   width: 82px;
+   /* width: 82px; */
+   width: 6%;
    height:calc(100vh - 85px);
 }
 
