@@ -28,12 +28,11 @@ $('.user-login').click(function(){
 
 
     if ($(window).width() >= 992){
-        $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
-
+        $('.log-box').css('width','35%').css('height','60%').css('min-height','494px')
     }
 
     if ($(window).width() < 992){
-    $('.log-box').css('width','90%').css('max-width','338px').css('height','50%').css('min-height','460px').css('transition','.4s');
+    $('.log-box').css('width','90%').css('max-width','338px').css('height','50%').css('min-height','460px')
 
 
     }

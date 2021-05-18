@@ -162,7 +162,10 @@ function SignSubmit(){
                         }
                     
                         if ($(window).width() < 992){
-                            $('.log-box').css('width','60%').css('max-width','210px').css('height','40%').css('transition','.4s')
+                            $('.log-box').css('width','60%').css('min-height','210px').css('height','40%').css('transition','.4s')
+
+
+      
                     
                     
                         }
@@ -197,7 +200,7 @@ function SignSubmit(){
                            
                         
                             if ($(window).width() < 992){
-                                $('.log-box').css('width','90%').css('max-width','473px').css('height','65%').css('transition','.4s');
+                                $('.log-box').css('width','90%').css('min-height','473px').css('height','65%').css('transition','.4s');
 
                              }
 
