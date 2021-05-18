@@ -8,11 +8,13 @@ $page_title = '啤女BeerU:募資計畫-方案確認頁';
 
 //用sid號碼抓方案資料 
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
+// $totalPrice = SELECT * FROM `order_detail` WHERE`fund_sid` > 0;
 
-
-
+// $od_SQL = SELECT * FROM `order_detail` WHERE `fund_sid` > 0 ;
 $f_SQL = "SELECT * FROM `fund` WHERE sid=$sid";
 $f = $pdo->query($f_SQL)->fetch();
+$totalPriceSql = "SELECT SUM(quantity * price) AS `total` FROM `order_detail` WHERE `fund_sid` > 0";
+$rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
 
 
 // if ($sid == 0) {
@@ -34,10 +36,15 @@ $f = $pdo->query($f_SQL)->fetch();
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
 
-<!-- 手機版 -->
-<!-- <section class="mobile-menu">
+<!-- 會員登入 -->
+<?php include __DIR__ . '../../php/common/Login-Sign.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
+
+<section class="mobile-menu">
     <?php include __DIR__ . '../../php/common/category.php' ?>
 </section>
+
 
 <!-- 這裡開始寫html -->
 <section class="fund-step3">
@@ -53,11 +60,11 @@ $f = $pdo->query($f_SQL)->fetch();
                 <div class="product-sub-text d-flex">
                     <div class="goal mt-2">
                         <div class="current-value">
-                            <p>NT$123,180</p>
+                            <p><?= "NT $" . number_format($rowTotalPrice['total'], 0, ".", ",") ?></p>
                         </div>
                         <div class="goal-value">
                             <p><span class="goal-title">目標 |</span>
-                                NT$<?= $f['goal_price'] ?></p>
+                                <?= "NT $" . number_format ($f['goal_price'], 0, ".", ",") ?></p>
                         </div>
                     </div>
                     <div class="sub-intro mt-2">
@@ -106,7 +113,7 @@ $f = $pdo->query($f_SQL)->fetch();
                 <div class="fund-amount">
                     <div class="unit">
                         <button class="minus"><i class="fas fa-minus mb-5"></i></button>
-                        <span class="" style="">$</span><input class="price" value="<?= $f['plan_price' ] ?> " data-price="$<?= $f['plan_price'] ?> ">
+                        <span class="" style="">$</span><input class="price" value="<?= $f['plan_price'] ?> " data-price="$<?= $f['plan_price'] ?> ">
 
                         <button class="add"><i class="fas fa-plus"></i></button>
                     </div>
@@ -158,12 +165,14 @@ $f = $pdo->query($f_SQL)->fetch();
     }, 1000);
 
 
+    $('.price').val($('.price').data('price'));
 
     // 加減贊助金額
-    $('.minus').click(function() {
+    $('.minus').click(function(e) {
+        e.preventDefault();
         var $input = $(this).parent().find('input');
         var $amount = $(this).parent().find('.price');
-        var minPrice = $amount.data('price');
+        var minPrice = $amount.data('price').replace('$', '');
         console.log('minPrice', minPrice);
         console.log('amount', $amount.val().replace('$', ''))
 
@@ -172,32 +181,35 @@ $f = $pdo->query($f_SQL)->fetch();
         }
     });
 
-    $('.add').click(function() {
+    $('.add').click(function(e) {
+        e.preventDefault();
         var $input = $(this).parent().find('input');
         var $amount = $(this).parent().find('.price');
-        var minPrice = $amount.data('price');
+        var minPrice = $amount.data('price').replace('$', '');
         console.log('minPrice', minPrice);
         console.log('amount', $amount.val().replace('$', ''))
         $amount.val('$' + (parseInt($amount.val().replace('$', '')) + 100))
 
     });
 
-    
+
 
     // 傳送資料到cart
     function gotoCheckout() {
+        console.log('gotoCheckout');
         let fsid = window.location.search.substr(5, 1)
-        let totalPrice = $('.price').val() * 1
+        let totalPrice = parseInt($('.price').val().replace('$', ''))
 
-        // console.log(fsid,totalPrice)
+        console.log(fsid, totalPrice)
 
         $.get('fund2-api.php', {
             fsid,
             totalPrice
-            }, function(data) {
-                console.log(data)
-                location.href = 'checkout.php'
-            }, 'json')
+        }, function(data) {
+            console.log(data)
+            console.log(data.rowTotalPrice);
+            location.href = 'checkout.php'
+        }, 'json')
     }
     // $('.btn_fundnow').on('click', function() {
     //     let fsid = window.location.search.substr(5, 1)

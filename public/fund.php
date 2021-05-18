@@ -3,12 +3,81 @@
 
 
 <?php
-
 $page_title = '啤女BeerU:募資計畫';
+
+// 現在募資計畫
 $f_SQL = "SELECT * FROM `fund`";
 $f_rows = $pdo->query($f_SQL)->fetchAll();
+$f = $pdo->query($f_SQL)->fetch();
+$f_SQL = "SELECT * FROM `fund`";
+
+// 目前募資到的總額
+$totalPriceSql = "SELECT SUM(quantity * price) AS `total` FROM `order_detail` WHERE `fund_sid` > 0";
+$rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
+$psid = isset($_GET['psid']) ? intval($_GET['psid']) : 0;
 
 
+$psid = 5;
+
+if ($psid != 0) {
+    // 此頁商品
+    $p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.`name` AS `type_name`,t4.`name` AS `merch_name` FROM `products` AS p 
+                JOIN `tags` AS t1 
+                ON p.`brand_sid` = t1.`sid`
+                JOIN `tags` AS t2 
+                ON p.`country_sid` = t2.`sid`
+                JOIN `tags` AS t3 
+                ON p.`type_sid` = t3.`sid`
+                JOIN `tags` AS t4 
+                ON p.`merch_sid` = t4.`sid`
+                WHERE p.`sid` = $psid";
+    $row = $pdo->query($p_SQL)->fetch();
+
+    $country_sid = $row['country_sid'];
+    $type_sid = $row['type_sid'];
+    $brands_sid = $row['brand_sid'];
+    $merch_sid = $row['merch_sid'];
+
+
+    // 推薦商品
+
+    $c_SQL = "SELECT * FROM `products` WHERE `type_sid` = 52 AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
+    $c_row = $pdo->query($c_SQL)->fetch();
+    $c_row_sid = $c_row['sid'];
+
+
+    $t_SQL = "SELECT * FROM `products` WHERE `type_sid` = 52 AND `sid` !=  $psid AND `sid` != $c_row_sid  ORDER BY RAND() LIMIT 1";
+    $t_row = $pdo->query($t_SQL)->fetch();
+    $t_row_sid = $t_row['sid'];
+
+    $b_SQL = "SELECT * FROM `products` WHERE `type_sid` = 52 AND `sid` !=  $t_row_sid AND $c_row_sid ORDER BY RAND() LIMIT 1";
+    $b_row = $pdo->query($b_SQL)->fetch();
+
+    // new標籤
+    $deadline = strtotime('2021-05-01');
+
+    // 從哪裡來
+    $come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
+    $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
+
+
+    // 從資料庫抓收藏清單
+    // 登入會員的狀態，抓收藏商品
+    $c_arr = [];
+    if (isset($_SESSION['user'])) {
+
+        $m_sid = $_SESSION['user']['sid'];
+        $co_SQL = "SELECT `product_sid` FROM `collect` WHERE `member_sid` = $m_sid";
+        $co_row = $pdo->query($co_SQL)->fetchAll();
+        if (!empty($co_row)) {
+            foreach ($co_row as $co) {
+                array_push($c_arr, $co['product_sid']);
+            }
+        }
+    }
+} else {
+    header('Location: all-product.php');
+}
 
 ?>
 
@@ -17,9 +86,13 @@ $f_rows = $pdo->query($f_SQL)->fetchAll();
 <link rel="stylesheet" href="../css/fund/fund.css">
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<!-- 會員登入 -->
+<? //php include __DIR__ . '../../php/common/Login-Sign.php' ?>
+<? //php include __DIR__ . '../../php/common/pop-up-1.php' ?>
+<? //php include __DIR__ . '../../php/common/pop-up-2.php' ?>
 
-<!-- <section class="mobile-menu">
-     <?php include __DIR__ . '../../php/common/category.php' ?>
+<section class="mobile-menu">
+    <?php include __DIR__ . '../../php/common/category.php' ?>
 </section>
 
 <!-- 這裡開始寫html -->
@@ -102,16 +175,21 @@ $f_rows = $pdo->query($f_SQL)->fetchAll();
                     <div class="col-6 col-md-6 ">
                         <div class="goal">
                             <div class="current-value">
-                                <h3>NT$123,180</h3>
+                                <h3><?= "NT $" . number_format($rowTotalPrice['total'], 0, ".", ",") ?></h3>
                             </div>
                             <div class="goal-value">
                                 <p><span class="goal-title">目標 |</span>
-                                    NT$50,180</p>
+                                    <?= "NT $" . number_format($f['goal_price'], 0, ".", ",") ?></p>
                             </div>
-                            <!-- 加入關注按鈕 -->
-                            <button class="btn_attention"><i class="fas fa-plus"></i>加入關注</button>
-                            <!-- <button class="btn_attention_active"><i class="fas fa-check"></i>已關注</button> -->
                         </div>
+                        <!-- 加入關注按鈕 -->
+                        <?php if (!isset($_SESSION['user'])) : ?>
+                            <button class="btn_attention btn_attention_nologin" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
+                        <?php else : ?>
+                            <button class="btn_attention btn_attention_be"><i class="fas fa-plus"></i>加入關注</button>
+                            <button class="btn_attention_active d-none"><i class="fas fa-check"></i>已關注</button>
+                        <?php endif; ?>
+
                     </div>
                 </div>
                 <div class="sub-intro mt-5">
@@ -124,14 +202,15 @@ $f_rows = $pdo->query($f_SQL)->fetchAll();
 
                     </p>
                 </div>
-                <a href=""><button class="btn_fundnow"><i class="fas fa-coins"></i>我要贊助</button></a>
+                <a href="#plans">
+                    <button class="btn_fundnow"><i class="fas fa-coins"></i>我要贊助</button></a>
             </div>
         </div>
 
     </div>
 </section>
 <!-- 專案內容 -->
-<section class="fund-wrap-2">
+<section class="fund-wrap-2" id="plans">
     <div class="fund container">
         <div class="row">
             <div class="col-md-6 col-lg-8">
@@ -175,25 +254,47 @@ $f_rows = $pdo->query($f_SQL)->fetchAll();
             <div class="col-md-6 col-lg-4">
                 <?php foreach ($f_rows as $f) : ?>
                     <ul class="card-list">
-                        <li class="card" id="card1">
-                            <a class="card-description" href="../public/fund-final.php?sid=<?= $f['sid'] ?>">
-                                <!-- pic -->
-                                <img class="pic" src="../images/joyce_images/<?= $f['pic'] ?> " alt="">
-                                <!-- plan_price -->
-                                <h2 class=" plan_price">$<?= $f['plan_price'] ?></h2>
-                                <!-- c_name -->
-                                <p class="c_name" style="color: var(--gold);"><?= $f['c_name'] ?></p>
-                                <!-- plan_title在資料庫叫 e-name -->
-                                <div class="e_name mb-3">
-                                    <p style="color: var(--gold);"><?= $f['e_name'] ?></p>
-                                </div>
-                                <!-- plan_content -->
-                                <div class="plan_content">
-                                    <?= $f['plan_content'] ?>
+                        <?php if (!isset($_SESSION['user'])) : ?>
+                            <li class="card" id="card1" onclick="LogIn_btn()">
+                                <a class="card-description">
+                                    <!-- pic -->
+                                    <img class="pic" src="../images/joyce_images/<?= $f['pic'] ?> " alt="">
+                                    <!-- plan_price -->
+                                    <h2 class=" plan_price">$<?= $f['plan_price'] ?></h2>
+                                    <!-- c_name -->
+                                    <p class="c_name" style="color: var(--gold);"><?= $f['c_name'] ?></p>
+                                    <!-- plan_title在資料庫叫 e-name -->
+                                    <div class="e_name mb-3">
+                                        <p style="color: var(--gold);"><?= $f['e_name'] ?></p>
+                                    </div>
+                                    <!-- plan_content -->
+                                    <div class="plan_content">
+                                        <?= $f['plan_content'] ?>
 
-                                </div>
-                            </a>
-                        </li>
+                                    </div>
+                                </a>
+                            </li>
+                        <?php else : ?>
+                            <li class="card" id="card1">
+                                <a class="card-description" href="../public/fund-final.php?sid=<?= $f['sid'] ?>">
+                                    <!-- pic -->
+                                    <img class="pic" src="../images/joyce_images/<?= $f['pic'] ?> " alt="">
+                                    <!-- plan_price -->
+                                    <h2 class=" plan_price">$<?= $f['plan_price'] ?></h2>
+                                    <!-- c_name -->
+                                    <p class="c_name" style="color: var(--gold);"><?= $f['c_name'] ?></p>
+                                    <!-- plan_title在資料庫叫 e-name -->
+                                    <div class="e_name mb-3">
+                                        <p style="color: var(--gold);"><?= $f['e_name'] ?></p>
+                                    </div>
+                                    <!-- plan_content -->
+                                    <div class="plan_content">
+                                        <?= $f['plan_content'] ?>
+
+                                    </div>
+                                </a>
+                            </li>
+                        <?php endif; ?>
                     </ul>
                 <?php endforeach; ?>
             </div>
@@ -205,6 +306,8 @@ $f_rows = $pdo->query($f_SQL)->fetchAll();
 
 <!-- 過去成功計畫 -->
 <section class="fund-success">
+
+    <!-- 過去成功計畫title -->
     <div class="container">
         <div class="fund-success-title d-flex justify-content-center">
             <img src="../images/common/line-g.svg" alt="">
@@ -214,129 +317,182 @@ $f_rows = $pdo->query($f_SQL)->fetchAll();
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm">
-                <div class="beer-product product-1">
-                    <div class="pro-pic">
-                        <!-- 商品圖 -->
-                        <img src="../images/products/Heart of Darkness-01.png" alt="">
-                        <!-- 標籤 -->
-                        <div class="new-label">
-                            <p>NEW</p>
-                        </div>
-                        <!-- <div class="hot-label">
-                <p>HOT</p>
-            </div> -->
-                        <!-- 國家圖片 -->
-                        <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt="">
+            <div class="col-12 d-flex related-p">
+                <!-- 商品BOX -->
+                <div class="col-12 col-lg-6 col-xl-4 f beer-product-wrap">
+                    <div class="beer-product" data-sid=<?= $c_row['sid'] ?> data-price=<?= $c_row['price'] ?> data-abv=<?= $c_row['abv'] ?>>
+                        <div class="pro-pic">
+                            <!-- 商品圖 -->
+                            <a href="each-product.php?psid=<?= $c_row['sid'] ?>">
+                                <img class="beer-pic" src="../images/products/<?= $c_row['pic'] ?>" alt="">
+                            </a>
+                            <!-- 標籤 -->
+                            <div class="label">
+                                <?php if (strtotime($c_row['created_at']) > $deadline) : ?>
+                                    <div class="new-label">
+                                        <p>NEW</p>
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php if ($c_row['hot'] == 'true') : ?>
+                                    <div class="hot-label">
+                                        <p>HOT</p>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+
+                            <!-- 國家圖片 -->
+                            <div class="country"><img src="../images/country/<?= $c_row['country_pic'] ?>" alt=""></div>
+
+                            <!-- 收藏按鈕 -->
+                            <div class="collect">
+                                <?php if (!isset($_SESSION['user'])) : ?>
+                                    <button class="btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></button>
+                                <?php else : ?>
+                                    <?php if (in_array($c_row['sid'], $c_arr)) : ?>
+                                        <button class="btn_collect_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                        <button class="btn_collect d-none" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                    <?php else : ?>
+                                        <button class="btn_collect" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                        <button class="btn_collect_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+
+
+                            </div>
                         </div>
 
-                        <!-- 收藏按鈕 -->
-                        <div class="collect">
-                            <button class="btn_collect"><i class="far fa-heart"></i></button>
-                            <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
-                        </div>
-                    </div>
-
-                    <!-- 商品介紹 -->
-                    <div class="pro-intro">
-                        <!-- 商品名稱 -->
-                        <div class="p-name">
-                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
-                            <p class="p-name-e">Oslo - Nordic Pilsner crazy beer Oslo</p>
-                        </div>
-                        <!-- 了解更多 -->
-                        <a href="">
-                            <div class="know-more">了解更多</div>
-                        </a>
-
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="beer-product product-2">
-                    <div class="pro-pic">
-                        <!-- 商品圖 -->
-                        <img src="../images/products/Heart of Darkness-01.png" alt="">
-                        <!-- 標籤 -->
-                        <div class="new-label">
-                            <p>NEW</p>
-                        </div>
-                        <!-- <div class="hot-label">
-                <p>HOT</p>
-            </div> -->
-                        <!-- 國家圖片 -->
-                        <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt="">
-                        </div>
-
-                        <!-- 收藏按鈕 -->
-                        <div class="collect">
-                            <button class="btn_collect"><i class="far fa-heart"></i></button>
-                            <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
-                        </div>
-                    </div>
-
-                    <!-- 商品介紹 -->
-                    <div class="pro-intro">
-                        <!-- 商品名稱 -->
-                        <div class="p-name">
-                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
-                            <p class="p-name-e">Oslo - Nordic Pilsner crazy beer Oslo</p>
+                        <!-- 商品介紹 -->
+                        <div class="pro-intro d-flex flex-column justify-content-between">
+                            <!-- 商品名稱 -->
+                            <a href="each-product.php?psid=<?= $c_row['sid'] ?>">
+                                <div class="p-name">
+                                    <p class="p-name-c"><?= $c_row['c_name'] ?></p>
+                                    <p class="p-name-e"><?= $c_row['e_name'] ?></p>
+                                </div>
+                            </a>
                         </div>
                         <!-- 了解更多 -->
                         <a href="">
                             <div class="know-more">了解更多</div>
                         </a>
-
                     </div>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                    <div class="beer-product" data-sid=<?= $t_row['sid'] ?> data-price=<?= $t_row['price'] ?> data-abv=<?= $t_row['abv'] ?>>
+                        <div class="pro-pic">
+                            <!-- 商品圖 -->
+                            <a href="each-product.php?psid=<?= $t_row['sid'] ?>">
+                                <img class="beer-pic" src="../images/products/<?= $t_row['pic'] ?>" alt="">
+                            </a>
+                            <!-- 標籤 -->
+                            <div class="label">
+                                <?php if (strtotime($t_row['created_at']) > $deadline) : ?>
+                                    <div class="new-label">
+                                        <p>NEW</p>
+                                    </div>
+                                <?php endif; ?>
 
+                                <?php if ($t_row['hot'] == 'true') : ?>
+                                    <div class="hot-label">
+                                        <p>HOT</p>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+
+                            <!-- 國家圖片 -->
+                            <div class="country"><img src="../images/country/<?= $t_row['country_pic'] ?>" alt=""></div>
+
+                            <!-- 收藏按鈕 -->
+                            <div class="collect">
+                                <?php if (!isset($_SESSION['user'])) : ?>
+                                    <button class="btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></button>
+                                <?php else : ?>
+                                    <?php if (in_array($t_row['sid'], $c_arr)) : ?>
+                                        <button class="btn_collect_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                        <button class="btn_collect d-none" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                    <?php else : ?>
+                                        <button class="btn_collect" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                        <button class="btn_collect_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <!-- 商品介紹 -->
+                        <div class="pro-intro d-flex flex-column justify-content-between">
+                            <!-- 商品名稱 -->
+                            <a href="each-product.php?psid=<?= $t_row['sid'] ?>">
+                                <div class="p-name">
+                                    <p class="p-name-c"><?= $t_row['c_name'] ?></p>
+                                    <p class="p-name-e"><?= $t_row['e_name'] ?></p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
+                    <div class="beer-product" data-sid=<?= $b_row['sid'] ?> data-price=<?= $b_row['price'] ?> data-abv=<?= $b_row['abv'] ?>>
+                        <div class="pro-pic">
+                            <!-- 商品圖 -->
+                            <a href="each-product.php?psid=<?= $b_row['sid'] ?>">
+                                <img class="beer-pic" src="../images/products/<?= $b_row['pic'] ?>" alt="">
+                            </a>
+                            <!-- 標籤 -->
+                            <div class="label">
+                                <?php if (strtotime($b_row['created_at']) > $deadline) : ?>
+                                    <div class="new-label">
+                                        <p>NEW</p>
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php if ($b_row['hot'] == 'true') : ?>
+                                    <div class="hot-label">
+                                        <p>HOT</p>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+
+                            <!-- 國家圖片 -->
+                            <div class="country"><img src="../images/country/<?= $b_row['country_pic'] ?>" alt=""></div>
+
+                            <!-- 收藏按鈕 -->
+                            <div class="collect">
+                                <?php if (!isset($_SESSION['user'])) : ?>
+                                    <button class="btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></button>
+                                <?php else : ?>
+                                    <?php if (in_array($b_row['sid'], $c_arr)) : ?>
+                                        <button class="btn_collect_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                        <button class="btn_collect d-none" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                    <?php else : ?>
+                                        <button class="btn_collect" onclick="collectProduct()"><i class="far fa-heart"></i></button>
+                                        <button class="btn_collect_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <!-- 商品介紹 -->
+                        <div class="pro-intro d-flex flex-column justify-content-between">
+                            <!-- 商品名稱 -->
+                            <a href="each-product.php?psid=<?= $b_row['sid'] ?>">
+                                <div class="p-name">
+                                    <p class="p-name-c"><?= $b_row['c_name'] ?></p>
+                                    <p class="p-name-e"><?= $b_row['e_name'] ?></p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm">
-                <div class="beer-product product-3">
-                    <div class="pro-pic">
-                        <!-- 商品圖 -->
-                        <img src="../images/products/Heart of Darkness-01.png" alt="">
-                        <!-- 標籤 -->
-                        <div class="new-label">
-                            <p>NEW</p>
-                        </div>
-                        <!-- <div class="hot-label">
-                <p>HOT</p>
-            </div> -->
-                        <!-- 國家圖片 -->
-                        <div class="country"><img src="../images/country/flag_denmark_circle.svg" alt="">
-                        </div>
 
-                        <!-- 收藏按鈕 -->
-                        <div class="collect">
-                            <button class="btn_collect"><i class="far fa-heart"></i></button>
-                            <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
-                        </div>
-                    </div>
 
-                    <!-- 商品介紹 -->
-                    <div class="pro-intro">
-                        <!-- 商品名稱 -->
-                        <div class="p-name">
-                            <p class="p-name-c">奧斯陸．北歐瘋皮爾森</p>
-                            <p class="p-name-e">Oslo - Nordic Pilsner crazy beer Oslo</p>
-                        </div>
-                        <!-- 了解更多 -->
-                        <a href="">
-                            <div class="know-more">了解更多</div>
-                        </a>
 
-                    </div>
-
-                </div>
-            </div>
         </div>
 
-    </div>
 
 
-    </div>
+
     </div>
     </div>
 
@@ -348,6 +504,10 @@ $f_rows = $pdo->query($f_SQL)->fetchAll();
 <?php include __DIR__ . '../../php/common/script.php' ?>
 <!-- 這裡開始寫jQuery或JS -->
 
+
+<script>
+
+</script>
 
 <!-- my script -->
 <script src='../js/fund/fund.js'></script>
