@@ -188,7 +188,8 @@ function SignSubmit(){
 
                             $('.LogIn-Sign').fadeIn(1);
                             $('.logo-wrap').fadeIn(1000);
-                            $('.Sign-Success').fadeIn(3000);
+                            $('.Sign-Success').fadeIn(2500);
+                            
 
 
                            // 註冊成功
