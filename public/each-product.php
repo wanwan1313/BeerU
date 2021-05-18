@@ -619,16 +619,16 @@ if ($psid != 0) {
 
             <!-- 商品評價 -->
             <div class="row comment flex-wrap justify-content-center">
-                <div class="col-12 rpco-title w-scrollin-start">
+                <div class="col-12 rpco-title com-title w-scrollin-start">
                     <p>啤女評價</p>
                 </div>
 
                 <?php if ($comment_total > 0) : ?>
-                    <div class="col-12 sub-title d-none d-lg-block w-scrollin-start">
+                    <div class="col-12 sub-title d-none d-lg-block w-scrollin-anima">
                         <p>評論摘要</p>
                     </div>
                     <!-- 分數列表百分比 -->
-                    <div class="col-4 comment-bar d-none d-lg-block w-scrollin-start">
+                    <div class="col-4 comment-bar d-none d-lg-block w-scrollin-anima">
                         <!-- 5分 -->
                         <div class="comment-score score-5 d-flex align-items-center justify-content-around w-scrollin-anima">
                             <div class="score">
@@ -691,7 +691,7 @@ if ($psid != 0) {
                         </div>
                     </div>
                     <!-- 分數總攬 -->
-                    <div class="col-7 col-lg-4 score-general d-flex flex-lg-column jusyify-content-lg-start align-items-lg-center w-scrollin-start">
+                    <div class="col-7 col-lg-4 score-general d-flex flex-lg-column jusyify-content-lg-start align-items-lg-center w-scrollin-anima">
                         <p class="average-score w-scrollin-anima"><?= $averageScore ?></p>
                         <div class="other d-flex flex-column jusyify-content-start align-items-center">
                             <div class="beer-score d-flex">
@@ -725,10 +725,13 @@ if ($psid != 0) {
                         <?php endforeach; ?>
 
                     <?php else : ?>
-                        <p class="col-12 empty-comment w-scrollin-start">目前尚無愛好者的評價</p>
-                        <div class="col-8 col-lg-3 empty-beer w-scrollin-start">
-                            <img src="../images/common/combuy.svg" alt="">
+                        <div class="col-12 empty-comment d-flex flex-column align-items-center px-0 w-scrollin-start">
+                            <p class="col-12">目前尚無愛好者的評價</p>
+                            <div class="col-8 col-lg-3 empty-beer">
+                                <img src="../images/common/combuy.svg" alt="">
+                            </div>
                         </div>
+
                     <?php endif; ?>
 
 
@@ -889,38 +892,18 @@ if ($psid != 0) {
     // ----------------------------element scrollin視窗滾動-----------------------------//
     $(window).scroll(function() {
 
-        // 桌機板 width > 992
-        if ($(window).width() >= 992) {
 
-            let userScrollTop = $(window).scrollTop()
-            let halfWindowHeight = $(window).height() / 4 * 3
-            $('.w-scrollin-start').each(function() {
-                let elemPos = $(this).offset().top
-                if (elemPos < userScrollTop + halfWindowHeight) {
-                    $(this).addClass('w-scrollin-on')
-                } else {
-                    $(this).removeClass('w-scrollin-on')
-                }
-            })
+        let userScrollTop = $(window).scrollTop()
+        let halfWindowHeight = $(window).height() / 6 * 5
+        $('.w-scrollin-start').each(function() {
+            let elemPos = $(this).offset().top
+            if (elemPos < userScrollTop + halfWindowHeight) {
+                $(this).addClass('w-scrollin-on')
+            } else {
+                $(this).removeClass('w-scrollin-on')
+            }
+        })
 
-        }
-
-        if ($(window).width() < 992) {
-
-            let userScrollTop = $(window).scrollTop()
-            let halfWindowHeight = $(window).height() / 5 * 4
-            $('.w-scrollin-start').each(function() {
-                let elemPos = $(this).offset().top
-                if (elemPos < userScrollTop + halfWindowHeight) {
-                    $(this).addClass('w-scrollin-on')
-                } else {
-                    $(this).removeClass('w-scrollin-on')
-                }
-            })
-
-            
-
-        }
 
         if ($('.rpco-title').hasClass('w-scrollin-on')) {
             setTimeout(function() {
@@ -938,31 +921,38 @@ if ($psid != 0) {
             $('.beer-product-wrap').removeClass('animate__animated animate__flipInX').css('opacity', '0')
         }
 
-        if ($('.score-general').hasClass('w-scrollin-on')) {
+        if ($('.com-title').hasClass('w-scrollin-on')) {
             setTimeout(function() {
-                $('.average-score').addClass('animate__animated animate__bounceIn').css('opacity', '1')
-            }, 100)
+                $('.sub-title').addClass('w-scrollin-on')
+                $('.comment-bar').addClass('w-scrollin-on')
+                $('.score-general').addClass('w-scrollin-on')
+
+                setTimeout(function() {
+                    $('.average-score').addClass('animate__animated animate__bounceIn').css('opacity', '1')
+                    let score_i = 0
+                    $('.comment-score').eq(0).addClass('animate__animated animate__fadeInDown').css('opacity', '1')
+                    var st = setInterval(function() {
+                        score_i = score_i + 1;
+                        $('.comment-score').eq(score_i).addClass('animate__animated animate__fadeInDown').css('opacity', '1')
+                        if (score_i == 4) {
+                            clearInterval(st)
+                        }
+                    }, 50);
+                }, 100)
+
+                // setTimeout(function() {
+                //     $('.comments-for-product').addClass('w-scrollin-on')
+                // }, 400)
+
+            }, 200)
         } else {
+            $('.sub-title').removeClass('w-scrollin-on')
+            $('.comment-bar').removeClass('w-scrollin-on')
+            $('.score-general').removeClass('w-scrollin-on')
             $('.average-score').removeClass('animate__animated animate__bounceIn').css('opacity', '0')
-        }
-
-        if ($('.comment-bar').hasClass('w-scrollin-on')) {
-            setTimeout(function() {
-                let score_i = 0
-                $('.comment-score').eq(0).addClass('animate__animated animate__fadeInDown').css('opacity', '1')
-                var st = setInterval(function() {
-                    score_i = score_i + 1;
-                    $('.comment-score').eq(score_i).addClass('animate__animated animate__fadeInDown').css('opacity', '1')
-                    if (score_i == 4) {
-                        clearInterval(st)
-                    }
-                }, 50);
-            }, 100)
-        } else {
             $('.comment-score').removeClass('animate__animated animate__fadeInDown').css('opacity', '0')
+            // $('.comments-for-product').removeClass('w-scrollin-on')
         }
-
-
 
     })
 

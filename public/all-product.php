@@ -89,7 +89,7 @@ $page_title = '啤女-精釀啤酒商品';
                     </div>
 
                     <!-- 產品篩選 -->
-                    <div class="product-filter w-scrollin-start">
+                    <div class="product-filter">
                         <div class="filter-title">
                             <i class="fas fa-filter"></i>
                             <p>商品篩選</p>
