@@ -1,5 +1,5 @@
 .LogIn-Sign{
-    display: none;
+    /* display: none; */
 
 }
 
@@ -45,9 +45,9 @@
     background-color: white;
     box-shadow: 0 0 0 1920px rgba(0, 0, 0, .5);
     /* 起始頁大小 */
-     width: 35%; 
+     /* width: 35%; 
      height: 60%;
-     min-height: 494px;
+     min-height: 494px; */
     
     
     /* 登入頁大小 */
@@ -76,9 +76,9 @@
 
 
     /* 註冊成功大小 */
-     /* width: 40%; 
+     width: 40%; 
      height: 60%;
-     min-height: 500px; */
+     min-height: 500px;
 
 
 
@@ -795,7 +795,7 @@
 
 /* //////註冊成功畫面 ///////*/
 .LogIn-Sign .Sign-Success{
-    display: none;
+    /* display: none; */
 
 }
 
@@ -822,8 +822,22 @@
 .LogIn-Sign .Success-top{
     margin: 22px auto 0 auto;
     width: 120px;
+    animation: Cheer 2s linear infinite;
 }
 
+
+@keyframes Cheer{
+
+    0%{
+      
+     opacity: 0;
+    }
+    100%{
+     opacity: 1;
+ 
+    }
+ 
+ }
 
 .LogIn-Sign .Success-hands{
     justify-content: center;
@@ -832,6 +846,54 @@
      width: 120px;
 
 }
+
+
+.LogIn-Sign .hand_L{
+
+    transform:  translateX(-60px) rotate(15deg);
+
+    animation: handmoveR 2s ease-in-out infinite;
+
+}
+
+@keyframes handmoveR{
+
+   0%{
+
+    transform:  translateX(-60px) rotate(15deg);
+
+   }
+   100%{
+    transform:  translateX(0px) rotate(0deg);
+
+   }
+
+}
+
+.LogIn-Sign .hand_R{
+
+    transform: translateX(60px) rotate(-15deg);
+    animation: handmoveL 2s ease-in-out infinite;
+
+}
+
+
+@keyframes handmoveL{
+
+    0%{
+      
+     transform:  translateX(60px) rotate(-15deg);
+    }
+    100%{
+     transform:  translateX(0px) rotate(0deg);
+ 
+    }
+ 
+ }
+
+
+
+
 
 .LogIn-Sign .Success-content{
 
