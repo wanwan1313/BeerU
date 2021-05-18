@@ -45,6 +45,7 @@ $('.user-login').click(function(){
     $('.LogIn-page').fadeOut(1);
     $('.LogSign-page').fadeOut(1);
     $('.Check-page').fadeOut(1);
+    $('.Sign-Success').fadeOut(1);
 
 });
 

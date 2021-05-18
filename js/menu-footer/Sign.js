@@ -147,13 +147,71 @@ function SignSubmit(){
                     if(data.success){
                         
                             
-                        $('.LogIn-Sign').fadeOut(100);
-                        $('.pop-up-1').fadeIn(150);
-                        $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
-                        $('.pop-up-1 .pop-up-text').text('註冊成功');
-                        $('button.ok').on('click', function () {
+                        // $('.LogIn-Sign').fadeOut(100);
+                        // $('.pop-up-1').fadeIn(150);
+                        // $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+                        // $('.pop-up-1 .pop-up-text').text('註冊成功');
+                        // $('button.ok').on('click', function () {
+                        //     location.reload();
+                        // })
+
+                        // 驗證完成，載入中
+                        if ($(window).width() >= 992){
+
+                            $('.log-box').css('width','30%').css('height','20%').css('min-height','300px').css('transition','.4s')
+                        }
+                    
+                        if ($(window).width() < 992){
+                            $('.log-box').css('width','60%').css('max-width','210px').css('height','40%').css('transition','.4s')
+                    
+                    
+                        }
+                        
+                        $('.logo-wrap').fadeOut(1);
+                        $('.cancel-quit').fadeOut(1);
+                        $('.Check-page').fadeOut(1).css('margin-top','40px');
+                        $('.Loading-page').fadeIn(1000);
+
+
+                        setTimeout(() => {
+
+                            $('.Loading-page').fadeOut(1);
+                            $('.LogIn-Sign').fadeOut(1);
+
+
+                        },1000)
+
+                        setTimeout(() => {
+
+                            $('.LogIn-Sign').fadeIn(1);
+                            $('.logo-wrap').fadeIn(1000);
+                            $('.Sign-Success').fadeIn(3000);
+
+
+                           // 註冊成功
+                            if ($(window).width() >= 992){
+
+                                $('.log-box').css('width','40%').css('height','60%').css('min-height','500px').css('transition','.4s');
+                            }
+
+                           
+                        
+                            if ($(window).width() < 992){
+                                $('.log-box').css('width','90%').css('max-width','473px').css('height','65%').css('transition','.4s');
+
+                             }
+
+                        },1500)
+
+                        $('button.Success-btn').on('click', function () {
                             location.reload();
-                        })
+                         })
+
+                         $('.log-sandbox').click(function(){
+                            location.reload();
+
+                         })
+                    
                         
                     } else {
                         $check_number.css('border', 'solid 2px var(--pink)');

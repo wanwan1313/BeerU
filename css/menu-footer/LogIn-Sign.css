@@ -1,10 +1,10 @@
 .LogIn-Sign{
-   
     display: none;
 
 }
 
 .LogIn-Sign{
+
     position: fixed;
     height:calc(100vh - 85px);
     width: 100%;
@@ -14,8 +14,10 @@
    
 
 .LogIn-Sign .log-wrap{
+    
     position: relative;
     display: flex;
+    /* display: none; */
     justify-content: center;
     align-items: center;
     height:calc(100vh - 85px); 
@@ -62,7 +64,23 @@
 
 
     /* 驗證頁大小 */
-    /* height: calc(100vh - 48vh); */
+     /* width: 35%; 
+     height: 60%;
+     min-height: 494px; */
+    
+    
+    /* 載入中 */
+    /* width: 30%; 
+    height: 20%;
+    min-height: 300px;  */
+
+
+    /* 註冊成功大小 */
+     /* width: 40%; 
+     height: 60%;
+     min-height: 500px; */
+
+
 
 
     
@@ -73,10 +91,21 @@
     .LogIn-Sign .log-box{
 
         max-width: 338px;
-        width: 90%;
         margin-top: -100px;
+        width: 90%;
         height: 60%;
         min-height: 460px;
+
+        /* 載入中rwd */
+        /* width: 60%;
+        height: 40%;
+        min-height: 210px; */
+
+        /* 註冊完成 */
+        /* width: 90%;
+        height: 65%;
+        min-height: 473px;
+         */
 
     }
 
@@ -728,6 +757,108 @@
 
 .LogIn-Sign .back03{
     margin-top: 20px;
+}
+
+
+/* //////註冊載入中畫面 ///////*/
+.LogIn-Sign .Loading-page{
+    display: none;
+
+}
+
+.LogIn-Sign .loader {
+    margin: 80px auto 0 auto;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid var(--gold); /* Blue */
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 1.2s linear infinite;
+  }
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+.LogIn-Sign .Loading-page p{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--blue);
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+
+
+}
+
+
+/* //////註冊成功畫面 ///////*/
+.LogIn-Sign .Sign-Success{
+    display: none;
+
+}
+
+
+.Success-wrap{
+   width: 80%;
+   margin: 0 auto;
+
+}
+
+.LogIn-Sign .Success-title h3{
+    text-align: center;
+    color: var(--blue);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bolder;
+    font-size: 2.4rem;
+    letter-spacing: 0.6rem;
+    line-height: 3rem;
+  
+
+
+}
+
+.LogIn-Sign .Success-top{
+    margin: 22px auto 0 auto;
+    width: 120px;
+}
+
+
+.LogIn-Sign .Success-hands{
+    justify-content: center;
+}
+.LogIn-Sign .Success_hand{
+     width: 120px;
+
+}
+
+.LogIn-Sign .Success-content{
+
+    margin: 8px auto 0 auto;
+    color: var(--blue);
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+
+}
+
+.LogIn-Sign .Success-btn{
+
+    width: 100%;
+    margin: 12px auto 0 auto;
+    border-radius: 5px;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+    border: transparent;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    background-color: var(--gold);
+    height: 35px;
+
+
 }
 
 

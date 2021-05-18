@@ -100,16 +100,16 @@
             <div class="log-sandbox"></div>
             <div class="log-box">
     
-                <div class="logo-wrap">
+                 <div class="logo-wrap ">
                 <img src="../images/logo/logo_beeru_gold.svg" alt="">
-                </div>
+                </div> 
     
-                <div class="cancel-quit">
+                <div class="cancel-quit  ">
                 <i class="fas fa-times cancel-icon"></i>
                 </div>
     
                 <!-- 起始畫面 -->
-                <div class="log-content first-login-page" >
+                <!-- <div class="log-content first-login-page" >
                     <div class="first-content">
                         <h3>現在加入會員</h3>
                         <h3>立即享有專屬優惠！</h3>
@@ -131,20 +131,20 @@
                         <div class="log-btn LogIn-btn01">登入</div>
                         <div class="log-btn LogOut-btn02">註冊</div>
                     </div>
-                </div>   
+                </div>    -->
     
                 
                 
                 <!-- 登入畫面 -->
-                <div class="log-content LogIn-page" >
+                <!-- <div class="log-content LogIn-page" >
     
                     <div class="LogIn-title">
                         <h3>用啤女帳戶登入</h3>
-                    </div>
+                    </div> --> 
     
     
                     <!-- 登入表單 -->
-                    <form class="LogIn-content-wrap" name="Login" method="post"  novalidate onsubmit="checkform_Login(); return false;">
+                    <!-- <form class="LogIn-content-wrap" name="Login" method="post"  novalidate onsubmit="checkform_Login(); return false;">
     
                         <div class="input-account">
                         <i class="fas fa-user-alt user-icon01"></i>
@@ -156,7 +156,7 @@
                         <i class="fas fa-lock lock-icon01"></i>
                         <input class="input-btn" type="password" placeholder="密碼" id="password" name="password">
                         </div>
-    
+     -->
     
     
                         <!-- <div class="wrong-alert d-flex">
@@ -164,7 +164,7 @@
                         <p>帳號或密碼錯誤</p>
                         </div> -->
     
-                        <button class="LogIn-btn02 Login" type="submit"> 登入</button>
+                        <!-- <button class="LogIn-btn02 Login" type="submit"> 登入</button>
     
                     </form>
     
@@ -186,17 +186,17 @@
                         <h3>回上頁</h3>
                     </div>
     
-                    </div>   
+                </div>    -->
                         
-                    <!-- 註冊畫面 -->
-                  <div class="log-content LogSign-page" >
+                <!-- 註冊畫面 -->
+                <!-- <div class="log-content LogSign-page" >
                     <div class="LogSign-title">
                         <h3>註冊啤女帳號</h3>
                     </div>
     
     
                     <!-- 註冊表單 -->
-                    <form name="Sign" class="logSign-content-wrap"
+                    <!-- <form name="Sign" class="logSign-content-wrap"
                     novalidate onsubmit="checkform_sign(); return false;">
                             
                         <div class="account-password-wrap d-flex">
@@ -267,20 +267,20 @@
     
                     </div>
     
-                </div>    
-    
+                </div>     -->
+     -->
     
     
     
                 <!-- 驗證畫面 -->
-                    <div class="log-content Check-page">
+                <!-- <form class="log-content Check-page" name="Sign_submit" method="post"  novalidate onsubmit="SignSubmit();return false" >
                     <div class="Check-title">
                         <h3>請查看您的 Email</h3>
                     </div>
                     
                     <div class="Check-warp">
                         <div class="Check-content-warp">
-    
+
                             <div class="Check-content content01">
                                 <p>為了確保是你本人，我們已寄送一封認證信到你的 Email，請點擊信裡的確認連結以開通帳號。
                                 </p>
@@ -289,24 +289,69 @@
                                 <p>找不到認證信時，請到「垃圾信件」分類查找，或在信箱搜尋「啤女」或 「BEERU」。</p>
                             </div>
                         </div>
-    
-    
+
+
                         <div class="Check-Email">
                             <i class="far fa-envelope email-icon02"></i>
-                            <input class="input-btn" placeholder="beeru2021@gmail.com" id="email-check">
+                            <input class="input-btn check_number" placeholder="您的驗證碼" id="email-check" name="check_number">
+                            <small class="warn"><i class="far fa-times-circle"></i></small>
                         </div>
-    
-                        <div class="resent-btn">重新送出認證信</div>
-    
-                        <div class="later-check">
-                            <h3>稍後認證</h3>
+
+                        <button type="submit" class="check-btn">驗證信箱</button>
+
+                        <div class="backward back03" >
+                            <h3>回上頁</h3>
                         </div>
+
+                        
                     </div>
-    
-                    </div>   
+
+                </form>    -->
+
+            
     
                 
+               <!-- 載入中 -->
+                <div class="log-content Loading-page">
+                   <div class="loader"></div>
+                   <p>註冊中...</p>
+                </div>
+
+
                 <!-- 註冊成功畫面 -->
+                <div class="log-content  Sign-Success">
+                   
+                    <div class="Success-wrap">
+                        <div class="Success-title">
+                            <h3>註冊成功</h3>
+                        </div>
+
+                        <div class="Success-img">
+                            <div class="Success-top">
+                                <img src="../images/common/Success_Top.svg" alt="">
+                            </div>
+                            <div class="Success-hands d-flex">
+                                
+                                <div class="Success_hand hand_L">
+                                    <img src="../images/common/Success_L.svg" alt="">
+                                </div>
+                                <div class="Success_hand hand_R">
+                                    <img src="../images/common/Success_R.svg" alt="">
+                                </div>
+                        
+                            </div>
+                        </div>
+
+                        <div class="Success-content">
+                            <p>恭喜您成為啤女的一員!</p>
+                            <p>歡迎您與我們一起探索精釀啤酒的世界吧!</p>
+                        </div>
+
+                        <button class="Success-btn">完成</button>
+ 
+                    </div>
+
+                </div>
                     
     
     

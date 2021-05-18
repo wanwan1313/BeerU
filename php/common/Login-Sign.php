@@ -215,8 +215,47 @@
 
                 </form>   
 
-            
+            <!-- 載入中 -->
+            <div class="log-content Loading-page">
+                   <div class="loader"></div>
+                   <p>註冊中...</p>
+                </div>
+
+
             <!-- 註冊成功畫面 -->
+            <div class="log-content  Sign-Success">
+                
+                <div class="Success-wrap">
+                    <div class="Success-title">
+                        <h3>註冊成功</h3>
+                    </div>
+
+                    <div class="Success-img">
+                        <div class="Success-top">
+                            <img src="../images/common/Success_Top.svg" alt="">
+                        </div>
+                        <div class="Success-hands d-flex">
+                            
+                            <div class="Success_hand hand_L">
+                                <img src="../images/common/Success_L.svg" alt="">
+                            </div>
+                            <div class="Success_hand hand_R">
+                                <img src="../images/common/Success_R.svg" alt="">
+                            </div>
+                    
+                        </div>
+                    </div>
+
+                    <div class="Success-content">
+                        <p>恭喜您成為啤女的一員!</p>
+                        <p>歡迎您與我們一起探索精釀啤酒的世界吧!</p>
+                    </div>
+
+                    <button class="Success-btn">完成</button>
+
+                </div>
+
+            </div>
                 
 
 
