@@ -1058,38 +1058,7 @@ if (isset($_SESSION['user'])) {
                                 <p>推薦啤酒</p>
                             </div>
                             <!-- 啤酒 -->
-                            <div class="row flex-nowrap justify-content-around">
-                                <div class="beer">
-                                    <!-- <?= $c_row['sid'] ?> -->
-                                    <a href="each-product.php?psid=">
-                                        <div class="beer-img d-flex position-relative"><img src="../images/products/Heart of Darkness-01.png" alt="">
-                                            <div class="beer-name position-absolute">英式鬱金香<br>品脫杯</div>
-                                        </div>
-                                        <!-- <?= $c_row['pic'] ?> -->
-                                        <!-- <?= $c_row['c_name'] ?> -->
-                                    </a>
-                                </div>
-                                <div class="beer">
-                                    <a href="javascript: ">
-                                        <div class="beer-img d-flex position-relative"><img src="../images/products/Heart of Darkness-01.png" alt="">
-                                            <div class="beer-name position-absolute">英式鬱金香<br>品脫杯</div>
-                                        </div>
-                                        <!-- <div class='know-more'>
-                                            了解更多
-                                        </div> -->
-                                    </a>
-                                </div>
-                                <div class="beer">
-                                    <a href="javascript: ">
-                                        <div class="beer-img d-flex position-relative"><img src="../images/products/Heart of Darkness-01.png" alt="">
-                                            <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
-                                        </div>
-                                        <!-- <div class='know-more'>
-                                            了解更多
-                                        </div> -->
-                                    </a>
-                                </div>
-
+                            <div class="beer-wrap row flex-nowrap justify-content-around">
                             </div>
                         </div>
                     </div>
@@ -1100,7 +1069,6 @@ if (isset($_SESSION['user'])) {
                     <?php if (!isset($_SESSION['user'])) : ?>
                         <button class="btn_attention btn_attention_nologin  px-3 py-1" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
                     <?php else : ?>
-                        <!-- ???設定重新載入還是會有的條件，前後頁紀錄關注 -->
                         <?php if (in_array($m_sid, $a_arr)) : ?>
                             <button class="btn_attention_active d-none  px-3 py-1 mx-5">
                                 <i class="fas fa-check"></i>已關注

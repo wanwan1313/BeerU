@@ -25,6 +25,7 @@ $en_SQL = "SELECT `e`.`event_people`,COUNT(`event_sid`) FROM `event` AS `e` INNE
 
 $e = $pdo->query($e_SQL)->fetch();
 
+// 抓資料庫裡的關注清單
 // 關注列
 $a_arr = [];
 
@@ -43,11 +44,20 @@ if (isset($_SESSION['user'])) {
             array_push($a_arr, $a['event_sid']);
         }
     }
-    // 如果不是會員，也沒有關注
-} else {
-    // 顯示event主頁
-    header('Location: event.php');
 }
+
+// 2.取報名人數
+$esid = $e['sid'];
+$people_SQL = "SELECT `total_p` FROM `event_join` WHERE `event_sid`= $esid";
+$people_row = $pdo->query($people_SQL)->fetchAll(PDO::FETCH_NUM);
+$totalp = 0;
+if (!empty($people_row)) {
+    foreach ($people_row as $p) {
+        $totalp += $p[0];
+    };
+};
+
+$left_people = $e['event_people'] - $totalp;
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -90,8 +100,8 @@ if (isset($_SESSION['user'])) {
 <!-- 可變動區 -->
 <!-- event品飲會:立即報名 -->
 <section class="event join">
-<!-- return to top -->
-<a href="javascript:" id="return-to-top"><img src="../images/common/top.svg" alt=""></a>
+    <!-- return to top -->
+    <a href="javascript:" id="return-to-top"><img src="../images/common/top.svg" alt=""></a>
     <!-- 2.banner -->
     <div class="container event-banner pd0">
         <!-- 2.1關注按鈕+分享 -->
@@ -99,18 +109,17 @@ if (isset($_SESSION['user'])) {
             flex-nowrap">
             <!-- 2.2.1.關注 -->
             <?php if (!isset($_SESSION['user'])) : ?>
-                <button class="btn_attention btn_attention_nologin  px-3 py-1" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
+                <button class="btn_attention btn_attention_nologin px-3 py-1" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
             <?php else : ?>
-                <!-- ???設定重新載入還是會有的條件，前後頁紀錄關注 -->
-                <?php if (in_array($m_sid, $a_arr)) : ?>
-                    <button class="btn_attention_active d-none">
-                        <i class="fas fa-check"></i>已關注
-                    </button>
-                    <button class="btn_attention btn_attention_be  px-3 py-1">
+                <?php if (in_array($e['sid'], $a_arr)) : ?>
+                    <button class="btn_attention btn_attention_be d-none px-3 py-1">
                         <i class="fas fa-plus"></i>加入關注
                     </button>
+                    <button class="btn_attention_active">
+                        <i class="fas fa-check"></i>已關注
+                    </button>
                 <?php else : ?>
-                    <button class="btn_attention btn_attention_be  px-3 py-1">
+                    <button class="btn_attention btn_attention_be px-3 py-1">
                         <i class="fas fa-plus"></i>加入關注
                     </button>
                     <button class="btn_attention_active d-none">
@@ -289,11 +298,15 @@ if (isset($_SESSION['user'])) {
             </div>
             <!-- 名額+價格 -->
             <div class="row mx-5 mx-md-0 px-2 quotaprice col-md-6 justify-content-center flex-sm-nowrap flex-md-wrap">
-                <div class="col-sm-6 col-md-12 block quota">剩餘名額：<?= $e['event_join'] ?>/<?= $e['event_people'] ?></div>
+                <div class="col-sm-6 col-md-12 block quota">剩餘名額：
+                    <!-- <?= $e['event_join'] ?> -->
+                    <?= $left_people ?>
+                /
+                <?= $e['event_people'] ?></div>
                 <div class="col-sm-6 col-md-12 block price">價格：NT$<?= $e['event_price'] ?></div>
             </div>
         </div>
-        
+
     </div>
     <!-- 4.overview -->
     <div class="row mx-0 px-5 animatable fadeInUp">
@@ -447,7 +460,7 @@ if (isset($_SESSION['user'])) {
                                     <i class="fas fa-check"></i>
                                 </span>
                                 <!-- 設required都無效? -->
-                                <input name='check_code' type="text" placeholder="區分大小寫" class='check_code js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:150px" oninput="getValue();" onporpertychange="getValue();" required>
+                                <input name='checkCode' type="text" placeholder="區分大小寫" class='checkCode js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:150px" oninput="getValue();" onporpertychange="getValue();" required>
                                 <input type="text" class="js5-authCode mx-3" style="width:100px;background-color:var(--red);color:var(--yellow);font-size:2rem;font-weight:bold;text-align:center;letter-spacing:.25rem;border:1px solid white;font-family:'Noto Serif TC', serif;" value="" id="js5-authCode" ng-model="showAuthCode" disabled="disabled" oncopy="return false">
                                 <a class='recode' href="javascript:"><i class="fas fa-undo-alt" style="font-size:1.4rem;letter-spacing:0"> 重新獲取驗證碼</i></a>
                             </div>

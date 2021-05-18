@@ -7,20 +7,6 @@ $page_title = '啤女BeerU:品飲會';
 
 $e_SQL = "SELECT * FROM `event` ORDER BY `sid` DESC";
 $e_rows = $pdo->query($e_SQL)->fetchAll();
-// $e_sid = isset($_GET['event_sid']) ? intval($_GET['event_sid']) : 0;
-
-// if ($e_sid != 0) {
-    // $a_SQL = "SELECT `event_sid` FROM `attention` WHERE `member_sid` = $m_sid";
-    // // 抓取建立a_row
-    // $a_row = $pdo->query($a_SQL)->fetchAll();
-    // // 如果有關注
-    // if (!empty($a_row)) {
-    //     foreach ($a_row as $a) {
-    //         // 抓出來
-    //         array_push($a_arr, $a['event_sid']);
-    //     }
-    // }
-// }
 
 // 抓資料庫裡的關注清單
 // 關注列
@@ -42,8 +28,7 @@ if (isset($_SESSION['user'])) {
             array_push($a_arr, $a['event_sid']);
         }
     }
-    // 如果不是會員，也沒有關注
-} 
+}
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -80,7 +65,7 @@ if (isset($_SESSION['user'])) {
             <!-- 2.2.1.大標 -->
             <!--???左耳朵會一直跑出來 -->
             <p class='col-10 col-lg-3 order-2 order-lg-1 typewrite' data-period="2000" data-type='["給我 <br>一杯酒的時間"]'>
-            <span class="wrap"></span>
+                <span class="wrap"></span>
             </p>
             <!-- 2.2.2.動畫 -->
             <div class='col-12 col-lg-3 order-1 order-lg-2'>
@@ -109,8 +94,29 @@ if (isset($_SESSION['user'])) {
         <?php foreach ($e_rows as $e) :
             //1.設定期限exp=[設定日期]<[現在日期]---->顯示已結束，剩餘名額消失
             $exp = strtotime($e['event_date']) < time();
-            //2.設定人數小於5--->要變成紅色
-            $remain = $e['event_join'] < 5;
+
+            // 2.取報名人數
+// 2.1-設參數
+            $esid = $e['sid'];
+// 2.2-選擇total_p這欄，從event_join表
+            $people_SQL = "SELECT `total_p` FROM `event_join` WHERE `event_sid`= $esid";
+// 2.3-抓出
+            $people_row = $pdo->query($people_SQL)->fetchAll(PDO::FETCH_NUM);
+
+            // 預設總報名人數為0
+            $totalp = 0;
+            // 如果people row不等於0
+            if (!empty($people_row)) {
+// 2.4-跑回圈-total p
+                foreach ($people_row as $p) {
+                    $totalp += $p[0];
+                };
+            };
+// 2.5-剩餘人數=報名總額-目前報名的人
+            $left_people = $e['event_people'] - $totalp;
+
+            //3.設定人數小於5--->要變成紅色
+            $remain =  $left_people < 5;
         ?>
             <div class="row justify-content-between align-items-center event-card animatable fadeInUp">
                 <!-- 3.2.1.banner -->
@@ -133,11 +139,11 @@ if (isset($_SESSION['user'])) {
                         <?php if (!$exp) : ?>
                             <?php if (!$remain) : ?>
                                 <li class='quota blue'>
-                                    剩餘名額：<?= $e['event_join'] ?>
+                                    剩餘名額：<?= $left_people ?>
                                     /<?= $e['event_people'] ?></li>
                             <?php else : ?>
                                 <li class='quota red'>
-                                    剩餘名額：<?= $e['event_join'] ?>
+                                    剩餘名額：<?= $left_people ?>
                                     /<?= $e['event_people'] ?></li>
                             <?php endif ?>
                         <?php else : ?>
@@ -153,22 +159,21 @@ if (isset($_SESSION['user'])) {
                             <?php if (!isset($_SESSION['user'])) : ?>
                                 <button class="btn_attention btn_attention_nologin col-5 " onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
                             <?php else : ?>
-                                <!-- ???設定重新載入還是會有的條件，前後頁紀錄關注 -->
                                 <?php if (in_array($e['sid'], $a_arr)) : ?>
-                                    <!-- 會員有關注的話 顯示已關注 -->
-                                    <button class="btn_attention_active col-5">
-                                        <i class="fas fa-check"></i>已關注
-                                    </button>
                                     <!-- 沒有關注的時候顯示 加入關注 -->
                                     <button class="btn_attention btn_attention_be col-5 d-none">
                                         <i class="fas fa-plus"></i>加入關注
                                     </button>
+                                    <!-- 會員有關注的話 顯示已關注 -->
+                                    <button class="btn_attention_active col-5">
+                                        <i class="fas fa-check"></i>已關注
+                                    </button>
                                 <?php else : ?>
                                     <!-- 一開始顯示加入關注 -->
-                                    <button class="btn_attention btn_attention_be col-5 d-none">
+                                    <button class="btn_attention btn_attention_be col-5">
                                         <i class="fas fa-plus"></i>加入關注
                                     </button>
-                                    <button class="btn_attention_active col-5">
+                                    <button class="btn_attention_active col-5 d-none">
                                         <i class="fas fa-check"></i>已關注
                                     </button>
                                 <?php endif; ?>

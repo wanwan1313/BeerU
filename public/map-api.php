@@ -21,18 +21,17 @@ $map_row = $map_stmt->fetch();
 // $cups = $pdo->query($cups_sql)->fetchAll();
 
 // ???怎麼放上去
-$beers_sql = "SELECT * FROM `products` WHERE `country_sid`=? ORDER BY RAND() LIMIT 3";
+$beers_sql = "SELECT * FROM `products` WHERE `country_sid`=? AND `sid` < 225 ORDER BY RAND() LIMIT 3";
 $beers_stmt = $pdo->prepare($beers_sql);
 $beers_stmt->execute([$map_row['sid']]);
 $beers = $beers_stmt->fetchAll();
 
-echo json_encode($map_row, JSON_UNESCAPED_UNICODE);
+// echo json_encode($map_row, JSON_UNESCAPED_UNICODE);
 // echo json_encode($beers, JSON_UNESCAPED_UNICODE);
 
-// echo json_encode([
-//     'map_row' => $map_row,
-//     'cups' => $cups,
-//     'beers' => $beers,
-// ], JSON_UNESCAPED_UNICODE
-// );
+echo json_encode([
+    'map_row' => $map_row,
+    'beers' => $beers,
+], JSON_UNESCAPED_UNICODE
+);
 

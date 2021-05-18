@@ -26,10 +26,10 @@ $p1_mobile = isset($_POST['p1_mobile']) ? $_POST['p1_mobile'] : '無';
 $p2_name = isset($_POST['p2_name']) ? $_POST['p2_name'] : '無';
 $p2_mobile = isset($_POST['p2_mobile']) ? $_POST['p2_mobile'] : '無';
 $user_sid = $_SESSION['user']['sid'];
-$check_code = isset($_POST['check_code']) ? $_POST['check_code'] : '';
+$checkCode = isset($_POST['checkCode']) ? $_POST['checkCode'] : '';
 
-// 要怎麼加上驗證碼？(已在資料庫新增一欄check_code)
-if(empty($p0_name) or empty($p0_mobile) or empty($event_sid) or empty($check_code)){
+// 要怎麼加上驗證碼？(已在資料庫新增一欄checkCode)
+if(empty($p0_name) or empty($p0_mobile) or empty($event_sid) or empty($checkCode)){
     echo json_encode($output);
     exit;
 }
@@ -50,7 +50,7 @@ if( $Join > 0) {
         `p2_name`,
         `p2_mobile`,
         `total_p`,
-        `check_code`,
+        `checkCode`,
         `created_at`) 
         VALUES (
             ?,
@@ -77,14 +77,25 @@ if( $Join > 0) {
         $p2_name,
         $p2_mobile,
         $total_p,
-        $check_code
+        $checkCode
     ]);
     
     if($stmt->rowCount()){
         $output['success'] = true;
+
+
+        // 改預約總數
+        $user = $_SESSION['user']['sid'];
+        $aget_SQL = "SELECT `accum_event` FROM `member` WHERE `sid` = $user";
+        $new_num = $pdo->query($aget_SQL)->fetch(PDO::FETCH_NUM)[0] + 1;
+        $ain_SQL = "UPDATE `member` SET `accum_event`= ? WHERE `sid` = $user";
+        $ain_stmt = $pdo->prepare($ain_SQL);
+        $ain_stmt->execute([
+            $new_num,
+        ]);
+        
     }
 }
-
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
 
