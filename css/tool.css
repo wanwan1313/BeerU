@@ -15,6 +15,9 @@
 }
 
 /* input裡面的文字不按照工版分太開 */
+.join form input{
+    font-size: 1.4rem;
+}
 /*webkit瀏覽器專用*/
 .join form ::-webkit-input-placeholder { letter-spacing: .25rem; }
 /*Firefox 4-18瀏覽器專用*/
@@ -49,7 +52,7 @@ padding-right:0
 
 .btn_attention i,
 .btn_attention_active i {
-    margin: 5px;
+    /* margin: 5px; */
 }
 
 .btn_attention:hover {
@@ -67,6 +70,7 @@ padding-right:0
     border: 1.5px solid var(--gold);
     cursor: pointer;
     transition: .3s;
+    white-space: nowrap;
 }
 
 .btn_attention_active:hover {
@@ -150,6 +154,8 @@ padding-right:0
     border: 1.5px solid var(--gold);
     margin-top: 100px;
     margin-bottom:100px;
+    max-width: 555px;
+    min-width: 291px;
 }
 
 @media (max-width: 992px) {
@@ -612,4 +618,49 @@ transform:translateX(0);
 	-moz-animation-name: bounceIn;
 	-o-animation-name: bounceIn;
 	animation-name: bounceIn;
+}
+/* -------------return to top -------------*/
+
+#return-to-top {
+    position: fixed;
+    z-index: 999;
+    bottom: 100px;
+    right: 100px;
+    width: 100px;
+    height: 100px;
+    display: none;
+}
+
+#return-to-top img {
+    color: #F2D5C4;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+    transition:.3s;
+    /* opacity:.4; */
+}
+
+#return-to-top:hover img {
+    color: #fff;
+    top: 5px;
+    /* transform: scale(1.1); */
+    /* opacity:1; */
+}
+
+/* 手機版 */
+
+@media (max-width: 991px) {
+    #return-to-top {
+        width: 70px;
+        height: 70px;
+        bottom: 100px;
+        right: 20px;
+    }
+}
+
+/* scroll - swing - 特效 */
+html {
+    scroll-behavior: swing;
 }

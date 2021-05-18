@@ -1,31 +1,73 @@
 // 關注功能
-    // 加入
+
 let btn_attention = $('.btn_attention')
+let btn_attention_active = $('.btn_attention_active')
+// let e_sid = $('.btn_attention').parent().find('a').attr('data-cate')
 
-    btn_attention.on('click','.btn_attention_be',function(){
-        // let e_sid = $(this).parent().prev('.product-tag').find('p').attr('data-cate')
-        // console.log(e_sid)
+    // ???設定一個關注按鈕的字樣
+    const btnAttentionTPL = t => {
+        return `
+        <?php if (!isset($_SESSION['user'])) : ?>
+           <button class="btn_attention btn_attention_nologin" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
+        <?php else : ?>
+           <button class="btn_attention btn_attention_be"><i class="fas fa-plus"></i>加入關注</button>
+           <button class="btn_attention_active d-none"><i class="fas fa-check"></i>已關注</button>
+        <?php endif; ?>
+        `
+    }
+    const btnAttentionTPL2 = t => {
+        return `
+        <?php if (!isset($_SESSION['user'])) : ?>
+           <button class="btn_attention btn_attention_nologin" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
+        <?php else : ?>
+            <button class="btn_attention btn_attention_be d-none"><i class="fas fa-plus"></i>加入關注</button>
+           <button class="btn_attention_active"><i class="fas fa-check"></i>已關注</button>
+        <?php endif; ?>
+        `
+    }
 
-        $.get('member-attention-api.php',{'action':'add','e_sid':event_sid},function(data){
-            // console.log(data)
-            $('.pop-up-1').fadeIn(150)
-            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
-            $('.pop-up-1 .pop-up-text').text(data.msg)
-        }, 'json')
-        $(this).addClass('d-none')
-        $(this).next().removeClass('d-none')
+// 加入
+// 重新載入頁面時要重新關注，但資料庫裡有了??
+btn_attention.click(function () {
+    let e_sid = $(this).parent().find('a').attr('data-cate')
+    console.log(e_sid)
+
+    $.get('event-attention-api.php', { 
+        'action': 'add', 
+        'event_sid': e_sid 
+    }, 
+    function (data) {
+        console.log(data)
+        $('.pop-up-1').fadeIn(150)
+        $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
+        $('.pop-up-1 .pop-up-text').text(data.msg)
+    }, 'json')
+    $(this).addClass('d-none')
+    $(this).next().removeClass('d-none')
+})
+
+// 取消
+btn_attention_active.click(function () {
+    let e_sid = $(this).parent().find('a').attr('data-cate')
+    console.log(e_sid)
+
+    $.get('event-attention-api.php', { 
+        'action': 'delete', 
+        'event_sid': e_sid 
+    }, 
+        function (data) {
+        // console.log(data)
+        $('.pop-up-1').fadeIn(150)
+        $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
+        $('.pop-up-1 .pop-up-text').text(data.msg)
+    }, 'json')
+    $(this).addClass('d-none')
+    $(this).prev().removeClass('d-none')
+})
+
+
+    // 彈跳視窗
+    $('button.ok').on('click', function() {
+        $('.general-pop-up').fadeOut(150)
     })
-    // 取消
-    btn_attention.on('click','.btn_attention_active',function(){
-        // let e_sid = $(this).parent().prev('.product-tag').find('p').attr('data-cate')
-        // console.log(e_sid)
 
-        $.get('member-attention-api.php',{'action':'delete','e_sid':event_sid},function(data){
-            // console.log(data)
-            $('.pop-up-1').fadeIn(150)
-            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
-            $('.pop-up-1 .pop-up-text').text(data.msg)
-        }, 'json')
-        $(this).addClass('d-none')
-        $(this).prev().removeClass('d-none')
-    })

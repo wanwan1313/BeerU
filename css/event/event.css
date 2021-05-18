@@ -102,17 +102,15 @@
         }
 
         80% {
-            -webkit-mask-image: linear-gradient(#000  0%,#000  20%,#000  40%, #000 60%,#000  80%, #000 100%);
+            -webkit-mask-image: linear-gradient(transparent 0%,#000  20%,#000  40%, #000 60%,#000  80%, #000 100%);
         }
     
         100% {
             bottom: -250px;
             left:14%;
-            -webkit-mask-image: linear-gradient(-15deg,#000 0%,#000 20%,#000 40%, #000 60%,#000 80%, #000 100%);
+            -webkit-mask-image: linear-gradient(#000 0%,#000 20%,#000 40%, #000 60%,#000 80%, #000 100%);
     
         }
-
-
     }
 
      @media (max-width: 992px) {
@@ -128,26 +126,26 @@
                 -webkit-mask-image: linear-gradient( transparent 0%,transparent  20%,transparent 40%, transparent 60%,transparent 80%, #000  100%)
             }
         
-            96% {
+            20% {
                 -webkit-mask-image: linear-gradient( transparent 0%,transparent 20%,transparent 40%, transparent 60%,#000 80%, #000 100%);
             }
     
-            97% {
+            40% {
                 -webkit-mask-image: linear-gradient(transparent 0%,transparent  20%,transparent  40%, #000 60%,#000  80%, #000 100%);
             }
     
-            98% {
+            60% {
                 -webkit-mask-image: linear-gradient(transparent 0%,transparent 20%,#000 40%, #000 60%,#000 80%, #000 100%);
             }
     
-            99% {
-                -webkit-mask-image: linear-gradient(#000  0%,#000  20%,#000  40%, #000 60%,#000  80%, #000 100%);
+            80% {
+                -webkit-mask-image: linear-gradient(transparent 0%,#000  20%,#000  40%, #000 60%,#000  80%, #000 100%);
             }
         
             100% {
                 bottom: -240px;
                 left:9%;
-                -webkit-mask-image: linear-gradient(-15deg,#000 0%,#000 20%,#000 40%, #000 60%,#000 80%, #000 100%);
+                -webkit-mask-image: linear-gradient(#000 0%,#000 20%,#000 40%, #000 60%,#000 80%, #000 100%);
         
             }
         }
@@ -186,37 +184,38 @@
              animation-duration: 1.15s;
              animation-timing-function: linear;
             animation-fill-mode:forwards;
-            /* animation-delay:1s; */
+            animation-delay:1s;
              /*  */
+             -webkit-mask-image: linear-gradient(-30deg, transparent 0%,transparent  20%,transparent 40%, transparent 60%,transparent 80%, transparent 100%);
          }
 
          @keyframes pipi_beer_b {
             0% {
                 bottom: -300px;
              left:300px;
-                -webkit-mask-image: linear-gradient(-15deg, #000 0%,transparent  20%,transparent 40%, transparent 60%,transparent 80%, transparent 100%);
+                -webkit-mask-image: linear-gradient(-30deg, #000 0%,transparent  20%,transparent 40%, transparent 60%,transparent 80%, transparent 100%);
             }
     
-            96% {
-                -webkit-mask-image: linear-gradient(-15deg, #000 0%,transparent 20%,transparent 40%, transparent 60%,transparent  80%, transparent 100%);
+            20% {
+                -webkit-mask-image: linear-gradient(-30deg, #000 0%,#000 20%,transparent 40%, transparent 60%,transparent  80%, transparent 100%);
             }
 
-            97% {
-                -webkit-mask-image: linear-gradient(-15deg, #000 0%,#000 20%,#000 40%, transparent  60%,transparent  80%, transparent 100%);
+           40% {
+                -webkit-mask-image: linear-gradient(-30deg, #000 0%,#000 20%,#000 40%, transparent  60%,transparent  80%, transparent 100%);
             }
 
-            98% {
-                -webkit-mask-image: linear-gradient(-15deg, #000 0%,#000 20%,#000 40%, #000 60%,transparent  80%, transparent 100%);
+           60% {
+                -webkit-mask-image: linear-gradient(-30deg, #000 0%,#000 20%,#000 40%, #000 60%,transparent  80%, transparent 100%);
             }
 
-            99% {
-                -webkit-mask-image: linear-gradient(-15deg,#000  0%,#000  20%,#000  40%, #000 60%,#000  80%, #000 100%);
+            80% {
+                -webkit-mask-image: linear-gradient(-30deg,#000  0%,#000  20%,#000  40%, #000 60%,#000  80%, transparent 100%);
             }
         
             100% {
                 bottom: -200px;
              left:210px;
-             -webkit-mask-image: linear-gradient(-15deg,#000 0%,#000 20%,#000 40%, #000 60%,#000 80%, #000 100%);
+             -webkit-mask-image: linear-gradient(-30deg,#000 0%,#000 20%,#000 40%, #000 60%,#000 80%, #000 100%);
 
             }
         }
@@ -231,29 +230,29 @@
                 0% {
                     bottom: -310px;
                  left:200px;
-                 -webkit-mask-image: linear-gradient(-15deg, #000 0%,transparent  20%,transparent 40%, transparent 60%,transparent 80%, transparent 100%);
+                 -webkit-mask-image: linear-gradient(-30deg, #000 0%,transparent  20%,transparent 40%, transparent 60%,transparent 80%, transparent 100%);
                 }
             
-                96% {
-                    -webkit-mask-image: linear-gradient(-15deg, #000 0%,transparent 20%,transparent 40%, transparent 60%,transparent  80%, transparent 100%);
+                20% {
+                    -webkit-mask-image: linear-gradient(-30deg, #000 0%,#000 20%,transparent 40%, transparent 60%,transparent  80%, transparent 100%);
                 }
     
-                97% {
-                    -webkit-mask-image: linear-gradient(-15deg, #000 0%,#000 20%,#000 40%, transparent  60%,transparent  80%, transparent 100%);
+                40% {
+                    -webkit-mask-image: linear-gradient(-30deg, #000 0%,#000 20%,#000 40%, transparent  60%,transparent  80%, transparent 100%);
                 }
     
-                98% {
-                    -webkit-mask-image: linear-gradient(-15deg, #000 0%,#000 20%,#000 40%, #000 60%,transparent  80%, transparent 100%);
+                60% {
+                    -webkit-mask-image: linear-gradient(-30deg, #000 0%,#000 20%,#000 40%, #000 60%,transparent  80%, transparent 100%);
                 }
     
-                99% {
-                    -webkit-mask-image: linear-gradient(-15deg,#000  0%,#000  20%,#000  40%, #000 60%,#000  80%, #000 100%);
+                80% {
+                    -webkit-mask-image: linear-gradient(-30deg,#000  0%,#000  20%,#000  40%, #000 60%,#000  80%, transparent  100%);
                 }
             
                 100% {
                     bottom: -210px;
                     left: 120px;
-                    -webkit-mask-image: linear-gradient(-15deg,#000 0%,#000 20%,#000 40%, #000 60%,#000 80%, #000 100%);
+                    -webkit-mask-image: linear-gradient(-30deg,#000 0%,#000 20%,#000 40%, #000 60%,#000 80%, #000 100%);
     
                 }
              }    
@@ -275,15 +274,20 @@
        margin-top: 25vh;
        white-space: nowrap;
        /* top: 30%; */
-       left: 3%
+       left: 3%;
    }
 
    @media (max-width: 992px) {
     .event .event-banner p {
         top: 110px;
-
         left: 6%;
     }
+    }
+
+    .title_anime{
+        color: var(--gold);
+       font-size: 3.5rem;
+       font-weight: bold;
     }
  /*  */
 
