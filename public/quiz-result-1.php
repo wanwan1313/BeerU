@@ -402,6 +402,8 @@ if ($psid != 0) {
                         </svg>
                     </a>
 
+                    <!-- Line Share -->
+
                     <div href='javascript: void(window.open(&apos;https://lineit.line.me/share/ui?url=&apos; .concat(encodeURIComponent(location.href)) ));' title='分享給 LINE 好友'>
                         <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-ver="3" data-size="large"></div>
                     </div>
@@ -409,6 +411,7 @@ if ($psid != 0) {
                     <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-ver="3" data-url="https://org-media.line.me/zh_TW/how_to_install#lineitbutton" data-color="default" data-size="large" data-count="false" style="display: none;"></div>
 
                     <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+
 
                 </div>
             </div>

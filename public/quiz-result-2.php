@@ -322,7 +322,7 @@ if ($psid != 0) {
 
             <div class="share-wrap">
                 <p class="share-title mt-5">分享測驗結果</p>
-                <!-- 分享按鈕們 -->
+                <!-- 分享按鈕們 Facebook & Line -->
                 <div class="share-icons d-flex align-items-center">
 
                     <div class="fb-share-button" data-href="quiz-result-1.php" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">分享</a></div>
