@@ -6,9 +6,9 @@
 <!-- 需要置換的變數們 -->
 <?php
 $page_title = '啤女BeerU:啤酒地圖';
-// $m_SQL = "SELECT * FROM `map`";
-// $m_rows = $pdo->query($m_SQL)->fetchAll();
-
+$m_SQL = "SELECT * FROM `map`";
+$m_rows = $pdo->query($m_SQL)->fetchAll();
+// $m_rows as $m
 $psid = 1;
 
 // 此頁商品
@@ -46,6 +46,27 @@ $deadline = strtotime('2021-05-01');
 // 從哪裡來
 $come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
 $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
+
+// 抓資料庫裡的關注清單
+$a_arr = [];
+$attention = false;
+$cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
+if (isset($_SESSION['user'])) {
+
+    $m_sid = $_SESSION['user']['sid'];
+    $a_SQL = "SELECT `tag_sid` FROM `attention` WHERE `tag_sid` > 0 AND `member_sid` = $m_sid";
+    $a_row = $pdo->query($a_SQL)->fetchAll();
+    if (!empty($a_row)) {
+        foreach ($a_row as $a) {
+            array_push($a_arr, $a['tag_sid']);
+        }
+    }
+
+    if( in_array($cate, $a_arr)){
+        $attention = true;
+    }
+}
+
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -54,7 +75,6 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 <link rel="stylesheet" href="../css/map/map.css">
 <link rel="stylesheet" href="../css/map/map_anime.css">
 <link rel="stylesheet" href="../css/tool.css">
-<!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" /> -->
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
 <!-- 會員登入 -->
@@ -1000,13 +1020,13 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                     </div>
                     <div class="col-md-5">
                         <!-- 5.搭配酒杯 -->
-                        <div class="col cups mb-3 align-items-center  animatable bounceIn" data-sid=<?= $c_row['sid']?>>
+                        <div class="col cups mb-3 align-items-center  animatable bounceIn" data-sid=<?= $c_row['sid'] ?>>
                             <!--標題-->
                             <div class="row title justify-content-center mb-1 mt-4">
                                 <p>搭配酒杯</p>
                             </div>
                             <!--酒杯-->
-                            <div class="row flex-nowrap justify-content-around" >
+                            <div class="row flex-nowrap justify-content-around">
                                 <div class="cup">
                                     <a class="cup1" href="">
                                         <div class="cup-img d-flex position-relative"><img src="../images/map/beer_glass_Foot.png" alt="">
@@ -1015,14 +1035,14 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                                     </a>
                                 </div>
                                 <div class="cup">
-                                <a class="cup2" href="">
+                                    <a class="cup2" href="">
                                         <div class="cup-img d-flex position-relative"><img src="../images/map/beer_glass_Foot.png" alt="">
                                             <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="cup">
-                                <a class="cup3" href="">
+                                    <a class="cup3" href="">
                                         <div class="cup-img d-flex position-relative"><img src="../images/map/beer_glass_Foot.png" alt="">
                                             <div class="cup-name position-absolute">英式鬱金香<br>品脫杯</div>
                                         </div>
@@ -1031,7 +1051,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                             </div>
                         </div>
                         <!-- 6.搭配啤酒 -->
-                        <!-- data-sid=<?= $c_row['sid']?> -->
+                        <!-- data-sid=<?= $c_row['sid'] ?> -->
                         <div class="col beers align-items-center justify-content-center mb-2 mb-md-5 animatable bounceIn">
                             <!-- 標題 -->
                             <div class="row title justify-content-center mb-1 mt-4">
@@ -1040,17 +1060,13 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                             <!-- 啤酒 -->
                             <div class="row flex-nowrap justify-content-around">
                                 <div class="beer">
-                                <!-- <?= $c_row['sid'] ?> -->
+                                    <!-- <?= $c_row['sid'] ?> -->
                                     <a href="each-product.php?psid=">
-                                        <div class="beer-img d-flex position-relative">  
-                                        <!-- <?= $c_row['pic'] ?> -->
-                                             <img class="beer-pic" src="../images/products/" alt="">
-                                             <!-- <?=$c_row['c_name']?> -->
-                                            <div class="cup-name position-absolute"></div>
+                                        <div class="beer-img d-flex position-relative"><img src="../images/products/Heart of Darkness-01.png" alt="">
+                                            <div class="beer-name position-absolute">英式鬱金香<br>品脫杯</div>
                                         </div>
-                                        <!-- <div class='know-more'>
-                                            了解更多
-                                        </div> -->
+                                        <!-- <?= $c_row['pic'] ?> -->
+                                        <!-- <?= $c_row['c_name'] ?> -->
                                     </a>
                                 </div>
                                 <div class="beer">
@@ -1081,7 +1097,28 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <!-- 7.按鈕 -->
                 <div class=" row buttons justify-content-center flex-nowrap animatable bounceIn">
                     <!--加入關注-->
-                    <button class="btn_attention px-3 py-1 mx-5"><i class="fas fa-plus"></i>加入關注</button>
+                    <?php if (!isset($_SESSION['user'])) : ?>
+                        <button class="btn_attention btn_attention_nologin  px-3 py-1" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
+                    <?php else : ?>
+                        <!-- ???設定重新載入還是會有的條件，前後頁紀錄關注 -->
+                        <?php if (in_array($m_sid, $a_arr)) : ?>
+                            <button class="btn_attention_active d-none  px-3 py-1 mx-5">
+                                <i class="fas fa-check"></i>已關注
+                            </button>
+                            <button class="btn_attention btn_attention_be px-3 py-1 mx-5">
+                                <i class="fas fa-plus"></i>加入關注
+                            </button>
+                        <?php else : ?>
+                            <button class="btn_attention btn_attention_be px-3 py-1 mx-5">
+                                <i class="fas fa-plus"></i>加入關注
+                            </button>
+                            <button class="btn_attention_active d-none px-3 py-1 mx-5">
+                                <i class="fas fa-check"></i>已關注
+                            </button>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <a data-cate="<?= $map['sid'] ?>"></a>
+                    <!-- <button class="btn_attention px-3 py-1 mx-5"><i class="fas fa-plus"></i>加入關注</button> -->
                     <!-- 看更多商品 -->
                     <button class="see_more btn_attention px-3 py-1 mx-5">
                         <a class="" href='all-product.php'>
@@ -1105,6 +1142,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 <script src='../js/map/map_2.js'></script>
 <script src='../js/map/map_3.js'></script>
 <script src='../js/map/map_4.js'></script>
+<script src='../js/map/map_attention.js'></script>
 <script src='../js/map/map_phone_option.js'></script>
 <!-- <script src='../js/map/map-rwd-show-hide.js'></script> -->
 <script src='../js/map/map_anime_scroll.js'></script>

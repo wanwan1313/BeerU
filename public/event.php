@@ -1,4 +1,5 @@
-<?php include __DIR__ . '../../php/common/config.php' ?>
+<?php include __DIR__ . '../../php/common/config.php'
+?>
 
 <!-- 需要置換的變數們 -->
 <?php
@@ -6,6 +7,43 @@ $page_title = '啤女BeerU:品飲會';
 
 $e_SQL = "SELECT * FROM `event` ORDER BY `sid` DESC";
 $e_rows = $pdo->query($e_SQL)->fetchAll();
+// $e_sid = isset($_GET['event_sid']) ? intval($_GET['event_sid']) : 0;
+
+// if ($e_sid != 0) {
+    // $a_SQL = "SELECT `event_sid` FROM `attention` WHERE `member_sid` = $m_sid";
+    // // 抓取建立a_row
+    // $a_row = $pdo->query($a_SQL)->fetchAll();
+    // // 如果有關注
+    // if (!empty($a_row)) {
+    //     foreach ($a_row as $a) {
+    //         // 抓出來
+    //         array_push($a_arr, $a['event_sid']);
+    //     }
+    // }
+// }
+
+// 抓資料庫裡的關注清單
+// 關注列
+$a_arr = [];
+
+// 設定登入會員後
+if (isset($_SESSION['user'])) {
+    // 設定已登入會員sid
+    $m_sid = $_SESSION['user']['sid'];
+    // $e_sid = isset($_GET['event_sid']) ? intval($_GET['event_sid']) : 0;
+    // 選擇attention抓event_sid，綁定有會員sid
+    $a_SQL = "SELECT `event_sid` FROM `attention` WHERE `member_sid` = $m_sid";
+    // 抓取建立a_row
+    $a_row = $pdo->query($a_SQL)->fetchAll();
+    // 如果有關注
+    if (!empty($a_row)) {
+        foreach ($a_row as $a) {
+            // 抓出來
+            array_push($a_arr, $a['event_sid']);
+        }
+    }
+    // 如果不是會員，也沒有關注
+} 
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -26,7 +64,8 @@ $e_rows = $pdo->query($e_SQL)->fetchAll();
 <!-- 可變動區 -->
 <!-- event品飲會 -->
 <section class="event">
-
+    <!-- return to top -->
+    <a href="javascript:" id="return-to-top"><img src="../images/common/top.svg" alt=""></a>
     <!-- 1. title -->
     <div class="col-12 member-title mt-5 ">
         <p>品飲會</p>
@@ -39,7 +78,10 @@ $e_rows = $pdo->query($e_SQL)->fetchAll();
         <!-- 2.2.標題+動畫 -->
         <div class="row justify-content-center align-items-center">
             <!-- 2.2.1.大標 -->
-            <p class='col-10 col-lg-3 order-2 order-lg-1 animatable fadeInUp'>給我<br>一杯酒的時間...</p>
+            <!--???左耳朵會一直跑出來 -->
+            <p class='col-10 col-lg-3 order-2 order-lg-1 typewrite' data-period="2000" data-type='["給我 <br>一杯酒的時間"]'>
+            <span class="wrap"></span>
+            </p>
             <!-- 2.2.2.動畫 -->
             <div class='col-12 col-lg-3 order-1 order-lg-2'>
                 <img class='beer_mug' src="../images/event/SVG/beer_mug_0.svg" alt="">
@@ -86,18 +128,19 @@ $e_rows = $pdo->query($e_SQL)->fetchAll();
                         <p><?= $e['event_overview'] ?></p>
                     </div>
                     <!--3.2.2.3.剩餘名額+瀏覽人次 -->
+                    <!-- ???跟報名連在一起 -->
                     <div class="row justify-content-between align-items-end">
                         <?php if (!$exp) : ?>
                             <?php if (!$remain) : ?>
                                 <li class='quota blue'>
                                     剩餘名額：<?= $e['event_join'] ?>
-                                    /<?= $e['event_people'] ?></li> 
-                            <?php else:?>
+                                    /<?= $e['event_people'] ?></li>
+                            <?php else : ?>
                                 <li class='quota red'>
                                     剩餘名額：<?= $e['event_join'] ?>
                                     /<?= $e['event_people'] ?></li>
                             <?php endif ?>
-                        <?php else:?>
+                        <?php else : ?>
                             <li class='quota blue invisible'>剩餘名額：<?= $e['event_join'] ?>/<?= $e['event_people'] ?></li>
                         <?php endif ?>
                         <li class='review'><i class="far fa-eye"></i>
@@ -107,11 +150,33 @@ $e_rows = $pdo->query($e_SQL)->fetchAll();
                     <div class="row justify-content-between">
                         <!-- 如果活動時間還沒到：期限exp > 現在日期 -->
                         <?php if (!$exp) : ?>
-                            <button class="btn_attention col-6"><i class="fas fa-plus"></i>加入關注</button>
-                            <a href="../public/event-join.php?sid=<?=$e['sid']?>" class='col-6'>
+                            <?php if (!isset($_SESSION['user'])) : ?>
+                                <button class="btn_attention btn_attention_nologin col-5 " onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
+                            <?php else : ?>
+                                <!-- ???設定重新載入還是會有的條件，前後頁紀錄關注 -->
+                                <?php if (in_array($e['sid'], $a_arr)) : ?>
+                                    <!-- 會員有關注的話 顯示已關注 -->
+                                    <button class="btn_attention_active col-5">
+                                        <i class="fas fa-check"></i>已關注
+                                    </button>
+                                    <!-- 沒有關注的時候顯示 加入關注 -->
+                                    <button class="btn_attention btn_attention_be col-5 d-none">
+                                        <i class="fas fa-plus"></i>加入關注
+                                    </button>
+                                <?php else : ?>
+                                    <!-- 一開始顯示加入關注 -->
+                                    <button class="btn_attention btn_attention_be col-5 d-none">
+                                        <i class="fas fa-plus"></i>加入關注
+                                    </button>
+                                    <button class="btn_attention_active col-5">
+                                        <i class="fas fa-check"></i>已關注
+                                    </button>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                            <a data-cate="<?= $e['sid'] ?>" href="../public/event-join.php?sid=<?= $e['sid'] ?>" class='col-6'>
                                 <div class='btn_join'>立即報名</div>
                             </a>
-                        <?php else: ?>
+                        <?php else : ?>
                             <li class='quota aaa col-6 px-0'>已結束</li>
                             <a href="../public/event-over.php" class='col-6'>
                                 <div class='btn_join over'>花絮回顧</div>
@@ -150,7 +215,10 @@ $e_rows = $pdo->query($e_SQL)->fetchAll();
 <!-- my script -->
 <script src='../js/event/event_anime_banner.js'></script>
 <script src='../js/event/event_anime_scroll.js'></script>
+<script src='../js/event/event_anime_text.js'></script>
+<script src='../js/event/event_scroll_to_top.js'></script>
 <script src='../js/event/event.js'></script>
+<script src='../js/event/event_attention.js'></script>
 
 
 

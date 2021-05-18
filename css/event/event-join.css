@@ -210,6 +210,12 @@ transform: scale(.75);
     font-weight:400;
     line-height: 1.5;
     text-align: justify;
+    /* margin-left: 27px; */
+}
+
+ .join .memo-ml{
+
+    margin-left: 45px;
 }
 
 .join .overview{

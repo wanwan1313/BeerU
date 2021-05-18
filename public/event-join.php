@@ -23,7 +23,31 @@ $exp = strtotime($e['event_date']) < time();
 // 算出目前報名人數
 $en_SQL = "SELECT `e`.`event_people`,COUNT(`event_sid`) FROM `event` AS `e` INNER JOIN `event_join` AS `ej` WHERE `e`.`sid` = `ej`.`event_sid` GROUP BY `event_sid`";
 
-$e = $pdo->query($e_SQL)->fetch();;
+$e = $pdo->query($e_SQL)->fetch();
+
+// 關注列
+$a_arr = [];
+
+// 設定登入會員後
+if (isset($_SESSION['user'])) {
+    // 設定已登入會員sid
+    $m_sid = $_SESSION['user']['sid'];
+    // 選擇attention抓event_sid，綁定有會員sid
+    $a_SQL = "SELECT `event_sid` FROM `attention` WHERE `member_sid` = $m_sid";
+    // 抓取建立a_row
+    $a_row = $pdo->query($a_SQL)->fetchAll();
+    // 如果有關注
+    if (!empty($a_row)) {
+        foreach ($a_row as $a) {
+            // 抓出來
+            array_push($a_arr, $a['event_sid']);
+        }
+    }
+    // 如果不是會員，也沒有關注
+} else {
+    // 顯示event主頁
+    header('Location: event.php');
+}
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -66,15 +90,35 @@ $e = $pdo->query($e_SQL)->fetch();;
 <!-- 可變動區 -->
 <!-- event品飲會:立即報名 -->
 <section class="event join">
-
+<!-- return to top -->
+<a href="javascript:" id="return-to-top"><img src="../images/common/top.svg" alt=""></a>
     <!-- 2.banner -->
-    <div class="container event-banner pd0 animatable fadeInUp">
+    <div class="container event-banner pd0">
         <!-- 2.1關注按鈕+分享 -->
         <div class="row justify-content-between justify-content-md-end align-items-end
             flex-nowrap">
             <!-- 2.2.1.關注 -->
-            <button class="btn_attention px-3 py-1"><i class="fas fa-plus"></i>加入關注</button>
-            <!-- <button class="btn_attention_active"><i class="fas fa-check"></i>已關注</button> -->
+            <?php if (!isset($_SESSION['user'])) : ?>
+                <button class="btn_attention btn_attention_nologin  px-3 py-1" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
+            <?php else : ?>
+                <!-- ???設定重新載入還是會有的條件，前後頁紀錄關注 -->
+                <?php if (in_array($m_sid, $a_arr)) : ?>
+                    <button class="btn_attention_active d-none">
+                        <i class="fas fa-check"></i>已關注
+                    </button>
+                    <button class="btn_attention btn_attention_be  px-3 py-1">
+                        <i class="fas fa-plus"></i>加入關注
+                    </button>
+                <?php else : ?>
+                    <button class="btn_attention btn_attention_be  px-3 py-1">
+                        <i class="fas fa-plus"></i>加入關注
+                    </button>
+                    <button class="btn_attention_active d-none">
+                        <i class="fas fa-check"></i>已關注
+                    </button>
+                <?php endif; ?>
+            <?php endif; ?>
+            <a data-cate="<?= $e['sid'] ?>"></a>
             <!-- 2.2.2.分享 -->
             <div class="share-icons d-flex ">
                 <div class="fb">
@@ -220,7 +264,7 @@ $e = $pdo->query($e_SQL)->fetch();;
     <!-- 3.content -->
     <div class="container event-content px-5">
         <!-- 3.1.title -->
-        <div class='name  animatable fadeInUp'>
+        <div class='name'>
             <p><?= $e['event_title'] ?></p>
             <hr>
         </div>
@@ -228,7 +272,7 @@ $e = $pdo->query($e_SQL)->fetch();;
         <div class='row mx-0 align-items-stretch'>
             <!--時間+地點-->
             <div class="timelocation col-md-6">
-                <div class="time animatable fadeInUp">
+                <div class="time">
                     <div class="d-flex align-items-center">
                         <p class='t1-i'><i class="far fa-clock"></i>活動時間</p>
                         <div class='btn_join over calender'><a href="<?= $e['event_calender'] ?>"><i class="fas fa-calendar-plus"></i>加入行事曆</a>
@@ -236,7 +280,7 @@ $e = $pdo->query($e_SQL)->fetch();;
                     </div>
                     <p class='t1-c'><?= $e['event_time'] ?></p>
                 </div>
-                <div class="location animatable fadeInUp">
+                <div class="location">
                     <p class='t1-i'><i class="fas fa-map-marker-alt"></i>活動地點</p>
                     <p class='t1-c'><?= $e['event_place'] ?>
                         <br> <span><?= $e['event_address'] ?></span>
@@ -245,11 +289,11 @@ $e = $pdo->query($e_SQL)->fetch();;
             </div>
             <!-- 名額+價格 -->
             <div class="row mx-5 mx-md-0 px-2 quotaprice col-md-6 justify-content-center flex-sm-nowrap flex-md-wrap">
-                <div class="col-sm-6 col-md-12 block quota animatable fadeInUp">剩餘名額：<?= $e['event_join'] ?>/<?= $e['event_people'] ?></div>
-                <div class="col-sm-6 col-md-12 block price animatable fadeInUp">價格：NT$<?= $e['event_price'] ?></div>
+                <div class="col-sm-6 col-md-12 block quota">剩餘名額：<?= $e['event_join'] ?>/<?= $e['event_people'] ?></div>
+                <div class="col-sm-6 col-md-12 block price">價格：NT$<?= $e['event_price'] ?></div>
             </div>
         </div>
-
+        
     </div>
     <!-- 4.overview -->
     <div class="row mx-0 px-5 animatable fadeInUp">
@@ -328,13 +372,14 @@ $e = $pdo->query($e_SQL)->fetch();;
                             <label for='p0_name'>姓名
                                 <i class="fas fa-check"></i>
                             </label>
-                            <input type="text" class='col-10' name='p0_name' id='p0_name' placeholder="啤啤" style='letter-spacing: 0;' required>
+                            <input type="text" class='col-10' name='p0_name' id='p0_name' placeholder="啤啤" style='letter-spacing: 0;' oninput="getValue();" onporpertychange="getValue();" required>
                         </div>
+                        <p class='memo d-none'>＊請輸入正確姓名，以便現場核對身份</p>
                         <div class="form-title">
                             <label for='p0_mobile'>電話 <i class="fas fa-check"></i></label>
-                            <input class='col-10' type="tel" name='p0_mobile' id='p0_mobile' placeholder="0912-345-678" required>
+                            <input class='col-10' type="tel" name='p0_mobile' id='p0_mobile' placeholder="0912-345-678" oninput="getValue();" onporpertychange="getValue();" required>
                         </div>
-                        <p class='memo'>＊請輸入正確，以便現場核對身份</p>
+                        <p class='memo d-none pl-0'>＊請輸入正確電話，以便現場核對身份</p>
 
                         <div class="form-title row justify-content-start">
                             <div>攜伴人數 <span class="memo ">＊最多可攜戴<span class="number_big">2</span>位朋友</span></div>
@@ -352,20 +397,44 @@ $e = $pdo->query($e_SQL)->fetch();;
                             <!--攜伴人數第1列-->
                             <div class='one'>
                                 <div class="row mx-0 px-0 flex-wrap justify-content-start">
-                                    <div class="form-title-s col-12 col-md-6">姓名 <input type="text" placeholder="啤啤" name='p1_name'></div>
-                                    <div class="form-title-s col-12 col-md-6">電話 <input type="tel" placeholder="0912-345-678" name='p1_mobile'>
+                                    <div class="form-title-s col-12 col-md-6">
+                                        <label for='p1_name'>
+                                            姓名
+                                            <i class="fas fa-check"></i>
+                                        </label>
+                                        <input type="text" placeholder="啤啤" name='p1_name' id='p1_name' oninput="getValue();" onporpertychange="getValue();">
                                     </div>
+                                    <div class="form-title-s col-12 col-md-6">
+                                        <label for='p1_mobile'>
+                                            電話
+                                            <i class="fas fa-check"></i>
+                                        </label>
+                                        <input type="tel" placeholder="0912-345-678" name='p1_mobile' id='p1_mobile' oninput="getValue();" onporpertychange="getValue();">
+                                    </div>
+                                    <p class='memo ml-3  d-none'>＊請輸入正確姓名</p>
+                                    <p class='memo memo-ml  d-none'>＊請輸入正確電話</p>
                                 </div>
-                                <p class='memo ml-3'>＊請輸入正確，以便現場核對身份</p>
                             </div>
                             <!--攜伴人數第2列-->
                             <div class='two'>
                                 <div class="row mx-0 px-0 flex-wrap justify-content-start">
-                                    <div class="form-title-s col-12 col-md-6">姓名 <input type="text" placeholder="啤啤" name='p2_name'></div>
-                                    <div class="form-title-s col-12 col-md-6">電話 <input type="tel" placeholder="0912-345-678" name='p2_mobile'>
+                                    <div class="form-title-s col-12 col-md-6">
+                                        <label for='p2_name'>
+                                            姓名
+                                            <i class="fas fa-check"></i>
+                                        </label>
+                                        <input type="text" placeholder="啤啤" name='p2_name' id='p2_name' oninput="getValue();" onporpertychange="getValue();">
                                     </div>
+                                    <div class="form-title-s col-12 col-md-6">
+                                        <label for='p2_mobile'>
+                                            電話
+                                            <i class="fas fa-check"></i>
+                                        </label>
+                                        <input type="tel" placeholder="0912-345-678" name='p2_mobile' id='p2_mobile' oninput="getValue();" onporpertychange="getValue();">
+                                    </div>
+                                    <p class='memo ml-3  d-none'>＊請輸入正確姓名</p>
+                                    <p class='memo memo-ml  d-none'>＊請輸入正確電話</p>
                                 </div>
-                                <p class='memo ml-3'>＊請輸入正確，以便現場核對身份</p>
                             </div>
                         </div>
                         <div class="gold-line-wrap">
@@ -377,7 +446,8 @@ $e = $pdo->query($e_SQL)->fetch();;
                                 <span class="js5-input-divSpan">驗證碼
                                     <i class="fas fa-check"></i>
                                 </span>
-                                <input type="text" placeholder="不區分大小寫" class='check_code js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:150px">
+                                <!-- 設required都無效? -->
+                                <input name='check_code' type="text" placeholder="區分大小寫" class='check_code js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:150px" oninput="getValue();" onporpertychange="getValue();" required>
                                 <input type="text" class="js5-authCode mx-3" style="width:100px;background-color:var(--red);color:var(--yellow);font-size:2rem;font-weight:bold;text-align:center;letter-spacing:.25rem;border:1px solid white;font-family:'Noto Serif TC', serif;" value="" id="js5-authCode" ng-model="showAuthCode" disabled="disabled" oncopy="return false">
                                 <a class='recode' href="javascript:"><i class="fas fa-undo-alt" style="font-size:1.4rem;letter-spacing:0"> 重新獲取驗證碼</i></a>
                             </div>
@@ -460,9 +530,9 @@ $e = $pdo->query($e_SQL)->fetch();;
 <!-- my script -->
 <script src='../js/event/event.js'></script>
 <script src='../js/event/event_vaild.js'></script>
-<script src='../js/event/event_anime_scroll.js'></script>
+<script src='../js/event/event_anime_scroll_no_round.js'></script>
+<script src='../js/event/event_scroll_to_top.js'></script>
 <script src='../js/event/event_submit.js'></script>
-<script src='../js/event/event_popup.js'></script>
 <script src='../js/event/event_attention.js'></script>
 
 

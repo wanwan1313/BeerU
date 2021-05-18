@@ -10,6 +10,7 @@ if ($(window).width() < 768) {
         let doAnimations = function () {
             // 設offset=捲軸捲動+螢幕高度
             let offset = $(window).scrollTop() + $(window).height(),
+            
                 // 設置預設動作的class=$('.animatable')(預設為hidden，paused)
                 $animatables = $('.animatable');
             // 條件1:若$('.animatable')的數量為0
@@ -17,13 +18,20 @@ if ($(window).width() < 768) {
                 // 結果1:解除綁定scroll,Animations(就停止scroll了,如果要來回做，這個要關掉)
                 //   $(window).off('scroll', doAnimations);
             }
-
+            
             // 設每個each可以動的做function
             $animatables.each(function (i) {
                 //   設每個可以動的animatable=this
                 let $animatable = $(this);
                 //   （如果這個物件的y座標+物件高度-500(自訂)）<捲軸捲動+螢幕高度
                 // =這個物件滑完才出現下個物件(為了不要這樣，可以自訂減少多少，來讓物件還沒滑完，就出現下個物件)
+                let animatable_h=$animatable.height()
+                let animatable_t=$animatable.offset().top
+                console.log('offset',offset)
+                // console.log('animatable_h',animatable_h)
+                console.log('animatable_t',animatable_t)
+                // console.log('animatable_h+t',animatable_h + animatable_t)
+
                 if (($animatable.offset().top + $animatable.height() - 500) < offset) {
                     // 就動起來(關掉「可以動」，開啟「動了」)
                     $animatable.removeClass('animatable').addClass('animated');

@@ -26,10 +26,10 @@ $p1_mobile = isset($_POST['p1_mobile']) ? $_POST['p1_mobile'] : '無';
 $p2_name = isset($_POST['p2_name']) ? $_POST['p2_name'] : '無';
 $p2_mobile = isset($_POST['p2_mobile']) ? $_POST['p2_mobile'] : '無';
 $user_sid = $_SESSION['user']['sid'];
+$check_code = isset($_POST['check_code']) ? $_POST['check_code'] : '';
 
-
-
-if(empty($p0_name) or empty($p0_mobile) or empty($event_sid)){
+// 要怎麼加上驗證碼？(已在資料庫新增一欄check_code)
+if(empty($p0_name) or empty($p0_mobile) or empty($event_sid) or empty($check_code)){
     echo json_encode($output);
     exit;
 }
@@ -38,7 +38,7 @@ $join_SQL = "SELECT COUNT(*) FROM `event_join` WHERE `event_sid` = $event_sid AN
 $Join = $pdo->query($join_SQL)->fetch(PDO::FETCH_NUM)[0];
 
 if( $Join > 0) {
-    $output['error'] = '重複報名';
+    $output['error'] = '您已經報名過囉！快到會員中心瞧瞧～';
 }else{
     $sql = "INSERT INTO `event_join` (
         `event_sid`,
@@ -50,8 +50,10 @@ if( $Join > 0) {
         `p2_name`,
         `p2_mobile`,
         `total_p`,
+        `check_code`,
         `created_at`) 
         VALUES (
+            ?,
             ?,
             ?,
             ?,
@@ -75,6 +77,7 @@ if( $Join > 0) {
         $p2_name,
         $p2_mobile,
         $total_p,
+        $check_code
     ]);
     
     if($stmt->rowCount()){
