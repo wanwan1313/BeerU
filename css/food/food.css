@@ -1443,6 +1443,7 @@ h2 {
     left: 16px;
     top: 13px;
     font-size: 19px;
+    transition: .3s;
 }
 
 #return-to-top:hover img {
