@@ -1,5 +1,30 @@
 // 卡片跑出-------------------------------------
 
+const beerTPL = b => {
+    return`
+    <div class="beer">
+        <a href="each-product.php?psid=${b.sid}">
+           <div class="beer-img d-flex position-relative"><img src="../images/products/${b.pic}" alt="">
+            <div class="beer-name position-absolute">${b.c_name}</div>
+           </div>
+        </a>
+    </div>
+    `
+}
+
+let beer_wrap = $('.beer-wrap')
+let b_data=[]
+
+function renderProducts() {
+    beer_wrap.html('')
+    if (b_data.beers && b_data.beers.forEach) {
+        b_data.beers.forEach(el => {
+            beer_wrap.append(beerTPL(el))
+        })
+    }
+}
+
+
 $('.map .country, .flag img').click(function () {
     // console.log('this', $(this));
     // 動畫設置---------------------------
@@ -26,21 +51,22 @@ $('.map .country, .flag img').click(function () {
         function (data) {
             // let {map_row, cups, beers} = data;
             // console.log(data)
+            b_data = data
             // 改國家名
-            $('.country-name p').text(data.country);
+            $('.country-name p').text(data.map_row.country);
             // 改國家介紹
-            $('.beer-intro p').text(data.intro);
+            $('.beer-intro p').text(data.map_row.intro);
             // console.log(map_row.stamp);
             // 改郵票圖片位址
-            $('.stamp_country img').attr("src", data.stamp);
+            $('.stamp_country img').attr("src", data.map_row.stamp);
             // 改看更多位址
-            $('.see_more a').attr("href", data.see_more);
+            $('.see_more a').attr("href", data.map_row.see_more);
             // 改背景圖（桌機）
-            $('.bg_b img').attr("src", data.bg_b);
+            $('.bg_b img').attr("src", data.map_row.bg_b);
             // 改背景圖（手機）
-            $('.bg_s img').attr("src", data.bg_s);
+            $('.bg_s img').attr("src", data.map_row.bg_s);
             // 改brand
-            $('.beer-brand').html(data.brands);
+            $('.beer-brand').html(data.map_row.brands);
 
             // // cup1
             // for(let i=1; i<=3; i++){
@@ -50,19 +76,20 @@ $('.map .country, .flag img').click(function () {
             // }
 
             // cup1
-            $('.cup1').attr("href", data.cup_1_link);
-            $('.cup1 .cup-name').text(data.cup_1_name);
-            $('.cup1 img').attr("src", data.cup_1_pic);
+            $('.cup1').attr("href", data.map_row.cup_1_link);
+            $('.cup1 .cup-name').text(data.map_row.cup_1_name);
+            $('.cup1 img').attr("src", data.map_row.cup_1_pic);
             // cup2
-            $('.cup2').attr("href", data.cup_2_link);
-            $('.cup2 .cup-name').text(data.cup_2_name);
-            $('.cup2 img').attr("src", data.cup_2_pic);
+            $('.cup2').attr("href", data.map_row.cup_2_link);
+            $('.cup2 .cup-name').text(data.map_row.cup_2_name);
+            $('.cup2 img').attr("src", data.map_row.cup_2_pic);
             // cup3
-            $('.cup3').attr("href", data.cup_3_link);
-            $('.cup3 .cup-name').text(data.cup_3_name);
-            $('.cup3 img').attr("src", data.cup_3_pic);
+            $('.cup3').attr("href", data.map_row.cup_3_link);
+            $('.cup3 .cup-name').text(data.map_row.cup_3_name);
+            $('.cup3 img').attr("src", data.map_row.cup_3_pic);
 
             // beers?隨機出現國家分類的酒
+            renderProducts()
         },
         'json'
     )
