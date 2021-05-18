@@ -69,7 +69,7 @@ $page_title = '啤女BeerU:新手入門';
     <a href="javascript:" id="return-to-top"><img src="../images/common/top.svg" alt=""></a>
     
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-6 col-sm-4 knowledge-intro-wrap">
                 <div class="knowledge-title mt-5 animatable fadeInUp">
                     <p>啤酒百科</p>
@@ -94,7 +94,7 @@ $page_title = '啤女BeerU:新手入門';
     </div>
 </section>
 
-<section class="four-ingre-wrap mt-5">
+<section class="four-ingre-wrap">
     <div class="container">
         <div class="row">
             <div class="col-12 ingre-title-wrap">
