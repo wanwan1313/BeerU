@@ -25,9 +25,11 @@ if ($psid != 0) {
     $type_sid = $row['type_sid'];
     $brands_sid = $row['brand_sid'];
     $merch_sid = $row['merch_sid'];
+    $product_sid = $row['sid'];
+
 
     // 相關商品
-    $c_SQL = "SELECT * FROM `products` WHERE `sid` = 133 AND `sid` =  $psid";
+    $c_SQL = "SELECT * FROM `products` WHERE `sid` = 133 AND `sid` = $psid";
     $c_row = $pdo->query($c_SQL)->fetch();
     $c_row_sid = $c_row['sid'];
 
@@ -335,11 +337,11 @@ if ($psid != 0) {
                     <p class="title">琳德曼．水蜜桃酸啤</p>
                     <h5 class="title2 mb-2">Lindemans-Pecheresse</h5>
                     <!-- 收藏按鈕 -->
-                    <div class="collect">
+                    <div class="collect data-sid=<?= $c_row['sid'] ?>">
                         <?php if (!isset($_SESSION['user'])) : ?>
                             <button class="btn_collect2" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
                         <?php else : ?>
-                            <?php if (in_array($c_row['133'], $c_arr)) : ?>
+                            <?php if (in_array($c_row['sid'], $c_arr)) : ?>
                                 <button class="btn_collect2_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
                                 <button class="btn_collect2 d-none" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
                             <?php else : ?>
@@ -362,7 +364,7 @@ if ($psid != 0) {
                     <p class="title">源流．義式葡萄愛爾</p>
                     <h5 class="title2 mb-2">Far Yeast-Grapevine</h5>
                     <!-- 收藏按鈕 -->
-                    <div class="collect">
+                    <div class="collect data-sid=<?= $t_row['sid'] ?>">
                         <?php if (!isset($_SESSION['user'])) : ?>
                             <button class="btn_collect2" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
                         <?php else : ?>
@@ -389,7 +391,7 @@ if ($psid != 0) {
                     <p class="title">美人魚．野生粉紅啤</p>
                     <h5 class="title2 mb-2">La Sirène-Rosè Wild</h5>
                     <!-- 收藏按鈕 -->
-                    <div class="collect">
+                    <div class="collect data-sid=<?= $b_row['sid'] ?>">
                         <?php if (!isset($_SESSION['user'])) : ?>
                             <button class="btn_collect2" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
                         <?php else : ?>

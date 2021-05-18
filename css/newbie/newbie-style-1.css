@@ -273,12 +273,12 @@ body{
 /* ------------------- 啤酒百科介紹 ------------------- */
     .knowledge-wrap{
         padding-top: 100px;
-        height: 80vh;
+        /* height: 80vh; */
         position: relative;
     }
 
     .knowledge-intro-wrap{
-        height: 80vh;
+        /* height: 80vh; */
         margin-top: 5%;
     }
 
@@ -290,18 +290,22 @@ body{
     }
 
     .knowledge-wrap .about-beer{
-        width: 45%;
-        margin: -10% 45% 45%;
+        width: 40%;
+        position: absolute;
+        right: 15%;
+        bottom: 5%;
     }
 
     .knowledge-wrap .pipi-bubble{
+        position: absolute;
         width: 80%;
-        margin: 0 5%;
-    }
+        top: 0;
+        }
 
     @media (max-width: 991px) {
     .knowledge-wrap{
         padding-top: 0;
+        height: 80vh;
     }
     .knowledge-wrap .hop-bg{
         width: 100%;
@@ -310,13 +314,12 @@ body{
         }
 
     .knowledge-wrap .pipi-bubble{
-        width: 70%;
-        margin: 8% 10% 0 15%;
+        top: 20px;    
     }
 
     .knowledge-wrap .about-beer{
-        width: 42%;
-        margin: -15% 50% 50%;
+        width: 38%;
+        top: 100px;
     }
 
     }

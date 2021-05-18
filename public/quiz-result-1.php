@@ -36,11 +36,11 @@ if ($psid != 0) {
     $c_row_sid = $c_row['sid'];
 
 
-    $t_SQL = "SELECT * FROM `products` WHERE `type_sid` = 52 AND `sid` !=  $psid AND `sid` != $c_row_sid  ORDER BY RAND() LIMIT 1";
+    $t_SQL = "SELECT * FROM `products` WHERE `type_sid` = 52 AND `sid` !=  $psid AND `sid` != $c_row_sid ORDER BY RAND() LIMIT 1";
     $t_row = $pdo->query($t_SQL)->fetch();
     $t_row_sid = $t_row['sid'];
 
-    $b_SQL = "SELECT * FROM `products` WHERE `type_sid` = 52 AND `sid` !=  $t_row_sid AND $c_row_sid ORDER BY RAND() LIMIT 1";
+    $b_SQL = "SELECT * FROM `products` WHERE `type_sid` = 52 AND `sid` !=  $psid and `sid` != $t_row_sid AND `sid` != $c_row_sid ORDER BY RAND() LIMIT 1";
     $b_row = $pdo->query($b_SQL)->fetch();
 
     // new標籤
