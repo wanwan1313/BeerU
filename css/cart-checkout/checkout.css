@@ -27,6 +27,15 @@
 
 }
 
+/* pipi */
+.checkout .checkout-title img {
+    position: absolute;
+    width: 70px;
+    top: -60%;
+    left: 41.5%;
+    transform: rotate(45deg);
+}
+
 /* 標題文字 */
 .checkout .checkout-title p {
     color: var(--blue);

@@ -1,0 +1,269 @@
+.checkout .checkout-title {
+    animation:titledown 1.2s ;
+    animation-fill-mode: forwards;
+}
+
+.checkout .checkout-title img {
+    animation:pipileave 1.2s 1.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes titledown {
+    0% {
+        transform: translateY(-120%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pipileave {
+    0% {
+        transform: rotate(45deg) translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(20deg) translate(10%,-100%);
+        opacity: 0;
+    }
+}
+
+.checkout .step-1.anima {
+    animation: tobig .8s infinite;
+}
+
+.checkout .step-2.anima {
+    animation: tobig .8s infinite;
+}
+
+.checkout .step-3.anima {
+    animation: tobig .8s infinite;
+}
+
+@keyframes tobig {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.text-wrap {
+    width: 300px;
+}
+
+
+.complete-buy {
+    width: 100%;
+    height: calc(100vh - 170px);
+    position: fixed;
+    z-index: 990;
+    display: none;
+}
+
+.complete-buy-wrap {
+    width: 100%;
+    height: calc(100vh - 170px);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.complete-buy .anima-text {
+    fill: none;
+    stroke: none;
+}
+
+.complete-buy .anima-text.up {
+    animation: jumptext .5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes jumptext {
+    0% {
+        transform: translateY(100px);
+        fill:none;
+        stroke: none;
+    }
+    50% {
+        transform: translateY(-10px);
+        fill:#FFD76C;;
+        stroke: #FFD76C;
+    }
+    100% {
+        transform: translateY(0);
+        fill:#FFD76C;;
+        stroke: #FFD76C;
+    }
+}
+
+.complete-buy .anima-line.anima {
+    fill:none;
+    stroke: #FFD76C;
+    stroke-width:10px;
+    stroke-dasharray: 2312.320556640625;
+    stroke-dashoffset: 2312.320556640625;
+    animation: linedraw 2s .8s;
+    animation-fill-mode: forwards;
+}
+
+
+ @keyframes linedraw {
+        0% {
+          stroke-dashoffset: 2312.320556640625;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+.complete-buy .water-wrap.anima {
+    width: 50px;
+    margin-top: -30px;
+    opacity: 0;
+    animation: showwater .6s .5s forwards;
+}
+
+
+ @keyframes showwater {
+    0% {
+        opacity: 0;
+        transform: translateY(80px) scale(0) ;
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(0) scale(1.4) ;
+    }
+    60%{
+        opacity: 1;
+        transform: translateY(0) scale(1) ;
+    }
+    80%{
+        opacity: 1;
+        transform: translateY(0) scale(1.2) ;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) ;
+    }
+}
+
+.complete-buy .pipibeer-wrap {
+    width: 550px;
+}
+
+.complete-buy .pipi-left.anima {
+    opacity: 0;
+    animation: pipicome .6s, pipiismoving 1s .6s infinite;
+    animation-fill-mode: forwards;
+}
+
+.complete-buy .pipi-right.anima {
+    opacity: 0;
+    animation: pipicome2 .6s .1s, pipiismoving2 1s .7s infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes pipicome {
+    0% {
+        transform: translate(-40%,-20%) rotate(20deg) ;
+        opacity: 0;
+    }
+    100% {
+        transform: translate(2%,0) rotate(0) ;
+        opacity: 1;
+    }
+}
+
+@keyframes pipicome2 {
+    0% {
+        transform: translate(30%,30%) rotate(-10deg) ;
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-1%,0) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pipiismoving {
+    0% {
+        transform: translate(2%,0) rotate(0);
+        opacity: 1;
+    }
+    20% {
+        transform: rotate(0) translate(2px,2px);
+        opacity: 1;
+    }
+    40% {
+        transform: rotate(0) translate(-2px,2px);
+        opacity: 1;
+    }
+    60% {
+        transform: rotate(0) translate(2px,-2px);
+        opacity: 1;
+    }
+    80% {
+        transform: rotate(0) translate(-2px,-2px);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(2%,0) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pipiismoving2 {
+    0% {
+        transform: translate(-1%,0) rotate(0);
+        opacity: 1;
+    }
+    20% {
+        transform: rotate(0) translate(2px,2px);
+        opacity: 1;
+    }
+    40% {
+        transform: rotate(0) translate(-2px,2px);
+        opacity: 1;
+    }
+    60% {
+        transform: rotate(0) translate(2px,-2px);
+        opacity: 1;
+    }
+    80% {
+        transform: rotate(0) translate(-2px,-2px);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-1%,0) rotate(0);
+        opacity: 1;
+    }
+}
+
+.complete-buy .drink {
+    width: 250px;
+    margin-top: -40px;
+}
+
+.complete-buy .en.anima {
+    fill: none;
+    /* animation: color .4s 1.9s;
+    animation-fill-mode: forwards; */
+}
+
+@keyframes color {
+    0% {
+        fill: none;
+    }
+    40% {
+        fill: #60FFE9;
+    }
+    80% {
+        fill: none;
+    }
+    100% {
+        fill: #FF96DC;
+    }
+    
+}
