@@ -45,8 +45,31 @@
 .cart-list .cart-title {
     background: url(../../images/common/h1_3_b.svg) no-repeat center center;
     background-size: contain;
+    position: relative;
 
 }
+
+/* pipi */
+.cart-list .cart-title img {
+    position: absolute;
+    width: 70px;
+    top: -60%;
+    left: 36%;
+    transform: rotate(45deg);
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+.cart-list .cart-title img {
+    position: absolute;
+    width: 50px;
+    top: -72%;
+    left:25%;
+    transform: rotate(45deg);
+}
+}
+
+
 
 /* 標題文字 */
 .cart-list .cart-title p {
@@ -205,30 +228,28 @@
 .cart-list .pipi {
     background: url(../../images/cart-checkout/pipi-beer.svg) center center no-repeat;
     height: 200px;
+    transform: rotate(40deg) translate(-100%, 0);
+    opacity: 0;
 }
 
-.cart-list .beer1 {
+.cart-list .beer1, .beer2, .beer3, .beer4 {
     height: 150px;
-    background: url(../../images/cart-checkout/beer1.svg) center center no-repeat;
+    opacity: 0;
 }
-.cart-list .beer2 {
-    height: 150px;
-    background: url(../../images/cart-checkout/beer2.svg) center center no-repeat; 
-}
-.cart-list .beer3 {
-    height: 150px;
-    background: url(../../images/cart-checkout/beer3.svg) center center no-repeat;
-}
-.cart-list .beer4 {
-    height: 150px;
-    background: url(../../images/cart-checkout/beer4.svg) center center no-repeat;
+
+.cart-list .showpic img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 
 /* 手機版 */
 @media (max-width: 991px) {
-.cart-list .beer1, .cart-list .beer2, .cart-list .beer3, .cart-list .beer4 {
-    background-size: 80% 80%;
+.cart-list .showpic img{
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
 }
 }
 /* ----------------------------商品list---------------------------- */
@@ -245,16 +266,7 @@
     position: relative;
     transition: .5s;
     transform: translateY(0px);
-}
-
-.cart-list .c-product.hover {
-    box-shadow: 0px 2px 10px rgba(80, 80, 78, 0.822);
-    border: 1.5px solid var(--red);
-    transform: translateY(-3px);
-}
-
-.cart-list .c-product.noselect {
-    opacity: .3;
+    opacity: 0;
 }
 
 
@@ -275,6 +287,15 @@
     margin-left: 15px;
 }
 
+/* 桌機版 */
+@media (min-width: 992px) {
+.cart-list .pro-checkbox:hover {
+    background-color: var(--gold);
+    color: #fff;
+    opacity: .5;
+}
+}
+
 /* 手機版 */
 @media (max-width: 991px) {
 .cart-list .pro-checkbox {
@@ -287,10 +308,9 @@
     color: #fff;
 }
 
-.cart-list .pro-checkbox:hover {
-    background-color: var(--gold);
-    color: #fff;
-}
+
+
+
 
 
 /* 商品圖 */
@@ -407,6 +427,7 @@
     border-radius: 10px;
     padding: 0 10px;
     transition: .5s;
+    opacity: 0;
 }
 
 .cart-list .add-purchase i:nth-of-type(1) {

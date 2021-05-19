@@ -26,6 +26,7 @@ if (isset($_SESSION['user'])) {
 <!-- 包含自己的css和js -->
 
 <link rel="stylesheet" href="../css/cart-checkout/cart.css">
+<link rel="stylesheet" href="../css/cart-checkout/cart-anima.css">
 <link rel="stylesheet" href="../css/cart-checkout/discount.css">
 
 
@@ -41,14 +42,14 @@ if (isset($_SESSION['user'])) {
 
 <!-- 折價券pop-up-->
 <section class="discount-popup">
-<?php if (!empty($row)) : ?>
-    <div class="discount-box d-flex flex-wrap align-content-start">
-        <div class="col-12 box-title d-flex justify-content-center align-items-center">
-            <img src="../images/logo/logo_beeru_gold.svg" alt="">
-            <p>折價券列表</p>
-        </div>
-        <p class="col-12 exp">目前未選擇折價券</p>
-        <div class="col-12 coupon-list d-flex flex-wrap align-content-start">
+    <?php if (!empty($row)) : ?>
+        <div class="discount-box d-flex flex-wrap align-content-start">
+            <div class="col-12 box-title d-flex justify-content-center align-items-center">
+                <img src="../images/logo/logo_beeru_gold.svg" alt="">
+                <p>折價券列表</p>
+            </div>
+            <p class="col-12 exp">目前未選擇折價券</p>
+            <div class="col-12 coupon-list d-flex flex-wrap align-content-start">
 
                 <!-- 單張折價券 -->
                 <?php foreach ($row as $d) : ?>
@@ -60,19 +61,19 @@ if (isset($_SESSION['user'])) {
                     </div>
                 <?php endforeach; ?>
 
+            </div>
+            <div class="button-wrap-3 mx-auto">
+                <button class="confirm">確認</button>
+                <button class="cancel">取消</button>
+            </div>
         </div>
-        <div class="button-wrap-3 mx-auto">
-            <button class="confirm">確認</button>
-            <button class="cancel">取消</button>
-        </div>
-    </div>
-<?php else : ?>
-    <div class="discount-box d-flex flex-wrap align-content-start">
-        <div class="col-12 box-title d-flex justify-content-center align-items-center mb-4">
-            <img src="../images/logo/logo_beeru_gold.svg" alt="">
-            <p>折價券列表</p>
-        </div>
-        <div class="col-12 coupon-list d-flex flex-wrap align-content-start">
+    <?php else : ?>
+        <div class="discount-box d-flex flex-wrap align-content-start">
+            <div class="col-12 box-title d-flex justify-content-center align-items-center mb-4">
+                <img src="../images/logo/logo_beeru_gold.svg" alt="">
+                <p>折價券列表</p>
+            </div>
+            <div class="col-12 coupon-list d-flex flex-wrap align-content-start">
                 <div class="col-12 empty-status d-flex flex-column justify-content-center align-items-center">
                     <p>目前沒有折價券喔!</p>
                     <p>快到會員中心>我的成就，來累積更多的券吧！</p>
@@ -80,12 +81,12 @@ if (isset($_SESSION['user'])) {
                         <img src="../images/common/pipi_empty.svg" alt="">
                     </div>
                 </div>
+            </div>
+            <div class="button-wrap-3 mx-auto">
+                <button class="discount_ok">我知道了</button>
+            </div>
         </div>
-        <div class="button-wrap-3 mx-auto">
-            <button class="discount_ok">我知道了</button>
-        </div>
-    </div>
-<?php endif; ?>
+    <?php endif; ?>
 </section>
 
 <section class="cart-list">
@@ -107,6 +108,7 @@ if (isset($_SESSION['user'])) {
                 </div>
                 <!-- 大標 -->
                 <div class="col-12 col-lg-9 cart-title">
+                    <img src="../images/common/pipi-blue.svg" alt="">
                     <p>購物車</p>
                 </div>
 
@@ -151,10 +153,10 @@ if (isset($_SESSION['user'])) {
                         <p>購物車內是空的喔！<span class="d-block d-lg-inline">請繼續逛逛我們的世界精釀啤酒吧！</span></p>
                         <div class="showpic d-flex my-5 align-items-center">
                             <div class="col-4 pipi"></div>
-                            <div class="col-2 beer1"></div>
-                            <div class="col-2 beer2"></div>
-                            <div class="col-2 beer3"></div>
-                            <div class="col-2 beer4"></div>
+                            <div class="col-2 beer1"><img src="../images/cart-checkout/beer1.svg" alt=""></div>
+                            <div class="col-2 beer2"><img src="../images/cart-checkout/beer2.svg" alt=""></div>
+                            <div class="col-2 beer3"><img src="../images/cart-checkout/beer3.svg" alt=""></div>
+                            <div class="col-2 beer4"><img src="../images/cart-checkout/beer4.svg" alt=""></div>
                         </div>
                     </div>
 
@@ -774,6 +776,24 @@ if (isset($_SESSION['user'])) {
             $('.warn').html('<i class="fas fa-exclamation-circle"></i>目前選購之商品總數已超過超商取貨大小限制，僅能宅配取貨')
         }
     })
+
+
+
+
+    // 動畫------------------------------------------------------------------------------
+    setTimeout(function() {
+        let beer_i = 0
+        let total_beer_i = $('.c-product').length
+        $('.c-product').eq(0).addClass('anima')
+        $('.add-purchase').addClass('animate__animated animate__fadeInUp').css('opacity', '1')
+        var cbt = setInterval(function() {
+            beer_i = beer_i + 1;
+            $('.c-product').eq(beer_i).addClass('anima')
+            if (beer_i == total_beer_i - 1) {
+                clearInterval(cbt)
+            }
+        }, 100);
+    }, 300)
 </script>
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>
