@@ -6,11 +6,22 @@
 <!-- 需要置換的變數們 -->
 <?php
 $page_title = '啤女BeerU:啤酒地圖';
-$m_SQL = "SELECT * FROM `map`";
-$m_rows = $pdo->query($m_SQL)->fetchAll();
-// $m_rows as $m
-$psid = 1;
 
+$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
+
+$map_SQL = "SELECT * FROM `map` WHERE sid=$sid";
+$map_rows = $pdo->query($map_SQL)->fetchAll();
+$map_row = $pdo->query($map_SQL)->fetch();
+
+// $country_sid = $map_row['country_sid'];
+// echo $country_sid ;
+// $type_sid = $map_row['type_sid'];
+// echo $type_sid ;
+$map_sid =$map_row['tag_sid'];
+echo $map_sid ;
+
+
+$psid = 1;
 // 此頁商品
 $p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.`name` AS `type_name`,t4.`name` AS `merch_name` FROM `products` AS p 
                 JOIN `tags` AS t1 
@@ -22,23 +33,17 @@ $p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.
                 JOIN `tags` AS t4 
                 ON p.`merch_sid` = t4.`sid`
                 WHERE p.`sid` = $psid";
-$m_row = $pdo->query($p_SQL)->fetch();
 
-$country_sid = $m_row['country_sid'];
-$type_sid = $m_row['type_sid'];
-// $brands_sid = $row['brand_sid'];
-// $merch_sid = $row['merch_sid'];
+
+
 
 // 相關商品
 $c_SQL = "SELECT * FROM `products` WHERE `type_sid` = 54 AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
 $c_row = $pdo->query($c_SQL)->fetch();
 $c_row_sid = $c_row['sid'];
 
-$t_SQL = "SELECT * FROM `products` WHERE `country_sid` = $country_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
-$t_row = $pdo->query($t_SQL)->fetch();
-
-
-
+// $t_SQL = "SELECT * FROM `products` WHERE `country_sid` = $country_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
+// $t_row = $pdo->query($t_SQL)->fetch();
 
 // new標籤
 $deadline = strtotime('2021-05-01');
@@ -48,25 +53,24 @@ $come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-prod
 $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
 
 // 抓資料庫裡的關注清單
+// 關注列
 $a_arr = [];
-$attention = false;
-$cate = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
+// 設定登入會員後
 if (isset($_SESSION['user'])) {
-
+// 設定已登入會員sid
     $m_sid = $_SESSION['user']['sid'];
-    $a_SQL = "SELECT `tag_sid` FROM `attention` WHERE `tag_sid` > 0 AND `member_sid` = $m_sid";
+    // 選擇attention抓tag_sid，綁定有會員sid
+    $a_SQL = "SELECT `tag_sid` FROM `attention` WHERE `member_sid` = $m_sid";
+    // 抓取建立a_row
     $a_row = $pdo->query($a_SQL)->fetchAll();
+    // 如果有關注
     if (!empty($a_row)) {
         foreach ($a_row as $a) {
+            // 抓出來
             array_push($a_arr, $a['tag_sid']);
         }
     }
-
-    if( in_array($cate, $a_arr)){
-        $attention = true;
     }
-}
-
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -453,11 +457,6 @@ if (isset($_SESSION['user'])) {
                 </svg>
                 <!-- 各州名 -->
                 <div class="world_titles">
-                    <!-- <img class='title_us position-absolute' src="../images/map/SVG/us_t.svg" alt="">
-                        <img class='title_eu position-absolute' src="../images/map/SVG/eu_t.svg" alt="">
-                        <img class='title_as position-absolute' src="../images/map/SVG/as_t.svg" alt="">
-                        <img class='title_au position-absolute' src="../images/map/SVG/au_t.svg" alt="">
-                        <img class='title_af position-absolute' src="../images/map/SVG/af_t.svg" alt=""> -->
                     <img class='title_us position-absolute' src="../images/map/SVG/us_t_c.svg" alt="">
                     <img class='title_eu position-absolute' src="../images/map/SVG/eu_t_c.svg" alt="">
                     <img class='title_as position-absolute' src="../images/map/SVG/as_t_c.svg" alt="">
@@ -560,8 +559,8 @@ if (isset($_SESSION['user'])) {
                     <!-- <div class="countries_wrap"> -->
                     <!-- <div class="slider row manycountry flex-nowrap"> -->
                     <div class="country position-relative">
-                        <div class="country_name position-absolute">
-                            美國
+                        <div class="country_name position-absolute" data-cate="29">
+                            <!-- 美國 -->
                         </div>
                         <img src="../images/map/SVG/stamp_us.svg" alt="">
                     </div>
@@ -678,49 +677,49 @@ if (isset($_SESSION['user'])) {
                     <!-- row -->
                     <div class="countries_wrap">
                         <div class="slider row manycountry flex-nowrap">
-                            <div class="country position-relative">
+                            <div class="country position-relative" data-cate="32">
                                 <div class="country_name position-absolute">
                                     英國
                                 </div>
                                 <img src="../images/map/SVG/stamp_uk.svg" alt="">
                             </div>
-                            <div class="country">
+                            <div class="country" data-cate="31">
                                 <div class="country_name position-absolute">
                                     法國
                                 </div>
                                 <img src="../images/map/SVG/stamp_france.svg" alt="">
                             </div>
-                            <div class="country ">
+                            <div class="country " data-cate="36">
                                 <div class="country_name position-absolute">
                                     比利時
                                 </div>
                                 <img src="../images/map/SVG/stamp_belgium.svg" alt="">
                             </div>
-                            <div class="country ">
+                            <div class="country " data-cate="34">
                                 <div class="country_name position-absolute">
                                     挪威
                                 </div>
                                 <img src="../images/map/SVG/stamp_norway.svg" alt="">
                             </div>
-                            <div class="country ">
+                            <div class="country" data-cate="33">
                                 <div class="country_name position-absolute">
                                     丹麥
                                 </div>
                                 <img src="../images/map/SVG/stamp_denmark.svg" alt="">
                             </div>
-                            <div class="country ">
+                            <div class="country" data-cate="30">
                                 <div class="country_name position-absolute">
                                     德國
                                 </div>
                                 <img src="../images/map/SVG/stamp_germany.svg" alt="">
                             </div>
-                            <div class="country">
+                            <div class="country" data-cate="35">
                                 <div class="country_name position-absolute">
                                     瑞典
                                 </div>
                                 <img src="../images/map/SVG/stamp_sweden.svg" alt="">
                             </div>
-                            <div class="country">
+                            <div class="country" data-cate="40">
                                 <div class="country_name position-absolute">
                                     義大利
                                 </div>
@@ -853,25 +852,25 @@ if (isset($_SESSION['user'])) {
                     <!-- row -->
                     <div class="countries_wrap">
                         <div class="slider row manycountry flex-nowrap">
-                            <div class="country position-relative">
+                            <div class="country position-relative" data-cate="43">
                                 <div class="country_name position-absolute">
                                     日本
                                 </div>
                                 <img src="../images/map/SVG/stamp_japan.svg" alt="">
                             </div>
-                            <div class="country position-relative">
+                            <div class="country position-relative" data-cate="37">
                                 <div class="country_name position-absolute">
                                     俄羅斯
                                 </div>
                                 <img src="../images/map/SVG/stamp_russia.svg" alt="">
                             </div>
-                            <div class="country position-relative">
+                            <div class="country position-relative" data-cate="41">
                                 <div class="country_name position-absolute">
                                     新加坡
                                 </div>
                                 <img src="../images/map/SVG/stamp_singapore.svg" alt="">
                             </div>
-                            <div class="country position-relative">
+                            <div class="country position-relative" data-cate="42">
                                 <div class="country_name position-absolute">
                                     越南
                                 </div>
@@ -920,13 +919,13 @@ if (isset($_SESSION['user'])) {
                     <!-- row -->
                     <!-- <div class="countries_wrap justify-content-center ">
                         <div class="slider d-flex manycountry flex-nowrap justify-content-center text-center"> -->
-                    <div class="country position-relative">
+                    <div class="country position-relative" data-cate="39">
                         <div class="country_name position-absolute">
                             澳洲
                         </div>
                         <img src="../images/map/SVG/stamp_australia.svg" alt="">
                     </div>
-                    <div class="country">
+                    <div class="country" data-cate="38">
                         <div class="country_name position-absolute">
                             紐西蘭
                         </div>
@@ -983,7 +982,7 @@ if (isset($_SESSION['user'])) {
 
     <!-- popup -->
     <div class="comtainer-fulid popup align-items-center">
-        <div class="row bg-black">
+        <div class="row bg-black opacity-0">
             <div class="map-card align-items-center position-relative">
                 <!-- 1.關閉按鈕 -->
                 <div class="row card-close justify-content-end "><i class="fas fa-times-circle"></i>
@@ -1020,7 +1019,7 @@ if (isset($_SESSION['user'])) {
                     </div>
                     <div class="col-md-5">
                         <!-- 5.搭配酒杯 -->
-                        <div class="col cups mb-3 align-items-center  animatable bounceIn" data-sid=<?= $c_row['sid'] ?>>
+                        <div class="col cups mb-3 align-items-center  animatable bounceIn">
                             <!--標題-->
                             <div class="row title justify-content-center mb-1 mt-4">
                                 <p>搭配酒杯</p>
@@ -1051,7 +1050,6 @@ if (isset($_SESSION['user'])) {
                             </div>
                         </div>
                         <!-- 6.搭配啤酒 -->
-                        <!-- data-sid=<?= $c_row['sid'] ?> -->
                         <div class="col beers align-items-center justify-content-center mb-2 mb-md-5 animatable bounceIn">
                             <!-- 標題 -->
                             <div class="row title justify-content-center mb-1 mt-4">
@@ -1065,28 +1063,35 @@ if (isset($_SESSION['user'])) {
                 </div>
                 <!-- 7.按鈕 -->
                 <div class=" row buttons justify-content-center flex-nowrap animatable bounceIn">
+                    <!-- ???整個州內的國家會一直顯示已關注 -->
                     <!--加入關注-->
                     <?php if (!isset($_SESSION['user'])) : ?>
-                        <button class="btn_attention btn_attention_nologin  px-3 py-1" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
+                        <!-- 不是會員都只會顯示加入關注       -->
+                        <button class="btn_attention btn_attention_nologin px-3 py-1 mx-5" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
                     <?php else : ?>
-                        <?php if (in_array($m_sid, $a_arr)) : ?>
-                            <button class="btn_attention_active d-none  px-3 py-1 mx-5">
+                        <!-- 是會員，有關注 -->
+                        <?php if (in_array($a['tag_sid'], $a_arr)) : ?>
+                            <!-- 顯示有關注 -->
+                            <button class="btn_attention_active px-3 py-1 mx-5 d-none">
                                 <i class="fas fa-check"></i>已關注
                             </button>
-                            <button class="btn_attention btn_attention_be px-3 py-1 mx-5">
+                            <!-- 不顯示已關注（透過按鈕觸發） -->
+                            <button class="btn_attention btn_attention_be px-3 py-1 mx-5 ">
                                 <i class="fas fa-plus"></i>加入關注
-                            </button>
+                            </button> 
+                            <!-- 是會員，沒有關注 -->
                         <?php else : ?>
-                            <button class="btn_attention btn_attention_be px-3 py-1 mx-5">
-                                <i class="fas fa-plus"></i>加入關注
-                            </button>
-                            <button class="btn_attention_active d-none px-3 py-1 mx-5">
+                            <!-- 不顯示已關注（透過按鈕觸發） -->
+                            <button class="btn_attention_active px-3 py-1 mx-5">
                                 <i class="fas fa-check"></i>已關注
                             </button>
+                            <!-- 顯示加入關注 -->
+                            <button class="btn_attention btn_attention_be px-3 py-1 mx-5 d-none">
+                                <i class="fas fa-plus"></i>加入關注
+                            </button>  
                         <?php endif; ?>
                     <?php endif; ?>
-                    <a data-cate="<?= $map['sid'] ?>"></a>
-                    <!-- <button class="btn_attention px-3 py-1 mx-5"><i class="fas fa-plus"></i>加入關注</button> -->
+                    <a data-cate="<?= $map_row['tag_sid'] ?>"></a>
                     <!-- 看更多商品 -->
                     <button class="see_more btn_attention px-3 py-1 mx-5">
                         <a class="" href='all-product.php'>
@@ -1112,7 +1117,6 @@ if (isset($_SESSION['user'])) {
 <script src='../js/map/map_4.js'></script>
 <script src='../js/map/map_attention.js'></script>
 <script src='../js/map/map_phone_option.js'></script>
-<!-- <script src='../js/map/map-rwd-show-hide.js'></script> -->
 <script src='../js/map/map_anime_scroll.js'></script>
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>

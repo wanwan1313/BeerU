@@ -19,10 +19,12 @@ $('.title_us, .title_eu, .title_as, .title_au').toggleClass('animate__animated a
 // 高度視覺調整
 // 若手機高度小於815會自動調整載入頁面時的位置，到地圖中間
 
+$(window).animate({scrollTop:0})
+
 if ($(window).width() < 700) {
-if ($(window).height() < 815) {
-    $("html, body").animate({ scrollTop: 50 }, "slow")
-}
+    if ($(window).height() < 815) {
+        // $("html, body").animate({ scrollTop: 50 }, "slow")
+    }
 }
 // -------------------
 
@@ -32,3 +34,8 @@ history.pushState({
     url: url,
     title: document.title
 }, document.title, url)
+
+
+
+// -------------------------
+

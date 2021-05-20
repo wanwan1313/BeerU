@@ -1,28 +1,20 @@
-// 若手機高度小於815會自動調整載入頁面時的位置，到地圖中間
-// if ($(window).height() < 815) {
-//     $("html, body").animate({ scrollTop: 100 }, "slow")
-// }
-
-// $('.balloon, .flag, .bg-black').hide();
-// $('.balloon').css('opacity',0).css('transition','3s')
-
-if ($(window).width() > 700) {
+if ($(window).width() >= 700) {
     $('.parts').hide()
     $('.pipi_plane_big').show()
 }
 else{
-    $('.parts').show()
+    $('.parts').show().addClass('d-flex')
     $('.pipi_plane_big').hide()
 }
 
 
 $(window).resize(function () {
-    if ($(window).width() > 700) {
+    if ($(window).width() >= 700) {
         $('.parts').hide()
         $('.pipi_plane_big').show()
     }
     else{
-        $('.parts').show()
+        $('.parts').show().addClass('d-flex')
         $('.pipi_plane_big').hide()
     }
 })
