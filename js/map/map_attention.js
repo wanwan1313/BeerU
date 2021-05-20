@@ -2,15 +2,20 @@
 let btn_attention = $('.btn_attention_be')
 let btn_attention_active = $('.btn_attention_active')
 
+// ??? 要如何呼叫php的a_arr
+// a_arr = json_encode($a_arr)
 
-
-// 判斷是否已加入
+// ???判斷是否已加入
 $('.map .country, .flag img').click(function () {
     let data_cate=$(this).attr('data-cate')
-    console.log('data_cate_',data_cate)
-    if (in_array($a['tag_sid'], $a_arr)){
-        console.log('hi')
-    }
+    console.log('data_cate',data_cate)
+    // console.log($a_arr)
+    // if (in_array($a['tag_sid'], $a_arr)){
+    //     console.log('hi')
+    // }
+    // if (a_arr.includes(data_cate)){
+    //     console.log('hi')
+    // }
 
 })
 // 加入

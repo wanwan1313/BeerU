@@ -68,9 +68,12 @@ if (isset($_SESSION['user'])) {
         foreach ($a_row as $a) {
             // 抓出來
             array_push($a_arr, $a['tag_sid']);
+
         }
     }
     }
+    // echo json_encode($a_arr,JSON_UNESCAPED_UNICODE)
+    
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
