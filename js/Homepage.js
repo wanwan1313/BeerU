@@ -38,6 +38,19 @@ $(document).ready(function () {
         $('#content-wrap').addClass('OUT');
         $('footer').addClass('OUT')
 
+        $('#NO').click(function(){
+            $('.pop-up-1').css('height','100%').fadeIn(150);
+            $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color', 'var(--red)')
+            $('.pop-up-1 .pop-up-text').text('未滿18歲請勿進入');
+            $('button.ok').on('click', function() {
+
+                $('.pop-up-1').fadeOut(150);
+
+            })
+
+
+        })
+
 
         // 按了Yes之後
         $('#YES').click(function () {
