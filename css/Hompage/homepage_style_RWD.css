@@ -134,6 +134,7 @@
     
     }
     .home .RWD-button img{
+       
         margin: 0 auto;
         width: 40%;
     }
@@ -398,36 +399,73 @@
     .BeerU-colllection-title{
         margin-top: 0px;
     }
-    .colllection-items-windows {
-        margin-top: 25px;
-    }
-    
+   
     .BeerU-colllection-title h1{
         top: 18px;
         left: 10px;
         letter-spacing: 19px;
         font-size: 28px;
     }
-    
 
+    .BeerU-colllection .colllection-items-warp{
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        top: 0;
+        left: 0;
+        margin: -120px auto 50px auto;
+        
+    }
+
+    .BeerU-colllection .item-flag{
+        position: relative;
+        z-index: 1;
+        margin: 0px auto 0 auto;
+        width: 50px;
+
+        transform: rotate(20deg) translate(75px,40px);
+    }
+        
+    .BeerU-colllection .item-img{
+        position: relative;
+        z-index: 2;
+        margin: -50px auto 0 auto;
+        width: 30%;
+        
+    }
+    
+    .BeerU-colllection .item-img img{
+        max-height: 452px;
+    }
+
+    .BeerU-colllection .item-intro h4{
+        font-family: 'Noto Sans TC', serif;
+        font-weight: Medium;
+        font-size: 2rem;
+        text-align: center;
+        
+    }
+   
 
     /* ////////啤女分頁////////*/
 
     .BeerU-feature{
-        margin-top: 60px;
+       margin-top: 20px;
     }
 
-    .BeerU-feature .feature02{
-   
-        background-position: right 2px  top 0px;
+    .BeerU-feature .feature{
+        overflow: hidden;
+        position: relative;
+        margin: -80px auto 0 auto;
+        width: 100%;
+        cursor: pointer;
     }
-
 
 
     /* ////////啤女傳說/////// */
 
     .BeerU-legend{
-        margin-top: 20px;
+        margin-top: 80px;
     }
 
     .BeerU-legend-title h1{
@@ -456,11 +494,12 @@
         height: 100px;
         
         border-radius: 50%;
-        border: solid 1px var(--yellow)
+        border: solid 2px var(--gold)
         
     }
 
     .BeerU-legend .legned h3{
+        margin-top: 12px;
         font-size: 2.4rem;
         line-height: 4rem;
     }

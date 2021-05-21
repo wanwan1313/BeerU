@@ -6,6 +6,11 @@
 $page_title = '啤女BeerU';
 
 
+$h_sql = " SELECT * FROM `products` WHERE `hot`= 'true' ORDER BY RAND() LIMIT 0 ,10";
+
+$row = $pdo->query($h_sql)->fetchAll();
+
+
 
 
 ?>
@@ -16,9 +21,11 @@ $page_title = '啤女BeerU';
 
 <!-- slick css-->
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
 
-<link rel="stylesheet" type="text/css" href="../css/slick.css"/>
 
+<!-- slick js -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
 
 <!-- HomepageJs -->
 <script src="../js/Homepage.js" defer></script>
@@ -26,8 +33,8 @@ $page_title = '啤女BeerU';
 
  <!-- 首頁CSS -->
  <link rel="stylesheet" href="../css/Hompage/hompage_style.css">   
-    <link rel="stylesheet" href="../css/Hompage/homepage_style_RWD.css"> 
-    <link rel="stylesheet" href="../css/Hompage/homepage_animation.css"> 
+ <link rel="stylesheet" href="../css/Hompage/homepage_style_RWD.css"> 
+ <link rel="stylesheet" href="../css/Hompage/homepage_animation.css"> 
 
 
 
@@ -43,6 +50,9 @@ $page_title = '啤女BeerU';
 <?php include __DIR__ . '../../php/common/Login-Sign.php'?>
 <?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
 <?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
+<section class="mobile-menu">
+    <?php include __DIR__ . '../../php/common/category.php' ?>
+</section>
 
 
 <!-- Landingpage門 -->
@@ -102,29 +112,39 @@ $page_title = '啤女BeerU';
 
             <div class="RWD-button-wrap">
                 <div class="row">
-                    <div class="RWD-button icon01 d-flex">
-                            <img src="../images/common/RWD-icon01-small.svg" alt="">
-                            <h3>新手推薦</h3>
+                    <a href="newbie.php">
+                        <div class="RWD-button icon01 d-flex">
+                            
+                                <img src="../images/common/RWD-icon01-small.svg" alt="">
+                                <h3>新手推薦</h3>
+                            
+                        </div>
+                    </a>
+                    <a href="food.php">
+                        <div class="RWD-button icon02  d-flex">
+                            
+                                <img src="../images/common/RWD-icon02-small.svg" alt="">
+                                <h3>餐酒搭配</h3>
                         
-                    </div>
-                    
-                    <div class="RWD-button icon02  d-flex">
-                            <img src="../images/common/RWD-icon02-small.svg" alt="">
-                            <h3>餐酒搭配</h3>
-                    </div>
-                    
+                        </div>
+                    </a>
                 </div>
                 <div class="row">
-                    <div class="RWD-button icon03 d-flex">
-                            <img src="../images/common/RWD-icon03-small.svg" alt="">
-                            <h3>風味輪</h3>
-                        
-                    </div>
-                    
-                    <div class="RWD-button icon04  d-flex">
-                            <img src="../images/common/RWD-icon04-small.svg" alt="">
-                            <h3>啤酒地圖</h3>
-                    </div>
+                    <a href="fund.php">
+                        <div class="RWD-button icon03 d-flex">
+                            
+                                <img src="../images/common/RWD-icon03-small.svg" alt="">
+                                <h3>募資計畫</h3>
+                            
+                        </div>
+                    </a>
+
+                    <a href="beer_map.php#world"> 
+                        <div class="RWD-button icon04  d-flex">
+                                <img src="../images/common/RWD-icon04-small.svg" alt="">
+                                <h3>啤酒地圖</h3>
+                        </div>
+                    </a>
                     
                 </div>
                 
@@ -135,36 +155,44 @@ $page_title = '啤女BeerU';
             <div class="Woman_warp">
 
                 <div class="woman woman01">
-                    <div class="woman-img  woman01-img">
-                        <img src="../images/common/woman1.svg" alt="">
-                    </div>
-                    <div class="woman-talk talk01">
-                        <img src="../images/common/talk01.png" alt="">
-                    </div>
+                    <a href="all-product.php">
+                        <div class="woman-img  woman01-img">
+                            <img src="../images/common/woman1.svg" alt="">
+                        </div>
+                        <div class="woman-talk talk01">
+                            <img src="../images/common/talk01.png" alt="">
+                        </div>
+                    </a>
                 </div>
                 <div class="woman woman02">
-                    <div class="woman-img  woman02-img">
-                        <img src="../images/common/woman2.svg" alt="">
-                    </div>
-                    <div class="woman-talk talk02">
-                        <img src="../images/common/talk02.svg" alt="">
-                    </div>
+                     <a href="food.php">
+                        <div class="woman-img  woman02-img">
+                            <img src="../images/common/woman2.svg" alt="">
+                        </div>
+                        <div class="woman-talk talk02">
+                            <img src="../images/common/talk02.svg" alt="">
+                        </div>
+                    </a>
                 </div>
                 <div class="woman woman03">
-                    <div class="woman-img  woman03-img">
-                        <img src="../images/common/woman3.svg" alt="">
-                    </div>
-                    <div class="woman-talk talk03">
-                        <img src="../images/common/talk03.png" alt="">
-                    </div>
+                    <a href="newbie.php">
+                        <div class="woman-img  woman03-img">
+                            <img src="../images/common/woman3.svg" alt="">
+                        </div>
+                        <div class="woman-talk talk03">
+                            <img src="../images/common/talk03.png" alt="">
+                        </div>
+                    </a>
                 </div>
                 <div class="woman woman04">
-                    <div class="woman-img  woman04-img">
-                        <img src="../images/common/woman4.svg" alt="">
-                    </div>
-                    <div class="woman-talk talk04">
-                        <img src="../images/common/talk04.png" alt="">
-                    </div>
+                    <a href="beer_map.php">
+                        <div class="woman-img  woman04-img">
+                            <img src="../images/common/woman4.svg" alt="">
+                        </div>
+                        <div class="woman-talk talk04">
+                            <img src="../images/common/talk04.png" alt="">
+                        </div>
+                    </a>
                 </div>
                 
                 
@@ -193,7 +221,9 @@ $page_title = '啤女BeerU';
                  <!-- 精釀啤酒 -->
                 <div class="brew-beer-left d-flex">
                     <div class="brew-beer-img ">
-                        <img src="../images/common/brew-beer.png" alt="">
+                        <a href="newbie.php#knowledge-wrap">
+                            <img src="../images/common/brew-beer.png" alt="">
+                        </a>
                     </div>
                     <div class="brew-beer-intro ">
                         <div class="brew-beer-title title-txt">
@@ -234,14 +264,18 @@ $page_title = '啤女BeerU';
                         </div>
                     </div>
                     <div class="bussiness-beer-img">
-                        <img src="../images/common/bussines-beer.png" alt="">
+                        <a href="newbie.php#knowledge-wrap">
+                            <img src="../images/common/bussines-beer.png" alt="">
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
        <div class="container">
         <div class="row  mt-4">
-            <div class="know-more more-btn01">了解更多</div>
+            
+                <div class="know-more more-btn01"><a href="newbie.php#knowledge-wrap">了解更多</a></div>
+            
         </div>
         </div>
     </section>
@@ -290,14 +324,14 @@ $page_title = '啤女BeerU';
     
                                 <div class="Beer-type-name d-flex">
                                 <img src="../images/common/dot-1.svg" alt="">
-                                <h3>酸啤Witbier</h3>
+                                <h3>酸啤酒 Sour beer</h3>
                                 </div>
                                 <div class="Beer-type-text">
-                                    <p>清爽帶果香的Witbier是當今受歡迎程度最高的啤酒類型前幾名，歷史久遠，可追溯到11世紀的北歐，是最早使用啤酒花的啤酒之一。Witbier的ABV在5%左右，使用30~40%的未發芽小麥釀造，並會在過程中添加芫荽、橙皮和其他香料。「Wit」在原文中便是「白色」的意思。
+                                    <p>清爽帶果香的 Witbier 是當今受歡迎程度最高的啤酒類型前幾名。白啤酒與其他小麥啤酒最大的不同點在於白啤酒使用的小麥沒發芽，且會添加如橙皮、胡荽子等香料，因此在氣味上常帶有獨特的香氣。是歷史最悠久的一種啤酒種類，但隨著各家啤酒釀造發酵過程，還是有很多不同變化。
                                     </p>
                                 </div>
     
-                                <div class="know-more more-btn02">了解更多</div>
+                                <div class="know-more more-btn02"><a href="all-product.php?cate=44&page=1&hot=0&order=1">了解更多</a></div>
                             </div>
     
                         </div>
@@ -319,7 +353,7 @@ $page_title = '啤女BeerU';
                                     </p>
                                 </div>
     
-                                <div class="know-more more-btn02">了解更多</div>
+                                <div class="know-more more-btn02"><a href="all-product.php?cate=45&page=1&hot=0&order=1">了解更多</a></div>
                             </div>
     
                         </div>
@@ -342,7 +376,7 @@ $page_title = '啤女BeerU';
                                     </p>
                                 </div>
     
-                                <div class="know-more more-btn02">了解更多</div>
+                                <div class="know-more more-btn02"><a href="all-product.php?cate=46&page=1&hot=0&order=1">了解更多</a></div>
                             </div>
     
                         </div>
@@ -364,7 +398,7 @@ $page_title = '啤女BeerU';
                                     </p>
                                 </div>
     
-                                <div class="know-more more-btn02">了解更多</div>
+                                <div class="know-more more-btn02"><a href="all-product.php?cate=47&page=1&hot=0&order=1">了解更多</a></div>
                             </div>
     
                         </div>
@@ -387,7 +421,7 @@ $page_title = '啤女BeerU';
                                     </p>
                                 </div>
     
-                                <div class="know-more more-btn02">了解更多</div>
+                                <div class="know-more more-btn02"><a href="all-product.php?cate=48&page=1&hot=0&order=1">了解更多</a></div>
                             </div>
     
                         </div>
@@ -409,7 +443,7 @@ $page_title = '啤女BeerU';
                                     </p>
                                 </div>
     
-                                <div class="know-more more-btn02">了解更多</div>
+                                <div class="know-more more-btn02"><a href="all-product.php?cate=49&page=1&hot=0&order=1">了解更多</a></div>
                             </div>
     
                         </div>
@@ -431,7 +465,7 @@ $page_title = '啤女BeerU';
                                     </p>
                                 </div>
     
-                                <div class="know-more more-btn02">了解更多</div>
+                                <div class="know-more more-btn02"><a href="all-product.php?cate=50&page=1&hot=0&order=1">了解更多</a></div>
                             </div>
     
                         </div>
@@ -452,7 +486,7 @@ $page_title = '啤女BeerU';
                                     <p>一種深色啤酒，源自於18世紀英國倫敦地區，以烘焙麥芽發酵而成。當時廣受河上及街道搬運工（Porter）的歡迎，因此得名。帶有咖啡般香味。</p>
                                 </div>
     
-                                <div class="know-more more-btn02">了解更多</div>
+                                <div class="know-more more-btn02"><a href="all-product.php?cate=51&page=1&hot=0&order=1">了解更多</a></div>
                             </div>
     
                         </div>
@@ -473,7 +507,7 @@ $page_title = '啤女BeerU';
                                     <p>又稱烈性黑啤酒，是一種由波特啤酒改良而來的深色啤酒，而Stout一名源自法語，原義是強烈的意思，具濃郁烘烤風味，略帶咖啡與巧克力滋味，口味較波特啤酒濃烈。</p>
                                 </div>
     
-                                <div class="know-more more-btn02">了解更多</div>
+                                <div class="know-more more-btn02"><a href="all-product.php?cate=52&page=1&hot=0&order=1">了解更多</a></div>
                             </div>
     
                         </div>
@@ -556,137 +590,35 @@ $page_title = '啤女BeerU';
 
 
         <div class="row ">
-
-            <div class="colllection-items-windows col-lg-12 col-12">
-
                 <div class="colllection-items-warp  col-lg-12 col-12">
+  
+               
+                <?php foreach( $row as $h){?>
 
-
-                    <div class="item item01 col-lg-3 col-12">
+                    <div class="item  col-lg-3 col-12">
                         <div class="item-flag">
-                            <img src="../images/country/flag_italy_stick.svg" alt="">
+                            <img src="../images/country/<?=  str_replace("_circle","_stick",$h['country_pic']) ?>" alt="">
                         </div>
+                        
                         <div class="item-img">
-                        <img src="../images/Links/beer-001.png" alt="">
+                            <a href="each-product.php?psid=<?= $h['sid'] ?>">
+                                <img src="../images/products/<?=  $h['pic'] ?>" alt="">
+                            </a>
                         </div>
-                        <div class="item-intro mt-5">
-                            <h4>托帕托帕-週末客享瘦</h4>
-                            <h4>托帕托帕-週末客享瘦</h4>
+
+                        <div class="item-intro">
+                            <a href="each-product.php?psid=<?= $h['sid'] ?>">
+                                <h4><?=  $h['c_name'] ?></h4>
+                                <h4><?=  $h['e_name'] ?></h4>
+                            </a>
                         </div>
                     </div>
+
+
+                <?php  }  ?>
                     
-                    <div class="item item02 col-lg-3 col-12">
-                        <div class="item-flag">
-                            <img src="../images/country/flag_italy_stick.svg" alt="">
-                        </div>
-                        <div class="item-img">
-                        <img src="../images/Links/beer-001.png" alt="">
-                        </div>
-                        <div class="item-intro mt-5">
-                            <h4>托帕托帕-週末客享瘦</h4>
-                            <h4>托帕托帕-週末客享瘦</h4>
-                        </div>
-                    </div>
-                    <div class="item item03 col-lg-3 col-12">
-                        <div class="item-flag">
-                            <img src="../images/country/flag_italy_stick.svg" alt="">
-                        </div>
-                        <div class="item-img">
-                        <img src="../images/Links/beer-001.png" alt="">
-                        </div>
-                        <div class="item-intro mt-5">
-                            <h4>托帕托帕-週末客享瘦</h4>
-                            <h4>托帕托帕-週末客享瘦</h4>
-                        </div>
-                    </div>
-                    <div class="item item04 col-lg-3 col-12">
-                        <div class="item-flag">
-                            <img src="../images/country/flag_italy_stick.svg" alt="">
-                        </div>
-                        <div class="item-img">
-                        <img src="../images/Links/beer-001.png" alt="">
-                        </div>
-                        <div class="item-intro mt-5">
-                            <h4>托帕托帕-週末客享瘦</h4>
-                            <h4>托帕托帕-週末客享瘦</h4>
-                        </div>
-                    </div>
-                    <div class="item item05 col-lg-3 col-12">
-                        <div class="item-flag">
-                            <img src="../images/country/flag_italy_stick.svg" alt="">
-                        </div>
-                        <div class="item-img">
-                        <img src="../images/Links/beer-001.png" alt="">
-                        </div>
-                        <div class="item-intro mt-5">
-                            <h4>托帕托帕-週末客享瘦</h4>
-                            <h4>托帕托帕-週末客享瘦</h4>
-                        </div>
-                    </div>
-                    <div class="item item06 col-lg-3 col-12">
-                        <div class="item-flag">
-                            <img src="../images/country/flag_italy_stick.svg" alt="">
-                        </div>
-                        <div class="item-img">
-                        <img src="../images/Links/beer-001.png" alt="">
-                        </div>
-                        <div class="item-intro mt-5">
-                            <h4>托帕托帕-週末客享瘦</h4>
-                            <h4>托帕托帕-週末客享瘦</h4>
-                        </div>
-                    </div>
-                    <div class="item item07 col-lg-3 col-12">
-                        <div class="item-flag">
-                            <img src="../images/country/flag_italy_stick.svg" alt="">
-                        </div>
-                        <div class="item-img">
-                        <img src="../images/Links/beer-001.png" alt="">
-                        </div>
-                        <div class="item-intro mt-5">
-                            <h4>托帕托帕-週末客享瘦</h4>
-                            <h4>托帕托帕-週末客享瘦</h4>
-                        </div>
-                    </div>
-                    <div class="item item08 col-lg-3 col-12">
-                        <div class="item-flag">
-                            <img src="../images/country/flag_italy_stick.svg" alt="">
-                        </div>
-                        <div class="item-img">
-                        <img src="../images/Links/beer-001.png" alt="">
-                        </div>
-                        <div class="item-intro mt-5">
-                            <h4>托帕托帕-週末客享瘦</h4>
-                            <h4>托帕托帕-週末客享瘦</h4>
-                        </div>
-                    </div>
-                    <div class="item item09 col-lg-3 col-12">
-                        <div class="item-flag">
-                            <img src="../images/country/flag_italy_stick.svg" alt="">
-                        </div>
-                        <div class="item-img">
-                        <img src="../images/Links/beer-001.png" alt="">
-                        </div>
-                        <div class="item-intro mt-5">
-                            <h4>托帕托帕-週末客享瘦</h4>
-                            <h4>托帕托帕-週末客享瘦</h4>
-                        </div>
-                    </div>
-                    <div class="item item10 col-lg-3 col-12">
-                        <div class="item-flag">
-                            <img src="../images/country/flag_italy_stick.svg" alt="">
-                        </div>
-                        <div class="item-img">
-                        <img src="../images/Links/beer-001.png" alt="">
-                        </div>
-                        <div class="item-intro mt-5">
-                            <h4>托帕托帕-週末客享瘦</h4>
-                            <h4>托帕托帕-週末客享瘦</h4>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
+               </div>
+           
 
         </div>
 
@@ -697,37 +629,61 @@ $page_title = '啤女BeerU';
     <!-- 啤女分頁  -->
     <section class="BeerU-feature">
         <div class="container">
-        <div class="row feature-wrap ">
-            <div class="feature feature01 col-lg-5 col-md-5 col-12 ">
-                
-                    <div class="feature-content">
-                        <p>試飲會</p> 
-                    </div>
-                
-            </div>
-            <div class="feature feature02 col-lg-5 col-md-5 col-12 ">
-                
-                <div class="feature-content">
-                    <p>募資計畫</p> 
-                    </div>
+            <div class="row feature-wrap ">
 
-                
-            </div>        
-        </div>
-        <div class="row feature-wrap ">
-            <div class="feature feature03 col-lg-5 col-md-5 col-12 ">
-                
-                    <div class="feature-content">
-                    <p>餐酒搭配</p> 
-                    </div>
-                
+                <div class="feature feature01 col-lg-5 col-md-5 col-11 ">   
+                <a href="event.php">
+                        <div class="feature-img feature-img01">
+                            <img src="../images/Links/feature01.jpg" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <p>品飲會</p> 
+                        </div>
+                    </a>
+                    
+                </div>
+
+                <div class="feature feature02 col-lg-5 col-md-5 col-11 ">
+                    <a href="fund.php">
+                        <div class="feature-img feature-img02">
+                            <img src="../images/Links/feature02.jpg" alt="">
+                        </div>
+
+                        <div class="feature-content">
+                            <p>募資計畫</p> 
+                        </div>
+                    </a>
+
+                    
+                </div>        
             </div>
-            <div class="feature feature04 col-lg-5 col-md-5 col-12 ">
-                
-                <div class="feature-content">
-                    <p>全部商品</p> 
+
+            <div class="row feature-wrap ">
+                <div class="feature feature03 col-lg-5 col-md-5 col-11 ">
+                        <a href="food.php">
+                            <div class="feature-img feature-img03">
+                                <img src="../images/Links/feature03.jpg" alt="">
+                            </div>
+
+                            <div class="feature-content">
+                            <p>餐酒搭配</p> 
+                            </div>
+                        </a>
+                    
+                </div>
+
+                <div class="feature feature04 col-lg-5 col-md-5 col-11 ">
+                    <a href="all-product.php">
+                        <div class="feature-img feature-img04">
+                                <img src="../images/Links/feature04.jpg" alt="">
+                        </div>
+
+                        <div class="feature-content">
+                            <p>全部商品</p> 
                     </div>
-            </div>        
+                    </a>
+                </div>        
+            </div>
         </div>
 
     </section>
@@ -781,40 +737,41 @@ $page_title = '啤女BeerU';
                 </div>
             </div>
         </div>
-        </section>
+    </section>
 
         <!-- 啤啤 -->
-        <section class="pipi">
-        <div class="container clouds">
-        <div class="row pipi-wrap">
+    <section class="pipi">
+            <div class="container clouds">
+                <div class="row pipi-wrap">
 
-            <div class="pipi-left col-lg-8 col-12 d-flex">
+                    <div class="pipi-left col-lg-8 col-12 d-flex">
 
-                <div class="pipi-name">
-                    <h3>啤啤</h3>
-                    <h3>喜歡你，<br>是我獨家的記憶...</h3>
-                </div>
+                        <div class="pipi-name">
+                            <h3>啤啤</h3>
+                            <h3>喜歡你，<br>是我獨家的記憶...</h3>
+                        </div>
 
-                <div class="pipi-body">
-                    <div class="pipi-img">
-                        <img src="../images/common/pipi-new2.svg" alt="">
+                        <div class="pipi-body">
+                            <div class="pipi-img">
+                                <img src="../images/common/pipi-new2.svg" alt="">
+                            </div>
+                            <div class="pipi-arrow">
+                                <img src="../images/common/pipi-arrow.svg" alt="">
+                            </div>
+                            
+                        </div>
+
                     </div>
-                    <div class="pipi-arrow">
-                        <img src="../images/common/pipi-arrow.svg" alt="">
+                    <div class="pipi-intro col-lg-4 col-12">
+                        <p>傳說中，酒精仙子<span>『啤啤』</span>，品嚐世界各國特色啤酒，
+                            每當喝到好酒，總是忍不住想與人分享，射出<span>『酒仙之箭』</span>
+                            就算你是新手經她的洗禮，也可以找到一隻最代表你的酒，成為你的獨家記憶。
+                            </p>
                     </div>
-                    
+
                 </div>
-
             </div>
-            <div class="pipi-intro col-lg-4 col-12">
-                <p>傳說中，酒精仙子<span>『啤啤』</span>，品嚐世界各國特色啤酒，
-                    每當喝到好酒，總是忍不住想與人分享，射出<span>『酒仙之箭』</span>
-                    就算你是新手經她的洗禮，也可以找到一隻最代表你的酒，成為你的獨家記憶。
-                    </p>
-            </div>
-
-        </div>
-        </div>
+        
     </section>
       
 </div>
@@ -829,8 +786,6 @@ $page_title = '啤女BeerU';
 
 
 
-<!-- slick js -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 
 
@@ -838,31 +793,6 @@ $page_title = '啤女BeerU';
 
 
 $(document).ready(function(){
-
-// 起始navbar、footer、header的狀態
-let scrollNow = $(window).scrollTop();
-
-// if (scrollNow == 0){
-
-//     $('.header').addClass('nav-headerOut');
-//     $('.beeru-nav-bar').addClass('OUT');
-    
-//     $('footer').addClass('OUT')
-
-//     $('#YES').click(function(){
-
-//          setTimeout(()=>{
-            
-//             $('.header').removeClass('nav-headerOut');
-//             $('.beeru-nav-bar').removeClass('OUT');
-//             $('.beeru-nav-bar').fadeIn();
-//             $('footer').removeClass('OUT');
-
-    
-//         },5200)  
-
-//     });
-// }
 
 
 //navbar登入起始畫面按鈕
