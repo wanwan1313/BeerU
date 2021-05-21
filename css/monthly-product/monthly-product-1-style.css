@@ -7,6 +7,7 @@ body {
     position: relative;
 }
 
+
 /* -------------------輪播Banner------------------ */
 
 .monthly-product-banner {
@@ -36,11 +37,15 @@ body {
     z-index: 1;
 }
 
-.monthly-product-main {
-    height: 70vh;
-    max-height: 780px;
-    background: url(../../images/glori_images/may_product.png) no-repeat center center;
-    background-size: contain;
+.monthly-product-wrap .monthly-product-main{
+    position: relative;
+}
+
+.monthly-product-wrap .may-product-main {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    object-fit: contain;
 }
 
 .monthly-product-intro {
@@ -50,12 +55,14 @@ body {
     justify-content: center;
 }
 
+
 /* 圈圈圖案 */
 
 .monthly-title {
     background: url(../../images/common/h1_4_b.svg) no-repeat center center;
     background-size: contain;
 }
+
 
 /* 標題文字 */
 
@@ -93,6 +100,7 @@ body {
     position: relative;
 }
 
+
 /* 左邊雕飾 */
 
 .monthly-title p::before {
@@ -108,6 +116,7 @@ body {
     background-size: contain;
 }
 
+
 /* 右邊雕飾 */
 
 .monthly-title p::after {
@@ -122,6 +131,7 @@ body {
     background: url(../../images/common/h1_ear_right_b.svg) no-repeat center center;
     background-size: contain;
 }
+
 
 /* 手機版 改字和雕飾大小*/
 
@@ -147,29 +157,33 @@ body {
     }
 }
 
+
 /* 手機版 改商品圖跟文字順序*/
 
 @media (max-width: 991px) {
-    .monthly-product-wrap .monthly-product-main {
-        position: absolute;
-        bottom: 0;
+
+    .monthly-product-wrap .may-row{
+        flex-direction: column-reverse;
+    }
+
+    .monthly-product-wrap .may-product-main{
+        position: initial;
     }
     .monthly-product-wrap .marble {
         background-size: 200%;
     }
-    .monthly-product-wrap .monthly-product-main {
-        background-position-y: bottom;
-    }
     .monthly-product-wrap .monthly-product-intro {
-        display: block;
-    }
+        height: unset;
+        }
 }
+
 
 /* ------------------------單支產品介紹---------------------- */
 
 .may-product-info .e-product-intro-wrap {
     padding: 0;
 }
+
 
 /* 桌機版 */
 
@@ -183,6 +197,7 @@ body {
     margin: 0;
 }
 
+
 /* 手機版 不做高度滿版*/
 
 @media (max-width: 991px) {
@@ -191,7 +206,9 @@ body {
     }
 }
 
+
 /* --------------左邊產品圖------------- */
+
 
 /* 桌機版 */
 
@@ -207,6 +224,7 @@ body {
         height: 65%;
     }
 }
+
 
 /* 手機版 */
 
@@ -230,7 +248,9 @@ body {
     object-fit: contain;
 }
 
+
 /* 收藏按鈕 */
+
 
 /* 桌機版 */
 
@@ -242,6 +262,7 @@ body {
     }
 }
 
+
 /* 手機版 */
 
 @media (max-width: 991px) {
@@ -251,6 +272,7 @@ body {
         right: 15px;
     }
 }
+
 
 /* 加入收藏 */
 
@@ -266,6 +288,7 @@ body {
     transition: .3s;
 }
 
+
 /* 手機版 */
 
 @media (max-width: 991px) {
@@ -276,7 +299,8 @@ body {
     }
 }
 
-.btn_collect2 i, .btn_collect2_active i {
+.btn_collect2 i,
+.btn_collect2_active i {
     margin: 5px;
 }
 
@@ -284,6 +308,7 @@ body {
     background-color: var(--red);
     color: #fff;
 }
+
 
 /* 已收藏 */
 
@@ -303,6 +328,7 @@ body {
     background-color: #fff;
     color: var(--red);
 }
+
 
 /* --------------------產品介紹------------------- */
 
@@ -329,6 +355,7 @@ body {
     background-attachment: fixed;
 }
 
+
 /* 桌機版 */
 
 @media (min-width: 992px) {
@@ -339,6 +366,7 @@ body {
     }
 }
 
+
 /* 手機版 */
 
 @media (max-width: 991px) {
@@ -348,6 +376,7 @@ body {
         padding: 20px;
     }
 }
+
 
 /* 產品名稱 */
 
@@ -378,10 +407,12 @@ body {
     }
 }
 
+
 /* 手機版 */
 
 @media (max-width: 991px) {
-    .may-product-info .e-product-intro .pro-name, .e-product-intro .pro-name-m {
+    .may-product-info .e-product-intro .pro-name,
+    .e-product-intro .pro-name-m {
         width: fit-content;
         font-family: 'Noto Serif TC', serif;
         font-size: 2.4rem;
@@ -413,6 +444,7 @@ body {
     }
 }
 
+
 /* 產品介紹 */
 
 .may-product-info .e-product-intro .intro-text {
@@ -422,9 +454,20 @@ body {
     text-align: justify;
 }
 
+.may-product-info .e-product-intro-warp{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
 /* 手機版 */
 
 @media (max-width: 991px) {
+
+    .may-product-info .sakura{
+        display: none;
+    }
+
     .may-product-info .e-product-intro .intro-text {
         margin: 8px 0 12px;
         width: 100%;
@@ -432,6 +475,7 @@ body {
         line-height: 2.8rem;
     }
 }
+
 
 /* 購買數量 */
 
@@ -456,15 +500,18 @@ body {
     outline: none;
 }
 
-.may-product-info .e-product-intro .minus, .may-product-info .e-product-intro .plus {
+.may-product-info .e-product-intro .minus,
+.may-product-info .e-product-intro .plus {
     color: var(--blue);
     cursor: pointer;
     transition: .3s;
 }
 
+
 /* .e-product-intro .minus:hover, .e-product-intro .plus:hover {
     color: var(--yellow);
 } */
+
 
 /* 商品價格 */
 
@@ -481,6 +528,7 @@ body {
     font-size: 1.6rem;
 }
 
+
 /* 加入購物車按鈕 */
 
 .may-product-info .e-product-intro .add-cart {
@@ -492,6 +540,7 @@ body {
     transition: .3s;
     padding: 0 3px;
 }
+
 
 /* 手機版 */
 
@@ -509,7 +558,9 @@ body {
     background-color: var(--gold);
 }
 
+
 /* 產品關鍵字 */
+
 
 /* 桌機版 */
 
@@ -533,7 +584,8 @@ body {
         background-size: contain;
         margin: 0 auto;
     }
-    .may-product-info .e-product-intro .title p, .title-4 p {
+    .may-product-info .e-product-intro .title p,
+    .title-4 p {
         font-family: 'Noto Serif TC', serif;
         font-size: 2rem;
         font-weight: 700;
@@ -547,6 +599,7 @@ body {
         letter-spacing: 0.8rem;
     }
 }
+
 
 /* 手機版 */
 
@@ -571,7 +624,8 @@ body {
         background-size: contain;
         margin: 0 auto;
     }
-    .may-product-info .e-product-intro .title p, .title-4 p {
+    .may-product-info .e-product-intro .title p,
+    .title-4 p {
         font-family: 'Noto Serif TC', serif;
         font-size: 1.8rem;
         font-weight: 700;
@@ -591,7 +645,9 @@ body {
     }
 }
 
+
 /* 分享按鈕*/
+
 
 /* 桌機版 */
 
@@ -606,6 +662,7 @@ body {
     }
 }
 
+
 /* 手機版 */
 
 @media (max-width: 991px) {
@@ -619,7 +676,8 @@ body {
     }
 }
 
-.may-product-info .e-product-intro .fb, .e-product-intro .line {
+.may-product-info .e-product-intro .fb,
+.e-product-intro .line {
     margin-right: 8px;
 }
 
@@ -628,7 +686,9 @@ body {
     color: var(--blue);
 }
 
+
 /* ----------------春季推薦---------------------- */
+
 
 /* 桌機版 */
 
@@ -642,6 +702,7 @@ body {
     width: 100%;
     height: 300px;
 }
+
 
 /* .spring-product-wrap .circle{
     position: absolute;
@@ -664,6 +725,7 @@ body {
     background: url(../../images/glori_images/sakura-bg.png) no-repeat;
     background-size: cover;
 }
+
 
 /* 手機版 */
 
@@ -743,6 +805,7 @@ body {
     width: 100%;
 }
 
+
 /* ----------------了解更多---------------------- */
 
 .spring-product-wrap .know-more {
@@ -815,6 +878,7 @@ body {
     }
 }
 
+
 /* animated animations */
 
 .animatable {
@@ -827,6 +891,7 @@ body {
     -o-animation-play-state: paused;
     animation-play-state: paused;
 }
+
 
 /* show objects being animated */
 
@@ -893,12 +958,66 @@ body {
     }
 }
 
+@-webkit-keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-20px);
+    }	100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+    }
+}
+
+@-moz-keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -moz-transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        -moz-transform: translateY(0);
+    }
+}
+
+@-o-keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -o-transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        -o-transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 .animated.fadeInUp {
     -webkit-animation-name: fadeInUp;
     -moz-animation-name: fadeInUp;
     -o-animation-name: fadeInUp;
     animation-name: fadeInUp;
 }
+
+.animated.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    -moz-animation-name: fadeInDown;
+    -o-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+}
+
 
 /* -------------return to top -------------*/
 
@@ -919,6 +1038,7 @@ body {
     left: 16px;
     top: 13px;
     font-size: 19px;
+    transition:.3s;
 }
 
 #return-to-top:hover img {
@@ -938,7 +1058,6 @@ body {
 }
 
 /* scroll - swing - 特效 */
-
 html {
     scroll-behavior: swing;
 }

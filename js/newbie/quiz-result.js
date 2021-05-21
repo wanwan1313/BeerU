@@ -131,3 +131,39 @@ function cancelCollectProduct() {
 $('button.ok').on('click', function () {
     $('.general-pop-up').fadeOut(150)
 })
+
+// ----------------------text animation 1----------------------------
+
+// $('.animatable').hide()
+
+jQuery(function ($) {
+    // Function which adds the 'animated' class to any '.animatable' in view
+    let doAnimations = function () {
+        // Calc current offset and get all animatables
+        let offset = $(window).scrollTop() + $(window).height(),
+            $animatables = $('.animatable');
+        // Unbind scroll handler if we have no animatables
+        if ($animatables.length == 0) {
+            // $(window).off('scroll', doAnimations);
+        }
+        // Check all animatables and animate them if necessary
+        $animatables.each(function (i) {
+            let $animatable = $(this);
+            // console.log('($animatable.offset().top + $animatable.height() - 100) < offset',($animatable.offset().top + $animatable.height() - 100) < offset);
+            if (($animatable.offset().top + $animatable.height() - 20) < offset) {
+                $animatable.removeClass('animatable').addClass('animated');
+            }
+        });
+
+        $('.animated').each(function (i) {
+            let $animatable = $(this);
+
+            if (($(this).offset().top + $(this).height() - 40) > offset) {
+                $(this).removeClass('animated').addClass('animatable');
+            }
+        });
+    };
+    // Hook doAnimations on scroll, and trigger a scroll
+    $(window).on('scroll', doAnimations);
+    $(window).trigger('scroll');
+});

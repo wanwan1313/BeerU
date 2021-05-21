@@ -40,7 +40,7 @@ if ($psid != 0) {
     $t_row = $pdo->query($t_SQL)->fetch();
     $t_row_sid = $t_row['sid'];
     
-    $b_SQL = "SELECT * FROM `products` WHERE `type_sid` = 44 AND `sid` !=  $psid and `sid` != $t_row_sid AND `sid` != $c_row_sid and `sid` < 225 ORDER BY RAND() LIMIT 1";
+    $b_SQL = "SELECT * FROM `products` WHERE `type_sid` = 44 AND `sid` !=  $psid and `sid` != $t_row_sid AND `sid` != $c_row_sid and `sid` <225 ORDER BY RAND() LIMIT 1";
     $b_row = $pdo->query($b_SQL)->fetch();
 
     // new標籤
@@ -77,8 +77,9 @@ if ($psid != 0) {
 <?php include __DIR__ . '../../public/facebook.php' ?>
 <?php include __DIR__ . '../../public/line.php' ?>
 
-
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<!-- 會員登入 -->
+<?php include __DIR__ . '../../php/common/Login-Sign.php' ?>
 <?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
 <?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
 <section class="mobile-menu">
@@ -89,8 +90,8 @@ if ($psid != 0) {
     <div class="container">
         <div class="row">
             <div class="col-12 result-info-wrap mt-5">
-                <p class="result-title">適合你的精釀啤酒類型：<span>酸啤酒</span></p>
-                <p class="result-info">
+                <p class="result-title animatable fadeInUp">適合你的精釀啤酒類型：<span>酸啤酒</span></p>
+                <p class="result-info animatable fadeInUp">
                     有些人平常個性內向，很少表達自己真正的想法與見解，只有在特定時間與特定人面前才會展現能力。但在酒後他們卻判若兩人，變得善於社交，侃侃而談，思維敏捷反應快速。如果是工作酒局，那則能在使命必達的同時，也能體恤下屬。這樣的人其實有強烈的進取心，與遠大的抱負。 平常安靜，酒後健談，對你們來說，酒精是釋放壓力的一種方式。</p>
             </div>
         </div>
@@ -102,10 +103,10 @@ if ($psid != 0) {
 
             <!-- 推薦商品 -->
             <div class="row related flex-wrap">
-                <div class="col-12 rpco-title">
+                <div class="col-12 rpco-title animatable fadeInUp">
                     <p>推薦商品</p>
                 </div>
-                <div class="col-12 d-flex related-p">
+                <div class="col-12 d-flex related-p animatable fadeInUp">
                     <!-- 商品BOX -->
                     <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
                         <div class="beer-product" data-sid=<?= $c_row['sid'] ?> data-price=<?= $c_row['price'] ?> data-abv=<?= $c_row['abv'] ?>>

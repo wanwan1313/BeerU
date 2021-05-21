@@ -90,8 +90,8 @@ if ($psid != 0) {
     <div class="container">
         <div class="row">
             <div class="col-12 result-info-wrap mt-5">
-                <p class="result-title">適合你的精釀啤酒類型：<span>波特啤酒</span></p>
-                <p class="result-info">
+                <p class="result-title animatable fadeInUp">適合你的精釀啤酒類型：<span>波特啤酒</span></p>
+                <p class="result-info animatable fadeInUp">
                     有些人在酒精下肚後，容易變得脾氣暴躁，怒火中燒，此時的你們看誰都不順眼，看誰都想生氣。看似狂放不羈的你們，平常個性內向且很少說話，你們的自尊心很強，容易怕別人看不起自己。於是在喝酒後，不滿的情緒就一次爆發。這樣的人，生活始終不如意，感覺自己窮途末路，也對未來沒有信心。 酒精對你們來說，是忘記生活煩惱的百憂解。</p>
             </div>
         </div>
@@ -103,10 +103,10 @@ if ($psid != 0) {
 
             <!-- 推薦商品 -->
             <div class="row related flex-wrap">
-                <div class="col-12 rpco-title">
+                <div class="col-12 rpco-title animatable fadeInUp">
                     <p>推薦商品</p>
                 </div>
-                <div class="col-12 d-flex related-p">
+                <div class="col-12 d-flex related-p animatable fadeInUp">
                     <!-- 商品BOX -->
                     <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
                         <div class="beer-product" data-sid=<?= $c_row['sid'] ?> data-price=<?= $c_row['price'] ?> data-abv=<?= $c_row['abv'] ?>>

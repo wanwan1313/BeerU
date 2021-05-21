@@ -24,7 +24,7 @@ $page_title = '啤女BeerU:新手入門';
     <div class="container-fluid">
         <div class="row newbie-intro">
             <div class="col-md-6 col-sm-4 left-crystal-bg">
-                <div class="crystal-wrap">
+                <div class="crystal-wrap animate__animated animate__pulse">
                     <img class="crystal" src="../images/glori_images/crystal.png">
                     <div class="inside-beer"></div>
                     <div class="inside-heads"></div>
@@ -35,7 +35,7 @@ $page_title = '啤女BeerU:新手入門';
                 <div class="newbie-title animatable fadeInUp mt-5 ">
                     <p>新手入門</p>
                 </div>
-                <p class="newbie-intro-txt">雖然全球的啤酒消費量驚人，卻很少人真正了解它。就讓我們一起探索麥芽的秘密、啤酒花的特性以及發酵的奧妙。
+                <p class="newbie-intro-txt animatable fadeInUp">雖然全球的啤酒消費量驚人，卻很少人真正了解它。就讓我們一起探索麥芽的秘密、啤酒花的特性以及發酵的奧妙。
                     如果不知道從何開始，可以先從我們客製化的心理測驗來尋找最適合你的精釀啤酒。</p>
                 <div class="caption-txts">
                     <p class="caption animatable fadeInUp">尋找自己適合的精釀啤酒，
@@ -74,10 +74,10 @@ $page_title = '啤女BeerU:新手入門';
                 <div class="knowledge-title mt-5 animatable fadeInUp">
                     <p>啤酒百科</p>
                 </div>
-                <p class="knowledge-intro txt-1">精釀啤酒(Craft Beer)最早出現在1970年代，當時英美兩國不約而同出現了不少小型釀酒廠 (Microbrewery)
+                <p class="knowledge-intro txt-1 animatable fadeInUp">精釀啤酒(Craft Beer)最早出現在1970年代，當時英美兩國不約而同出現了不少小型釀酒廠 (Microbrewery)
                     與家庭式釀酒廠(Homebrewing)，相較於產量多、規模大的大眾啤酒品牌，這些超級小廠 (有些規模甚至小到就藏在自家車庫) 會依照各自喜好，釀出味道、香氣與材料都別有風格的手工啤酒。
                 </p>
-                <p class="knowledge-intro txt-2">啤酒的種類啤酒可用發酵法粗分為「Ale」跟「Lager」兩種類型：
+                <p class="knowledge-intro txt-2 animatable fadeInUp">啤酒的種類啤酒可用發酵法粗分為「Ale」跟「Lager」兩種類型：
                     頂層發酵的統稱為「艾爾Ale」，發酵溫度為18-23°，發酵時間較短，可於兩到三天完成。艾爾啤酒的酵母在發酵時會產生豐富的酯質，使酒體帶有特殊的水果香氣，口感通常比拉格啤酒更加濃郁，為傳統釀造方法。
                     低層發酵的則稱為「拉格Lager」，源自於德語的Lagern（窖藏之意），又稱窖藏啤酒，是一種利用低溫熟成技術製作的啤酒，發酵溫度為9-12°，酵母會沈澱在桶底發酵，酒體清澈，顏色也多為淡色。優點為酒體穩定、不易變質，而商業啤酒多採用這種發酵方式釀造。
                 </p>
@@ -86,7 +86,7 @@ $page_title = '啤女BeerU:新手入門';
                 <div class="pipi-bubble animatable fadeInUp">
                     <img src="../images/glori_images/pipi-bubble.svg" alt="">
                 </div>
-                <div class="about-beer">
+                <div class="about-beer animatable bounceIn">
                     <img src="../images/glori_images/about-beer.svg" alt="">
                 </div>
             </div>
@@ -105,28 +105,28 @@ $page_title = '啤女BeerU:新手入門';
             </div>
             <div class="row four-ingre-row mt-5">
                 <div class="col-md ingredient-wrap animatable fadeInUp">
-                    <div class="ingredient-title-sm">
+                    <div class="ingredient-title-sm animatable bounceIn">
                         <p class="ingre-ch">麥芽</p>
                         <p class="ingre-en">Malt</p>
                     </div>
                     <p class="ingre-txt">決定了酒的顏色、香味、酒體、口感、尾韻，徹底影響一瓶啤酒的樣貌。</p>
                 </div>
                 <div class="col-md ingredient-wrap animatable fadeInUp">
-                    <div class="ingredient-title-sm">
+                    <div class="ingredient-title-sm animatable bounceIn">
                         <p class="ingre-ch">啤酒花</p>
                         <p class="ingre-en">Hop</p>
                     </div>
                     <p class="ingre-txt">提供苦味，增添香味，壓抑細菌來維持酵母活性。</p>
                 </div>
                 <div class="col-md ingredient-wrap animatable fadeInUp">
-                    <div class="ingredient-title-sm">
+                    <div class="ingredient-title-sm animatable bounceIn">
                         <p class="ingre-ch">酵母</p>
                         <p class="ingre-en">Yeast</p>
                     </div>
                     <p class="ingre-txt">分為拉格酵母、愛爾酵母和野生酵母3大類，發酵溫度不同，所造成的風味各異</p>
                 </div>
                 <div class="col-md ingredient-wrap animatable fadeInUp">
-                    <div class="ingredient-title-sm">
+                    <div class="ingredient-title-sm animatable bounceIn">
                         <p class="ingre-ch">水</p>
                         <p class="ingre-en">Water</p>
                     </div>
@@ -204,80 +204,80 @@ $page_title = '啤女BeerU:新手入門';
         </div>
         <div class="container-fluid glass-wrap-border">
             <div class="row each-glass-wrap mt-5 align-items-end">
-                <div class="col-md-3 col-sm-6 each-glass">
+                <div class="col-md-3 col-sm-6 each-glass animatable fadeInUp">
                     <button class="modal-trigger" data-modal="modal-glass-1">
                         <div class="glass-title-wrap">
                             <p class="glass-title-ch">不缺角杯</p>
                             <p class="glass-title-en">Nonik</p>
                         </div>
-                        <img class="glass-1" src="../images/glori_images/Nonik.png">
+                        <img class="glass-1 animatable bounceIn" src="../images/glori_images/Nonik.png">
                     </button>
                 </div>
-                <div class="col-md-3 col-sm-6 each-glass">
+                <div class="col-md-3 col-sm-6 each-glass animatable fadeInUp">
                     <button class="modal-trigger" data-modal="modal-glass-2">
                         <div class="glass-title-wrap">
                             <p class="glass-title-ch">高腳鬱金香杯</p>
                             <p class="glass-title-en">Tulip</p>
                         </div>
-                        <img class="glass-2" src="../images/glori_images/Tulip-Glass.png">
+                        <img class="glass-2 animatable bounceIn" src="../images/glori_images/Tulip-Glass.png">
                     </button>
                 </div>
-                <div class="col-md-3 col-sm-6 each-glass">
+                <div class="col-md-3 col-sm-6 each-glass animatable fadeInUp">
                     <button class="modal-trigger" data-modal="modal-glass-3">
                         <div class="glass-title-wrap">
                             <p class="glass-title-ch">聖杯</p>
                             <p class="glass-title-en">Chalice/Goblet</p>
                         </div>
-                        <img class="glass-3" src="../images/glori_images/GobletChalice.png">
+                        <img class="glass-3 animatable bounceIn" src="../images/glori_images/GobletChalice.png">
                     </button>
                 </div>
-                <div class="col-md-3 col-sm-6 each-glass">
+                <div class="col-md-3 col-sm-6 each-glass animatable fadeInUp">
                     <button class="modal-trigger" data-modal="modal-glass-4">
                         <div class="glass-title-wrap">
                             <p class="glass-title-ch">笛型杯</p>
                             <p class="glass-title-en">Flute</p>
                         </div>
-                        <img class="glass-4" src="../images/glori_images/Flute.png">
+                        <img class="glass-4 animatable bounceIn" src="../images/glori_images/Flute.png">
                     </button>
                 </div>
             </div>
         </div>
         <div class="container-fluid glass-wrap-border mb-5">
             <div class="row each-glass-wrap align-items-end mt-5">
-                <div class="col-md-3 each-glass">
+                <div class="col-md-3 each-glass animatable fadeInUp">
                     <button class="modal-trigger" data-modal="modal-glass-5">
                         <div class="glass-title-wrap">
                             <p class="glass-title-ch">直口杯</p>
                             <p class="glass-title-en">Stange</p>
                         </div>
-                        <img class="glass-5" src="../images/glori_images/Stange.png">
+                        <img class="glass-5 animatable bounceIn" src="../images/glori_images/Stange.png">
                     </button>
                 </div>
-                <div class="col-md-3 each-glass">
+                <div class="col-md-3 each-glass animatable fadeInUp">
                     <button class="modal-trigger" data-modal="modal-glass-6">
                         <div class="glass-title-wrap">
                             <p class="glass-title-ch">威力比切杯</p>
                             <p class="glass-title-en">Willi Becher</p>
                         </div>
-                        <img class="glass-6" src="../images/glori_images/Willi-Becher.png">
+                        <img class="glass-6 animatable bounceIn" src="../images/glori_images/Willi-Becher.png">
                     </button>
                 </div>
-                <div class="col-md-3 each-glass">
+                <div class="col-md-3 each-glass animatable fadeInUp">
                     <button class="modal-trigger" data-modal="modal-glass-7">
                         <div class="glass-title-wrap">
                             <p class="glass-title-ch">皮爾森杯</p>
                             <p class="glass-title-en">Pilsner</p>
                         </div>
-                        <img class="glass-7" src="../images/glori_images/Pisner-Glass.png">
+                        <img class="glass-7 animatable bounceIn" src="../images/glori_images/Pisner-Glass.png">
                     </button>
                 </div>
-                <div class="col-md-3 each-glass">
+                <div class="col-md-3 each-glass animatable fadeInUp">
                     <button class="modal-trigger" data-modal="modal-glass-8">
                         <div class="glass-title-wrap">
                             <p class="glass-title-ch">雪克杯</p>
                             <p class="glass-title-en">Shaker</p>
                         </div>
-                        <img class="glass8" src="../images/glori_images/Shaker.png">
+                        <img class="glass8 animatable bounceIn" src="../images/glori_images/Shaker.png">
                     </button>
                 </div>
             </div>
@@ -434,11 +434,11 @@ $page_title = '啤女BeerU:新手入門';
                 <div class="guide-title mt-5 animatable fadeInUp">
                     <p>啤酒地圖</p>
                 </div>
-                <img class="map-icon" src="../images/glori_images/map-icon.svg">
-                <p class="guide-intro">每次品嚐啤酒的時候，也同時在品嚐啤酒的文化。每個國家賦予啤酒的價值不盡相同。對於啤酒滋味的理解，也會根據飲食文化而有所不同。跟著我們一起探索吧！
+                <img class="map-icon animatable bounceIn" src="../images/glori_images/map-icon.svg">
+                <p class="guide-intro animatable fadeInUp">每次品嚐啤酒的時候，也同時在品嚐啤酒的文化。每個國家賦予啤酒的價值不盡相同。對於啤酒滋味的理解，也會根據飲食文化而有所不同。跟著我們一起探索吧！
                 </p>
                 <div class="know-more-wrap">
-                    <a href="map.php">
+                    <a href="beer_map.php">
                         <div class="know-more">了解更多</div>
                     </a>
                 </div>
@@ -447,8 +447,8 @@ $page_title = '啤女BeerU:新手入門';
                 <div class="guide-title2 mt-5 animatable fadeInUp">
                     <p>品飲會</p>
                 </div>
-                <img class="map-icon" src="../images/glori_images/flavor-icon.svg">
-                <p class="guide-intro">喜歡甜的、酸的、苦的；清爽順口的、果香明顯的、麥香濃厚的、酒花香氣奔放的、或是酒精感明顯的；讓我們來幫您尋味。
+                <img class="map-icon animatable bounceIn" src="../images/glori_images/flavor-icon.svg">
+                <p class="guide-intro animatable fadeInUp">喜歡甜的、酸的、苦的；清爽順口的、果香明顯的、麥香濃厚的、酒花香氣奔放的、或是酒精感明顯的；讓我們來幫您尋味。
                 </p>
                 <div class="know-more-wrap">
                     <a href="event.php">
@@ -460,8 +460,8 @@ $page_title = '啤女BeerU:新手入門';
                 <div class="guide-title mt-5 animatable fadeInUp">
                     <p>餐酒搭配</p>
                 </div>
-                <img class="map-icon" src="../images/glori_images/meal-icon.svg">
-                <p class="guide-intro">不同種類的精釀啤酒能昇華料理的風味；那品嚐具有酸、甜、苦、辣、鹹、鮮味的啤酒與料理的結合，又會創造出什麼感受？讓我們一起把啤酒帶上餐桌。
+                <img class="map-icon animatable bounceIn" src="../images/glori_images/meal-icon.svg">
+                <p class="guide-intro animatable fadeInUp">不同種類的精釀啤酒能昇華料理的風味；那品嚐具有酸、甜、苦、辣、鹹、鮮味的啤酒與料理的結合，又會創造出什麼感受？讓我們一起把啤酒帶上餐桌。
                 </p>
                 <div class="know-more-wrap">
                     <a href="food.php">
