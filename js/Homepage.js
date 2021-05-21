@@ -199,7 +199,7 @@ $(document).ready(function () {
 
                 })
 
-            }, 11000);
+            }, 9500);
 
 
 
