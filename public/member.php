@@ -112,6 +112,7 @@ if (isset($_SESSION['user'])) {
 <link rel="stylesheet" href="../css/member/member.css">
 <link rel="stylesheet" href="../css/member/memberdiscount.css">
 <link rel="stylesheet" href="../css/member/memberpopup.css">
+<link rel="stylesheet" href="../css/member/member-anima.css">
 
 
 
@@ -166,6 +167,7 @@ if (isset($_SESSION['user'])) {
                 <!-- 大標 -->
                 <div class="col-12 member-title">
                     <p>會員中心</p>
+                    <img src="../images/common/pipi-blue.svg" alt="">
                 </div>
 
                 <!-- 概況 -->
@@ -1465,6 +1467,21 @@ if (isset($_SESSION['user'])) {
         }, 300, 'swing');
     }
 
+
+    // 動畫--從其他頁面進入才有，重新整理沒有
+    let myrefer = document.referrer
+    let refer_rx = /http:\/\/localhost\/BeerU\/public\/member\.php\?\w+/
+    if (refer_rx.test(myrefer) == false) {
+        $('.member-title').addClass('anima')
+        $('.member-title img').addClass('anima')
+        $('.member-overveiw').addClass('anima')
+        $('.member-func').addClass('anima')
+    } else {
+        $('.member-title').addClass('show')
+        $('.member-overveiw').addClass('show')
+        $('.member-func').addClass('show')
+    }
+
     // 桌機板-選單hover效果-----------------------------------------------------------------------------------
     if ($(window).width() >= 992) {
 
@@ -1527,31 +1544,37 @@ if (isset($_SESSION['user'])) {
 
 
         // 初始狀態
-        if (window.location.search == '') {
-            let url = location.pathname + `?memberData`
-            history.pushState({
-                url: url,
-                title: document.title
-            }, document.title, url)
+        function init() {
+            if (window.location.search == '') {
+                let url = location.pathname + `?memberData`
+                history.pushState({
+                    url: url,
+                    title: document.title
+                }, document.title, url)
+            }
+
+            let showContent = window.location.search.substr(1)
+            if (showContent == 'editUserpic') {
+                $('.member-menu').fadeOut(0)
+                $('.member-func-box').fadeOut(0)
+                $('.editUserpic').fadeIn(150)
+                $('.btn_edit-pic').addClass('d-none')
+                $('.helloname').nextAll().addClass('d-none')
+                $('.memberinfo').append(`<p>今天想換什麼造型呢...</p>`)
+            } else {
+                $('.member-func-box').fadeOut(0)
+                $(`.${showContent}`).fadeIn(150)
+                let itemleft = $(`.${showContent+'-item'}`).position().left
+                $('.menu-active-line2').css('left', itemleft)
+            }
         }
 
-        let showContent = window.location.search.substr(1)
-        if (showContent == 'editUserpic') {
-            $('.member-menu').fadeOut(0)
-            $('.member-func-box').fadeOut(0)
-            $('.editUserpic').fadeIn(150)
-            $('.btn_edit-pic').addClass('d-none')
-            $('.helloname').nextAll().addClass('d-none')
-            $('.memberinfo').append(`<p>今天想換什麼造型呢...</p>`)
-        } else {
-            $('.member-func-box').fadeOut(0)
-            $(`.${showContent}`).fadeIn(150)
-            let itemleft = $(`.${showContent+'-item'}`).position().left
-            $('.menu-active-line2').css('left', itemleft)
+        init()
+
+        // 回上一頁
+        window.onpopstate = function() {
+            init()
         }
-
-
-
 
     }
 

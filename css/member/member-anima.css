@@ -1,0 +1,64 @@
+.member .member-title.anima {
+    animation:titledown 1.2s ;
+    animation-fill-mode: forwards;
+}
+
+.member .member-title img.anima {
+    opacity: 1;
+    animation:pipileave 1.2s 1.3s;
+    animation-fill-mode: forwards;
+}
+
+.member .member-title.show {
+    transform: translateY(0);
+}
+
+
+
+@keyframes titledown {
+    0% {
+        transform: translateY(-150%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pipileave {
+    0% {
+        transform: rotate(45deg) translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(20deg) translate(10%,-100%);
+        opacity: 0;
+    }
+}
+
+.member .member-overveiw.anima {
+    animation: toup .5s .3s forwards;
+}
+
+.member .member-overveiw.show {
+    opacity: 1;
+}
+
+.member .member-func.anima {
+    animation: toup .5s .5s forwards;
+}
+
+.member .member-func.show {
+    opacity: 1;
+}
+
+
+@keyframes toup {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
