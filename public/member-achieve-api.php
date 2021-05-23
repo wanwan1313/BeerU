@@ -8,6 +8,17 @@ $output = [
 
 $user = $_SESSION['user']['sid'];
 
+// 從資料庫撈酒仙指數
+$percent_SQL = "SELECT `achieve` FROM `achievement` WHERE `achieve` > 0 AND `member_sid` = $user";
+$per_row = $pdo->query($percent_SQL)->fetchAll(PDO::FETCH_NUM);
+$per_total = 0;
+if (!empty($per_row)) {
+    foreach ($per_row as $per) {
+        $per_total += $per[0];
+    }
+}
+$output['percent'] = $per_total;
+
 
 // 查詢單筆消費狀況
 $com_SQL = "SELECT COUNT(*) FROM `orders` WHERE `member_sid` = $user AND `total_price` > 1000 AND `reward` = 'false' ";
@@ -223,6 +234,18 @@ if (!empty($genre)) {
 $discount_SQL = "SELECT * FROM `achievement` WHERE `coupon` > 0 AND `member_sid` = $user ORDER BY `sid`";
 $discount_row = $pdo->query($discount_SQL)->fetchAll();
 $output['discount'] = $discount_row;
+
+
+// 從資料庫撈酒仙指數
+$percent_SQL = "SELECT `achieve` FROM `achievement` WHERE `achieve` > 0 AND `member_sid` = $user";
+$per_row = $pdo->query($percent_SQL)->fetchAll(PDO::FETCH_NUM);
+$per_total = 0;
+if (!empty($per_row)) {
+    foreach ($per_row as $per) {
+        $per_total += $per[0];
+    }
+}
+$output['percent'] = $per_total;
 
 
 

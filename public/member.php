@@ -18,20 +18,6 @@ if (isset($_SESSION['user'])) {
     $m_row = $pdo->query($member_SQL)->fetch();
 
 
-    // 從資料庫抓折價券
-    $discount_SQL = "SELECT * FROM `achievement` WHERE `coupon` > 0 AND `member_sid` = $m_sid ORDER BY `create_at`";
-    $d_row = $pdo->query($discount_SQL)->fetchAll();
-
-    // 從資料庫撈酒仙指數
-    $achieve_SQL = "SELECT `achieve` FROM `achievement` WHERE `achieve` > 0 AND `member_sid` = $m_sid ";
-    $a_row = $pdo->query($achieve_SQL)->fetchAll(PDO::FETCH_NUM);
-    $a_total = 0;
-    if (!empty($a_row)) {
-        foreach ($a_row as $a) {
-            $a_total += $a[0];
-        }
-    }
-
     // 從資料庫抓目前訂單資料
     $order_SQL = "SELECT * FROM `orders` WHERE `member_sid` = $m_sid AND `status` = '處理中' ORDER BY `sid` DESC";
     $or_row = $pdo->query($order_SQL)->fetchAll();
@@ -193,7 +179,7 @@ if (isset($_SESSION['user'])) {
                     <div class="col-8 col-lg-6 memberinfo d-flex flex-column justify-content-center align-items-center">
                         <div class="helloname">Hello, <?= $m_row['nickname'] ?></div>
                         <div class="myachieve-title">我的成就</div>
-                        <div class="beerpercent">酒仙指數<span class="beerpercent-num"><?= $a_total ?></span>%</div>
+                        <div class="beerpercent">酒仙指數<span class="beerpercent-num"></span>%</div>
                         <button class="checkmydiscount mt-2">查看折價券</button>
                     </div>
                 </div>
@@ -1775,28 +1761,29 @@ if (isset($_SESSION['user'])) {
 
 
     //選擇頭貼
-    function selectPic(){
+    function selectPic() {
 
         let $data_pic = $('.myselectpic').attr("data-pic")
 
         // console.log(data_pic);
 
         $.get(
-            'Select-headpic-api.php',
-            {data_pic: $data_pic},
+            'Select-headpic-api.php', {
+                data_pic: $data_pic
+            },
 
-            function(data){
-                if(data.success){
+            function(data) {
+                if (data.success) {
 
                     $('.LogIn-Sign').fadeOut(100);
                     $('.pop-up-1').fadeIn(150);
-                    $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+                    $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
                     $('.pop-up-1 .pop-up-text').text('造型已更換');
-                    $('button.ok').on('click', function () {
-                        location.href ='member.php';
+                    $('button.ok').on('click', function() {
+                        location.href = 'member.php';
                     })
 
-                }else{
+                } else {
 
                     $('.pop-up-1').fadeIn(150);
                     $('.pop-up-1 .icon').html('<i class="fas fa-times"></i>').css('background-color', 'var(--red)')
@@ -1812,7 +1799,7 @@ if (isset($_SESSION['user'])) {
                 }
 
 
-            },'json'
+            }, 'json'
 
 
         )
@@ -2487,14 +2474,16 @@ if (isset($_SESSION['user'])) {
             // console.log(data)
             a_data = data
             renderAchievement()
-
-
         }, 'json')
     }
 
     getAchievementData()
 
     function renderAchievement() {
+
+        // 酒仙指數
+        let percent_num = a_data.percent
+        $('.beerpercent-num').text(percent_num)
 
         // 單筆消費
         if (a_data.consume > 0) {
@@ -2851,7 +2840,7 @@ if (isset($_SESSION['user'])) {
             discount,
             percent
         }, function(data) {
-            console.log(data)
+            // console.log(data)
             a_data = data
             renderAchievement()
             renderdiscpunt()
