@@ -36,6 +36,18 @@
     transform: rotate(45deg);
 }
 
+
+/* 手機版 */
+@media (max-width: 991px) {
+.checkout .checkout-title img {
+    position: absolute;
+    width: 50px;
+    top: -72%;
+    left:30%;
+    transform: rotate(45deg);
+}
+}
+
 /* 標題文字 */
 .checkout .checkout-title p {
     color: var(--blue);

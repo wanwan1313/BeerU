@@ -153,6 +153,13 @@
     width: 550px;
 }
 
+/* 手機版 */
+@media (max-width: 991px) {
+.complete-buy .pipibeer-wrap {
+    width: 95%;
+}
+}
+
 .complete-buy .pipi-left.anima {
     opacity: 0;
     animation: pipicome .6s, pipiismoving 1s .6s infinite;
