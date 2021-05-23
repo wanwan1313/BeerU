@@ -1651,12 +1651,12 @@
     opacity: .8;
 }
 
-.member .my-checkout-p .coupon, .member .my-checkout-p .shipping {
+.member .calc-price .coupon, .member .calc-price .shipping {
     font-size: 1.5rem;
     line-height: 2rem;
 }
 
-.member .my-checkout-p .total-price {
+.member .calc-price .total-price {
     color: var(--red);
 }
 
