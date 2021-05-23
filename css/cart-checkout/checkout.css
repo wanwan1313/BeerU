@@ -432,3 +432,9 @@
     border: 2px solid var(--pink);
 }
 
+
+/* -------------------自動輸入收件人-------------------- */
+.checkout .auto_re {
+    cursor: pointer;
+    color: transparent;
+}

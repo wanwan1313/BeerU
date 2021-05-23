@@ -271,7 +271,7 @@
 
 
 /* 自動輸入 */
-.auto_data {
+.credit-card .auto_data {
     cursor: pointer;
     position: absolute;
     top: 0;

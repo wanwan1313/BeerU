@@ -421,9 +421,11 @@ if (isset($_SESSION['cart']['fund'])) {
 
                             <!-- 下一步按鈕 -->
                             <div class="col-12 submit mt-4 d-flex justify-content-end">
+                                <div class="auto_re">自動輸入</div>
                                 <button type="submit" class="next">下一步</button>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>
@@ -767,8 +769,7 @@ if (isset($_SESSION['cart']['fund'])) {
         css: ["re_city", "re_dist"], // 自訂 "城市"、"地別" class 名稱 
         countyName: "re_city", // 自訂城市 select 標籤的 name 值
         districtName: "re_dist", // 自訂區別 select 標籤的 name 值
-        countySel: "<?= isset($_SESSION['checkout']['re_city']) ? $_SESSION['checkout']['re_city'] : '' ?>"
-
+        countySel: "<?= isset($_SESSION['checkout']['re_city']) ? $_SESSION['checkout']['re_city'] : '臺北市' ?>"
     });
 
 
@@ -903,6 +904,15 @@ if (isset($_SESSION['cart']['fund'])) {
     })
 
     // 下一步----------------------------------------------------
+
+    // 收件人自動輸入
+    $('.auto_re').on('click', function() {
+        $('.re_name').val('周杰倫')
+        $('.re_mobile').val('0912-445-958')
+        $('.re_city').val('臺北市')
+        $('.re_dist').val('大安區')
+        $('.re_add').val('復興南路二段8號3樓')
+    })
 
     let p_data = {};
 
