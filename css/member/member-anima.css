@@ -62,3 +62,25 @@
         transform: translateY(0);
     }
 }
+
+
+.discount-popup .empty-status .pipi {
+    animation: pipirotate 1.4s forwards;
+}
+
+
+@keyframes pipirotate {
+    0% {
+        transform: rotate(-20deg);
+        transform-origin: 80% 50%;
+    }
+    60% {
+        transform: rotate(10deg);
+        transform-origin: 80% 50%;
+    }
+
+    100% {
+        transform: rotate(0);
+        transform-origin: 80% 50%;
+    }
+}

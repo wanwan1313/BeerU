@@ -76,7 +76,7 @@ if (isset($_SESSION['user'])) {
             <div class="col-12 coupon-list d-flex flex-wrap align-content-start">
                 <div class="col-12 empty-status d-flex flex-column justify-content-center align-items-center">
                     <p>目前沒有折價券喔!</p>
-                    <p>快到會員中心>我的成就，來累積更多的券吧！</p>
+                    <p>快到<a href="member.php">會員中心</a>><a href="member.php?memberAchievement">我的成就</a>，來累積更多的券吧！</p>
                     <div class="pipi mt-4">
                         <img src="../images/common/pipi_empty.svg" alt="">
                     </div>

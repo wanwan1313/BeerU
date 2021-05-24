@@ -108,3 +108,19 @@
     color: #b69564d0;
     height: 100%;
 }
+
+.discount-popup .empty-status a {
+    transition: .5s;
+}
+
+.discount-popup .empty-status a:hover {
+    color: rgb(160, 109, 15);
+    text-decoration: underline;
+}
+
+/* 手機版 */
+@media (max-width: 991px) {
+.discount-popup .empty-status {
+    word-break: keep-all;
+}
+}
