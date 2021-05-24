@@ -132,7 +132,8 @@ if ($psid != 0) {
 <!-- 這裡開始寫html -->
 
 <section class="each-product">
-
+    <!-- return to top -->
+    <a href="javascript:" id="return-to-top"><img src="../images/common/top.svg" alt=""></a>
     <!-- 麵包屑 -->
     <div class="beeru-breadcrumb d-none d-lg-flex animate__animated animate__fadeInDown">
         <p><a href="">首頁</a> ｜</p>
@@ -761,6 +762,46 @@ if ($psid != 0) {
 <!-- 這裡開始寫jQuery或JS -->
 
 <script>
+    // Scroll to top button 
+    // 桌機版 
+    if ($(window).width() >= 992) {
+        $(window).scroll(function() {
+
+            if ($(this).scrollTop() >= 5) {
+                $('#return-to-top').fadeIn(200);
+            } else {
+                $('#return-to-top').fadeOut(500);
+            }
+        })
+
+        $('#return-to-top').click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 750, 'swing');
+
+        })
+
+    }
+
+    // 手機版
+    if ($(window).width() < 992) {
+        $(window).scroll(function() {
+            // console.log($(this).scrollTop())
+            if ($(this).scrollTop() >= 15) {
+                $('#return-to-top').fadeIn(200);
+            } else {
+                $('#return-to-top').fadeOut(500);
+            }
+
+
+        })
+
+        $('#return-to-top').click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 750, 'swing');
+        })
+    }
     // 加入購物車功能
 
     // 手寫數量

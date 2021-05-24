@@ -161,6 +161,9 @@ if (isset($_SESSION['user'])) {
         <div class="container">
             <div class="row justify-content-center">
 
+                <!-- return to top -->
+                <a href="javascript:" id="return-to-top"><img src="../images/common/top.svg" alt=""></a>
+
 
                 <div class="backtomenu d-block d-lg-none"><i class="fas fa-arrow-circle-left mr-1"></i>回選單</div>
 
@@ -1461,10 +1464,52 @@ if (isset($_SESSION['user'])) {
 
 
 <script>
+    
     function scrollToTop() {
         $('html, body').animate({
             scrollTop: 0
         }, 300, 'swing');
+    }
+
+    // Scroll to top button 
+    // 桌機版 
+    if ($(window).width() >= 992) {
+        $(window).scroll(function() {
+
+            if ($(this).scrollTop() >= 5) {
+                $('#return-to-top').fadeIn(200);
+            } else {
+                $('#return-to-top').fadeOut(500);
+            }
+        })
+
+        $('#return-to-top').click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 750, 'swing');
+
+        })
+
+    }
+
+    // 手機版
+    if ($(window).width() < 992) {
+        $(window).scroll(function() {
+            // console.log($(this).scrollTop())
+            if ($(this).scrollTop() >= 15) {
+                $('#return-to-top').fadeIn(200);
+            } else {
+                $('#return-to-top').fadeOut(500);
+            }
+
+
+        })
+
+        $('#return-to-top').click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 750, 'swing');
+        })
     }
 
 

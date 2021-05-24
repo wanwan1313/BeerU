@@ -90,6 +90,8 @@ if (isset($_SESSION['user'])) {
 </section>
 
 <section class="cart-list">
+    <!-- return to top -->
+    <a href="javascript:" id="return-to-top"><img src="../images/common/top.svg" alt=""></a>
 
     <!-- 購物車清單開始 -->
     <div class="container position-relative">
@@ -290,6 +292,46 @@ if (isset($_SESSION['user'])) {
 <!-- 這裡開始寫jQuery或JS -->
 
 <script>
+    // Scroll to top button 
+    // 桌機版 
+    if ($(window).width() >= 992) {
+        $(window).scroll(function() {
+
+            if ($(this).scrollTop() >= 5) {
+                $('#return-to-top').fadeIn(200);
+            } else {
+                $('#return-to-top').fadeOut(500);
+            }
+        })
+
+        $('#return-to-top').click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 750, 'swing');
+
+        })
+
+    }
+
+    // 手機版
+    if ($(window).width() < 992) {
+        $(window).scroll(function() {
+            // console.log($(this).scrollTop())
+            if ($(this).scrollTop() >= 15) {
+                $('#return-to-top').fadeIn(200);
+            } else {
+                $('#return-to-top').fadeOut(500);
+            }
+
+
+        })
+
+        $('#return-to-top').click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 750, 'swing');
+        })
+    }
     // 刪除按鈕的hover效果
     if ($(window).width() >= 992) {
         $('.c-product-list').on('mouseenter', '.del-p', function() {

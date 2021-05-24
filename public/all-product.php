@@ -29,6 +29,8 @@ $page_title = '啤女-精釀啤酒商品';
 <!-- 這裡開始寫html -->
 
 <section class="all-product">
+    <!-- return to top -->
+    <a href="javascript:" id="return-to-top"><img src="../images/common/top.svg" alt=""></a>
     <!-- 輪播Banner -->
     <div class="product-banner d-none d-lg-block">
         <div class="container">
@@ -235,6 +237,46 @@ $page_title = '啤女-精釀啤酒商品';
 
 
 <script>
+    // Scroll to top button 
+    // 桌機版 
+    if ($(window).width() >= 992) {
+        $(window).scroll(function() {
+
+            if ($(this).scrollTop() >= 5) {
+                $('#return-to-top').fadeIn(200);
+            } else {
+                $('#return-to-top').fadeOut(500);
+            }
+        })
+
+        $('#return-to-top').click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 750, 'swing');
+
+        })
+
+    }
+
+    // 手機版
+    if ($(window).width() < 992) {
+        $(window).scroll(function() {
+            // console.log($(this).scrollTop())
+            if ($(this).scrollTop() >= 15) {
+                $('#return-to-top').fadeIn(200);
+            } else {
+                $('#return-to-top').fadeOut(500);
+            }
+
+
+        })
+
+        $('#return-to-top').click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 750, 'swing');
+        })
+    }
     let cate = 0;
     let page = 1;
     let hot = 0;
