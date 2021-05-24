@@ -112,13 +112,23 @@ $percent = isset($_GET['percent']) ? intval($_GET['percent']) : 0;
 
 if (!empty($genre)) {
     
-    $achieve_SQL = "INSERT INTO `achievement`(`member_sid`, `coupon`, `achieve`, `create_at`) 
+    $achieve1_SQL = "INSERT INTO `achievement`(`member_sid`, `coupon`, `achieve`,`create_at`) 
     VALUES (?,?,?,NOW())";
 
-    $achieve_stmt = $pdo->prepare($achieve_SQL);
-    $achieve_stmt->execute([
+    $achieve1_stmt = $pdo->prepare($achieve1_SQL);
+    $achieve1_stmt->execute([
         $user,
         $discount,
+        0,
+    ]);
+
+    $achieve2_SQL = "INSERT INTO `achievement`(`member_sid`, `coupon` ,`achieve`, `create_at`) 
+    VALUES (?,?,?,NOW())";
+
+    $achieve2_stmt = $pdo->prepare($achieve2_SQL);
+    $achieve2_stmt->execute([
+        $user,
+        0,
         $percent,
     ]);
 
