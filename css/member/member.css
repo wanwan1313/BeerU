@@ -302,17 +302,17 @@
         color: var(--gold);
     }
 
-    .member .menu-item {
+    .member .menu-item,  .member .menu-item2{
         padding: 7px;
         border-top: 1px dashed var(--blue);
         position: relative;
     }
 
-    .member .menu-item i:nth-of-type(1){
+    .member .menu-item i:nth-of-type(1), .member .menu-item2 i:nth-of-type(1){
         width: 22px;
         margin-right: 10px;   
     }
-    .member .menu-item i:nth-of-type(2){
+    .member .menu-item i:nth-of-type(2), .member .menu-item2 i:nth-of-type(2){
         margin-left: 20px;   
     }
 
