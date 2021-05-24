@@ -948,7 +948,7 @@ if (isset($_SESSION['user'])) {
                                                     <p>單筆消費</p>
                                                     <p class="get">尚無成就</p>
                                                 </div>
-                                                <button class="not-getachieve">再接再厲</button>
+                                                <button class="not-getachieve">滿1000達標</button>
                                                 <button class="getachieve d-none" data-discount="100" data-percent="5" onclick="getmyachivement('consume')">領取獎勵</button>
                                             </div>
                                             <div class="col-6 col-lg-2 consume-accumu d-flex flex-column justify-content-center align-items-center">
@@ -1677,7 +1677,7 @@ if (isset($_SESSION['user'])) {
         return `
         <div class="col-12 empty-status d-flex flex-column justify-content-center align-items-center">
             <p>目前沒有折價券喔!</p>
-            <p>快到會員中心>我的成就，來累積更多的券吧！</p>
+            <p>快到<a href="member.php">會員中心</a>><a href="member.php?memberAchievement">我的成就</a>，來累積更多的券吧！</p>
             <div class="pipi mt-4">
                 <img src="../images/common/pipi_empty.svg" alt="">
             </div>
