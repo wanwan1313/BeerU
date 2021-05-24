@@ -93,6 +93,8 @@ $row = $pdo->query($h_sql)->fetchAll();
 
 <!-- 內容開始 -->
 <div class="content-wrap" id="content-wrap">
+
+<a href="javascript:" id="return-to-top"><img src="../images/common/top.svg" alt=""></a>
     
     <!-- 首頁 -->
     <section class="home">
