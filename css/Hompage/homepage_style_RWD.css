@@ -417,6 +417,14 @@
         
     }
 
+    .BeerU-colllection .item{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 600px;
+        cursor: pointer;
+    }
+
     .BeerU-colllection .item-flag{
         position: relative;
         z-index: 1;
