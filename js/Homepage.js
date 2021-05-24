@@ -710,11 +710,11 @@ $(document).ready(function () {
     mouseenter: function(){
 
     if ($(window).width() >= 992) {
-        $(this).children('.item-flag').css('transform','rotate(20deg) translate(75px,10px)').css('transition','.4s');
+        $(this).children('.item-flag').css('transform','rotate(20deg) translate(90px,38px)').css('transition','.4s');
     }
 
     if ($(window).width() < 992){
-        $(this).children('.item-flag').css('transform','rotate(20deg) translate(75px,28px)').css('transition','.4s');
+        $(this).children('.item-flag').css('transform','rotate(20deg) translate(90px,36px)').css('transition','.4s');
 
 
     }
@@ -728,7 +728,7 @@ $(document).ready(function () {
 
     mouseleave: function(){
 
-        $(this).children('.item-flag').css('transform',' rotate(20deg) translate(75px,40px)').css('transition','.4s');
+        $(this).children('.item-flag').css('transform',' rotate(20deg) translate(90px,68px)').css('transition','.4s');
 
         $(this).children('.item-img').css('transform','translate(0px,0px)').css('transition','.4s')
  

@@ -801,7 +801,7 @@ body,html{
 .BeerU-colllection .item{
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-around;
     height: 600px;
     cursor: pointer;
 }
@@ -813,7 +813,7 @@ body,html{
     margin: 0px auto 0 auto;
     width: 60px;
 
-    transform: rotate(20deg) translate(75px,40px);
+    transform: rotate(20deg) translate(90px,68px);
 }
 
 .BeerU-colllection .item-img{
