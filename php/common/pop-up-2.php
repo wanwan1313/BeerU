@@ -6,8 +6,9 @@
             <button class="yes">是</button>
             <button class="no">否</button>
         </div>
-        <div class="button-wrap-2 d-none"></div>
+        <div class="button-wrap-2 d-none">
             <button class="ok">我知道了</button>
+        </div>
         </div>
     </div>
 </section>
