@@ -714,7 +714,7 @@ $(document).ready(function () {
     }
 
     if ($(window).width() < 992){
-        $(this).children('.item-flag').css('transform','rotate(20deg) translate(90px,36px)').css('transition','.4s');
+        $(this).children('.item-flag').css('transform','rotate(20deg) translate(90px,38px)').css('transition','.4s');
 
 
     }
