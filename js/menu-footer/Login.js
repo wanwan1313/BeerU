@@ -91,12 +91,17 @@ function checkform_Login(){
 
 // 登出
 function Logout(){
-    $('.pop-up-1').fadeIn(150);
-    $('.pop-up-1 .icon').html('<i class="fas fa-door-open"></i>').css('color','var(--gold)').css('background-color','transparent');
-    $('.pop-up-1 .pop-up-text').text('登出成功');
+    $('.pop-up-2').fadeIn(150);
+    $('.pop-up-2 .icon').html('<i class="fas fa-door-open"></i>').css('color','var(--gold)').css('background-color','transparent');
+    $('.pop-up-2 .pop-up-text').text('是否要登出？');
+    $('.pop-up-2 .yes').text('登出');
+    $('.pop-up-2 .no').text('取消');
 
-    $('button.ok').on('click', function () {
+    $('.pop-up-2 .yes').on('click', function () {
         location.href= 'Logout-api.php';
+    })
+    $('.pop-up-2 .no').on('click', function () {
+        $('.pop-up-2').fadeOut(150);
     })
     
 
