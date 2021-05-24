@@ -25,7 +25,18 @@
             width: 75px;
             height: 80px;
             line-height: 80px;
+            transition: .5s;
         }
+
+        /* 桌機版 */
+    @media (min-width: 992px) {
+        .beeru-nav-bar .nav-bar-logo:hover {
+            transform: translateY(-5px);
+        }
+    }
+
+
+        
 
 
         /* LOGO手機版 改大小*/
@@ -41,7 +52,7 @@
         /* 主要選單 */
 
         .beeru-nav-bar .nav-bar-list {
-            width: 80%;
+            width: 70%;
             font-family: 'Noto Serif TC', serif;
             font-size: 1.8rem;
             font-weight: bold;
@@ -201,7 +212,7 @@
         }
 
         .beeru-nav-bar .logout {
-            font-size: 1.2rem;
+            font-size: 1rem;
             text-align: center;
             line-height: 35px;
             margin-left: 15px;
