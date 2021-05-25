@@ -27,9 +27,9 @@ $(document).ready(function () {
             $(".option-wrap").click(function () {
                 // 第一題
 
-                $(this).siblings().find(".option-1-txt").removeClass('show').prev().addClass('show');
+                $(this).siblings().find(".option-1-txt").removeClass('show').prev().addClass('show').parent().siblings().removeClass('show');
 
-                $(this).siblings().find(".option-1-title-ch").removeClass('active').end().end().find(".option-1-title-ch").toggleClass('active');
+                $(this).siblings().find(".option-1-title-ch").removeClass('active').end().end().find(".option-1-title-ch").toggleClass('active').parent().siblings().toggleClass('show');
 
                 // 第二題
 
@@ -41,9 +41,9 @@ $(document).ready(function () {
 
                 // 第三題
 
-                $(this).find(".option-3-txt").removeClass('show');
+                $(this).find(".option-3-txt").removeClass('show').prev().addClass('show');
 
-                $(this).siblings().find(".option-3-title").removeClass('active');
+                $(this).siblings().find(".option-3-title").removeClass('active').next().toggleClass('show');
 
                 $(this).find(".option-3-title").toggleClass('active').siblings().removeClass('active');
 
@@ -51,9 +51,9 @@ $(document).ready(function () {
 
                 $(this).find(".option-4-txt").removeClass('show');
 
-                $(this).siblings().find(".option-4-title").removeClass('active');
+                $(this).siblings().find(".option-4-title").removeClass('active').next().children().removeClass('show');
 
-                $(this).find(".option-4-title").toggleClass('active').siblings().removeClass('active');
+                $(this).find(".option-4-title").toggleClass('active').siblings().removeClass('active').next().children().toggleClass('show');
 
                 // 第五題
 
@@ -80,9 +80,9 @@ $(".option-wrap").click(function () {
 
         // 第一題
 
-        $(this).siblings().find(".option-1-txt").removeClass('show').prev().addClass('show');
+        $(this).siblings().find(".option-1-txt").removeClass('show').prev().addClass('show').parent().siblings().removeClass('show');
 
-        $(this).find(".option-1-title-ch").toggleClass('show').siblings().toggleClass('show');
+        $(this).find(".option-1-title-ch").toggleClass('show').siblings().toggleClass('show').parent().prev().toggleClass('show');
 
         // 第二題
 
@@ -92,15 +92,15 @@ $(".option-wrap").click(function () {
 
         // 第三題
 
-        $(this).siblings().find(".option-3-txt").removeClass('show');
+        $(this).siblings().find(".option-3-txt").removeClass('show').prev().removeClass('show');
 
-        $(this).find(".option-3-txt").toggleClass('show');
+        $(this).find(".option-3-txt").toggleClass('show').prev().toggleClass('show');
 
         // 第四題
 
-        $(this).siblings().find(".option-4-title span").removeClass('show').parent().next().next().removeClass('show');
+        $(this).siblings().find(".option-4-title span").removeClass('show').parent().next().next().removeClass('show').siblings().children().removeClass('show');
 
-        $(this).find(".option-4-title span").toggleClass('show').parent().next().next().toggleClass('show');
+        $(this).find(".option-4-title span").toggleClass('show').parent().next().next().toggleClass('show').siblings().children().toggleClass('show');
 
         // 第五題
 

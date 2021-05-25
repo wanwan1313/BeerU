@@ -121,6 +121,11 @@ body {
 .quiz-1-wrap .option-img {
     max-width: 300px;
     max-height: 300px;
+    opacity: 0.5;
+}
+
+.quiz-1-wrap .option-img.show {
+    opacity: 1;
 }
 
 .quiz-1-wrap .option-1-title-ch {
@@ -296,6 +301,11 @@ body {
 
 .quiz-3-wrap .option-img {
     max-width: 50%;
+    opacity: 0.6;
+}
+
+.quiz-3-wrap .option-img.show {
+    opacity: 1;
 }
 
 .quiz-3-wrap .option-3-txt {
@@ -376,6 +386,13 @@ body {
 .quiz-4-wrap .option-img {
     height: 100%;
     object-fit: contain;
+    opacity: 0.7;
+}
+
+.quiz-4-wrap .option-img.show {
+    height: 100%;
+    object-fit: contain;
+    opacity: 1;
 }
 
 .quiz-4-wrap .option-4-txt {
