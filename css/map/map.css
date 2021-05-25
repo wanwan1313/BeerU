@@ -616,7 +616,7 @@ cursor: pointer;
   
 /* return */
 .map .pipi_plane{
-    z-index: 990;
+    z-index: 989;
     width:50px;
     right:11%;
     top:-200px;
@@ -648,7 +648,7 @@ cursor: pointer;
 /* 各個國家選項 */
 .map .countries {
 
-    z-index: 990;
+    z-index: 989;
     width:1000px;
     height:300px;
     left:50%;
@@ -659,7 +659,7 @@ cursor: pointer;
 /* 手機版 */
 @media (max-width: 600px) {
     .map .countries {
-        z-index: 990;
+        z-index: 989;
         bottom:10%;
         /* top:-200px; */
         width:375px;
@@ -674,7 +674,7 @@ width:50px;
 height:50px;
 transition: .3s;
 cursor: pointer;
-z-index: 990;
+z-index: 989;
 }
 
 .map .arrow-left{
@@ -850,7 +850,7 @@ z-index: 990;
 /* 背景 */
 .map .bg-black{
     /* display:none; */
-z-index:990;
+z-index:989;
 width: 100%;
 height:100vh;
 position: fixed;
@@ -896,6 +896,10 @@ right:15px;
 }
 
 /* ---------------------- */
+.bg-black{
+    /* display:none; */
+}
+
 /* deco-bg */
 .bg_country{
     top:0px;
@@ -1002,7 +1006,7 @@ letter-spacing: .75rem;
 /* 分隔線 */
 .seprate-line{
     width:20px;
-    opacity: .25;
+    opacity: .5;
     margin-top: 65px;
 }
 
@@ -1133,7 +1137,9 @@ margin-top: -10px;
     margin-top:0px;
 }
 
-
+.map .beer:hover{
+transform: scale(1.2);
+}
 
 .map .cup-img, .beer-img{
     width:70px;
@@ -1152,7 +1158,7 @@ margin-top: -10px;
     margin: auto;
 }
 
-.map .cup-name, .map .beer-name{
+.map .cup-name{
     background-color: rgba(0, 0, 0, 0.6);
     color:white;
     padding-top:25px;
@@ -1163,6 +1169,21 @@ margin-top: -10px;
     height:100%;
     width:100%;
     top:50%;
+    transform: translateY(-50%);
+    transition: .3s;
+    opacity: 0;
+}
+.map .beer-name{
+    background-color: rgba(0, 0, 0, 0.6);
+    color:white;
+    padding-top:25px;
+    padding-bottom:80px;
+    font-size:1.2rem;
+    text-align: center;
+    line-height: 1.25;
+    height:100%;
+    width:100%;
+    top:55%;
     transform: translateY(-50%);
     transition: .3s;
     opacity: 0;
@@ -1223,12 +1244,3 @@ margin-top: -10px;
 
 }
 /* ---------------------- */
-
-
-
-
-
-
-
-
-

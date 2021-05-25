@@ -27,9 +27,11 @@ function renderProducts() {
 
 $('.map .country, .flag img').click(function () {
     // console.log('this', $(this));
+    // console.log('data-cate', $(this).attr('data-cate'));
+    // let data_cate=$(this).attr('data-cate')
     // 動畫設置---------------------------
     // 1.卡片跑出
-    $('.bg-black').show();
+    $('.bg-black').show().addClass( 'opacity-1');
     // 2.卡片動畫
     // $('.map-card').hide()
     // $('.map-card').addClass('animate__animated animate__flip');
@@ -67,7 +69,7 @@ $('.map .country, .flag img').click(function () {
             $('.bg_s img').attr("src", data.map_row.bg_s);
             // 改brand
             $('.beer-brand').html(data.map_row.brands);
-
+            
             // // cup1
             // for(let i=1; i<=3; i++){
             //     $('.cup' + i).attr("href", cups[i-1].cup_1_link);
@@ -88,7 +90,9 @@ $('.map .country, .flag img').click(function () {
             $('.cup3 .cup-name').text(data.map_row.cup_3_name);
             $('.cup3 img').attr("src", data.map_row.cup_3_pic);
 
-            // beers?隨機出現國家分類的酒
+            // 為了抓到關注清單的tag_sid設置，不會出現在畫面上
+            $('a').attr("data-cate", data.map_row.tag_sid);
+            
             renderProducts()
         },
         'json'
@@ -100,7 +104,8 @@ $('.map .country, .flag img').click(function () {
 $('.popup .card-close i').mouseenter(function () {
     {
         $(this).addClass('animate__animated animate__rubberBand').addClass('time-075s').addClass('infinite').click(function () {
-            $('.bg-black').fadeOut()
+            $('.bg-black').fadeOut();
+            
         })
     }
 }).mouseleave(function () {
@@ -121,7 +126,9 @@ $('.bg_country').addClass('animate__animated animate__fadeIn').addClass('time-2s
 // 郵戳動畫--------------------------------------
 $('.stamp').addClass('animate__animated animate__fadeInBottomLeft')
 // 商品hover--------------------------------------
-$('.map .cup, .map .beer').mouseenter(function () { { $(this).css('transform', 'scale(1.2)') } }).mouseleave(function () { { $(this).css('transform', 'scale(1)') } })
+$('.map .cup').mouseenter(function () { { $(this).css('transform', 'scale(1.2)') } }).mouseleave(function () { { $(this).css('transform', 'scale(1)') } })
+
+// $('.map .beer-wrap').mouseenter(function () { { $(this).css('transform', 'scale(1.2)') } }).mouseleave(function () { { $(this).css('transform', 'scale(1)') } })
 
 // $('.map .know-more').mouseenter(function () {
 //     {

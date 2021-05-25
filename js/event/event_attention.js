@@ -2,7 +2,6 @@
 
 let btn_attention = $('.btn_attention_be')
 let btn_attention_active = $('.btn_attention_active')
-// let e_sid = $('.btn_attention').parent().find('a').attr('data-cate')
 
 // 加入
 btn_attention.click(function () {

@@ -115,14 +115,14 @@ $left_people = $e['event_people'] - $totalp;
                     <button class="btn_attention btn_attention_be d-none px-3 py-1">
                         <i class="fas fa-plus"></i>加入關注
                     </button>
-                    <button class="btn_attention_active">
+                    <button class="btn_attention_active px-3 py-1">
                         <i class="fas fa-check"></i>已關注
                     </button>
                 <?php else : ?>
                     <button class="btn_attention btn_attention_be px-3 py-1">
                         <i class="fas fa-plus"></i>加入關注
                     </button>
-                    <button class="btn_attention_active d-none">
+                    <button class="btn_attention_active d-none px-3 py-1">
                         <i class="fas fa-check"></i>已關注
                     </button>
                 <?php endif; ?>
