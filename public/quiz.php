@@ -12,13 +12,20 @@ $page_title = '啤女BeerU:心理測驗';
 <link rel="stylesheet" href="../css/newbie/quiz-style.css">
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<!-- 會員登入 -->
+<?php include __DIR__ . '../../php/common/Login-Sign.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
+<section class="mobile-menu">
+    <?php include __DIR__ . '../../php/common/category.php' ?>
+</section>
 
 <section class="quiz-wrapper">
     <section class="quiz-1-wrap" id="quiz-1-wrap">
         <div class="container">
-            <p class="quiz-q mt-3">請依照直覺選出一面鏡子。</p>
+            <p class="animatable fadeInUp quiz-q mt-3">請選出一面鏡子。</p>
             <div class="row quiz-row mt-5">
-                <div class="col-md-3 option-wrap modal-trigger" data-modal="modal-1-1" data-score="1">
+                <div class="col-md-3 option-wrap modal-trigger animate__animated animate__swing" data-modal="modal-1-1" data-score="1">
                     <img class="option-img" src="../images/glori_images/q1-o1.svg">
                     <div class="option-1-title-wrap">
                         <p class="option-1-title-ch">司陶特</p>
@@ -27,7 +34,7 @@ $page_title = '啤女BeerU:心理測驗';
                         </span>
                     </div>
                 </div>
-                <div class="col-md-3 option-wrap modal-trigger" data-modal="modal-1-2" data-score="2">
+                <div class="col-md-3 option-wrap modal-trigger animate__animated animate__swing" data-modal="modal-1-2" data-score="2">
                     <img class="option-img" src="../images/glori_images/q1-o2.svg">
                     <div class="option-1-title-wrap">
                         <p class="option-1-title-ch">波特</p>
@@ -36,7 +43,7 @@ $page_title = '啤女BeerU:心理測驗';
                         </span>
                     </div>
                 </div>
-                <div class="col-md-3 option-wrap modal-trigger" data-modal="modal-1-3" data-score="3">
+                <div class="col-md-3 option-wrap modal-trigger animate__animated animate__swing" data-modal="modal-1-3" data-score="3">
                     <img class="option-img" src="../images/glori_images/q1-o3.svg">
                     <div class="option-1-title-wrap">
                         <p class="option-1-title-ch">印度淡愛爾</p>
@@ -45,7 +52,7 @@ $page_title = '啤女BeerU:心理測驗';
                         </span>
                     </div>
                 </div>
-                <div class="col-md-3 option-wrap modal-trigger" data-modal="modal-1-4" data-score="4">
+                <div class="col-md-3 option-wrap modal-trigger animate__animated animate__swing" data-modal="modal-1-4" data-score="4">
                     <img class="option-img" src="../images/glori_images/q1-o4.svg">
                     <div class="option-1-title-wrap">
                         <p class="option-1-title-ch">拉格</p>
@@ -55,7 +62,7 @@ $page_title = '啤女BeerU:心理測驗';
                     </div>
                 </div>
             </div>
-            <p class="quiz-quote">人的心靈就像一面鏡子，你看到的世界，取決於你如何看待自己。</p>
+            <p class="quiz-quote animatable fadeInUp">人的心靈就像一面鏡子，你看到的世界，取決於你如何看待自己。</p>
             <div class="next-btn-wrap mt-3">
                 <a href="#quiz-2-wrap">
                     <div class="next-btn">下一步</div>
@@ -66,9 +73,9 @@ $page_title = '啤女BeerU:心理測驗';
 
     <section class="quiz-2-wrap" id="quiz-2-wrap">
         <div class="container">
-            <p class="quiz-q mt-3">哪裡更適合讓妳獨自小酌呢?</p>
+            <p class="quiz-q mt-3 animatable fadeInUp">哪裡更適合讓妳獨自小酌呢?</p>
             <div class="row quiz-row mt-5">
-                <div class="col-md-3 option-wrap modal-trigger" data-modal="modal-2-1" data-score="1">
+                <div class="col-md-3 option-wrap modal-trigger animatable bounceIn" data-modal="modal-2-1" data-score="1">
                     <img class="option-img" src="../images/glori_images/sports_bar.jpeg">
                     <div class="option-2-title-wrap">
                         <p class="option-2-title-ch">美式酒吧
@@ -78,7 +85,7 @@ $page_title = '啤女BeerU:心理測驗';
                         </p>
                     </div>
                 </div>
-                <div class="col-md-3 option-wrap modal-trigger" data-modal="modal-2-2" data-score="2">
+                <div class="col-md-3 option-wrap modal-trigger animatable bounceIn" data-modal="modal-2-2" data-score="2">
                     <img class="option-img" src="../images/glori_images/izakaya.jpeg">
                     <div class="option-2-title-wrap">
                         <p class="option-2-title-ch">日式居酒屋<span class="option-2-txt">
@@ -89,7 +96,7 @@ $page_title = '啤女BeerU:心理測驗';
                         </p>
                     </div>
                 </div>
-                <div class="col-md-3 option-wrap modal-trigger" data-modal="modal-2-3" data-score="3">
+                <div class="col-md-3 option-wrap modal-trigger animatable bounceIn" data-modal="modal-2-3" data-score="3">
                     <img class="option-img" src="../images/glori_images/australian_bar.jpeg">
                     <div class="option-2-title-wrap">
                         <p class="option-2-title-ch">比利時酒吧<span class="option-2-txt">
@@ -98,7 +105,7 @@ $page_title = '啤女BeerU:心理測驗';
                         </p>
                     </div>
                 </div>
-                <div class="col-md-3 option-wrap modal-trigger" data-modal="modal-2-4" data-score="4">
+                <div class="col-md-3 option-wrap modal-trigger animatable bounceIn" data-modal="modal-2-4" data-score="4">
                     <img class="option-img" src="../images/glori_images/germany_bary.jpeg">
                     <div class="option-2-title-wrap">
                         <p class="option-2-title-ch">德式酒吧<span class="option-2-txt">
@@ -108,7 +115,7 @@ $page_title = '啤女BeerU:心理測驗';
                     </div>
                 </div>
             </div>
-            <p class="quiz-quote">離開舒適圈，你將遇見未知的自己。</p>
+            <p class="quiz-quote animatable fadeInUp">離開舒適圈，你將遇見未知的自己。</p>
             <div class="next-btn-wrap mt-3">
                 <a href="#quiz-3-wrap">
                     <div class="next-btn">下一步</div>
@@ -119,30 +126,30 @@ $page_title = '啤女BeerU:心理測驗';
 
     <section class="quiz-3-wrap" id="quiz-3-wrap">
         <div class="container">
-            <p class="quiz-q mt-3">請挑選一種啤酒杯</p>
+            <p class="quiz-q mt-3 animatable fadeInUp">請挑選一種啤酒杯</p>
             <div class="row quiz-row mt-5">
-                <div class="col-md-3 option-wrap modal-trigger" data-modal="modal-3-1" data-score="1">
+                <div class="col-md-3 option-wrap modal-trigger animatable bounceIn" data-modal="modal-3-1" data-score="1">
                     <p class="option-3-title">小麥啤酒杯</p>
                     <img class="option-img" src="../images/glori_images/Weizen-Glass.png">
                     <p class="option-3-txt">
                         特殊的弧度造型有聚集香氣、減緩泡沫消失、方便手拿等多種用途。
                     </p>
                 </div>
-                <div class="col-md-3 option-wrap modal-trigger" data-modal="modal-3-2" data-score="2">
+                <div class="col-md-3 option-wrap modal-trigger animatable bounceIn" data-modal="modal-3-2" data-score="2">
                     <p class="option-3-title">扎啤杯</p>
                     <img class="option-img" src="../images/glori_images/Stein.png">
                     <p class="option-3-txt">
                         為了減緩啤酒升溫，杯壁玻璃都很厚。
                     </p>
                 </div>
-                <div class="col-md-3 option-wrap modal-trigger" data-modal="modal-3-3" data-score="3">
+                <div class="col-md-3 option-wrap modal-trigger animatable bounceIn" data-modal="modal-3-3" data-score="3">
                     <p class="option-3-title">品脫杯</p>
                     <img class="option-img" src="../images/glori_images/Conical-Pint.png">
                     <p class="option-3-txt">
                         「品脫杯」顧名思義就是一杯容量剛好一品脫(約 470 ml)。
                     </p>
                 </div>
-                <div class="col-md-3 option-wrap modal-trigger" data-modal="modal-3-4" data-score="4">
+                <div class="col-md-3 option-wrap modal-trigger animatable bounceIn" data-modal="modal-3-4" data-score="4">
                     <p class="option-3-title">球型酒杯</p>
                     <img class="option-img" src="../images/glori_images/Snifter.png">
                     <p class="option-3-txt">
@@ -150,7 +157,7 @@ $page_title = '啤女BeerU:心理測驗';
                     </p>
                 </div>
             </div>
-            <p class="quiz-quote">就像喝葡萄酒一樣，一種啤酒一種杯，選對杯子就能讓啤酒美味升級。</p>
+            <p class="quiz-quote animatable fadeInUp">就像喝葡萄酒一樣，一種啤酒一種杯，選對杯子就能讓啤酒美味升級。</p>
             <div class="next-btn-wrap mt-3">
                 <a href="#quiz-4-wrap">
                     <div class="next-btn">下一步</div>
@@ -161,14 +168,14 @@ $page_title = '啤女BeerU:心理測驗';
 
     <section class="quiz-4-wrap" id="quiz-4-wrap">
         <div class="container">
-            <p class="quiz-q mt-3">請選擇一款自己最喜歡的下酒菜</p>
+            <p class="quiz-q mt-3 animatable fadeInUp">請選擇一款自己最喜歡的下酒菜</p>
             <div class="row quiz-row mt-5">
                 <div class="col-md-3 option-wrap modal-trigger" data-modal="modal-4-1" data-score="1">
                     <p class="option-4-title">沙拉佐酪梨醬
                         <span class="option-4-beer">
                             推薦啤酒：比利時小麥啤酒</span>
                     </p>
-                    <div class="option-img-wrap">
+                    <div class="option-img-wrap animatable bounceIn">
                         <img class="option-img" src="../images/glori_images/q4-o1.svg">
                     </div>
                     <p class="option-4-txt">
@@ -180,7 +187,7 @@ $page_title = '啤女BeerU:心理測驗';
                         <span class="option-4-beer">
                             推薦啤酒：IPA</span>
                     </p>
-                    <div class="option-img-wrap">
+                    <div class="option-img-wrap animatable bounceIn">
                         <img class="option-img" src="../images/glori_images/q4-o2.svg">
                     </div>
                     <p class="option-4-txt">
@@ -192,7 +199,7 @@ $page_title = '啤女BeerU:心理測驗';
                         <span class="option-4-beer">
                             推薦啤酒：淡色愛爾啤酒</span>
                     </p>
-                    <div class="option-img-wrap">
+                    <div class="option-img-wrap animatable bounceIn">
                         <img class="option-img" src="../images/glori_images/q4-o3.svg">
                     </div>
                     <p class="option-4-txt">
@@ -204,7 +211,7 @@ $page_title = '啤女BeerU:心理測驗';
                         <span class="option-4-beer">
                             推薦啤酒：小麥啤酒</span>
                     </p>
-                    <div class="option-img-wrap">
+                    <div class="option-img-wrap animatable bounceIn">
                         <img class="option-img" src="../images/glori_images/q4-o4.svg">
                     </div>
                     <p class="option-4-txt">
@@ -212,7 +219,7 @@ $page_title = '啤女BeerU:心理測驗';
                     </p>
                 </div>
             </div>
-            <p class="quiz-quote">徹底認識手中的啤酒，才能替它找到合適的靈魂伴侶。</p>
+            <p class="quiz-quote animatable fadeInUp">徹底認識手中的啤酒，才能替它找到合適的靈魂伴侶。</p>
             <div class="next-btn-wrap mt-3">
                 <a href="#quiz-5-wrap">
                     <div class="next-btn">下一步</div>
@@ -223,26 +230,26 @@ $page_title = '啤女BeerU:心理測驗';
 
     <section class="quiz-5-wrap" id="quiz-5-wrap">
         <div class="container">
-            <p class="quiz-q mt-3">微醺時，會做出什麼舉動?</p>
+            <p class="quiz-q mt-3 animatable fadeInUp">微醺時，會做出什麼舉動?</p>
             <div class="row quiz-row mt-5">
                 <div class="col-md-3 option-wrap" data-score="1">
                     <p class="option-5-title">大哭</p>
-                    <img class="option-img" src="../images/glori_images/cry.svg">
+                    <img class="option-img animatable bounceIn" src="../images/glori_images/cry.svg">
                 </div>
                 <div class="col-md-3 option-wrap" data-score="2">
                     <p class="option-5-title">生氣</p>
-                    <img class="option-img" src="../images/glori_images/mad.svg">
+                    <img class="option-img animatable bounceIn" src="../images/glori_images/mad.svg">
                 </div>
                 <div class="col-md-3 option-wrap" data-score="3">
                     <p class="option-5-title">開心</p>
-                    <img class="option-img" src="../images/glori_images/happy.svg">
+                    <img class="option-img animatable bounceIn" src="../images/glori_images/happy.svg">
                 </div>
                 <div class="col-md-3 option-wrap" data-score="4">
                     <p class="option-5-title">打瞌睡</p>
-                    <img class="option-img" src="../images/glori_images/sleep.svg">
+                    <img class="option-img animatable bounceIn" src="../images/glori_images/sleep.svg">
                 </div>
             </div>
-            <p class="quiz-quote">微醺時不孤單，有啤女陪伴妳。</p>
+            <p class="quiz-quote animatable fadeInUp">微醺時不孤單，有啤女陪伴妳。</p>
             <div class="next-btn-wrap mt-3">
                 <a class="result-btn" href="#">
                     <div class="next-btn">測驗結果</div>

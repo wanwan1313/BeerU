@@ -86,8 +86,10 @@ if ($psid != 0) {
 <section class="monthly-product-wrap">
     <div class="monthly-product-banner marble">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-4 monthly-product-main"><a href="each-product.php?psid=<?= $psid = 17 ?>" style="display: block"></a></div>
+            <div class="row may-row">
+                <div class="col-md-6 col-sm-4 monthly-product-main">
+                    <a href="each-product.php?psid=<?= $psid = 17 ?>" style="display: block">
+            <img class="animate__animated animate__fadeInLeft may-product-main" src="../images/glori_images/may_product.png"></a></div>
                 <div class="col-md-6 col-sm-4 monthly-product-intro">
                     <div class="animatable fadeInUp monthly-title mt-5 mb-3">
                         <p>本月之星</p>
@@ -105,14 +107,14 @@ if ($psid != 0) {
     <a href="javascript:" id="return-to-top"><img src="../images/common/top.svg" alt=""></a>
 
     <div class="container-fluid e-product-intro-warp">
-        <img class="sakura" src="../images/glori_images/sakura.png" alt="">
+        <img class="animatable fadeInDown sakura" src="../images/glori_images/sakura.png" alt="">
         <div class="row e-product-intro justify-content-center align-items-center beer-product" data-sid=<?= $row['sid'] ?> data-price=<?= $row['price'] ?> data-abv=<?= $row['abv'] ?>>
             <!-- 產品描述 -->
             <div class="col-12 col-lg-6 product-intro ">
                 <!-- 開始內容 -->
                 <div class="intro-content d-flex flex-column justify-content-center">
                     <!-- 產品名稱 -->
-                    <div class="pro-name">
+                    <div class="pro-name animatable fadeInUp">
                         <div class="country d-flex align-items-center">
                             <p><?= $row['country_name'] ?></p>
                             <img class="c-pic" src="../images/country/<?= $row['country_pic'] ?>" alt="">
@@ -122,12 +124,12 @@ if ($psid != 0) {
                     </div>
 
                     <!-- 產品介紹文字 -->
-                    <div class="intro-text">
+                    <div class="intro-text animatable fadeInUp">
                         <p><?= $row['intro'] ?></p>
                     </div>
 
                     <!-- 購買 -->
-                    <div class="p-buy d-flex flex-wrap">
+                    <div class="p-buy d-flex flex-wrap animatable fadeInUp">
                         <!-- 選擇數量 -->
                         <div class="col-12 quantity d-flex justify-content-between">
                             <div class="minus"><i class="fas fa-minus"></i></div>
@@ -144,7 +146,7 @@ if ($psid != 0) {
                     </div>
 
                     <!-- 產品關鍵字 -->
-                    <div class="product-key d-flex flex-wrap">
+                    <div class="product-key d-flex flex-wrap animatable fadeInUp">
                         <div class="key-content d-flex flex-lg-column ">
                             <div class="title">
                                 <p>類型</p>

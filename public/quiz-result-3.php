@@ -79,6 +79,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
+<!-- 會員登入 -->
+<?php include __DIR__ . '../../php/common/Login-Sign.php' ?>
 <?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
 <?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
 <section class="mobile-menu">
@@ -89,8 +91,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <div class="container">
         <div class="row">
             <div class="col-12 result-info-wrap mt-5">
-                <p class="result-title">適合你的精釀啤酒類型：<span>印度淡愛爾</span></p>
-                <p class="result-info">
+                <p class="result-title animatable fadeInUp">適合你的精釀啤酒類型：<span>印度淡愛爾</span></p>
+                <p class="result-info animatable fadeInUp">
                     有一種人容易在酒後就直接睡著，沒有太多其餘的對談與行為。這樣的人個性隨和，且心胸開闊，比較不會因為小事與他人斤斤計較。你們看似能和很多人好好相處，但實則多與人沒有交流。你們通常容易滿足，也對生活現狀感到安逸，對未來沒有過多要求與追求，把日子過的順利就是你們最大的心願。 酒精對你們來說，就像放鬆劑一樣，喝完就能安心睡覺。</p>
             </div>
         </div>
@@ -102,10 +104,10 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
             <!-- 推薦商品 -->
             <div class="row related flex-wrap">
-                <div class="col-12 rpco-title">
+                <div class="col-12 rpco-title animatable fadeInUp">
                     <p>推薦商品</p>
                 </div>
-                <div class="col-12 d-flex related-p">
+                <div class="col-12 d-flex related-p animatable fadeInUp">
                     <!-- 商品BOX -->
                     <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
                         <div class="beer-product" data-sid=<?= $c_row['sid'] ?> data-price=<?= $c_row['price'] ?> data-abv=<?= $c_row['abv'] ?>>
