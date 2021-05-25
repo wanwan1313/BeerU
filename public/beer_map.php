@@ -1,5 +1,5 @@
 <?php
-// header('refresh: 1;url="map.php"') 
+// header('refresh: 1;url="map.php"')
 ?>
 <?php include __DIR__ . '../../php/common/config.php' ?>
 
@@ -57,7 +57,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 $a_arr = [];
 // 設定登入會員後
 if (isset($_SESSION['user'])) {
-// 設定已登入會員sid
+    // 設定已登入會員sid
     $m_sid = $_SESSION['user']['sid'];
     // 選擇attention抓tag_sid，綁定有會員sid
     $a_SQL = "SELECT `tag_sid` FROM `attention` WHERE `member_sid` = $m_sid";
@@ -68,10 +68,9 @@ if (isset($_SESSION['user'])) {
         foreach ($a_row as $a) {
             // 抓出來
             array_push($a_arr, $a['tag_sid']);
-
         }
     }
-    }
+}
     // echo json_encode($a_arr,JSON_UNESCAPED_UNICODE)
     
 ?>
@@ -546,9 +545,11 @@ if (isset($_SESSION['user'])) {
                         <path class="cls-1" d="M222.07,240.42a1.61,1.61,0,0,0,1.9,0A1.67,1.67,0,0,0,222.07,240.42Z" />
                 </svg>
                 <!-- 地點 -->
+                <div class="flag position-absolute animatable bounceIn">
+                <img id='deco' src="../images/map/SVG/deco_us.svg" alt="">
+                </div>
                 <div class="flag position-absolute">
-                    <img src="../images/map/SVG/mug_us.svg" alt="">
-                    <!-- <div class="flag_shadow"></div> -->
+                    <img id='mug' src="../images/map/SVG/mug_us.svg" alt="">
                 </div>
                 <!-- 標題 -->
                 <div class="map_title position-absolute">美洲<span>America</span></div>
@@ -558,17 +559,12 @@ if (isset($_SESSION['user'])) {
                 <!--各個國家輪播 -->
                 <div class="countries row justify-content-center flex-nowrap align-items-center mx-auto position-absolute">
                     <div class="arrow-left mt-5"><a href="javascript: "></a></div>
-                    <!-- row -->
-                    <!-- <div class="countries_wrap"> -->
-                    <!-- <div class="slider row manycountry flex-nowrap"> -->
                     <div class="country position-relative">
                         <div class="country_name position-absolute" data-cate="29">
                             <!-- 美國 -->
                         </div>
                         <img src="../images/map/SVG/stamp_us.svg" alt="">
                     </div>
-                    <!-- </div> -->
-                    <!-- </div> -->
                     <div class="arrow-right mt-5">
                         <a href="javascript: "></a>
                     </div>
@@ -636,39 +632,35 @@ if (isset($_SESSION['user'])) {
                         <path class="cls-1" d="M238.88,306.88a.92.92,0,0,0,.36-.07,1,1,0,0,0,.64-.93v-6.42a1,1,0,0,0-1.52-.86c-1.93,1.16-3,2.29-2.92,4.65a1,1,0,0,0,.26.63l2.44,2.68A1,1,0,0,0,238.88,306.88Z" />
                 </svg>
                 <!-- 地點 -->
+                <div class="flag position-absolute animatable bounceIn">
+                    <img id='deco' src="../images/map/SVG/deco_uk.svg" alt="">
+                </div>
                 <div class="eu_flags">
                     <div class="flag flag1 position-absolute">
                         <img src="../images/map/SVG/mug_uk.svg" alt="">
-                        <!-- <div class="flag_shadow"></div> -->
                     </div>
                     <div class="flag flag2 position-absolute">
                         <img src="../images/map/SVG/mug_fc.svg" alt="">
-                        <!-- <div class="flag_shadow"></div> -->
                     </div>
                     <div class="flag flag3  position-absolute">
                         <img src="../images/map/SVG/mug_bl.svg" alt="">
-                        <!-- <div class="flag_shadow"></div> -->
                     </div>
                     <div class="flag flag4  position-absolute">
                         <img src="../images/map/SVG/mug_nw.svg" alt="">
-                        <!-- <div class="flag_shadow"></div> -->
                     </div>
                     <div class="flag flag5  position-absolute">
                         <img src="../images/map/SVG/mug_dm.svg" alt="">
-                        <!-- <div class="flag_shadow"></div> -->
                     </div>
                     <div class="flag  flag6 position-absolute">
                         <img src="../images/map/SVG/mug_gm.svg" alt="">
-                        <!-- <div class="flag_shadow"></div> -->
                     </div>
                     <div class="flag  flag7 position-absolute">
                         <img src="../images/map/SVG/mug_sw.svg" alt="">
-                        <!-- <div class="flag_shadow"></div> -->
                     </div>
                     <div class="flag  flag8 position-absolute">
                         <img src="../images/map/SVG/mug_it.svg" alt="">
-                        <!-- <div class="flag_shadow"></div> -->
                     </div>
+                    
                 </div>
                 <!-- 標題 -->
                 <div class="map_title position-absolute">歐洲<span>Europe</span></div>
