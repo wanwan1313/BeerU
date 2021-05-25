@@ -155,10 +155,12 @@
     }
     .fund p {
         /* width: fit-content; */
-        font-family: 'Noto Serif TC', serif;
-        font-size: 1.7rem;
-        font-weight: bold;
-        line-height: 2.5rem;
+        font-family: 'Noto Sans TC', sans-serif;
+        font-weight: 400;
+        font-size: 1.6rem;
+        /* line-height: 2.5rem;  */
+        letter-spacing: 0.1rem;
+        line-height: 2;
     }
     .fund-intro-text {
         margin-top: 5%;
@@ -291,7 +293,6 @@
         font-size: 1.7rem;
     }
     .fund .goal .goal-value .goal-title {
-        font-family: 'Noto Serif TC', serif;
         font-size: 1.7rem;
     }
     /* 加入關注按鈕 */
@@ -615,12 +616,15 @@
 @media (min-width: 992px) {
     /* 分頁籤 */
     .tabs-nav li {
+ 
         float: left;
         width: 50%;
     }
     .tabs-nav li:first-child a {
         border-right: 0;
         border-top-left-radius: 6px;
+        font-family: 'Noto Sans TC', sans-serif;
+
     }
     .tabs-nav li:last-child a {
         border-top-right-radius: 6px;
@@ -731,6 +735,7 @@
         width: auto;
     }
     .tabs-nav li {
+        font-family: 'Noto Sans TC', sans-serif;
         float: left;
         width: 50%;
     }
@@ -962,9 +967,11 @@
     .beer-product .pro-pic .collect {
         position: absolute;
         bottom: 10px;
-        right: 20px;
+        left: 160px;
     }
-    .btn_collect, .btn_collect_active {
+    .btn_collect, 
+    .btn_collect_active,
+    .btn_collect_nologin {
         background-color: transparent;
         border: none;
         color: var(--red);
@@ -973,7 +980,9 @@
         cursor: pointer;
         transition: .3s;
     }
-    .btn_collect:hover, .btn_collect_active:hover {
+    .btn_collect:hover, 
+    .btn_collect_active:hover,
+    .btn_collect_nologin:hover {
         transform: scale(1.1, 1.1);
     }
     .btn_collect::after {
@@ -1003,7 +1012,7 @@
     }
     /* 品名 */
     .p-name-c {
-        font-family: 'Noto serif TC', serif;
+        /* font-family: 'Noto serif TC', serif; */
         font-size: 1.8rem;
         line-height: 2.6rem;
         text-align: center;
@@ -1072,9 +1081,11 @@
     .beer-product .pro-pic .collect {
         position: absolute;
         bottom: 10px;
-        right: 20px;
+        left: 160px;
     }
-    .btn_collect, .btn_collect_active {
+    .fund-success .btn_collect, 
+    .fund-success .btn_collect_nologin, 
+    .fund-success .btn_collect_active {
         background-color: transparent;
         border: none;
         color: var(--red);
@@ -1083,10 +1094,13 @@
         cursor: pointer;
         transition: .3s;
     }
-    .btn_collect:hover, .btn_collect_active:hover {
+    .fund-success .btn_collect:hover,
+    .btn_collect_nologin:hover, 
+    .btn_collect_active:hover {
         transform: scale(1.1, 1.1);
     }
-    .btn_collect::after {
+    .btn_collect::after,
+    .btn_collect_nologin::after {
         content: '加入收藏';
         display: block;
         position: absolute;
@@ -1097,7 +1111,8 @@
         color: transparent;
         transition: .3s;
     }
-    .btn_collect:hover::after {
+    .btn_collect:hover::after,
+    .btn_collect_nologin:hover::after {
         color: var(--red);
     }
     /* 商品介紹 */
@@ -1192,16 +1207,375 @@
 /* 手機版 */
 
 @media (max-width: 991px) {
+
+    .fund-success .related-p {
+        overflow: hidden;
+    }
+  
+
     .know-more {
-        /* border: 1px solid white; */
         font-family: 'Noto Serif TC', serif;
         font-size: 1.6rem;
         font-weight: bold;
-        margin: auto;
-        margin-top: 3%;
-        margin-bottom: 15%;
+        margin-top: 5%;
+        margin-left: 40%;
+        margin-bottom: 10%;
         position: relative;
         width: fit-content;
         transition: .5s;
     }
+    .know-more::before {
+        content: '';
+        display: block;
+        position: absolute;
+        background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+        width: 18px;
+        height: 18px;
+        left: -33%;
+        bottom: 15%;
+        opacity: 1;
+        transition: .3s;
+    }
+    .know-more::after {
+        content: '';
+        display: block;
+        position: absolute;
+        background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+        width: 18px;
+        height: 18px;
+        right: -41%;
+        bottom: 15%;
+        opacity: 1;
+        transition: .3s;
+    }
+    .know-more:hover {
+        transform: scale(1.1, 1.1);
+    }
+    .know-more:hover::after {
+        content: '';
+        display: block;
+        position: absolute;
+        background: url(../../images/common/ear_right_yellow.svg) 0 0 no-repeat;
+        width: 18px;
+        height: 18px;
+        right: -33%;
+        bottom: 23%;
+        opacity: 0;
+    }
+    .know-more:hover::before {
+        content: '';
+        display: block;
+        position: absolute;
+        background: url(../../images/common/ear_left_yellow.svg) 0 0 no-repeat;
+        width: 18px;
+        height: 18px;
+        left: -25%;
+        bottom: 23%;
+        opacity: 0;
+    }
+
+      /* 商品圖片 */
+      .beer-product .pro-pic {
+        margin-top: 10%;
+    }
+
+}
+
+/*  常見QA */
+
+.collapsible {
+    background-color: var(--blue);
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  .active, .collapsible:hover {
+    background-color:var(--yellow);
+  }
+  
+  .collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2212";
+  }
+  
+  .content {
+    padding: 0 18px;
+    max-height: 200px;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+  }
+
+
+
+/*  animation 特效 */
+
+.animatable {
+    /* initially hide animatable objects */
+    visibility: hidden;
+    /* initially pause animatable objects their animations */
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -ms-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+/* show objects being animated */
+
+.animated {
+    visibility: visible;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -ms-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-play-state: running;
+    -moz-animation-play-state: running;
+    -ms-animation-play-state: running;
+    -o-animation-play-state: running;
+    animation-play-state: running;
+}
+
+/* CSS Animations (extracted from http://glifo.uiparade.com/) */
+
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+    }
+}
+
+@-moz-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -moz-transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        -moz-transform: translateY(0);
+    }
+}
+
+@-o-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -o-transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        -o-transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes bounceIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.3);
+    }
+    50% {
+        -webkit-transform: scale(1.05);
+    }
+    70% {
+        -webkit-transform: scale(.9);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+    }
+}
+
+@-moz-keyframes bounceIn {
+    0% {
+        opacity: 0;
+        -moz-transform: scale(.3);
+    }
+    50% {
+        -moz-transform: scale(1.05);
+    }
+    70% {
+        -moz-transform: scale(.9);
+    }
+    100% {
+        opacity: 1;
+        -moz-transform: scale(1);
+    }
+}
+
+@-o-keyframes bounceIn {
+    0% {
+        opacity: 0;
+        -o-transform: scale(.3);
+    }
+    50% {
+        -o-transform: scale(1.05);
+    }
+    70% {
+        -o-transform: scale(.9);
+    }
+    100% {
+        opacity: 1;
+        -o-transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(.3);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes moveUp {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+    }
+}
+
+@-moz-keyframes moveUp {
+    0% {
+        opacity: 1;
+        -moz-transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        -moz-transform: translateY(0);
+    }
+}
+
+@-o-keyframes moveUp {
+    0% {
+        opacity: 1;
+        -o-transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        -o-transform: translateY(0);
+    }
+}
+
+@keyframes moveUp {
+    0% {
+        opacity: 1;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated.animationDelay {
+    animation-delay: .3s;
+    -webkit-animation-delay: .3s;
+}
+
+.animated.animationDelayMed {
+    animation-delay: 0.8s;
+    -webkit-animation-delay: 0.8s;
+}
+
+.animated.animationDelayLong {
+    animation-delay: 1.6s;
+    -webkit-animation-delay: 1.6s;
+}
+
+
+
+.animated.bounceIn {
+    -webkit-animation-name: bounceIn;
+    -moz-animation-name: bounceIn;
+    -o-animation-name: bounceIn;
+    animation-name: bounceIn;
+}
+
+.animated.bounceInRight {
+    -webkit-animation-name: bounceInRight;
+    -moz-animation-name: bounceInRight;
+    -o-animation-name: bounceInRight;
+    animation-name: bounceInRight;
+}
+
+.animated.bounceInLeft {
+    -webkit-animation-name: bounceInLeft;
+    -moz-animation-name: bounceInLeft;
+    -o-animation-name: bounceInLeft;
+    animation-name: bounceInLeft;
+}
+
+.animated.fadeIn {
+    -webkit-animation-name: fadeIn;
+    -moz-animation-name: fadeIn;
+    -o-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
+.animated.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    -moz-animation-name: fadeInDown;
+    -o-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+}
+
+.animated.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    -moz-animation-name: fadeInUp;
+    -o-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
+
+.animated.moveUp {
+    -webkit-animation-name: moveUp;
+    -moz-animation-name: moveUp;
+    -o-animation-name: moveUp;
+    animation-name: moveUp;
 }

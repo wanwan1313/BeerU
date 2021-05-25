@@ -55,8 +55,7 @@ $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
             </div>
             <div class="product-main-text">
                 <h3>【CLOUDWATER | 英國知名精釀廠】</h3>
-                <p>全球第二名 / 英倫第一神廠強勢來台，啤女獨家首發，最強CP值!
-                    來自Manchester 的Cloudwater 酒廠，僅僅成立3年已大有名氣，今年更於Ratebeer 最佳酒廠前三名。</p>
+                <p>全球第二 - 英倫第一神廠強勢來台，啤女獨家首發，最強CP值！連續四年(2016-2019)名列在全球最佳酒廠Top 15內，最佳成績為Top2！</p>
                 <div class="product-sub-text d-flex">
                     <div class="goal mt-2">
                         <div class="current-value">
@@ -70,7 +69,7 @@ $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
                     <div class="sub-intro mt-2">
                         <p>贊助人數 | 6215 </p>
                         <p>剩餘時間 | <span id="countdown"></span></p>
-                        <p>時程 | <?= $f['end_date'] ?></p>
+                        <p>計畫截止日| <?= $f['end_date'] ?></p>
                     </div>
 
 
@@ -113,7 +112,7 @@ $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
                 <div class="fund-amount">
                     <div class="unit">
                         <button class="minus"><i class="fas fa-minus mb-5"></i></button>
-                        <span class="" style="">$</span><input class="price" value="<?= $f['plan_price'] ?> " data-price="$<?= $f['plan_price'] ?> ">
+                 <input class="price" value="<?= $f['plan_price'] ?> " data-price="$<?= $f['plan_price'] ?> ">
 
                         <button class="add"><i class="fas fa-plus"></i></button>
                     </div>
