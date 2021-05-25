@@ -61,6 +61,21 @@ if (isset($_SESSION['user'])) {
 
     $b_row = $pdo->query($b_SQL)->fetch();
 
+    // 從資料庫抓收藏清單
+    // 登入會員的狀態，抓收藏商品
+    $c_arr = [];
+    if (isset($_SESSION['user'])) {
+
+        $m_sid = $_SESSION['user']['sid'];
+        $co_SQL = "SELECT `product_sid` FROM `collect` WHERE `member_sid` = $m_sid";
+        $co_row = $pdo->query($co_SQL)->fetchAll();
+        if (!empty($co_row)) {
+            foreach ($co_row as $co) {
+                array_push($c_arr, $co['product_sid']);
+            }
+        }
+    }
+
     // new標籤
     $deadline = strtotime('2021-05-01');
 
@@ -110,10 +125,8 @@ if (isset($_SESSION['user'])) {
                         </div>
                         <div class="col-12 mt-3">
                             <div class="img-wrap d-flex mt-5">
-                                <div class="img-row">
-                                <a href="">
+                                <div class="img-row">                 
                                 <img class="pics" id="pic1" src="../images/joyce_images/fund-p-1.jpg" alt="">
-                                </a>
                                 </div>
                                 <div class="img-row"><img class="pics" id="pic2" src="../images/joyce_images/fund-p-2.jpg" alt=""></div>
                                 <div class="img-row"><img class="pics" id="pic3" src="../images/joyce_images/fund-p-3.jpg" alt=""></div>
@@ -221,7 +234,7 @@ if (isset($_SESSION['user'])) {
                 </div>
                 <div class="sub-intro mt-5">
                     <p>贊助人數 | 6215</p>
-                    <p>剩餘時間 | 7天 </p>
+                    <p>剩餘時間 | 30天 </p>
                    <p> 計畫截止日 | 2021/06/30</p>
                 </div>
                 <a href="#plans">

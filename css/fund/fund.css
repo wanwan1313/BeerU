@@ -1296,7 +1296,8 @@
   }
   
   .active, .collapsible:hover {
-    background-color:var(--yellow);
+    /* background-color:rgb(54, 73, 134) */
+    background-color: var(--gold);
   }
   
   .collapsible:after {
