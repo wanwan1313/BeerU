@@ -68,6 +68,7 @@ $('.map .country, .flag img').click(function () {
             // 改背景圖（手機）
             $('.bg_s img').attr("src", data.map_row.bg_s);
             // 改brand
+            $('.beer-brand').html(data.map_row.brands);
             
             // // cup1
             // for(let i=1; i<=3; i++){
