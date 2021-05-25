@@ -22,24 +22,6 @@ $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
 
 // $psid = 5;
 
-// if ($psid != 0) {
-//     此頁商品
-//     $p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.`name` AS `type_name`,t4.`name` AS `merch_name` FROM `products` AS p 
-//                 JOIN `tags` AS t1 
-//                 ON p.`brand_sid` = t1.`sid`
-//                 JOIN `tags` AS t2 
-//                 ON p.`country_sid` = t2.`sid`
-//                 JOIN `tags` AS t3 
-//                 ON p.`type_sid` = t3.`sid`
-//                 JOIN `tags` AS t4 
-//                 ON p.`merch_sid` = t4.`sid`
-//                 WHERE p.`sid` = $psid";
-//     $row = $pdo->query($p_SQL)->fetch();
-
-//     $country_sid = $row['country_sid'];
-//     $type_sid = $row['type_sid'];
-//     $brands_sid = $row['brand_sid'];
-//     $merch_sid = $row['merch_sid'];
 
 
 // 抓資料庫裡的關注清單
@@ -76,7 +58,7 @@ if (isset($_SESSION['user'])) {
     $t_row_sid = $t_row['sid'];
 
     $b_SQL = "SELECT * FROM `products` WHERE `type_sid` = 48 AND `sid`  ORDER BY RAND() LIMIT 1";
-    
+
     $b_row = $pdo->query($b_SQL)->fetch();
 
     // new標籤
@@ -90,7 +72,17 @@ if (isset($_SESSION['user'])) {
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
-<!-- my-style -->
+
+
+<!-- slick css-->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+
+
+<!-- slick js -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+
+<!-- my-style css -->
 <link rel="stylesheet" href="../css/fund/fund.css">
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
@@ -118,13 +110,19 @@ if (isset($_SESSION['user'])) {
                         </div>
                         <div class="col-12 mt-3">
                             <div class="img-wrap d-flex mt-5">
-                                <div class="img-row"><img class="pics" id="pic1" src="../images/joyce_images/fund-p-1.jpg" alt=""></div>
+                                <div class="img-row">
+                                <a href="">
+                                <img class="pics" id="pic1" src="../images/joyce_images/fund-p-1.jpg" alt="">
+                                </a>
+                                </div>
                                 <div class="img-row"><img class="pics" id="pic2" src="../images/joyce_images/fund-p-2.jpg" alt=""></div>
                                 <div class="img-row"><img class="pics" id="pic3" src="../images/joyce_images/fund-p-3.jpg" alt=""></div>
                                 <div class="img-row"><img class="pics" id="pic4" src="../images/joyce_images/fund-p-4.jpg" alt=""></div>
                             </div>
                         </div>
                     </div>
+
+                    
                 </div>
                 <div id="demo-carousel" class="carousel slide" data-ride="carousel">
 
@@ -166,11 +164,11 @@ if (isset($_SESSION['user'])) {
                 <div class="fund-title mt-5  mb-5">
                     <h4>募資計畫</h4>
                 </div>
-                <div class="product-intro">
+                <div class="product-intro animatable fadeInUp">
                     <h3>【CLOUDWATER | 英國知名精釀廠】</h3>
                 </div>
-                <div class="fund-intro-text">
-                    <p>全球第二名 / 英倫第一神廠強勢來台，啤女獨家首發，最強CP值!連續四年(2016-2019)名列在全球最佳酒廠Top 15內，最佳成績為Top2！來自Manchester 的Cloudwater 酒廠，僅僅成立3年已大有名氣，今年更於Ratebeer 最佳酒廠第5名（去年投選）擢升至第2名。
+                <div class="fund-intro-text  animatable fadeInUp">
+                    <p>全球第二 - 英倫第一神廠強勢來台，啤女獨家首發，最強CP值！連續四年(2016-2019)名列在全球最佳酒廠Top 15內，最佳成績為Top2！來自英國工業大城曼徹斯特的獨立精釀啤酒廠Cloudwater，僅僅成立3年已大有名氣，是現下精釀啤酒市場中的耀眼新星。
                     </p>
                 </div>
                 <div class="row d-flex">
@@ -222,14 +220,9 @@ if (isset($_SESSION['user'])) {
                     
                 </div>
                 <div class="sub-intro mt-5">
-                    <p>
-                        贊助人數 | 6215
-                        <br>
-                        剩餘時間 | 6小時
-                        <br>
-                        時程 | 2021/05/01 - 2021/05/30
-
-                    </p>
+                    <p>贊助人數 | 6215</p>
+                    <p>剩餘時間 | 7天 </p>
+                   <p> 計畫截止日 | 2021/06/30</p>
                 </div>
                 <a href="#plans">
                     <button class="btn_fundnow"><i class="fas fa-coins"></i>我要贊助</button></a>
@@ -252,31 +245,41 @@ if (isset($_SESSION['user'])) {
                     <div class="tabs-stage">
                         <div id="tab-1">
                             <!-- 倒數 -->
-                            <p id="countdown"></p>
+                            <p class="animatable fadeInUp" id="countdown"></p>
 
-                            <h3>募資計畫倒數計時中</h3>
-                            <img src="../images/joyce_images/fund-p-6.jpg" alt="">
-                            <h3>全球第二名 / 英倫第一神廠 Cloudwater</h3>
-                            <p>Cloudwater 終於要台灣啦～！
+                            <h3 class="animatable fadeInUp" >募資計畫倒數計時中</h3>
+                            <img class="animatable fadeInUp"  src="../images/joyce_images/fund-p-6.jpg" alt="">
+                            <h3 class="animatable fadeInUp">全球第二名 / 英倫第一神廠 Cloudwater</h3>
+                            <p class="animatable fadeInUp" >Cloudwater 終於要台灣啦～！
                                 來自英國曼徹斯特的 Cloudwater 酒廠，名字來自充滿禪意的「雲水」，成立於 2015
                                 年，剛成立就奪下年度最佳新進酒廠。從隔年開始，在全球最有公信力的的啤酒評選網站 Raterbeer 上一舉闖入 Top 10 全球最佳酒廠，2017 年更摘下世界
                                 No. 2，並至今從未掉出世界前 15 名過。</p>
-                            <img src="../images/joyce_images/fund-p-8.jpg" alt="">
+                            <img class="animatable fadeInUp"  src="../images/joyce_images/fund-p-8.jpg" alt="">
 
-                            <h3> 藝術酒標登上泰德美術館</h3>
-                            <img id="art" src="../images/joyce_images/fund-p-9.jpg" alt="">
-                            <p>除了啤酒質素不容置疑之外，Cloudwater 每季都找來不同的藝術家合作設計酒標，以配合酒款的風格與理念，極具設計感的酒標更曾在英國著名的 Tate
+                            <h3 class="animatable fadeInUp" > 藝術酒標登上泰德美術館</h3>
+                            <img class="animatable fadeInUp"  id="art" src="../images/joyce_images/fund-p-9.jpg" alt="">
+                            <p class="animatable fadeInUp" >除了啤酒質素不容置疑之外，Cloudwater 每季都找來不同的藝術家合作設計酒標，以配合酒款的風格與理念，極具設計感的酒標更曾在英國著名的 Tate
                                 當代藝術館舉辦了活動，因此也有人說每次看到 Cloudwater 都像走進了迷你畫廊。</p>
-                            <img src="../images/joyce_images/fund-p-10.jpg" alt="">
-                            <h3>最令台灣精釀迷興奮的強勢登台!</h3>
-                            <p>短短兩年便成為世界第二的 Cloudwater，善於運用酒花的香氣釀出各種不同平衡的酒款。但以激少量、高頻率不斷更新酒款的
+                            <img class="animatable fadeInUp" src="../images/joyce_images/fund-p-10.jpg" alt="">
+                            <h3 class="animatable fadeInUp" >最令台灣精釀迷興奮的強勢登台!</h3>
+                            <p class="animatable fadeInUp" >短短兩年便成為世界第二的 Cloudwater，善於運用酒花的香氣釀出各種不同平衡的酒款。但以激少量、高頻率不斷更新酒款的
                                 Cloudwater，每一批次都少得可憐，是極難得的夢幻逸品，在台灣幾乎不可能取得，各位酒友們， 此時不買待何時！</p>
                         </div>
-                        <!--常見問題
-                         -->
+                        <!--常見問題 -->
                         <div id="tab-2">
-                            <p>常見QA</p>
+                            <button class="collapsible" data-collapse="#coll1"> Q1.請問贊助計畫以後什麼時候才會收到收貨通知？</button>
+                            <div class="content" id="coll1"><p>一般預計送出日期都是估計計畫結束的兩週後。請密切注意關注募資計畫頁的截止態來確定時間。如果有疑惑請登入至會員中心使用計畫頁面上的聯絡提案人功能來和提案者確認。</p></div>
+                            <button class="collapsible"
+                            data-collapse="#coll2">Q2.我想要贊助計畫，可以透過哪些方式呢？</button>
+                            <div class="content" id="coll2"><p>可以透過選擇計畫中的方案，並可自由贊助金額（以100元為單位）來支持計畫，信用卡服務。</p></div>
+                            <button class="collapsible" 
+                            data-collapse="#coll3">Q3.請問如何取得贊助的產品呢？</button>
+                            <div class="content" id="coll3"><p>目前啤女提供超商取貨包及宅配兩種運送服務喔。</p></div>
+                            <button class="collapsible">Q4.請問會有更多促銷或優惠活動嗎？</button><div class="content"><p>啤女募資計畫絕對是雲水精釀啤酒廠在台灣2021最優惠的價格，敬請把握。</p></div> 
+
                         </div>
+
+
                     </div>
                 </div>
             </div>
@@ -402,7 +405,7 @@ if (isset($_SESSION['user'])) {
                             </a>
                         </div>
                         <!-- 了解更多 -->
-                        <a href="">
+                        <a href="each-product.php?psid=<?= $c_row['sid'] ?>">
                             <div class="know-more">了解更多</div>
                         </a>
                     </div>
@@ -458,24 +461,28 @@ if (isset($_SESSION['user'])) {
                                 </div>
                             </a>
                         </div>
+                        <!-- 了解更多 -->
+                        <a href="each-product.php?psid=<?= $c_row['sid'] ?>">
+                            <div class="know-more">了解更多</div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
-                    <div class="beer-product" data-sid=<?= $b_row['sid'] ?> data-price=<?= $b_row['price'] ?> data-abv=<?= $b_row['abv'] ?>>
+                    <div class="beer-product" data-sid=<?= $t_row['sid'] ?> data-price=<?= $t_row['price'] ?> data-abv=<?= $t_row['abv'] ?>>
                         <div class="pro-pic">
                             <!-- 商品圖 -->
-                            <a href="each-product.php?psid=<?= $b_row['sid'] ?>">
-                                <img class="beer-pic" src="../images/products/<?= $b_row['pic'] ?>" alt="">
+                            <a href="each-product.php?psid=<?= $t_row['sid'] ?>">
+                                <img class="beer-pic" src="../images/products/<?= $t_row['pic'] ?>" alt="">
                             </a>
                             <!-- 標籤 -->
                             <div class="label">
-                                <?php if (strtotime($b_row['created_at']) > $deadline) : ?>
+                                <?php if (strtotime($t_row['created_at']) > $deadline) : ?>
                                     <div class="new-label">
                                         <p>NEW</p>
                                     </div>
                                 <?php endif; ?>
 
-                                <?php if ($b_row['hot'] == 'true') : ?>
+                                <?php if ($t_row['hot'] == 'true') : ?>
                                     <div class="hot-label">
                                         <p>HOT</p>
                                     </div>
@@ -483,14 +490,14 @@ if (isset($_SESSION['user'])) {
                             </div>
 
                             <!-- 國家圖片 -->
-                            <div class="country"><img src="../images/country/<?= $b_row['country_pic'] ?>" alt=""></div>
+                            <div class="country"><img src="../images/country/<?= $t_row['country_pic'] ?>" alt=""></div>
 
                             <!-- 收藏按鈕 -->
                             <div class="collect">
                                 <?php if (!isset($_SESSION['user'])) : ?>
                                     <button class="btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></button>
                                 <?php else : ?>
-                                    <?php if (in_array($b_row['sid'], $c_arr)) : ?>
+                                    <?php if (in_array($t_row['sid'], $c_arr)) : ?>
                                         <button class="btn_collect_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
                                         <button class="btn_collect d-none" onclick="collectProduct()"><i class="far fa-heart"></i></button>
                                     <?php else : ?>
@@ -504,13 +511,17 @@ if (isset($_SESSION['user'])) {
                         <!-- 商品介紹 -->
                         <div class="pro-intro d-flex flex-column justify-content-between">
                             <!-- 商品名稱 -->
-                            <a href="each-product.php?psid=<?= $b_row['sid'] ?>">
+                            <a href="each-product.php?psid=<?= $t_row['sid'] ?>">
                                 <div class="p-name">
-                                    <p class="p-name-c"><?= $b_row['c_name'] ?></p>
-                                    <p class="p-name-e"><?= $b_row['e_name'] ?></p>
+                                    <p class="p-name-c"><?= $t_row['c_name'] ?></p>
+                                    <p class="p-name-e"><?= $t_row['e_name'] ?></p>
                                 </div>
                             </a>
                         </div>
+                        <!-- 了解更多 -->
+                        <a href="each-product.php?psid=<?= $c_row['sid'] ?>">
+                            <div class="know-more">了解更多</div>
+                        </a>
                     </div>
                 </div>
             </div>
