@@ -624,6 +624,7 @@ transform:translateX(0);
 	-moz-animation-name: bounceIn;
 	-o-animation-name: bounceIn;
 	animation-name: bounceIn;
+    animation-delay: .6s;
 }
 /* -------------return to top -------------*/
 
