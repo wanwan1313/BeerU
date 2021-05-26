@@ -503,7 +503,7 @@ h2 {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: solid 1px var(--gold);
+    border: solid 3px var(--gold);
     position: relative
 }
 
@@ -515,11 +515,11 @@ h2 {
     color: var(--gold);
     font-weight: bold;
     font-size: 3.6rem;
-    letter-spacing: 1.2rem;
+    letter-spacing: 0.8rem;
     margin: 0;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 51%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
@@ -532,8 +532,8 @@ h2 {
 
 .rules-inner p {
     color: var(--white);
-    font-family: 'Noto Serif TC', serif;
-    font-weight: regular;
+    font-family: 'Noto Sans TC', sans-serif;     
+    font-weight: 400;
     font-size: 2.0rem;
     line-height: 3.8rem;
     /* letter-spacing: 0.5rem; */
@@ -599,6 +599,7 @@ h2 {
     }
     .beer-type h2 {
         font-family: 'Noto Sans TC', sans-serif;
+        font-weight: 400;
     }
     /* 手 */
     .hand {
@@ -666,6 +667,8 @@ h2 {
 }
 
 .food-drop-name p {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
     margin-top: 10%;
     font-size: 1.6rem;
     line-height: 1.6rem;
@@ -673,8 +676,8 @@ h2 {
 
 .food-drop-img:hover+.food-drop-name {
     color: white;
-    font-family: 'Noto Serif TC', serif;
-    font-weight: bold;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
     text-align: center;
     width: 75px;
     transition: 0.8s;
@@ -750,8 +753,8 @@ h2 {
     /* beer-intro */
     .pair p {
         color: var(--white);
-        font-family: 'Noto Serif TC', serif;
-        font-weight: regular;
+        font-family: 'Noto Sans TC', sans-serif;
+        font-weight: 400;
         font-size: 2.0rem;
         line-height: 3.8rem;
         /* letter-spacing: 0.5rem; */
@@ -790,8 +793,8 @@ h2 {
     /* beer-intro */
     .pair p {
         color: var(--white);
-        font-family: 'Noto Serif TC', serif;
-        font-weight: regular;
+        font-family: 'Noto Sans TC', sans-serif;     
+        font-weight: 400;
         font-size: 1.8rem;
         line-height: 3.2rem;
         /* letter-spacing: 0.5rem; */
@@ -857,7 +860,7 @@ h2 {
 .pair-icon {
     width: 5.0rem;
     line-height: 6.0rem;
-    margin-left: 5%;
+    /* margin-left: 5%; */
 }
 
 .dish-type {
@@ -870,8 +873,8 @@ h2 {
 
 .pair-dish h4 {
     color: var(--white);
-    font-family: 'Noto Serif TC', serif;
-    font-weight: regular;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
     font-size: 2.0rem;
     margin-right: 50px;
     margin-bottom: 5%;
@@ -910,8 +913,8 @@ h2 {
     }
     .pair-dish h4 {
         color: var(--white);
-        font-family: 'Noto Serif TC', serif;
-        font-weight: regular;
+        font-family: 'Noto Sans TC', sans-serif;     
+        font-weight: 400;
         font-size: 2.0rem;
         margin-right: 50px;
         margin-bottom: 5%;
@@ -929,8 +932,8 @@ h2 {
     }
     .pair-dish h4 {
         color: var(--white);
-        font-family: 'Noto Serif TC', serif;
-        font-weight: regular;
+        font-family: 'Noto Sans TC', sans-serif;     
+        font-weight: 400;
         font-size: 1.8rem;
         margin-right: 10px;
         margin-bottom: 5%;
@@ -1042,7 +1045,7 @@ h2 {
     }
     /* 品名 */
     .p-name-c {
-        font-family: 'Noto serif TC', serif;
+        font-family: 'Noto Sans TC', sans-serif; font-weight: 400;
         font-size: 1.8rem;
         line-height: 2.6rem;
         /* text-align: center; */
@@ -1165,10 +1168,12 @@ h2 {
     }
     /* 品名 */
     .p-name-c {
+        font-family: 'Noto Sans TC', sans-serif; 
         line-height: 2rem;
         text-align: center;
     }
     .p-name-e {
+        font-family: 'Noto Sans TC', sans-serif; 
         font-size: 1.4rem;
         line-height: 1.8rem;
         text-align: center;
@@ -1284,8 +1289,8 @@ h2 {
 
 .resto-info h4 {
     color: var(--white);
-    font-family: 'Noto serif TC', serif;
-    font-weight: regular;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
     font-size: 1.8rem;
     margin-right: 50px;
     margin-bottom: 5%;
@@ -1381,8 +1386,8 @@ h2 {
     }
     .resto-info h4 {
         color: var(--white);
-        font-family: 'Noto Serif TC', serif;
-        font-weight: regular;
+        font-family: 'Noto Sans TC', sans-serif;
+        font-weight: 400;
         font-size: 1.6rem;
         /* margin-left:1%; */
         margin-right: 1%;

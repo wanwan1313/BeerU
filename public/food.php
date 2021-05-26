@@ -60,9 +60,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <?php include __DIR__ . '../../php/common/category.php' ?>
 </section>
 
-
-
 <!-- 這裡開始寫html -->
+
 <section class="food-wrap">
     <div class="food-banner">
         <div class="container-fluid">
@@ -274,15 +273,15 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 <section class="pair-wrap">
     <div id="pair-1">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp pt-5">
                 <div class="col-md-6 d-block">
-                    <div class="pair pair-1 animatable bounceIn">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-1.svg" alt="">
+                    <div class="pair pair-1">
+                        <img  src="../images/joyce_images/pair-1.svg" alt="">
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 ">
                     <div class="pair-title">
-                        <h2>酸啤酒 Sour beer<img class="drop" src="../images/joyce_images/drop-1.svg" alt=""></h2>
+                        <h2>酸啤酒 Sour beer<img class="drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-1.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- <h2>白啤酒 Witbier</h2> -->
@@ -445,7 +444,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -455,8 +454,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <div class="container">
                     <div class="row">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/joyce_images/goses_are_red.png" alt="">
@@ -541,15 +540,15 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 <section class="pair-wrap">
     <div id="pair-2">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp pt-5">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-2.svg" alt="">
+                        <img  src="../images/joyce_images/pair-2.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>淡色拉格 Pale Lager<img class="drop" src="../images/joyce_images/drop-2.svg" alt=""></h2>
+                        <h2>淡色拉格 Pale Lager<img class= "drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-2.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- <h2>白啤酒 Witbier</h2> -->
@@ -714,7 +713,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- Force next columns to break to new line at md breakpoint and up -->
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -724,8 +723,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <div class="container">
                     <div class="row">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/products/Heart of Darkness-01.png" alt="">
@@ -815,15 +814,15 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 <section class="pair-wrap">
     <div id="pair-3">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp pt-5">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-3.svg" alt="">
+                        <img src="../images/joyce_images/pair-3.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>印度淡愛爾 IPA<img class="drop" src="../images/joyce_images/drop-3.svg" alt=""></h2>
+                        <h2>印度淡愛爾 IPA<img class="drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-3.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- 分享按鈕們 -->
@@ -987,7 +986,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- Force next columns to break to new line at md breakpoint and up -->
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -995,10 +994,10 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                     <h3>相似商品推薦</h3>
                 </div>
                 <div class="container">
-                    <div class="row">
+                    <div class="row ">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/joyce_images/Civale 09.png" alt="">
@@ -1080,15 +1079,15 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 <section class="pair-wrap">
     <div id="pair-4">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp pt-5">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-4.svg" alt="">
+                        <img src="../images/joyce_images/pair-4.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>皮爾森 Pilsner<img class="drop" src="../images/joyce_images/drop-4.svg" alt=""></h2>
+                        <h2>皮爾森 Pilsner<img class="drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-4.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- 分享按鈕們 -->
@@ -1253,7 +1252,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- Force next columns to break to new line at md breakpoint and up -->
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -1263,8 +1262,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <div class="container">
                     <div class="row">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/joyce_images/oslo-01.png" alt="">
@@ -1346,15 +1345,15 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 <section class="pair-wrap">
     <div id="pair-5">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp pt-5">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-5.svg" alt="">
+                        <img src="../images/joyce_images/pair-5.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>小麥啤酒 Weizen <img class="drop" src="../images/joyce_images/drop-5.svg" alt=""></h2>
+                        <h2>小麥啤酒 Weizen <img class="drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-5.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- 分享按鈕們 -->
@@ -1518,7 +1517,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- Force next columns to break to new line at md breakpoint and up -->
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -1528,8 +1527,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <div class="container">
                     <div class="row">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/joyce_images/8-wired-09.png" alt="">
@@ -1611,15 +1610,15 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 <section class="pair-wrap">
     <div id="pair-6">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-6.svg" alt="">
+                        <img src="../images/joyce_images/pair-6.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>愛爾 Ale<img class="drop" src="../images/joyce_images/drop-6.svg" alt=""></h2>
+                        <h2>愛爾 Ale<img class="drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-6.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- 分享按鈕們 -->
@@ -1783,7 +1782,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- Force next columns to break to new line at md breakpoint and up -->
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -1793,8 +1792,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <div class="container">
                     <div class="row">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/joyce_images/Brewlander 01.png" alt="">
@@ -1876,15 +1875,15 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 <section class="pair-wrap">
     <div id="pair-7">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp pt-5">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-7.svg" alt="">
+                        <img  src="../images/joyce_images/pair-7.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>勃克啤酒 BOCK<img class="drop" src="../images/joyce_images/drop-7.svg" alt=""></h2>
+                        <h2>勃克啤酒 BOCK<img class="drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-7.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- 分享按鈕們 -->
@@ -2031,7 +2030,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                         </p>
                         <div class="pair-intro d-flex">
                             <span class="pair-icon">
-                                <img class="animatable bounceIn" src="../images/joyce_images/icon-dish.svg" alt=""></span>
+                                <img src="../images/joyce_images/icon-dish.svg" alt=""></span>
                             <h3>適合搭配餐點</h3>
                         </div>
                         <div class="pair-dish d-flex justify-content-between">
@@ -2048,7 +2047,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- Force next columns to break to new line at md breakpoint and up -->
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -2058,8 +2057,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <div class="container">
                     <div class="row">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/joyce_images/ag_winter.png" alt="">
@@ -2141,15 +2140,15 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 <section class="pair-wrap">
     <div id="pair-8">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp pt-5">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-8.svg" alt="">
+                        <img src="../images/joyce_images/pair-8.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>波特啤酒 Porter<img class="drop" src="../images/joyce_images/drop-8.svg" alt=""></h2>
+                        <h2>波特啤酒 Porter<img class="drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-8.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- 分享按鈕們 -->
@@ -2312,7 +2311,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- Force next columns to break to new line at md breakpoint and up -->
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -2322,8 +2321,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <div class="container">
                     <div class="row">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/products/London_Porter.png" alt="">
@@ -2405,15 +2404,15 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 <section class="pair-wrap">
     <div id="pair-9">
         <div class="container">
-            <div class="row">
+            <div class="row animatable fadeInUp pt-5">
                 <div class="col-md-6 d-block">
                     <div class="pair pair-1">
-                        <img class="animatable bounceIn" src="../images/joyce_images/pair-9.svg" alt="">
+                        <img src="../images/joyce_images/pair-9.svg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="pair-title">
-                        <h2>司陶特 Stout<img class="drop" src="../images/joyce_images/drop-9.svg" alt=""></h2>
+                        <h2>司陶特 Stout<img class="drop animate__animated animate__jello animate__infinite" src="../images/joyce_images/drop-9.svg" alt=""></h2>
                     </div>
                     <div class="pair pair-1-text">
                         <!-- 分享按鈕們 -->
@@ -2576,7 +2575,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- Force next columns to break to new line at md breakpoint and up -->
     <div class="w-100 d-none d-md-block"></div>
     <div class="container">
-        <div class="row">
+        <div class="row animatable fadeInUp">
             <div class="col-md-6">
                 <div class="pair reco-beer d-flex">
                     <span class="pair-icon">
@@ -2586,8 +2585,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                 <div class="container">
                     <div class="row">
                         <div class="reco-beer-opt d-flex justify-content-between">
-                            <div class="col-sm d-flex">
-                                <div class="beer-product product-1">
+                            <div class="d-flex">
+                                <div class="beer-product product-1 ">
                                     <div class="pro-pic">
                                         <!-- 商品圖 -->
                                         <img src="../images/products/LC-PB Chocolate Milk Stout.png" alt="">
