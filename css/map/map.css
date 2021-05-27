@@ -54,78 +54,19 @@
     transition: .3s;
 }
 
-/* .title_us{
-    top:300px;
-    left:-240px;
-    height:20px;
-    z-index: 3;
-    cursor: pointer;
-}
-.title_eu{
-    top:200px;
-    left:0px;
-    height:25px;
-    z-index: 3;
-    cursor: pointer;
-}
-.title_as{
-    top:250px;
-    left:180px;
-    height:20px;
-    z-index: 3;
-    cursor: pointer;
-}
-.title_au{
-    top:440px;
-    left:260px;
-    height:20px;
-    z-index: 3;
-    cursor: pointer;
-}
-.title_af{
-    top:350px;
-    left:10px;
-    height:20px;
-    z-index: 3;
-    cursor: pointer;
-}
-@media (max-width: 990px) {
-    .title_us{
-        top:300px;
-        left:-240px;
-    }
-    .title_eu{
-        top:225px;
-        left:0px;
-    }
-    .title_as{
-        top:250px;
-        left:180px;
-    }
-    .title_au{
-        top:380px;
-        left:260px;
-    }
-    .title_af{
-        top:350px;
-        left:20px;
-    }
-} */
 .title_us{
-    top:280px;
-    left:-240px;
-    height:45px;
-    /* width:130px; */
+    top:270px;
+    left:228px;
+    width:75px;
     z-index: 3;
     cursor: pointer;
     /* pointer-events: none; */
 }
 
 .title_eu{
-    top:200px;
-    left:0px;
-    /* width:30px; */
-    height:45px;
+    top:220px;
+    left:470px;
+    width:77px;
     z-index: 3;
     cursor: pointer;
     /* pointer-events: none; */
@@ -133,16 +74,16 @@
 
 .title_as{
     top:250px;
-    left:180px;
-    height:45px;
+    left:633px;
+    width:77px;
     z-index: 3;
     cursor: pointer;
     /* pointer-events: none; */
 }
 .title_au{
     top:440px;
-    left:260px;
-    height:45px;
+    left: 704px;
+    width:120px;
     z-index: 3;
     cursor: pointer;
     /* pointer-events: none; */
@@ -370,6 +311,10 @@ cursor: pointer;
 }
 
 /* 大飛機 */
+.pipi_plane_big{
+    left:-50px;
+}
+
 .pipi_plane_big img{
     width: 80px;
     bottom:0px;
@@ -381,6 +326,8 @@ cursor: pointer;
     height:50px;
 }
 
+
+
 .us>.flag{
     top: -450px;
     left:43%;
@@ -389,6 +336,9 @@ cursor: pointer;
     width:30px;
     height:50px;
 }
+
+
+
 @media (max-width: 990px) {
     .us>.flag{
         left:35%;
@@ -540,6 +490,211 @@ cursor: pointer;
 }
 }
 /* 大洋洲------------ */
+.au .deco0{
+    width:120px;
+    pointer-events: none;
+    /* animation-name: fish_fly; */
+    animation-duration:1s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+    /* animation-delay: 0s; */
+    animation-iteration-count:infinite;
+    opacity:0
+}
+@keyframes fish_fly_1 {
+0%{
+    opacity:1;
+    }
+10%{
+    opacity:0;
+    }   
+90%{
+    opacity:0;
+    }
+100%{
+    opacity:1;
+}
+}
+@keyframes fish_fly_2 {
+    0%{
+        opacity:1;
+        }
+    10%{
+        opacity:0;
+        }   
+    90%{
+        opacity:0;
+        }
+    100%{
+        opacity:1;
+    }
+    }
+@keyframes fish_fly_3 {
+    0%{
+        opacity:1;
+        }
+    10%{
+        opacity:0;
+        }   
+    90%{
+        opacity:0;
+        }
+    100%{
+        opacity:1;
+    }
+    }
+@keyframes fish_fly_4 {
+    0%{
+        opacity:1;
+        }
+    10%{
+        opacity:0;
+        }   
+    90%{
+        opacity:0;
+        }
+    100%{
+        opacity:1;
+    }
+    }
+@keyframes fish_fly_5 {
+    0%{
+        opacity:1;
+        }
+    10%{
+        opacity:0;
+        }   
+    90%{
+        opacity:0;
+        }
+    100%{
+        opacity:1;
+    }
+    }
+@keyframes fish_fly_6 {
+    0%{
+        opacity:1;
+        }
+    10%{
+        opacity:0;
+        }   
+    90%{
+        opacity:0;
+        }
+    100%{
+        opacity:1;
+    }
+    }
+@keyframes fish_fly_7 {
+    0%{
+        opacity:1;
+        }
+    10%{
+        opacity:0;
+        }   
+    90%{
+        opacity:0;
+        }
+    100%{
+        opacity:1;
+    }
+    }
+@keyframes fish_fly_8 {
+    0%{
+        opacity:1;
+        }
+    10%{
+        opacity:0;
+        }   
+    90%{
+        opacity:0;
+        }
+    100%{
+        opacity:1;
+    }
+    }
+
+.au .deco0:nth-of-type(1){
+    animation-name: fish_fly_1;
+    animation-delay: 0s;
+    animation-duration:8s;
+    top: -350px;
+    left:23%;
+}
+.au .deco0:nth-of-type(1) img{
+    transform: rotate(328deg);
+}
+.au .deco0:nth-of-type(2){
+    animation-name: fish_fly_2;
+    animation-delay: 1s;
+    animation-duration:8s;
+    top: -515px;
+    left:14%;
+}
+.au .deco0:nth-of-type(2) img{
+    transform: rotate(42deg);
+}
+.au .deco0:nth-of-type(3){
+    animation-name: fish_fly_3;
+    animation-delay: 2s;
+    animation-duration:8s;
+    top: -658px;
+    left:25%;
+}
+.au .deco0:nth-of-type(3) img{
+    transform: rotate(100deg);
+}
+.au .deco0:nth-of-type(4){
+    animation-name: fish_fly_4;
+    animation-delay: 3s;
+    animation-duration:8s;
+    top: -642px;
+    left:42%;
+}
+.au .deco0:nth-of-type(4) img{
+    transform: rotate(161deg);
+}
+.au .deco0:nth-of-type(5){
+    animation-name: fish_fly_5;
+    animation-delay: 4s;
+    animation-duration:8s;
+    top: -502px;
+    left:54%;
+}
+.au .deco0:nth-of-type(5) img{
+    transform: rotate(102deg) scaleX(-1);
+}
+.au .deco0:nth-of-type(6){
+    animation-name: fish_fly_6;
+    animation-delay: 5s;
+    animation-duration:8s;
+    top: -465px;
+    left:69%;
+}
+.au .deco0:nth-of-type(6) img{
+    transform: rotate(31deg) scaleX(-1);
+}
+.au .deco0:nth-of-type(7){
+    animation-name: fish_fly_7;
+    animation-delay: 6s;
+    animation-duration:8s;
+    top: -599px;
+    left:72%;
+}
+.au .deco0:nth-of-type(7) img{
+    transform: rotate(300deg) scaleX(-1);
+}
+.au .deco0:nth-of-type(8){
+    animation-name: fish_fly_8;
+    animation-delay: 7s;
+    animation-duration:8s;
+    top: -652px;
+    left:59%;
+}
+.au .deco0:nth-of-type(8) img{
+    transform: rotate(222deg) scaleX(-1);
+}
+
 /* 澳洲 */
 .au .flag1{
     top: -500px;
@@ -551,6 +706,14 @@ cursor: pointer;
         left:22%;
 }
 }
+
+.au .deco1{
+    width:370px;
+    top: -603px;
+    left:22%;
+    pointer-events: none;
+}
+
 /* 紐西蘭 */
 .au .flag2{
     top: -500px;
@@ -561,6 +724,13 @@ cursor: pointer;
         top: -450px;
         left:85%;
 }
+}
+
+.au .deco2{
+    width:180px;
+    top: -542px;
+    left:59%;
+    pointer-events: none;
 }
 /* 標題 */
 .map_title{
@@ -616,6 +786,7 @@ cursor: pointer;
   
 /* return */
 .map .pipi_plane{
+    
     z-index: 989;
     width:50px;
     right:11%;
@@ -626,6 +797,7 @@ cursor: pointer;
         cursor: pointer;
         }
     .map .pipi_plane .return-text{
+        font-weight: 600;
     margin-top:3px;
     color:var(--red);
     font-size:1.6rem;
