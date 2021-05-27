@@ -612,7 +612,7 @@ $('.as .countries .country').eq(3).mouseenter(function () {
 // 澳洲:從區域～郵票選項
 $('.au_path').mouseenter(function () {//(換國家) 
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#EB963C')
     // 底下郵票選項會動(+1)
     $('.au .countries .country').eq(0).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -635,7 +635,7 @@ $('.au .countries .country').eq(0).mouseenter(function () {//(換州)
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家)
-    $('.au_path').css('fill', 'var(--blue)')
+    $('.au_path').css('fill', '#EB963C')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(0).hide()
 }).mouseleave(function () {
@@ -650,7 +650,7 @@ $('.au .countries .country').eq(0).mouseenter(function () {//(換州)
 // 紐西蘭:從區域～郵票選項
 $('.nz_path').mouseenter(function () {//(換國家) 
     // 區域填滿綠色
-    $(this).css('fill', 'var(--blue)')
+    $(this).css('fill', '#EB963C')
     // 底下郵票選項會動(+1)
     $('.au .countries .country').eq(1).toggleClass('animate__animated animate__pulse').toggleClass('infinite')
     // 國家名淡入(+1)
@@ -673,7 +673,7 @@ $('.au .countries .country').eq(1).mouseenter(function () {//(換州)
     // 國家名淡入
     $(this).eq(0).children().first().fadeIn(200)
     // 區域填滿綠色(換國家) 
-    $('.nz_path').css('fill', 'var(--blue)')
+    $('.nz_path').css('fill', '#EB963C')
     // 個別deco動畫(+1)
     // $(this).parent().next().children().eq(1).hide()
 }).mouseleave(function () {
