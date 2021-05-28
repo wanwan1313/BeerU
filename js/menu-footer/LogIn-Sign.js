@@ -1,280 +1,94 @@
 $(document).ready(function(){
 
-const $account = $('.account');
-const $password = $('.password');
+    const $account = $('.account');
+    const $password = $('.password');
 
 
-const $newAccount = $('.newAccount');
-const $newPassword = $('.newPassword');
-const $nickname = $('.nickname');
-const $birthday = $('.birthday');
+    const $newAccount = $('.newAccount');
+    const $newPassword = $('.newPassword');
+    const $nickname = $('.nickname');
+    const $birthday = $('.birthday');
 
-    
-//會員登入的視覺效果
-
-//navbar登入起始畫面按鈕
-$('.user-login').click(function(){
-
-    const fileds01 = [$account,$password];
-
-    fileds01.forEach(el =>{
-    
-        el.css('border', '1px solid var(--gold)');
-        $('.warn').css('display', 'none');
         
+    //會員登入的視覺效果
 
-    });
+    //navbar登入起始畫面按鈕
+    $('.user-login').click(function(){
 
+        const fileds01 = [$account,$password];
 
-
-    if ($(window).width() >= 992){
-        $('.log-box').css('width','35%').css('height','60%').css('min-height','494px')
-    }
-
-    if ($(window).width() < 992){
-    $('.log-box').css('width','90%').css('max-width','338px').css('height','50%').css('min-height','460px')
-
-
-    }
-
-
-    $('.LogIn-Sign').fadeIn(100);
-    $('.first-login-page').fadeIn(1);
-    
-    $('.LogIn-page').fadeOut(1);
-    $('.LogSign-page').fadeOut(1);
-    $('.Check-page').fadeOut(1);
-    $('.Sign-Success').fadeOut(1);
-
-});
-
-
-
-
-
-//按周圍區域退出
-$('.log-sandbox').click(function(){
-
-   $('.LogIn-Sign').fadeOut(300);
-   const fileds01 = [$account,$password];
-
-   const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
-
-   fileds01.forEach(el2 =>{
-  
-       el2.css('border', '1px solid var(--gold)');
-       $('.warn').css('display', 'none');
-      
-
-   });
-
-   fileds02.forEach(el2 =>{
-   
-    el2.css('border', '1px solid var(--gold)');
-    $('.LogIn-Sign .warn').css('display', 'none');
-    $newAccount.next().css('display','block');
-    $newPassword.next().css('display','block');
-
-
-  
-   });
-
- 
-
-})
-
-$('.cancel-quit').click(function(){
-    $('.Check-page').fadeOut(300);
-   $('.LogIn-Sign').fadeOut(300);
-   const fileds01 = [$account,$password];
-   const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
-
-   fileds01.forEach(el =>{
-  
-       el.css('border', '1px solid var(--gold)');
-       $('.warn').css('display', 'none');
-      
-
-   });
-
-   fileds02.forEach(el2 =>{
-   
-    el2.css('border', '1px solid var(--gold)');
-    $('.LogIn-Sign .warn').css('display', 'none');
-    $newAccount.next().css('display','block');
-    $newPassword.next().css('display','block');
-
-
-  
-   });
-
-})
-
-$('.later-check').click(function(){
-   $('.Check-page').fadeOut(300);
-   $('.LogIn-Sign').fadeOut(300);
-   const fileds01 = [$account,$password];
-   const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
-
-   fileds01.forEach(el =>{
-  
-       el.css('border', '1px solid var(--gold)');
-       $('.warn').css('display', 'none');
-      
-
-   });
-
-   fileds02.forEach(el2 =>{
-   
-    el2.css('border', '1px solid var(--gold)');
-    $('.LogIn-Sign .warn').css('display', 'none');
-    $newAccount.next().css('display','block');
-    $newPassword.next().css('display','block');
-
-
-  
-   });
-
-})
-
-
-//進入登入頁
-$('.LogIn-btn01').click(function(){
-
-
-
-
-   
-    if ($(window).width() >= 992){
-        $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
-
-    }
-
-    if ($(window).width() < 992){
-    $('.log-box').css('width','90%').css('max-width','338px').css('height','60%').css('min-height','500px').css('transition','.4s');
-
-
-    }
-
-
-
-
-   $('.first-login-page').fadeOut(1);
-   
-   $('.LogIn-page').fadeIn(1000);
-
-    
-})
-
-
-//進入註冊畫面
-
-$('.LogOut-btn02').click(function(){
-    const fileds01 = [$account,$password];
-    const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
-
-    fileds01.forEach(el =>{
-    
-        el.css('border', '1px solid var(--gold)');
-        $('.warn').css('display', 'none');
+        fileds01.forEach(el =>{
         
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+            
 
-    });
+        });
 
-
-    fileds02.forEach(el2 =>{
-   
-        el2.css('border', '1px solid var(--gold)');
-        $('.LogIn-Sign .warn').css('display', 'none');
-        $newAccount.next().css('display','block');
-        $newPassword.next().css('display','block');
-
-
-      
-    });
-
-
-
-    if ($(window).width() >= 992){
-
-        $('.log-box').css('width','50%').css('height','86%').css('transition','.4s');
-    }
-
-    if ($(window).width() < 992){
-        $('.log-box').css('width','90%').css('max-width','338px').css('height','80%').css('transition','.4s');
-
-
-    }
-
-
-
-    $('.first-login-page').fadeOut(1);
-
-    
-
-    $('.LogSign-page').fadeIn(1000);
-     
-
-})
-
-
-// 進入驗證頁
-$('.Sign').click(function(){
-
-     // 驗證信送出，載入中
-     if ($(window).width() >= 992){
-
-        $('.log-box').css('width','30%').css('height','20%').css('min-height','300px').css('transition','.4s')
-    }
-
-    if ($(window).width() < 992){
-        $('.log-box').css('width','60%').css('min-height','210px').css('height','40%').css('transition','.4s')
-
-
-
-    }
-    
-    $('.logo-wrap').fadeOut(1);
-    $('.cancel-quit').fadeOut(1);
-    $('.LogSign-page').fadeOut(1).css('margin-top','40px');
-    $('.Loading-page').fadeIn(1000);
-
-
-    setTimeout(() => {
-
-        $('.Loading-page').fadeOut(1);
-        $('.LogIn-Sign').fadeOut(1);
-
-
-    },5000)
-
-    setTimeout(() => {
-
-        $('.LogIn-Sign').fadeIn(1);
-        $('.logo-wrap').fadeIn(1000);
-       
-        //進入驗證頁面
-        $('.Check-page').fadeIn(1000);
 
 
         if ($(window).width() >= 992){
-            $('.log-box').css('width','35%').css('height','500px').css('min-width','583px').css('transition','.4s');
+            $('.log-box').css('width','35%').css('height','60%').css('min-height','494px')
         }
 
         if ($(window).width() < 992){
-            $('.log-box').css('width','90%').css('max-width','338px').css('height','70%').css('transition','.4s');
-
-    }
-
-    },5500)
-})
+        $('.log-box').css('width','90%').css('max-width','338px').css('height','50%').css('min-height','460px')
 
 
-// 立即註冊
-$('.LogSign-rightNow').click(function(){
+        }
 
+
+        $('.LogIn-Sign').fadeIn(100);
+        $('.first-login-page').fadeIn(1);
+        
+        $('.LogIn-page').fadeOut(1);
+        $('.LogSign-page').fadeOut(1);
+        $('.Check-page').fadeOut(1);
+        $('.Sign-Success').fadeOut(1);
+        $('.Forget-Password').fadeOut(1);
+        $('.UserEmail-wrap').fadeOut(1);
+
+    });
+
+
+
+
+
+    //按周圍區域退出
+    $('.log-sandbox').click(function(){
+
+    $('.LogIn-Sign').fadeOut(300);
     const fileds01 = [$account,$password];
 
+    const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+
+    fileds01.forEach(el2 =>{
+    
+        el2.css('border', '1px solid var(--gold)');
+        $('.warn').css('display', 'none');
+        
+
+    });
+
+    fileds02.forEach(el2 =>{
+    
+        el2.css('border', '1px solid var(--gold)');
+        $('.LogIn-Sign .warn').css('display', 'none');
+        $newAccount.next().css('display','block');
+        $newPassword.next().css('display','block');
+
+
+    
+    });
+
+    
+
+    })
+
+    $('.cancel-quit').click(function(){
+        $('.Check-page').fadeOut(300);
+    $('.LogIn-Sign').fadeOut(300);
+    const fileds01 = [$account,$password];
     const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
 
     fileds01.forEach(el =>{
@@ -286,41 +100,22 @@ $('.LogSign-rightNow').click(function(){
     });
 
     fileds02.forEach(el2 =>{
-   
+    
         el2.css('border', '1px solid var(--gold)');
         $('.LogIn-Sign .warn').css('display', 'none');
         $newAccount.next().css('display','block');
         $newPassword.next().css('display','block');
 
 
-      
+    
     });
 
+    })
 
-
-
-    if ($(window).width() >= 992){
-
-        $('.log-box').css('width','50%').css('height','86%').css
-    }
-
-    if ($(window).width() < 992){
-        $('.log-box').css('width','90%').css('height','80%').css
-    }
-
-
-
-    $('.LogIn-page').fadeOut(1);
-    $('.LogSign-page').fadeIn(1000);
-
-})
-
-
-// 馬上登入
-$('.LogIn-rightNow').click(function(){
-
+    $('.later-check').click(function(){
+    $('.Check-page').fadeOut(300);
+    $('.LogIn-Sign').fadeOut(300);
     const fileds01 = [$account,$password];
-
     const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
 
     fileds01.forEach(el =>{
@@ -332,174 +127,502 @@ $('.LogIn-rightNow').click(function(){
     });
 
     fileds02.forEach(el2 =>{
-   
+    
         el2.css('border', '1px solid var(--gold)');
         $('.LogIn-Sign .warn').css('display', 'none');
         $newAccount.next().css('display','block');
         $newPassword.next().css('display','block');
 
 
-      
+    
     });
 
+    })
 
 
-    if ($(window).width() >= 992){
-        $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
+    //進入登入頁
+    $('.LogIn-btn01').click(function(){
 
-    }
 
-    if ($(window).width() < 992){
-    $('.log-box').css('width','90%').css('max-width','338px').css('height','60%').css('min-height','500px').css('transition','.4s');
-   
-    }
+
+
+    
+        if ($(window).width() >= 992){
+            $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
+
+        }
+
+        if ($(window).width() < 992){
+        $('.log-box').css('width','90%').css('max-width','338px').css('height','60%').css('min-height','500px').css('transition','.4s');
+
+
+        }
+
 
 
 
     $('.first-login-page').fadeOut(1);
-    $('.LogSign-page').fadeOut(1);
- 
+    
     $('.LogIn-page').fadeIn(1000);
- 
-     
- })
+
+        
+    })
 
 
-//回到起始畫面
-$('.back01 h3').click(function(){
+    //進入註冊畫面
 
-    const fileds01 = [$account,$password];
+    $('.LogOut-btn02').click(function(){
+        const fileds01 = [$account,$password];
+        const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
 
-    const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+        fileds01.forEach(el =>{
+        
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+            
 
-    fileds01.forEach(el =>{
+        });
+
+
+        fileds02.forEach(el2 =>{
     
-        el.css('border', '1px solid var(--gold)');
-        $('.warn').css('display', 'none');
+            el2.css('border', '1px solid var(--gold)');
+            $('.LogIn-Sign .warn').css('display', 'none');
+            $newAccount.next().css('display','block');
+            $newPassword.next().css('display','block');
+
+
+        
+        });
+
+
+
+        if ($(window).width() >= 992){
+
+            $('.log-box').css('width','50%').css('height','86%').css('transition','.4s');
+        }
+
+        if ($(window).width() < 992){
+            $('.log-box').css('width','90%').css('max-width','338px').css('height','80%').css('transition','.4s');
+
+
+        }
+
+
+
+        $('.first-login-page').fadeOut(1);
+
         
 
-    });
-
-    fileds02.forEach(el2 =>{
-   
-        el2.css('border', '1px solid var(--gold)');
-        $('.LogIn-Sign .warn').css('display', 'none');
-        $newAccount.next().css('display','block');
-        $newPassword.next().css('display','block');
-
-
-    
-    });
-   
-
-
-    if ($(window).width() >= 992){
-        $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
-
-    }
-
-    if ($(window).width() < 992){
-        $('.log-box').css('width','90%').css('max-width','338px').css('height','50%').css('min-height','460px').css('transition','.4s');
-    
-    
-    }
-
-
-    
-
-    $('.LogIn-page').fadeOut(1);
-    $('.LogSign-page').fadeOut(1);
-    $('.first-login-page').fadeIn(100);
-    // $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
-
- 
-})
-
-//回到起始畫面
-$('.back02 h3').click(function(){
-
-    const fileds01 = [$account,$password];
-    const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
-
-    fileds01.forEach(el =>{
-    
-        el.css('border', '1px solid var(--gold)');
-        $('.warn').css('display', 'none');
+        $('.LogSign-page').fadeIn(1000);
         
 
-    });
-
-    fileds02.forEach(el2 =>{
-   
-        el2.css('border', '1px solid var(--gold)');
-        $('.LogIn-Sign .warn').css('display', 'none');
-        $newAccount.next().css('display','block');
-        $newPassword.next().css('display','block');
+    })
 
 
-      
-    });
-   
+    // 進入驗證頁
+    $('.Sign').click(function(){
+
+        // 驗證信送出，載入中
+        if ($(window).width() >= 992){
+
+            $('.log-box').css('width','30%').css('height','20%').css('min-height','300px').css('transition','.4s')
+        }
+
+        if ($(window).width() < 992){
+            $('.log-box').css('width','60%').css('min-height','210px').css('height','40%').css('transition','.4s')
 
 
-    if ($(window).width() >= 992){
-        $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
 
-    }
+        }
+        
+        $('.logo-wrap').fadeOut(1);
+        $('.cancel-quit').fadeOut(1);
+        $('.LogSign-page').fadeOut(1).css('margin-top','40px');
+        $('.Loading-page').fadeIn(1000);
 
-    if ($(window).width() < 992){
-        $('.log-box').css('width','90%').css('max-width','338px').css('height','50%').css('min-height','460px').css('transition','.4s');
+
+        setTimeout(() => {
+
+            $('.Loading-page').fadeOut(1);
+            $('.LogIn-Sign').fadeOut(1);
+
+
+        },5000)
+
+        setTimeout(() => {
+
+            $('.LogIn-Sign').fadeIn(1);
+            $('.logo-wrap').fadeIn(1000);
+        
+            //進入驗證頁面
+            $('.Check-page').fadeIn(1000);
+
+
+            if ($(window).width() >= 992){
+                $('.log-box').css('width','35%').css('height','500px').css('min-width','583px').css('transition','.4s');
+            }
+
+            if ($(window).width() < 992){
+                $('.log-box').css('width','90%').css('max-width','338px').css('height','70%').css('transition','.4s');
+
+        }
+
+        },5500)
+    })
+
+
+    // 立即註冊
+    $('.LogSign-rightNow').click(function(){
+
+        const fileds01 = [$account,$password];
+
+        const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+
+        fileds01.forEach(el =>{
+        
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+            
+
+        });
+
+        fileds02.forEach(el2 =>{
     
+            el2.css('border', '1px solid var(--gold)');
+            $('.LogIn-Sign .warn').css('display', 'none');
+            $newAccount.next().css('display','block');
+            $newPassword.next().css('display','block');
+
+
+        
+        });
+
+
+
+
+        if ($(window).width() >= 992){
+
+            $('.log-box').css('width','50%').css('height','86%').css
+        }
+
+        if ($(window).width() < 992){
+            $('.log-box').css('width','90%').css('height','80%').css
+        }
+
+
+
+        $('.LogIn-page').fadeOut(1);
+        $('.LogSign-page').fadeIn(1000);
+
+    })
+
+
+    // 馬上登入
+    $('.LogIn-rightNow').click(function(){
+
+        const fileds01 = [$account,$password];
+
+        const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+
+        fileds01.forEach(el =>{
+        
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+            
+
+        });
+
+        fileds02.forEach(el2 =>{
     
-    }
+            el2.css('border', '1px solid var(--gold)');
+            $('.LogIn-Sign .warn').css('display', 'none');
+            $newAccount.next().css('display','block');
+            $newPassword.next().css('display','block');
 
 
+        
+        });
+
+
+
+        if ($(window).width() >= 992){
+            $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
+
+        }
+
+        if ($(window).width() < 992){
+        $('.log-box').css('width','90%').css('max-width','338px').css('height','60%').css('min-height','500px').css('transition','.4s');
+    
+        }
+
+
+
+        $('.first-login-page').fadeOut(1);
+        $('.LogSign-page').fadeOut(1);
+    
+        $('.LogIn-page').fadeIn(1000);
+    
+        
+    })
+
+
+    //回到起始畫面
+    $('.back01 h3').click(function(){
+
+        const fileds01 = [$account,$password];
+
+        const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+
+        fileds01.forEach(el =>{
+        
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+            
+
+        });
+
+        fileds02.forEach(el2 =>{
+    
+            el2.css('border', '1px solid var(--gold)');
+            $('.LogIn-Sign .warn').css('display', 'none');
+            $newAccount.next().css('display','block');
+            $newPassword.next().css('display','block');
+
+
+        
+        });
     
 
-    $('.LogIn-page').fadeOut(1);
-    $('.LogSign-page').fadeOut(1);
-    $('.first-login-page').fadeIn(100);
-    // $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
 
- 
-})
+        if ($(window).width() >= 992){
+            $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
 
-//驗證頁返回
-$('.back03 h3').click(function(){
+        }
 
-    const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+        if ($(window).width() < 992){
+            $('.log-box').css('width','90%').css('max-width','338px').css('height','50%').css('min-height','460px').css('transition','.4s');
+        
+        
+        }
 
-    fileds02.forEach(el2 =>{
+
+        
+
+        $('.LogIn-page').fadeOut(1);
+        $('.LogSign-page').fadeOut(1);
+        $('.first-login-page').fadeIn(100);
+        // $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
+
+    
+    })
+
+    //回到起始畫面
+    $('.back02 h3').click(function(){
+
+        const fileds01 = [$account,$password];
+        const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+
+        fileds01.forEach(el =>{
+        
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+            
+
+        });
+
+        fileds02.forEach(el2 =>{
+    
+            el2.css('border', '1px solid var(--gold)');
+            $('.LogIn-Sign .warn').css('display', 'none');
+            $newAccount.next().css('display','block');
+            $newPassword.next().css('display','block');
+
+
+        
+        });
+    
+
+
+        if ($(window).width() >= 992){
+            $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
+
+        }
+
+        if ($(window).width() < 992){
+            $('.log-box').css('width','90%').css('max-width','338px').css('height','50%').css('min-height','460px').css('transition','.4s');
+        
+        
+        }
+
+
+        
+
+        $('.LogIn-page').fadeOut(1);
+        $('.LogSign-page').fadeOut(1);
+        $('.first-login-page').fadeIn(100);
+        // $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
+
+    
+    })
+
+    //驗證頁返回
+    $('.back03 h3').click(function(){
+
+        const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+
+        fileds02.forEach(el2 =>{
+    
+            el2.css('border', '1px solid var(--gold)');
+            $('.LogIn-Sign .warn').css('display', 'none');
+            $newAccount.next().css('display','block');
+            $newPassword.next().css('display','block');
+
+
+        
+        });
+
+
+
+
+        $('.Check-page').fadeOut(1);
+        $('.LogSign-page').fadeIn(1000);
+
+        if ($(window).width() >= 992){
+
+            $('.log-box').css('width','50%').css('height','86%').css
+        }
+
+        if ($(window).width() < 992){
+            $('.log-box').css('width','90%').css('max-width','338px').css('height','80%').css
+
+
+        }
+    
+
+
+    })
+
+    //忘記密碼畫面
+
+    //忘記密碼第一步
+    $('.forget-password-btn').click(function(){
+
+        const fileds01 = [$account,$password];
+
+        const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+
+        fileds01.forEach(el =>{
+        
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+            
+
+        });
+
+        fileds02.forEach(el2 =>{
+    
+            el2.css('border', '1px solid var(--gold)');
+            $('.LogIn-Sign .warn').css('display', 'none');
+            $newAccount.next().css('display','block');
+            $newPassword.next().css('display','block');
+
+
+        
+        });
+
+
+
+
+        if ($(window).width() >= 992){
+
+            $('.log-box').css('width','35%').css('height','65%').css('min-height','500px');
+        }
+
+        if ($(window).width() < 992){
+            $('.log-box').css('width','90%').css('height','75%').css('min-height','473px');
+        }
+
+        $('.LogIn-page').fadeOut(1);
+        $('.Forget-Password').fadeIn(1000);
+        $('.UserEmail-wrap').fadeIn(1000);
+
+
+    })
+
+
+    //忘記密碼第二步
+    $('.forget-next-btn').click(function(){
    
-        el2.css('border', '1px solid var(--gold)');
-        $('.LogIn-Sign .warn').css('display', 'none');
-        $newAccount.next().css('display','block');
-        $newPassword.next().css('display','block');
+
+        if ($(window).width() >= 992){
+
+            $('.log-box').css('width','35%').css('height','30%').css('min-height','500px');
+        }
+
+        if ($(window).width() < 992){
+            $('.log-box').css('width','90%').css('height','50%').css('min-height','460px');
+        }
 
 
-      
-    });
+
+        $('.UserEmail-wrap').fadeOut(1);
+        $('.ForgetChagePassword-wrap').fadeIn(1000);
 
 
 
 
-    $('.Check-page').fadeOut(1);
-    $('.LogSign-page').fadeIn(1000);
-
-    if ($(window).width() >= 992){
-
-        $('.log-box').css('width','50%').css('height','86%').css
-    }
-
-    if ($(window).width() < 992){
-        $('.log-box').css('width','90%').css('max-width','338px').css('height','80%').css
+    })
 
 
-    }
-  
+    //返回登入
+    $('.back04 h3').click(function(){
+        const fileds01 = [$account,$password];
+
+        const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+
+        fileds01.forEach(el =>{
+        
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+            
+
+        });
+
+        fileds02.forEach(el2 =>{
+    
+            el2.css('border', '1px solid var(--gold)');
+            $('.LogIn-Sign .warn').css('display', 'none');
+            $newAccount.next().css('display','block');
+            $newPassword.next().css('display','block');
+
+        });
 
 
-})
+
+        if ($(window).width() >= 992){
+            $('.log-box').css('width','35%').css('height','60%').css('min-height','494px').css('transition','.4s');
+
+        }
+
+        if ($(window).width() < 992){
+        $('.log-box').css('width','90%').css('max-width','338px').css('height','60%').css('min-height','500px').css('transition','.4s');
+    
+        }
+
+    
+        $('.LogIn-page').fadeIn(1000);
+
+        $('.Forget-Password').fadeOut(1);
+        $('.UserEmail-wrap').fadeOut(1);
+
+
+
+    })
+
+
+
+
 
 
 
