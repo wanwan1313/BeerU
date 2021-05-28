@@ -15,7 +15,7 @@
             <div class="log-content first-login-page" >
                 <div class="first-content">
                     <h3>現在加入會員</h3>
-                    <h3>立即享有專屬優惠！</h3>
+                    <h3>立即享有50元折扣！</h3>
                 </div>  
 
                 <div class="login-title social-login-title">
@@ -69,7 +69,7 @@
                 </form>
 
                 <div class="forget-password">
-                    <h3>忘記密碼</h3>
+                    <h3 class="forget-password-btn">忘記密碼</h3>
                     <h3>｜</h3>
                     <h3>重新寄認證信</h3>
                 </div>
@@ -90,89 +90,89 @@
                     
                 <!-- 註冊畫面 -->
               <div class="log-content LogSign-page" >
-                <div class="LogSign-title">
-                    <h3>註冊啤女帳號</h3>
-                </div>
+                    <div class="LogSign-title">
+                        <h3>註冊啤女帳號</h3>
+                    </div>
 
 
-                <!-- 註冊表單 -->
-                <form name="Sign" class="logSign-content-wrap"
-                novalidate onsubmit="Sign_email();return false">
+                    <!-- 註冊表單 -->
+                    <form name="Sign" class="logSign-content-wrap"
+                    novalidate onsubmit="Sign_email();return false">
+                            
+                        <div class="account-password-wrap d-flex">
+
+                            <div class="logSign-account">
+                                <h3>啤女帳號</h3>
+                                <i class="far fa-envelope email-icon01"></i>
+                                <input class="input-btn newAccount" type="email" id="newAccount" name="newAccount" required >
+                                <small class="warn-text ">帳號為您的電子信箱</small>
+                                <small class="warn"><i class="far fa-times-circle"></i></small>
+                                
+                            </div>
+
+                            <div class="logSign-password">
+                                <h3>密碼</h3>
+                                <i class="fas fa-lock lock-icon02"></i>
+                                <input class="input-btn newPassword" name="newPassword" type="password" id="newPassword">
+                                <small class="warn-text ">密碼為 6 碼以上的英文或數字</small>
+                                <small class="warn"><i class="far fa-times-circle"></i></small>
+                                
+                                
+                            </div>    
+                        </div>
+
+
+                        <div class="member-wrap d-flex">
+
+                            <div class="logSign-name">
+                                <h3>姓名</h3>
+                                <i class="fas fa-user-alt user-icon02"></i>
+                                <input type="text" class="input-btn nickname"  id="nickname"  name="nickname" required>
+                                <small class="warn"><i class="far fa-times-circle"></i></small>
+                            </div>
+
+                            <div class="logSign-birthday">
+                                <h3>生日 </h3>
+                                <input class="input-btn birthday" 
+                                type="date" id="birthday" name="birthday">
+                                <small class="warn"><i class="far fa-times-circle"></i></small>
+                            </div>
+                        </div>
+
+
+                        <div class="logSign-address">
+                            <h3>地址</h3>
+                            <input type="text" class="input-btn address"  id="address"  name="address">
+
+                        </div>
+
+
+                        <div class="logSign-notice">
+                            <p>按下註冊鈕的同時，表示您已詳閱我們的資料使用政策與使用條款，同意使用<span>啤女</span>所提供的服務並訂閱電子報。</p>
+                        </div>
+
+                        <button type="submit" class="logSign-btn Sign" >註冊</button>
+
+                        <div class="already-account">
+                            <h3>已經有帳號了？</h3>
+                            <h3><span class="LogIn-rightNow">馬上登入</span></h3>
+                        </div>
+
+                        <div class="backward back02" >
+                            <h3>回上頁</h3>
+                        </div>
+
+
+                    </form>
+
+                    <div class="social-signIn-wrap mt-4">
                         
-                    <div class="account-password-wrap d-flex">
-
-                        <div class="logSign-account">
-                            <h3>啤女帳號</h3>
-                            <i class="far fa-envelope email-icon01"></i>
-                            <input class="input-btn newAccount" type="email" id="newAccount" name="newAccount" required >
-                            <small class="warn-text ">帳號為您的電子信箱</small>
-                            <small class="warn"><i class="far fa-times-circle"></i></small>
-                            
+                        <div class="social-icon fb-02" >
+                            <img src="../images/common/icon_fb_blue.svg" alt="">
                         </div>
-
-                        <div class="logSign-password">
-                            <h3>密碼</h3>
-                            <i class="fas fa-lock lock-icon02"></i>
-                            <input class="input-btn newPassword" name="newPassword" type="password" id="newPassword">
-                            <small class="warn-text ">密碼為 6 碼以上的英文或數字</small>
-                            <small class="warn"><i class="far fa-times-circle"></i></small>
-                            
-                            
-                        </div>    
-                    </div>
-
-
-                    <div class="member-wrap d-flex">
-
-                        <div class="logSign-name">
-                            <h3>姓名</h3>
-                            <i class="fas fa-user-alt user-icon02"></i>
-                            <input type="text" class="input-btn nickname"  id="nickname"  name="nickname" required>
-                            <small class="warn"><i class="far fa-times-circle"></i></small>
-                        </div>
-
-                        <div class="logSign-birthday">
-                            <h3>生日 </h3>
-                            <input class="input-btn birthday" 
-                            type="date" id="birthday" name="birthday">
-                            <small class="warn"><i class="far fa-times-circle"></i></small>
-                        </div>
-                    </div>
-
-
-                    <div class="logSign-address">
-                        <h3>地址</h3>
-                        <input type="text" class="input-btn address"  id="address"  name="address">
+                        <h4>用社群帳號快速註冊</h4>
 
                     </div>
-
-
-                    <div class="logSign-notice">
-                        <p>按下註冊鈕的同時，表示您已詳閱我們的資料使用政策與使用條款，同意使用<span>啤女</span>所提供的服務並訂閱電子報。</p>
-                    </div>
-
-                    <button type="submit" class="logSign-btn Sign" >註冊</button>
-
-                    <div class="already-account">
-                        <h3>已經有帳號了？</h3>
-                        <h3><span class="LogIn-rightNow">馬上登入</span></h3>
-                    </div>
-
-                    <div class="backward back02" >
-                        <h3>回上頁</h3>
-                    </div>
-
-
-                </form>
-
-                <div class="social-signIn-wrap mt-4">
-                    
-                    <div class="social-icon fb-02" >
-                        <img src="../images/common/icon_fb_blue.svg" alt="">
-                    </div>
-                    <h4>用社群帳號快速註冊</h4>
-
-                </div>
 
             </div>    
 
@@ -218,7 +218,7 @@
             <!-- 載入中 -->
             <div class="log-content Loading-page">
                    <div class="loader"></div>
-                   <p>註冊中...</p>
+                   <p>請稍候...</p>
                 </div>
 
 

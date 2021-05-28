@@ -321,19 +321,21 @@ if (isset($_SESSION['user'])) {
                                         <div class="mydata-txt mydata-nickname mb-3">
                                             <p>姓名</p>
                                             <i class="fas fa-user-alt user-icon02"></i>
-                                            <input type="text" class="input-btn" name="nickname" required value="<?= $m_row['nickname'] ?>">
-                                            <!-- <small class="warn"><i class="far fa-times-circle"></i>錯誤</small> -->
+                                            <input type="text" class="input-btn edit_nickname" name="nickname" required value="<?= $m_row['nickname'] ?>">
+                                            <small class="warn"><i class="far fa-times-circle"></i></small>
 
                                         </div>
                                         <div class="mydata-txt mydata-birthday mb-3">
                                             <p>生日</p>
-                                            <input class="input-btn birthday" type="date" name="birthday" required value="<?= $m_row['birthday'] ?>">
-                                            <small class="warn"></small>
+                                            <input class="input-btn edit_birthday" type="date" name="birthday" required value="<?= $m_row['birthday'] ?>">
+                                            <small class="warn"><i class="far fa-times-circle"></i></small>
 
                                         </div>
                                         <div class="mydata-txt mydata-address mb-5">
                                             <p>地址</p>
-                                            <textarea class="input-btn2" name="address" rows="2"><?= $m_row['address'] ?></textarea>
+                                            <textarea class="input-btn2 edit_address" name="address" rows="2"><?= $m_row['address'] ?></textarea>
+                                            <small class="warn"><i class="far fa-times-circle"></i></small>
+
 
 
                                         </div>
@@ -1883,6 +1885,40 @@ if (isset($_SESSION['user'])) {
 
 
     // 會員資料功能---- 編輯資料&重設密碼-----------------------------------------------------------------------
+    const $edit_nickname = $('.edit_nickname');
+    const $edit_birthday = $('.edit_birthday');
+    const $edit_address = $('.edit_address');
+    
+    const $oldPassword = $('.oldPassword')
+    const $resetPassword = $('.resetPassword');
+    const $resetPassword_again = $('.resetPassword-again');
+
+    const password_fileds = [$oldPassword, $resetPassword, $resetPassword_again];
+
+    const edit_fileds = [$edit_nickname, $edit_birthday];
+
+    //初始錯誤狀態
+    $('.member .warn').css('display', 'none');
+
+
+    //初始狀態
+    password_fileds.forEach(el => {
+
+        el.css('border', '1px solid var(--gold)');
+        $('.warn').css('display', 'none');
+
+
+    });
+
+
+    edit_fileds.forEach(el => {
+
+        el.css('border', '1px solid var(--gold)');
+        $('.warn').css('display', 'none');
+
+    })
+
+
     $('.btn_edit-data').on('click', function() {
         $('.mydata').fadeOut(0)
         $('.mydata-edit').fadeIn(150)
@@ -1894,6 +1930,14 @@ if (isset($_SESSION['user'])) {
         $('.mydata').fadeIn(150)
         $('.mobile-title').text('會員資料')
         scrollToTop()
+
+        edit_fileds.forEach(el => {
+
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+
+        })
+
     })
     $('.btn_reset-password').on('click', function() {
         $('.mydata').fadeOut(0)
@@ -1901,16 +1945,25 @@ if (isset($_SESSION['user'])) {
         $('.mobile-title').text('重設我的密碼')
         scrollToTop()
     })
+
     $('.btn_password-cancel').on('click', function() {
         $('.password-reset').fadeOut(0)
         $('.mydata').fadeIn(150)
         $('.mobile-title').text('會員資料')
         scrollToTop()
+
+        password_fileds.forEach(el => {
+
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+
+
+        });
+
+
     })
 
-
-
-
+    
     //設定只能18歲
     let maxYear = new Date().getFullYear() - 18;
     let maxDate = new Date().getDate()
@@ -1927,8 +1980,41 @@ if (isset($_SESSION['user'])) {
 
     //檢查修改資料
     function checkForm_edit() {
-
+        
+        
         let isPass = true;
+
+
+        edit_fileds.forEach(el => {
+
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+
+        })
+
+
+
+        //姓名不可為空
+        if($edit_nickname.val() == ''){
+
+            isPass = false;
+            $edit_nickname.css('border', '2px solid var(--pink)');
+            $edit_nickname.next('.warn').css('display','block').children().text('輸入不可以為空');
+
+
+        }
+
+        //生日不可為空
+        if($edit_birthday.val() == ''){
+
+            isPass = false;
+            $edit_birthday.css('border', '2px solid var(--pink)');
+            $edit_birthday.next('.warn').css('display','block').children().text('輸入不可以為空');
+
+
+        }
+
+    
 
         if (isPass)
             $.post(
@@ -1970,30 +2056,20 @@ if (isset($_SESSION['user'])) {
 
     }
 
-    //初始錯誤狀態
-    $('.member .warn').css('display', 'none');
+    
 
     // 重設密碼
     function checkform_restPassword() {
 
-        const $oldPassword = $('.oldPassword')
-        const $resetPassword = $('.resetPassword');
-        const $resetPassword_again = $('.resetPassword-again');
-        let isPass = true;
-
-        const fileds = [$oldPassword, $resetPassword, $resetPassword_again];
-
-
+        
         //初始狀態
-        fileds.forEach(el => {
+        password_fileds.forEach(el => {
 
             el.css('border', '1px solid var(--gold)');
             $('.warn').css('display', 'none');
 
 
         });
-
-
 
 
 
@@ -2013,21 +2089,38 @@ if (isset($_SESSION['user'])) {
         }
 
         //輸入不能為空
-        if ($resetPassword.val() == '' && $resetPassword_again.val() == '') {
+        if ($oldPassword.val() == ''  ) {
+
+            isPass = false;
+
+            $oldPassword.css('border', '2px solid var(--pink)');
+            $oldPassword.next().css('display', 'block').children().text('輸入不可以為空');
+
+            
+
+        }
+        if ($resetPassword.val() == ''  ) {
 
             isPass = false;
 
             $resetPassword.css('border', '2px solid var(--pink)');
             $resetPassword.next().css('display', 'block').children().text('輸入不可以為空');
 
+            
+
+        }
+
+        if($resetPassword_again.val() == ''){
+
+            isPass = false;
+
             $resetPassword_again.css('border', '2px solid var(--pink)');
             $resetPassword_again.next().css('display', 'block').children().text('輸入不可以為空');
 
-
-
-
-
         }
+
+
+
 
         //再次輸入密碼要跟新密碼一樣
         if ($resetPassword.val() != $resetPassword_again.val()) {

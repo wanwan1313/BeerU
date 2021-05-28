@@ -17,6 +17,9 @@ function Sign_email(){
    
         el2.css('border', '1px solid var(--gold)');
         $('.LogIn-Sign .warn').css('display', 'none');
+        $newAccount.next().css('display','block');
+        $newPassword.next().css('display','block');
+
 
       
        });
@@ -79,9 +82,18 @@ function Sign_email(){
         $birthday.next().css('display','block').children().text('此處不可為空');
 
        }
+
+       //密碼為 6 碼以上的英文或數字
        
 
-   
+       if($newPassword.val().length < 6){
+
+        isPass = false;
+        $newPassword.css('border', 'solid 2px var(--pink)');
+        $newPassword.next().css('display','none');
+        $newPassword.next().next().css('display','block').children().text('密碼不可小於6碼');
+
+       }
 
        
 
@@ -93,24 +105,8 @@ function Sign_email(){
             function(data){
                 console.log(data)
                 if(data.success){
-                      
-                        //進入驗證頁面
-                        $('.LogSign-page').fadeOut(1);
-                        $('.Check-page').fadeIn(1000);
 
 
-                     if ($(window).width() >= 992){
-                        $('.log-box').css('width','35%').css('height','500px').css('min-width','583px').css('transition','.4s');
-                    }
-
-                    if ($(window).width() < 992){
-                        $('.log-box').css('width','90%').css('max-width','338px').css('height','70%').css('transition','.4s');
-
-
-                    }
-                    
-                    
-             
 
 
                 } else {
@@ -146,15 +142,7 @@ function SignSubmit(){
                     console.log(data)
                     if(data.success){
                         
-                            
-                        // $('.LogIn-Sign').fadeOut(100);
-                        // $('.pop-up-1').fadeIn(150);
-                        // $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
-                        // $('.pop-up-1 .pop-up-text').text('註冊成功');
-                        // $('button.ok').on('click', function () {
-                        //     location.reload();
-                        // })
-
+                        
                         // 驗證完成，載入中
                         if ($(window).width() >= 992){
 
@@ -166,7 +154,6 @@ function SignSubmit(){
 
 
       
-                    
                     
                         }
                         

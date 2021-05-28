@@ -822,7 +822,7 @@
 .LogIn-Sign .Success-top{
     margin: 22px auto 0 auto;
     width: 120px;
-    animation: Cheer 2s linear infinite;
+    animation: Cheer 1.5s linear forwards;
 }
 
 
@@ -852,7 +852,7 @@
 
     transform:  translateX(-60px) rotate(15deg);
 
-    animation: handmoveR 2s ease-in-out infinite;
+    animation: handmoveR  1.5s ease-in-out forwards;
 
 }
 
@@ -873,7 +873,7 @@
 .LogIn-Sign .hand_R{
 
     transform: translateX(60px) rotate(-15deg);
-    animation: handmoveL 2s ease-in-out infinite;
+    animation: handmoveL  1.5s ease-in-out forwards;
 
 }
 
