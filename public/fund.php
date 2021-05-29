@@ -490,21 +490,21 @@ if (isset($_SESSION['user'])) {
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
-                    <div class="beer-product" data-sid=<?= $t_row['sid'] ?> data-price=<?= $t_row['price'] ?> data-abv=<?= $t_row['abv'] ?>>
+                    <div class="beer-product" data-sid=<?= $b_row['sid'] ?> data-price=<?= $b_row['price'] ?> data-abv=<?= $b_row['abv'] ?>>
                         <div class="pro-pic">
                             <!-- 商品圖 -->
-                            <a href="each-product.php?psid=<?= $t_row['sid'] ?>">
-                                <img class="beer-pic" src="../images/products/<?= $t_row['pic'] ?>" alt="">
+                            <a href="each-product.php?psid=<?= $b_row['sid'] ?>">
+                                <img class="beer-pic" src="../images/products/<?= $b_row['pic'] ?>" alt="">
                             </a>
                             <!-- 標籤 -->
                             <div class="label">
-                                <?php if (strtotime($t_row['created_at']) > $deadline) : ?>
+                                <?php if (strtotime($b_row['created_at']) > $deadline) : ?>
                                     <div class="new-label">
                                         <p>NEW</p>
                                     </div>
                                 <?php endif; ?>
 
-                                <?php if ($t_row['hot'] == 'true') : ?>
+                                <?php if ($b_row['hot'] == 'true') : ?>
                                     <div class="hot-label">
                                         <p>HOT</p>
                                     </div>
@@ -512,14 +512,14 @@ if (isset($_SESSION['user'])) {
                             </div>
 
                             <!-- 國家圖片 -->
-                            <div class="country"><img src="../images/country/<?= $t_row['country_pic'] ?>" alt=""></div>
+                            <div class="country"><img src="../images/country/<?= $b_row['country_pic'] ?>" alt=""></div>
 
                             <!-- 收藏按鈕 -->
                             <div class="collect">
                                 <?php if (!isset($_SESSION['user'])) : ?>
                                     <button class="btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></button>
                                 <?php else : ?>
-                                    <?php if (in_array($t_row['sid'], $c_arr)) : ?>
+                                    <?php if (in_array($b_row['sid'], $c_arr)) : ?>
                                         <button class="btn_collect_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
                                         <button class="btn_collect d-none" onclick="collectProduct()"><i class="far fa-heart"></i></button>
                                     <?php else : ?>
@@ -533,10 +533,10 @@ if (isset($_SESSION['user'])) {
                         <!-- 商品介紹 -->
                         <div class="pro-intro d-flex flex-column justify-content-between">
                             <!-- 商品名稱 -->
-                            <a href="each-product.php?psid=<?= $t_row['sid'] ?>">
+                            <a href="each-product.php?psid=<?=$b_row['sid'] ?>">
                                 <div class="p-name">
-                                    <p class="p-name-c"><?= $t_row['c_name'] ?></p>
-                                    <p class="p-name-e"><?= $t_row['e_name'] ?></p>
+                                    <p class="p-name-c"><?= $b_row['c_name'] ?></p>
+                                    <p class="p-name-e"><?= $b_row['e_name'] ?></p>
                                 </div>
                             </a>
                         </div>
