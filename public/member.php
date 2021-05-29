@@ -74,6 +74,14 @@ if (isset($_SESSION['user'])) {
     WHERE a.`fund_sid` > 0 AND a.`member_sid` = $m_sid";
     $fundatten_row = $pdo->query($fundatten_SQL)->fetch();
 
+    // 目前募資到的總額
+    $totalPriceSql = "SELECT SUM(quantity * price) AS `total` FROM `order_detail` WHERE `fund_sid` > 0";
+    $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
+
+
+    // 目前募資的進度百分比
+    $rowNowPercentage = floor(($rowTotalPrice['total'] / 60000) * 100);
+
 
     // 從資料庫抓已預約的品飲會
     $event_SQL = "SELECT j.`event_sid`,e.event_title,e.event_pic_m,e.event_time,e.event_place,e.event_address 
@@ -84,7 +92,7 @@ if (isset($_SESSION['user'])) {
     $event_row = $pdo->query($event_SQL)->fetch();
 
     // 從資料庫抓已關注的品飲會
-    $eventatten_SQL = "SELECT a.`event_sid`,e.event_title,e.event_pic_m,e.event_time,e.event_place,e.event_address 
+    $eventatten_SQL = "SELECT a.`event_sid`,e.event_title,e.event_pic_m,e.event_time,e.event_place,e.event_address,e.event_people 
     FROM `attention` a
     JOIN `event` e ON a.`event_sid` = e.sid 
     WHERE a.`member_sid` = $m_sid ";
@@ -613,8 +621,8 @@ if (isset($_SESSION['user'])) {
 
                                                             <div class="edit-buttons-wrap d-none">
                                                                 <div class="edit-buttons d-flex flex-wrap align-content-center px-0 justify-content-center ">
-                                                                    <button class="btn_comment-confirm" onclick="commentProduct('edit')">送出</button>
-                                                                    <button class="btn_comment-cancel" onclick="canceleditComment()">取消</button>
+                                                                    <button class="btn_comment-confirm mx-1 mx-lg-0" onclick="commentProduct('edit')">送出</button>
+                                                                    <button class="btn_comment-cancel mx-1 mx-lg-0" onclick="canceleditComment()">取消</button>
                                                                 </div>
 
                                                             </div>
@@ -721,7 +729,17 @@ if (isset($_SESSION['user'])) {
 
                                             <?php if (!empty($eventatten_row)) : ?>
 
-                                                <?php foreach ($eventatten_row as $eva) : ?>
+                                                <?php foreach ($eventatten_row as $eva) :
+
+                                                    $esid = $eva['event_sid'];
+                                                    $totalpeople_SQL = "SELECT SUM(`total_p`) FROM `event_join` WHERE `event_sid` = $esid";
+                                                    $totalpeople = $pdo->query($totalpeople_SQL)->fetch(PDO::FETCH_NUM)[0];
+                                                    $left_people = $eva['event_people'];
+                                                    if (!empty($totalpeople)) {
+                                                        $left_people = $eva['event_people'] - $totalpeople;
+                                                    };
+
+                                                ?>
                                                     <!-- 單個活動 -->
                                                     <div class="event-box px-3 px-lg-5 py-4 d-flex flex-wrap align-items-start" data-sid="<?= $eva['event_sid'] ?>">
 
@@ -765,8 +783,13 @@ if (isset($_SESSION['user'])) {
 
                                                         <!-- 取消 -->
                                                         <div class="col-12 col-lg-1 member-button event-button d-flex  align-items-center px-0 justify-content-center">
-                                                            <a href="event-join.php?sid=<?= $eva['event_sid'] ?>"><button class="btn_event-cancel">報名</button></a>
-                                                            <p class="fullsign d-none">已額滿</p>
+                                                            <?php if ($left_people > 0) : ?>
+                                                                <a href="event-join.php?sid=<?= $eva['event_sid'] ?>"><button class="btn_event-cancel">報名</button></a>
+                                                            <?php elseif ($left_people == 0) : ?>
+                                                                <a href="event-join.php?sid=<?= $eva['event_sid'] ?>">
+                                                                    <p class="fullsign">已額滿</p>
+                                                                </a>
+                                                            <?php endif; ?>
                                                         </div>
 
                                                     </div>
@@ -836,7 +859,7 @@ if (isset($_SESSION['user'])) {
                                                             <p class="title">目前進度</p>
                                                         </div>
                                                         <div class="col-9 col-lg-12 thisschedule px-lg-0 pl-2 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                            <p>50%</p>
+                                                            <p><?= $rowNowPercentage ?>%</p>
                                                         </div>
                                                     </div>
 
@@ -906,7 +929,7 @@ if (isset($_SESSION['user'])) {
                                                             <p class="title">目前進度</p>
                                                         </div>
                                                         <div class="col-9 col-lg-12 thisschedule px-lg-0 pl-2 pr-2 mt-lg-4 mb-3 mb-lg-0">
-                                                            <p>50%</p>
+                                                            <p><?= $rowNowPercentage ?>%</p>
                                                         </div>
                                                     </div>
 
@@ -1249,9 +1272,9 @@ if (isset($_SESSION['user'])) {
                                                             </div>
 
                                                             <!-- 按鈕 -->
-                                                            <div class="col-12 col-lg-2 member-button fund-button d-flex flex-lg-column align-items-center px-0 justify-content-center">
-                                                                <button>取消</button>
-                                                                <button>留言</button>
+                                                            <div class="col-12 col-lg-2 member-button order-button d-flex flex-lg-column align-items-center px-0 justify-content-center mt-4 mt-lg-0">
+                                                                <button class="mx-1 mx-lg-0">取消</button>
+                                                                <button class="mx-1 mx-lg-0">留言</button>
                                                             </div>
 
                                                         </div>
@@ -1466,7 +1489,6 @@ if (isset($_SESSION['user'])) {
 
 
 <script>
-    
     function scrollToTop() {
         $('html, body').animate({
             scrollTop: 0
@@ -1888,7 +1910,7 @@ if (isset($_SESSION['user'])) {
     const $edit_nickname = $('.edit_nickname');
     const $edit_birthday = $('.edit_birthday');
     const $edit_address = $('.edit_address');
-    
+
     const $oldPassword = $('.oldPassword')
     const $resetPassword = $('.resetPassword');
     const $resetPassword_again = $('.resetPassword-again');
@@ -1963,7 +1985,7 @@ if (isset($_SESSION['user'])) {
 
     })
 
-    
+
     //設定只能18歲
     let maxYear = new Date().getFullYear() - 18;
     let maxDate = new Date().getDate()
@@ -1980,8 +2002,8 @@ if (isset($_SESSION['user'])) {
 
     //檢查修改資料
     function checkForm_edit() {
-        
-        
+
+
         let isPass = true;
 
 
@@ -1995,26 +2017,26 @@ if (isset($_SESSION['user'])) {
 
 
         //姓名不可為空
-        if($edit_nickname.val() == ''){
+        if ($edit_nickname.val() == '') {
 
             isPass = false;
             $edit_nickname.css('border', '2px solid var(--pink)');
-            $edit_nickname.next('.warn').css('display','block').children().text('輸入不可以為空');
+            $edit_nickname.next('.warn').css('display', 'block').children().text('輸入不可以為空');
 
 
         }
 
         //生日不可為空
-        if($edit_birthday.val() == ''){
+        if ($edit_birthday.val() == '') {
 
             isPass = false;
             $edit_birthday.css('border', '2px solid var(--pink)');
-            $edit_birthday.next('.warn').css('display','block').children().text('輸入不可以為空');
+            $edit_birthday.next('.warn').css('display', 'block').children().text('輸入不可以為空');
 
 
         }
 
-    
+
 
         if (isPass)
             $.post(
@@ -2056,12 +2078,12 @@ if (isset($_SESSION['user'])) {
 
     }
 
-    
+
 
     // 重設密碼
     function checkform_restPassword() {
 
-        
+
         //初始狀態
         password_fileds.forEach(el => {
 
@@ -2089,28 +2111,28 @@ if (isset($_SESSION['user'])) {
         }
 
         //輸入不能為空
-        if ($oldPassword.val() == ''  ) {
+        if ($oldPassword.val() == '') {
 
             isPass = false;
 
             $oldPassword.css('border', '2px solid var(--pink)');
             $oldPassword.next().css('display', 'block').children().text('輸入不可以為空');
 
-            
+
 
         }
-        if ($resetPassword.val() == ''  ) {
+        if ($resetPassword.val() == '') {
 
             isPass = false;
 
             $resetPassword.css('border', '2px solid var(--pink)');
             $resetPassword.next().css('display', 'block').children().text('輸入不可以為空');
 
-            
+
 
         }
 
-        if($resetPassword_again.val() == ''){
+        if ($resetPassword_again.val() == '') {
 
             isPass = false;
 
@@ -2957,9 +2979,10 @@ if (isset($_SESSION['user'])) {
         $('.beeru-nav-bar .havegift').fadeOut(0)
 
         // 禮物小圖判斷
+        showAchievement()
+        $('.beeru-nav-bar .gift-notice').remove()
         if (a_data.consume > 0 || a_data.accum_spend >= 6000 || a_data.accum_comment >= 3 || a_data.accum_event >= 3 || a_data.accum_fund >= 3) {
             $('.haveachieve').fadeIn(150)
-            $('.beeru-nav-bar .havegift').fadeIn(150)
         }
         let brandnumber = a_data.gather.filter(e => e <= 28).length
         let countrynumber = a_data.gather.filter(e => e >= 29 && e <= 43).length
@@ -2967,18 +2990,18 @@ if (isset($_SESSION['user'])) {
 
         if ((a_data.accum_brand == 0 && brandnumber >= 8 && brandnumber < 16) || (a_data.accum_brand > 0 && a_data.accum_brand < 2 && brandnumber >= 16 && brandnumber < 24) || (a_data.accum_brand != 3 && brandnumber == 24)) {
             $('.haveachieve').fadeIn(150)
-            $('.beeru-nav-bar .havegift').fadeIn(150)
         }
 
         if ((a_data.accum_country == 0 && countrynumber >= 5 && countrynumber < 10) || (a_data.accum_country > 0 && a_data.accum_country < 2 && countrynumber >= 10 && countrynumber < 15) || (a_data.accum_country != 3 && countrynumber == 15)) {
             $('.haveachieve').fadeIn(150)
-            $('.beeru-nav-bar .havegift').fadeIn(150)
         }
 
         if ((a_data.accum_type == 0 && typenumber >= 3 && typenumber < 6) || (a_data.accum_type > 0 && a_data.accum_type < 2 && typenumber >= 6 && typenumber < 9) || (a_data.accum_type != 3 && typenumber == 9)) {
             $('.beeru-nav-bar .havegift').fadeIn(150)
-            $('.beeru-nav-bar .havegift').fadeIn(150)
         }
+
+
+
 
 
 
