@@ -173,15 +173,20 @@ $('.img-demo').slick({
     slidesToScroll: 1,
     arrows: false,
     fade: true,
+    Infinity:true,
+    //autoplay: true,
+    //autoplaySpeed: 2000,
     asNavFor: '.img-wrap'
   });
+
   $('.img-wrap').slick({
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 2,
     asNavFor: '.img-demo',
     dots: true,
     centerMode: true,
-    focusOnSelect: true
+    focusOnSelect: true,
+    autoplay: false
   });
 
 }

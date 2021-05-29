@@ -162,7 +162,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
                  <!-- scroll-down -->
 
-                 <a href="#pair-1" class="scroll"><span></span>了解更多</a>
+                 <a href="#pair-1" class="scroll d-block d-lg-none"><span></span>了解更多</a>
                
             </div>
 
@@ -282,9 +282,9 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
     <!-- 小標籤 -->
     <div class="mobile-side-nav" id="side-nav">
         <div class="fixed-btn d-block d-lg-none" >
-                        <p>種類</p>
+                    <p>種類</p>
          
-                        <div class="side-drop-img">
+                    <div class="side-drop-img">
                         <a href="#pair-1">
                             <img src="../images/joyce_images/drop-1.svg" alt=""></a>
                     </div>
@@ -292,7 +292,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                         <a href="#pair-2">
                             <img src="../images/joyce_images/drop-2.svg" alt=""></a>
                     </div>
-                    <div class="side-drop-img">
+                    <div class="side-drop-img ">
                         <a href="#pair-3">
                             <img src="../images/joyce_images/drop-3.svg" alt=""></a>
                     </div>
@@ -300,23 +300,23 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                         <a href="#pair-4">
                             <img src="../images/joyce_images/drop-4.svg" alt=""></a>
                     </div>
-                    <div class="side-drop-img">
+                    <div class="side-drop-img ">
                         <a href="#pair-5">
                             <img src="../images/joyce_images/drop-5.svg" alt=""></a>
                     </div>
-                    <div class="side-drop-img">
+                    <div class="side-drop-img ">
                         <a href="#pair-6">
                             <img src="../images/joyce_images/drop-6.svg" alt=""></a>
                     </div>
-                    <div class="side-drop-img">
+                    <div class="side-drop-img ">
                         <a href="#pair-7">
                             <img src="../images/joyce_images/drop-7.svg" alt=""></a>
                     </div>
-                    <div class="side-drop-img">
+                    <div class="side-drop-img ">
                         <a href="#pair-8">
                             <img src="../images/joyce_images/drop-8.svg" alt=""></a>
                     </div>
-                    <div class="side-drop-img">
+                    <div class="side-drop-img ">
                         <a href="#pair-9">
                             <img src="../images/joyce_images/drop-9.svg" alt=""></a>
                     </div>
@@ -326,7 +326,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
      
 </section>
 <!-- food-page-pair-1 -->
-<section class="pair-wrap">
+<section class="pair-wrap" data-index="0">
     <div id="pair-1">
         <div class="container">
             <div class="row animatable fadeInUp pt-5">
@@ -593,7 +593,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 </section>
 <!-- food-page-pair-2 -->
-<section class="pair-wrap">
+<section class="pair-wrap" data-index="1">
     <div id="pair-2">
         <div class="container">
             <div class="row animatable fadeInUp pt-5">
@@ -859,7 +859,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 </section>
 <!-- food-page-pair-3 -->
-<section class="pair-wrap">
+<section class="pair-wrap" data-index="2">
     <div id="pair-3">
         <div class="container">
             <div class="row animatable fadeInUp pt-5">
@@ -1123,7 +1123,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 </section>
 <!-- food-page-pair-4 -->
-<section class="pair-wrap">
+<section class="pair-wrap" data-index="3">
     <div id="pair-4">
         <div class="container">
             <div class="row animatable fadeInUp pt-5">
@@ -1388,7 +1388,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 </section>
 <!-- food-page-pair-5 -->
-<section class="pair-wrap">
+<section class="pair-wrap" data-index="4">
     <div id="pair-5">
         <div class="container">
             <div class="row animatable fadeInUp pt-5">
@@ -1652,7 +1652,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 </section>
 <!-- food-page-pair-6 -->
-<section class="pair-wrap">
+<section class="pair-wrap" data-index="5">
     <div id="pair-6">
         <div class="container">
             <div class="row animatable fadeInUp">
@@ -1916,7 +1916,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 </section>
 <!-- food-page-pair-7 -->
-<section class="pair-wrap">
+<section class="pair-wrap" data-index="6">
     <div id="pair-7">
         <div class="container">
             <div class="row animatable fadeInUp pt-5">
@@ -2180,7 +2180,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 </section>
 <!-- food-page-pair-8 -->
-<section class="pair-wrap">
+<section class="pair-wrap" data-index="7">
     <div id="pair-8">
         <div class="container">
             <div class="row animatable fadeInUp pt-5">
@@ -2443,7 +2443,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 
 </section>
 <!-- food-page-pair-9 -->
-<section class="pair-wrap mb-5">
+<section class="pair-wrap mb-5" data-index="8">
     <div id="pair-9">
         <div class="container">
             <div class="row animatable fadeInUp pt-5">

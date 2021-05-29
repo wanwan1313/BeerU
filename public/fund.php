@@ -122,25 +122,30 @@ if (isset($_SESSION['user'])) {
             <div class="col-md-6 col-lg-8">
                 <div class="product-display container">
                     <div class="row">
-                        <div class="col-12">
                             <div class="img-demo">
                                 <img class="pics" id="pic1" src="../images/joyce_images/fund-p-1.jpg" alt="">
+                                <img class="pics" id="pic2" src="../images/joyce_images/fund-p-2.jpg" alt="">
+                                <img class="pics" id="pic3" src="../images/joyce_images/fund-p-3.jpg" alt="">
+                                <img class="pics" id="pic4" src="../images/joyce_images/fund-p-4.jpg" alt="">
                             </div>
-                        </div>
-                        <div class="col-12 mt-3">
+          
                             <div class="img-wrap d-flex mt-5">
-                                <div class="img-row">                 
-                                <img class="pics" id="pic1" src="../images/joyce_images/fund-p-1.jpg" alt="">
+                                <div class="img-row">
+                                     <img class="pics" id="pic1" src="../images/joyce_images/fund-p-1.jpg" alt="">
                                 </div>
-                                <div class="img-row"><img class="pics" id="pic2" src="../images/joyce_images/fund-p-2.jpg" alt=""></div>
-                                <div class="img-row"><img class="pics" id="pic3" src="../images/joyce_images/fund-p-3.jpg" alt=""></div>
-                                <div class="img-row"><img class="pics" id="pic4" src="../images/joyce_images/fund-p-4.jpg" alt=""></div>
-                            </div>
-                        </div>
+                                <div class="img-row">
+                                    <img class="pics" id="pic2" src="../images/joyce_images/fund-p-2.jpg" alt="">
+                                </div>
+                                <div class="img-row">
+                                    <img class="pics" id="pic3" src="../images/joyce_images/fund-p-3.jpg" alt="">
+                                 </div>
+                                <div class="img-row">
+                                    <img class="pics" id="pic4" src="../images/joyce_images/fund-p-4.jpg" alt="">
+                                </div>
+                            </div>                    
                     </div>
 
-                    
-                </div>
+                </div> 
                 <div id="demo-carousel" class="carousel slide" data-ride="carousel">
 
                     <!-- Indicators -->

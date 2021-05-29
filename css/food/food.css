@@ -2056,6 +2056,7 @@ html {
         left: 0;
         /* transition: .3s; */
         transform: translateX(-100.5%);
+        display: none;
     }
        
 .fixed-btn {
@@ -2184,6 +2185,22 @@ html {
       }
     }
     }
-    
+
+/* 電腦板 */
+@media (min-width: 992px) {
+   
+        /* a.scroll {
+           display: none;
+        }  */
+
+}
+
+    .selected-drop {
+        filter: drop-shadow(0 0 8px #fcfcfc);
+    }
+
+    .deselected-drop {
+        filter: none;
+    }    
 
 }
