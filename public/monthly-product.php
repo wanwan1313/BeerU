@@ -117,7 +117,7 @@ if ($psid != 0) {
                     <div class="pro-name animatable fadeInUp">
                         <div class="country d-flex align-items-center">
                             <p><?= $row['country_name'] ?></p>
-                            <img class="c-pic" src="../images/country/<?= $row['country_pic'] ?>" alt="">
+                            <img class="c-pic" src="../images/country/flag_japan_circle.svg" alt="">
                         </div>
                         <p class="c-name d-none d-lg-block"><?= $row['c_name'] ?></p>
                         <p class="e-name d-none d-lg-block"><?= $row['e_name'] ?></p>
