@@ -207,7 +207,7 @@ cursor: pointer;
 fill: #b293627e;
 stroke:#792221;
 stroke-linejoin:round;
-cursor: pointer;
+/* cursor: pointer; */
 -webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 45%,transparent 60%); 
 }
 
@@ -236,7 +236,7 @@ cursor: pointer;
 fill: #b293627e;
 stroke:#792221;
 stroke-linejoin:round;
-cursor: pointer;
+/* cursor: pointer; */
 -webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); 
 }
 
@@ -265,7 +265,7 @@ cursor: pointer;
 fill: #b293627e;
 stroke:#792221;
 stroke-linejoin:round;
-cursor: pointer;
+/* cursor: pointer; */
 -webkit-mask-image: linear-gradient(transparent 0%,rgba(0, 0, 0, 1.0) 15%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); 
 }
 
@@ -295,7 +295,7 @@ cursor: pointer;
 fill: #b293627e;
 stroke:#792221;
 stroke-linejoin:round;
-cursor: pointer;
+/* cursor: pointer; */
 -webkit-mask-image: linear-gradient(transparent 3%,rgba(0, 0, 0, 1.0) 15%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); 
 }
 
