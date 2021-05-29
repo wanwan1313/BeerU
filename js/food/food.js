@@ -1,4 +1,4 @@
-// Scroll to top button 
+// ----- Scroll to top button -----
 // 桌機版 
 if ($(window).width() >= 992) {
     $(window).scroll(function () {
@@ -80,7 +80,7 @@ $(window).scroll(function () {
 
 
     let scrollNow = $(window).scrollTop();
-    console.log('scrollTop', $(this).scrollTop());
+    // console.log('scrollTop', $(this).scrollTop());
 
     // 桌機版
     if ($(window).width() >= 992) {
@@ -152,54 +152,160 @@ $(window).scroll(function () {
 });
 
 //  ------  scroll-animations  ------ //
+console.log('hi')
+// jQuery(function ($) {
+//  // 設置執行Animations=function (){}
+//         let doAnimations = function () {
 
-jQuery(function ($) {
-    // Function which adds the 'animated' class to any '.animatable' in view
-    let doAnimations = function () {
-        // Calc current offset and get all animatables
-        let offset = $(window).scrollTop() + $(window).height(),
-            $animatables = $('.animatable');
-        // Unbind scroll handler if we have no animatables
-        if ($animatables.length == 0) {
-            // $(window).off('scroll', doAnimations);
-        }
-        // Check all animatables and animate them if necessary
-        $animatables.each(function (i) {
-            let $animatable = $(this);
-            // console.log('($animatable.offset().top + $animatable.height() - 100) < offset',($animatable.offset().top + $animatable.height() - 100) < offset);
-            if (($animatable.offset().top + $animatable.height() - 20) < offset) {
-                $animatable.removeClass('animatable').addClass('animated');
-            }
-        });
+//             console.log('hi2')
+//             // let offset = $(window).scrollTop() + $(window).height(),
 
-        $('.animated').each(function (i) {
-            let $animatable = $(this);
+//             // 設置預設動作的class=$('.animatable')(預設為hidden，paused)
+//             $animatables = $('.animatable');
 
-            if (($(this).offset().top + $(this).height() - 40) > offset) {
-                $(this).removeClass('animated').addClass('animatable');
-            }
-        });
-    };
-    // Hook doAnimations on scroll, and trigger a scroll
-    $(window).on('scroll', doAnimations);
-    $(window).trigger('scroll');
-});
+//             // 條件1:若$('.animatable')的數量為0
+//              if ($animatables.length == 0) {
+//             //     $(window).off('scroll', doAnimations);
+//             }
+      
+//             $(window).scroll(function() {
+//             $animatables = $('.animatable');
+//             let userScrollTop = $(window).scrollTop()
+            
+//             let halfWindowHeight = $(window).height() / 5 * 4
+                
+//             $animatables.each(function (i) {
+//             // let $animatable = $(this);
+//              let anipo = $(this).offset().top
+//              console.log(userScrollTop,halfWindowHeight,anipo)
+//              if (anipo < userScrollTop + halfWindowHeight) {
+//                 $this.removeClass('animatable').addClass('animated');
+            
+      
+//             // if (($animatable.offset().top + $animatable.height() - 20) < offset) {
+//             //    $animatable.removeClass('animatable').addClass('animated');
+
+        
 
 
+//     // ----- side-nav -----   
+//                 let index = $animatable.closest('.pair-wrap').attr('data-index')
+//                 let navItem = $('.side-drop-img').eq(index);
+//                 navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
+                
+//             }
+        
+//         });
+
+
+
+//         $('.animated').each(function (i) {
+//             let $animatable = $(this);
+//             let index = $animatable.closest('.pair-wrap').prev().attr('data-index')
+//             if (($(this).offset().top + $(this).height() -100) > offset) {
+//                 $(this).removeClass('animated').addClass('animatable');
+
+
+//     // ----- side-nav -----           
+//                 let navItem = $('.side-drop-img').eq(index);
+//                 navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
+
+//             }
+        
+//         });
+//     });
+
+//     // Hook doAnimations on scroll, and trigger a scroll
+//     $(window).on('scroll', doAnimations);
+//     $(window).trigger('scroll');
+// }
+// });
+
+
+
+
+
+
+// -----  side-bar -----
 
 $(window).scroll(function () {
 
     let scrollNow = $(window).scrollTop();
+    console.log(scrollNow)
+    
 
     if ($(window).width() < 992) {
+        
 
-        if (scrollNow >= 2606) {
+        if (scrollNow >= 2250) {
 
             $('#side-nav').fadeIn(200);
         } else {
            $('#side-nav').fadeOut(200);
         }
     }
+
+
+
+            $animatables = $('.animatable');
+            $animateds = $('.animated');
+            let userScrollTop = $(window).scrollTop()
+            
+            let halfWindowHeight = $(window).height() / 5 * 4
+                
+            $animatables.each(function (i) {
+             let anipo = $(this).offset().top
+             if (anipo < userScrollTop + halfWindowHeight) {
+                // console.log(userScrollTop,halfWindowHeight,anipo)
+                $(this).removeClass('animatable').addClass('animated');
+
+            // ----- side-nav -----   
+                let index = $(this).closest('.pair-wrap').attr('data-index')
+                let navItem = $('.side-drop-img').eq(index);
+                navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
+                
+            }
+            
+            // else if( anipo >= userScrollTop + halfWindowHeight){
+            //     console.log('back')
+            //     $(this).removeClass('animated').addClass('animatable');
+            //     let index = $(this).closest('.pair-wrap').attr('data-index')
+            //     let navItem = $('.side-drop-img').eq(index);
+            //     navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
+            // }
+        
+        });
+
+
+        $animateds.each(function (i) {
+            let anipo = $(this).offset().top
+           
+           if( anipo >= userScrollTop + halfWindowHeight){
+               console.log('back')
+               $(this).removeClass('animated').addClass('animatable');
+               let index = $(this).closest('.pair-wrap').attr('data-index')
+               let navItem = $('.side-drop-img').eq(index);
+               navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
+           }
+       
+       });
+
+
+
+    //     $('.animated').each(function (i) {
+    //         let $animatable = $(this);
+    //         let index = $animatable.closest('.pair-wrap').prev().attr('data-index')
+    //         if (($(this).offset().top + $(this).height() -100) > offset) {
+    //             $(this).removeClass('animated').addClass('animatable');
+
+
+    // // ----- side-nav -----           
+    //             let navItem = $('.side-drop-img').eq(index);
+    //             navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
+
+    //         }
+        
+    //     });
 
 });
 
