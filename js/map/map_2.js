@@ -265,8 +265,6 @@ $(function () {
 })
 // -------------------------------------------------------
 // deco
-$('.us #deco').css('transform','translate(-35px,-50px)')
-$('.eu #deco').css('transform','translate(-60px,-10px)').css('width','55px')
 
 
 
