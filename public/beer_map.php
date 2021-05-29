@@ -976,7 +976,7 @@ $page_title = '啤女BeerU:啤酒地圖';
                 <div class="bg_country bg_b position-absolute d-md-block d-sm-none"><img src="" alt=""></div>
                 <div class="bg_country bg_s position-absolute d-sm-block d-md-none"><img src="" alt=""></div>
                 <!-- deco-郵票 -->
-                <div class="stamp_country position-absolute"><img src="../images/map/SVG/stamp_us.svg" alt=""></div>
+                <div class="stamp_country position-absolute"><img src="" alt=""></div>
                 <!-- deco-郵戳 -->
                 <div class="stamp position-absolute"><img src="../images/map/SVG/stamp.svg" alt=""></div>
 
