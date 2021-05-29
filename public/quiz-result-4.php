@@ -86,7 +86,7 @@ if ($psid != 0) {
     <?php include __DIR__ . '../../php/common/category.php' ?>
 </section>
 
-<section class="quiz-result-wrap">
+<section class="quiz-result-wrapper">
     <div class="container">
         <div class="row">
             <div class="col-12 result-info-wrap mt-5">
