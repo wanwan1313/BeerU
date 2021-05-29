@@ -134,7 +134,7 @@ else {
 
   console.log($input_check_val)
   console.log(authCode)
-  if ($input_check_val.length >=  4 && $input_check_val != authCode) {
+  if ($input_check_val.length >= 4 && $input_check_val != authCode) {
     isPass = false;
     $input_check.css('border', '2px solid var(--pink)');
     $input_check.prev().children().css('display', 'none');
@@ -152,6 +152,17 @@ else {
     $input_check.css('border', '2px solid var(--gold)');
     $input_check.prev().children().css('color', 'var(--gold)').css('display', 'inline-block');
   }
+  if ($input_check_val.length <  4) {
+    isPass = true;
+    $input_check.css('border', '0px solid var(--pink)');
+    $input_check.prev().children().css('display', 'none');
+
+  }
+  // else {
+  //   isPass = true
+  //   $input_check.css('border', '2px solid var(--gold)');
+  //   $input_check.prev().children().css('color', 'var(--gold)').css('display', 'inline-block');
+  // }
 }
 
 // 套入「送出」function
