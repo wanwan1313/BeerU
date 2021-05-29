@@ -11,6 +11,8 @@ $page_title = '啤女BeerU:心理測驗';
 <!-- my-style -->
 <link rel="stylesheet" href="../css/newbie/quiz-style.css">
 
+<link rel="stylesheet" href="../css/pop-up.css">
+
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
 <!-- 會員登入 -->
 <?php include __DIR__ . '../../php/common/Login-Sign.php' ?>
@@ -20,8 +22,17 @@ $page_title = '啤女BeerU:心理測驗';
     <?php include __DIR__ . '../../php/common/category.php' ?>
 </section>
 
-<section class="quiz-wrapper">
-    <section class="quiz-1-wrap" id="quiz-1-wrap">
+<!-- 提示選擇pop-up-->
+<!-- <section class="general-pop-up pop-up-1 ">
+    <div class="pop-up-box d-flex flex-column justify-content-center align-items-center">
+        <div class="icon animate__animated animate__rubberBand "><i class="fas fa-times"></i></div>
+        <p class="pop-up-text">請選擇至少一個選項</p>
+        <button class="ok">我知道了</button>
+    </div>
+</section> -->
+
+<section class="quiz-wrapper" data-choice="no" data-eq="">
+    <section class="quiz-1-wrap quiz-wrap " id="quiz-1-wrap">
         <div class="container">
             <p class="animatable fadeInUp quiz-q mt-3">請選出一面鏡子。</p>
             <div class="row quiz-row mt-5">
@@ -63,15 +74,13 @@ $page_title = '啤女BeerU:心理測驗';
                 </div>
             </div>
             <p class="quiz-quote animatable fadeInUp">人的心靈就像一面鏡子，你看到的世界，取決於你如何看待自己。</p>
-            <div class="next-btn-wrap mt-3">
-                <a href="#quiz-2-wrap">
+            <div class="next-btn-wrap mt-3" data-href="quiz-2-wrap">
                     <div class="next-btn">下一步</div>
-                </a>
             </div>
         </div>
     </section>
 
-    <section class="quiz-2-wrap" id="quiz-2-wrap">
+    <section class="quiz-2-wrap quiz-wrap d-none" id="quiz-2-wrap">
         <div class="container">
             <p class="quiz-q mt-3 animatable fadeInUp">哪裡更適合讓妳獨自小酌呢?</p>
             <div class="row quiz-row mt-5">
@@ -115,8 +124,8 @@ $page_title = '啤女BeerU:心理測驗';
                     </div>
                 </div>
             </div>
-            <p class="quiz-quote animatable fadeInUp">離開舒適圈，你將遇見未知的自己。</p>
-            <div class="next-btn-wrap mt-3">
+            <p class="quiz-quote animatable fadeInUp">每次品嚐啤酒的時候，也同時在品嚐啤酒的文化。</p>
+            <div class="next-btn-wrap mt-3" onclick="function(doAnimations)">
                 <a href="#quiz-3-wrap">
                     <div class="next-btn">下一步</div>
                 </a>
@@ -124,7 +133,7 @@ $page_title = '啤女BeerU:心理測驗';
         </div>
     </section>
 
-    <section class="quiz-3-wrap" id="quiz-3-wrap">
+    <section class="quiz-3-wrap quiz-wrap d-none" id="quiz-3-wrap">
         <div class="container">
             <p class="quiz-q mt-3 animatable fadeInUp">請挑選一種啤酒杯</p>
             <div class="row quiz-row mt-5">
@@ -158,7 +167,7 @@ $page_title = '啤女BeerU:心理測驗';
                 </div>
             </div>
             <p class="quiz-quote animatable fadeInUp">就像喝葡萄酒一樣，一種啤酒一種杯，選對杯子就能讓啤酒美味升級。</p>
-            <div class="next-btn-wrap mt-3">
+            <div class="next-btn-wrap mt-3" onclick="function(doAnimations)">
                 <a href="#quiz-4-wrap">
                     <div class="next-btn">下一步</div>
                 </a>
@@ -166,7 +175,7 @@ $page_title = '啤女BeerU:心理測驗';
         </div>
     </section>
 
-    <section class="quiz-4-wrap" id="quiz-4-wrap">
+    <section class="quiz-4-wrap quiz-wrap d-none" id="quiz-4-wrap">
         <div class="container">
             <p class="quiz-q mt-3 animatable fadeInUp">請選擇一款自己最喜歡的下酒菜</p>
             <div class="row quiz-row mt-5">
@@ -220,7 +229,7 @@ $page_title = '啤女BeerU:心理測驗';
                 </div>
             </div>
             <p class="quiz-quote animatable fadeInUp">徹底認識手中的啤酒，才能替它找到合適的靈魂伴侶。</p>
-            <div class="next-btn-wrap mt-3">
+            <div class="next-btn-wrap mt-3" onclick="function(doAnimations)">
                 <a href="#quiz-5-wrap">
                     <div class="next-btn">下一步</div>
                 </a>
@@ -228,7 +237,7 @@ $page_title = '啤女BeerU:心理測驗';
         </div>
     </section>
 
-    <section class="quiz-5-wrap" id="quiz-5-wrap">
+    <section class="quiz-5-wrap quiz-wrap d-none" id="quiz-5-wrap">
         <div class="container">
             <p class="quiz-q mt-3 animatable fadeInUp">微醺時，會做出什麼舉動?</p>
             <div class="row quiz-row mt-5">
@@ -518,7 +527,8 @@ $page_title = '啤女BeerU:心理測驗';
 
 
 
-<?php include __DIR__ . '../../php/common/html-body-footer.php' ?>
+<!-- <?php include __DIR__ . '../../php/common/html-body-footer.php' ?> -->
+
 <?php include __DIR__ . '../../php/common/script.php' ?>
 
 <!-- my script -->
