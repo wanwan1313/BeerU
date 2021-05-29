@@ -1110,7 +1110,7 @@ const btnAttentionTPL = t => {
     <?php endif; ?>
         <!-- 看更多商品 -->
         <button class="see_more btn_attention px-3 py-1 mx-5">
-            <a class="" href='all-product.php'>
+            <a class="" href='${t}'>
                 看更多
             </a>
         </button>
@@ -1134,7 +1134,7 @@ const btnAttentionTPL2 = t => {
     <?php endif; ?>
         <!-- 看更多商品 -->
         <button class="see_more btn_attention px-3 py-1 mx-5">
-            <a class="" href='all-product.php'>
+            <a class="" href='${t}'>
                 看更多
             </a>
         </button>
@@ -1185,7 +1185,7 @@ $('.map .country').click(function () {
             // let {map_row, cups, beers} = data;
             // console.log(data)
             b_data = data
-            // console.log(b_data.attention)
+            console.log(b_data)
             // 改國家名
             $('.country-name p').text(data.map_row.country);
             // 改國家介紹
@@ -1194,7 +1194,7 @@ $('.map .country').click(function () {
             // 改郵票圖片位址
             $('.stamp_country img').attr("src", data.map_row.stamp);
             // 改看更多位址
-            $('.see_more a').attr("href", data.map_row.see_more);
+            // $('.see_more a').attr("href", data.map_row.see_more);
             // 改背景圖（桌機）
             $('.bg_b img').attr("src", data.map_row.bg_b);
             // 改背景圖（手機）
@@ -1221,15 +1221,16 @@ $('.map .country').click(function () {
             $('.cup3').attr("href", data.map_row.cup_3_link);
             $('.cup3 .cup-name').text(data.map_row.cup_3_name);
             $('.cup3 img').attr("src", data.map_row.cup_3_pic);
+            
 
             // 為了抓到關注清單的tag_sid設置，不會出現在畫面上
             let mycate = data.map_row.tag_sid
             buttons.attr("data-cate", mycate);
             buttons.html('')
             if( b_data.attention.indexOf(mycate) > -1 ){
-                buttons.append(btnAttentionTPL2())
+                buttons.append(btnAttentionTPL2(data.map_row.see_more))
             }else{
-                buttons.append(btnAttentionTPL())
+                buttons.append(btnAttentionTPL(data.map_row.see_more))
             }
             renderProducts()
         },
