@@ -138,7 +138,6 @@ if (isset($_SESSION['user'])) {
                         <p><?= $e['event_overview'] ?></p>
                     </div>
                     <!--3.2.2.3.剩餘名額+瀏覽人次 -->
-                    <!-- ???跟報名連在一起 -->
                     <div class="row justify-content-between align-items-end">
                         <?php if (!$exp) : ?>
                             <?php if (!$remain) : ?>
