@@ -168,8 +168,8 @@ if ($psid != 0) {
                         <button class="btn_collect2 animate__animated animate__fadeIn" onclick="LogIn_btn()"><i class="far fa-heart"></i></i>加入收藏</button>
                     <?php else : ?>
                         <?php if (in_array($psid, $c_arr)) : ?>
-                            <button class="btn_collect2_active animate__animated animate__fadeIn" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
                             <button class="btn_collect2 d-none" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
+                            <button class="btn_collect2_active animate__animated animate__fadeIn" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
                         <?php else : ?>
                             <button class="btn_collect2 animate__animated animate__fadeIn" onclick="collectProduct()"><i class="far fa-heart"></i></i>加入收藏</button>
                             <button class="btn_collect2_active d-none" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i>已收藏</button>
