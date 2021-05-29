@@ -141,7 +141,7 @@ else {
 
     $('.pop-up-1').fadeIn(150);
     $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
-    $('.pop-up-1 .pop-up-text').text('驗證碼錯誤').addClass('text-center')
+    $('.pop-up-1 .pop-up-text').text('填寫資料有誤，資料沒有新增').addClass('text-center')
 
     $('button.ok').on('click', function () {
       $('.general-pop-up').fadeOut(150)
