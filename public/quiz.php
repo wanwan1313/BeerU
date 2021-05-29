@@ -22,15 +22,6 @@ $page_title = '啤女BeerU:心理測驗';
     <?php include __DIR__ . '../../php/common/category.php' ?>
 </section>
 
-<!-- 提示選擇pop-up-->
-<!-- <section class="general-pop-up pop-up-1 ">
-    <div class="pop-up-box d-flex flex-column justify-content-center align-items-center">
-        <div class="icon animate__animated animate__rubberBand "><i class="fas fa-times"></i></div>
-        <p class="pop-up-text">請選擇至少一個選項</p>
-        <button class="ok">我知道了</button>
-    </div>
-</section> -->
-
 <section class="quiz-wrapper" data-choice="no" data-eq="">
     <section class="quiz-1-wrap quiz-wrap " id="quiz-1-wrap">
         <div class="container">
