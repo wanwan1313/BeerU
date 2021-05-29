@@ -133,15 +133,15 @@ $(".option-wrap").click(function () {
 
         // 第三題
 
-        $(this).siblings().find(".option-3-txt").removeClass('show').prev().removeClass('show');
+        $(this).siblings().find(".option-3-txt").removeClass('show').prev().removeClass('show').prev().removeClass('active');
 
-        $(this).find(".option-3-txt").toggleClass('show').prev().toggleClass('show');
+        $(this).find(".option-3-txt").toggleClass('show').prev().toggleClass('show').prev().toggleClass('active');
 
         // 第四題
 
-        $(this).siblings().find(".option-4-title span").removeClass('show').parent().next().next().removeClass('show').siblings().children().removeClass('show');
+        $(this).siblings().find(".option-4-title span").removeClass('show').parent().next().next().removeClass('show').siblings().children().removeClass('show').parent().prev().removeClass('active');
 
-        $(this).find(".option-4-title span").toggleClass('show').parent().next().next().toggleClass('show').siblings().children().toggleClass('show');
+        $(this).find(".option-4-title span").toggleClass('show').parent().next().next().toggleClass('show').siblings().children().toggleClass('show').parent().prev().toggleClass('active');
 
         // 第五題
 
