@@ -11,6 +11,8 @@
 
 .all-product .product-banner-box.w-opacity-1 {
     opacity: 1;
+    position: relative;
+    z-index: 10;
 }
 
 .all-product .product-banner-02 {
