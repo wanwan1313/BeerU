@@ -301,7 +301,7 @@ body {
 
 .quiz-3-wrap .option-img {
     max-width: 50%;
-    opacity: 0.6;
+    opacity: 0.5;
 }
 
 .quiz-3-wrap .option-img.show {
@@ -386,7 +386,7 @@ body {
 .quiz-4-wrap .option-img {
     height: 100%;
     object-fit: contain;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 .quiz-4-wrap .option-img.show {
