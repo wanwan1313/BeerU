@@ -106,18 +106,33 @@
     #demo-carousel {
         display: none;
     }
+
+    
     .img-demo {
-        height: 400px;
+        width: 400px;
+        margin: 0 auto;
     }
     .img-demo img {
         cursor: pointer;
         width: 100%;
-        height: 100%;
-        object-fit: contain;
     }
+
+    .img-wrap {
+        display: flex;
+        width: 840px;
+        overflow: hidden;
+        
+    }
+
+    .img-row {
+        width: 200px;
+        margin: 0 10px;
+    }
+
     .img-wrap img {
         cursor: pointer;
-        width: 90%;
+        /* width: 90%; */
+        width: 100%;
     }
 }
 
