@@ -137,6 +137,7 @@
 .map .world{
     z-index:0;
     transition: .3s;
+    width:1008px;
     }
     
     .map .world svg{
@@ -164,6 +165,7 @@
     }
 
     .map  .world{
+        width:700px;
     }
 
     .map .world svg{
