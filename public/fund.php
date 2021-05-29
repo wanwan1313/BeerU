@@ -15,6 +15,10 @@ $f_SQL = "SELECT * FROM `fund`";
 $totalPriceSql = "SELECT SUM(quantity * price) AS `total` FROM `order_detail` WHERE `fund_sid` > 0";
 $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
 
+//目前贊助次數
+$totalBidSql = "SELECT SUM(quantity) AS `bid` FROM `order_detail` WHERE `fund_sid` > 0";
+$rowTotalBid = $pdo->query($totalBidSql)->fetch();
+
 
 // 目前募資的進度百分比
 // $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
@@ -95,7 +99,7 @@ if (isset($_SESSION['user'])) {
 
 
 <!-- slick js -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+<!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script> -->
 
 <!-- my-style css -->
 <link rel="stylesheet" href="../css/fund/fund.css">
@@ -233,8 +237,8 @@ if (isset($_SESSION['user'])) {
                     
                 </div>
                 <div class="sub-intro mt-5">
-                    <p>贊助人數 | 6215</p>
-                    <p>剩餘時間 | 30天 </p>
+                    <p>贊助次數 | <?=$rowTotalBid['bid']?>次</p>
+                    <p>剩餘時間 | 26天 </p>
                    <p> 計畫截止日 | 2021/06/30</p>
                 </div>
                 <a href="#plans">
@@ -557,9 +561,9 @@ if (isset($_SESSION['user'])) {
 <?php include __DIR__ . '../../php/common/script.php' ?>
 <!-- 這裡開始寫jQuery或JS -->
 
-
-<script>
-
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="../slick/slick.min.js"></script>
 </script>
 
 <!-- my script -->

@@ -3,19 +3,19 @@
 // 取值 .attr( attributeName )
 // 設值 .attr( attributeName, value )
 
-$('.img-row img').click(function () {
-    let imgSrc = $(this).attr('src');
-    $('.img-demo img').attr('src', imgSrc);
+// $('.img-row img').click(function () {
+//     let imgSrc = $(this).attr('src');
+//     $('.img-demo img').attr('src', imgSrc);
 
-    $('.img-row img').click(function () {
-        $(this).css('border', '3px solid var(--red)').siblings().css('border', 'transparent');
-    })
-})
+//     $('.img-row img').click(function () {
+//         $(this).css('border', '3px solid var(--red)').siblings().css('border', 'transparent');
+//     })
+// })
 
 
 //  ------ 頁簽切換 ------//
 // Show the first tab by default
-$('.tabs-stage div').hide();
+$('.tabs-stage > div').hide();
 $('.tabs-stage div:first').show();
 $('.tabs-nav li:first').addClass('tab-active');
 
@@ -24,7 +24,7 @@ $('.tabs-nav a').on('click', function (event) {
     event.preventDefault();
     $('.tabs-nav li').removeClass('tab-active');
     $(this).parent().addClass('tab-active');
-    $('.tabs-stage div').hide();
+    $('.tabs-stage > div').hide();
     $($(this).attr('href')).show();
 });
 
