@@ -167,9 +167,115 @@ function LogIn_btn(){
          
      })
 
-})
+    })
 
 
+}
+
+function Forget_Email(){
+
+    let isPass=true;
+
+    if(isPass){
+      
+        $.post(
+        
+            "Forget-step1-api.php",
+            $(document.UserEmail).serialize(),
+            function(data){
+
+                    if(data.success){
+                        alert('驗證碼已送出');
+                    } else {
+                        alert(data.error);
+                    }
+
+            },'json'
+
+        )
+
+    }
+}
+
+
+function Forget_check(){
+
+    let isPass=true;
+
+    if(isPass){
+      
+        $.post(
+        
+            "Forget-step2-api.php",
+            $(document.UserEmail).serialize(),
+            function(data){
+
+                    if(data.success){
+                        alert('驗證成功');
+
+                        //忘記密碼第二步
+                        if ($(window).width() >= 992){
+
+                            $('.log-box').css('width','35%').css('height','30%').css('min-height','500px').css('transition','.4s');
+                        }
+                
+                        if ($(window).width() < 992){
+                            $('.log-box').css('width','90%').css('height','50%').css('min-height','460px').css('transition','.4s');
+                        }
+                
+                
+                
+                        $('.UserEmail-wrap').fadeOut(1);
+                        $('.ForgetChagePassword-wrap').fadeIn(1000);
+
+                    } else {
+                        alert(data.error);
+                    }
+
+            },'json'
+
+        )
+
+    }
+}
+
+function Forget_reset(){
+
+    const $fp = $('.forgetPassword');
+    const $fpa = $('.forgetPassword-again');
+
+    let isPass=true;
+
+    console.log($fp.val());
+    console.log($fpa.val());
+    
+    if( $fp.val() !=  $fpa.val() ){
+
+        isPass=false;
+        alert('新舊密碼不同')
+        
+    }
+
+    if(isPass){
+      
+        $.post(
+        
+            "Forget-step3-api.php",
+            $(document.ForgetChagePassword).serialize(),
+            function(data){
+
+                    if(data.success){
+                        alert('密碼修改成功');
+                        location.reload();
+                    } else {
+                        alert(data.error);
+                    }
+
+            },'json'
+
+        )
+
+    }
 }
 
 

@@ -47,6 +47,7 @@ $(document).ready(function(){
         $('.Sign-Success').fadeOut(1);
         $('.Forget-Password').fadeOut(1);
         $('.UserEmail-wrap').fadeOut(1);
+        $('.ForgetChagePassword-wrap').fadeOut(1);
 
     });
 
@@ -220,56 +221,56 @@ $(document).ready(function(){
     })
 
 
-    // 進入驗證頁
-    $('.Sign').click(function(){
+    // // 進入驗證頁
+    // $('.Sign').click(function(){
 
-        // 驗證信送出，載入中
-        if ($(window).width() >= 992){
+    //     // 驗證信送出，載入中
+    //     if ($(window).width() >= 992){
 
-            $('.log-box').css('width','30%').css('height','20%').css('min-height','300px').css('transition','.4s')
-        }
+    //         $('.log-box').css('width','30%').css('height','20%').css('min-height','300px').css('transition','.4s')
+    //     }
 
-        if ($(window).width() < 992){
-            $('.log-box').css('width','60%').css('min-height','210px').css('height','40%').css('transition','.4s')
+    //     if ($(window).width() < 992){
+    //         $('.log-box').css('width','60%').css('min-height','210px').css('height','40%').css('transition','.4s')
 
 
 
-        }
+    //     }
         
-        $('.logo-wrap').fadeOut(1);
-        $('.cancel-quit').fadeOut(1);
-        $('.LogSign-page').fadeOut(1).css('margin-top','40px');
-        $('.Loading-page').fadeIn(1000);
+    //     $('.logo-wrap').fadeOut(1);
+    //     $('.cancel-quit').fadeOut(1);
+    //     $('.LogSign-page').fadeOut(1).css('margin-top','40px');
+    //     $('.Loading-page').fadeIn(1000);
 
 
-        setTimeout(() => {
+    //     setTimeout(() => {
 
-            $('.Loading-page').fadeOut(1);
-            $('.LogIn-Sign').fadeOut(1);
+    //         $('.Loading-page').fadeOut(1);
+    //         $('.LogIn-Sign').fadeOut(1);
 
 
-        },5000)
+    //     },5000)
 
-        setTimeout(() => {
+    //     setTimeout(() => {
 
-            $('.LogIn-Sign').fadeIn(1);
-            $('.logo-wrap').fadeIn(1000);
+    //         $('.LogIn-Sign').fadeIn(1);
+    //         $('.logo-wrap').fadeIn(1000);
         
-            //進入驗證頁面
-            $('.Check-page').fadeIn(1000);
+    //         //進入驗證頁面
+    //         $('.Check-page').fadeIn(1000);
 
 
-            if ($(window).width() >= 992){
-                $('.log-box').css('width','35%').css('height','500px').css('min-width','583px').css('transition','.4s');
-            }
+    //         if ($(window).width() >= 992){
+    //             $('.log-box').css('width','35%').css('height','500px').css('min-width','583px').css('transition','.4s');
+    //         }
 
-            if ($(window).width() < 992){
-                $('.log-box').css('width','90%').css('max-width','338px').css('height','70%').css('transition','.4s');
+    //         if ($(window).width() < 992){
+    //             $('.log-box').css('width','90%').css('max-width','338px').css('height','70%').css('transition','.4s');
 
-        }
+    //     }
 
-        },5500)
-    })
+    //     },5500)
+    // })
 
 
     // 立即註冊
@@ -532,15 +533,13 @@ $(document).ready(function(){
         });
 
 
-
-
         if ($(window).width() >= 992){
 
-            $('.log-box').css('width','35%').css('height','65%').css('min-height','500px');
+            $('.log-box').css('width','35%').css('height','65%').css('min-height','550px').css('transition','.4s');;
         }
 
         if ($(window).width() < 992){
-            $('.log-box').css('width','90%').css('height','75%').css('min-height','473px');
+            $('.log-box').css('width','90%').css('height','75%').css('min-height','473px').css('transition','.4s');;
         }
 
         $('.LogIn-page').fadeOut(1);
@@ -552,27 +551,27 @@ $(document).ready(function(){
 
 
     //忘記密碼第二步
-    $('.forget-next-btn').click(function(){
+    // $('.forget-next-btn').click(function(){
    
 
-        if ($(window).width() >= 992){
+    //     if ($(window).width() >= 992){
 
-            $('.log-box').css('width','35%').css('height','30%').css('min-height','500px');
-        }
+    //         $('.log-box').css('width','35%').css('height','30%').css('min-height','500px').css('transition','.4s');
+    //     }
 
-        if ($(window).width() < 992){
-            $('.log-box').css('width','90%').css('height','50%').css('min-height','460px');
-        }
-
-
-
-        $('.UserEmail-wrap').fadeOut(1);
-        $('.ForgetChagePassword-wrap').fadeIn(1000);
+    //     if ($(window).width() < 992){
+    //         $('.log-box').css('width','90%').css('height','50%').css('min-height','460px').css('transition','.4s');
+    //     }
 
 
 
+    //     $('.UserEmail-wrap').fadeOut(1);
+    //     $('.ForgetChagePassword-wrap').fadeIn(1000);
 
-    })
+
+
+
+    // })
 
 
     //返回登入
