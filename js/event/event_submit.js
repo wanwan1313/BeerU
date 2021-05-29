@@ -134,14 +134,14 @@ else {
 
   console.log($input_check_val)
   console.log(authCode)
-  if ($input_check_val.length >=  4 && $input_check_val != authCode) {
+  if ($input_check_val.length >= 4 && $input_check_val != authCode) {
     isPass = false;
     $input_check.css('border', '2px solid var(--pink)');
     $input_check.prev().children().css('display', 'none');
 
     $('.pop-up-1').fadeIn(150);
     $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
-    $('.pop-up-1 .pop-up-text').text('驗證碼錯誤').addClass('text-center')
+    $('.pop-up-1 .pop-up-text').text('填寫資料有誤，資料沒有新增').addClass('text-center')
 
     $('button.ok').on('click', function () {
       $('.general-pop-up').fadeOut(150)
@@ -152,6 +152,17 @@ else {
     $input_check.css('border', '2px solid var(--gold)');
     $input_check.prev().children().css('color', 'var(--gold)').css('display', 'inline-block');
   }
+  if ($input_check_val.length <  4) {
+    isPass = true;
+    $input_check.css('border', '0px solid var(--pink)');
+    $input_check.prev().children().css('display', 'none');
+
+  }
+  // else {
+  //   isPass = true
+  //   $input_check.css('border', '2px solid var(--gold)');
+  //   $input_check.prev().children().css('color', 'var(--gold)').css('display', 'inline-block');
+  // }
 }
 
 // 套入「送出」function
