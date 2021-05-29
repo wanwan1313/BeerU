@@ -68,7 +68,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
             <div class="row ">
                 <div class="col-md-6 col-sm-4  food-left">
                     <div class="food-left mt-5">
-                        <div class="pipi-flyup">
+                        <div class="pipi-flyup"></div>
                             <img src="../images/joyce_images/pipi-up.svg" alt="">
                         </div>
                         <div class="food-left-text">
@@ -81,10 +81,10 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-4 food-intro">
-                    <div class=" food-title mt-5 mb-3 animatable fadeInUp">
+                    <div class=" food-title mt-5 mb-3 animate__animated animate__fadeInUp">
                         <p>餐酒搭配</p>
                     </div>
-                    <div class="food-right-text animatable fadeInUp">
+                    <div class="food-right-text animate__animated animate__fadeInUp">
                         <h2><span class="text-highlight">餐與酒</span>的搭配，是地方文化的縮影。</h2>
                         <h2>飲酒儼然成了一種生活態度、藝術甚至是品味與知性的交流，而各種食物跟酒之間的搭配更是一門學問。</h2>
                         <h2 class="mt-5">兩者之間的搭配關係，更被法國人喻為"
