@@ -1649,15 +1649,13 @@ transform: scale(1.2);
 }
 /* ---------------------- */
 /* 6.搭配啤酒 */
-.map .card .row:nth-of-type(6){
-
-}
+/* .map .card .row:nth-of-type(6){
+} */
 /* ---------------------- */
 /* 7.按鈕 */
-.map .card .row:nth-of-type(7){
-    /* margin-top: -100px; */
-    
-}
+/* .map .card .row:nth-of-type(7){
+    margin-top: -100px;  
+} */
 .map .buttons{
     position: absolute;
     bottom:20px;
@@ -1669,13 +1667,10 @@ transform: scale(1.2);
 
 @media (max-width: 768px) {
     .map .buttons{
-
         left:8%;
-
-    }
+    }}
 /* ---------------------- */
 /* 8.stamp */
-.map .card .row:nth-of-type(8){
-
-}
+/* .map .card .row:nth-of-type(8){
+} */
 /* ---------------------- */
