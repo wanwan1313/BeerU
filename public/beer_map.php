@@ -7,72 +7,6 @@
 <?php
 $page_title = '啤女BeerU:啤酒地圖';
 
-$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
-
-$map_SQL = "SELECT * FROM `map` WHERE sid=$sid";
-$map_rows = $pdo->query($map_SQL)->fetchAll();
-$map_row = $pdo->query($map_SQL)->fetch();
-
-// $country_sid = $map_row['country_sid'];
-// echo $country_sid ;
-// $type_sid = $map_row['type_sid'];
-// echo $type_sid ;
-$map_sid =$map_row['tag_sid'];
-echo $map_sid ;
-
-
-$psid = 1;
-// 此頁商品
-$p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.`name` AS `type_name`,t4.`name` AS `merch_name` FROM `products` AS p 
-                JOIN `tags` AS t1 
-                ON p.`brand_sid` = t1.`sid`
-                JOIN `tags` AS t2 
-                ON p.`country_sid` = t2.`sid`
-                JOIN `tags` AS t3 
-                ON p.`type_sid` = t3.`sid`
-                JOIN `tags` AS t4 
-                ON p.`merch_sid` = t4.`sid`
-                WHERE p.`sid` = $psid";
-
-
-
-
-// 相關商品
-$c_SQL = "SELECT * FROM `products` WHERE `type_sid` = 54 AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
-$c_row = $pdo->query($c_SQL)->fetch();
-$c_row_sid = $c_row['sid'];
-
-// $t_SQL = "SELECT * FROM `products` WHERE `country_sid` = $country_sid AND `sid` !=  $psid ORDER BY RAND() LIMIT 1";
-// $t_row = $pdo->query($t_SQL)->fetch();
-
-// new標籤
-$deadline = strtotime('2021-05-01');
-
-// 從哪裡來
-$come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';
-$come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_replace('/[^\d=]/', '', $come_from))[1] : 0;
-
-// 抓資料庫裡的關注清單
-// 關注列
-$a_arr = [];
-// 設定登入會員後
-if (isset($_SESSION['user'])) {
-    // 設定已登入會員sid
-    $m_sid = $_SESSION['user']['sid'];
-    // 選擇attention抓tag_sid，綁定有會員sid
-    $a_SQL = "SELECT `tag_sid` FROM `attention` WHERE `member_sid` = $m_sid";
-    // 抓取建立a_row
-    $a_row = $pdo->query($a_SQL)->fetchAll();
-    // 如果有關注
-    if (!empty($a_row)) {
-        foreach ($a_row as $a) {
-            // 抓出來
-            array_push($a_arr, $a['tag_sid']);
-        }
-    }
-}
-    // echo json_encode($a_arr,JSON_UNESCAPED_UNICODE)
-    
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -545,9 +479,9 @@ if (isset($_SESSION['user'])) {
                         <path class="cls-1" d="M222.07,240.42a1.61,1.61,0,0,0,1.9,0A1.67,1.67,0,0,0,222.07,240.42Z" />
                 </svg>
                 <!-- 地點 -->
-                <div class="flag position-absolute animatable bounceIn">
-                <img id='deco' src="../images/map/SVG/deco_us.svg" alt="">
-                </div>
+                <div class="deco1 position-absolute animatable fadeInUp">
+                        <img id='deco' src="../images/map/SVG/deco_us.svg" alt="">
+                    </div>
                 <div class="flag position-absolute">
                     <img id='mug' src="../images/map/SVG/mug_us.svg" alt="">
                 </div>
@@ -632,57 +566,57 @@ if (isset($_SESSION['user'])) {
                         <path class="cls-1" d="M238.88,306.88a.92.92,0,0,0,.36-.07,1,1,0,0,0,.64-.93v-6.42a1,1,0,0,0-1.52-.86c-1.93,1.16-3,2.29-2.92,4.65a1,1,0,0,0,.26.63l2.44,2.68A1,1,0,0,0,238.88,306.88Z" />
                 </svg>
                 <!-- 地點 -->
-                
+
                 <div class="eu_flags">
-                    <div class="flag flag1 position-absolute animatable bounceIn">
+                    <div class="deco1 position-absolute animatable fadeInUp">
                         <img id='deco' src="../images/map/SVG/deco_uk.svg" alt="">
                     </div>
                     <div class="flag flag1 position-absolute">
                         <img src="../images/map/SVG/mug_uk.svg" alt="">
                     </div>
-                    <div class="flag flag2 position-absolute animatable bounceIn">
+                    <div class="deco2 position-absolute animatable fadeInUp">
                         <img id='deco' src="../images/map/SVG/deco_fc.svg" alt="">
                     </div>
                     <div class="flag flag2 position-absolute">
                         <img src="../images/map/SVG/mug_fc.svg" alt="">
                     </div>
-                    <div class="flag flag3 position-absolute animatable bounceIn">
-                        <img id='deco' src="../images/map/SVG/deco_uk.svg" alt="">
+                    <div class="deco3 position-absolute animatable fadeInUp">
+                        <img id='deco' src="../images/map/SVG/deco_bl.svg" alt="">
                     </div>
                     <div class="flag flag3  position-absolute">
                         <img src="../images/map/SVG/mug_bl.svg" alt="">
                     </div>
-                    <div class="flag flag4 position-absolute animatable bounceIn">
-                        <img id='deco' src="../images/map/SVG/deco_uk.svg" alt="">
+                    <div class="deco4 position-absolute animatable fadeInUp">
+                        <img id='deco' src="../images/map/SVG/deco_nw.svg" alt="">
                     </div>
-                    <div class="flag flag4  position-absolute">
+                    <div class="flag flag4 position-absolute">
                         <img src="../images/map/SVG/mug_nw.svg" alt="">
                     </div>
-                    <div class="flag flag5 position-absolute animatable bounceIn">
-                        <img id='deco' src="../images/map/SVG/deco_uk.svg" alt="">
+                    <div class="deco5 position-absolute animatable fadeInUp">
+                        <img id='deco' src="../images/map/SVG/deco_dm.svg" alt="">
                     </div>
-                    <div class="flag flag5  position-absolute">
+                    <div class="flag flag5 position-absolute">
                         <img src="../images/map/SVG/mug_dm.svg" alt="">
                     </div>
-                    <div class="flag flag6 position-absolute animatable bounceIn">
-                        <img id='deco' src="../images/map/SVG/deco_uk.svg" alt="">
+                    <div class="deco6 position-absolute animatable fadeInUp">
+                        <img id='deco' src="../images/map/SVG/deco_gm.svg" alt="">
                     </div>
-                    <div class="flag  flag6 position-absolute">
+                    <div class="flag flag6 position-absolute">
                         <img src="../images/map/SVG/mug_gm.svg" alt="">
                     </div>
-                    <div class="flag flag7 position-absolute animatable bounceIn">
-                        <img id='deco' src="../images/map/SVG/deco_uk.svg" alt="">
+                    <div class="deco7 position-absolute animatable fadeInUp">
+                        <img id='deco' src="../images/map/SVG/deco_sw.svg" alt="">
                     </div>
-                    <div class="flag  flag7 position-absolute">
+                    <div class="flag flag7 position-absolute">
                         <img src="../images/map/SVG/mug_sw.svg" alt="">
                     </div>
-                    <div class="flag flag8 position-absolute animatable bounceIn">
+                    <div class="deco8 position-absolute animatable fadeInUp">
                         <img id='deco' src="../images/map/SVG/deco_it.svg" alt="">
                     </div>
-                    <div class="flag  flag8 position-absolute">
+                    <div class="flag flag8 position-absolute">
                         <img src="../images/map/SVG/mug_it.svg" alt="">
                     </div>
-                    
+
                 </div>
                 <!-- 標題 -->
                 <div class="map_title position-absolute">歐洲<span>Europe</span></div>
@@ -841,15 +775,29 @@ if (isset($_SESSION['user'])) {
                 </svg>
                 <!-- 地點 -->
                 <div class="as_flags">
+                    <div class="ship position-absolute">
+                        <img src="../images/map/SVG/ship.svg" alt="">
+                    </div>
+                    <div class="deco1 position-absolute animatable fadeInUp">
+                        <img id='deco' src="../images/map/SVG/deco_jp.svg" alt="">
+                    </div>
                     <div class="flag flag1 position-absolute">
                         <img src="../images/map/SVG/mug_jp.svg" alt="">
+                    </div>
+                    <div class="deco2 position-absolute animatable fadeInUp">
+                        <img id='deco' src="../images/map/SVG/deco_rs.svg" alt="">
                     </div>
                     <div class="flag flag2 position-absolute">
                         <img src="../images/map/SVG/mug_rs.svg" alt="">
                     </div>
-
+                    <div class="deco4 position-absolute animatable fadeInUp">
+                        <img id='deco' src="../images/map/SVG/deco_vm.svg" alt="">
+                    </div>
                     <div class="flag flag4  position-absolute">
                         <img src="../images/map/SVG/mug_vm.svg" alt="">
+                    </div>
+                    <div class="deco3 position-absolute animatable fadeInUp">
+                        <img id='deco' src="../images/map/SVG/deco_sp.svg" alt="">
                     </div>
                     <div class="flag flag3  position-absolute">
                         <img src="../images/map/SVG/mug_sp.svg" alt="">
@@ -1018,7 +966,7 @@ if (isset($_SESSION['user'])) {
     </div>
 
     <!-- popup -->
-    <div class="comtainer-fulid popup align-items-center">
+    <div class="comtainer-fulid popup align-items-center d-none">
         <div class="row bg-black opacity-0">
             <div class="map-card align-items-center position-relative">
                 <!-- 1.關閉按鈕 -->
@@ -1100,41 +1048,7 @@ if (isset($_SESSION['user'])) {
                 </div>
                 <!-- 7.按鈕 -->
                 <div class=" row buttons justify-content-center flex-nowrap animatable bounceIn">
-                    <!-- ???整個州內的國家會一直顯示已關注 -->
-                    <!--加入關注-->
-                    <?php if (!isset($_SESSION['user'])) : ?>
-                        <!-- 不是會員都只會顯示加入關注       -->
-                        <button class="btn_attention btn_attention_nologin px-3 py-1 mx-5" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
-                    <?php else : ?>
-                        <!-- 是會員，有關注 -->
-                        <?php if (in_array($a['tag_sid'], $a_arr)) : ?>
-                            <!-- 顯示有關注 -->
-                            <button class="btn_attention_active px-3 py-1 mx-5 d-none">
-                                <i class="fas fa-check"></i>已關注
-                            </button>
-                            <!-- 不顯示已關注（透過按鈕觸發） -->
-                            <button class="btn_attention btn_attention_be px-3 py-1 mx-5 ">
-                                <i class="fas fa-plus"></i>加入關注
-                            </button> 
-                            <!-- 是會員，沒有關注 -->
-                        <?php else : ?>
-                            <!-- 不顯示已關注（透過按鈕觸發） -->
-                            <button class="btn_attention_active px-3 py-1 mx-5">
-                                <i class="fas fa-check"></i>已關注
-                            </button>
-                            <!-- 顯示加入關注 -->
-                            <button class="btn_attention btn_attention_be px-3 py-1 mx-5 d-none">
-                                <i class="fas fa-plus"></i>加入關注
-                            </button>  
-                        <?php endif; ?>
-                    <?php endif; ?>
-                    <a data-cate="<?= $map_row['tag_sid'] ?>"></a>
-                    <!-- 看更多商品 -->
-                    <button class="see_more btn_attention px-3 py-1 mx-5">
-                        <a class="" href='all-product.php'>
-                            看更多
-                        </a>
-                    </button>
+                    
                 </div>
             </div>
         </div>
@@ -1156,8 +1070,172 @@ if (isset($_SESSION['user'])) {
 <!-- <script src='../js/map/map_phone_option.js'></script> -->
 <script src='../js/map/map_anime_scroll.js'></script>
 <script>
-$("html,body").animate({scrollTop:0})
+    $("html,body").animate({
+        scrollTop: 0
+    })
 
+
+
+// 卡片跑出-------------------------------------
+
+const beerTPL = b => {
+    return`
+    <div class="beer">
+        <a href="each-product.php?psid=${b.sid}">
+           <div class="beer-img d-flex position-relative"><img src="../images/products/${b.pic}" alt="">
+            <div class="beer-name position-absolute">${b.c_name}</div>
+           </div>
+        </a>
+    </div>
+    `
+}
+
+// 設定一個關注按鈕的字樣
+
+const btnAttentionTPL = t => {
+    // 是否會員->沒有 關注
+    return `
+    <?php if (!isset($_SESSION['user'])) : ?>
+        <!-- 不是會員都只會顯示加入關注       -->
+        <button class="btn_attention btn_attention_nologin px-3 py-1 mx-5" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
+    <?php else : ?>
+        <!-- 顯示有關注 -->
+        <button class="btn_attention_active px-3 py-1 mx-5 d-none">
+            <i class="fas fa-check"></i>已關注
+        </button>
+        <!-- 不顯示已關注（透過按鈕觸發） -->
+        <button class="btn_attention btn_attention_be px-3 py-1 mx-5 ">
+            <i class="fas fa-plus"></i>加入關注
+        </button>
+    <?php endif; ?>
+        <!-- 看更多商品 -->
+        <button class="see_more btn_attention px-3 py-1 mx-5">
+            <a class="" href='all-product.php'>
+                看更多
+            </a>
+        </button>
+    `
+}
+const btnAttentionTPL2 = t => {
+    // 是否會員->有 關注
+    return `
+    <?php if (!isset($_SESSION['user'])) : ?>
+        <!-- 不是會員都只會顯示加入關注       -->
+        <button class="btn_attention btn_attention_nologin px-3 py-1 mx-5" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
+    <?php else : ?>
+        <!-- 不顯示已關注（透過按鈕觸發） -->
+        <button class="btn_attention_active px-3 py-1 mx-5">
+            <i class="fas fa-check"></i>已關注
+        </button>
+        <!-- 顯示加入關注 -->
+        <button class="btn_attention btn_attention_be px-3 py-1 mx-5 d-none">
+            <i class="fas fa-plus"></i>加入關注
+        </button>
+    <?php endif; ?>
+        <!-- 看更多商品 -->
+        <button class="see_more btn_attention px-3 py-1 mx-5">
+            <a class="" href='all-product.php'>
+                看更多
+            </a>
+        </button>
+    `
+}
+
+let buttons = $('.buttons')
+let beer_wrap = $('.beer-wrap')
+let b_data=[]
+
+function renderProducts() {
+    beer_wrap.html('')
+    if (b_data.beers && b_data.beers.forEach) {
+        b_data.beers.forEach(el => {
+            beer_wrap.append(beerTPL(el))
+        })
+    }
+}
+
+
+$('.map .country').click(function () {
+    // console.log('this', $(this));
+    // console.log('data-cate', $(this).attr('data-cate'));
+    // let data_cate=$(this).attr('data-cate')
+    // 動畫設置---------------------------
+    // 1.卡片跑出
+    $('.popup').removeClass('d-none')
+    $('.bg-black').show().addClass( 'opacity-1');
+    // 2.卡片動畫
+    // $('.map-card').hide()
+    // $('.map-card').addClass('animate__animated animate__flip');
+    // -------------------------------------------------
+    // 使用javascript動態修改內容(不使用php)：搜尋country-name 的p<ru; 將內容改成郵票選項的名字(.map .country)的.country_name
+    // $('.country-name p').text($(this).find('.country_name').text());
+
+    // 1.設定countryName為找到的國家名稱('.country_name')並刪除多餘空格.trim()
+    const countryName = $(this).find('.country_name').text().trim();
+
+    // 2.用jquery引入php,$.post
+    $.post(
+        // 2.1'api放入位置',
+        '/beeru/public/map-api.php',
+        // 2.2{剛才設定的變數const},
+        { countryName },
+
+        // 執行function
+        function (data) {
+            // let {map_row, cups, beers} = data;
+            // console.log(data)
+            b_data = data
+            // console.log(b_data.attention)
+            // 改國家名
+            $('.country-name p').text(data.map_row.country);
+            // 改國家介紹
+            $('.beer-intro p').text(data.map_row.intro);
+            // console.log(map_row.stamp);
+            // 改郵票圖片位址
+            $('.stamp_country img').attr("src", data.map_row.stamp);
+            // 改看更多位址
+            $('.see_more a').attr("href", data.map_row.see_more);
+            // 改背景圖（桌機）
+            $('.bg_b img').attr("src", data.map_row.bg_b);
+            // 改背景圖（手機）
+            $('.bg_s img').attr("src", data.map_row.bg_s);
+            // 改brand
+            $('.beer-brand').html(data.map_row.brands);
+            
+            // // cup1
+            // for(let i=1; i<=3; i++){
+            //     $('.cup' + i).attr("href", cups[i-1].cup_1_link);
+            //     $('.cup' + i + ' .cup-name').text(cups[i-1].cup_1_name);
+            //     $('.cup' + i + ' img').attr("src", cups[i-1].cup_1_pic);
+            // }
+
+            // cup1
+            $('.cup1').attr("href", data.map_row.cup_1_link);
+            $('.cup1 .cup-name').text(data.map_row.cup_1_name);
+            $('.cup1 img').attr("src", data.map_row.cup_1_pic);
+            // cup2
+            $('.cup2').attr("href", data.map_row.cup_2_link);
+            $('.cup2 .cup-name').text(data.map_row.cup_2_name);
+            $('.cup2 img').attr("src", data.map_row.cup_2_pic);
+            // cup3
+            $('.cup3').attr("href", data.map_row.cup_3_link);
+            $('.cup3 .cup-name').text(data.map_row.cup_3_name);
+            $('.cup3 img').attr("src", data.map_row.cup_3_pic);
+
+            // 為了抓到關注清單的tag_sid設置，不會出現在畫面上
+            let mycate = data.map_row.tag_sid
+            buttons.attr("data-cate", mycate);
+            buttons.html('')
+            if( b_data.attention.indexOf(mycate) > -1 ){
+                buttons.append(btnAttentionTPL2())
+            }else{
+                buttons.append(btnAttentionTPL())
+            }
+            renderProducts()
+        },
+        'json'
+    )
+})
 </script>
 
 
