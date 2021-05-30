@@ -99,6 +99,9 @@ function Sign_email(){
 
       
        if(isPass){
+
+        $('.Sign').attr('disabled', true).css('background-color','#7F7F7F').css('opacity','0.4');
+        
         $.post(
             'Email-check-api.php',
             $(document.Sign).serialize(),

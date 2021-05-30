@@ -195,6 +195,8 @@ function Forget_Email(){
 
     });
 
+   
+
     let isPass=true;
 
     //格式錯誤
@@ -222,6 +224,7 @@ function Forget_Email(){
 
     if(isPass){
       
+        $('.search-email').attr('disabled', true).css('background-color','#7F7F7F').css('opacity','0.4');
         $.post(
         
             "Forget-step1-api.php",
