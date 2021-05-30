@@ -2,6 +2,14 @@
 const account_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 const $account = $('.account');
 const $password = $('.password');
+const $Forget_UserEmail = $('.Forget_UserEmail');
+const $Forget_UserEmail_Check = $('.Forget_UserEmail_Check');
+
+const $fp = $('.forgetPassword');
+const $fpa = $('.forgetPassword_again');
+
+
+
 
 
 //初始錯誤狀態
@@ -23,7 +31,7 @@ function checkform_Login(){
 
 
 
- 
+
     //帳號不符合格式
     if(!account_re.test($account.val())){
         isPass = false;
@@ -172,9 +180,45 @@ function LogIn_btn(){
 
 }
 
+///忘記密碼第一步
 function Forget_Email(){
 
+    const fileds03 = [$Forget_UserEmail,$Forget_UserEmail_Check];
+
+    fileds03.forEach(el =>{
+   
+        el.css('border', '1px solid var(--gold)');
+        $('.LogIn-Sign .warn').css('display', 'none');
+        $('.send-email-warp .warn-text').css('display','block')
+        $('.send-email-warp .warn-suscess').css('display','none')
+       
+
+    });
+
     let isPass=true;
+
+    //格式錯誤
+    if(!account_re.test($Forget_UserEmail.val())){
+        isPass = false;
+        $Forget_UserEmail.css('border', 'solid 2px var(--pink)');
+        $('.send-email-warp .warn-text').css('display','none');
+        $('.send-email-warp .warn').css('display','block').children().text('Email格式錯誤');
+        ;
+
+    }
+
+    //輸入不可為空
+    if($Forget_UserEmail.val() == ''){
+        isPass = false;
+        $Forget_UserEmail.css('border', 'solid 2px var(--pink)');
+        $('.send-email-warp .warn-text').css('display','none');
+        $('.send-email-warp .warn').css('display','block').children().text('輸入不可為空');
+
+
+    }
+
+    
+
 
     if(isPass){
       
@@ -185,9 +229,17 @@ function Forget_Email(){
             function(data){
 
                     if(data.success){
-                        alert('驗證碼已送出');
+                        // alert('驗證碼已送出');
+                        $('.send-email-warp .warn-text').css('display','none')
+                        $('.send-email-warp .warn-suscess').css('display','block')
+
                     } else {
                         alert(data.error);
+                        $Forget_UserEmail.css('border', 'solid 2px var(--pink)');
+                        $('.send-email-warp .warn-text').css('display','none')
+                        $('.send-email-warp .warn-suscess').css('display','none')
+                        $('.send-email-warp .warn').css('display','block').children().text('此Email不存在');
+
                     }
 
             },'json'
@@ -203,6 +255,7 @@ function Forget_check(){
     let isPass=true;
 
     if(isPass){
+
       
         $.post(
         
@@ -211,7 +264,7 @@ function Forget_check(){
             function(data){
 
                     if(data.success){
-                        alert('驗證成功');
+                        // alert('驗證成功');
 
                         //忘記密碼第二步
                         if ($(window).width() >= 992){
@@ -229,7 +282,10 @@ function Forget_check(){
                         $('.ForgetChagePassword-wrap').fadeIn(1000);
 
                     } else {
-                        alert(data.error);
+                        // alert(data.error);
+                        $Forget_UserEmail_Check.css('border', 'solid 2px var(--pink)');
+                        $Forget_UserEmail_Check.next().css('display','block').children().text('驗證碼錯誤');
+
                     }
 
             },'json'
@@ -239,22 +295,74 @@ function Forget_check(){
     }
 }
 
+
+///忘記密碼第三步
 function Forget_reset(){
 
-    const $fp = $('.forgetPassword');
-    const $fpa = $('.forgetPassword-again');
+    const fileds04 = [$fp,$fpa];
+
+    fileds04.forEach(el =>{
+   
+        el.css('border', '1px solid var(--gold)');
+        $('.LogIn-Sign .warn').css('display', 'none');
+        
+
+
+    });
+
 
     let isPass=true;
 
-    console.log($fp.val());
-    console.log($fpa.val());
-    
+
     if( $fp.val() !=  $fpa.val() ){
 
         isPass=false;
-        alert('新舊密碼不同')
+        $fp.css('border', 'solid 2px var(--pink)');
+        $fp.next().css('display','block').children().text('輸入密碼不同');
+
+        $fpa.css('border', 'solid 2px var(--pink)');
+        $fpa.next().css('display','block').children().text('輸入密碼不同');
+
         
     }
+
+
+    //密碼為 6 碼以上
+    if($fp.val().length < 6){
+
+        isPass = false;
+        $fp.css('border', 'solid 2px var(--pink)');
+        $fp.next().css('display','block').children().text('密碼不可小於6碼');
+
+    }
+    if($fpa.val().length < 6){
+
+        isPass = false;
+        $fpa.css('border', 'solid 2px var(--pink)');
+        $fpa.next().css('display','block').children().text('密碼不可小於6碼');
+
+    }
+
+
+
+    if($fp.val()==''){
+        isPass=false;
+
+        $fp.css('border', 'solid 2px var(--pink)');
+        $fp.next().css('display','block').children().text('輸入不可為空');
+
+    }
+    if($fpa.val()==''){
+
+        isPass=false;
+        $fpa.css('border', 'solid 2px var(--pink)');
+        $fpa.next().css('display','block').children().text('輸入不可為空');
+
+    }
+
+
+     
+
 
     if(isPass){
       
@@ -265,8 +373,14 @@ function Forget_reset(){
             function(data){
 
                     if(data.success){
-                        alert('密碼修改成功');
-                        location.reload();
+                        $('.LogIn-Sign').fadeOut(100);
+                        $('.pop-up-1').fadeIn(150);
+                        $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color','var(--gold)')
+                        $('.pop-up-1 .pop-up-text').text('修改密碼成功');
+                        $('button.ok').on('click', function () {
+                            location.reload();
+                        })
+                        
                     } else {
                         alert(data.error);
                     }

@@ -9,6 +9,13 @@ $(document).ready(function(){
     const $nickname = $('.nickname');
     const $birthday = $('.birthday');
 
+    const $Forget_UserEmail = $('.Forget_UserEmail');
+    const $Forget_UserEmail_Check = $('.Forget_UserEmail_Check');
+
+    const $fp = $('.forgetPassword');
+    const $fpa = $('.forgetPassword_again');
+    
+
         
     //會員登入的視覺效果
 
@@ -17,12 +24,49 @@ $(document).ready(function(){
 
         const fileds01 = [$account,$password];
 
+        const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+
+        const fileds03 = [$Forget_UserEmail,$Forget_UserEmail_Check];
+
+        const fileds04 = [$fp,$fpa];
+
         fileds01.forEach(el =>{
         
             el.css('border', '1px solid var(--gold)');
             $('.warn').css('display', 'none');
             
 
+        });
+
+        fileds02.forEach(el2 =>{
+    
+            el2.css('border', '1px solid var(--gold)');
+            $('.LogIn-Sign .warn').css('display', 'none');
+            $newAccount.next().css('display','block');
+            $newPassword.next().css('display','block');
+    
+    
+        
+        });
+    
+
+        fileds03.forEach(el =>{
+   
+            el.css('border', '1px solid var(--gold)');
+            $('.LogIn-Sign .warn').css('display', 'none');
+            $('.send-email-warp .warn-text').css('display','block')
+            $('.send-email-warp .warn-suscess').css('display','none')
+           
+    
+        });
+
+        fileds04.forEach(el =>{
+   
+            el.css('border', '1px solid var(--gold)');
+            $('.LogIn-Sign .warn').css('display', 'none');
+            
+    
+    
         });
 
 
@@ -63,9 +107,13 @@ $(document).ready(function(){
 
     const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
 
-    fileds01.forEach(el2 =>{
+    const fileds03 = [$Forget_UserEmail,$Forget_UserEmail_Check];
+
+    const fileds04 = [$fp,$fpa];
+
+    fileds01.forEach(el =>{
     
-        el2.css('border', '1px solid var(--gold)');
+        el.css('border', '1px solid var(--gold)');
         $('.warn').css('display', 'none');
         
 
@@ -80,6 +128,25 @@ $(document).ready(function(){
 
 
     
+    });
+
+    fileds03.forEach(el =>{
+   
+        el.css('border', '1px solid var(--gold)');
+        $('.LogIn-Sign .warn').css('display', 'none');
+        $('.send-email-warp .warn-text').css('display','block')
+        $('.send-email-warp .warn-suscess').css('display','none')
+       
+
+    });
+
+    fileds04.forEach(el =>{
+   
+        el.css('border', '1px solid var(--gold)');
+        $('.LogIn-Sign .warn').css('display', 'none');
+        
+
+
     });
 
     
@@ -513,6 +580,8 @@ $(document).ready(function(){
 
         const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
 
+        const fileds03 = [$Forget_UserEmail,$Forget_UserEmail_Check];
+
         fileds01.forEach(el =>{
         
             el.css('border', '1px solid var(--gold)');
@@ -530,6 +599,18 @@ $(document).ready(function(){
 
 
         
+        });
+
+        
+
+        fileds03.forEach(el =>{
+   
+            el.css('border', '1px solid var(--gold)');
+            $('.LogIn-Sign .warn').css('display', 'none');
+            $('.send-email-warp .warn-text').css('display','block')
+            $('.send-email-warp .warn-suscess').css('display','none')
+           
+    
         });
 
 
@@ -580,6 +661,8 @@ $(document).ready(function(){
 
         const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
 
+        const fileds03 = [$Forget_UserEmail,$Forget_UserEmail_Check];
+
         fileds01.forEach(el =>{
         
             el.css('border', '1px solid var(--gold)');
@@ -597,6 +680,17 @@ $(document).ready(function(){
 
         });
 
+        
+
+        fileds03.forEach(el =>{
+   
+            el.css('border', '1px solid var(--gold)');
+            $('.LogIn-Sign .warn').css('display', 'none');
+            $('.send-email-warp .warn-text').css('display','block')
+            $('.send-email-warp .warn-suscess').css('display','none')
+           
+    
+        });
 
 
         if ($(window).width() >= 992){

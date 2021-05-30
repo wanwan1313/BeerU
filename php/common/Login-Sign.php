@@ -269,17 +269,20 @@
                     <div class="Forget-UserEmail">
                         <h3>E-mail信箱</h3>
                         <i class="far fa-envelope email-icon01"></i>
-                        <input class="input-btn" type="email" id="Forget-UserEmail" name="ForgetUserEmail" >
+                        <input class="input-btn Forget_UserEmail" type="email" id="Forget-UserEmail" name="ForgetUserEmail" >
                     </div>
                     <div class="send-email-warp d-flex">
                         <small class="warn-text">請輸入您的電子信箱來傳送驗證碼</small>
-                        <button class="search-email"  type="submit" onclick="Forget_Email();return false">搜尋</button>
+                        <small class="warn-suscess"><i class="fas fa-check"></i>驗證碼已傳送</small>
+                        <small class="warn"><i class="far fa-times-circle"></i></small>
+                        <button class="search-email"  type="submit" onclick="Forget_Email();return false">傳送</button>
                     </div>
                    
 
                     <div class="Forget-Check">
                         <h3>請輸入驗證碼</h3>
-                        <input class="input-btn" type="text" id="Forget-UserEmail-Check" name="Forget_UserEmail_Check">
+                        <input class="input-btn Forget_UserEmail_Check" type="text" id="Forget-UserEmail-Check" name="Forget_UserEmail_Check">
+                        <small class="warn"><i class="far fa-times-circle"></i></small>
                         <div class="resend-warp d-flex">
                             <i class="fas fa-redo-alt"></i>
                             <button class="resende-code-btn" 
@@ -301,14 +304,16 @@
 
                     <div class="Forget-change">
                         <h3>輸入新密碼</h3>
-                        <i class="fas fa-lock lock-icon03"></i>
+                        <i class="fas fa-lock lock-icon04"></i>
                         <input class="input-btn forgetPassword" type="password" id="forgetPassword" name="forgetPassword">
+                        <small class="warn"><i class="far fa-times-circle"></i></small>
                     </div>
 
                     <div class="Forget-change-again">
                         <h3>再次輸入密碼</h3>
-                        <i class="fas fa-lock lock-icon03"></i>
-                        <input class="input-btn forgetPassword-again" type="password" id="forgetPassword-again" name="forgetPassword_again">
+                        <i class="fas fa-lock lock-icon04"></i>
+                        <input class="input-btn forgetPassword_again" type="password" id="forgetPassword-again" name="forgetPassword_again">
+                        <small class="warn"><i class="far fa-times-circle"></i></small>
                     </div>
 
                     <button class="Forget-change-btn" type="submit" onclick="Forget_reset();return false">重新修改密碼</button>

@@ -83,7 +83,7 @@ function Sign_email(){
 
        }
 
-       //密碼為 6 碼以上的英文或數字
+       //密碼為 6 碼以上
        
 
        if($newPassword.val().length < 6){

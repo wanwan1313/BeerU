@@ -80,6 +80,8 @@ if($a_stmt->rowCount()){
     }
 
 
+}else{
+    $output['error']= '找不到此email';
 }
 
 

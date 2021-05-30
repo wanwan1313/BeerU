@@ -302,6 +302,11 @@
     color :  #7F7F7F;
 }
 
+.LogIn-Sign .warn-suscess{
+    display: none;
+    color: var(--blue);
+}
+
 
 
 
@@ -1180,6 +1185,13 @@
 .LogIn-Sign .Forget-change-again{
     position: relative;
     margin-top: 25px;
+}
+
+.LogIn-Sign .lock-icon04{
+    position: absolute;
+    color: var(--gold);
+    top: 38px;
+    left: 2%;
 }
 
 .LogIn-Sign .Forget-change-again h3{
