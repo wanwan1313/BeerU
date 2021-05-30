@@ -1996,7 +1996,7 @@ if (isset($_SESSION['user'])) {
     }
 
     let maxAge = maxYear + '-' + setMonth(maxMonth) + '-' + maxDate;
-    $('.birthday').attr('max', maxAge);
+    $('.edit_birthday').attr('max', maxAge);
 
 
 
@@ -2083,7 +2083,8 @@ if (isset($_SESSION['user'])) {
     // 重設密碼
     function checkform_restPassword() {
 
-
+          
+        let  isPass = true;
         //初始狀態
         password_fileds.forEach(el => {
 
@@ -2106,6 +2107,36 @@ if (isset($_SESSION['user'])) {
             $resetPassword.next().css('display', 'block').children().text('密碼不可以相同');
 
 
+
+
+        }
+
+
+        //密碼為 6 碼以上
+        if($resetPassword.val().length < 6){
+
+            isPass = false;
+            $resetPassword.css('border', '2px solid var(--pink)');
+            $resetPassword.next().css('display', 'block').children().text('密碼不可小於6碼');
+
+
+        }
+        if($resetPassword_again.val().length < 6){
+
+            isPass = false;
+            $resetPassword_again.css('border', '2px solid var(--pink)');
+            $resetPassword_again.next().css('display', 'block').children().text('密碼不可小於6碼');
+
+        }
+
+        //再次輸入密碼要跟新密碼一樣
+        if ($resetPassword.val() != $resetPassword_again.val()) {
+            isPass = false;
+            $resetPassword.css('border', '2px solid var(--pink)');
+            $resetPassword.next().css('display', 'block').children().text('新密碼不相同');
+
+            $resetPassword_again.css('border', '2px solid var(--pink)');
+            $resetPassword_again.next().css('display', 'block').children().text('新密碼不相同');
 
 
         }
@@ -2138,23 +2169,6 @@ if (isset($_SESSION['user'])) {
 
             $resetPassword_again.css('border', '2px solid var(--pink)');
             $resetPassword_again.next().css('display', 'block').children().text('輸入不可以為空');
-
-        }
-
-
-
-
-        //再次輸入密碼要跟新密碼一樣
-        if ($resetPassword.val() != $resetPassword_again.val()) {
-            isPass = false;
-            $resetPassword.css('border', '2px solid var(--pink)');
-            $resetPassword.next().css('display', 'block').children().text('新密碼不相同');
-
-            $resetPassword_again.css('border', '2px solid var(--pink)');
-            $resetPassword_again.next().css('display', 'block').children().text('新密碼不相同');
-
-
-
 
         }
 
