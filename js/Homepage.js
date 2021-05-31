@@ -108,6 +108,42 @@ $(document).ready(function () {
                 $('#content-wrap').fadeIn();
                 $('#beeru-nav-bar').fadeIn();
 
+                if ($(window).width() >= 992) {
+                    $('.colllection-items-warp').slick({
+            
+                        // arrows: false,
+                        dots: true,
+                        infinite: true,
+                        slidesToShow: 4,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                    
+                        autoplaySpeed: 2000
+                        
+                    
+                    });
+                }
+            
+            
+            
+                if ($(window).width() < 992){
+                    $('.colllection-items-warp').slick({
+            
+                        arrows: false,
+                        dots: true,
+                        infinite: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: 2000
+                        
+                    
+                    });
+            
+                }
+
+
+
 
             }, 4500)
 
@@ -232,6 +268,40 @@ $(document).ready(function () {
         $('#LandingPage').addClass('OUT');
         $('#content-wrap').css('display', 'block').css('opacity', '1');
 
+
+        if ($(window).width() >= 992) {
+            $('.colllection-items-warp').slick({
+    
+                // arrows: false,
+                dots: true,
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                autoplay: true,
+            
+                autoplaySpeed: 2000
+                
+            
+            });
+        }
+    
+    
+    
+        if ($(window).width() < 992){
+            $('.colllection-items-warp').slick({
+    
+                arrows: false,
+                dots: true,
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000
+                
+            
+            });
+    
+        }
 
         setTimeout(() => {
 
@@ -688,39 +758,39 @@ $(document).ready(function () {
     })
 
     
-    if ($(window).width() >= 992) {
-        $('.colllection-items-warp').slick({
+    // if ($(window).width() >= 992) {
+    //     $('.colllection-items-warp').slick({
 
-            // arrows: false,
-            dots: true,
-            infinite: true,
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            autoplay: true,
+    //         // arrows: false,
+    //         dots: true,
+    //         infinite: true,
+    //         slidesToShow: 4,
+    //         slidesToScroll: 1,
+    //         autoplay: true,
         
-            autoplaySpeed: 2000
+    //         autoplaySpeed: 2000
             
         
-        });
-    }
+    //     });
+    // }
 
 
 
-    if ($(window).width() < 992){
-        $('.colllection-items-warp').slick({
+    // if ($(window).width() < 992){
+    //     $('.colllection-items-warp').slick({
 
-            arrows: false,
-            dots: true,
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 2000
+    //         arrows: false,
+    //         dots: true,
+    //         infinite: true,
+    //         slidesToShow: 1,
+    //         slidesToScroll: 1,
+    //         autoplay: true,
+    //         autoplaySpeed: 2000
             
         
-        });
+    //     });
 
-    }
+    // }
 
     
 
