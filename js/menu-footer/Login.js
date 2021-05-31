@@ -242,11 +242,13 @@ function Forget_Email(){
                         $('.send-email-warp .warn-suscess').css('display','block')
 
                     } else {
-                        alert(data.error);
+                        // alert(data.error);
                         $Forget_UserEmail.css('border', 'solid 2px var(--pink)');
                         $('.send-email-warp .warn-text').css('display','none')
                         $('.send-email-warp .warn-suscess').css('display','none')
                         $('.send-email-warp .warn').css('display','block').children().text('此Email不存在');
+
+                        $('.search-email').attr('disabled', false).css('background-color','var(--gold)').css('opacity','1'); 
 
                     }
 
