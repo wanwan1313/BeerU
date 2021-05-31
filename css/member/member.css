@@ -35,6 +35,7 @@ body {
     top: -60%;
     left: 38%;
     transform: rotate(45deg);
+    opacity: 0;
 }
 
 /* 手機版 */

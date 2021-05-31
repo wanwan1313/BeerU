@@ -4,6 +4,7 @@
 }
 
 .member .member-title img.anima {
+    opacity: 1;
     animation:pipileave 1.2s 1.5s;
     animation-fill-mode: forwards;
 }
