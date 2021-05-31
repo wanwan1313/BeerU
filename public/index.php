@@ -20,12 +20,12 @@ $row = $pdo->query($h_sql)->fetchAll();
 <!-- 包含自己的css和js -->
 
 <!-- slick css-->
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
 
 
 <!-- slick js -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+<script type="text/javascript" src="../slick/slick.min.js" defer></script>
 
 <!-- HomepageJs -->
 <script src="../js/Homepage.js" defer></script>
