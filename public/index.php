@@ -92,12 +92,12 @@ $row = $pdo->query($h_sql)->fetchAll();
 
 
 <!-- 內容開始 -->
-<div class="content-wrap animate__animated animate__fadeIn" id="content-wrap">
+<div class="content-wrap " id="content-wrap">
 
 <a href="javascript:" id="return-to-top"><img src="../images/common/top.svg" alt=""></a>
     
     <!-- 首頁 -->
-    <section class="home">
+    <section class="home animate__animated animate__fadeIn">
         <div class="home_bg ">
 
             <div class="Logo_wrap animate__animated animate__slideInDown">

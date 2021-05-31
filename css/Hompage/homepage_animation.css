@@ -50,6 +50,10 @@
     --animate-duration: 3s;
     --animate-delay: 5s;
 }
+.animate__animated.animate__fadeIn{
+    --animate-duration: 2s;
+    --animate-delay: 5s;
+}
 
 
 .pipi-flyout{
