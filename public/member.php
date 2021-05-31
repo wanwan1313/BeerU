@@ -2111,6 +2111,19 @@ if (isset($_SESSION['user'])) {
 
         }
 
+        
+        //再次輸入密碼要跟新密碼一樣
+        if ($resetPassword.val() != $resetPassword_again.val()) {
+            isPass = false;
+            $resetPassword.css('border', '2px solid var(--pink)');
+            $resetPassword.next().css('display', 'block').children().text('新密碼不相同');
+
+            $resetPassword_again.css('border', '2px solid var(--pink)');
+            $resetPassword_again.next().css('display', 'block').children().text('新密碼不相同');
+
+
+        }
+
 
         //密碼為 6 碼以上
         if($resetPassword.val().length < 6){
@@ -2129,17 +2142,6 @@ if (isset($_SESSION['user'])) {
 
         }
 
-        //再次輸入密碼要跟新密碼一樣
-        if ($resetPassword.val() != $resetPassword_again.val()) {
-            isPass = false;
-            $resetPassword.css('border', '2px solid var(--pink)');
-            $resetPassword.next().css('display', 'block').children().text('新密碼不相同');
-
-            $resetPassword_again.css('border', '2px solid var(--pink)');
-            $resetPassword_again.next().css('display', 'block').children().text('新密碼不相同');
-
-
-        }
 
         //輸入不能為空
         if ($oldPassword.val() == '') {
