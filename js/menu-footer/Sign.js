@@ -165,6 +165,8 @@ function Sign_email(){
                     $newAccount.css('border', 'solid 2px var(--pink)');
                     $newAccount.next().css('display','none');
                     $newAccount.next().next().css('display','block').children().text('帳號已註冊');
+
+                    $('.Sign').attr('disabled', false).css('background-color','var(--gold)').css('opacity','1');;
                 }
             },'json'
         )
