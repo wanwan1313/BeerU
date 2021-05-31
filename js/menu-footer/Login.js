@@ -191,6 +191,9 @@ function Forget_Email(){
         $('.LogIn-Sign .warn').css('display', 'none');
         $('.send-email-warp .warn-text').css('display','block')
         $('.send-email-warp .warn-suscess').css('display','none')
+
+        $('.send-email-warp .warn-text').text('請輸入您的電子信箱來傳送驗證碼')
+        $('.search-email').attr('disabled', false).css('background-color','var(--gold)').css('opacity','1');
        
 
     });

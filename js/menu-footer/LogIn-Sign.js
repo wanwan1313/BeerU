@@ -56,6 +56,9 @@ $(document).ready(function(){
             $('.LogIn-Sign .warn').css('display', 'none');
             $('.send-email-warp .warn-text').css('display','block')
             $('.send-email-warp .warn-suscess').css('display','none')
+
+            
+            
            
     
         });
@@ -93,6 +96,11 @@ $(document).ready(function(){
         $('.UserEmail-wrap').fadeOut(1);
         $('.ForgetChagePassword-wrap').fadeOut(1);
 
+        $('.send-email-warp .warn-text').text('請輸入您的電子信箱來傳送驗證碼')
+        $('.search-email').attr('disabled', false).css('background-color','var(--gold)').css('opacity','1');
+
+        
+
     });
 
 
@@ -101,6 +109,9 @@ $(document).ready(function(){
 
     //按周圍區域退出
     $('.log-sandbox').click(function(){
+
+    $('.send-email-warp .warn-text').text('請輸入您的電子信箱來傳送驗證碼')
+    $('.search-email').attr('disabled', false).css('background-color','var(--gold)').css('opacity','1');
 
     $('.LogIn-Sign').fadeOut(300);
     const fileds01 = [$account,$password];
@@ -136,6 +147,8 @@ $(document).ready(function(){
         $('.LogIn-Sign .warn').css('display', 'none');
         $('.send-email-warp .warn-text').css('display','block')
         $('.send-email-warp .warn-suscess').css('display','none')
+
+       
        
 
     });
@@ -155,55 +168,56 @@ $(document).ready(function(){
 
     $('.cancel-quit').click(function(){
         $('.Check-page').fadeOut(300);
-    $('.LogIn-Sign').fadeOut(300);
-    const fileds01 = [$account,$password];
-    const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+        $('.LogIn-Sign').fadeOut(300);
+        const fileds01 = [$account,$password];
+        const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
 
-    fileds01.forEach(el =>{
-    
-        el.css('border', '1px solid var(--gold)');
-        $('.warn').css('display', 'none');
+        fileds01.forEach(el =>{
         
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+            
 
-    });
+        });
 
-    fileds02.forEach(el2 =>{
-    
-        el2.css('border', '1px solid var(--gold)');
-        $('.LogIn-Sign .warn').css('display', 'none');
-        $newAccount.next().css('display','block');
-        $newPassword.next().css('display','block');
+        fileds02.forEach(el2 =>{
+        
+            el2.css('border', '1px solid var(--gold)');
+            $('.LogIn-Sign .warn').css('display', 'none');
+            $newAccount.next().css('display','block');
+            $newPassword.next().css('display','block');
 
 
-    
-    });
+        
+        });
 
     })
 
     $('.later-check').click(function(){
-    $('.Check-page').fadeOut(300);
-    $('.LogIn-Sign').fadeOut(300);
-    const fileds01 = [$account,$password];
-    const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
-
-    fileds01.forEach(el =>{
-    
-        el.css('border', '1px solid var(--gold)');
-        $('.warn').css('display', 'none');
         
+        $('.Check-page').fadeOut(300);
+        $('.LogIn-Sign').fadeOut(300);
+        const fileds01 = [$account,$password];
+        const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
 
-    });
+        fileds01.forEach(el =>{
+        
+            el.css('border', '1px solid var(--gold)');
+            $('.warn').css('display', 'none');
+            
 
-    fileds02.forEach(el2 =>{
-    
-        el2.css('border', '1px solid var(--gold)');
-        $('.LogIn-Sign .warn').css('display', 'none');
-        $newAccount.next().css('display','block');
-        $newPassword.next().css('display','block');
+        });
+
+        fileds02.forEach(el2 =>{
+        
+            el2.css('border', '1px solid var(--gold)');
+            $('.LogIn-Sign .warn').css('display', 'none');
+            $newAccount.next().css('display','block');
+            $newPassword.next().css('display','block');
 
 
-    
-    });
+        
+        });
 
     })
 
@@ -609,6 +623,9 @@ $(document).ready(function(){
             $('.LogIn-Sign .warn').css('display', 'none');
             $('.send-email-warp .warn-text').css('display','block')
             $('.send-email-warp .warn-suscess').css('display','none')
+
+            $('.send-email-warp .warn-text').text('請輸入您的電子信箱來傳送驗證碼')
+            $('.search-email').attr('disabled', false).css('background-color','var(--gold)').css('opacity','1');
            
     
         });
@@ -688,6 +705,9 @@ $(document).ready(function(){
             $('.LogIn-Sign .warn').css('display', 'none');
             $('.send-email-warp .warn-text').css('display','block')
             $('.send-email-warp .warn-suscess').css('display','none')
+
+            $('.send-email-warp .warn-text').text('請輸入您的電子信箱來傳送驗證碼')
+            $('.search-email').attr('disabled', false).css('background-color','var(--gold)').css('opacity','1');
            
     
         });
