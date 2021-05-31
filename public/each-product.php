@@ -968,9 +968,7 @@ if ($psid != 0) {
 
     // ------------------------------------------------------------
     // ----------------------------element scrollin視窗滾動-----------------------------//
-    $(window).scroll(function() {
-
-
+    function pageAnima() {
         let userScrollTop = $(window).scrollTop()
         let halfWindowHeight = $(window).height() / 6 * 5
         $('.w-scrollin-start').each(function() {
@@ -1026,10 +1024,6 @@ if ($psid != 0) {
                     }, 50);
                 }, 100)
 
-                // setTimeout(function() {
-                //     $('.comments-for-product').addClass('w-scrollin-on')
-                // }, 400)
-
             }, 200)
         } else {
             $('.sub-title').removeClass('w-scrollin-on')
@@ -1037,9 +1031,11 @@ if ($psid != 0) {
             $('.score-general').removeClass('w-scrollin-on')
             $('.average-score').removeClass('animate__animated animate__bounceIn').css('opacity', '0')
             $('.comment-score').removeClass('animate__animated animate__fadeInDown').css('opacity', '0')
-            // $('.comments-for-product').removeClass('w-scrollin-on')
         }
-
+    }
+    pageAnima()
+    $(window).scroll(function() {
+        pageAnima()
     })
 
 
