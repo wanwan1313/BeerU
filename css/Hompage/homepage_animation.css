@@ -51,7 +51,7 @@
     --animate-delay: 5s;
 }
 .animate__animated.animate__fadeIn{
-    --animate-duration: 2s;
+    --animate-duration: 2.5s;
     --animate-delay: 5s;
 }
 
