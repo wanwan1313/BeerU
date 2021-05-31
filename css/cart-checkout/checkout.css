@@ -1,3 +1,7 @@
+body {
+    background-color: #fff;
+}
+
 .checkout {
     width: 100%;
     background-color: #fff;
@@ -24,6 +28,7 @@
 .checkout .checkout-title {
     background: url(../../images/common/h1_2_b.svg) no-repeat center center;
     background-size: contain;
+    opacity: 0;
 
 }
 

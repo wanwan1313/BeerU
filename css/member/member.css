@@ -1,3 +1,6 @@
+body {
+    background-color: #fff;
+}
 .member {
     background-color: #fff;
     color: var(--blue);
@@ -21,6 +24,7 @@
     background: url(../../images/common/h1_4_b.svg) no-repeat center center;
     background-size: contain;
     transform: translateY(-150%);
+    opacity: 0;
 
 }
 
@@ -31,7 +35,6 @@
     top: -60%;
     left: 38%;
     transform: rotate(45deg);
-    opacity: 0;
 }
 
 /* 手機版 */

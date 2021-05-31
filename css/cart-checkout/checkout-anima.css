@@ -1,19 +1,21 @@
 .checkout .checkout-title {
-    animation:titledown 1.2s ;
+    animation:titledown 1.2s .2s;
     animation-fill-mode: forwards;
 }
 
 .checkout .checkout-title img {
-    animation:pipileave 1.2s 1.3s;
+    animation:pipileave 1.2s 1.5s;
     animation-fill-mode: forwards;
 }
 
 @keyframes titledown {
     0% {
-        transform: translateY(-120%);
+        transform: translateY(-180%);
+        opacity: 0;
     }
     100% {
         transform: translateY(0);
+        opacity: 1;
     }
 }
 
@@ -51,6 +53,11 @@
         transform: scale(1);
     }
 }
+
+
+
+
+
 .text-wrap {
     width: 300px;
 }
