@@ -119,6 +119,40 @@ if ($psid != 0) {
 <link rel="stylesheet" href="../css/all-product/each-product-style.css">
 <link rel="stylesheet" href="../css/all-product/each-product-anima.css">
 
+<!-- slick css-->
+<link rel="stylesheet" type="text/css" href="../slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="../slick/slick-theme.css" />
+
+<style>
+    .slick-dots li button:before {
+        font-family: 'slick';
+        font-size: 6px;
+        line-height: 20px;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 20px;
+        height: 20px;
+
+        content: '•';
+        text-align: center;
+
+        opacity: .25;
+        color: var(--blue);
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .slick-dots li.slick-active button:before {
+        opacity: .75;
+        color: var(--blue);
+    }
+</style>
+
+
 
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
@@ -759,6 +793,9 @@ if ($psid != 0) {
 
 <?php include __DIR__ . '../../php/common/html-body-footer.php' ?>
 <?php include __DIR__ . '../../php/common/script.php' ?>
+
+<!-- slick js -->
+<script type="text/javascript" src="../slick/slick.min.js"></script>
 <!-- 這裡開始寫jQuery或JS -->
 
 <script>
@@ -949,14 +986,22 @@ if ($psid != 0) {
         if ($('.rpco-title').hasClass('w-scrollin-on')) {
             setTimeout(function() {
                 let beer_i = 0
-                $('.beer-product-wrap').eq(0).addClass('animate__animated animate__flipInX').css('opacity', '1')
-                var bt = setInterval(function() {
-                    beer_i = beer_i + 1;
-                    $('.beer-product-wrap').eq(beer_i).addClass('animate__animated animate__flipInX').css('opacity', '1')
-                    if (beer_i == 2) {
-                        clearInterval(bt)
-                    }
-                }, 150);
+
+                if ($(window).width() >= 992) {
+                    $('.beer-product-wrap').eq(0).addClass('animate__animated animate__flipInX').css('opacity', '1')
+                    var bt = setInterval(function() {
+                        beer_i = beer_i + 1;
+                        $('.beer-product-wrap').eq(beer_i).addClass('animate__animated animate__flipInX').css('opacity', '1')
+                        if (beer_i == 2) {
+                            clearInterval(bt)
+                        }
+                    }, 150);
+                }
+
+                if ($(window).width() < 992) {
+                    $('.beer-product-wrap').css('opacity', '1')
+                }
+
             }, 300)
         } else {
             $('.beer-product-wrap').removeClass('animate__animated animate__flipInX').css('opacity', '0')
@@ -1009,6 +1054,25 @@ if ($psid != 0) {
             clearInterval(key_t)
         }
     }, 150);
+
+
+
+
+    // slick----------------------------------------------------------------------------------
+    if ($(window).width() < 992) {
+        $('.related-p').slick({
+
+            arrows: false,
+            dots: true,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000
+
+        });
+
+    }
 </script>
 
 <?php include __DIR__ . '../../php/common/html-end.php' ?>
