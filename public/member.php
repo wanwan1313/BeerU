@@ -2083,8 +2083,8 @@ if (isset($_SESSION['user'])) {
     // 重設密碼
     function checkform_restPassword() {
 
-          
-        let  isPass = true;
+
+        let isPass = true;
         //初始狀態
         password_fileds.forEach(el => {
 
@@ -2111,7 +2111,7 @@ if (isset($_SESSION['user'])) {
 
         }
 
-        
+
         //再次輸入密碼要跟新密碼一樣
         if ($resetPassword.val() != $resetPassword_again.val()) {
             isPass = false;
@@ -2126,7 +2126,7 @@ if (isset($_SESSION['user'])) {
 
 
         //密碼為 6 碼以上
-        if($resetPassword.val().length < 6){
+        if ($resetPassword.val().length < 6) {
 
             isPass = false;
             $resetPassword.css('border', '2px solid var(--pink)');
@@ -2134,7 +2134,7 @@ if (isset($_SESSION['user'])) {
 
 
         }
-        if($resetPassword_again.val().length < 6){
+        if ($resetPassword_again.val().length < 6) {
 
             isPass = false;
             $resetPassword_again.css('border', '2px solid var(--pink)');
@@ -2910,14 +2910,20 @@ if (isset($_SESSION['user'])) {
         if (a_data.accum_comment == 1) {
             $('.my-comment-a .c-title').text('目前累積')
             $('.my-comment-a .num').text('1筆')
+            $('.my-comment-a .achieveitem-box').removeClass('get')
             $('.my-comment-a .mycircle').addClass('c-30')
-            $('.my-comment-a .geta-text').text('距離領獎還差2筆，加油！')
+            $('.my-comment-a .geta-text').removeClass('ispink').text('距離領獎還差2筆，加油！')
+            $('.my-comment-a button.getachieve').addClass('d-none')
+            $('.my-comment-a button.not-getachieve').removeClass('d-none')
         }
         if (a_data.accum_comment == 2) {
             $('.my-comment-a .c-title').text('目前累積')
             $('.my-comment-a .num').text('2筆')
+            $('.my-comment-a .achieveitem-box').removeClass('get')
             $('.my-comment-a .mycircle').addClass('c-60')
-            $('.my-comment-a .geta-text').text('距離領獎還差1筆，加油！')
+            $('.my-comment-a .geta-text').removeClass('ispink').text('距離領獎還差1筆，加油！')
+            $('.my-comment-a button.getachieve').addClass('d-none')
+            $('.my-comment-a button.not-getachieve').removeClass('d-none')
         }
         if (a_data.accum_comment >= 3) {
             $('.my-comment-a .c-title').text('累積3筆')
@@ -2941,14 +2947,20 @@ if (isset($_SESSION['user'])) {
         if (a_data.accum_fund == 1) {
             $('.my-fund-a .c-title').text('目前累積')
             $('.my-fund-a .num').text('1筆')
+            $('.my-fund-a .achieveitem-box').removeClass('get')
             $('.my-fund-a .mycircle').addClass('c-30')
-            $('.my-fund-a .geta-text').text('距離領獎還差2筆，加油！')
+            $('.my-fund-a .geta-text').removeClass('ispink').text('距離領獎還差2筆，加油！')
+            $('.my-fund-a button.getachieve').addClass('d-none')
+            $('.my-fund-a button.not-getachieve').removeClass('d-none')
         }
         if (a_data.accum_fund == 2) {
             $('.my-fund-a .c-title').text('目前累積')
             $('.my-fund-a .num').text('2筆')
+            $('.my-fund-a .achieveitem-box').removeClass('get')
             $('.my-fund-a .mycircle').addClass('c-60')
-            $('.my-fund-a .geta-text').text('距離領獎還差1筆，加油！')
+            $('.my-fund-a .geta-text').removeClass('ispink').text('距離領獎還差1筆，加油！')
+            $('.my-fund-a button.getachieve').addClass('d-none')
+            $('.my-fund-a button.not-getachieve').removeClass('d-none')
         }
         if (a_data.accum_fund >= 3) {
             $('.my-fund-a .c-title').text('累積3筆')
@@ -2972,14 +2984,20 @@ if (isset($_SESSION['user'])) {
         if (a_data.accum_event == 1) {
             $('.my-event-a .c-title').text('目前累積')
             $('.my-event-a .num').text('1筆')
+            $('.my-event-a .achieveitem-box').removeClass('get')
             $('.my-event-a .mycircle').addClass('c-30')
-            $('.my-event-a .geta-text').text('距離領獎還差2筆，加油！')
+            $('.my-event-a .geta-text').removeClass('ispink').text('距離領獎還差2筆，加油！')
+            $('.my-event-a button.getachieve').addClass('d-none')
+            $('.my-event-a button.not-getachieve').removeClass('d-none')
         }
         if (a_data.accum_event == 2) {
             $('.my-event-a .c-title').text('目前累積')
             $('.my-event-a .num').text('2筆')
+            $('.my-event-a .achieveitem-box').removeClass('get')
             $('.my-event-a .mycircle').addClass('c-60')
-            $('.my-event-a .geta-text').text('距離領獎還差1筆，加油！')
+            $('.my-event-a .geta-text').removeClass('ispink').text('距離領獎還差1筆，加油！')
+            $('.my-event-a button.getachieve').addClass('d-none')
+            $('.my-event-a button.not-getachieve').removeClass('d-none')
         }
         if (a_data.accum_event >= 3) {
             $('.my-event-a .c-title').text('累積3筆')
