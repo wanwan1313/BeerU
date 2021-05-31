@@ -98,7 +98,7 @@ $(document).ready(function(){
 
         $('.send-email-warp .warn-text').text('請輸入您的電子信箱來傳送驗證碼')
         $('.search-email').attr('disabled', false).css('background-color','var(--gold)').css('opacity','1');
-
+        $('.Sign').attr('disabled', false).css('background-color','var(--gold)').css('opacity','1');
         
 
     });
@@ -110,8 +110,11 @@ $(document).ready(function(){
     //按周圍區域退出
     $('.log-sandbox').click(function(){
 
+
     $('.send-email-warp .warn-text').text('請輸入您的電子信箱來傳送驗證碼')
     $('.search-email').attr('disabled', false).css('background-color','var(--gold)').css('opacity','1');
+
+    $('.Sign').attr('disabled', false).css('background-color','var(--gold)').css('opacity','1');
 
     $('.LogIn-Sign').fadeOut(300);
     const fileds01 = [$account,$password];
@@ -194,7 +197,7 @@ $(document).ready(function(){
     })
 
     $('.later-check').click(function(){
-        
+
         $('.Check-page').fadeOut(300);
         $('.LogIn-Sign').fadeOut(300);
         const fileds01 = [$account,$password];

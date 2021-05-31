@@ -228,7 +228,7 @@ function Forget_Email(){
     if(isPass){
       
         $('.search-email').attr('disabled', true).css('background-color','#7F7F7F').css('opacity','0.4');
-        $('.send-email-warp .warn-text').text('寄送中....')
+        $('.send-email-warp .warn-text').text('傳送中....')
 
         $.post(
         
