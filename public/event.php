@@ -222,7 +222,7 @@ if (isset($_SESSION['user'])) {
 
 <!-- my script -->
 <script src='../js/event/event_anime_banner.js'></script>
-<script src='../js/event/event_anime_scroll.js'></script>
+<script src='../js/event/event_anime_scroll_no_round.js'></script>
 <script src='../js/event/event_anime_text.js'></script>
 <script src='../js/event/event_scroll_to_top.js'></script>
 <script src='../js/event/event.js'></script>
