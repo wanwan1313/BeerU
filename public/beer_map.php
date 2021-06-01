@@ -1176,7 +1176,7 @@ $('.map .country').click(function () {
     // 2.用jquery引入php,$.post
     $.post(
         // 2.1'api放入位置',
-        '/beeru/public/map-api.php',
+        '/Beeru/public/map-api.php',
         // 2.2{剛才設定的變數const},
         { countryName },
 
