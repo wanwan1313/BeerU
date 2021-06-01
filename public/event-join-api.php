@@ -16,8 +16,6 @@ $output = [
     'post' => $_POST
 ];
 //------------------------------
-$a_mail = $_SESSION['user']['email'];
-//------------------------------
 // event_sid
 $event_sid = isset($_POST['event_sid']) ? intval($_POST['event_sid']) : NULL;
 
@@ -115,13 +113,52 @@ if( $Join > 0) {
     $mail->FromName = "BeerU"; //寄件者姓名
 
     $mail->Subject = "BeerU啤女:品飲會【預約成功】通知信"; //郵件標題
+//------------------------------
+// 抓資料
 
+// 抓email和暱稱
+$a_mail = $_SESSION['user']['email'];
+$a_nickname = $_SESSION['user']['nickname'];
+
+// 抓活動資料
+$e_SQL = "SELECT * FROM `event` WHERE sid=$event_sid";
+$e = $pdo->query($e_SQL)->fetch();
+
+// 抓同伴姓名電話
+$ej_SQL = "SELECT * FROM `event_join` WHERE `event_sid`=$event_sid";
+$ej = $pdo->query($ej_SQL)->fetch();
+$ej_stmt = $pdo->prepare($ej_SQL);
+$ej_stmt->execute([ $_POST['p1_name'] ]);
+$ej_stmt->execute([ $_POST['p1_mobile'] ]);
+$ej_stmt->execute([ $_POST['p2_name'] ]);
+$ej_stmt->execute([ $_POST['p2_mobile'] ]);
+
+$p1_name = $_POST['p1_name'];
+$p1_mobile = $_POST['p1_mobile'];
+$p2_name = $_POST['p2_name'];
+$p2_mobile = $_POST['p2_mobile'];
+//------------------------------
     // 郵件內容
     $mail->Body =
-    "<h4>親愛的會員：</h4>";
-    //  .$m_nickname.
-    "<br/><h4>您已報名成功</h4>";
-    //  .$m_newAccount;
+    "<p>親愛的 ".$a_nickname."：</p>".
+     
+    "<br><h2 style='color:#B66496;'>🎉 🙌 您已報名成功 🥳 🎊 </h2>".
+    "<br><p>以下是您報名的內容</p>".
+    "<h4 style='color:#b69564;'>➤ 報名主題：</h4>".
+    "<p style='font-weight:bold;'>【".$e['event_title']."】</p>".
+    "<h4 style='color:#b69564;'>➤ 活動時間：</h4>".$e['event_time'].
+    "<h4 style='color:#b69564;'>➤ 活動地點：</h4>".$e['event_place'].
+    "<h4 style='color:#b69564;'>➤ 活動地址：</h4>".$e['event_address'].
+    "<h4 style='color:#b69564;'>➤ 價格：</h4>"."<p>NT$".$e['event_price']."</p>".
+    "<p>*費用為當天當場繳交，活動前一個禮拜不開放取消</p>".
+// 這裡要改成其他網址???
+   "👉"."<a href='http://192.168.8.157/beeru/public/member.php?memberEvent'> 詳細內容由此進入</a>"."<br>".
+    "<br><p>⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎⁎</p>".
+    "<h4 style='color:#b69564;'>➤我的同伴：</h4>".
+    $p1_name."<br>".$p1_mobile."<br><br>".
+    $p2_name."<br>".$p2_mobile."<br>".
+    "<p>別忘了提醒您的同伴一同前往～🍺</p>".
+    "<br><br><p>啤女 敬上</p>";
 
     $mail->IsHTML(true);//郵件內容為html
     $mail->AddAddress("$a_mail"); //收件者郵件及名稱
