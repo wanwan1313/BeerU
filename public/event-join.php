@@ -458,14 +458,20 @@ $left_people = $e['event_people'] - $totalp;
                         </div>
                         <!-- 驗證碼 -->
                         <form action="">
-                            <div class="cant_copy form-title mb-5 mt-5 flex-nowrap text-center text-md-left pb-4 pb-md-0 js5-input-div" id="js5-form" ng-controller="enterCtrl">
+                            <div class="cant_copy form-title mb-5 mt-5 flex-nowrap text-md-left pb-4 pb-md-0 js5-input-div" id="js5-form" ng-controller="enterCtrl">
                                 <span class="js5-input-divSpan">驗證碼
                                     <i class="fas fa-check"></i>
                                 </span>
-                                <!-- 設required都無效? -->
-                                <input name='checkCode' type="text" placeholder="區分大小寫" onfocus="this.placeholder = ''" onblur="this.placeholder = '區分大小寫'"class='checkCode js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:150px" oninput="getValue();" onporpertychange="getValue();" required>
-                                <input type="text" class="js5-authCode mx-3" style="width:100px;background-color:var(--red);color:var(--yellow);font-size:2rem;font-weight:bold;text-align:center;letter-spacing:.25rem;border:1px solid white;font-family:'Noto Serif TC', serif;" value="" id="js5-authCode" ng-model="showAuthCode" disabled="disabled" oncopy="return false">
-                                <a class='recode' href="javascript:"><i class="fas fa-undo-alt" style="font-size:1.4rem;letter-spacing:0"> 重新獲取驗證碼</i></a>
+
+                                <input name='checkCode' type="text" placeholder="區分大小寫" onfocus="this.placeholder = ''" onblur="this.placeholder = '區分大小寫'"class='checkCode js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:90px" oninput="getValue();" onporpertychange="getValue();" required>
+
+                                <input type="text" class="js5-authCode mx-2" style="width:75px;background-color:var(--red);color:var(--yellow);font-size:2rem;font-weight:bold;text-align:center;letter-spacing:.1rem;border:1px solid white;font-family:'Noto Serif TC', serif;" value="" id="js5-authCode" ng-model="showAuthCode" disabled="disabled" oncopy="return false">
+                                
+                                <a class='recode' href="javascript:">
+                                    <i class="fas fa-undo-alt" style="font-size:1.6rem;margin-right:-5px;"></i>
+                                     <p class='ml-md-1 ml-0 d-md-inline-block d-none' style='letter-spacing:.25rem'>重新獲取驗證碼</p>
+                                </a>
+                                <p class='memo d-none'>＊驗證碼錯誤</p>
                             </div>
                         </form>
                         <!-- 活動資訊 -->
