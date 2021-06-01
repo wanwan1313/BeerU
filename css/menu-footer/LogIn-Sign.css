@@ -679,13 +679,29 @@
     font-weight: bold;
 }
 
+.logSign-infotext {
+    margin: 10px auto 0 auto;
+    width: 100%;
+    color: var(--blue);
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: 'Noto Sans TC', serif;
+    font-weight: normal;
+    
+}
+
+.logSign-infotext span{
+    color: var(--pink);
+    cursor: pointer;
+}
+
 .LogIn-Sign .logSign-btn{
     border-radius: 5px;
     width: 100%;
     border: transparent;
     font-family: 'Noto Sans TC', serif;
     font-weight: normal;
-    margin-top: 25px;
+    margin-top: 10px;
     cursor: pointer;
     color: white;
     text-align: center;
@@ -1027,7 +1043,7 @@
     position: absolute;
     color: var(--gold);
     top: 40px;
-    left: 2%;;
+    left: 3%;;
 }
 
 @media (max-width: 991px) {

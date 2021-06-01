@@ -27,7 +27,8 @@ function Sign_email(){
          // $newAccount.next().css('display','block');
         // $newPassword.next().css('display','block');
 
-      
+
+        
       
         //帳號不符合格式
         if(!account_re.test($newAccount.val())){
@@ -95,7 +96,14 @@ function Sign_email(){
 
        }
 
-       
+
+       //未勾選同意
+       if($(".infotext").prop("checked") == false){
+        isPass = false;
+        $(".infotext").next().next().css('display','block').children().text('尚未勾選同意')
+
+        }
+      
 
       
        if(isPass){

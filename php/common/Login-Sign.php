@@ -151,6 +151,12 @@
                             <p>按下註冊鈕的同時，表示您已詳閱我們的資料使用政策與使用條款，同意使用<span>啤女</span>所提供的服務並訂閱電子報。</p>
                         </div>
 
+                        <div class="logSign-infotext">
+                            <input type="checkbox" class="infotext">
+                            <label >我同意啤女的隱私政策條款<span>條款與細則</span>及<span>條款與細則</span>。</label >
+                            <small class="warn"><i class="far fa-times-circle"></i></small>
+                        </div>
+
                         <button type="submit" class="logSign-btn Sign" >註冊</button>
 
                         <div class="already-account">

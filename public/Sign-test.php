@@ -151,6 +151,15 @@ $page_title = '登入測試';
             </div>
 
 
+            <div class="logSign-infotext">
+                <input type="checkbox" class="infotext" >
+                <label >我同意啤女的隱私政策條款<span>條款與細則</span>及<span>條款與細則</span>。</label >
+                <small class="warn"><i class="far fa-times-circle"></i></small>
+
+                <button onclick="test()">按鈕</button>
+            </div>
+
+
 
 </div>
 <?php include __DIR__ . '../../php/common/script.php' ?>
@@ -158,7 +167,17 @@ $page_title = '登入測試';
 
 
 <script>
+function test(){
 
+    if($(".infotext").prop("checked") == false){
+
+        
+    }
+
+
+   
+
+}
 
 
 
