@@ -90,9 +90,10 @@ else {
         //     }
         // });
     };
+
+    // point!前面先指定動作計算內容，後面才能綁定動作!
+    // 進入視窗window,觸發trigger捲軸scroll
     doAnimations()
-        // point!前面先指定動作計算內容，後面才能綁定動作!
-        // 進入視窗window,觸發trigger捲軸scroll
     $(window).trigger('scroll');
     // 綁定scroll與動畫do animations
     $(window).on('scroll', doAnimations);
