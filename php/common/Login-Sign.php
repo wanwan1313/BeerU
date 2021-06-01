@@ -153,7 +153,7 @@
 
                         <div class="logSign-infotext">
                             <input type="checkbox" class="infotext">
-                            <label >我同意啤女的隱私政策條款<span>條款與細則</span>及<span>條款與細則</span>。</label >
+                            <label >我同意啤女的隱私政策條款<span>條款與細則</span>及<span>隱私政策條款</span></label >
                             <small class="warn"><i class="far fa-times-circle"></i></small>
                         </div>
 
