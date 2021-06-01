@@ -1,42 +1,73 @@
 /* 顏色 */
-.blue{
-    color:var(--blue);      
+
+.blue {
+    color: var(--blue);
 }
-    .red{
-    color:var(--red);      
+
+.red {
+    color: var(--red);
 }
-    .aaa{
- color:#aaa;
+
+.aaa {
+    color: #aaa;
 }
+
 
 /*文字 */
-.lh15{
-    line-height:1.5;
+
+.lh15 {
+    line-height: 1.5;
 }
 
+
 /* input裡面的文字不按照工版分太開 */
-.join form input{
+
+.join form input {
     font-size: 1.4rem;
 }
+
+
 /*webkit瀏覽器專用*/
-.join form ::-webkit-input-placeholder { letter-spacing: .25rem; }
+
+.join form ::-webkit-input-placeholder {
+    letter-spacing: .25rem;
+}
+
+
 /*Firefox 4-18瀏覽器專用*/
-.join form input::-moz-placeholder { letter-spacing: .25rem; }
+
+.join form input::-moz-placeholder {
+    letter-spacing: .25rem;
+}
+
+
 /*Firefox 19+瀏覽器專用*/
-.join form input::-moz-placeholder{letter-spacing: .25rem;}
+
+.join form input::-moz-placeholder {
+    letter-spacing: .25rem;
+}
+
+
 /*IE10瀏覽器專用*/
-.join form :-ms-input-placeholder{letter-spacing:.25rem;}
+
+.join form :-ms-input-placeholder {
+    letter-spacing: .25rem;
+}
+
 
 /* 間距 */
 
-.event .row, .join .row{
-margin-left: 0;
-margin-left:0;
-padding-left:0;
-padding-right:0
+.event .row,
+.join .row {
+    margin-left: 0;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0
 }
 
+
 /* 加入關注.btn_attention */
+
 .btn_attention {
     white-space: nowrap;
     font-family: 'Noto Serif TC', serif;
@@ -78,7 +109,9 @@ padding-right:0
     color: var(--gold);
 }
 
+
 /* btn_join */
+
 .btn_join {
     white-space: nowrap;
     text-align: center;
@@ -88,7 +121,7 @@ padding-right:0
     font-size: 1.8rem;
     font-weight: 700;
     letter-spacing: 0.15rem;
-    background-color:var(--blue);
+    background-color: var(--blue);
     border: 1.5px solid var(--blue);
     cursor: pointer;
     transition: .3s;
@@ -102,7 +135,7 @@ padding-right:0
 
 .btn_join:hover {
     background-color: transparent;
-    color:var(--blue);
+    color: var(--blue);
 }
 
 .btn_join_active {
@@ -120,25 +153,21 @@ padding-right:0
 .btn_join_active:hover {
     background-color: transparent;
     color: var(--blue);
-    
 }
 
-.full{
+.full {
     background-color: var(--red);
     color: white;
     border: 1.5px solid var(--red);
 }
 
-
-.full:hover{
+.full:hover {
     background-color: white;
     color: var(--red);
     border: 1.5px solid var(--red);
 }
 
-
-
-.over{
+.over {
     font-family: 'Noto Serif TC', serif;
     color: #fff;
     font-size: 1.8rem;
@@ -147,45 +176,49 @@ padding-right:0
     background-color: var(--gold);
     color: white;
     border: 1.5px solid var(--gold);
-    max-width:552px;
+    max-width: 552px;
 }
-.over:hover{
+
+.over:hover {
     background-color: transparent;
     color: var(--gold);
     border: 1.5px solid var(--gold);
 }
-.return{
+
+.return {
     background-color: white;
     color: var(--gold);
     border: 1.5px solid var(--gold);
     margin-top: 100px;
-    margin-bottom:100px;
+    margin-bottom: 100px;
     max-width: 555px;
     min-width: 291px;
 }
 
 @media (max-width: 992px) {
-    .return{
+    .return {
         margin-top: 50px;
-        margin-bottom:50px;
+        margin-bottom: 50px;
     }
-   }
+}
 
-.return:hover{
+.return:hover {
     background-color: transparent;
     color: var(--gold);
     border: 1.5px solid var(--gold);
 }
 
-.calender{
-    font-family: 'Noto Sans TC',sans-serif;
+.calender {
+    font-family: 'Noto Sans TC', sans-serif;
     font-weight: normal;
-    transform:scale(.7);
-    padding-left:10px;
-    padding-right:10px;
+    transform: scale(.7);
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
+
 /* 了解更多know-more */
+
 .know-more {
     white-space: nowrap;
     font-family: 'Noto Serif TC', serif;
@@ -251,7 +284,9 @@ padding-right:0
     opacity: 0;
 }
 
+
 /* 收藏btn_collect */
+
 .btn_collect,
 .btn_collect_active {
     white-space: nowrap;
@@ -285,142 +320,168 @@ padding-right:0
     color: var(--red);
 }
 
+
 /* 分享按鈕 */
-.fb, .line, .share{
-    margin-left:15px;
+
+.fb,
+.line,
+.share {
+    margin-left: 15px;
 }
+
 .share {
     font-size: 1.9rem;
- }
+}
 
 
- /* title */
+/* title */
+
 
 /* ------------------------------------ */
- /* js-css-tool */
 
- /* 關閉，消失 */
-.display-none{
+
+/* js-css-tool */
+
+
+/* 關閉，消失 */
+
+.display-none {
     display: none;
 }
 
+
 /* 點開，顯示 */
-.display-block{
+
+.display-block {
     display: block;
 }
-.display-flex{
+
+.display-flex {
     display: flex;
 }
 
 
 /* 無限重複 */
-.infinite{
-    animation-iteration-count:infinite;
+
+.infinite {
+    animation-iteration-count: infinite;
 }
 
+
 /* 持續時間 */
-.time-7s{
+
+.time-7s {
     animation-duration: 7s;
 }
 
-.time-3s{
+.time-3s {
     animation-duration: 3s;
 }
-.time-2s{
+
+.time-2s {
     animation-duration: 2s;
 }
 
-.time-075s{
+.time-075s {
     animation-duration: .75s;
 }
 
-.time-05s{
+.time-05s {
     animation-duration: .5s;
 }
 
-.time-03s{
+.time-03s {
     animation-duration: .3s;
 }
 
-.time-025s{
+.time-025s {
     animation-duration: .25s;
 }
 
+
 /* 回復原位 */
-.X_0{
-transform:translateX(0);
+
+.X_0 {
+    transform: translateX(0);
 }
 
-
-.zx_996{
+.zx_996 {
     z-index: 996;
 }
-.zx_995{
+
+.zx_995 {
     z-index: 995;
 }
-.zx_994{
+
+.zx_994 {
     z-index: 994;
 }
-.zx_993{
+
+.zx_993 {
     z-index: 993;
 }
-.zx_992{
+
+.zx_992 {
     z-index: 992;
 }
-.zx_991{
+
+.zx_991 {
     z-index: 991;
 }
 
+
 /* 手機版選項預設位置 */
-.top625{
-    top:625px;
+
+.top625 {
+    top: 625px;
 }
 
-.top_145{
-    top:-145px;
+.top_145 {
+    top: -145px;
 }
+
 
 /* 白光暈 */
 
-.shadow_gold{
-    filter: drop-shadow(1px 1px 2px var(--gold)) 
-          drop-shadow(-1px -1px 2px var(--gold));
+.shadow_gold {
+    filter: drop-shadow(1px 1px 2px var(--gold)) drop-shadow(-1px -1px 2px var(--gold));
     -webkit-filter: drop-shadow(1px 1px 2px var(--gold))drop-shadow(-1px -1px 2px var(--gold));
 }
 
 
 /* 動畫：先放大再消失 */
+
+
 /* .bigerclose{
     transform:scale(2) ;
     opacity: 0;
     transition: transform .5s ease-in-out 0s, opacity .5s ease-in-out 1s;
 } */
 
-
-.pipi_beer_fly{
+.pipi_beer_fly {
     animation-name: pipi_beer_fly;
     animation-duration: 1.5s;
     animation-timing-function: linear;
-   animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
 }
 
 @keyframes pipi_beer_fly {
     0% {
         transform: translate(0);
-       
     }
-
     50% {
-        transform: translate(10px,-10px);
+        transform: translate(10px, -10px);
     }
-
     100% {
         transform: translate(0);
-    }}
+    }
+}
 
-    /* anime scroll------------------------------------------------ */
-  
-     /* animated animations */
+
+/* anime scroll------------------------------------------------ */
+
+
+/* animated animations */
 
 .animatable {
     /* initially hide animatable objects */
@@ -432,6 +493,7 @@ transform:translateX(0);
     -o-animation-play-state: paused;
     animation-play-state: paused;
 }
+
 
 /* show objects being animated */
 
@@ -454,7 +516,9 @@ transform:translateX(0);
     animation-play-state: running;
 }
 
+
 /* fadeInUp */
+
 @-webkit-keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -506,126 +570,123 @@ transform:translateX(0);
     animation-name: fadeInUp;
 }
 
+
 /* moveUp */
+
 @-webkit-keyframes moveUp {
-	0% {
-		opacity: 1;
-		-webkit-transform: translateY(40px);
-	}	100% {
-		opacity: 1;
-		-webkit-transform: translateY(0);
-	}
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+    }
 }
 
 @-moz-keyframes moveUp {
-	0% {
-		opacity: 1;
-		-moz-transform: translateY(40px);
-	}
-
-	100% {
-		opacity: 1;
-		-moz-transform: translateY(0);
-	}
+    0% {
+        opacity: 1;
+        -moz-transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        -moz-transform: translateY(0);
+    }
 }
 
 @-o-keyframes moveUp {
-	0% {
-		opacity: 1;
-		-o-transform: translateY(40px);
-	}
-
-	100% {
-		opacity: 1;
-		-o-transform: translateY(0);
-	}
+    0% {
+        opacity: 1;
+        -o-transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        -o-transform: translateY(0);
+    }
 }
 
 @keyframes moveUp {
-	0% {
-		opacity: 1;
-		transform: translateY(40px);
-	}
+    0% {
+        opacity: 1;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
 .animated.moveUp {
-	-webkit-animation-name: moveUp;
-	-moz-animation-name: moveUp;
-	-o-animation-name: moveUp;
-	animation-name: moveUp;
+    -webkit-animation-name: moveUp;
+    -moz-animation-name: moveUp;
+    -o-animation-name: moveUp;
+    animation-name: moveUp;
 }
+
 
 /* bounceIn */
+
 @-moz-keyframes bounceIn {
-	0% {
-		opacity: 0;
-		-moz-transform: scale(.3);
-	}
-
-	50% {
-		-moz-transform: scale(1.05);
-	}
-
-	70% {
-		-moz-transform: scale(.9);
-	}
-
-	100% {
-		opacity: 1;
-		-moz-transform: scale(1);
-	}
+    0% {
+        opacity: 0;
+        -moz-transform: scale(.3);
+    }
+    50% {
+        -moz-transform: scale(1.05);
+    }
+    70% {
+        -moz-transform: scale(.9);
+    }
+    100% {
+        opacity: 1;
+        -moz-transform: scale(1);
+    }
 }
 
 @-o-keyframes bounceIn {
-	0% {
-		opacity: 0;
-		-o-transform: scale(.3);
-	}
-
-	50% {
-		-o-transform: scale(1.05);
-	}
-
-	70% {
-		-o-transform: scale(.9);
-	}
-
-	100% {
-		opacity: 1;
-		-o-transform: scale(1);
-	}
+    0% {
+        opacity: 0;
+        -o-transform: scale(.3);
+    }
+    50% {
+        -o-transform: scale(1.05);
+    }
+    70% {
+        -o-transform: scale(.9);
+    }
+    100% {
+        opacity: 1;
+        -o-transform: scale(1);
+    }
 }
 
 @keyframes bounceIn {
-	0% {
-		opacity: 0;
-		transform: scale(.3);
-	}
-
-	50% {
-		transform: scale(1.05);
-	}
-
-	70% {
-		transform: scale(.9);
-	}
-
-	100% {
-		opacity: 1;
-		transform: scale(1);
-	}
+    0% {
+        opacity: 0;
+        transform: scale(.3);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
+
 .animated.bounceIn {
-	-webkit-animation-name: bounceIn;
-	-moz-animation-name: bounceIn;
-	-o-animation-name: bounceIn;
-	animation-name: bounceIn;
+    -webkit-animation-name: bounceIn;
+    -moz-animation-name: bounceIn;
+    -o-animation-name: bounceIn;
+    animation-name: bounceIn;
     animation-delay: .6s;
 }
+
+
 /* -------------return to top -------------*/
 
 #return-to-top {
@@ -645,7 +706,7 @@ transform:translateX(0);
     left: 16px;
     top: 13px;
     font-size: 19px;
-    transition:.3s;
+    transition: .3s;
     /* opacity:.4; */
 }
 
@@ -655,6 +716,7 @@ transform:translateX(0);
     /* transform: scale(1.1); */
     /* opacity:1; */
 }
+
 
 /* 手機版 */
 
@@ -667,7 +729,31 @@ transform:translateX(0);
     }
 }
 
+
 /* scroll - swing - 特效 */
+
 html {
     scroll-behavior: swing;
+}
+
+
+/* scroll-v2---------------------------- */
+
+
+/* 往上滑動出現 */
+
+.w-scrollin-start {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: .5s;
+}
+
+.w-scrollin-anima {
+    opacity: 0;
+    transition: .5s;
+}
+
+.w-scrollin-on {
+    opacity: 1;
+    transform: translateY(0px);
 }
