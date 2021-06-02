@@ -121,6 +121,9 @@ if (isset($_SESSION['user'])) {
 
             //3.設定人數小於5--->要變成紅色
             $remain =  $left_people < 5;
+            // 已額滿
+            $full =  $left_people < 1
+
         ?>
             <div class="row justify-content-between align-items-center event-card animatable fadeInUp">
                 <!-- 3.2.1.banner -->
@@ -142,15 +145,21 @@ if (isset($_SESSION['user'])) {
                         <?php if (!$exp) : ?>
                             <?php if (!$remain) : ?>
                                 <li class='quota blue'>
-                                    剩餘名額：<?= $left_people ?>
+                                    剩餘名額：
+                                    <?= $left_people ?>
                                     /<?= $e['event_people'] ?></li>
                             <?php else : ?>
                                 <li class='quota red'>
-                                    剩餘名額：<?= $left_people ?>
+                                    剩餘名額：<?php if ($full) : ?>0<?php else : ?>
+                                    <?= $left_people ?><?php endif ?>
                                     /<?= $e['event_people'] ?></li>
                             <?php endif ?>
                         <?php else : ?>
-                            <li class='quota blue invisible'>剩餘名額：<?= $e['event_join'] ?>/<?= $e['event_people'] ?></li>
+                            <li class='quota blue invisible'>
+                                剩餘名額：
+                                    <?= $left_people ?>
+                                    <?= $e['event_join'] ?>
+                                    /<?= $e['event_people'] ?></li>
                         <?php endif ?>
                         <li class='review'><i class="far fa-eye"></i>
                             <?= $e['event_visited'] ?></li>
@@ -181,9 +190,15 @@ if (isset($_SESSION['user'])) {
                                     </button>
                                 <?php endif; ?>
                             <?php endif; ?>
+                            <?php if ($full) : ?>
+                                <a data-cate="<?= $e['sid'] ?>" href="../public/event-join.php?sid=<?= $e['sid'] ?>" class='col-6'>
+                                <div class='btn_join full'>已額滿</div>
+                            </a>
+                            <?php else : ?>
                             <a data-cate="<?= $e['sid'] ?>" href="../public/event-join.php?sid=<?= $e['sid'] ?>" class='col-6'>
                                 <div class='btn_join'>立即報名</div>
                             </a>
+                            <?php endif ?>
                         <?php else : ?>
                             <li class='quota aaa col-6 px-0'>已結束</li>
                             <a href="../public/event-over.php" class='col-6'>
@@ -222,7 +237,7 @@ if (isset($_SESSION['user'])) {
 
 <!-- my script -->
 <script src='../js/event/event_anime_banner.js'></script>
-<script src='../js/event/event_anime_scroll.js'></script>
+<script src='../js/event/event_anime_scroll_no_round.js'></script>
 <script src='../js/event/event_anime_text.js'></script>
 <script src='../js/event/event_scroll_to_top.js'></script>
 <script src='../js/event/event.js'></script>
