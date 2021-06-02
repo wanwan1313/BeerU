@@ -51,7 +51,7 @@
 
 .credit-cart-input input.borderispink,
 .credit-cart-input .select.borderispink {
-    border: 1.2px solid var(--pink);
+    border: 2px solid var(--pink);
 }
 
 .credit-cart-input input.input-cart-number,

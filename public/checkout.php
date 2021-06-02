@@ -750,7 +750,7 @@ if (isset($_SESSION['cart']['fund'])) {
         $("#payment").val('信用卡付款')
         $('.credit-card').fadeIn(150)
         $('#payment').next().html('<i class="fas fa-exclamation-circle"></i>募資方案僅能使用信用卡付款')
-        $('#orderStatus').text('感謝您的贊助！')
+        $('#orderStatus').html('<a href="member.php?memberFund">查看進度</a>')
 
         let fsid = <?= isset($_SESSION['cart']['fund']['sid']) ? $_SESSION['cart']['fund']['sid'] : 0 ?>;
         $('.backtocart').html(`<a href="fund-final.php?sid=${fsid}">
@@ -1174,10 +1174,14 @@ if (isset($_SESSION['cart']['fund'])) {
 
         // 檢查信用卡表格
         if ($('#payment').val() == '信用卡付款') {
-            let cardInput = $('.credit-cart-input input')
+            let cardInput = $('.card-number-grop input')
+            let cardInputHolder = $('.js-card-holder')
             let cardSelect = $('.credit-cart-input .selectdate')
+            let cardCCV = $('.js-card-ccv')
 
             cardInput.removeClass('borderispink')
+            cardInputHolder.removeClass('borderispink')
+            cardCCV.removeClass('borderispink')
             $('.credit-cart-input .select').removeClass('borderispink')
             $('.credit-cart-input').prev().html('')
 
@@ -1186,11 +1190,22 @@ if (isset($_SESSION['cart']['fund'])) {
                 cardInput.addClass('borderispink')
                 $('.credit-cart-input').prev().html('<i class="far fa-times-circle"></i>請輸入正確的信用卡資訊')
             }
+            if (cardInputHolder.val().length < 5) {
+                isPass = false
+                cardInputHolder.addClass('borderispink')
+                $('.credit-cart-input').prev().html('<i class="far fa-times-circle"></i>請輸入正確的信用卡資訊')
+            }
             if (cardSelect.val() == '') {
                 isPass = false
                 $('.credit-cart-input .select').addClass('borderispink')
                 $('.credit-cart-input').prev().html('<i class="far fa-times-circle"></i>請輸入正確的信用卡資訊')
             }
+            if (cardCCV.val().length < 3) {
+                isPass = false
+                cardCCV.addClass('borderispink')
+                $('.credit-cart-input').prev().html('<i class="far fa-times-circle"></i>請輸入正確的信用卡資訊')
+            }
+
 
 
         }

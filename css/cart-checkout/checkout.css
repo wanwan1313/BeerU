@@ -400,6 +400,14 @@ body {
 
 }
 
+.checkout #orderStatus a{
+    transition: .3s;
+}
+
+.checkout #orderStatus a:hover{
+    opacity: .8;
+}
+
 
 /* -----------------繼續購物--------------- */
 .checkout .keep-shop {
