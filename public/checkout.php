@@ -706,7 +706,7 @@ if (isset($_SESSION['cart']['fund'])) {
 
                         <!-- 繼續購物按鈕 -->
                         <div class="keep-shop">
-                            <a href="all-product.php">
+                            <a href="all-product.php?cate=0&page=1&hot=0&order=1">
                                 <i class="fas fa-arrow-alt-circle-left mr-2"></i>繼續購物
                             </a>
                         </div>

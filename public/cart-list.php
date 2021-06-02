@@ -104,7 +104,7 @@ if (isset($_SESSION['user'])) {
 
                 <!-- 繼續購物按鈕 -->
                 <div class="keep-shop">
-                    <a href="all-product.php">
+                    <a href="all-product.php?cate=0&page=1&hot=0&order=1">
                         <i class="fas fa-arrow-alt-circle-left mr-2"></i>繼續購物
                     </a>
                 </div>
@@ -216,7 +216,7 @@ if (isset($_SESSION['user'])) {
 
 
                 <div class="add-purchase-wrap d-flex justify-content-center">
-                    <a href="">
+                    <a href="all-product.php?cate=0&page=1&hot=0&order=1">
                         <button class="add-purchase"><i class="fas fa-plus"></i>加購商品<i class="fas fa-shopping-bag"></i></button>
                     </a>
                 </div>
