@@ -1010,80 +1010,58 @@ $(window).scroll(function () {
 
 
 $('.pipi-body').on({
-         mouseenter: function(){
 
-            if ($(window).width() >= 992) {
+       
+    mouseenter: function(){
 
-                $('.pipi-arrow').css('transform','translateX(-500px)').css('opacity','0').css('transition','0.6s');
+        if ($(window).width() >= 992) {
 
-                setTimeout(() => {
-                 $('.pipi-arrow').css('transform','translateX(-30px)').css('opacity','0').css('transition','0.01s');
-                
-                },500)
-            
-            }
-
-
-            if ($(window).width() < 992) {
-                $('.pipi-arrow').css('transform','translateX(-500px)').css('opacity','0').css('transition','0.6s');
-
-                setTimeout(() => {
-                    $('.pipi-arrow').css('transform','translateX(-20px)').css('opacity','0').css('transition','0.01s');
-
-                },500)
-
-
-            }
-            
-    
-        },
-    
-        mouseleave: function(){
-
+            $('.pipi-arrow').css('transform','translateX(-500px)').css('opacity','0').css('transition','0.6s');
 
             setTimeout(() => {
-                $('.pipi-arrow').css('opacity','1').css('transition','1s');
+            $('.pipi-arrow').css('transform','translateX(-30px)').css('opacity','0').css('transition','0.01s');
             
-            },1200)
-    
-           
-    
-        }
+            },500)
         
-    
-    // click: function(){
+
+        }
 
 
-    //     if ($(window).width() >= 992) {
-    //         $('.pipi-arrow').css('transform','translateX(-500px)').css('opacity','0').css('transition','0.8s');
+    },
 
-    //         setTimeout(() => {
-    //             $('.pipi-arrow').css('transform','translateX(-30px)').css('opacity','0').css('transition','0.1s');
+    mouseleave: function(){
 
-    //         },1000)
 
-    //         setTimeout(() => {
-    //             $('.pipi-arrow').css('opacity','1').css('transition','1s');
+        setTimeout(() => {
+            $('.pipi-arrow').css('opacity','1').css('transition','1s');
+        
+        },1200)
 
-    //         },1500)
-    //     }
 
-    //     if ($(window).width() < 992) {
-    //         $('.pipi-arrow').css('transform','translateX(-500px)').css('opacity','0').css('transition','0.8s');
+    },
 
-    //         setTimeout(() => {
-    //             $('.pipi-arrow').css('transform','translateX(-20px)').css('opacity','0').css('transition','0.1s');
 
-    //         },1000)
+  
+    //啤啤RWD
+    click: function(){
 
-    //         setTimeout(() => {
-    //             $('.pipi-arrow').css('opacity','1').css('transition','1s');
 
-    //         },1500)
+        if ($(window).width() < 992) {
+        $('.pipi-arrow').css('transform','translateX(-500px)').css('opacity','0').css('transition','0.8s');
 
-    //      }
+        setTimeout(() => {
+        $('.pipi-arrow').css('transform','translateX(-20px)').css('opacity','0').css('transition','0.1s');
 
-    // }
+        },1000)
+
+        setTimeout(() => {
+        $('.pipi-arrow').css('opacity','1').css('transition','1s');
+
+        },1500)
+
+        }
+
+    }
 
 
 
