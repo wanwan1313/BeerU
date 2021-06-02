@@ -835,7 +835,7 @@ html {
     height: 100%;
     top: 0;
     left: 0;
-    margin: 0px auto 50px auto;
+    margin: -40px auto 50px auto;
     
 }
 
@@ -876,7 +876,7 @@ html {
 }
 
 .BeerU-colllection .item-intro {
-    margin-top: 0px;
+    margin-top: 10px;
 
 }
 .BeerU-colllection .item-intro h4{
