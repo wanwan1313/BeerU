@@ -13,7 +13,7 @@ $e = $pdo->query($e_SQL)->fetch();
 
 // 如果sid＝0,跳轉回去event.php
 if($sid== 0){ 
-    // header('Location: http://192.168.21.56/beeru/public/event-over.php');
+    // header('Location: http://192.168.21.56/Beeru/public/event-over.php');
     // exit;
 }
 ?>
@@ -251,15 +251,15 @@ if($sid== 0){
             <!-- 3.4.1-特別精選+文字 -->
             <div class="row px-md-5 justify-content-around mx-0 mx-5">
                 <!-- 3.4.1.1.特別精選 -->
-                <div class="serve col-md-6 mb-4 mb-md-0   animatable fadeInUp">
+                <div class="serve col-md-6 mb-4 mb-md-0 animatable fadeInUp">
                     <p class='t1 text-center'>特別精選</p>
                     <div class="row mx-0">
-                        <div class="product col-6">
+                        <div class="product col-6 align-content-center">
                             <div class="product-img"> <img class="" src="../images/products/MT-Themisto.png" alt="">
                             </div>
                             <div class="product-name">摩登時代．水澤神女IPA<br></div>
                             <div class='know-more'>
-                                <a href="/beeru/public/each-product.php?psid=203">進入購物車</a>
+                                <a href="each-product.php?psid=203">進入購物車</a>
                             </div>
                         </div>
                         <div class="product col-6">
@@ -267,7 +267,7 @@ if($sid== 0){
                             </div>
                             <div class="product-name">迷情海岸．香草拿鐵巧克力牛奶司陶特</div>
                             <div class='know-more'>
-                                <a href="/beeru/public/each-product.php?psid=153">進入購物車</a>
+                                <a href="each-product.php?psid=153">進入購物車</a>
                             </div>
                         </div>
                     </div>
