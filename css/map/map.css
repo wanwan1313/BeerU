@@ -1,193 +1,226 @@
 /* 0 */
-.map .container .row{
+
+.map .container .row {
     margin-left: 0;
     margin-right: 0;
 }
-.map .comtainer-fulid .row{
+
+.map .comtainer-fulid .row {
     margin-left: 0;
     margin-right: 0;
 }
-.map li{
+
+.map li {
     list-style: none;
 }
-.map a{
+
+.map a {
     cursor: pointer;
 }
 
-/* --------------------------------------- */
-/* 1.大標:啤酒地圖 */
-.map .container .row:nth-of-type(1){}
+
 /* --------------------------------------- */
 
+
+/* 1.大標:啤酒地圖 */
+
+.map .container .row:nth-of-type(1) {}
+
+
+/* --------------------------------------- */
+
+
 /* 2.底圖+地圖 */
-.map .container .row:nth-of-type(2){
+
+.map .container .row:nth-of-type(2) {
     max-height: 1080px;
     min-height: 650px;
 }
 
 @media (max-width: 990px) {
-    .map .container .row:nth-of-type(2){
+    .map .container .row:nth-of-type(2) {
         min-height: 600px;
-        }
+    }
 }
+
+
 /* 底圖 */
+
 .map_bg {
     z-index: -1;
 }
-.map_bg img{
+
+.map_bg img {
     object-fit: contain;
     max-width: 1200px;
     min-width: 1000px;
-    object-position: center ;
+    object-position: center;
     max-height: fit-content;
     min-height: 575px;
 }
+
+
 /* 手機 */
+
 @media (max-width: 990px) {
-    .map_bg img{
+    .map_bg img {
         object-fit: cover;
-        height:500px;
-        }
+        height: 500px;
+    }
 }
+
+
 /* 各州名 */
-.world_titles{
+
+.world_titles {
     transition: .3s;
 }
 
-.title_us{
-    top:270px;
-    left:228px;
-    width:75px;
+.title_us {
+    top: 270px;
+    left: 228px;
+    width: 75px;
     z-index: 3;
     cursor: pointer;
     /* pointer-events: none; */
 }
 
-.title_eu{
-    top:220px;
-    left:470px;
-    width:77px;
+.title_eu {
+    top: 220px;
+    left: 470px;
+    width: 77px;
     z-index: 3;
     cursor: pointer;
     /* pointer-events: none; */
 }
 
-.title_as{
-    top:250px;
-    left:633px;
-    width:77px;
+.title_as {
+    top: 250px;
+    left: 633px;
+    width: 77px;
     z-index: 3;
     cursor: pointer;
     /* pointer-events: none; */
 }
-.title_au{
-    top:440px;
+
+.title_au {
+    top: 440px;
     left: 704px;
-    width:120px;
-    z-index: 3;
-    cursor: pointer;
-    /* pointer-events: none; */
-}
-.title_af{
-    top:330px;
-    left:10px;
-    height:45px;
+    width: 120px;
     z-index: 3;
     cursor: pointer;
     /* pointer-events: none; */
 }
 
-.title_co{
-    top:380px;
-    left:30px;
-    height:45px;
+.title_af {
+    top: 330px;
+    left: 10px;
+    height: 45px;
+    z-index: 3;
+    cursor: pointer;
+    /* pointer-events: none; */
+}
+
+.title_co {
+    top: 380px;
+    left: 30px;
+    height: 45px;
     z-index: 3;
     /* cursor: pointer; */
     /* pointer-events: none; */
 }
+
 @media (max-width: 990px) {
-    .title_us{
-        top:250px;
-        left:106px;
-        width:60px;
+    .title_us {
+        top: 250px;
+        left: 106px;
+        width: 60px;
     }
-    .title_eu{
-        top:211px;
-        left:319px;
-        width:60px;
+    .title_eu {
+        top: 211px;
+        left: 319px;
+        width: 60px;
     }
-    .title_as{
-        top:250px;
-        left:475px;
-        width:60px;
+    .title_as {
+        top: 250px;
+        left: 475px;
+        width: 60px;
     }
-    .title_au{
-        top:410px;
-        left:543px;
-        width:90px;
+    .title_au {
+        top: 410px;
+        left: 543px;
+        width: 90px;
     }
-    .title_af{
-        top:320px;
-        left:15px;
+    .title_af {
+        top: 320px;
+        left: 15px;
     }
 }
 
 
 /* 五大洲 */
-.map .world{
-    z-index:0;
+
+.map .world {
+    z-index: 0;
     transition: .3s;
-    width:1008px;
-    }
-    
-    .map .world svg{
-        padding-top:45px;
-        padding-bottom:15px;
-        width:100%;
-        min-width: 700px;
-        max-height: 550px;
-    }
-    .map .world path {
-        fill: #b293627e;
-        stroke:#792221;
-        stroke-width:2px;
-        stroke-dasharray:3,3;
-        stroke-linejoin:round;
-        cursor: pointer;
-    }
-    
-    .map .world path:hover {
-        /* fill: #792221; */
-    }
+    width: 1008px;
+}
+
+.map .world svg {
+    padding-top: 45px;
+    padding-bottom: 15px;
+    width: 100%;
+    min-width: 700px;
+    max-height: 550px;
+}
+
+.map .world path {
+    fill: #b293627e;
+    stroke: #792221;
+    stroke-width: 2px;
+    stroke-dasharray: 3, 3;
+    stroke-linejoin: round;
+    cursor: pointer;
+}
+
+.map .world path:hover {
+    /* fill: #792221; */
+}
+
+
 /* 手機 */
+
 @media (max-width: 990px) {
-    .world>svg>a:nth-of-type(1)>path{
+    .world>svg>a:nth-of-type(1)>path {}
+    .map .world {
+        width: 700px;
     }
-
-    .map  .world{
-        width:700px;
+    .map .world svg {
+        padding-top: 20px;
     }
-
-    .map .world svg{
-        padding-top:20px;
-        }
 }
 
-@media (max-width: 699px){
-    .map .world svg{
-        -webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 95%);
-    
-        }
+@media (max-width: 699px) {
+    .map .world svg {
+        -webkit-mask-image: linear-gradient(transparent 5%, rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%, transparent 95%);
+    }
 }
+
+
 /* --------------------------------------- */
+
+
 /* 3.各大洲 */
-.world-eachs{
+
+.world-eachs {
     display: none;
-    max-width:1200px;
+    max-width: 1200px;
 }
+
 
 /* 換洲------------------------- */
-.map .world-each{ 
+
+.map .world-each {
     /* top:-600px;
     left:50%;
     transform: translateX(-50%);  
@@ -198,423 +231,513 @@ cursor: pointer;
 -webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); */
 }
 
+
 /* 美洲 */
-.map .world_us{
+
+.map .world_us {
     z-index: 0;
-    width:900px;
-    height:800px;
-    top:-650px;
-    left:55%;
-    transform: translateX(-50%);  
-fill: #b293627e;
-stroke:#792221;
-stroke-linejoin:round;
-/* cursor: pointer; */
--webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 45%,transparent 60%); 
+    width: 900px;
+    height: 800px;
+    top: -650px;
+    left: 55%;
+    transform: translateX(-50%);
+    fill: #b293627e;
+    stroke: #792221;
+    stroke-linejoin: round;
+    /* cursor: pointer; */
+    -webkit-mask-image: linear-gradient(transparent 5%, rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 45%, transparent 60%);
 }
 
 .map .world_us path {
-    stroke-width:.25px;
-    stroke-dasharray:1,1;
+    stroke-width: .25px;
+    stroke-dasharray: 1, 1;
 }
 
 
 /* 手機 */
+
 @media (max-width: 990px) {
-    .map .world_us{
-    left:75%;
-}
+    .map .world_us {
+        left: 75%;
+    }
 }
 
+
 /* 歐洲 */
-.map .world_eu{
+
+.map .world_eu {
     z-index: 0;
-    width:800px;
-    height:700px;
-    margin-top:-100px;
-    top:-600px;
-    left:47%;
-    transform: translateX(-50%);  
-fill: #b293627e;
-stroke:#792221;
-stroke-linejoin:round;
-/* cursor: pointer; */
--webkit-mask-image: linear-gradient(transparent 5%,rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); 
+    width: 800px;
+    height: 700px;
+    margin-top: -100px;
+    top: -600px;
+    left: 47%;
+    transform: translateX(-50%);
+    fill: #b293627e;
+    stroke: #792221;
+    stroke-linejoin: round;
+    /* cursor: pointer; */
+    -webkit-mask-image: linear-gradient(transparent 5%, rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%, transparent 80%);
 }
 
 .map .world_eu path {
-    stroke-width:.25px;
-    stroke-dasharray:1,1;
+    stroke-width: .25px;
+    stroke-dasharray: 1, 1;
 }
+
 
 /* 手機 */
+
 @media (max-width: 990px) {
-    .map .world_eu{
-    top:-550px;
-    left:40%;
-}
+    .map .world_eu {
+        top: -550px;
+        left: 40%;
+    }
 }
 
+
 /* 亞洲 */
-.map .world_as{
+
+.map .world_as {
     z-index: 0;
-    width:600px;
-    height:500px;
-    margin-top:-100px;
-    top:-550px;
-    left:45%;
-    transform: translateX(-50%);  
-fill: #b293627e;
-stroke:#792221;
-stroke-linejoin:round;
-/* cursor: pointer; */
--webkit-mask-image: linear-gradient(transparent 0%,rgba(0, 0, 0, 1.0) 15%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); 
+    width: 600px;
+    height: 500px;
+    margin-top: -100px;
+    top: -550px;
+    left: 45%;
+    transform: translateX(-50%);
+    fill: #b293627e;
+    stroke: #792221;
+    stroke-linejoin: round;
+    /* cursor: pointer; */
+    -webkit-mask-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 1.0) 15%, rgba(0, 0, 0, 1.0) 65%, transparent 80%);
 }
 
 .map .world_as path {
-    stroke-width:.25px;
-    stroke-dasharray:1,1;
+    stroke-width: .25px;
+    stroke-dasharray: 1, 1;
 }
 
+
 /* 手機 */
+
 @media (max-width: 990px) {
-    .map .world_as{
-        top:-510px;
+    .map .world_as {
+        top: -510px;
         left: 10%;
-}
+    }
 }
 
 
 /* 大洋洲 */
-.map .world_au{
+
+.map .world_au {
     z-index: 0;
-    width:800px;
-    height:450px;
-    margin-top:-50px;
-    top:-550px;
-    left:40%;
-    transform: translateX(-50%);  
-fill: #b293627e;
-stroke:#792221;
-stroke-linejoin:round;
-/* cursor: pointer; */
--webkit-mask-image: linear-gradient(transparent 3%,rgba(0, 0, 0, 1.0) 15%, rgba(0, 0, 0, 1.0) 65%,transparent 80%); 
+    width: 800px;
+    height: 450px;
+    margin-top: -50px;
+    top: -550px;
+    left: 40%;
+    transform: translateX(-50%);
+    fill: #b293627e;
+    stroke: #792221;
+    stroke-linejoin: round;
+    /* cursor: pointer; */
+    -webkit-mask-image: linear-gradient(transparent 3%, rgba(0, 0, 0, 1.0) 15%, rgba(0, 0, 0, 1.0) 65%, transparent 80%);
 }
 
 .map .world_au path {
-    stroke-width:.25px;
-    stroke-dasharray:1,1;
+    stroke-width: .25px;
+    stroke-dasharray: 1, 1;
 }
 
 
 /* 手機 */
+
 @media (max-width: 990px) {
-    .map .world_au{
-        height:350px;
-        top:-470px;
+    .map .world_au {
+        height: 350px;
+        top: -470px;
         left: 20%;
+    }
 }
-}
+
 
 /* 大飛機 */
-.pipi_plane_big{
-    left:-50px;
+
+.pipi_plane_big {
+    left: -50px;
 }
 
-.pipi_plane_big img{
+.pipi_plane_big img {
     width: 80px;
-    bottom:0px;
-    left:0px;
-}
-/* 旗子位置 */
-.flag{
-    width:30px;
-    height:50px;
+    bottom: 0px;
+    left: 0px;
 }
 
-.us .deco1{
+
+/* 旗子位置 */
+
+.flag {
+    width: 30px;
+    height: 50px;
+    /* cursor: pointer; */
+}
+
+.us .deco1 {
     top: -632px;
-    left:36%;
+    left: 36%;
     pointer-events: none;
 }
+
 .us .deco1 img {
-    width:338px;
+    width: 338px;
 }
+
 @media (max-width: 990px) {
-    .us .deco1{
+    .us .deco1 {
         top: -581px;
-        left:5%;
+        left: 5%;
         pointer-events: none;
     }
     .us .deco1 img {
-        width:299px;
+        width: 299px;
     }
-
 }
 
-.us>.flag{
+.us>.flag {
     top: -450px;
-    left:43%;
+    left: 43%;
     /* left:600px; */
     transform: translateX(-50%);
-    width:30px;
-    height:50px;
-    pointer-events: none;
+    width: 30px;
+    height: 50px;
+    /* pointer-events: none; */
+    cursor: pointer;
 }
-
-
 
 @media (max-width: 990px) {
-    .us>.flag{
-        left:35%;
-}
+    .us>.flag {
+        left: 35%;
+    }
 }
 
-.flag_shadow{
-    width:30px;
-    height:6px;
+.flag_shadow {
+    width: 30px;
+    height: 6px;
     margin-top: -10px;
     border-radius: 50%;
-    background:radial-gradient(ellipse at center ,rgba(0, 0, 0, 1.0) 10%,rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 1.0) 10%, rgba(0, 0, 0, 0) 70%);
     transform: rotate(-25deg);
     opacity: .3;
-    
 }
+
+
 /* 歐洲------------ */
+
+
 /* 英國uk */
-.eu .deco1{
+
+.eu .deco1 {
     top: -607px;
-    left:36%;
+    left: 36%;
     pointer-events: none;
 }
+
 .eu .deco1 img {
-    width:100px;
-}
-@media (max-width: 990px) {
-    .eu .deco1{
-        top: -565px;
-        left:-1%;
-}
-.eu .deco1 img {
-    width:100px;
-}
-}
-.eu .flag1{
-    top: -520px;
-    left:40%;
-    pointer-events: none;
-}
-@media (max-width: 990px) {
-    .eu .flag1{
-        top: -480px;
-        left:13%;
-}
-}
-/* 法國france */
-.eu .deco2{
-    top: -426px;
-    left:37%;
-    pointer-events: none;
-}
-.eu .deco2 img {
-    width:127px;
-}
-@media (max-width: 990px) {
-    .eu .deco2{
-        top: -365px;
-        left:7%;
-}
-.eu .deco2 img {
-    width:108px;
-}
-}
-.eu .flag2{
-    top: -400px;
-    left:42%;
-    pointer-events: none;
-}
-@media (max-width: 990px) {
-    .eu .flag2{
-        top: -350px;
-        left:22%;
-}
-}
-/* 比利時belgium */
-.eu .deco3{
-    top: -460px;
-    left:42%;
-    pointer-events: none;
-}
-.eu .deco3 img {
-    width:39px;
+    width: 100px;
 }
 
 @media (max-width: 990px) {
-    .eu .deco3{
-        top: -407px;
-        left:21%;
+    .eu .deco1 {
+        top: -565px;
+        left: -1%;
+    }
+    .eu .deco1 img {
+        width: 100px;
+    }
 }
+
+.eu>.flag {
+    /* cursor: pointer; */
+}
+
+.eu .flag1 {
+    top: -520px;
+    left: 40%;
+    /* pointer-events: none; */
+    cursor: pointer;
+}
+
+@media (max-width: 990px) {
+    .eu .flag1 {
+        top: -480px;
+        left: 13%;
+    }
+}
+
+
+/* 法國france */
+
+.eu .deco2 {
+    top: -426px;
+    left: 37%;
+    pointer-events: none;
+}
+
+.eu .deco2 img {
+    width: 127px;
+}
+
+@media (max-width: 990px) {
+    .eu .deco2 {
+        top: -365px;
+        left: 7%;
+    }
+    .eu .deco2 img {
+        width: 108px;
+    }
+}
+
+.eu .flag2 {
+    top: -400px;
+    left: 42%;
+    /* pointer-events: none; */
+    cursor: pointer;
+}
+
+@media (max-width: 990px) {
+    .eu .flag2 {
+        top: -350px;
+        left: 22%;
+    }
+}
+
+
+/* 比利時belgium */
+
+.eu .deco3 {
+    top: -455px;
+    left: 42%;
+    pointer-events: none;
+}
+
 .eu .deco3 img {
-    width:40px;
+    width: 35px;
 }
-}
-.eu .flag3{
-    top: -465px;
-    left:45%;
-    pointer-events: none;
-}
+
 @media (max-width: 990px) {
-    .eu .flag3{
+    .eu .deco3 {
+        top: -407px;
+        left: 21%;
+    }
+    .eu .deco3 img {
+        width: 40px;
+    }
+}
+
+.eu .flag3 {
+    top: -480px;
+    left: 44%;
+    /* pointer-events: none; */
+    cursor: pointer;
+}
+
+@media (max-width: 990px) {
+    .eu .flag3 {
         top: -415px;
-        left:30%;
+        left: 30%;
+    }
 }
-}
+
+
 /* 挪威norway */
-.eu .deco4{
+
+.eu .deco4 {
     top: -655px;
-    left:45%;
+    left: 45%;
     pointer-events: none;
 }
+
 .eu .deco4 img {
-    width:104px;
+    width: 104px;
 }
+
 @media (max-width: 990px) {
-    .eu .deco4{
+    .eu .deco4 {
         top: -592px;
-        left:33%;
+        left: 33%;
+    }
+    .eu .deco4 img {
+        width: 97px;
+    }
 }
-.eu .deco4 img {
-    width:97px;
-}
-}
-.eu .flag4{
+
+.eu .flag4 {
     top: -600px;
-    left:48%;
-    pointer-events: none;
+    left: 48%;
+    /* pointer-events: none; */
+    cursor: pointer;
 }
+
 @media (max-width: 990px) {
-    .eu .flag4{
+    .eu .flag4 {
         top: -550px;
-        left:41%;
+        left: 41%;
+    }
 }
-}
+
+
 /* 丹麥denmark */
-.eu .deco5{
-    top: -495px;
-    left:38%;
+
+.eu .deco5 {
+    top: -547px;
+    left: 46%;
     pointer-events: none;
 }
+
 .eu .deco5 img {
-    width:81px;
+    width: 81px;
 }
+
 @media (max-width: 990px) {
-    .eu .deco5{
+    .eu .deco5 {
         top: -493px;
-        left:40%;
+        left: 40%;
+    }
+    .eu .deco5 img {
+        width: 74px;
+    }
 }
-.eu .deco5 img {
-    width:74px;
-}
-}
-.eu .flag5{
+
+.eu .flag5 {
     top: -540px;
-    left:47%;
-    pointer-events: none;
+    left: 47%;
+    /* pointer-events: none; */
+    cursor: pointer;
 }
+
 @media (max-width: 990px) {
-    .eu .flag5{
+    .eu .flag5 {
         top: -490px;
-        left:40%;
+        left: 40%;
+    }
 }
-}
+
+
 /* 德國germany */
-.eu .deco6{
+
+.eu .deco6 {
     top: -474px;
-    left:48%;
+    left: 48%;
     pointer-events: none;
 }
+
 .eu .deco6 img {
-    width:69px;
+    width: 69px;
 }
+
 @media (max-width: 990px) {
-    .eu .deco6{
+    .eu .deco6 {
         top: -425px;
-        left:45%;
+        left: 45%;
+    }
+    .eu .deco6 img {
+        width: 71px;
+    }
 }
-.eu .deco6 img {
-    width:71px;
-}
-}
-.eu .flag6{
+
+.eu .flag6 {
     top: -450px;
-    left:49%;
-    pointer-events: none;
+    left: 49%;
+    /* pointer-events: none; */
+    cursor: pointer;
 }
+
 @media (max-width: 990px) {
-    .eu .flag6{
+    .eu .flag6 {
         top: -400px;
-        left:48%;
+        left: 48%;
+    }
 }
-}
+
+
 /* 瑞典sweden */
-.eu .deco7{
+
+.eu .deco7 {
     top: -678px;
-    left:52%;
+    left: 52%;
     pointer-events: none;
 }
+
 .eu .deco7 img {
-    width:80px;
+    width: 80px;
 }
+
 @media (max-width: 990px) {
-    .eu .deco7{
+    .eu .deco7 {
         top: -615px;
-        left:58%;
+        left: 58%;
+    }
+    .eu .deco7 img {
+        width: 70px;
+    }
 }
-.eu .deco7 img {
-    width:70px;
-}
-}
-.eu .flag7{
+
+.eu .flag7 {
     top: -590px;
-    left:53.5%;
-    pointer-events: none;
+    left: 53.5%;
+    /* pointer-events: none; */
+    cursor: pointer;
 }
+
 @media (max-width: 990px) {
-    .eu .flag7{
+    .eu .flag7 {
         top: -540px;
-        left:62%;
+        left: 62%;
+    }
 }
-}
+
+
 /* 義大利italy */
-.eu .deco8{
+
+.eu .deco8 {
     top: -375px;
-    left:47.5%;
+    left: 47.5%;
     pointer-events: none;
 }
+
 .eu .deco8 img {
-    width:106px;
+    width: 106px;
 }
+
 @media (max-width: 990px) {
-    .eu .deco8{
+    .eu .deco8 {
         top: -331px;
-        left:41%;
+        left: 41%;
+    }
+    .eu .deco8 img {
+        width: 100px;
+    }
 }
-.eu .deco8 img {
-    width:100px;
-}
-}
-.eu .flag8{
+
+.eu .flag8 {
     top: -350px;
-    left:51%;
-    pointer-events: none;
+    left: 51%;
+    /* pointer-events: none; */
+    cursor: pointer;
 }
+
 @media (max-width: 990px) {
-    .eu .flag8{
+    .eu .flag8 {
         top: -320px;
-        left:51%;
+        left: 51%;
+    }
 }
-}
+
+
 /* 亞洲------------ */
+
 @media (max-width: 990px) {
     .ship {
         display: none;
@@ -624,9 +747,10 @@ stroke-linejoin:round;
 .ship img {
     width: 54px;
 }
+
 .ship {
     top: -650px;
-    left:20%;
+    left: 20%;
     offset-path: path('M16.3,5.6C5.8,24-2.1,45.9,0.5,67.4c1.1,9.4,4.6,18.2,10.2,25.7c6.1,8.1,14.3,14.2,22.2,20.4c8.2,6.4,16.3,13.2,21.8,22.3c5.8,9.7,7.9,21.2,8.2,32.4c0.5,23.5-7.3,45.8-11.6,68.7c-4.1,21.3-4.1,43.2,6.1,62.8c9.2,17.8,24.8,30.9,44.8,34.3c10.6,1.8,21.5,1.9,31.8,5.3c11,3.7,18.9,11.3,25.5,20.6c6.5,9,11.7,18.8,18.3,27.7c5.3,7.1,11.7,14.2,20.3,17.2c20.9,7.4,39.1-12.5,54.8-22.9c19.3-12.8,43.1-16.5,64.9-7.5c20.5,8.4,37.4,26.2,59.7,30c21.8,3.8,38.1-11.3,52.1-25.8c8-8.3,15.8-17,25.2-23.6c9.3-6.5,19.7-9.7,31.1-9c11.6,0.7,22.8,4.3,34.4,5.2c10.2,0.8,20.2-1,29-6.3c16.4-9.9,26.6-28.3,28.9-47.1c1.2-10.2,0.5-21.1,5-30.5c4.4-9.2,13.2-14.5,20.5-21c6.2-5.6,11.4-13,12.5-21.4c0.6-4.3-0.1-8.4-2.1-12.2c-2.7-5-5.4-9.7-7.4-15.1c-3.9-10.8-5.4-22.4-4.9-33.9c0.6-11,2.5-23.9,9.9-32.5c3.5-4.1,8-7.3,11.6-11.3c3-3.3,5.3-7.2,7.1-11.2c4-8.8,6.1-18.5,6.8-28.1c1.6-20.7-3.9-42.4-16.8-58.9c-6.3-8.1-15-13.7-21.8-21.4c-0.4-0.5-1.1,0.2-0.7,0.7c7,7.9,16,13.6,22.4,22.2c6.3,8.4,10.8,18.2,13.4,28.4c3,11.5,3.5,23.7,1.7,35.4c-1.5,9.6-4.1,19.5-9.5,27.7c-5.4,8.4-14.7,13.2-19.2,22.3c-4.4,8.8-5.8,19.3-6,29c-0.3,10.4,1.2,20.9,4.6,30.8c1.6,4.6,3.5,9.1,6,13.3c3,5,4.8,9.7,3.7,15.6c-1.8,9.7-8.4,17-15.8,23c-6.8,5.5-13.8,10.9-17.4,19.1c-3.8,8.8-3.6,18.6-4.5,28c-1,10.5-4.3,20.7-10,29.6c-5.4,8.6-13,16-22.1,20.5c-10.7,5.3-22.6,5.1-34.1,3.1c-10.8-1.8-21.7-4.9-32.8-4c-9.3,0.7-18,4.6-25.4,10.2c-17.2,12.7-29,32-47.6,43c-10.3,6.1-21.8,7.4-33.2,4c-10.8-3.2-20.5-9.5-30-15.5c-8.9-5.5-17.8-11.2-27.8-14.6c-9.8-3.4-20.3-4.4-30.5-3.1c-9.6,1.2-18.8,4.6-27.1,9.5c-9.3,5.4-17.3,12.7-26.3,18.5c-9.4,6.1-20.8,11-32,6.9c-10.1-3.7-17.2-12.8-23-21.4c-10.8-16-19.7-35.7-38.7-43.2c-9.6-3.8-20-4.2-30.1-5.6c-10.9-1.5-20.9-4.8-29.6-11.7c-17.2-13.5-26.4-35-27.1-56.5c-0.8-23.1,7.1-45.2,11.4-67.7c3.7-19.5,5.5-41.4-3.9-59.7c-9.4-18.3-28.9-26.8-42.2-41.6C-0.3,79.8-1.3,57,4.5,36c2.9-10.5,7.3-20.4,12.7-29.9C17.4,5.6,16.6,5,16.3,5.6L16.3,5.6z');
     offset-distance: 0;
     offset-rotate: 0deg;
@@ -635,7 +759,7 @@ stroke-linejoin:round;
     animation-timing-function: linear;
     animation-delay: 0s;
     animation-iteration-count: infinite;
-    animation-direction:normal;
+    animation-direction: normal;
     /* animation-fill-mode: none; */
     /* animation-play-state: running; */
     z-index: 1;
@@ -644,622 +768,694 @@ stroke-linejoin:round;
 @keyframes ship {
     0% {
         offset-distance: 0%;
-        opacity:0;
+        opacity: 0;
     }
     3% {
         offset-distance: 3%;
-        opacity:1;
+        opacity: 1;
     }
-    40%{
+    40% {
         offset-distance: 20%;
-        opacity:1;
+        opacity: 1;
     }
-    42%{
+    42% {
         offset-distance: 22%;
-        opacity:0;
+        opacity: 0;
     }
-
-    55%{
+    55% {
         offset-distance: 30%;
-        opacity:0;
+        opacity: 0;
     }
-
-    80%{
+    80% {
         offset-distance: 36%;
-        opacity:1;
+        opacity: 1;
     }
     97% {
         offset-distance: 47%;
-        opacity:1;
+        opacity: 1;
     }
     100% {
         offset-distance: 50%;
-        opacity:0;
+        opacity: 0;
     }
 }
 
 
 /* 日本 */
-.as .deco1{
+
+.as .deco1 {
     top: -534px;
-    left:61.5%;
-    width:89px;
+    left: 61.5%;
+    width: 89px;
     pointer-events: none;
 }
+
 @media (max-width: 990px) {
-    .as .deco1{
+    .as .deco1 {
         top: -500px;
-        left:55%;
-}
+        left: 55%;
+    }
 }
 
-.as .flag1{
+.as .flag1 {
     top: -500px;
-    left:61%;
-    pointer-events: none;
-}
-@media (max-width: 990px) {
-    .as .flag1{
-        top: -460px;
-        left:64%;
-}
-}
-/* 俄羅斯 */
-.as .deco2{
-    top: -663px;
-    left:29%;
-    width:411px;
-    pointer-events: none;
-}
-@media (max-width: 990px) {
-    .as .deco2{
-        top: -589px;
-        left:-7%;
-        width:304px;
-}
+    left: 61%;
+    /* pointer-events: none; */
+    cursor: pointer;
 }
 
-.as .flag2{
+@media (max-width: 990px) {
+    .as .flag1 {
+        top: -460px;
+        left: 64%;
+    }
+}
+
+
+/* 俄羅斯 */
+
+.as .deco2 {
+    top: -663px;
+    left: 29%;
+    width: 411px;
+    pointer-events: none;
+}
+
+@media (max-width: 990px) {
+    .as .deco2 {
+        top: -589px;
+        left: -7%;
+        width: 304px;
+    }
+}
+
+.as .flag2 {
     top: -600px;
-    left:45%;
-    pointer-events: none;
+    left: 45%;
+    /* pointer-events: none; */
+    cursor: pointer;
 }
+
 @media (max-width: 990px) {
-    .as .flag2{
+    .as .flag2 {
         top: -560px;
-        left:28%;
+        left: 28%;
+    }
 }
-}
+
+
 /* 新加坡 */
-.as .deco3{
+
+.as .deco3 {
     top: -385px;
-    left:48%;
-    width:96px;
+    left: 48%;
+    width: 96px;
     pointer-events: none;
 }
+
 @media (max-width: 990px) {
-    .as .deco3{
+    .as .deco3 {
         top: -340px;
-        left:24%;
-        width:78px;
+        left: 24%;
+        width: 78px;
+    }
 }
-}
-.as .flag3{
+
+.as .flag3 {
     top: -380px;
-    left:52%;
-    pointer-events: none;
+    left: 52%;
+    /* pointer-events: none; */
+    cursor: pointer;
 }
+
 @media (max-width: 990px) {
-    .as .flag3{
+    .as .flag3 {
         top: -340px;
-        left:35%;
+        left: 35%;
+    }
 }
-}
+
+
 /* 越南 */
-.as .deco4{
+
+.as .deco4 {
     top: -448px;
-    left:52%;
-    width:99px;
+    left: 52%;
+    width: 99px;
     pointer-events: none;
 }
+
 @media (max-width: 990px) {
-    .as .deco4{
+    .as .deco4 {
         top: -392px;
-        left:35%;
-        width:82px;
+        left: 35%;
+        width: 82px;
+    }
 }
-}
-.as .flag4{
+
+.as .flag4 {
     top: -420px;
-    left:55%;
-    pointer-events: none;
+    left: 55%;
+    /* pointer-events: none; */
+    cursor: pointer;
 }
+
 @media (max-width: 990px) {
-    .as .flag4{
+    .as .flag4 {
         top: -380px;
-        left:43%;
+        left: 43%;
+    }
 }
-}
+
+
 /* 大洋洲------------ */
-.au .deco0{
-    width:120px;
+
+.au .deco0 {
+    width: 120px;
     pointer-events: none;
     animation-name: fish_fly;
-    animation-duration:1s;
+    animation-duration: 1s;
     animation-timing-function: linear;
-    animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
     /* animation-delay: 0s; */
-    animation-iteration-count:infinite;
-    opacity:0;
-}
-@keyframes fish_fly {
-0%{
-    opacity:1;
-    }
-10%{
-    opacity:0;
-    }   
-90%{
-    opacity:0;
-    }
-100%{
-    opacity:1;
-}
+    animation-iteration-count: infinite;
+    opacity: 0;
 }
 
-.au .deco0:nth-of-type(1){
-    animation-delay: 0s;
-    animation-duration:8s;
-    top: -350px;
-    left:23%;
+@keyframes fish_fly {
+    0% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
-.au .deco0:nth-of-type(1) img{
+
+.au .deco0:nth-of-type(1) {
+    animation-delay: 0s;
+    animation-duration: 8s;
+    top: -350px;
+    left: 23%;
+}
+
+.au .deco0:nth-of-type(1) img {
     transform: rotate(328deg);
 }
-.au .deco0:nth-of-type(2){
+
+.au .deco0:nth-of-type(2) {
     animation-delay: 1s;
-    animation-duration:8s;
+    animation-duration: 8s;
     top: -515px;
-    left:14%;
+    left: 14%;
 }
-.au .deco0:nth-of-type(2) img{
+
+.au .deco0:nth-of-type(2) img {
     transform: rotate(42deg);
 }
-.au .deco0:nth-of-type(3){
+
+.au .deco0:nth-of-type(3) {
     animation-delay: 2s;
-    animation-duration:8s;
+    animation-duration: 8s;
     top: -658px;
-    left:25%;
+    left: 25%;
 }
-.au .deco0:nth-of-type(3) img{
+
+.au .deco0:nth-of-type(3) img {
     transform: rotate(100deg);
 }
-.au .deco0:nth-of-type(4){
+
+.au .deco0:nth-of-type(4) {
     animation-delay: 3s;
-    animation-duration:8s;
+    animation-duration: 8s;
     top: -642px;
-    left:42%;
+    left: 42%;
 }
-.au .deco0:nth-of-type(4) img{
+
+.au .deco0:nth-of-type(4) img {
     transform: rotate(161deg);
 }
-.au .deco0:nth-of-type(5){
+
+.au .deco0:nth-of-type(5) {
     animation-delay: 4s;
-    animation-duration:8s;
+    animation-duration: 8s;
     top: -502px;
-    left:54%;
+    left: 54%;
 }
-.au .deco0:nth-of-type(5) img{
+
+.au .deco0:nth-of-type(5) img {
     transform: rotate(102deg) scaleX(-1);
 }
-.au .deco0:nth-of-type(6){
+
+.au .deco0:nth-of-type(6) {
     animation-delay: 5s;
-    animation-duration:8s;
+    animation-duration: 8s;
     top: -465px;
-    left:69%;
+    left: 69%;
 }
-.au .deco0:nth-of-type(6) img{
+
+.au .deco0:nth-of-type(6) img {
     transform: rotate(31deg) scaleX(-1);
 }
-.au .deco0:nth-of-type(7){
+
+.au .deco0:nth-of-type(7) {
     animation-delay: 6s;
-    animation-duration:8s;
+    animation-duration: 8s;
     top: -599px;
-    left:72%;
+    left: 72%;
 }
-.au .deco0:nth-of-type(7) img{
+
+.au .deco0:nth-of-type(7) img {
     transform: rotate(300deg) scaleX(-1);
 }
-.au .deco0:nth-of-type(8){
+
+.au .deco0:nth-of-type(8) {
     animation-delay: 7s;
-    animation-duration:8s;
+    animation-duration: 8s;
     top: -652px;
-    left:59%;
+    left: 59%;
 }
-.au .deco0:nth-of-type(8) img{
+
+.au .deco0:nth-of-type(8) img {
     transform: rotate(222deg) scaleX(-1);
 }
 
 @media (max-width: 990px) {
-    .au .deco0{
-        width:75px;
+    .au .deco0 {
+        width: 75px;
     }
-    .au .deco0:nth-of-type(1){
+    .au .deco0:nth-of-type(1) {
         top: -340px;
-        left:-2%;
+        left: -2%;
     }
-    .au .deco0:nth-of-type(1) img{
+    .au .deco0:nth-of-type(1) img {
         transform: rotate(321deg);
     }
-    .au .deco0:nth-of-type(2){
+    .au .deco0:nth-of-type(2) {
         top: -515px;
-        left:-22%;
+        left: -22%;
     }
-    .au .deco0:nth-of-type(2) img{
+    .au .deco0:nth-of-type(2) img {
         transform: rotate(38deg);
     }
-    .au .deco0:nth-of-type(3){
+    .au .deco0:nth-of-type(3) {
         top: -578px;
-    left:-11%;
+        left: -11%;
     }
-    .au .deco0:nth-of-type(3) img{
+    .au .deco0:nth-of-type(3) img {
         transform: rotate(88deg);
     }
-    .au .deco0:nth-of-type(4){
+    .au .deco0:nth-of-type(4) {
         top: -570px;
-    left:26%;
+        left: 26%;
     }
-    .au .deco0:nth-of-type(4) img{
+    .au .deco0:nth-of-type(4) img {
         transform: rotate(160deg);
     }
-    .au .deco0:nth-of-type(5){
+    .au .deco0:nth-of-type(5) {
         top: -473px;
-    left:53%;
+        left: 53%;
     }
-    .au .deco0:nth-of-type(5) img{
+    .au .deco0:nth-of-type(5) img {
         transform: rotate(112deg) scaleX(-1);
     }
-    .au .deco0:nth-of-type(6){
+    .au .deco0:nth-of-type(6) {
         top: -406px;
-    left:85%;
+        left: 85%;
     }
-    .au .deco0:nth-of-type(6) img{
+    .au .deco0:nth-of-type(6) img {
         transform: rotate(45deg) scaleX(-1);
     }
-    .au .deco0:nth-of-type(7){
+    .au .deco0:nth-of-type(7) {
         top: -506px;
-    left:97%;
+        left: 97%;
     }
-    .au .deco0:nth-of-type(7) img{
+    .au .deco0:nth-of-type(7) img {
         transform: rotate(277deg) scaleX(-1);
     }
-    .au .deco0:nth-of-type(8){
+    .au .deco0:nth-of-type(8) {
         top: -521px;
-    left:64%;
+        left: 64%;
     }
-    .au .deco0:nth-of-type(8) img{
+    .au .deco0:nth-of-type(8) img {
         transform: rotate(222deg) scaleX(-1);
     }
 }
 
+
 /* 澳洲 */
-.au .flag1{
+
+.au .flag1 {
     top: -500px;
-    left:38%;
-    pointer-events: none;
+    left: 38%;
+    /* pointer-events: none; */
+    cursor: pointer;
 }
+
 @media (max-width: 990px) {
-    .au .flag1{
+    .au .flag1 {
         top: -450px;
-        left:22%;
-}
+        left: 22%;
+    }
 }
 
-.au .deco1{
-    width:370px;
+.au .deco1 {
+    width: 370px;
     top: -603px;
-    left:22%;
+    left: 22%;
     pointer-events: none;
 }
 
 @media (max-width: 990px) {
-    .au .deco1{
-        width:234px;
+    .au .deco1 {
+        width: 234px;
         top: -525px;
-        left:-13%;
+        left: -13%;
+    }
 }
-}
+
 
 /* 紐西蘭 */
-.au .flag2{
+
+.au .flag2 {
     top: -500px;
-    left:64%;
-    pointer-events: none;
+    left: 64%;
+    /* pointer-events: none; */
+    cursor: pointer;
 }
+
 @media (max-width: 990px) {
-    .au .flag2{
+    .au .flag2 {
         top: -450px;
-        left:85%;
-}
+        left: 85%;
+    }
 }
 
-.au .deco2{
-    width:180px;
+.au .deco2 {
+    width: 180px;
     top: -542px;
-    left:59%;
+    left: 59%;
     pointer-events: none;
 }
 
 @media (max-width: 990px) {
-    .au .deco2{
-        width:135px;
+    .au .deco2 {
+        width: 135px;
         top: -473px;
-        left:74%;
+        left: 74%;
+    }
 }
-}
+
+
 /* 標題 */
-.map_title{
+
+.map_title {
     top: -310px;
-    left:50%;
+    left: 50%;
     transform: translateX(-50%);
-    color:var(--red);
-    font-size:4rem;
+    color: var(--red);
+    font-size: 4rem;
     font-weight: bold;
     letter-spacing: .5rem;
     font-family: 'Noto Serif TC', serif;
     white-space: nowrap;
 }
+
+
 /* 標題-英文字 */
-.map_title span{
-    color:black;
-    font-size:3rem;
+
+.map_title span {
+    color: black;
+    font-size: 3rem;
     letter-spacing: .1rem;
-    opacity:.5;
-    padding-top:7.5px;
+    opacity: .5;
+    padding-top: 7.5px;
 }
+
+
 /* 手機版 */
+
 @media (max-width: 990px) {
-    .map_title{
+    .map_title {
         top: -275px;
     }
-    }
+}
+
 
 /* balloon */
-.map .balloon{
-    z-index:996;
-    width:105px;
-    left:10%;
-    top:-700px;
+
+.map .balloon {
+    z-index: 996;
+    width: 105px;
+    left: 10%;
+    top: -700px;
+    pointer-events: none;
     /* opacity: 0; */
     /* transition: 5s; */
 }
+
 
 /* .balloon.active{
     opacity: 1;
 } */
 
 @media (max-width: 990px) {
-    .map .balloon{
-    width:80px;
-    top:-700px;
-    left:5%
-    
-        
+    .map .balloon {
+        width: 80px;
+        top: -700px;
+        left: 5%
     }
-    }
+}
 
-  
+
 /* return */
-.map .pipi_plane{
-    
-    z-index: 989;
-    width:50px;
-    right:11%;
-    top:-200px;
-    }
 
-    .map .pipi_plane:hover{
-        cursor: pointer;
-        }
-    .map .pipi_plane .return-text{
-        font-weight: 600;
-    margin-top:3px;
-    color:var(--red);
-    font-size:1.6rem;
+.map .pipi_plane {
+    z-index: 989;
+    width: 50px;
+    right: 11%;
+    top: -200px;
+}
+
+.map .pipi_plane:hover {
+    cursor: pointer;
+}
+
+.map .pipi_plane .return-text {
+    font-weight: 600;
+    margin-top: 3px;
+    color: var(--red);
+    font-size: 1.6rem;
     line-height: 1.25;
     font-size: 1.4rem;
 }
+
+
 /* 手機 */
+
 @media (max-width: 990px) {
-    .map  .pipi_plane{
-        width:50px;
-            right:5%;
-            top:-70vh;
-
-        }
-        .map  .pipi_plane .return-text{
-            font-size:1.4rem;
-        }
+    .map .pipi_plane {
+        width: 50px;
+        right: 5%;
+        top: -70vh;
     }
-
-/* 各個國家選項 */
-.map .countries {
-
-    z-index: 989;
-    width:1000px;
-    height:300px;
-    left:50%;
-    bottom:20%;
-    transform:translateX(-50%);
+    .map .pipi_plane .return-text {
+        font-size: 1.4rem;
+    }
 }
 
+
+/* 各個國家選項 */
+
+.map .countries {
+    z-index: 989;
+    width: 1000px;
+    height: 300px;
+    left: 50%;
+    bottom: 20%;
+    transform: translateX(-50%);
+}
+
+
 /* 手機版 */
+
 @media (max-width: 600px) {
     .map .countries {
         z-index: 989;
-        bottom:10%;
+        bottom: 10%;
         /* top:-200px; */
-        width:375px;
-       
-        }
+        width: 375px;
     }
+}
 
 
 /* 箭頭 */
-.map .arrow-left, .arrow-right{
-width:50px;
-height:50px;
-transition: .3s;
-cursor: pointer;
-z-index: 989;
+
+.map .arrow-left,
+.arrow-right {
+    width: 50px;
+    height: 50px;
+    transition: .3s;
+    cursor: pointer;
+    z-index: 989;
 }
 
-.map .arrow-left{
+.map .arrow-left {
     background: url(../../images/map/SVG/arrow_left-hover-red.svg);
     background-repeat: no-repeat;
     background-position: center;
-    
 }
-.map .arrow-right{
+
+.map .arrow-right {
     background: url(../../images/map/SVG/arrow_right-hover-red.svg);
     background-repeat: no-repeat;
     background-position: center;
 }
 
-/* 手機版 */
-@media (max-width: 990px) {
-    .map .arrow-left, .arrow-right{
-       width:32.5px;
-        height:32.5px;
-        transition: .3s;
-        }
 
-        .map .arrow-left:hover{
-         transform: translateX(-5px) scale(1.2);
-        }
-        
-        .map .arrow-right:hover{
+/* 手機版 */
+
+@media (max-width: 990px) {
+    .map .arrow-left,
+    .arrow-right {
+        width: 32.5px;
+        height: 32.5px;
+        transition: .3s;
+    }
+    .map .arrow-left:hover {
+        transform: translateX(-5px) scale(1.2);
+    }
+    .map .arrow-right:hover {
         transform: translateX(5px) scale(1.2);
-        }
+    }
 }
 
-.countries_wrap{
+.countries_wrap {
     position: relative;
     overflow: hidden;
     width: 420px;
     height: 124px;
 }
 
-.manycountry{
+.manycountry {
     position: absolute;
     top: 0;
     left: 0;
-    width:1120px;
-    height:100%;
+    width: 1120px;
+    height: 100%;
 }
 
+
 /* 郵票 */
-.map .country{
+
+.map .country {
     /* width:40%; */
-    width:140px;
-    height:150px;
+    width: 140px;
+    height: 150px;
     transition: .3s;
     padding: 13px;
     cursor: pointer;
-    -webkit-filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.5));
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
 }
 
-.map .country img{
+.map .country img {
     object-fit: contain;
     object-position: center;
-    width:100%;
+    width: 100%;
     height: 100px;
 }
 
-.us .manycountry{
-    width:140px;
-
-}
-.au .manycountry{
-    width:280px;
-
+.us .manycountry {
+    width: 140px;
 }
 
-.us .country img{
+.au .manycountry {
+    width: 280px;
+}
+
+.us .country img {
     object-fit: contain;
     height: 100px;
 }
 
-.as .country{
-    width:140px;
+.as .country {
+    width: 140px;
 }
 
-.us .arrow-left, .us .arrow-right, .au .arrow-left, .au .arrow-right{
+.us .arrow-left,
+.us .arrow-right,
+.au .arrow-left,
+.au .arrow-right {
     display: none;
 }
 
-.map .country:hover{
+.map .country:hover {
     transform: scale(1.05);
 }
 
-.map .country_name{
-    opacity:.8;
-    background: linear-gradient(90deg, transparent 0%,rgb(0, 0, 0) 20%,rgb(0, 0, 0) 80%,transparent 100%);
-    height:22%;
-    width:75%;
-    color:rgba(255, 255, 255);
+.map .country_name {
+    opacity: .8;
+    background: linear-gradient(90deg, transparent 0%, rgb(0, 0, 0) 20%, rgb(0, 0, 0) 80%, transparent 100%);
+    height: 22%;
+    width: 75%;
+    color: rgba(255, 255, 255);
     text-align: center;
-    left:12.5%;
+    left: 12.5%;
     letter-spacing: .25rem;
-    top:32.5%;
+    top: 32.5%;
 }
 
 
 /* 手機版 */
-@media (max-width: 990px) {
-    .map .country{
-        width:105px;
-        padding: 10px;
 
+@media (max-width: 990px) {
+    .map .country {
+        width: 105px;
+        padding: 10px;
     }
-    .map .country_name{
-    
-        background: linear-gradient(90deg, transparent 0%,rgb(0, 0, 0) 20%,rgb(0, 0, 0) 80%,transparent 100%);
-        height:20%;
-        top:30%;
+    .map .country_name {
+        background: linear-gradient(90deg, transparent 0%, rgb(0, 0, 0) 20%, rgb(0, 0, 0) 80%, transparent 100%);
+        height: 20%;
+        top: 30%;
         /* width:75%;
         color:rgba(255, 255, 255);
         text-align: center;
         left:12.5%;
         letter-spacing: .25rem; */
-        
     }
 }
 
+
 /* --------------------------------------- */
+
+
 /* 4.四大洲選項-手機版才有 */
-.map .phone-option{
+
+.map .phone-option {
     /* z-index: 4; */
-    color:var(--red);
+    color: var(--red);
     min-width: 300px;
     max-width: 700px;
     position: relative;
     /* margin-top:-18vh */
     /* margin-top: -32.5vh; */
     /* margin-top: -80vh; */
-
 }
 
-.map .parts{
-    height:80px;
+.map .parts {
+    height: 80px;
     position: fixed;
     /* top:50%; */
-    left:50%;
+    left: 50%;
     transform: translate(-50%);
-
 }
 
-.map .parts .part{
+.map .parts .part {
     white-space: nowrap;
     max-width: 80px;
     transition: .3s;
@@ -1269,278 +1465,333 @@ z-index: 989;
     letter-spacing: .5rem;
 }
 
-.oc_name{
+.oc_name {
     letter-spacing: 0rem;
-    font-size:1.6rem ;
-
+    font-size: 1.6rem;
 }
 
 
 /* 桌機版時隱藏 */
+
 @media (min-width: 700px) {
-    .map .container>.row:nth-of-type(4){
+    .map .container>.row:nth-of-type(4) {
         display: none;
-        }
+    }
 }
+
+
 /* --------------------------------------- */
+
+
 /* pupup */
+
+
 /* 背景 */
-.map .bg-black{
+
+.map .bg-black {
     /* display:none; */
-z-index:989;
-width: 100%;
-height:100vh;
-position: fixed;
-top:0;
-background-color: rgba(0, 0, 0, 0.7);
+    z-index: 989;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
 }
+
+
 /*明信片 */
-.map .map-card{
+
+.map .map-card {
     width: 700px;
-    height:475px;
+    height: 475px;
     background-color: rgb(176, 136, 104);
     border-radius: 10px;
-    margin:auto;
-    padding-left:15px;
-    padding-right:15px;
-    padding-bottom:15px;
+    margin: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
     padding-top: 15px;
-    color:var(--red);
+    color: var(--red);
     overflow: hidden;
 }
 
 
 /* 手機版 */
+
 @media (max-width: 768px) {
-    .map .map-card{
-    width: 350px;
-    height:550px;
-    padding-left:10px;
-    padding-right:10px;
-    padding-bottom:10px;
-    padding-top: 10px;
-    
-}
-}
-/* 1.關閉按鈕 */
-.map .map-card .card-close{
-font-size: 3rem;
-height:30px;
-cursor: pointer;
-position: absolute;
-z-index:990;
-right:15px;
+    .map .map-card {
+        width: 350px;
+        height: 550px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
 }
 
+
+/* 1.關閉按鈕 */
+
+.map .map-card .card-close {
+    font-size: 3rem;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 990;
+    right: 15px;
+}
+
+
 /* ---------------------- */
-.bg-black{
+
+.bg-black {
     /* display:none; */
 }
 
+
 /* deco-bg */
-.bg_country{
-    top:0px;
-    left:0px;
+
+.bg_country {
+    top: 0px;
+    left: 0px;
     /* z-index:0; */
 }
 
+
 /* ---------------------- */
+
+
 /* deco-郵戳 */
-.stamp{
-    width:125px;
+
+.stamp {
+    width: 125px;
     /* height:200px; */
     overflow: hidden;
     top: 50px;
-    left:40px;
+    left: 40px;
 }
 
-.stamp img{
+.stamp img {
     object-fit: contain;
 }
 
-
 @media (max-width: 768px) {
-    .stamp{
-        width:85px;
+    .stamp {
+        width: 85px;
         /* height:200px; */
         overflow: hidden;
-        top:25px;
-        left:10px;
+        top: 25px;
+        left: 10px;
     }
 }
+
+
 /* ---------------------- */
+
+
 /* deco-郵票 */
-.stamp_country{
-    width:90px;
+
+.stamp_country {
+    width: 90px;
     /* height:200px; */
     overflow: hidden;
-    top:25px;
+    top: 25px;
     left: 25px;
-    filter:drop-shadow(5px 5px 7.5px rgba(0,0,0,0.3));
+    filter: drop-shadow(5px 5px 7.5px rgba(0, 0, 0, 0.3));
     /* transform: rotate(10deg); */
 }
 
 @media (max-width: 768px) {
-    .stamp_country{
-        width:60px;
+    .stamp_country {
+        width: 60px;
         /* height:100px; */
         overflow: hidden;
-        top:10px;
-        left:10px;
+        top: 10px;
+        left: 10px;
     }
 }
+
+
 /* ---------------------- */
 
+
 /* 2.國家名 */
-.map .map-card .country-name{
-font-family: 'Noto Serif TC', serif;
-font-size: 5rem;
-font-weight: bold;
-margin-top: 70px;
-letter-spacing: .75rem;
+
+.map .map-card .country-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 5rem;
+    font-weight: bold;
+    margin-top: 70px;
+    letter-spacing: .75rem;
 }
 
+
 /* 手機版 */
+
 @media (max-width: 768px) {
-    .map .map-card .country-name{
+    .map .map-card .country-name {
         font-family: 'Noto Serif TC', serif;
         font-size: 3.5rem;
         font-weight: bold;
         margin-top: 0px;
-        }
+    }
 }
 
+
 /* ---------------------- */
+
+
 /* 3.代理廠牌 */
-.map .map-card .beer-brand{
+
+.map .map-card .beer-brand {
     margin-top: -10px;
 }
 
-
-.map li{
-    width:30px;
-    height:30px;
-    margin-left:5px;
-    margin-right:5px;
+.map li {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 @media (max-width: 768px) {
-    .map .map-card .beer-brand{
+    .map .map-card .beer-brand {
         margin-top: -22px;
         margin-bottom: 10px;
     }
-    
-    .map li{
-        width:20px;
-        height:20px;
-        margin-left:7.5px;
-        margin-right:7.5px;
+    .map li {
+        width: 20px;
+        height: 20px;
+        margin-left: 7.5px;
+        margin-right: 7.5px;
     }
 }
 
 
 /* ---------------------- */
+
+
 /* 分隔線 */
-.seprate-line{
-    width:20px;
+
+.seprate-line {
+    width: 20px;
     opacity: .5;
     margin-top: 65px;
 }
 
+
 /* 手機版 */
+
 @media (max-width: 768px) {
-    .seprate-line{
-        display:none;
+    .seprate-line {
+        display: none;
     }
 }
+
+
 /* ---------------------- */
+
+
 /* 4.介紹文字 */
-.map .map-card .beer-intro{
+
+.map .map-card .beer-intro {
     font-size: 1.4rem;
-color:#555;
-width:100%;
-line-height:1.5;
-font-weight:400;
-margin:auto;
-text-align: justify;
-letter-spacing: .2rem;
-margin-top: -10px;
+    color: #555;
+    width: 100%;
+    line-height: 1.5;
+    font-weight: 400;
+    margin: auto;
+    text-align: justify;
+    letter-spacing: .2rem;
+    margin-top: -10px;
 }
+
 
 /* 手機版 */
+
 @media (max-width: 768px) {
-    .map .map-card .beer-intro{
+    .map .map-card .beer-intro {
         font-size: 1.4rem;
-    width:90%;
-    margin-top: 10px;
+        width: 90%;
+        margin-top: 10px;
     }
 }
+
 
 /* ---------------------- */
-/* 5.搭配酒杯 （和6推薦啤酒一起） */
-.map .map-card .cups{
-    margin-top:90px;
-}
-@media (max-width: 768px) {
-    .map .map-card .cups{
-        margin-top:0px;
-    }
-    }
 
-.map .title{
+
+/* 5.搭配酒杯 （和6推薦啤酒一起） */
+
+.map .map-card .cups {
+    margin-top: 90px;
+}
+
+@media (max-width: 768px) {
+    .map .map-card .cups {
+        margin-top: 0px;
+    }
+}
+
+.map .title {
     margin: auto;
     position: relative;
 }
+
+
 /* title-line */
-.map  .title:before {
+
+.map .title:before {
     content: '';
     display: block;
     position: absolute;
     background-color: var(--red);
-    width:30%;
-    height:1px;
+    width: 30%;
+    height: 1px;
     left: 1px;
     bottom: 50%;
-   }
-   
-   .map .title:after {
-       content: '';
-       display: block;
-       position: absolute;
-       background-color: var(--red);
-       width:30%;
-       height:1px;
-       right:1px;
-       bottom: 50%;
-      }
+}
 
-      /* 手機版 */
-      @media (max-width: 768px) {
-        .map  .title:before {
-            content: '';
-            display: block;
-            position: absolute;
-            background-color: var(--red);
-            width:35%;
-            height:1px;
-            left: 1px;
-            bottom: 50%;
-           }
-           
-           .map .title:after {
-               content: '';
-               display: block;
-               position: absolute;
-               background-color: var(--red);
-               width:35%;
-               height:1px;
-               right:1px;
-               bottom: 50%;
-              }
+.map .title:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: var(--red);
+    width: 30%;
+    height: 1px;
+    right: 1px;
+    bottom: 50%;
+}
 
 
+/* 手機版 */
+
+@media (max-width: 768px) {
+    .map .title:before {
+        content: '';
+        display: block;
+        position: absolute;
+        background-color: var(--red);
+        width: 35%;
+        height: 1px;
+        left: 1px;
+        bottom: 50%;
     }
+    .map .title:after {
+        content: '';
+        display: block;
+        position: absolute;
+        background-color: var(--red);
+        width: 35%;
+        height: 1px;
+        right: 1px;
+        bottom: 50%;
+    }
+}
+
+
 /* title-content */
+
 .map .title p {
     font-family: 'Noto Serif TC', serif;
     font-size: 1.6rem;
@@ -1548,6 +1799,7 @@ margin-top: -10px;
     position: relative;
     width: fit-content;
 }
+
 .map .title p:before {
     content: '';
     display: block;
@@ -1558,6 +1810,7 @@ margin-top: -10px;
     left: -25%;
     bottom: 23%;
 }
+
 .map .title p:after {
     content: '';
     display: block;
@@ -1568,111 +1821,150 @@ margin-top: -10px;
     right: -33%;
     bottom: 23%;
 }
+
+
 /* ----------------------- */
-.map .cup,.map .beer{
-    transition:.3s;
-    margin-top:0px;
+
+.map .cup,
+.map .beer {
+    transition: .3s;
+    margin-top: 0px;
 }
 
-.map .beer:hover{
-transform: scale(1.2);
+.map .beer:hover {
+    transform: scale(1.2);
 }
 
-.map .cup-img, .beer-img{
-    width:70px;
-    height:70px;
+.map .cup-img,
+.beer-img {
+    width: 70px;
+    height: 70px;
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
-    margin-left:5px;
-    margin-right:5px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
-.map .cup-img img,.map .beer-img img{
-    width:85%;
+.map .cup-img img,
+.map .beer-img img {
+    width: 85%;
     height: 85%;
     object-fit: contain;
     margin: auto;
 }
 
-.map .cup-name{
+.map .cup-name {
     background-color: rgba(0, 0, 0, 0.6);
-    color:white;
-    padding-top:25px;
-    padding-bottom:25px;
-    font-size:1.2rem;
+    color: white;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 1.2rem;
     text-align: center;
     line-height: 1.25;
-    height:100%;
-    width:100%;
-    top:50%;
-    transform: translateY(-50%);
-    transition: .3s;
-    opacity: 0;
-}
-.map .beer-name{
-    background-color: rgba(0, 0, 0, 0.6);
-    color:white;
-    padding-top:25px;
-    padding-bottom:80px;
-    font-size:1.2rem;
-    text-align: center;
-    line-height: 1.25;
-    height:100%;
-    width:100%;
-    top:55%;
+    height: 100%;
+    width: 100%;
+    top: 50%;
     transform: translateY(-50%);
     transition: .3s;
     opacity: 0;
 }
 
+.map .beer-name {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding-top: 25px;
+    padding-bottom: 80px;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 1.25;
+    height: 100%;
+    width: 100%;
+    top: 55%;
+    transform: translateY(-50%);
+    transition: .3s;
+    opacity: 0;
+}
+
+
 /* hover出現品名 */
-.map .cup-name:hover,.map .beer-name:hover{
+
+.map .cup-name:hover,
+.map .beer-name:hover {
     opacity: 1;
 }
 
-.map .know-more{
+.map .know-more {
     transform: scale(.5);
-    margin:auto;
+    margin: auto;
     cursor: pointer;
-    margin-top:-5px;
+    margin-top: -5px;
 }
-.map .know-more:hover{
+
+.map .know-more:hover {
     transform: scale(.5);
 }
 
-.map .know-more::before{
+.map .know-more::before {
     background: url(../../images/map/SVG/ear-l-red.svg) 0 0 no-repeat;
-    
 }
-.map .know-more::after{
+
+.map .know-more::after {
     background: url(../../images/map/SVG/ear-r-red.svg) 0 0 no-repeat;
-    
 }
+
+
 /* ---------------------- */
+
+
 /* 6.搭配啤酒 */
+
+
 /* .map .card .row:nth-of-type(6){
 } */
+
+
 /* ---------------------- */
+
+
 /* 7.按鈕 */
+
+
 /* .map .card .row:nth-of-type(7){
     margin-top: -100px;  
 } */
-.map .buttons{
+
+.map .buttons {
     position: absolute;
-    bottom:20px;
-    left:28%;
+    bottom: 20px;
+    left: 28%;
     transform: translateX(-50%);
     /* z-index:999; */
 }
 
-
 @media (max-width: 768px) {
-    .map .buttons{
-        left:8%;
-    }}
+    .map .buttons {
+        left: 8%;
+    }
+}
+
+
 /* ---------------------- */
+
+
 /* 8.stamp */
+
+
 /* .map .card .row:nth-of-type(8){
 } */
+
+
 /* ---------------------- */
+
+.mug {
+    cursor: pointer;
+}
+
+.country_path {
+    cursor: pointer;
+}
