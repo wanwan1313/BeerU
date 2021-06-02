@@ -679,7 +679,7 @@
     font-weight: bold;
 }
 
-.logSign-infotext {
+.LogIn-Sign  .logSign-infotext {
     margin: 10px auto 0 auto;
     width: 100%;
     color: var(--blue);
@@ -690,7 +690,32 @@
     
 }
 
-.logSign-infotext span{
+@media (max-width: 991px) {
+
+    .LogIn-Sign  .logSign-infotext {
+        display: flex;
+        justify-content: flex-start;
+        margin: 10px auto 0 auto;
+        width: 95%;
+        color: var(--blue);
+        text-align: center;
+        font-size: 1.4rem;
+        font-family: 'Noto Sans TC', serif;
+        font-weight: normal;
+        /* word-break: break-all; */
+        
+    }
+
+    .LogIn-Sign  .infotext{
+        margin-top: 6px;
+
+    }
+    
+
+
+}
+
+.LogIn-Sign .logSign-infotext span{
     color: var(--pink);
     cursor: pointer;
 }
