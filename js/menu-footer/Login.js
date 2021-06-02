@@ -226,9 +226,10 @@ function Forget_Email(){
 
 
     if(isPass){
-      
+
+        // 防呆按鈕,按下後disable
         $('.search-email').attr('disabled', true).css('background-color','#7F7F7F').css('opacity','0.4');
-        $('.send-email-warp .warn-text').text('傳送中....')
+        $('.send-email-warp .warn-text').text('傳送中....')//狀態顯示寄送中
 
         $.post(
         

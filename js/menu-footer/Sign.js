@@ -108,6 +108,7 @@ function Sign_email(){
       
        if(isPass){
 
+        // 防呆按鈕,按下後disable
         $('.Sign').attr('disabled', true).css('background-color','#7F7F7F').css('opacity','0.4');
         
         $.post(

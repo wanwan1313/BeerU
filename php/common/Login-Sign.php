@@ -274,7 +274,7 @@
 
                     <div class="Forget-UserEmail">
                         <h3>E-mail信箱</h3>
-                        <i class="far fa-envelope email-icon01"></i>
+                        <i class="far fa-envelope email-icon02"></i>
                         <input class="input-btn Forget_UserEmail" type="email" id="Forget-UserEmail" name="ForgetUserEmail" >
                     </div>
                     <div class="send-email-warp d-flex">

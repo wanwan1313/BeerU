@@ -1056,6 +1056,23 @@
     }
 
 }
+.LogIn-Sign .email-icon02{
+    position: absolute;
+    color: var(--gold);
+    top: 40px;
+    left: 2%;;
+}
+
+@media (max-width: 991px) {
+
+    .LogIn-Sign .email-icon02{
+        position: absolute;
+        color: var(--gold);
+        top: 38px;
+        left: 2%;;
+    }
+
+}
 
 .LogIn-Sign .send-email-warp{
 
