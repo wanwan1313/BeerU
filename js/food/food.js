@@ -228,6 +228,7 @@ console.log('hi')
 
 // -----  side-bar -----
 
+
 $(window).scroll(function () {
 
     let scrollNow = $(window).scrollTop();
@@ -245,7 +246,9 @@ $(window).scroll(function () {
         }
     }
 
+});
 
+    function doAnima() {
 
             $animatables = $('.animatable');
             $animateds = $('.animated');
@@ -265,14 +268,7 @@ $(window).scroll(function () {
                 navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
                 
             }
-            
-            // else if( anipo >= userScrollTop + halfWindowHeight){
-            //     console.log('back')
-            //     $(this).removeClass('animated').addClass('animatable');
-            //     let index = $(this).closest('.pair-wrap').attr('data-index')
-            //     let navItem = $('.side-drop-img').eq(index);
-            //     navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
-            // }
+ 
         
         });
 
@@ -290,23 +286,16 @@ $(window).scroll(function () {
        
        });
 
+    }
+
+    doAnima()
+
+$(window).scroll(function() {
+    doAnima()
+})
+
+ 
 
 
-    //     $('.animated').each(function (i) {
-    //         let $animatable = $(this);
-    //         let index = $animatable.closest('.pair-wrap').prev().attr('data-index')
-    //         if (($(this).offset().top + $(this).height() -100) > offset) {
-    //             $(this).removeClass('animated').addClass('animatable');
-
-
-    // // ----- side-nav -----           
-    //             let navItem = $('.side-drop-img').eq(index);
-    //             navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
-
-    //         }
-        
-    //     });
-
-});
 
 

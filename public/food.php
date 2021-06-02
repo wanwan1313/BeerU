@@ -59,28 +59,27 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 <!-- <section class="mobile-menu">
     <?php include __DIR__ . '../../php/common/category.php' ?>
 </section>
-
 <!-- 這裡開始寫html -->
 
 <section class="food-wrap">
-    <div class="food-banner">
+     <div class="food-banner">
         <div class="container-fluid">
             <div class="row ">
-                <div class="col-md-6 col-sm-4  food-left">
-                    <div class="food-left mt-5">
-                        <div class="pipi-flyup"></div>
-                            <img src="../images/joyce_images/pipi-up.svg" alt="">
-                        </div>
-                        <div class="food-left-text">
+                    <div class="col-md-6 col-sm-4  food-left">
+                        <div class="food-left mt-5">
+                               <div class="pipi-flyup">
+                                 <img src="../images/joyce_images/pipi-up.svg" alt="">
+                                </div>
+                          <div class="food-left-text">
                             <h2>現在，<br>
                                 我想來點...</h2>
-                        </div>
-                        <div class="plate">
+                                 </div>
+                           <div class="plate">
                             <img src="../images/joyce_images/plate.svg" alt="">
                         </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-sm-4 food-intro">
+                     <div class="col-md-6 col-sm-4 food-intro">
                     <div class=" food-title mt-5 mb-3 animate__animated animate__fadeInUp">
                         <p>餐酒搭配</p>
                     </div>
