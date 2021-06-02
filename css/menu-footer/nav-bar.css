@@ -559,6 +559,16 @@
             display: none;
         }
 
+        /* 手機版 */
+@media (max-width: 991px) {
+        .beeru-nav-bar .gift-notice {
+            width: 135px;
+            padding-top: 25px;           
+        }
+
+
+}
+
         .beeru-nav-bar .gift-notice a {
             color: var(--red);
         }
