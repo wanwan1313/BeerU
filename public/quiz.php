@@ -65,7 +65,7 @@ $page_title = '啤女BeerU:心理測驗';
                 </div>
             </div>
             <p class="quiz-quote animatable fadeInUp">人的心靈就像一面鏡子，你看到的世界，取決於你如何看待自己。</p>
-            <div class="next-btn-wrap mt-3" data-href="quiz-2-wrap">
+            <div class="next-btn-wrap mt-3">
                     <div class="next-btn">下一步</div>
             </div>
         </div>
@@ -116,10 +116,8 @@ $page_title = '啤女BeerU:心理測驗';
                 </div>
             </div>
             <p class="quiz-quote animatable fadeInUp">每次品嚐啤酒的時候，也同時在品嚐啤酒的文化。</p>
-            <div class="next-btn-wrap mt-3" onclick="function(doAnimations)">
-                <a href="#quiz-3-wrap">
+            <div class="next-btn-wrap mt-3">
                     <div class="next-btn">下一步</div>
-                </a>
             </div>
         </div>
     </section>
@@ -158,8 +156,8 @@ $page_title = '啤女BeerU:心理測驗';
                 </div>
             </div>
             <p class="quiz-quote animatable fadeInUp">就像喝葡萄酒一樣，一種啤酒一種杯，選對杯子就能讓啤酒美味升級。</p>
-            <div class="next-btn-wrap mt-3" onclick="function(doAnimations)">
-                <a href="#quiz-4-wrap">
+            <div class="next-btn-wrap mt-3">
+                <a>
                     <div class="next-btn">下一步</div>
                 </a>
             </div>
@@ -220,10 +218,8 @@ $page_title = '啤女BeerU:心理測驗';
                 </div>
             </div>
             <p class="quiz-quote animatable fadeInUp">徹底認識手中的啤酒，才能替它找到合適的靈魂伴侶。</p>
-            <div class="next-btn-wrap mt-3" onclick="function(doAnimations)">
-                <a href="#quiz-5-wrap">
+            <div class="next-btn-wrap mt-3">
                     <div class="next-btn">下一步</div>
-                </a>
             </div>
         </div>
     </section>
@@ -250,10 +246,10 @@ $page_title = '啤女BeerU:心理測驗';
                 </div>
             </div>
             <p class="quiz-quote animatable fadeInUp">微醺時不孤單，有啤女陪伴妳。</p>
-            <div class="next-btn-wrap mt-3">
-                <a class="result-btn" href="#">
+            <div class="result-btn-wrap mt-3">
+                <div class="result-btn">
                     <div class="next-btn">測驗結果</div>
-                </a>
+                </div>
             </div>
         </div>
     </section>
