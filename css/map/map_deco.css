@@ -1,0 +1,510 @@
+                    .map_deco_anime {
+                        offset-path: path('M2,4.2c0.9-1.1,2.6-1.6,4-2c2.2-0.5,4.1-0.2,5.7,1.4c2.4,2.4,4.7,5.5,8.5,4.9c1.4-0.2,2.9-1,3.4-2.4c0.5-1.3-0.2-2.4-1.2-3.2c-1-0.8-2.3-1.4-3.5-1.5c-1.9-0.2-3.6,1-5.2,1.8c-1.9,1-3.8,2.1-5.9,2.7C6.7,6.3,5.5,6.4,4.3,6.2C3.5,6,1.4,5.2,2.2,4c0.7-1.1-1-2.1-1.7-1c-1,1.6-0.1,3.3,1.3,4.2c1.5,1,3.5,1.2,5.3,0.9c1.9-0.3,3.6-1,5.2-1.9c1.7-0.9,3.5-2.2,5.4-2.7c1.3-0.4,2.7,0.1,3.7,1c1.3,1.1-0.7,2-1.7,2.1c-3.8,0.2-5.5-4.5-8.5-6C9.1-0.2,6.9-0.1,4.9,0.4C3.4,0.9,1.6,1.5,0.6,2.8C-0.2,3.8,1.2,5.2,2,4.2z');
+                        opacity: 0;
+                        transform: scale(1);
+                        offset-distance: 100%;
+                        offset-rotate: 0deg;
+                        animation-name: map_deco_anime;
+                        animation-duration: 6s;
+                        animation-timing-function: linear;
+                        /* animation-delay: .5; */
+                        animation-iteration-count: infinite;
+                        animation-direction: alternate;
+                        animation-fill-mode: forwards;
+                        pointer-events: none;
+                    }
+                    
+                    @keyframes map_deco_anime {
+                        0% {
+                            opacity: 0;
+                            transform: scale(.75);
+                            offset-distance: 0%;
+                        }
+                        10% {
+                            opacity: .1;
+                            transform: scale(1);
+                            offset-distance: 0%;
+                        }
+                        100% {
+                            opacity: 0.75;
+                            transform: scale(1);
+                            offset-distance: 50%;
+                        }
+                    }
+                    
+                    .map_deco_anime2 {
+                        offset-path: path('M2,7.3c0.1-1.8,0.1-3.6,0.1-5.4c0-0.4-0.3-0.9-0.7-1C1,0.9,0.4,1,0.3,1.4C0,1.9,0,2.5,0.2,3c0.1,0.4,0.3,0.9,0.4,1.3C0.8,5.2,1.1,6.1,1.4,7c0.1,0.4,0.5,0.8,1,0.7c0.4,0,0.9-0.3,1-0.7c0.4-1.7,0.5-3.4,0.4-5.1c0-0.5-0.4-1-1-1c-0.5,0-1,0.4-1,1c0,1.8,0.3,3.6,0.8,5.3C3.1,7,3.8,6.8,4.4,6.6c-0.5-1.6-1-3.2-1.5-4.7c-0.1-0.4-0.5-0.8-1-0.7c-0.4,0-0.9,0.3-1,0.7C0.8,2.8,0.8,3.7,0.8,4.6c0,0.2,0,0.4,0,0.6c0,0.1,0,0.2,0,0.3c0,0,0,0.3,0,0.2c0-0.1,0,0.2,0,0.2c0,0.1,0,0.2-0.1,0.3c0,0.1,0,0.2-0.1,0.3c0,0-0.1,0.4-0.1,0.2c0.2-0.2,0.4-0.3,0.6-0.5C1,6.3,0.9,6.3,0.7,6.3C0.2,6.5-0.1,7,0,7.6c0.2,0.5,0.7,0.8,1.2,0.7c0.1,0,0.2-0.1,0.3-0.1C2.1,8,2.2,7.7,2.4,7.3c0.2-0.6,0.3-1.2,0.4-1.8c0-0.5,0-1.1,0-1.6c0-0.3,0-0.5,0-0.8c0-0.1,0-0.3,0-0.4c0-0.1,0-0.2,0-0.2c0,0,0-0.3,0-0.1c-0.6,0-1.3,0-1.9,0C1.5,4,2,5.6,2.5,7.2c0.2,0.5,0.7,0.9,1.2,0.7c0.5-0.2,0.9-0.7,0.7-1.2C3.9,5,3.7,3.6,3.7,1.9c-0.7,0-1.3,0-2,0c0.1,0.8,0.1,1.6,0,2.4c0,0.2,0,0.4,0,0.6c0,0.1,0,0.2,0,0.3c0,0.2,0-0.1,0,0.1C1.6,5.6,1.5,6.1,1.4,6.5c0.6,0,1.3,0,1.9,0C3.1,5.7,2.8,4.9,2.6,4.1C2.5,3.7,2.4,3.3,2.2,3C2.2,2.8,2.1,2.6,2.1,2.4c0,0,0-0.1,0-0.1c0-0.1,0-0.1,0,0c0,0,0-0.1,0-0.1C2,2.3,2,2.4,2,2.4C1.4,2.3,0.7,2.1,0.1,1.9c0,1.8,0,3.6-0.1,5.4c0,0.5,0.5,1,1,1C1.6,8.3,2,7.8,2,7.3z');
+                        opacity: 0;
+                        offset-distance: 100%;
+                        offset-rotate: 0deg;
+                        animation-name: map_deco_anime2;
+                        animation-duration: 6s;
+                        animation-timing-function: ease-in-out;
+                        /* animation-delay: .5; */
+                        animation-iteration-count: infinite;
+                        animation-direction: alternate;
+                        animation-fill-mode: forwards;
+                        pointer-events: none;
+                    }
+                    
+                    @keyframes map_deco_anime2 {
+                        0% {
+                            transform: scaleY(1.25) scaleX(.75);
+                            opacity: 0;
+                            offset-distance: 0%;
+                        }
+                        10% {
+                            transform: scaleY(1) scaleX(1);
+                            opacity: 0.1;
+                            offset-distance: 0%;
+                        }
+                        100% {
+                            transform: scaleY(1) scaleX(1);
+                            opacity: 0.5;
+                            offset-distance: 50%;
+                        }
+                    }
+                    
+                    .map_deco_1 {
+                        width: 148px;
+                        top: 19%;
+                        left: 19%;
+                        pointer-events: none;
+                    }
+                    
+                    .map_deco_2 {
+                        width: 193px;
+                        top: 44%;
+                        left: 12%;
+                        /* animation-delay: 1s; */
+                        pointer-events: none;
+                    }
+                    
+                    .map_deco_3 {
+                        width: 78px;
+                        top: 49%;
+                        left: 40%;
+                        /* animation-delay: 2s; */
+                        pointer-events: none;
+                    }
+                    
+                    .map_deco_4 {
+                        width: 83px;
+                        top: 15%;
+                        left: 80%;
+                        /* animation-delay: 1s; */
+                        pointer-events: none;
+                    }
+                    
+                    .map_deco_5 {
+                        width: 190px;
+                        top: 78%;
+                        left: 59%;
+                        /* animation-delay: 2s; */
+                        pointer-events: none;
+                    }
+                    
+                    .map_deco_6 {
+                        width: 130px;
+                        top: 50%;
+                        left: 79%;
+                        /* animation-delay: 1s; */
+                        pointer-events: none;
+                    }
+                    /* wave */
+                    
+                    .map_deco_7 {
+                        width: 132px;
+                        top: 30%;
+                        left: 10%;
+                        /* animation-delay: 1s; */
+                        pointer-events: none;
+                    }
+                    
+                    .map_deco_8 {
+                        width: 82px;
+                        top: 62%;
+                        left: 12%;
+                        transform: scale(-1);
+                        /* animation-delay: 1s; */
+                        pointer-events: none;
+                    }
+                    
+                    .map_deco_9 {
+                        width: 100px;
+                        top: 76%;
+                        left: 46%;
+                        /* animation-delay: 1s; */
+                        pointer-events: none;
+                    }
+                    
+                    .map_deco_10 {
+                        width: 120px;
+                        top: 65%;
+                        left: 88%;
+                        transform: scale(-1);
+                        /* animation-delay: 1s; */
+                        pointer-events: none;
+                    }
+                    
+                    .map_deco_11 {
+                        width: 82px;
+                        top: 85%;
+                        left: 77%;
+                        /* animation-delay: 1s; */
+                        pointer-events: none;
+                    }
+                    
+                    .map_deco_12 {
+                        width: 90px;
+                        top: 35%;
+                        left: 85%;
+                        transform: scale(-1);
+                        /* animation-delay: 1s; */
+                        pointer-events: none;
+                    }
+                    
+                    .map_deco_13 {
+                        width: 63px;
+                        top: 24%;
+                        left: 49%;
+                        /* animation-delay: 1s; */
+                        pointer-events: none;
+                    }
+                    
+                    .map_deco_14 {
+                        width: 90px;
+                        top: 35%;
+                        left: 85%;
+                        transform: scale(-1);
+                        /* animation-delay: 1s; */
+                        pointer-events: none;
+                    }
+                    /* --------------------------- */
+                    
+                    .surf {
+                        width: 45px;
+                        top: -510px;
+                        left: 27%;
+                        offset-path: path('M10.4,23.8c9.1-8.1,27.9-19.2,37.6-5.4c4.8,6.9-0.5,15.7-4,21.8c-4,7-7.6,13.9-10.1,21.6c-9.5,29.9-2.2,63.3,19,86.4C64,160.3,78.3,169.1,94,173.6c7.4,2.2,10.6-9.4,3.2-11.6C66.9,153.2,43.9,126,42,94.2c-1.1-17.9,4.2-33.3,12.9-48.7c4.1-7.3,7.9-15.2,6.9-23.8c-0.9-7.2-5.1-13.2-11.1-17.1C33.9-6.1,15,3.7,1.9,15.3C-3.9,20.4,4.7,28.9,10.4,23.8L10.4,23.8z');
+                        /* opacity: 0; */
+                        offset-distance: 100%;
+                        offset-rotate: 0deg;
+                        animation-name: surf;
+                        animation-duration: 10s;
+                        animation-timing-function: ease-in-out;
+                        /* animation-delay: .5; */
+                        animation-iteration-count: infinite;
+                        animation-direction: alternate;
+                        animation-fill-mode: forwards;
+                        pointer-events: none;
+                    }
+                    
+                    @keyframes surf {
+                        0% {
+                            transform: scaleX(.6)scaleY(.6);
+                            offset-distance: 0%;
+                        }
+                        49% {
+                            transform: scaleX(1)scaleY(1);
+                            offset-distance: 49%;
+                            /* opacity: 1; */
+                        }
+                        50% {
+                            transform: scaleX(-1)scaleY(1);
+                            offset-distance: 50%;
+                        }
+                        100% {
+                            transform: scaleX(-1)scaleY(1);
+                            offset-distance: 100%;
+                        }
+                    }
+                    
+                    .bigini {
+                        width: 36px;
+                        top: -435px;
+                        left: 55%;
+                        offset-path: path('M163.2,13.6c-14.3-7.5-30.1-9.7-45.9-11.8c-15.9-2.1-32.7-3.7-47.9,2.5c-14.2,5.8-24.6,17.5-38.9,23.1c-12.9,5-27.2,10.7-30,25.9c-2.7,14.4,6.2,25.5,19.2,30.5c14.8,5.7,31.2,4.5,46.7,4.3c32.4-0.2,68.6,16.5,99.2-0.6c13-7.3,23.4-21,23-36.4C188.3,35,176.9,21.3,163.2,13.6c-6.7-3.8-12.8,6.6-6.1,10.4c9.9,5.6,19.1,15.2,19.4,27.3c0.3,11.2-7.7,20.8-17.1,26c-24.7,13.8-55.7,1-81.7-0.8c-14.5-1-29.3,1.3-43.7-1.2c-9.5-1.6-23-5.6-22.1-17.6C12.9,45.1,27,41.8,36.7,37.9C48.5,33,57.3,24.6,68.2,18.3c13.4-7.8,29.1-6.8,43.9-5.1c15.2,1.8,31.3,3.5,45.1,10.8C164,27.6,170.1,17.2,163.2,13.6z');
+                        /* opacity: 0; */
+                        offset-distance: 100%;
+                        offset-rotate: 0deg;
+                        animation-name: bigini;
+                        animation-duration: 10s;
+                        animation-timing-function: linear;
+                        /* animation-delay: .5; */
+                        animation-iteration-count: infinite;
+                        animation-direction: alternate-reverse;
+                        animation-fill-mode: forwards;
+                        pointer-events: none;
+                    }
+                    
+                    @keyframes bigini {
+                        0% {
+                            /* transform: scaleX(.6)scaleY(.6); */
+                            offset-distance: 0%;
+                        }
+                        100% {
+                            /* transform: scaleX(-1)scaleY(1); */
+                            offset-distance: 50%;
+                        }
+                    }
+                    
+                    .wave {
+                        width: 1000px;
+                        top: -408px;
+                        left: 49%;
+                        offset-path: path('M2,7.3c0.1-1.8,0.1-3.6,0.1-5.4c0-0.4-0.3-0.9-0.7-1C1,0.9,0.4,1,0.3,1.4C0,1.9,0,2.5,0.2,3c0.1,0.4,0.3,0.9,0.4,1.3C0.8,5.2,1.1,6.1,1.4,7c0.1,0.4,0.5,0.8,1,0.7c0.4,0,0.9-0.3,1-0.7c0.4-1.7,0.5-3.4,0.4-5.1c0-0.5-0.4-1-1-1c-0.5,0-1,0.4-1,1c0,1.8,0.3,3.6,0.8,5.3C3.1,7,3.8,6.8,4.4,6.6c-0.5-1.6-1-3.2-1.5-4.7c-0.1-0.4-0.5-0.8-1-0.7c-0.4,0-0.9,0.3-1,0.7C0.8,2.8,0.8,3.7,0.8,4.6c0,0.2,0,0.4,0,0.6c0,0.1,0,0.2,0,0.3c0,0,0,0.3,0,0.2c0-0.1,0,0.2,0,0.2c0,0.1,0,0.2-0.1,0.3c0,0.1,0,0.2-0.1,0.3c0,0-0.1,0.4-0.1,0.2c0.2-0.2,0.4-0.3,0.6-0.5C1,6.3,0.9,6.3,0.7,6.3C0.2,6.5-0.1,7,0,7.6c0.2,0.5,0.7,0.8,1.2,0.7c0.1,0,0.2-0.1,0.3-0.1C2.1,8,2.2,7.7,2.4,7.3c0.2-0.6,0.3-1.2,0.4-1.8c0-0.5,0-1.1,0-1.6c0-0.3,0-0.5,0-0.8c0-0.1,0-0.3,0-0.4c0-0.1,0-0.2,0-0.2c0,0,0-0.3,0-0.1c-0.6,0-1.3,0-1.9,0C1.5,4,2,5.6,2.5,7.2c0.2,0.5,0.7,0.9,1.2,0.7c0.5-0.2,0.9-0.7,0.7-1.2C3.9,5,3.7,3.6,3.7,1.9c-0.7,0-1.3,0-2,0c0.1,0.8,0.1,1.6,0,2.4c0,0.2,0,0.4,0,0.6c0,0.1,0,0.2,0,0.3c0,0.2,0-0.1,0,0.1C1.6,5.6,1.5,6.1,1.4,6.5c0.6,0,1.3,0,1.9,0C3.1,5.7,2.8,4.9,2.6,4.1C2.5,3.7,2.4,3.3,2.2,3C2.2,2.8,2.1,2.6,2.1,2.4c0,0,0-0.1,0-0.1c0-0.1,0-0.1,0,0c0,0,0-0.1,0-0.1C2,2.3,2,2.4,2,2.4C1.4,2.3,0.7,2.1,0.1,1.9c0,1.8,0,3.6-0.1,5.4c0,0.5,0.5,1,1,1C1.6,8.3,2,7.8,2,7.3z');
+                        offset-distance: 100%;
+                        offset-rotate: 0deg;
+                        animation-name: wave;
+                        animation-duration: 5s;
+                        animation-timing-function: ease-in-out;
+                        /* animation-delay: .5; */
+                        animation-iteration-count: infinite;
+                        animation-direction: alternate-reverse;
+                        animation-fill-mode: forwards;
+                        opacity: 0.5;
+                        pointer-events: none;
+                    }
+                    
+                    @keyframes wave {
+                        0% {
+                            opacity: 0.2;
+                            offset-distance: 0%;
+                        }
+                        50% {
+                            opacity: 0.3;
+                            offset-distance: 25%;
+                        }
+                        100% {
+                            opacity: 0.2;
+                            offset-distance: 50%;
+                        }
+                    }
+                    
+                    .eu .wave {
+                        left: 52%;
+                    }
+                    
+                    .au .wave {
+                        width: 1037px;
+                        top: -395px;
+                        left: 47%;
+                    }
+                    
+                    .sea_animal_1 {
+                        width: 125px;
+                        top: -276px;
+                        left: 14%;
+                        animation-name: sea_animal;
+                        animation-duration: 2s;
+                        animation-timing-function: ease-in-out;
+                        /* animation-delay: .5; */
+                        animation-iteration-count: infinite;
+                        animation-direction: alternate-reverse;
+                        animation-fill-mode: forwards;
+                        pointer-events: none;
+                    }
+                    
+                    .sea_animal_2 {
+                        width: 150px;
+                        top: -529px;
+                        left: 78%;
+                        animation-name: sea_animal;
+                        animation-duration: 2s;
+                        animation-timing-function: ease-in-out;
+                        animation-delay: 2s;
+                        animation-iteration-count: infinite;
+                        animation-direction: alternate-reverse;
+                        animation-fill-mode: forwards;
+                        opacity: 0;
+                        pointer-events: none;
+                    }
+                    
+                    @keyframes sea_animal {
+                        0% {
+                            opacity: 0;
+                            transform: translateY(30px) scale(0.75);
+                            /* opacity: 0.2; */
+                            /* offset-distance: 0%; */
+                        }
+                        100% {
+                            opacity: 1;
+                            transform: translateY(0) scale(1);
+                            /* opacity: 0.2; */
+                            /* offset-distance: 50%; */
+                        }
+                    }
+                    
+                    .boat {
+                        width: 56px;
+                        top: -449px;
+                        left: 24%;
+                        offset-path: path('M11.5,18.3c4.8-6.8,17.4-0.5,23.5,0.6c8.4,1.6,14.9,0,22.2-4.1c8.2-4.7,15.5-2.3,23.8,0.8c8.6,3.3,16.9,5.9,26.1,3.7c7.5-1.8,4.3-13.3-3.2-11.6C94,10,84.6,3.4,75.3,1.1c-9.6-2.4-17.2-0.6-25.6,4.1c-9.2,5.2-17.8-0.3-27.3-1.5c-8.4-1-16.3,1.5-21.3,8.5C-3.4,18.6,7,24.6,11.5,18.3L11.5,18.3z');
+                        offset-distance: 100%;
+                        offset-rotate: 0deg;
+                        animation-name: boat;
+                        animation-duration: 5s;
+                        animation-timing-function: ease-in-out;
+                        /* animation-delay: .5; */
+                        animation-iteration-count: infinite;
+                        animation-direction: normal;
+                        animation-fill-mode: forwards;
+                        /* opacity: 0.5; */
+                        pointer-events: none;
+                    }
+                    
+                    @keyframes boat {
+                        0% {
+                            offset-distance: 0%;
+                            transform: scaleX(1);
+                        }
+                        49% {
+                            offset-distance: 49%;
+                            transform: scaleX(1);
+                        }
+                        50% {
+                            offset-distance: 50%;
+                            transform: scaleX(-1);
+                        }
+                        99% {
+                            offset-distance: 99%;
+                            transform: scaleX(-1);
+                        }
+                        100% {
+                            offset-distance: 100%;
+                            transform: scaleX(1);
+                        }
+                    }
+                    
+                    @media (max-width: 990px) {
+                        .surf,
+                        .bigini,
+                        .boat,
+                        .sea_animal_1,
+                        .sea_animal_2 {
+                            display: none;
+                        }
+                        .wave {
+                            width: 550px;
+                            top: -364px;
+                            left: 46%;
+                            opacity: 1;
+                        }
+                        @keyframes wave {
+                            0% {
+                                opacity: 0.5;
+                                offset-distance: 0%;
+                            }
+                            50% {
+                                opacity: 0.75;
+                                offset-distance: 25%;
+                            }
+                            100% {
+                                opacity: 0.5;
+                                offset-distance: 50%;
+                            }
+                        }
+                        .eu .wave {
+                            display: none;
+                        }
+                        .as .wave {
+                            width: 588px;
+                            top: -364px;
+                            left: 43%;
+                        }
+                        .au .wave {
+                            width: 505px;
+                            top: -395px;
+                            left: 18%;
+                        }
+                        .map_deco_1 {
+                            width: 85px;
+                            top: 12%;
+                            left: 45%;
+                        }
+                        .map_deco_2 {
+                            width: 110px;
+                            top: 47%;
+                            left: 19%;
+                            /* animation-delay: 1s; */
+                        }
+                        .map_deco_3 {
+                            display: none;
+                        }
+                        .map_deco_4 {
+                            display: none;
+                        }
+                        .map_deco_5 {
+                            display: none;
+                            /* width: 115px;
+                            top: 67%;
+                            left: 89%; */
+                            /* animation-delay: 2s; */
+                        }
+                        .map_deco_6 {
+                            width: 65px;
+                            top: 16%;
+                            left: 82%;
+                            /* animation-delay: 1s; */
+                        }
+                        /* wave */
+                        .map_deco_7 {
+                            display: none;
+                            /* width: 132px;
+                            top: 30%;
+                            left: 10%; */
+                            /* animation-delay: 1s; */
+                        }
+                        .map_deco_8 {
+                            width: 70px;
+                            top: 66%;
+                            left: 37%;
+                            transform: scale(-1);
+                            /* animation-delay: 1s; */
+                        }
+                        .map_deco_9 {
+                            display: none;
+                            /* width: 100px;
+                            top: 76%;
+                            left: 46%; */
+                            /* animation-delay: 1s; */
+                        }
+                        .map_deco_10 {
+                            display: none;
+                            /* width: 120px;
+                            top: 65%;
+                            left: 88%;
+                            transform: scale(-1); */
+                            /* animation-delay: 1s; */
+                        }
+                        .map_deco_11 {
+                            display: none;
+                            /* width: 82px;
+                            top: 85%;
+                            left: 77%; */
+                            /* animation-delay: 1s; */
+                        }
+                        .map_deco_12 {
+                            display: none;
+                            /* width: 90px;
+                            top: 35%;
+                            left: 85%;
+                            transform: scale(-1); */
+                            /* animation-delay: 1s; */
+                        }
+                        .map_deco_13 {
+                            width: 63px;
+                            top: 25%;
+                            left: 49%;
+                            /* animation-delay: 1s; */
+                        }
+                        .map_deco_14 {
+                            display: none;
+                            /* width: 90px;
+                            top: 35%;
+                            left: 85%;
+                            transform: scale(-1); */
+                            /* animation-delay: 1s; */
+                        }
+                    }
