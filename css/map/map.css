@@ -48,6 +48,21 @@
 
 .map_bg {
     z-index: -1;
+    animation-name: paper_open;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes paper_open {
+    0% {
+        transform: scaleX(0.1);
+        opacity: 0;
+    }
+    100% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
 }
 
 .map_bg img {
@@ -117,12 +132,12 @@
     left: 10px;
     height: 45px;
     z-index: 3;
-    cursor: pointer;
+    /* cursor: pointer; */
     /* pointer-events: none; */
 }
 
 .title_co {
-    top: 380px;
+    top: 370px;
     left: 30px;
     height: 45px;
     z-index: 3;
@@ -159,6 +174,10 @@
 
 
 /* 五大洲 */
+
+.map .world_all {
+    transition: .3s;
+}
 
 .map .world {
     z-index: 0;
@@ -366,13 +385,41 @@ cursor: pointer;
 /* 大飛機 */
 
 .pipi_plane_big {
-    left: -50px;
+    top: -50px;
+    opacity: 1;
+    width: 1100px;
+    height: 0px;
+    position: relative;
+    offset-path: path('M13.1,161c-5.3-27.3,6.8-53.7,22-75.7c14-20.4,32.3-38.4,53.2-51.8c18.7-11.9,40.2-20.7,62.5-21.5c24-0.9,48.5,7,69.5,18.2c23.5,12.5,44.1,29.9,61.2,50.1c16.6,19.6,29.4,42.2,46.7,61.3c18.3,20.1,42.3,33.3,69,38.4c25.5,4.8,51.3,2,76.1-4.8c53.4-14.7,102.4-47.5,134-93.2c4.4-6.4-6-12.4-10.4-6.1c-28.7,41.6-73.2,71.6-121.2,86.1c-24.3,7.3-50.1,11.2-75.3,6.4c-14.3-2.7-28.1-7.8-40.4-15.4c-10.5-6.5-19.4-15.2-27.4-24.6c-17.4-20.6-30.8-44.2-49.2-64.1c-17.8-19.3-39-35.8-62.6-47.4c-21.4-10.5-45.9-17.9-70-17c-23,0.9-45.3,9-64.8,20.8C62.1,35.3,41.6,55.2,25.6,78C8,103.2-4.5,133.1,1.6,164.2C3,171.8,14.6,168.6,13.1,161L13.1,161z');
+    offset-distance: 100%;
+    offset-rotate: 0deg;
+    animation-name: pipi_plane_big;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    /* animation-iteration-count: infinite; */
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+}
+
+@keyframes pipi_plane_big {
+    0% {
+        opacity: 0;
+        offset-distance: 0%;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        offset-distance: 50%;
+    }
 }
 
 .pipi_plane_big img {
-    width: 80px;
+    width: 250px;
     bottom: 0px;
-    left: 0px;
+    left: 0
+    /* left: -210px;
+    top: -175px; */
 }
 
 
@@ -755,7 +802,7 @@ cursor: pointer;
     offset-distance: 0;
     offset-rotate: 0deg;
     animation-name: ship;
-    animation-duration: 15s;
+    animation-duration: 30s;
     animation-timing-function: linear;
     animation-delay: 0s;
     animation-iteration-count: infinite;
@@ -1237,9 +1284,9 @@ cursor: pointer;
 
 .map .pipi_plane {
     z-index: 989;
-    width: 50px;
+    width: 70px;
     right: 11%;
-    top: -200px;
+    top: -300px;
 }
 
 .map .pipi_plane:hover {
