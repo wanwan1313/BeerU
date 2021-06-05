@@ -13,6 +13,7 @@ $page_title = '啤女BeerU:啤酒地圖';
 <!-- my-style -->
 <link rel="stylesheet" href="../css/map/title.css">
 <link rel="stylesheet" href="../css/map/map.css">
+<link rel="stylesheet" href="../css/map/map_deco.css">
 <link rel="stylesheet" href="../css/map/map_anime.css">
 <link rel="stylesheet" href="../css/tool.css">
 
@@ -35,13 +36,29 @@ $page_title = '啤女BeerU:啤酒地圖';
             </div>
         </div>
         <!-- 2.底圖+地圖 -->
-        <div class="row justify-content-center mt-3 mb-3 mb-md-5 position-relative">
+        <div class="world_all row justify-content-center mt-3 mb-3 mb-md-5 position-relative">
             <!-- 底圖 -->
-            <div class="map_bg position-absolute"><img class='' src="../images/map/map_bg.png" alt=""></div>
+            <div class="map_bg position-absolute "><img class='' src="../images/map/map_bg.png" alt=""></div>
+            <div id='map_deco' class="map_deco_1 position-absolute map_deco_anime d-none"><img class='' src="../images/map/SVG/map_deco_1.svg" alt=""></div>
+            <div id='map_deco' class="map_deco_2 position-absolute map_deco_anime d-none"><img class='' src="../images/map/SVG/map_deco_2.svg" alt=""></div>
+            <div id='map_deco' class="map_deco_3 position-absolute map_deco_anime d-none"><img class='' src="../images/map/SVG/map_deco_3.svg" alt=""></div>
+            <div id='map_deco' class="map_deco_4 position-absolute map_deco_anime d-none"><img class='' src="../images/map/SVG/map_deco_4.svg" alt=""></div>
+            <div id='map_deco' class="map_deco_5 position-absolute map_deco_anime d-none"><img class='' src="../images/map/SVG/map_deco_5.svg" alt=""></div>
+            <div id='map_deco' class="map_deco_6 position-absolute map_deco_anime d-none"><img class='' src="../images/map/SVG/map_deco_6.svg" alt=""></div>
+            <!-- wave -->
+            <div id='map_deco' class="map_deco_7 position-absolute map_deco_anime2 d-none"><img class='' src="../images/map/SVG/map_deco_7.svg" alt=""></div>
+            <div id='map_deco' class="map_deco_8 position-absolute map_deco_anime2 d-none"><img class='' src="../images/map/SVG/map_deco_7.svg" alt=""></div>
+            <div id='map_deco' class="map_deco_9 position-absolute map_deco_anime2 d-none"><img class='' src="../images/map/SVG/map_deco_7.svg" alt=""></div>
+            <div id='map_deco' class="map_deco_10 position-absolute map_deco_anime2 d-none"><img class='' src="../images/map/SVG/map_deco_7.svg" alt=""></div>
+            <div id='map_deco' class="map_deco_11 position-absolute map_deco_anime2 d-none"><img class='' src="../images/map/SVG/map_deco_7.svg" alt=""></div>
+            <div id='map_deco' class="map_deco_12 position-absolute map_deco_anime2 d-none"><img class='' src="../images/map/SVG/map_deco_7.svg" alt=""></div>
+            <div id='map_deco' class="map_deco_13 position-absolute map_deco_anime2 d-none"><img class='' src="../images/map/SVG/map_deco_7.svg" alt=""></div>
+            <div id='map_deco' class="map_deco_14 position-absolute map_deco_anime2 d-none"><img class='' src="../images/map/SVG/map_deco_7.svg" alt=""></div>
+
             <!-- 世界地圖 -->
             <div class="world position-absolute" id="world">
                 <!-- 五大洲 -->
-                <svg class='d-block mx-auto' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1008.3px" height="650.9px" viewBox="0 0 1008.3 650.9" style="overflow:visible;enable-background:new 0 0 1008.3 650.9;" xml:space="preserve">
+                <svg class='d-block mx-auto animatable bounceIn' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1008.3px" height="650.9px" viewBox="0 0 1008.3 650.9" style="overflow:visible;enable-background:new 0 0 1008.3 650.9;" xml:space="preserve">
                     <!-- us -->
                     <a xlink:href="javascript:" href="#us">
                         <path d="M47.5,264.1l1.2,1.6l-2.4,2.5l-2.8,2l-1.4-1.3l-0.4-2.4l2.5-1.9l1.5-0.8L47.5,264.1z M105.9,283.1l-2.7,0.4l-1.3-0.6
@@ -402,7 +419,7 @@ $page_title = '啤女BeerU:啤酒地圖';
                 </div>
                 <!-- pipi plane -->
                 <div class="pipi_plane_big">
-                    <img class='position-absolute' style='width:250px;bottom:0px;left:-30px' src="../images/map/SVG/pipi_plane_big.svg" alt="">
+                    <img class='position-absolute' src="../images/map/SVG/pipi_plane_big.svg" alt="">
                 </div>
             </div>
         </div>
@@ -478,10 +495,20 @@ $page_title = '啤女BeerU:啤酒地圖';
                         <path class="cls-1" d="M224.32,20.21a7.25,7.25,0,0,0,1.46-.12s.05-.11.08-.17a3.15,3.15,0,0,0-.31-.41,5.93,5.93,0,0,0-.53-.37l-1.86.1A1.21,1.21,0,0,0,224.32,20.21Z" />
                         <path class="cls-1" d="M222.07,240.42a1.61,1.61,0,0,0,1.9,0A1.67,1.67,0,0,0,222.07,240.42Z" />
                 </svg>
+                <!-- surf -->
+                <div class="surf position-absolute">
+                    <img id='deco' src="../images/map/SVG/surf.svg" alt="">
+                </div>
+                <!-- bigini -->
+                <div class="bigini position-absolute">
+                    <img id='deco' src="../images/map/SVG/bigini.svg" alt="">
+                </div>
+                <!-- wave -->
+                <div class="wave position-absolute"><img class='' src="../images/map/SVG/us_wave.svg" alt=""></div>
                 <!-- 地點 -->
                 <div class="deco1 position-absolute animatable fadeInUp">
-                        <img id='deco' src="../images/map/SVG/deco_us.svg" alt="">
-                    </div>
+                    <img id='deco' src="../images/map/SVG/deco_us.svg" alt="">
+                </div>
                 <div class="flag position-absolute">
                     <img class='mug' name='美國' src="../images/map/SVG/mug_us.svg" alt="">
                 </div>
@@ -565,14 +592,20 @@ $page_title = '啤女BeerU:啤酒地圖';
                         <path class="cls-1" d="M239.62,316.28a5,5,0,0,0-5.46,2.21,1,1,0,0,0-.16.55v18.22a1,1,0,0,0,.47.85,1,1,0,0,0,.53.15,1,1,0,0,0,.44-.1l6.63-3.3a1,1,0,0,0,.55-.89c0-1.06,0-2.11.09-3.15.17-4.76.35-9.67-2.44-14.1A1,1,0,0,0,239.62,316.28Z" />
                         <path class="cls-1" d="M238.88,306.88a.92.92,0,0,0,.36-.07,1,1,0,0,0,.64-.93v-6.42a1,1,0,0,0-1.52-.86c-1.93,1.16-3,2.29-2.92,4.65a1,1,0,0,0,.26.63l2.44,2.68A1,1,0,0,0,238.88,306.88Z" />
                 </svg>
+                <!-- sea_animal -->
+                <div class="sea_animal_1 position-absolute"><img class='' src="../images/map/SVG/sea_animel_1.svg" alt=""></div>
+                <div class="sea_animal_2 position-absolute"><img class='' src="../images/map/SVG/sea_animel_2.svg" alt=""></div>
+                <!-- boat -->
+                <div class="boat position-absolute"><img class='' src="../images/map/SVG/boat.svg" alt=""></div>
+                <!-- wave -->
+                <div class="wave position-absolute"><img class='' src="../images/map/SVG/eu_wave.svg" alt=""></div>
                 <!-- 地點 -->
-
                 <div class="eu_flags">
                     <div class="deco1 position-absolute animatable fadeInUp">
                         <img id='deco' src="../images/map/SVG/deco_uk.svg" alt="">
                     </div>
                     <div class="flag flag1 position-absolute">
-                        <img class='mug' name='英國' src="../images/map/SVG/mug_uk.svg"alt="">
+                        <img class='mug' name='英國' src="../images/map/SVG/mug_uk.svg" alt="">
                     </div>
                     <div class="deco2 position-absolute animatable fadeInUp">
                         <img id='deco' src="../images/map/SVG/deco_fc.svg" alt="">
@@ -773,6 +806,8 @@ $page_title = '啤女BeerU:啤酒地圖';
                         <path class="cls-1" d="M423.94,373.47v.7a3.35,3.35,0,0,0,3.11-.29,11.48,11.48,0,0,0-1.42-.18C425.06,373.7,424.64,372.93,423.94,373.47Z" />
                         <path class="cls-1" d="M32.94,189.11c.59-.36,1.48-.41,1.66-1.34-.66-.31-1,.21-1.47.31s-1.14.19-1.68.28c-.07.29-.11.48-.16.66C32.49,189.32,32.52,189.38,32.94,189.11Z" />
                 </svg>
+                <!-- wave -->
+                <div class="wave position-absolute"><img class='' src="../images/map/SVG/as_wave.svg" alt=""></div>
                 <!-- 地點 -->
                 <div class="as_flags">
                     <div class="ship position-absolute">
@@ -860,6 +895,8 @@ $page_title = '啤女BeerU:啤酒地圖';
 
                     <path name='紐西蘭' class="country_path nz_path" d="M643.32,205.71l11.6,9.6c-.79.73-1.1,1-1.23,1.14-4.5-.56-6.79-4.51-12.23-5.8h-11.8a31.38,31.38,0,0,1-12-15.82,58.33,58.33,0,0,0-3.34-6.89,23.22,23.22,0,0,0-4.27-2.32c-1.81-.56-3.92-.46-5.51-1.56s-3.31-2-5.31-3.26l-7.18,2.1c-3.86,4.23-8.3,7.87-9,13.59-1.8,2.69-4.6,2.24-6.6,3.57h-9.72l-3.25-3c0-1.45-.11-2.9-.11-4.35a54.18,54.18,0,0,1-3.5-4.64,47.33,47.33,0,0,0-12.47.12c-1,1.29-1.81,2.46-2.49,3.38a5.15,5.15,0,0,1-5.11.14c-.11-.48-.43-1-.29-1.37.88-2,1.87-4,2.93-6.28l4.82-2.75a6,6,0,0,0,.57-1.39,20.14,20.14,0,0,0-1.46-9.46c-1.16-3.25-2.36-6.49-3.66-9.68-1.46-3.57-3.7-6.3-7.51-7.51a47.11,47.11,0,0,1-5.88-2.78c-4.13-2-8.24-4-12.84-4.71a15.13,15.13,0,0,1-5.23-2.34c-1.83-1.15-3.42-2.72-5.19-4-2-1.41-4-2.73-5.55-3.73H496a8.46,8.46,0,0,0-1.82,2.13c-.63,1.47.06,3.62-2.18,4.47-1.44-1.56-2-3.6-2.59-5.66a54.25,54.25,0,0,0-2.73-6.2l12-4.87c.65-.69,1.66-1.74,2.74-2.86-.13-1.06-.24-2-.33-2.75-.65-.4-1.05-.86-1.46-.86-4.08-.2-8.17-.33-12.32-.48-2.53-2.72-3.46-6.85-7.21-8.26l-4.32-.81c.18-.43.22-.94.47-1.09,3.3-2,6.63-4,9.68-5.76h7.37l9.32,7.65v7.78l5.8,11.47c1.76,1.34,2.93,5.63,7.49,5.7,4.55-3.05,7.06-7.9,9.81-12.78l6.68-.88c1.27-3.3,3.81-5.47,7.42-6.82,9.15,4.11,19.2,6.58,28.47,11.74a25.53,25.53,0,0,1,3.33,1c4,1.69,8,3.49,12,5.19a17.71,17.71,0,0,0,4.07,1.3,9.94,9.94,0,0,1,7.91,5.59l4,2.11,11.59,11.7c-.41,1.62-.87,3.48-1.31,5.22a9.62,9.62,0,0,0,7.1,2.61l10.49,5.44,2,2.26c-.32.52-.46,1.06-.76,1.19-1.55.64-3.19,1.06-4.68,1.82a13.18,13.18,0,0,0-2.48,2,7.45,7.45,0,0,0,1.83,6.64c2.5,3,3.77,6.86,7,9.31,1.22.93,1.7,2.92,2.43,4.47,1.28,2.68,2.35,5.5,5.35,7.29h4C642.59,203.23,643,204.63,643.32,205.71Zm30-50.18-2.46,4.54c-2.81,2-5.24,2.71-8,2.34a13.23,13.23,0,0,0-7.7,1.3c-.4.19-.95,0-1.8,0-1.35-.18-2.92-2.18-4.93-.33.73.65,1.43,1.3,2.23,2h15.18l6.85-3.67c4.91-6.27,4.91-6.27,5.36-9.37Z" />
                 </svg>
+                <!-- wave -->
+                <div class="wave position-absolute"><img class='' src="../images/map/SVG/eu_wave.svg" alt=""></div>
                 <!-- 地點 -->
                 <div class="au_flags">
                     <div class="deco0 position-absolute">
@@ -934,7 +971,7 @@ $page_title = '啤女BeerU:啤酒地圖';
     </div>
 
     <!-- 4.手機版：四大洲選項 -->
-    <div class="phone-option">
+    <div class="phone-option animatable bounceIn">
         <!-- 四大洲 -->
         <div class="row w-75 mx-auto parts text-center justify-content-around flex-nowrap ">
             <!-- 美洲 -->
@@ -1048,7 +1085,7 @@ $page_title = '啤女BeerU:啤酒地圖';
                 </div>
                 <!-- 7.按鈕 -->
                 <div class=" row buttons justify-content-center flex-nowrap animatable bounceIn">
-                    
+
                 </div>
             </div>
         </div>
@@ -1067,7 +1104,7 @@ $page_title = '啤女BeerU:啤酒地圖';
 <script src='../js/map/map_3.js'></script>
 <script src='../js/map/map_4.js'></script>
 <script src='../js/map/map_attention.js'></script>
-<!-- <script src='../js/map/map_phone_option.js'></script> -->
+<script src='../js/event/event_anime_scroll_no_round.js'></script>
 <script src='../js/map/map_anime_scroll.js'></script>
 <script>
     $("html,body").animate({
@@ -1076,10 +1113,10 @@ $page_title = '啤女BeerU:啤酒地圖';
 
 
 
-// 卡片跑出-------------------------------------
+    // 卡片跑出-------------------------------------
 
-const beerTPL = b => {
-    return`
+    const beerTPL = b => {
+        return `
     <div class="beer">
         <a href="each-product.php?psid=${b.sid}">
            <div class="beer-img d-flex position-relative"><img src="../images/products/${b.pic}" alt="">
@@ -1088,13 +1125,13 @@ const beerTPL = b => {
         </a>
     </div>
     `
-}
+    }
 
-// 設定一個關注按鈕的字樣
+    // 設定一個關注按鈕的字樣
 
-const btnAttentionTPL = t => {
-    // 是否會員->沒有 關注
-    return `
+    const btnAttentionTPL = t => {
+        // 是否會員->沒有 關注
+        return `
     <?php if (!isset($_SESSION['user'])) : ?>
         <!-- 不是會員都只會顯示加入關注       -->
         <button class="btn_attention btn_attention_nologin px-3 py-1 mx-5" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
@@ -1115,10 +1152,10 @@ const btnAttentionTPL = t => {
             </a>
         </button>
     `
-}
-const btnAttentionTPL2 = t => {
-    // 是否會員->有 關注
-    return `
+    }
+    const btnAttentionTPL2 = t => {
+        // 是否會員->有 關注
+        return `
     <?php if (!isset($_SESSION['user'])) : ?>
         <!-- 不是會員都只會顯示加入關注       -->
         <button class="btn_attention btn_attention_nologin px-3 py-1 mx-5" onclick="LogIn_btn()"><i class="fas fa-plus"></i>加入關注</button>
@@ -1139,162 +1176,166 @@ const btnAttentionTPL2 = t => {
             </a>
         </button>
     `
-}
-
-let buttons = $('.buttons')
-let beer_wrap = $('.beer-wrap')
-let b_data=[]
-
-function renderProducts() {
-    beer_wrap.html('')
-    if (b_data.beers && b_data.beers.forEach) {
-        b_data.beers.forEach(el => {
-            beer_wrap.append(beerTPL(el))
-        })
     }
-}
-$('.mug, .country_path').click(function () {
-    $('.popup').removeClass('d-none')
-    $('.bg-black').show().addClass( 'opacity-1');
-    const countryName = $(this).attr('name');
-    console.log(countryName)
-    $.post(
-        // 2.1'api放入位置',
-        '/Beeru/public/map-api.php',
-        // 2.2{剛才設定的變數const},
-        { countryName },
-        function (data) {
-            // let {map_row, cups, beers} = data;
-            // console.log(data)
-            b_data = data
-            console.log(b_data)
-            // 改國家名
-            $('.country-name p').text(data.map_row.country);
-            // 改國家介紹
-            $('.beer-intro p').text(data.map_row.intro);
-            // console.log(map_row.stamp);
-            // 改郵票圖片位址
-            $('.stamp_country img').attr("src", data.map_row.stamp);
-            // 改看更多位址
-            // $('.see_more a').attr("href", data.map_row.see_more);
-            // 改背景圖（桌機）
-            $('.bg_b img').attr("src", data.map_row.bg_b);
-            // 改背景圖（手機）
-            $('.bg_s img').attr("src", data.map_row.bg_s);
-            // 改brand
-            $('.beer-brand').html(data.map_row.brands);
 
-            // cup1
-            $('.cup1').attr("href", data.map_row.cup_1_link);
-            $('.cup1 .cup-name').text(data.map_row.cup_1_name);
-            $('.cup1 img').attr("src", data.map_row.cup_1_pic);
-            // cup2
-            $('.cup2').attr("href", data.map_row.cup_2_link);
-            $('.cup2 .cup-name').text(data.map_row.cup_2_name);
-            $('.cup2 img').attr("src", data.map_row.cup_2_pic);
-            // cup3
-            $('.cup3').attr("href", data.map_row.cup_3_link);
-            $('.cup3 .cup-name').text(data.map_row.cup_3_name);
-            $('.cup3 img').attr("src", data.map_row.cup_3_pic);
-            
+    let buttons = $('.buttons')
+    let beer_wrap = $('.beer-wrap')
+    let b_data = []
 
-            // 為了抓到關注清單的tag_sid設置，不會出現在畫面上
-            let mycate = data.map_row.tag_sid
-            buttons.attr("data-cate", mycate);
-            buttons.html('')
-            if( b_data.attention.indexOf(mycate) > -1 ){
-                buttons.append(btnAttentionTPL2(data.map_row.see_more))
-            }else{
-                buttons.append(btnAttentionTPL(data.map_row.see_more))
-            }
-            renderProducts()
-        },
-        'json'
-    )
-})
+    function renderProducts() {
+        beer_wrap.html('')
+        if (b_data.beers && b_data.beers.forEach) {
+            b_data.beers.forEach(el => {
+                beer_wrap.append(beerTPL(el))
+            })
+        }
+    }
+    $('.mug, .country_path').click(function() {
+        $('.popup').removeClass('d-none')
+        $('.bg-black').show().addClass('opacity-1');
+        const countryName = $(this).attr('name');
+        console.log(countryName)
+        $.post(
+            // 2.1'api放入位置',
+            '/Beeru/public/map-api.php',
+            // 2.2{剛才設定的變數const},
+            {
+                countryName
+            },
+            function(data) {
+                // let {map_row, cups, beers} = data;
+                // console.log(data)
+                b_data = data
+                console.log(b_data)
+                // 改國家名
+                $('.country-name p').text(data.map_row.country);
+                // 改國家介紹
+                $('.beer-intro p').text(data.map_row.intro);
+                // console.log(map_row.stamp);
+                // 改郵票圖片位址
+                $('.stamp_country img').attr("src", data.map_row.stamp);
+                // 改看更多位址
+                // $('.see_more a').attr("href", data.map_row.see_more);
+                // 改背景圖（桌機）
+                $('.bg_b img').attr("src", data.map_row.bg_b);
+                // 改背景圖（手機）
+                $('.bg_s img').attr("src", data.map_row.bg_s);
+                // 改brand
+                $('.beer-brand').html(data.map_row.brands);
 
-$('.map .country').click(function () {
-    // console.log('this', $(this));
-    // console.log('data-cate', $(this).attr('data-cate'));
-    // let data_cate=$(this).attr('data-cate')
-    // 動畫設置---------------------------
-    // 1.卡片跑出
-    $('.popup').removeClass('d-none')
-    $('.bg-black').show().addClass( 'opacity-1');
-    // 2.卡片動畫
-    // $('.map-card').hide()
-    // $('.map-card').addClass('animate__animated animate__flip');
-    // -------------------------------------------------
-    // 使用javascript動態修改內容：搜尋country-name 的p<ru; 將內容改成郵票選項的名字(.map .country)的.country_name
-    // $('.country-name p').text($(this).find('.country_name').text());
+                // cup1
+                $('.cup1').attr("href", data.map_row.cup_1_link);
+                $('.cup1 .cup-name').text(data.map_row.cup_1_name);
+                $('.cup1 img').attr("src", data.map_row.cup_1_pic);
+                // cup2
+                $('.cup2').attr("href", data.map_row.cup_2_link);
+                $('.cup2 .cup-name').text(data.map_row.cup_2_name);
+                $('.cup2 img').attr("src", data.map_row.cup_2_pic);
+                // cup3
+                $('.cup3').attr("href", data.map_row.cup_3_link);
+                $('.cup3 .cup-name').text(data.map_row.cup_3_name);
+                $('.cup3 img').attr("src", data.map_row.cup_3_pic);
 
-    // 1.設定countryName為找到的國家名稱('.country_name')並刪除多餘空格.trim()
-    const countryName = $(this).find('.country_name').text().trim();
 
-    // 2.用jquery引入php,$.post
-    $.post(
-        // 2.1'api放入位置',
-        '/Beeru/public/map-api.php',
-        // 2.2{剛才設定的變數const},
-        { countryName },
+                // 為了抓到關注清單的tag_sid設置，不會出現在畫面上
+                let mycate = data.map_row.tag_sid
+                buttons.attr("data-cate", mycate);
+                buttons.html('')
+                if (b_data.attention.indexOf(mycate) > -1) {
+                    buttons.append(btnAttentionTPL2(data.map_row.see_more))
+                } else {
+                    buttons.append(btnAttentionTPL(data.map_row.see_more))
+                }
+                renderProducts()
+            },
+            'json'
+        )
+    })
 
-        // 執行function
-        function (data) {
-            // let {map_row, cups, beers} = data;
-            // console.log(data)
-            b_data = data
-            console.log(b_data)
-            // 改國家名
-            $('.country-name p').text(data.map_row.country);
-            // 改國家介紹
-            $('.beer-intro p').text(data.map_row.intro);
-            // console.log(map_row.stamp);
-            // 改郵票圖片位址
-            $('.stamp_country img').attr("src", data.map_row.stamp);
-            // 改看更多位址
-            // $('.see_more a').attr("href", data.map_row.see_more);
-            // 改背景圖（桌機）
-            $('.bg_b img').attr("src", data.map_row.bg_b);
-            // 改背景圖（手機）
-            $('.bg_s img').attr("src", data.map_row.bg_s);
-            // 改brand
-            $('.beer-brand').html(data.map_row.brands);
-            
-            // // cup1
-            // for(let i=1; i<=3; i++){
-            //     $('.cup' + i).attr("href", cups[i-1].cup_1_link);
-            //     $('.cup' + i + ' .cup-name').text(cups[i-1].cup_1_name);
-            //     $('.cup' + i + ' img').attr("src", cups[i-1].cup_1_pic);
-            // }
+    $('.map .country').click(function() {
+        // console.log('this', $(this));
+        // console.log('data-cate', $(this).attr('data-cate'));
+        // let data_cate=$(this).attr('data-cate')
+        // 動畫設置---------------------------
+        // 1.卡片跑出
+        $('.popup').removeClass('d-none')
+        $('.bg-black').show().addClass('opacity-1');
+        // 2.卡片動畫
+        // $('.map-card').hide()
+        // $('.map-card').addClass('animate__animated animate__flip');
+        // -------------------------------------------------
+        // 使用javascript動態修改內容：搜尋country-name 的p<ru; 將內容改成郵票選項的名字(.map .country)的.country_name
+        // $('.country-name p').text($(this).find('.country_name').text());
 
-            // cup1
-            $('.cup1').attr("href", data.map_row.cup_1_link);
-            $('.cup1 .cup-name').text(data.map_row.cup_1_name);
-            $('.cup1 img').attr("src", data.map_row.cup_1_pic);
-            // cup2
-            $('.cup2').attr("href", data.map_row.cup_2_link);
-            $('.cup2 .cup-name').text(data.map_row.cup_2_name);
-            $('.cup2 img').attr("src", data.map_row.cup_2_pic);
-            // cup3
-            $('.cup3').attr("href", data.map_row.cup_3_link);
-            $('.cup3 .cup-name').text(data.map_row.cup_3_name);
-            $('.cup3 img').attr("src", data.map_row.cup_3_pic);
-            
+        // 1.設定countryName為找到的國家名稱('.country_name')並刪除多餘空格.trim()
+        const countryName = $(this).find('.country_name').text().trim();
 
-            // 為了抓到關注清單的tag_sid設置，不會出現在畫面上
-            let mycate = data.map_row.tag_sid
-            buttons.attr("data-cate", mycate);
-            buttons.html('')
-            if( b_data.attention.indexOf(mycate) > -1 ){
-                buttons.append(btnAttentionTPL2(data.map_row.see_more))
-            }else{
-                buttons.append(btnAttentionTPL(data.map_row.see_more))
-            }
-            renderProducts()
-        },
-        'json'
-    )
-})
+        // 2.用jquery引入php,$.post
+        $.post(
+            // 2.1'api放入位置',
+            '/Beeru/public/map-api.php',
+            // 2.2{剛才設定的變數const},
+            {
+                countryName
+            },
+
+            // 執行function
+            function(data) {
+                // let {map_row, cups, beers} = data;
+                // console.log(data)
+                b_data = data
+                console.log(b_data)
+                // 改國家名
+                $('.country-name p').text(data.map_row.country);
+                // 改國家介紹
+                $('.beer-intro p').text(data.map_row.intro);
+                // console.log(map_row.stamp);
+                // 改郵票圖片位址
+                $('.stamp_country img').attr("src", data.map_row.stamp);
+                // 改看更多位址
+                // $('.see_more a').attr("href", data.map_row.see_more);
+                // 改背景圖（桌機）
+                $('.bg_b img').attr("src", data.map_row.bg_b);
+                // 改背景圖（手機）
+                $('.bg_s img').attr("src", data.map_row.bg_s);
+                // 改brand
+                $('.beer-brand').html(data.map_row.brands);
+
+                // // cup1
+                // for(let i=1; i<=3; i++){
+                //     $('.cup' + i).attr("href", cups[i-1].cup_1_link);
+                //     $('.cup' + i + ' .cup-name').text(cups[i-1].cup_1_name);
+                //     $('.cup' + i + ' img').attr("src", cups[i-1].cup_1_pic);
+                // }
+
+                // cup1
+                $('.cup1').attr("href", data.map_row.cup_1_link);
+                $('.cup1 .cup-name').text(data.map_row.cup_1_name);
+                $('.cup1 img').attr("src", data.map_row.cup_1_pic);
+                // cup2
+                $('.cup2').attr("href", data.map_row.cup_2_link);
+                $('.cup2 .cup-name').text(data.map_row.cup_2_name);
+                $('.cup2 img').attr("src", data.map_row.cup_2_pic);
+                // cup3
+                $('.cup3').attr("href", data.map_row.cup_3_link);
+                $('.cup3 .cup-name').text(data.map_row.cup_3_name);
+                $('.cup3 img').attr("src", data.map_row.cup_3_pic);
+
+
+                // 為了抓到關注清單的tag_sid設置，不會出現在畫面上
+                let mycate = data.map_row.tag_sid
+                buttons.attr("data-cate", mycate);
+                buttons.html('')
+                if (b_data.attention.indexOf(mycate) > -1) {
+                    buttons.append(btnAttentionTPL2(data.map_row.see_more))
+                } else {
+                    buttons.append(btnAttentionTPL(data.map_row.see_more))
+                }
+                renderProducts()
+            },
+            'json'
+        )
+    })
 </script>
 
 
