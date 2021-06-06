@@ -2,15 +2,26 @@
 
 // pipi氣球
 $('.balloon').hide();
+
 // deco
 $('.flag').hide();
+
 // 彈跳視窗
 $('.bg-black').hide();
+$('.title_us, .title_eu, .title_as, .title_au, .title_af, .title_co').hide()
+
 // -------------------
 // 預設：持續動畫
+setTimeout(function() {
+    $('.title_us, .title_eu, .title_as, .title_au').fadeIn().toggleClass('animate__animated animate__pulse').toggleClass('infinite').toggleClass('shadow_gold')
+    $('.title_af, .title_co').fadeIn()
+}, 1150);
+setTimeout(function() {
+    $('.map_deco_anime, .map_deco_anime2').removeClass('d-none')
+}, 500);
 
 // 各大州中英文名
-$('.title_us, .title_eu, .title_as, .title_au').toggleClass('animate__animated animate__pulse').toggleClass('infinite').toggleClass('shadow_gold')
+// $('.title_us, .title_eu, .title_as, .title_au').toggleClass('animate__animated animate__pulse').toggleClass('infinite').toggleClass('shadow_gold')
 
 
 // -------------------
@@ -37,5 +48,5 @@ history.pushState({
 
 
 
-// -------------------------
 
+// -------------------------
