@@ -1099,6 +1099,13 @@
 
 }
 
+
+.LogIn-Sign .email-icon03 {
+    position: absolute;
+    color: var(--gold);
+    top: 12px;
+    left: 4%;
+}
 .LogIn-Sign .send-email-warp{
 
   justify-content: space-between;

@@ -204,7 +204,7 @@
 
 
                         <div class="Check-Email">
-                            <i class="far fa-envelope email-icon02"></i>
+                            <i class="far fa-envelope email-icon03"></i>
                             <input class="input-btn check_number" placeholder="您的驗證碼" id="email-check" name="check_number">
                             <small class="warn"><i class="far fa-times-circle"></i></small>
                         </div>
