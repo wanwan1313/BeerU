@@ -1,8 +1,8 @@
 <?php
 $db_host = 'localhost'; //本機端或別人的IP位置(看SQL在誰那裏)
 $db_name = 'beeru'; //資料庫名稱
-$db_user = 'James W'; //
-$db_pass = 'admin';
+$db_user = 'beeru'; //
+$db_pass = 'beeru';
 
 // data source name
 $dsn = sprintf('mysql:host=%s;dbname=%s;charset=utf8', $db_host, $db_name);
