@@ -2,10 +2,9 @@
 <?php
 // <!-- 需要置換的變數們 -->
 $page_title = '啤女BeerU:品飲會:立即報名';
-// $mail=$_SESSION['user']['email'];
-// echo('mail'.$mail);
 
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
+
 
 // 瀏覽人次
 $pdo->query("UPDATE `event` SET `event_visited`=`event_visited`+1 WHERE `sid` = $sid");
@@ -15,9 +14,11 @@ $e_SQL = "SELECT * FROM `event` WHERE sid=$sid";
 $e = $pdo->query($e_SQL)->fetch();
 
 $exp = strtotime($e['event_date']) < time();
+
 // 如果sid＝0,跳轉回去event.php
 if ($sid == 0) {
-    header('Location: http://192.168.21.56/beeru/public/event.php');
+
+    header('Location: event.php');
     // exit;
 }
 $exp = strtotime($e['event_date']) < time();
@@ -27,10 +28,11 @@ $en_SQL = "SELECT `e`.`event_people`,COUNT(`event_sid`) FROM `event` AS `e` INNE
 
 $e = $pdo->query($e_SQL)->fetch();
 
+
+
 // 抓資料庫裡的關注清單
 // 關注列
 $a_arr = [];
-
 // 設定登入會員後
 if (isset($_SESSION['user'])) {
     // 設定已登入會員sid
@@ -48,6 +50,25 @@ if (isset($_SESSION['user'])) {
     }
 }
 
+$ej_SQL ="SELECT `member_sid` FROM `event_join` WHERE `member_sid` = $m_sid";
+$ej = $pdo->query($ej_SQL)->fetch();
+
+$ej_arr=[];
+if (isset($_SESSION['user'])) {
+    $m_sid = $_SESSION['user']['sid'];
+    // 抓取已報名資料
+    $ej_SQL ="SELECT `member_sid` FROM `event_join` WHERE `member_sid` = $m_sid";
+    $ej_row = $pdo->query($ej_SQL)->fetchAll();
+    // 
+    if(!empty($ej_row)) {
+        foreach ($ej_row as $ej) {
+            // 抓出來
+            array_push($ej_arr, $ej['member_sid']);
+        }
+    }
+
+}
+
 // 2.取報名人數
 $esid = $e['sid'];
 $people_SQL = "SELECT `total_p` FROM `event_join` WHERE `event_sid`= $esid";
@@ -60,6 +81,8 @@ if (!empty($people_row)) {
 };
 
 $left_people = $e['event_people'] - $totalp;
+
+
 ?>
 
 <?php include __DIR__ . '../../php/common/html-head.php' ?>
@@ -301,10 +324,14 @@ $left_people = $e['event_people'] - $totalp;
             <!-- 名額+價格 -->
             <div class="row mx-5 mx-md-0 px-2 quotaprice col-md-6 justify-content-center flex-sm-nowrap flex-md-wrap">
                 <div class="col-sm-6 col-md-12 block quota">剩餘名額：
-                    <!-- <?= $e['event_join'] ?> -->
+                <?php if ($left_people < 1) : ?>
+                    0
+                    <?php else : ?>
                     <?= $left_people ?>
-                /
-                <?= $e['event_people'] ?></div>
+                    <?php endif ?>
+                    /
+                    <?= $e['event_people'] ?>
+                </div>
                 <div class="col-sm-6 col-md-12 block price">價格：NT$<?= $e['event_price'] ?></div>
             </div>
         </div>
@@ -330,7 +357,7 @@ $left_people = $e['event_people'] - $totalp;
                 <p class='t1 text-center'>特別精選</p>
                 <div class="row mx-0">
                     <div class="product col-6 align-content-center">
-                        <div class="product-img"> 
+                        <div class="product-img">
                             <img src="../<?= $e['event_beer_1_pic'] ?>" alt="">
                         </div>
                         <div class="product-name"><?= $e['event_beer_1_name'] ?></div>
@@ -368,7 +395,32 @@ $left_people = $e['event_people'] - $totalp;
         </div>
         <div class="row mx-0 w-100"><?= $e['event_map'] ?></div>
     </div>
-
+    <?php if ($left_people < 1) : ?>
+        <!-- 判斷：已額滿 -->
+        <div class="need_login animatable fadeInUp">
+            <!-- 標題：報名活動 -->
+            <div class="container event-join-sign">
+                <div class="row mx-0 px-5">
+                    <div class="title">
+                        <p>報名活動</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 按鈕 -->
+            <div class="col all-button flex-nowrap px-0">
+                <!-- 已額滿 -->
+                <button class='full d-block mx-auto w-75 w-md-25 mb-2 col-md-5' disabled='disabled' style='cursor: not-allowed;'>已額滿</button>
+                <div class="d-flex w-75 mx-auto col-md-5 memo-check lh15 px-0 align-items-baseline">
+                    <div class="memo mx-auto d-inline">*敬請加入關注，隨時掌握《啤女》最新資訊</div>
+                </div>
+                <!-- 返回上頁 -->
+                <a href="../public/event.php">
+                <button class='btn_join return d-block mx-auto w-75 w-md-25 col-md-5'> 返回上頁</button>
+            </a>
+            </div>
+        </div>
+        <?php else : ?>  
+            <!-- 判斷：未額滿 -->
     <?php if (isset($_SESSION['user'])) : ?>
         <!-- 判斷：已登入 -->
         <div class='can_join animatable fadeInUp'>
@@ -393,7 +445,7 @@ $left_people = $e['event_people'] - $totalp;
                         <p class='memo d-none'>＊請輸入正確姓名，以便現場核對身份</p>
                         <div class="form-title">
                             <label for='p0_mobile'>電話 <i class="fas fa-check"></i></label>
-                            <input class='col-10' type="tel" name='p0_mobile' id='p0_mobile' placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'"oninput="getValue();" onporpertychange="getValue();" required>
+                            <input class='col-10' type="tel" name='p0_mobile' id='p0_mobile' placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'" oninput="getValue();" onporpertychange="getValue();" required>
                         </div>
                         <p class='memo d-none pl-0'>＊請輸入正確電話，以便現場核對身份</p>
 
@@ -420,15 +472,16 @@ $left_people = $e['event_people'] - $totalp;
                                         </label>
                                         <input type="text" placeholder="啤啤" onfocus="this.placeholder = ''" onblur="this.placeholder = '啤啤'" name='p1_name' id='p1_name' oninput="getValue();" onporpertychange="getValue();">
                                     </div>
+                                    <p class='memo ml-3 d-none'>＊請輸入正確姓名</p>
                                     <div class="form-title-s col-12 col-md-6">
                                         <label for='p1_mobile'>
                                             電話
                                             <i class="fas fa-check"></i>
                                         </label>
-                                        <input type="tel" placeholder="0912-345-678"placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'" name='p1_mobile' id='p1_mobile' oninput="getValue();" onporpertychange="getValue();">
+                                        <input type="tel" placeholder="0912-345-678" placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'" name='p1_mobile' id='p1_mobile' oninput="getValue();" onporpertychange="getValue();">
                                     </div>
-                                    <p class='memo ml-3  d-none'>＊請輸入正確姓名</p>
-                                    <p class='memo memo-ml  d-none'>＊請輸入正確電話</p>
+                                    <p class='memo ml-3 d-none'>＊請輸入正確姓名</p>
+                                    <p class='memo d-none'>＊請輸入正確電話</p>
                                 </div>
                             </div>
                             <!--攜伴人數第2列-->
@@ -441,15 +494,16 @@ $left_people = $e['event_people'] - $totalp;
                                         </label>
                                         <input type="text" placeholder="啤啤" onfocus="this.placeholder = ''" onblur="this.placeholder = '啤啤'" name='p2_name' id='p2_name' oninput="getValue();" onporpertychange="getValue();">
                                     </div>
+                                    <p class='memo ml-3 d-none'>＊請輸入正確姓名</p>
                                     <div class="form-title-s col-12 col-md-6">
                                         <label for='p2_mobile'>
                                             電話
                                             <i class="fas fa-check"></i>
                                         </label>
-                                        <input type="tel" placeholder="0912-345-678"placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'" name='p2_mobile' id='p2_mobile' oninput="getValue();" onporpertychange="getValue();">
+                                        <input type="tel" placeholder="0912-345-678" placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'" name='p2_mobile' id='p2_mobile' oninput="getValue();" onporpertychange="getValue();">
                                     </div>
-                                    <p class='memo ml-3  d-none'>＊請輸入正確姓名</p>
-                                    <p class='memo memo-ml  d-none'>＊請輸入正確電話</p>
+                                    <p class='memo ml-3 d-none'>＊請輸入正確姓名</p>
+                                    <p class='memo d-none'>＊請輸入正確電話</p>
                                 </div>
                             </div>
                         </div>
@@ -458,14 +512,20 @@ $left_people = $e['event_people'] - $totalp;
                         </div>
                         <!-- 驗證碼 -->
                         <form action="">
-                            <div class="cant_copy form-title mb-5 mt-5 flex-nowrap text-center text-md-left pb-4 pb-md-0 js5-input-div" id="js5-form" ng-controller="enterCtrl">
+                            <div class="cant_copy form-title mb-5 mt-5 flex-nowrap text-md-left pb-4 pb-md-0 js5-input-div" id="js5-form" ng-controller="enterCtrl">
                                 <span class="js5-input-divSpan">驗證碼
                                     <i class="fas fa-check"></i>
                                 </span>
-                                <!-- 設required都無效? -->
-                                <input name='checkCode' type="text" placeholder="區分大小寫" onfocus="this.placeholder = ''" onblur="this.placeholder = '區分大小寫'"class='checkCode js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:150px" oninput="getValue();" onporpertychange="getValue();" required>
-                                <input type="text" class="js5-authCode mx-3" style="width:100px;background-color:var(--red);color:var(--yellow);font-size:2rem;font-weight:bold;text-align:center;letter-spacing:.25rem;border:1px solid white;font-family:'Noto Serif TC', serif;" value="" id="js5-authCode" ng-model="showAuthCode" disabled="disabled" oncopy="return false">
-                                <a class='recode' href="javascript:"><i class="fas fa-undo-alt" style="font-size:1.4rem;letter-spacing:0"> 重新獲取驗證碼</i></a>
+
+                                <input name='checkCode' type="text" placeholder="區分大小寫" onfocus="this.placeholder = ''" onblur="this.placeholder = '區分大小寫'" class='checkCode js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:90px" oninput="getValue();" onporpertychange="getValue();" required>
+
+                                <input type="text" class="js5-authCode mx-2" style="width:75px;background-color:var(--red);color:var(--yellow);font-size:2rem;font-weight:bold;text-align:center;letter-spacing:.1rem;border:1px solid white;font-family:'Noto Serif TC', serif;" value="" id="js5-authCode" ng-model="showAuthCode" disabled="disabled" oncopy="return false">
+
+                                <a class='recode' href="javascript:">
+                                    <i class="fas fa-undo-alt" style="font-size:1.6rem;margin-right:-5px;"></i>
+                                    <p class='ml-md-1 ml-0 d-md-inline-block d-none' style='letter-spacing:.25rem'>重新獲取驗證碼</p>
+                                </a>
+                                <p class='memo d-none'>＊驗證碼錯誤</p>
                             </div>
                         </form>
                         <!-- 活動資訊 -->
@@ -500,8 +560,8 @@ $left_people = $e['event_people'] - $totalp;
                             <button class='btn_join w-100 over d-block mx-auto mb-2' type='submit' onclick="event_submit()">立即報名</button>
                             <!-- 說明 -->
                             <div class="d-flex mx-auto w-100 memo-check lh15 px-0 align-items-baseline">
-                                <input class='d-block mr-2' type="checkbox" checked />
-                                <div class="memo mx-auto d-inline mt-2">按下報名鈕的同時，表示您已詳閱我們的資料使用政策與使用條款，同意使用《啤女》所提供的服務並訂閱電子報。</div>
+                                <!-- <input class='d-block mr-2' id='checkbox' type="checkbox" name='checkbox' value='1'/> -->
+                                <div class="memo mx-auto d-inline mt-2 memo_check ">按下「報名鈕」的同時，表示您已詳閱我們的《資料使用政策與使用條款》，同意使用《啤女》所提供的服務並訂閱電子報。</div>
                             </div>
                         </div>
                     </form>
@@ -513,6 +573,18 @@ $left_people = $e['event_people'] - $totalp;
                 <a href="../public/event.php"><button class='btn_join return d-block mx-auto w-75 w-md-25 col-md-5'> 返回上頁</button></a>
             </div>
         </div>
+        <!-- loading -->
+        <?php if (in_array($ej['member_sid'], $ej_arr)) : ?>
+            <!-- 判斷:已報名 -->
+        <?php else : ?>
+            <!-- 判斷:尚未報名 -->
+            <div class="log-content Loading-page">
+             <div class="bg-black">
+                <div class="loader"></div>
+                <p>請稍候...</p>
+                </div>
+            </div>
+        <?php endif ?>
 
     <?php else : ?>
         <!-- 判斷：尚未登入 -->
@@ -537,6 +609,8 @@ $left_people = $e['event_people'] - $totalp;
             </div>
         </div>
     <?php endif ?>
+            <?php endif ?>
+
 
 </section>
 
