@@ -235,6 +235,7 @@ if (isset($_SESSION['user'])) {
                                     <!-- 頭像選擇 -->
                                     <div class="col-12 select-userpic d-flex flex-wrap justify-content-between align-items-center mt-5 mt-lg-0">
                                         <div class="col-12 col-lg-6 new-userpic px-0">
+                                            <div class="pipimagic"></div>
                                             <div class="myselectpic" data-pic="<?= $m_row['user-pic'] ?>">
                                                 <img src="../images/user/<?= $m_row['user-pic'] ?>" alt="">
                                             </div>
