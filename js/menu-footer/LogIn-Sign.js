@@ -178,7 +178,7 @@ $(document).ready(function(){
         fileds01.forEach(el =>{
         
             el.css('border', '1px solid var(--gold)');
-            $('.warn').css('display', 'none');
+            $('.LogIn-Sign .warn').css('display', 'none');
             
 
         });
@@ -206,7 +206,7 @@ $(document).ready(function(){
         fileds01.forEach(el =>{
         
             el.css('border', '1px solid var(--gold)');
-            $('.warn').css('display', 'none');
+            $('.LogIn-Sign .warn').css('display', 'none');
             
 
         });
@@ -263,7 +263,7 @@ $(document).ready(function(){
         fileds01.forEach(el =>{
         
             el.css('border', '1px solid var(--gold)');
-            $('.warn').css('display', 'none');
+            $('.LogIn-Sign .warn').css('display', 'none');
             
 
         });
@@ -367,7 +367,7 @@ $(document).ready(function(){
         fileds01.forEach(el =>{
         
             el.css('border', '1px solid var(--gold)');
-            $('.warn').css('display', 'none');
+            $('.LogIn-Sign .warn').css('display', 'none');
             
 
         });
@@ -413,7 +413,7 @@ $(document).ready(function(){
         fileds01.forEach(el =>{
         
             el.css('border', '1px solid var(--gold)');
-            $('.warn').css('display', 'none');
+            $('.LogIn-Sign .warn').css('display', 'none');
             
 
         });
@@ -462,7 +462,7 @@ $(document).ready(function(){
         fileds01.forEach(el =>{
         
             el.css('border', '1px solid var(--gold)');
-            $('.warn').css('display', 'none');
+            $('.LogIn-Sign .warn').css('display', 'none');
             
 
         });
@@ -511,7 +511,7 @@ $(document).ready(function(){
         fileds01.forEach(el =>{
         
             el.css('border', '1px solid var(--gold)');
-            $('.warn').css('display', 'none');
+            $('.LogIn-Sign .warn').css('display', 'none');
             
 
         });
@@ -602,7 +602,7 @@ $(document).ready(function(){
         fileds01.forEach(el =>{
         
             el.css('border', '1px solid var(--gold)');
-            $('.warn').css('display', 'none');
+            $('.LogIn-Sign .warn').css('display', 'none');
             
 
         });
@@ -686,7 +686,7 @@ $(document).ready(function(){
         fileds01.forEach(el =>{
         
             el.css('border', '1px solid var(--gold)');
-            $('.warn').css('display', 'none');
+            $('.LogIn-Sign .warn').css('display', 'none');
             
 
         });
