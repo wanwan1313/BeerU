@@ -3,7 +3,7 @@
 <!-- 需要置換的變數們 -->
 <?php
 
-$page_title = '啤女BeerU:本月之星';
+$page_title = '啤女BeerU-本月之星';
 
 $psid = 17;
 
