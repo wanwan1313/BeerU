@@ -1,5 +1,7 @@
+// ------------- 預設心理測驗初始值分數為零 --------------
 let myScore = 0;
-// 在手機時改為彈出視窗
+
+// ------------- 心理測驗手機版 選項改為彈出視窗 --------------
 $(document).ready(function () {
     $('.option-1-title-ch').addClass('show');
 
@@ -12,9 +14,6 @@ $(document).ready(function () {
     function checkScreenSize() {
         var newWindowWidth = $(window).width();
         if (newWindowWidth < 481) {
-
-
-
 
             $(".modal-trigger").click(function (e) {
                 e.preventDefault();
@@ -96,7 +95,7 @@ $(".option-wrap").click(function () {
     myScore = $(this).data("score");
     // console.log($(this).data("score"));
 
-    // 心理測驗點擊桌機板
+    // ------------- 心理測驗點擊桌機版 --------------
     var newWindowWidth = $(window).width();
     if (newWindowWidth > 481) {
 
@@ -154,12 +153,10 @@ $(".option-wrap").click(function () {
 
 
 
+// ------------- 確認使用者有選擇選項 --------------
 
 let totalScore = 0;
 $('.next-btn-wrap').click(function () {
-
-
-
 
     if ($('.quiz-wrapper').attr('data-choice') == 'no') {
         $('.pop-up-1').fadeIn(150)
@@ -173,11 +170,11 @@ $('.next-btn-wrap').click(function () {
         $(this).closest('.quiz-wrap').next().removeClass('d-none')
         // let togohref = $(this).attr('data-href')
 
-
-
+        // ------------- 計算分數 --------------
         totalScore += myScore;
         // console.log(totalScore);
 
+        // ------------- 動畫特效 --------------
         let doAnimations = function () {
 
             $animatables = $('.animatable');
@@ -195,26 +192,12 @@ $('.next-btn-wrap').click(function () {
         $(window).trigger('scroll');
         $('.quiz-wrapper').attr('data-choice', 'no')
 
-        $('.result-btn').click(function (e) {
-            e.preventDefault();
-            // console.log('.result-btn', totalScore > 0 <= 5);
-            if (totalScore > 0 && totalScore <= 5) {
-                window.location.href = "quiz-result-1.php";
-            } else if (totalScore > 5 && totalScore <= 10) {
-                window.location.href = "quiz-result-2.php";
-            } else if (totalScore > 10 && totalScore <= 15) {
-                window.location.href = "quiz-result-3.php";
-            } else {
-                window.location.href = "quiz-result-4.php";
-            }
-
-        })
     }
 
 
 })
 
-// 彈跳視窗
+// 關閉彈跳視窗
 $('button.ok').on('click', function () {
     $('.general-pop-up').fadeOut(150)
 })
@@ -222,7 +205,7 @@ $('button.ok').on('click', function () {
 
 
 
-// ----------------------animation ----------------------------
+// ------------- 動態特效 --------------
 
 
 jQuery(function ($) {
@@ -257,6 +240,58 @@ jQuery(function ($) {
     $(window).trigger('scroll');
 });
 
+
+$('.result-btn-wrap').click(function () {
+
+    if ($('.quiz-wrapper').attr('data-choice') == 'no') {
+        $('.pop-up-1').fadeIn(150)
+        $('.pop-up-1 .icon').html('<i class="fas fa-exclamation"></i>').css('background-color', 'var(--red)')
+        $('.pop-up-1 .pop-up-text').text('請選擇至少一個選項')
+    }
+    else if ($('.quiz-wrapper').attr('data-choice') == 'yes') {
+
+        // console.log('ok')
+        $(this).closest('.quiz-wrap').addClass('d-none')
+        $(this).closest('.quiz-wrap').next().removeClass('d-none')
+        // let togohref = $(this).attr('data-href')
+
+        // ------------- 計算分數 --------------
+        totalScore += myScore;
+        // console.log(totalScore);
+
+        // ------------- 動畫特效 --------------
+        let doAnimations = function () {
+
+            $animatables = $('.animatable');
+
+            $animatables.each(function (i) {
+                let $animatable = $(this);
+
+                $animatable.removeClass('animatable').addClass('animated');
+            }
+            );
+        };
+        doAnimations()
+
+        $(window).on('scroll', doAnimations);
+        $(window).trigger('scroll');
+        $('.quiz-wrapper').attr('data-choice', 'no')
+
+        if (totalScore > 0 && totalScore <= 5) {
+            window.location.href = "quiz-result-1.php";
+        } else if (totalScore > 5 && totalScore <= 10) {
+            window.location.href = "quiz-result-2.php";
+        } else if (totalScore > 10 && totalScore <= 15) {
+            window.location.href = "quiz-result-3.php";
+        } else {
+            window.location.href = "quiz-result-4.php";
+        }
+
+
+    }
+
+
+})
 
 
 
