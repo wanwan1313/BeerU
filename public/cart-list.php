@@ -636,9 +636,24 @@ if (isset($_SESSION['user'])) {
 
                 $('button.ok').on('click', function() {
                     $('.general-pop-up').fadeOut(150)
+                    setTimeout(function() {
+                        $('.pop-up-2 .button-wrap-1').removeClass('d-none')
+                        $('.pop-up-2 .button-wrap-2').addClass('d-none')
+                    },150)
 
                     if ($('.c-product').length < 1) {
                         location.reload()
+                    }
+                })
+
+                let Q_total = 0;
+                $('.buy-number').each(function() {
+                    Q_total += $(this).val() * 1
+
+                    if (Q_total >= 15) {
+                        $('.warn').html('<i class="fas fa-exclamation-circle"></i>目前選購之商品總數已超過超商取貨大小限制，僅能宅配取貨')
+                    } else {
+                        $('.warn').html('')
                     }
                 })
 
@@ -647,6 +662,7 @@ if (isset($_SESSION['user'])) {
             }, 'json')
 
         })
+
 
 
 
@@ -687,6 +703,8 @@ if (isset($_SESSION['user'])) {
                         }
                     })
 
+                    $('.warn').html('')
+
 
 
                 }, 'json')
@@ -696,8 +714,6 @@ if (isset($_SESSION['user'])) {
             $('.pop-up-1 .icon').html('<i class="fas fa-exclamation"></i>').css('background-color', 'var(--red)')
             $('.pop-up-1 .pop-up-text').text('目前購物車內沒有商品喔！')
         }
-
-
 
 
 
