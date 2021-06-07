@@ -109,6 +109,9 @@ function Logout(){
     })
     $('.pop-up-2 .no').on('click', function () {
         $('.pop-up-2').fadeOut(150);
+        $('.pop-up-2 .yes').text('是');
+        $('.pop-up-2 .no').text('否');
+        $('.pop-up-2 .icon').css('color','white')
     })
     
 
