@@ -311,7 +311,7 @@
         font-size: 1.7rem;
     }
     /* 加入關注按鈕 */
-.fund-wrap-1 .btn_attention {
+    .btn_attention {
 
         margin-top: 20%;
         font-family: 'Noto Serif TC', serif;
@@ -324,14 +324,14 @@
         cursor: pointer;
         transition: .3s;
     }
-    .fund-wrap-1 .btn_attention i, .btn_attention_active i {
+    .btn_attention i, .btn_attention_active i {
         margin: 5px;
     }
-    .fund-wrap-1 .btn_attention:hover {
+     .btn_attention:hover {
         background-color: var(--gold);
         color: #fff;
     }
-    .fund-wrap-1 .btn_attention_active {
+    .btn_attention_active {
         margin-top: 20%;
         font-family: 'Noto Serif TC', serif;
         color: #fff;
@@ -343,7 +343,7 @@
         cursor: pointer;
         transition: .3s;
     }
-    .fund-wrap-1 .btn_attention_active:hover {
+    .btn_attention_active:hover {
         background-color: #fff;
         color: var(--gold);
     }
@@ -408,9 +408,9 @@
     }
     .fund p {
         /* width: fit-content; */
-        font-family: 'Noto Serif TC', serif;
+        font-family: 'Noto Sans TC', sans-serif;
+        font-weight: 400;
         font-size: 1.6rem;
-        font-weight: bold;
         line-height: 2.4rem;
     }
     .fund-intro-text {
@@ -542,7 +542,8 @@
         font-size: 1.8rem;
     }
     .fund .goal .goal-value .goal-title {
-        font-family: 'Noto Serif TC', serif;
+        font-family: 'Noto Sans TC', sans-serif;
+        font-weight: 400;
         font-size: 1.8rem;
     }
     /* 加入關注按鈕 */
@@ -1310,10 +1311,9 @@
     font-size: 15px;
   }
   
-  .active, .collapsible:hover {
-    /* background-color:rgb(54, 73, 134) */
-    background-color: var(--gold);
-  }
+  /* .active, .collapsible:hover {
+    background-color: var(--gold); 
+  } */
   
   .collapsible:after {
     content: '\002B';

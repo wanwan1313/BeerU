@@ -16,7 +16,7 @@ $totalPriceSql = "SELECT SUM(quantity * price) AS `total` FROM `order_detail` WH
 $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
 
 //目前贊助次數
-$totalBidSql = "SELECT SUM(quantity) AS `bid` FROM `order_detail` WHERE `fund_sid` > 0";
+$totalBidSql = "SELECT SUM(quantity) + 60 AS `bid` FROM `order_detail` WHERE `fund_sid` > 0";
 $rowTotalBid = $pdo->query($totalBidSql)->fetch();
 
 
@@ -94,12 +94,9 @@ if (isset($_SESSION['user'])) {
 
 
 <!-- slick css-->
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+<!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/> -->
 
-
-<!-- slick js -->
-<!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script> -->
 
 <!-- my-style css -->
 <link rel="stylesheet" href="../css/fund/fund.css">
@@ -115,7 +112,7 @@ if (isset($_SESSION['user'])) {
 </section>
 
 <!-- 這裡開始寫html -->
-<section class="fund-wrap-1">
+<section class="fund-wrap-1"></section>
     <div class="fund container">
         <div class="row">
             <!-- <h2>募資計畫</h2> -->
@@ -124,9 +121,6 @@ if (isset($_SESSION['user'])) {
                     <div class="row">
                             <div class="img-demo">
                                 <img class="pics" id="pic1" src="../images/joyce_images/fund-p-1.jpg" alt="">
-                                <img class="pics" id="pic2" src="../images/joyce_images/fund-p-2.jpg" alt="">
-                                <img class="pics" id="pic3" src="../images/joyce_images/fund-p-3.jpg" alt="">
-                                <img class="pics" id="pic4" src="../images/joyce_images/fund-p-4.jpg" alt="">
                             </div>
           
                             <div class="img-wrap d-flex mt-5">
@@ -159,7 +153,7 @@ if (isset($_SESSION['user'])) {
                     <!-- The slideshow -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="../images/joyce_images/fund-p-1.jpg" alt="" width="500" height="500">
+                            <img src="../images/joyce_images/fund-p-1.jpg" alt="" width="600" height="600">
                         </div>
                         <div class="carousel-item">
                             <img src="../images/joyce_images/fund-p-2.jpg" alt="" width="500" height="500">
@@ -190,7 +184,7 @@ if (isset($_SESSION['user'])) {
                     <h3>【CLOUDWATER | 英國知名精釀廠】</h3>
                 </div>
                 <div class="fund-intro-text  animatable fadeInUp">
-                    <p>全球第二 - 英倫第一神廠強勢來台，啤女獨家首發，最強CP值！連續四年(2016-2019)名列在全球最佳酒廠Top 15內，最佳成績為Top2！來自英國工業大城曼徹斯特的獨立精釀啤酒廠Cloudwater，僅僅成立3年已大有名氣，是現下精釀啤酒市場中的耀眼新星。
+                    <p>全球第二 - 英倫第一神廠強勢來台，啤女獨家首發，最強CP值！連續五年(2016-2020)名列全球最佳酒廠Top 15內，最佳成績為Top2！來自英國工業大城曼徹斯特的獨立精釀啤酒廠Cloudwater，僅僅成立3年已大有名氣，是現下精釀啤酒市場中的耀眼新星。
                     </p>
                 </div>
                 <div class="row d-flex">
@@ -243,8 +237,8 @@ if (isset($_SESSION['user'])) {
                 </div>
                 <div class="sub-intro mt-5">
                     <p>贊助次數 | <?=$rowTotalBid['bid']?>次</p>
-                    <p>剩餘時間 | 26天 </p>
-                   <p> 計畫截止日 | 2021/06/30</p>
+                    <p>剩餘時間 | <span id="countdate"></span></p>
+                   <p> 截止日期 | <?= $f['end_date'] ?></p>
                 </div>
                 <a href="#plans">
                     <button class="btn_fundnow"><i class="fas fa-coins"></i>我要贊助</button></a>
@@ -281,7 +275,7 @@ if (isset($_SESSION['user'])) {
                             <h3 class="animatable fadeInUp" > 藝術酒標登上泰德美術館</h3>
                             <img class="animatable fadeInUp"  id="art" src="../images/joyce_images/fund-p-9.jpg" alt="">
                             <p class="animatable fadeInUp" >除了啤酒質素不容置疑之外，Cloudwater 每季都找來不同的藝術家合作設計酒標，以配合酒款的風格與理念，極具設計感的酒標更曾在英國著名的 Tate
-                                當代藝術館舉辦了活動，因此也有人說每次看到 Cloudwater 都像走進了迷你畫廊。</p>
+當代藝術館舉辦了活動，因此也有人說每次看到 Cloudwater 都像走進了迷你畫廊。</p>
                             <img class="animatable fadeInUp" src="../images/joyce_images/fund-p-10.jpg" alt="">
                             <h3 class="animatable fadeInUp" >最令台灣精釀迷興奮的強勢登台!</h3>
                             <p class="animatable fadeInUp" >短短兩年便成為世界第二的 Cloudwater，善於運用酒花的香氣釀出各種不同平衡的酒款。但以激少量、高頻率不斷更新酒款的
@@ -490,21 +484,21 @@ if (isset($_SESSION['user'])) {
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-4 beer-product-wrap">
-                    <div class="beer-product" data-sid=<?= $t_row['sid'] ?> data-price=<?= $t_row['price'] ?> data-abv=<?= $t_row['abv'] ?>>
+                    <div class="beer-product" data-sid=<?= $b_row['sid'] ?> data-price=<?= $b_row['price'] ?> data-abv=<?= $b_row['abv'] ?>>
                         <div class="pro-pic">
                             <!-- 商品圖 -->
-                            <a href="each-product.php?psid=<?= $t_row['sid'] ?>">
-                                <img class="beer-pic" src="../images/products/<?= $t_row['pic'] ?>" alt="">
+                            <a href="each-product.php?psid=<?= $b_row['sid'] ?>">
+                                <img class="beer-pic" src="../images/products/<?= $b_row['pic'] ?>" alt="">
                             </a>
                             <!-- 標籤 -->
                             <div class="label">
-                                <?php if (strtotime($t_row['created_at']) > $deadline) : ?>
+                                <?php if (strtotime($b_row['created_at']) > $deadline) : ?>
                                     <div class="new-label">
                                         <p>NEW</p>
                                     </div>
                                 <?php endif; ?>
 
-                                <?php if ($t_row['hot'] == 'true') : ?>
+                                <?php if ($b_row['hot'] == 'true') : ?>
                                     <div class="hot-label">
                                         <p>HOT</p>
                                     </div>
@@ -512,14 +506,14 @@ if (isset($_SESSION['user'])) {
                             </div>
 
                             <!-- 國家圖片 -->
-                            <div class="country"><img src="../images/country/<?= $t_row['country_pic'] ?>" alt=""></div>
+                            <div class="country"><img src="../images/country/<?= $b_row['country_pic'] ?>" alt=""></div>
 
                             <!-- 收藏按鈕 -->
                             <div class="collect">
                                 <?php if (!isset($_SESSION['user'])) : ?>
                                     <button class="btn_collect_nologin" onclick="LogIn_btn()"><i class="far fa-heart"></i></button>
                                 <?php else : ?>
-                                    <?php if (in_array($t_row['sid'], $c_arr)) : ?>
+                                    <?php if (in_array($b_row['sid'], $c_arr)) : ?>
                                         <button class="btn_collect_active" onclick="cancelCollectProduct()"><i class="fas fa-heart"></i></button>
                                         <button class="btn_collect d-none" onclick="collectProduct()"><i class="far fa-heart"></i></button>
                                     <?php else : ?>
@@ -533,10 +527,10 @@ if (isset($_SESSION['user'])) {
                         <!-- 商品介紹 -->
                         <div class="pro-intro d-flex flex-column justify-content-between">
                             <!-- 商品名稱 -->
-                            <a href="each-product.php?psid=<?= $t_row['sid'] ?>">
+                            <a href="each-product.php?psid=<?=$b_row['sid'] ?>">
                                 <div class="p-name">
-                                    <p class="p-name-c"><?= $t_row['c_name'] ?></p>
-                                    <p class="p-name-e"><?= $t_row['e_name'] ?></p>
+                                    <p class="p-name-c"><?= $b_row['c_name'] ?></p>
+                                    <p class="p-name-e"><?= $b_row['e_name'] ?></p>
                                 </div>
                             </a>
                         </div>

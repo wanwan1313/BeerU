@@ -1016,9 +1016,11 @@ h2 {
     .beer-product .pro-pic .collect {
         position: absolute;
         bottom: 10px;
-        right: 20px;
+        left: 160px;
     }
-    .btn_collect, .btn_collect_active {
+    .btn_collect, 
+    .btn_collect_active,
+    .btn_collect_nologin {
         background-color: transparent;
         border: none;
         color: var(--red);
@@ -1027,7 +1029,9 @@ h2 {
         cursor: pointer;
         transition: .3s;
     }
-    .btn_collect:hover, .btn_collect_active:hover {
+    .btn_collect:hover, 
+    .btn_collect_active:hover,
+    .btn_collect_nologin:hover {
         transform: scale(1.1, 1.1);
     }
     .btn_collect::after {
@@ -1154,37 +1158,44 @@ h2 {
         left: 20px;
     }
     /* 收藏按鈕 */
-    .beer-product .pro-pic .collect {
-        position: absolute;
-        bottom: 10px;
-        right: 20px;
-    }
-    .btn_collect, .btn_collect_active {
-        background-color: transparent;
-        border: none;
-        color: var(--red);
-        padding: 0;
-        font-size: 24px;
-        cursor: pointer;
-        transition: .3s;
-    }
-    .btn_collect:hover, .btn_collect_active:hover {
-        transform: scale(1.1, 1.1);
-    }
-    .btn_collect::after {
-        content: '加入收藏';
-        display: block;
-        position: absolute;
-        top: -10px;
-        left: -70%;
-        font-size: 1.2rem;
-        width: 250%;
-        color: transparent;
-        transition: .3s;
-    }
-    .btn_collect:hover::after {
-        color: var(--red);
-    }
+   .beer-product .pro-pic .collect {
+    position: absolute;
+    bottom: 10px;
+    left: 160px;
+}
+ .btn_collect, 
+ .btn_collect_nologin, 
+ .btn_collect_active {
+    background-color: transparent;
+    border: none;
+    color: var(--red);
+    padding: 0;
+    font-size: 24px;
+    cursor: pointer;
+    transition: .3s;
+}
+.btn_collect:hover,
+.btn_collect_nologin:hover, 
+.btn_collect_active:hover {
+    transform: scale(1.1, 1.1);
+    fill: var(--red);
+}
+.btn_collect::after,
+.btn_collect_nologin::after {
+    content: '加入收藏';
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: -70%;
+    font-size: 1.2rem;
+    width: 250%;
+    color: transparent;
+    transition: .3s;
+}
+.btn_collect:hover::after,
+.btn_collect_nologin:hover::after {
+    color: var(--red);
+}
     /* 商品介紹 */
     .beer-product .pro-intro {
         width: 100%;

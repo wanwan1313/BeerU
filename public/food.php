@@ -8,7 +8,7 @@
 $page_title = '啤女BeerU:餐酒搭配';
 $psid = 0;
 
-//     // 此頁商品
+// 此頁商品
 $p_SQL = "SELECT p.* , t1.`name` AS `brand_name`,t2.`name` AS `country_name`,t3.`name` AS `type_name`,t4.`name` AS `merch_name` 
         FROM `products` AS p 
         JOIN `tags` AS t1 
@@ -40,6 +40,22 @@ $t_row_sid = $t_row['sid'];
 $b_SQL = "SELECT * FROM `products` WHERE `type_sid` = 52 AND `sid` !=  $t_row_sid AND $c_row_sid ORDER BY RAND() LIMIT 1";
 $b_row = $pdo->query($b_SQL)->fetch();
 
+// 從資料庫抓收藏清單
+// 登入會員的狀態，抓收藏商品
+    $c_arr = [];
+    if (isset($_SESSION['user'])) {
+
+        $m_sid = $_SESSION['user']['sid'];
+        $co_SQL = "SELECT `product_sid` FROM `collect` WHERE `member_sid` = $m_sid";
+        $co_row = $pdo->query($co_SQL)->fetchAll();
+        if (!empty($co_row)) {
+            foreach ($co_row as $co) {
+                array_push($c_arr, $co['product_sid']);
+            }
+        }
+    }
+
+
 // new標籤
 $deadline = strtotime('2021-05-01');
 
@@ -56,35 +72,40 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
 <link rel="stylesheet" href="../css/food/food.css">
 
 <?php include __DIR__ . '../../php/common/html-body-navbar.php' ?>
-<!-- <section class="mobile-menu">
+
+<!-- 會員登入 -->
+<?php include __DIR__ . '../../php/common/Login-Sign.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-1.php' ?>
+<?php include __DIR__ . '../../php/common/pop-up-2.php' ?>
+
+<section class="mobile-menu">
     <?php include __DIR__ . '../../php/common/category.php' ?>
 </section>
-
 <!-- 這裡開始寫html -->
 
 <section class="food-wrap">
-    <div class="food-banner">
+     <div class="food-banner">
         <div class="container-fluid">
             <div class="row ">
-                <div class="col-md-6 col-sm-4  food-left">
-                    <div class="food-left mt-5">
-                        <div class="pipi-flyup">
-                            <img src="../images/joyce_images/pipi-up.svg" alt="">
-                        </div>
-                        <div class="food-left-text">
+                    <div class="col-md-6 col-sm-4  food-left">
+                        <div class="food-left mt-5">
+                               <div class="pipi-flyup">
+                                 <img src="../images/joyce_images/pipi-up.svg" alt="">
+                                </div>
+                          <div class="food-left-text">
                             <h2>現在，<br>
                                 我想來點...</h2>
-                        </div>
-                        <div class="plate">
+                                 </div>
+                           <div class="plate">
                             <img src="../images/joyce_images/plate.svg" alt="">
                         </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-sm-4 food-intro">
-                    <div class=" food-title mt-5 mb-3 animatable fadeInUp">
+                     <div class="col-md-6 col-sm-4 food-intro">
+                    <div class=" food-title mt-5 mb-3 animate__animated animate__fadeInUp">
                         <p>餐酒搭配</p>
                     </div>
-                    <div class="food-right-text animatable fadeInUp">
+                    <div class="food-right-text animate__animated animate__fadeInUp">
                         <h2><span class="text-highlight">餐與酒</span>的搭配，是地方文化的縮影。</h2>
                         <h2>飲酒儼然成了一種生活態度、藝術甚至是品味與知性的交流，而各種食物跟酒之間的搭配更是一門學問。</h2>
                         <h2 class="mt-5">兩者之間的搭配關係，更被法國人喻為"
@@ -94,7 +115,6 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                         <h2 class="mt-5 ml-auto ">
                             <span class="text-highlight"> 啤酒搭餐學</span>掌握三大原則，今晚微醺的更美好！
                         </h2>
-                        <!-- 線上訂位 -->
                         <a href="#three-rule">
                             <div class="pair-now">搭餐去</div>
                         </a>
@@ -529,7 +549,8 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                                         </div>
 
                                         <!-- 收藏按鈕 -->
-                                        <div class="collect">
+                                          <!-- 收藏按鈕 -->
+                                          <div class="collect">
                                             <button class="btn_collect"><i class="far fa-heart"></i></button>
                                             <!-- <button class="btn_collect_active"><i class="fas fa-heart"></i></button> -->
                                         </div>
@@ -571,10 +592,10 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                     </div>
                     <div class="resto-text">
                         <h4>The 58 Bar 精釀餐酒館</h4>
-                        <h4><i class="fas fa-map-marker-alt mr-2"></i>台北市, 萬華區 </h4>
+                        <h4><i class="fas fa-map-marker-alt mr-2"></i>台北市, 中正區 </h4>
                         <h4>電話：02-2927-7183</h4>
                         <!-- 線上訂位 -->
-                        <a href="">
+                        <a href="https://the-58-bar.business.site/?utm_source=gmb&utm_medium=referral">
                             <div class="book-now">線上訂位</div>
                         </a>
                     </div>
@@ -839,7 +860,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                         <h4><i class="fas fa-map-marker-alt mr-2"></i>台北市, 中正區 </h4>
                         <h4>電話：02-3322-3022</h4>
                         <!-- 線上訂位 -->
-                        <a href="">
+                        <a href="https://www.facebook.com/TOGOBEERTAIWAN/">
                             <div class="book-now">線上訂位</div>
                         </a>
                     </div>
@@ -1104,7 +1125,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                         <h4><i class="fas fa-map-marker-alt mr-2"></i>桃園市, 桃園區 </h4>
                         <h4>電話：03-221-3022</h4>
                         <!-- 線上訂位 -->
-                        <a href="">
+                        <a href="https://www.facebook.com/BeerWithMeTW/">
                             <div class="book-now">線上訂位</div>
                         </a>
                     </div>
@@ -1369,7 +1390,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                         <h4><i class="fas fa-map-marker-alt mr-2"></i>台北市, 松山區 </h4>
                         <h4>電話：02-2322-7822</h4>
                         <!-- 線上訂位 -->
-                        <a href="">
+                        <a href="https://www.facebook.com/youandme145">
                             <div class="book-now">線上訂位</div>
                         </a>
                     </div>
@@ -1897,7 +1918,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                         <h4><i class="fas fa-map-marker-alt mr-2"></i>台北市, 中山區 </h4>
                         <h4>電話：02-2832-7232</h4>
                         <!-- 線上訂位 -->
-                        <a href="each-product.php?psid=<?= $psid = 164 ?>">
+                        <a href="https://www.facebook.com/honhusyuan/">
                             <div class="book-now">線上訂位</div>
                         </a>
                     </div>
@@ -2161,7 +2182,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                         <h4><i class="fas fa-map-marker-alt mr-2"></i>台南市, 中西區 </h4>
                         <h4>電話：06-221-</h4>
                         <!-- 線上訂位 -->
-                        <a href="">
+                        <a href="https://m.facebook.com/BarenBiergeldenBar/">
                             <div class="book-now">線上訂位</div>
                         </a>
                     </div>
@@ -2424,7 +2445,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                         <h4><i class="fas fa-map-marker-alt mr-2"></i>高雄市, 鹽埕區 </h4>
                         <h4>電話：0986-868-​117</h4>
                         <!-- 線上訂位 -->
-                        <a href="">
+                        <a href="https://www.facebook.com/ssn117/">
                             <div class="book-now">線上訂位</div>
                         </a>
                     </div>
@@ -2687,7 +2708,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
                         <h4><i class="fas fa-map-marker-alt mr-2"></i>台北市, 大安區 </h4>
                         <h4>電話：02-2377-​0809</h4>
                         <!-- 線上訂位 -->
-                        <a href="">
+                        <a href="https://www.facebook.com/CraftHouseTaipei/">
                             <div class="book-now">線上訂位</div>
                         </a>
                     </div>

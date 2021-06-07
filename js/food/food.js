@@ -228,6 +228,7 @@ console.log('hi')
 
 // -----  side-bar -----
 
+
 $(window).scroll(function () {
 
     let scrollNow = $(window).scrollTop();
@@ -245,7 +246,9 @@ $(window).scroll(function () {
         }
     }
 
+});
 
+    function doAnima() {
 
             $animatables = $('.animatable');
             $animateds = $('.animated');
@@ -265,14 +268,7 @@ $(window).scroll(function () {
                 navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
                 
             }
-            
-            // else if( anipo >= userScrollTop + halfWindowHeight){
-            //     console.log('back')
-            //     $(this).removeClass('animated').addClass('animatable');
-            //     let index = $(this).closest('.pair-wrap').attr('data-index')
-            //     let navItem = $('.side-drop-img').eq(index);
-            //     navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
-            // }
+ 
         
         });
 
@@ -290,23 +286,52 @@ $(window).scroll(function () {
        
        });
 
+    }
+
+    doAnima()
+
+$(window).scroll(function() {
+    doAnima()
+})
+
+ //  ------  收藏清單功能  ------ //
+
+    // 加入
+    function collectProduct() {
+        let btn = $(event.currentTarget)
+        let psid = btn.closest('.beer-product').attr('data-sid')
+
+        $.get('member-collect-api.php', {
+            'action': 'add',
+            'psid': psid
+        }, function(data) {
+            // console.log(data)
+            $('.pop-up-1').fadeIn(150)
+            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
+            $('.pop-up-1 .pop-up-text').text(data.msg)
+        }, 'json')
+        btn.addClass('d-none')
+        btn.next().removeClass('d-none')
+    }
+
+    // 取消
+    function cancelCollectProduct() {
+        let btn = $(event.currentTarget)
+        let psid = btn.closest('.beer-product').attr('data-sid')
+
+        $.get('member-collect-api.php', {
+            'action': 'delete',
+            'psid': psid
+        }, function(data) {
+            // console.log(data)
+            $('.pop-up-1').fadeIn(150)
+            $('.pop-up-1 .icon').html('<i class="fas fa-check"></i>').css('background-color', 'var(--gold)')
+            $('.pop-up-1 .pop-up-text').text(data.msg)
+        }, 'json')
+        btn.addClass('d-none')
+        btn.prev().removeClass('d-none')
+    }
 
 
-    //     $('.animated').each(function (i) {
-    //         let $animatable = $(this);
-    //         let index = $animatable.closest('.pair-wrap').prev().attr('data-index')
-    //         if (($(this).offset().top + $(this).height() -100) > offset) {
-    //             $(this).removeClass('animated').addClass('animatable');
-
-
-    // // ----- side-nav -----           
-    //             let navItem = $('.side-drop-img').eq(index);
-    //             navItem.addClass('selected-drop').siblings().removeClass('selected-drop');
-
-    //         }
-        
-    //     });
-
-});
 
 
