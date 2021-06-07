@@ -3,7 +3,7 @@
 <!-- 需要置換的變數們 -->
 <?php
 
-$page_title = '啤女-精釀啤酒商品';
+$page_title = '啤女BeerU-全部商品';
 
 
 ?>
@@ -957,7 +957,7 @@ $page_title = '啤女-精釀啤酒商品';
 
                 let ishot = el.hot //抓熱門的值
                 let created_at = Date.parse(el.created_at).valueOf() //抓建立時間
-                let deadline = Date.parse('2021-05-01').valueOf() //設定要有new標籤的時間點
+                let deadline = Date.parse('2021-05-15').valueOf() //設定要有new標籤的時間點
                 let product_label = $(`.${el.sid}-label`)
 
                 const alllabelTpl = function() {

@@ -3,7 +3,7 @@
 <!-- 需要置換的變數們 -->
 <?php
 
-$page_title = '啤女-世界精釀啤酒專賣';
+$page_title = '啤女BeerU-世界精釀啤酒';
 
 
 
@@ -40,7 +40,7 @@ if ($psid != 0) {
 
 
     // new標籤
-    $deadline = strtotime('2021-05-01');
+    $deadline = strtotime('2021-05-15');
 
     // 從哪裡來
     $come_from = $_SERVER['HTTP_REFERER'] ?? 'http://localhost/BeerU/public/all-product.php';

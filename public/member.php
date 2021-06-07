@@ -2433,7 +2433,7 @@ if (isset($_SESSION['user'])) {
                 sortandsearch.removeClass('d-none')
                 let ishot = el.hot //抓熱門的值
                 let created_at = Date.parse(el.created_at).valueOf() //抓建立時間
-                let deadline = Date.parse('2021-05-01').valueOf() //設定要有new標籤的時間點
+                let deadline = Date.parse('2021-05-15').valueOf() //設定要有new標籤的時間點
                 let product_label = $(`.${el.product_sid}-label`)
 
                 const alllabelTpl = function() {

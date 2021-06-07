@@ -3,7 +3,7 @@
 <!-- 需要置換的變數們 -->
 <?php
 
-$page_title = '啤女BeerU:心理測驗結果';
+$page_title = '啤女BeerU-心理測驗結果';
 
 // $psid = substr($_SERVER['QUERY_STRING'], 5);
 
