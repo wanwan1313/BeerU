@@ -17,17 +17,8 @@ $totalPriceSql = "SELECT SUM(quantity * price) AS `total` FROM `order_detail` WH
 $rowTotalPrice = $pdo->query($totalPriceSql)->fetch();
 
 //目前贊助次數
-$totalBidSql = "SELECT SUM(quantity) AS `bid` FROM `order_detail` WHERE `fund_sid` > 0";
+$totalBidSql = "SELECT SUM(quantity) + 60 AS `bid` FROM `order_detail` WHERE `fund_sid` > 0";
 $rowTotalBid = $pdo->query($totalBidSql)->fetch();
-
-
-
-// if ($sid == 0) {
-//     header('location:http://localhost/beeru/public/fund.php');
-// }
-
-
-
 
 
 
@@ -60,7 +51,7 @@ $rowTotalBid = $pdo->query($totalBidSql)->fetch();
             </div>
             <div class="product-main-text">
                 <h3>【CLOUDWATER | 英國知名精釀廠】</h3>
-                <p>全球第二 - 英倫第一神廠強勢來台，啤女獨家首發，最強CP值！連續四年(2016-2019)名列在全球最佳酒廠Top 15內，最佳成績為Top2！</p>
+                <p>全球第二 - 英倫第一神廠強勢來台，啤女獨家首發，最強CP值！連續五年(2016-2020)名列在全球最佳酒廠Top 15內，最佳成績為Top2！</p>
                 <div class="product-sub-text d-flex">
                     <div class="goal mt-2">
                         <div class="current-value">
@@ -74,7 +65,7 @@ $rowTotalBid = $pdo->query($totalBidSql)->fetch();
                     <div class="sub-intro mt-2">
                         <p>贊助次數 | <?=$rowTotalBid['bid']?>次</p>
                         <p>剩餘時間 | <span id="countdown"></span></p>
-                        <p>計畫截止日| <?= $f['end_date'] ?></p>
+                        <p>截止日期| <?= $f['end_date'] ?></p>
                     </div>
 
 
@@ -112,7 +103,7 @@ $rowTotalBid = $pdo->query($totalBidSql)->fetch();
             <form class="col-sm-7">
 
                 <div class="fund-amount-title">
-                    <h2 class="mb-3">贊助金額</h2>
+                    <h3 class="add-fund mb-3">贊助金額</h3>
                 </div>
                 <div class="fund-amount">
                     <div class="unit">
@@ -126,9 +117,11 @@ $rowTotalBid = $pdo->query($totalBidSql)->fetch();
 可向上加碼，以100元為單位，幫助計畫加速成功。</p>
                     <p><i class="fas fa-medal"></i>啤啤送好禮：加碼500元以上，可增加酒仙指數5%。</p>
 
+                    <div class="btn_fundnow" onclick="gotoCheckout()"><i class="fas fa-coins"></i>立刻付款贊助</div>
+
                 </div>
 
-                <div class="btn_fundnow" onclick="gotoCheckout()"><i class="fas fa-coins"></i>立刻付款贊助</div>
+                <!-- <div class="btn_fundnow" onclick="gotoCheckout()"><i class="fas fa-coins"></i>立刻付款贊助</div> -->
 
             </form>
 
