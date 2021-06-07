@@ -3,7 +3,7 @@
 <!-- 需要置換的變數們 -->
 <?php
 
-$page_title = '啤女BeerU';
+$page_title = '啤女BeerU-世界精釀啤酒';
 
 
 $h_sql = " SELECT * FROM `products` WHERE `hot`= 'true' ORDER BY RAND() LIMIT 0 ,10";
