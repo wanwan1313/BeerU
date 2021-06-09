@@ -737,6 +737,37 @@ $(document).ready(function(){
     })
 
 
+    $('.auto-Login').click(function(){
+
+        $('#account').val('beeruGuest2021@gmail.com')
+
+        $('#password').val('beerutaiwanguest')
+        console.log('hi')
+
+
+
+    })
+
+
+    $('.auto-LogSign').click(function(){
+
+        $('#newAccount').val('beeruGuest2021@gmail.com');
+        $('#newPassword').val('beerutaiwanguest');
+        $('#nickname').val('BeeruGuest');
+        $('#address').val('台北市大安區資策會');
+
+
+    })
+
+
+    $('.auto-forgetEmail').click(function(){
+
+        $('#Forget-UserEmail').val('beeruGuest2021@gmail.com')
+
+
+    })
+
+
 
 
 

@@ -272,6 +272,7 @@
 
 
 .LogIn-Sign .LogIn-content-wrap{
+    position: relative;
     width: 60%;
     margin: 0 auto;
 }
@@ -454,6 +455,7 @@
 
 
 .LogIn-Sign .logSign-content-wrap{
+    position: relative;
     margin: 25px auto 0px auto ;
     width: 65%;
     border-bottom: solid 2px var(--gold);
@@ -1029,6 +1031,7 @@
 
 /* 忘記密碼第一步 */
 .LogIn-Sign .UserEmail-wrap{
+    position: relative;
     display: none;
     margin: 20px auto 0 auto;
     width: 80%;
@@ -1303,4 +1306,50 @@
     height: 35px;
 
     
+}
+
+.LogIn-Sign .auto-btn{
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+}
+
+.LogIn-Sign .auto-Login{
+    left: 0;
+    top: 250px;
+
+}
+
+.LogIn-Sign .auto-LogSign{
+    left: 0;
+    top: 550px;
+
+}
+.LogIn-Sign .auto-forgetEmail{
+    right: 0;
+    top: 150px
+}
+
+
+@media (max-width: 991px) {
+    .LogIn-Sign .auto-Login{
+        left: 0;
+        top: 195px;
+    
+    }
+    
+    .LogIn-Sign .auto-LogSign{
+        left: 0;
+        top: 700px;
+    
+    }
+    .LogIn-Sign .auto-forgetEmail{
+        right: 0;
+        top: 100px
+    }
+
+
 }

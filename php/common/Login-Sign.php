@@ -65,6 +65,7 @@
 
 
                     <button class="LogIn-btn02 Login" type="submit"> 登入</button>
+                    <div class="auto-btn auto-Login" ></div>
 
                 </form>
 
@@ -157,6 +158,7 @@
                         </div>
 
                         <button type="submit" class="logSign-btn Sign" >註冊</button>
+                        <div class="auto-btn auto-LogSign" ></div>
 
                         <div class="already-account">
                             <h3>已經有帳號了？</h3>
@@ -282,7 +284,7 @@
                         <small class="warn"><i class="far fa-times-circle"></i></small>
                         <button class="search-email"  type="submit" onclick="Forget_Email();return false">傳送</button>
                     </div>
-                   
+                    <div class="auto-btn auto-forgetEmail" ></div>
 
                     <div class="Forget-Check">
                         <h3>請輸入驗證碼</h3>
