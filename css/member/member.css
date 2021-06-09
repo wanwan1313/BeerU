@@ -651,6 +651,12 @@ body {
     top: 30px;
 }
 
+.member .auto-btn:hover{
+    background-color:#F5F5F5;
+    transition: .4s;
+
+}
+
 @media (max-width: 991px) {
     .member .auto-btn{
         position: absolute;

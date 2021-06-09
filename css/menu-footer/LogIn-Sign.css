@@ -1317,6 +1317,12 @@
     cursor: pointer;
 }
 
+.LogIn-Sign .auto-btn:hover{
+    background-color:#F5F5F5;
+    transition: .4s;
+
+}
+
 .LogIn-Sign .auto-Login{
     left: 0;
     top: 250px;
