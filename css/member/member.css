@@ -640,7 +640,30 @@ body {
 }
 
 
+.member .auto-btn{
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    background-color: transparent ;
+    border: transparent;
+    cursor: pointer;
+    left: 0;
+    top: 30px;
+}
 
+@media (max-width: 991px) {
+    .member .auto-btn{
+        position: absolute;
+        width: 30px;
+        height: 20px;
+        background-color:transparent ;
+        border: transparent;
+        cursor: pointer;
+        left: 0;
+        top: -15px;
+    }
+
+}
 
 /* ----------------------------------我的酒櫃------------------------------ */
 

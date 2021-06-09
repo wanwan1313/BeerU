@@ -363,7 +363,7 @@ if (isset($_SESSION['user'])) {
                                         <div class="mydata-txt old-password mb-3">
                                             <p>目前密碼</p>
                                             <i class="fas fa-lock lock-icon02"></i>
-                                            <input class="input-btn oldPassword" name="oldPassword" required>
+                                            <input class="input-btn oldPassword" name="oldPassword" id="oldPassword" required>
                                             <small class="warn"><i class="far fa-times-circle"></i></small>
                                         </div>
 
@@ -384,6 +384,7 @@ if (isset($_SESSION['user'])) {
                                             <button type="submit" class="btn_password-confirm" onclick="checkform_restPassword(); return false;">送出</button>
 
                                             <div class="btn_password-cancel">取消</div>
+                                            <div class="auto-btn auto-editpassword" ></div>
                                         </div>
                                     </form>
 
@@ -2211,7 +2212,9 @@ if (isset($_SESSION['user'])) {
     }
 
 
-
+   $('.auto-editpassword').click(function(){
+       $('#oldPassword').val('beerutaiwanguest')
+   })
 
 
     // 手風琴-------------------------------------------------------------------------------------------------
