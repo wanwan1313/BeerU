@@ -226,6 +226,11 @@
 }
 
 
+/* .au_world {
+    -webkit-mask-image: linear-gradient(transparent 50%, rgba(0, 0, 0, 1.0) 50%, rgba(0, 0, 0, 1.0) 65%, transparent 95%);
+} */
+
+
 /* --------------------------------------- */
 
 
@@ -296,7 +301,7 @@ cursor: pointer;
     stroke: #792221;
     stroke-linejoin: round;
     /* cursor: pointer; */
-    -webkit-mask-image: linear-gradient(transparent 5%, rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%, transparent 80%);
+    -webkit-mask-image: linear-gradient(transparent 11%, rgba(0, 0, 0, 1.0) 20%, rgba(0, 0, 0, 1.0) 65%, transparent 80%);
 }
 
 .map .world_eu path {
@@ -329,7 +334,7 @@ cursor: pointer;
     stroke: #792221;
     stroke-linejoin: round;
     /* cursor: pointer; */
-    -webkit-mask-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 1.0) 15%, rgba(0, 0, 0, 1.0) 65%, transparent 80%);
+    -webkit-mask-image: linear-gradient(transparent 5%, rgba(0, 0, 0, 1.0) 15%, rgba(0, 0, 0, 1.0) 65%, transparent 80%);
 }
 
 .map .world_as path {
@@ -362,7 +367,7 @@ cursor: pointer;
     stroke: #792221;
     stroke-linejoin: round;
     /* cursor: pointer; */
-    -webkit-mask-image: linear-gradient(transparent 3%, rgba(0, 0, 0, 1.0) 15%, rgba(0, 0, 0, 1.0) 65%, transparent 80%);
+    /* -webkit-mask-image: linear-gradient(transparent 3%, rgba(0, 0, 0, 1.0) 15%, rgba(0, 0, 0, 1.0) 65%, transparent 80%); */
 }
 
 .map .world_au path {
@@ -612,7 +617,7 @@ cursor: pointer;
 
 @media (max-width: 990px) {
     .eu .deco4 {
-        top: -592px;
+        top: -580px;
         left: 33%;
     }
     .eu .deco4 img {
@@ -723,11 +728,11 @@ cursor: pointer;
 
 @media (max-width: 990px) {
     .eu .deco7 {
-        top: -615px;
+        top: -593px;
         left: 58%;
     }
     .eu .deco7 img {
-        width: 70px;
+        width: 63px;
     }
 }
 
@@ -1759,6 +1764,7 @@ cursor: pointer;
 @media (max-width: 768px) {
     .map .map-card .beer-intro {
         font-size: 1.4rem;
+        line-height: 1.4;
         width: 90%;
         margin-top: 10px;
     }
@@ -1958,6 +1964,32 @@ cursor: pointer;
 
 .map .know-more::after {
     background: url(../../images/map/SVG/ear-r-red.svg) 0 0 no-repeat;
+}
+
+@media (max-width: 768px) {
+    .map .cup-name {
+        top: 118%;
+        opacity: 1;
+        background-color: transparent;
+        color: var(--red);
+    }
+    .map .beer-name {
+        top: 142%;
+        opacity: 1;
+        background-color: transparent;
+        color: var(--red);
+    }
+    .map .cup-img,
+    .beer-img {
+        /* width: 70px;
+        height: 70px;
+        background-color: white;
+        border-radius: 10px; */
+        overflow: visible;
+        /* margin-left: 5px;
+        margin-right: 5px; */
+    }
+    .beer-name {}
 }
 
 

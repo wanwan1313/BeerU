@@ -3,7 +3,7 @@
 
 <!-- 需要置換的變數們 -->
 <?php
-$page_title = '啤女BeerU:品飲會';
+$page_title = '啤女BeerU-品飲會';
 
 $e_SQL = "SELECT * FROM `event` ORDER BY `sid` DESC";
 $e_rows = $pdo->query($e_SQL)->fetchAll();

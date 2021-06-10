@@ -1,7 +1,7 @@
 <?php include __DIR__ . '../../php/common/config.php' ?>
 <?php
 // <!-- 需要置換的變數們 -->
-$page_title = '啤女BeerU:品飲會:立即報名';
+$page_title = '啤女BeerU-品飲會-報名活動';
 
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 
@@ -50,8 +50,10 @@ if (isset($_SESSION['user'])) {
     }
 }
 
+if (isset($_SESSION['user'])) {
 $ej_SQL ="SELECT `member_sid` FROM `event_join` WHERE `member_sid` = $m_sid";
 $ej = $pdo->query($ej_SQL)->fetch();
+}
 
 $ej_arr=[];
 if (isset($_SESSION['user'])) {
