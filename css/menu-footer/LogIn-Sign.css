@@ -697,8 +697,9 @@
     .LogIn-Sign  .logSign-infotext {
         display: flex;
         justify-content: flex-start;
-        margin: 10px auto 0 auto;
-        width: 95%;
+        flex-direction: column;
+        margin: 0px auto 0 auto;
+        width: 80%;
         color: var(--blue);
         text-align: center;
         font-size: 1.4rem;
@@ -709,9 +710,12 @@
     }
 
     .LogIn-Sign  .infotext{
-        margin-top: 6px;
+        
+        transform: translate(-20px , 20px);
+    
 
     }
+
     
 
 
