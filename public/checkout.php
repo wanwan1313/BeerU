@@ -564,7 +564,7 @@ if (isset($_SESSION['cart']['fund'])) {
                                                 </div>
                                             </div>
                                             <div class="fieldset-ccv">
-                                                <label for="card-ccv">CCV</label>
+                                                <label for="card-ccv">CVV</label>
                                                 <input type="text" id="card-ccv" class="js-card-ccv" maxlength="3" />
                                             </div>
                                         </div>
