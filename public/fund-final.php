@@ -51,7 +51,9 @@ $rowTotalBid = $pdo->query($totalBidSql)->fetch();
             </div>
             <div class="product-main-text">
                 <h3>【CLOUDWATER | 英國知名精釀廠】</h3>
-                <p>全球第二 - 英倫第一神廠強勢來台，啤女獨家首發，最強CP值！連續五年(2016-2020)名列在全球最佳酒廠Top 15內，最佳成績為Top2！</p>
+                <p class= "mb-2">全球第二 - 英倫第一神廠強勢來台，啤女獨家首發，最強CP值！連續五年(2016-2020)名列全球最佳酒廠Top 15內，最佳成績為Top2！</p>
+                <hr class="hr1">
+                
                 <div class="product-sub-text d-flex">
                     <div class="goal mt-2">
                         <div class="current-value">
@@ -108,10 +110,9 @@ $rowTotalBid = $pdo->query($totalBidSql)->fetch();
                 <div class="fund-amount">
                     <div class="unit">
                         <button class="minus"><i class="fas fa-minus mb-5"></i></button>
-                 <input class="price" value="<?= $f['plan_price'] ?> " data-price="$<?= $f['plan_price'] ?> ">
-
+                           <div class="price"  value="" data-price="$<?= $f['plan_price'] ?> "><?= $f['plan_price'] ?> </div>
                         <button class="add"><i class="fas fa-plus"></i></button>
-                    </div>
+                    </div> 
 
                     <p><i class="fas fa-exclamation-circle"></i>小提醒：最低金額為贊助選項價格。
 可向上加碼，以100元為單位，幫助計畫加速成功。</p>
@@ -162,30 +163,30 @@ $rowTotalBid = $pdo->query($totalBidSql)->fetch();
     }, 1000);
 
 
-    $('.price').val($('.price').data('price'));
+    $('.price').text($('.price').data('price'));
 
     // 加減贊助金額
     $('.minus').click(function(e) {
         e.preventDefault();
-        var $input = $(this).parent().find('input');
+        //var $input = $(this).parent().find('p');
         var $amount = $(this).parent().find('.price');
         var minPrice = $amount.data('price').replace('$', '');
         console.log('minPrice', minPrice);
-        console.log('amount', $amount.val().replace('$', ''))
+        console.log('amount', $amount.text().replace('$', ''))
 
-        if (parseInt($amount.val().replace('$', '')) > minPrice) {
-            $amount.val('$' + (parseInt($amount.val().replace('$', '')) - 100))
+        if (parseInt($amount.text().replace('$', '')) > minPrice) {
+            $amount.text('$' + (parseInt($amount.text().replace('$', '')) - 100))
         }
     });
 
     $('.add').click(function(e) {
         e.preventDefault();
-        var $input = $(this).parent().find('input');
+       // var $input = $(this).parent().find('p');
         var $amount = $(this).parent().find('.price');
         var minPrice = $amount.data('price').replace('$', '');
         console.log('minPrice', minPrice);
-        console.log('amount', $amount.val().replace('$', ''))
-        $amount.val('$' + (parseInt($amount.val().replace('$', '')) + 100))
+        console.log('amount', $amount.text().replace('$', ''))
+        $amount.text('$' + (parseInt($amount.text().replace('$', '')) + 100))
 
     });
 
@@ -195,7 +196,7 @@ $rowTotalBid = $pdo->query($totalBidSql)->fetch();
     function gotoCheckout() {
         console.log('gotoCheckout');
         let fsid = window.location.search.substr(5, 1)
-        let totalPrice = parseInt($('.price').val().replace('$', ''))
+        let totalPrice = parseInt($('.price').text().replace('$', ''))
 
         console.log(fsid, totalPrice)
 
