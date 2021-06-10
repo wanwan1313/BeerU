@@ -453,4 +453,21 @@ body {
 .checkout .auto_re {
     cursor: pointer;
     color: transparent;
+    opacity: .1;
+    transition: .3s;
+}
+
+.checkout .auto_re:hover {
+    background-color: #ccc;
+}
+
+.checkout .auto_re2 {
+    cursor: pointer;
+    color: transparent;
+    opacity: .1;
+    transition: .3s;
+}
+
+.checkout .auto_re2:hover {
+    background-color: #ccc;
 }

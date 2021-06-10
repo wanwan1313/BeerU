@@ -422,6 +422,7 @@ if (isset($_SESSION['cart']['fund'])) {
                             <!-- 下一步按鈕 -->
                             <div class="col-12 submit mt-4 d-flex justify-content-end">
                                 <div class="auto_re">自動輸入</div>
+                                <div class="auto_re2">自動輸入</div>
                                 <button type="submit" class="next">下一步</button>
                             </div>
                         </form>
@@ -920,6 +921,11 @@ if (isset($_SESSION['cart']['fund'])) {
         $('.re_city').val('臺北市')
         $('.re_dist').val('大安區')
         $('.re_add').val('復興南路二段8號3樓')
+    })
+
+    $('.auto_re2').on('click', function() {
+        $('.re_name').val('周杰倫')
+        $('.re_mobile').val('0912-445-958')
     })
 
     let p_data = {};
