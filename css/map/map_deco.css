@@ -74,15 +74,15 @@
                     
                     .map_deco_2 {
                         width: 193px;
-                        top: 44%;
-                        left: 12%;
+                        top: 40%;
+                        left: 17%;
                         /* animation-delay: 1s; */
                         pointer-events: none;
                     }
                     
                     .map_deco_3 {
                         width: 78px;
-                        top: 49%;
+                        top: 48%;
                         left: 40%;
                         /* animation-delay: 2s; */
                         pointer-events: none;
@@ -90,7 +90,7 @@
                     
                     .map_deco_4 {
                         width: 83px;
-                        top: 15%;
+                        top: 17%;
                         left: 80%;
                         /* animation-delay: 1s; */
                         pointer-events: none;
@@ -114,9 +114,9 @@
                     /* wave */
                     
                     .map_deco_7 {
-                        width: 132px;
+                        width: 124px;
                         top: 30%;
-                        left: 10%;
+                        left: 13%;
                         /* animation-delay: 1s; */
                         pointer-events: none;
                     }
@@ -139,9 +139,9 @@
                     }
                     
                     .map_deco_10 {
-                        width: 120px;
+                        width: 105px;
                         top: 65%;
-                        left: 88%;
+                        left: 86%;
                         transform: scale(-1);
                         /* animation-delay: 1s; */
                         pointer-events: none;
@@ -287,8 +287,8 @@
                     }
                     
                     .au .wave {
-                        width: 1037px;
-                        top: -395px;
+                        width: 1000px;
+                        top: -401px;
                         left: 47%;
                     }
                     

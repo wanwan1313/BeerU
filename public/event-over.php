@@ -3,7 +3,7 @@
 <!-- 需要置換的變數們 -->
 <?php
 
-$page_title = '啤女BeerU:品飲會:花絮回顧';
+$page_title = '啤女BeerU-品飲會-花絮回顧';
 $sid=isset($_GET['sid']) ? intval($_GET['sid']) :1 ;
 $pdo->query("UPDATE `event` SET `event_visited`=`event_visited`+1 WHERE `sid` = 1");
 

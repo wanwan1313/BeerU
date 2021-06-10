@@ -5,7 +5,7 @@
 
 <!-- 需要置換的變數們 -->
 <?php
-$page_title = '啤女BeerU:啤酒地圖';
+$page_title = '啤女BeerU-啤酒地圖';
 
 ?>
 
@@ -1043,7 +1043,7 @@ $page_title = '啤女BeerU:啤酒地圖';
                         <!-- 5.搭配酒杯 -->
                         <div class="col cups mb-3 align-items-center  animatable bounceIn">
                             <!--標題-->
-                            <div class="row title justify-content-center mb-1 mt-4">
+                            <div class="row title justify-content-center mb-1 mt-0 mt-md-4">
                                 <p>搭配酒杯</p>
                             </div>
                             <!--酒杯-->
@@ -1074,7 +1074,7 @@ $page_title = '啤女BeerU:啤酒地圖';
                         <!-- 6.搭配啤酒 -->
                         <div class="col beers align-items-center justify-content-center mb-2 mb-md-5 animatable bounceIn">
                             <!-- 標題 -->
-                            <div class="row title justify-content-center mb-1 mt-4">
+                            <div class="row title justify-content-center mb-1 mt-5 mt-md-4">
                                 <p>推薦啤酒</p>
                             </div>
                             <!-- 啤酒 -->

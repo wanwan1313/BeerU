@@ -163,6 +163,7 @@ $(window).resize(function() {
         $('.part').eq(3).mouseenter(function() {
             $(this).addClass('animate__animated animate__fadeOutUp');
             $('.map .world').css('transform', 'translateX(-35%) translateY(-20%)');
+
         }).mouseleave(function() {
             {
                 $(this).removeClass('animate__animated animate__fadeOutUp');
@@ -222,7 +223,7 @@ $(window).resize(function() {
 })
 
 //當捲軸移動到某個高度時， 選項固定在地圖底部
-if ($(window).scrollTop() > 20) {
+if ($(window).scrollTop() > 30) {
     $('.parts').css('bottom', 'unset').addClass('top_155').css('position', 'absolute').css('transition', '.3s');
 } else {
     $('.parts').css('bottom', fh + 20 + 'px').removeClass('top_155').css('position', 'fixed').css('transition', '.3s');
@@ -230,7 +231,7 @@ if ($(window).scrollTop() > 20) {
 
 $(window).scroll(function() {
     console.log($(window).scrollTop())
-    if ($(window).scrollTop() > 20) {
+    if ($(window).scrollTop() > 30) {
         $('.parts').css('bottom', 'unset').addClass('top_155').css('position', 'absolute').css('transition', '.3s');
     } else {
         $('.parts').css('bottom', fh + 20 + 'px').removeClass('top_155').css('position', 'fixed').css('transition', '.3s');

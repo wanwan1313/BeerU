@@ -146,7 +146,6 @@ function getValue() {
             //  !point!要設定結果為「錯誤」
             isPass = false
             $p1_mobile.css('border', '2px solid var(--pink)');
-            // $p1_mobile.parent().next().addClass('invisible').addClass('d-block');
             $p1_mobile.parent().next().next().addClass('d-block').removeClass('d-none').css('color', 'var(--pink)').css('padding-left', '231px');
             $p1_mobile.siblings().children().css('display', 'none');
             if (!name_re.test($p1_name.val())) {
@@ -162,9 +161,8 @@ function getValue() {
         if (!mobile_re.test($p2_mobile.val())) {
             //  !point!要設定結果為「錯誤」
             isPass = false
-
             $p2_mobile.css('border', '2px solid var(--pink)');
-            $p2_mobile.parent().next().next().addClass('d-block').removeClass('d-none').css('color', 'var(--pink)');
+            $p2_mobile.parent().next().next().addClass('d-block').removeClass('d-none').css('color', 'var(--pink)').css('padding-left', '231px');
             $p2_mobile.siblings().children().css('display', 'none');
             if (!name_re.test($p2_name.val())) {
                 $p2_mobile.parent().next().next().removeClass('d-none').addClass('d-block').css('color', 'var(--pink)').css('padding-left', '84px');
