@@ -901,14 +901,14 @@
         font-family: 'Noto Serif TC', serif;
     }
     .fund-success-title h2 {
-        font-size: 1.8rem;
+        font-size: 2.0rem;
         margin-top: 2%;
-        margin-right: 1%;
-        margin-left: 1%;
+        margin-right: 10%;
+        margin-left: 10%;
     }
     .fund-success-title img {
         margin-top: 2%;
-        width: 30%;
+        width: 20%;
     }
     .fund-success .container {
         margin-top: 2%;
