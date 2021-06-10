@@ -415,6 +415,8 @@
     }
     .fund-intro-text {
         margin-top: 5%;
+        margin-left:0.9%;
+        margin-right:0.9%;
     }
     /* 進度百分比 */
     .progress {
