@@ -9,9 +9,6 @@ const $fp = $('.forgetPassword');
 const $fpa = $('.forgetPassword_again');
 
 
-
-
-
 //初始錯誤狀態
 $('.LogIn-Sign .warn').css('display', 'none');
 
@@ -119,6 +116,44 @@ function Logout(){
 
 
 function LogIn_btn(){
+    const fileds01 = [$account,$password];
+
+    const fileds02 = [$newAccount,$newPassword,$nickname,$birthday];
+
+    const fileds03 = [$Forget_UserEmail,$Forget_UserEmail_Check];
+
+    fileds01.forEach(el =>{
+    
+        el.css('border', '1px solid var(--gold)');
+        $('.LogIn-Sign .warn').css('display', 'none');
+        
+
+    });
+
+    fileds02.forEach(el2 =>{
+
+        el2.css('border', '1px solid var(--gold)');
+        $('.LogIn-Sign .warn').css('display', 'none');
+        $newAccount.next().css('display','block');
+        $newPassword.next().css('display','block');
+
+
+    
+    });
+
+
+    fileds03.forEach(el =>{
+
+        el.css('border', '1px solid var(--gold)');
+        $('.LogIn-Sign .warn').css('display', 'none');
+        $('.send-email-warp .warn-text').css('display','block')
+        $('.send-email-warp .warn-suscess').css('display','none')
+
+        $('.send-email-warp .warn-text').text('請輸入您的電子信箱來傳送驗證碼')
+        $('.search-email').attr('disabled', false).css('background-color','var(--gold)').css('opacity','1');
+       
+
+    });
 
     // 進入登入頁 
     if ($(window).width() >= 992){
@@ -181,6 +216,8 @@ function LogIn_btn(){
     })
 
 
+    $('.LogSign-page').fadeOut(1);
+    $('.Forget-Password').fadeOut(1);
 }
 
 ///忘記密碼第一步
