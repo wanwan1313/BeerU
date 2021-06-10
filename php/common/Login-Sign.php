@@ -63,9 +63,10 @@
 
                     <small class="warn"><i class="far fa-times-circle"></i></small>
 
-
-                    <button class="LogIn-btn02 Login" type="submit"> 登入</button>
-                    <div class="auto-btn auto-Login" ></div>
+                    <div class="but-warp">
+                        <button class="LogIn-btn02 Login" type="submit"> 登入</button>
+                        <div class="auto-btn auto-Login" ></div>
+                    </div>
 
                 </form>
 
@@ -157,8 +158,10 @@
                             <small class="warn"><i class="far fa-times-circle"></i></small>
                         </div>
 
-                        <button type="submit" class="logSign-btn Sign" >註冊</button>
-                        <div class="auto-btn auto-LogSign" ></div>
+                        <div class="but-warp">
+                            <button type="submit" class="logSign-btn Sign" >註冊</button>
+                            <div class="auto-btn auto-LogSign" ></div>
+                        </div>
 
                         <div class="already-account">
                             <h3>已經有帳號了？</h3>
@@ -282,9 +285,12 @@
                         <small class="warn-text">請輸入您的電子信箱來傳送驗證碼</small>
                         <small class="warn-suscess"><i class="fas fa-check"></i>驗證碼已傳送</small>
                         <small class="warn"><i class="far fa-times-circle"></i></small>
-                        <button class="search-email"  type="submit" onclick="Forget_Email();return false">傳送</button>
+                        <div class="but-warp">
+                            <button class="search-email"  type="submit" onclick="Forget_Email();return false">傳送</button>
+                            <div class="auto-btn auto-forgetEmail" ></div>
+                        </div>
                     </div>
-                    <div class="auto-btn auto-forgetEmail" ></div>
+                    
 
                     <div class="Forget-Check">
                         <h3>請輸入驗證碼</h3>

@@ -1312,14 +1312,19 @@
     
 }
 
+
+.LogIn-Sign .but-warp{
+    position: relative;
+}
 .LogIn-Sign .auto-btn{
     position: absolute;
     width: 30px;
     height: 20px;
-    background-color: transparent;
+    background-color:transparent;
     border: transparent;
     cursor: pointer;
 }
+
 
 .LogIn-Sign .auto-btn:hover{
     background-color:#F5F5F5;
@@ -1329,36 +1334,37 @@
 
 .LogIn-Sign .auto-Login{
     left: 0;
-    top: 250px;
-
+    bottom: -25px;
+  
 }
 
 .LogIn-Sign .auto-LogSign{
     left: 0;
-    top: 550px;
+    bottom: -25px;
 
 }
 .LogIn-Sign .auto-forgetEmail{
     right: 0;
-    top: 150px
+    bottom: -25px;
 }
+
 
 
 @media (max-width: 991px) {
     .LogIn-Sign .auto-Login{
         left: 0;
-        top: 195px;
-    
+        bottom: -25px;
+      
     }
     
     .LogIn-Sign .auto-LogSign{
         left: 0;
-        top: 700px;
+        bottom: -25px;
     
     }
     .LogIn-Sign .auto-forgetEmail{
-        right: 0;
-        top: 100px
+        left: 0;
+        bottom: -25px;
     }
 
 
