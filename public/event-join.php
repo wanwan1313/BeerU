@@ -51,24 +51,23 @@ if (isset($_SESSION['user'])) {
 }
 
 if (isset($_SESSION['user'])) {
-$ej_SQL ="SELECT `member_sid` FROM `event_join` WHERE `member_sid` = $m_sid";
-$ej = $pdo->query($ej_SQL)->fetch();
+    $ej_SQL = "SELECT `member_sid` FROM `event_join` WHERE `member_sid` = $m_sid";
+    $ej = $pdo->query($ej_SQL)->fetch();
 }
 
-$ej_arr=[];
+$ej_arr = [];
 if (isset($_SESSION['user'])) {
     $m_sid = $_SESSION['user']['sid'];
     // 抓取已報名資料
-    $ej_SQL ="SELECT `member_sid` FROM `event_join` WHERE `member_sid` = $m_sid";
+    $ej_SQL = "SELECT `member_sid` FROM `event_join` WHERE `member_sid` = $m_sid";
     $ej_row = $pdo->query($ej_SQL)->fetchAll();
     // 
-    if(!empty($ej_row)) {
+    if (!empty($ej_row)) {
         foreach ($ej_row as $ej) {
             // 抓出來
             array_push($ej_arr, $ej['member_sid']);
         }
     }
-
 }
 
 // 2.取報名人數
@@ -326,10 +325,10 @@ $left_people = $e['event_people'] - $totalp;
             <!-- 名額+價格 -->
             <div class="row mx-5 mx-md-0 px-2 quotaprice col-md-6 justify-content-center flex-sm-nowrap flex-md-wrap">
                 <div class="col-sm-6 col-md-12 block quota">剩餘名額：
-                <?php if ($left_people < 1) : ?>
-                    0
+                    <?php if ($left_people < 1) : ?>
+                        0
                     <?php else : ?>
-                    <?= $left_people ?>
+                        <?= $left_people ?>
                     <?php endif ?>
                     /
                     <?= $e['event_people'] ?>
@@ -417,201 +416,216 @@ $left_people = $e['event_people'] - $totalp;
                 </div>
                 <!-- 返回上頁 -->
                 <a href="../public/event.php">
-                <button class='btn_join return d-block mx-auto w-75 w-md-25 col-md-5'> 返回上頁</button>
-            </a>
+                    <button class='btn_join return d-block mx-auto w-75 w-md-25 col-md-5'> 返回上頁</button>
+                </a>
             </div>
         </div>
-        <?php else : ?>  
-            <!-- 判斷：未額滿 -->
-    <?php if (isset($_SESSION['user'])) : ?>
-        <!-- 判斷：已登入 -->
-        <div class='can_join animatable fadeInUp'>
-            <!-- 7.報名活動 -->
-            <div class="container event-join-sign">
-                <div class="row mx-0 px-5">
-                    <div class="title">
-                        <p>報名活動</p>
+    <?php else : ?>
+        <!-- 判斷：未額滿 -->
+        <?php if (isset($_SESSION['user'])) : ?>
+            <!-- 判斷：已登入 -->
+            <div class='can_join animatable fadeInUp'>
+                <!-- 7.報名活動 -->
+                <div class="container event-join-sign">
+                    <div class="row mx-0 px-5">
+                        <div class="title">
+                            <p>報名活動</p>
+                        </div>
                     </div>
-                </div>
-                <!-- form+intro -->
-                <div class="row mx-0 px-5 justify-content-around">
-                    <!--表單-->
-                    <form class='col-md-5 px-0 pl-md-0 mr-0 order-2 order-md-1' action="" name='event_join' method="post" novalidate onsubmit=" event_submit()">
-                        <input type="hidden" name="event_sid" value="<?= $_GET['sid'] ?>">
-                        <div class="form-title">
-                            <label for='p0_name'>姓名
-                                <i class="fas fa-check"></i>
-                            </label>
-                            <input type="text" class='col-10' name='p0_name' id='p0_name' placeholder="啤啤" onfocus="this.placeholder = ''" onblur="this.placeholder = '啤啤'" style='letter-spacing: 0;' oninput="getValue();" onporpertychange="getValue();" required>
-                        </div>
-                        <p class='memo d-none'>＊請輸入正確姓名，以便現場核對身份</p>
-                        <div class="form-title">
-                            <label for='p0_mobile'>電話 <i class="fas fa-check"></i></label>
-                            <input class='col-10' type="tel" name='p0_mobile' id='p0_mobile' placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'" oninput="getValue();" onporpertychange="getValue();" required>
-                        </div>
-                        <p class='memo d-none pl-0'>＊請輸入正確電話，以便現場核對身份</p>
-
-                        <div class="form-title row justify-content-start">
-                            <div>攜伴人數 <span class="memo ">＊最多可攜戴<span class="number_big">2</span>位朋友</span></div>
-
-                        </div>
-                        <select class='col-12' id="people" name="total_p">
-                            <option value="0" selected>0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                        </select>
-                        <div class="two_people">
-                            <div class="gold-line-wrap">
-                                <hr class='gold-line mx-0'>
-                            </div>
-                            <!--攜伴人數第1列-->
-                            <div class='one'>
-                                <div class="row mx-0 px-0 flex-wrap justify-content-start">
-                                    <div class="form-title-s col-12 col-md-6">
-                                        <label for='p1_name'>
-                                            姓名
-                                            <i class="fas fa-check"></i>
-                                        </label>
-                                        <input type="text" placeholder="啤啤" onfocus="this.placeholder = ''" onblur="this.placeholder = '啤啤'" name='p1_name' id='p1_name' oninput="getValue();" onporpertychange="getValue();">
-                                    </div>
-                                    <p class='memo ml-3 d-none'>＊請輸入正確姓名</p>
-                                    <div class="form-title-s col-12 col-md-6">
-                                        <label for='p1_mobile'>
-                                            電話
-                                            <i class="fas fa-check"></i>
-                                        </label>
-                                        <input type="tel" placeholder="0912-345-678" placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'" name='p1_mobile' id='p1_mobile' oninput="getValue();" onporpertychange="getValue();">
-                                    </div>
-                                    <p class='memo ml-3 d-none'>＊請輸入正確姓名</p>
-                                    <p class='memo d-none'>＊請輸入正確電話</p>
-                                </div>
-                            </div>
-                            <!--攜伴人數第2列-->
-                            <div class='two'>
-                                <div class="row mx-0 px-0 flex-wrap justify-content-start">
-                                    <div class="form-title-s col-12 col-md-6">
-                                        <label for='p2_name'>
-                                            姓名
-                                            <i class="fas fa-check"></i>
-                                        </label>
-                                        <input type="text" placeholder="啤啤" onfocus="this.placeholder = ''" onblur="this.placeholder = '啤啤'" name='p2_name' id='p2_name' oninput="getValue();" onporpertychange="getValue();">
-                                    </div>
-                                    <p class='memo ml-3 d-none'>＊請輸入正確姓名</p>
-                                    <div class="form-title-s col-12 col-md-6">
-                                        <label for='p2_mobile'>
-                                            電話
-                                            <i class="fas fa-check"></i>
-                                        </label>
-                                        <input type="tel" placeholder="0912-345-678" placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'" name='p2_mobile' id='p2_mobile' oninput="getValue();" onporpertychange="getValue();">
-                                    </div>
-                                    <p class='memo ml-3 d-none'>＊請輸入正確姓名</p>
-                                    <p class='memo d-none'>＊請輸入正確電話</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gold-line-wrap">
-                            <hr class='gold-line-2 mx-0'>
-                        </div>
-                        <!-- 驗證碼 -->
-                        <form action="">
-                            <div class="cant_copy form-title mb-5 mt-5 flex-nowrap text-md-left pb-4 pb-md-0 js5-input-div" id="js5-form" ng-controller="enterCtrl">
-                                <span class="js5-input-divSpan">驗證碼
+                    <!-- form+intro -->
+                    <div class="row mx-0 px-5 justify-content-around">
+                        <!--表單-->
+                        <form class='col-md-5 px-0 pl-md-0 mr-0 order-2 order-md-1' action="" name='event_join' method="post" novalidate onsubmit=" event_submit()">
+                            <input type="hidden" name="event_sid" value="<?= $_GET['sid'] ?>">
+                            <div class="form-title">
+                                <label for='p0_name'>
+                                    姓名
                                     <i class="fas fa-check"></i>
-                                </span>
+                                </label>
+                                <input type="text" class='col-10' name='p0_name' id='p0_name' placeholder="啤啤" onfocus="this.placeholder = ''" onblur="this.placeholder = '啤啤'" style='letter-spacing: 0;' oninput="getValue();" onporpertychange="getValue();" required>
+                            </div>
+                            <p class='memo d-none'>＊請輸入正確姓名，以便現場核對身份</p>
+                            <div class="form-title">
+                                <label for='p0_mobile'>電話 <i class="fas fa-check"></i></label>
+                                <input class='col-10' type="tel" name='p0_mobile' id='p0_mobile' placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'" oninput="getValue();" onporpertychange="getValue();" required>
+                            </div>
+                            <p class='memo d-none pl-0'>＊請輸入正確電話，以便現場核對身份</p>
 
-                                <input name='checkCode' type="text" placeholder="區分大小寫" onfocus="this.placeholder = ''" onblur="this.placeholder = '區分大小寫'" class='checkCode js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:90px" oninput="getValue();" onporpertychange="getValue();" required>
+                            <div class="form-title row justify-content-start">
+                                <div class='auto_input0'>攜伴人數 <span class="memo ">＊最多可攜戴<span class="number_big auto_input1">
+                                            <?php if ($left_people <= 3) : ?>
+                                                <?= $left_people - 1 ?>
+                                            <?php else : ?>
+                                                2
+                                            <?php endif ?>
 
-                                <input type="text" class="js5-authCode mx-2" style="width:75px;background-color:var(--red);color:var(--yellow);font-size:2rem;font-weight:bold;text-align:center;letter-spacing:.1rem;border:1px solid white;font-family:'Noto Serif TC', serif;" value="" id="js5-authCode" ng-model="showAuthCode" disabled="disabled" oncopy="return false">
+                                        </span>位朋友</span></div>
 
-                                <a class='recode' href="javascript:">
-                                    <i class="fas fa-undo-alt" style="font-size:1.6rem;margin-right:-5px;"></i>
-                                    <p class='ml-md-1 ml-0 d-md-inline-block d-none' style='letter-spacing:.25rem'>重新獲取驗證碼</p>
-                                </a>
-                                <p class='memo d-none'>＊驗證碼錯誤</p>
+                            </div>
+                            <select class='col-12' id="people" name="total_p">
+                            <option value="0" selected>0</option>
+                                <?php if ($left_people >= 3) : ?>
+                                    <!-- 判斷：剩餘人數>= 3 -->
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                <?php elseif ($left_people == 2) : ?>
+                                    <!-- 判斷：剩餘人數=2 -->
+                                    <option value="1">1</option>
+                                    <?php else : ?>   
+                                    <?php endif ?>
+                            </select>
+                            <div class="two_people">
+                                <div class="gold-line-wrap">
+                                    <hr class='gold-line mx-0'>
+                                </div>
+                                <!--攜伴人數第1列-->
+                                <div class='one'>
+                                    <div class="row mx-0 px-0 flex-wrap justify-content-start">
+                                        <div class="form-title-s col-12 col-md-6">
+                                            <label for='p1_name'>
+                                                姓名
+                                                <i class="fas fa-check"></i>
+                                            </label>
+                                            <input type="text" placeholder="啤啤" onfocus="this.placeholder = ''" onblur="this.placeholder = '啤啤'" name='p1_name' id='p1_name' oninput="getValue();" onporpertychange="getValue();">
+                                        </div>
+                                        <p class='memo ml-3 d-none'>＊請輸入正確姓名</p>
+                                        <div class="form-title-s col-12 col-md-6">
+                                            <label for='p1_mobile'>
+                                                電話
+                                                <i class="fas fa-check"></i>
+                                            </label>
+                                            <input type="tel" placeholder="0912-345-678" placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'" name='p1_mobile' id='p1_mobile' oninput="getValue();" onporpertychange="getValue();">
+                                        </div>
+                                        <p class='memo ml-3 d-none'>＊請輸入正確姓名</p>
+                                        <p class='memo d-none'>＊請輸入正確電話</p>
+                                    </div>
+                                </div>
+                                <!--攜伴人數第2列-->
+                                <div class='two'>
+                                    <div class="row mx-0 px-0 flex-wrap justify-content-start">
+                                        <div class="form-title-s col-12 col-md-6">
+                                            <label for='p2_name'>
+                                                姓名
+                                                <i class="fas fa-check"></i>
+                                            </label>
+                                            <input type="text" placeholder="啤啤" onfocus="this.placeholder = ''" onblur="this.placeholder = '啤啤'" name='p2_name' id='p2_name' oninput="getValue();" onporpertychange="getValue();">
+                                        </div>
+                                        <p class='memo ml-3 d-none'>＊請輸入正確姓名</p>
+                                        <div class="form-title-s col-12 col-md-6">
+                                            <label for='p2_mobile'>
+                                                電話
+                                                <i class="fas fa-check"></i>
+                                            </label>
+                                            <input type="tel" placeholder="0912-345-678" placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'" name='p2_mobile' id='p2_mobile' oninput="getValue();" onporpertychange="getValue();">
+                                        </div>
+                                        <p class='memo ml-3 d-none'>＊請輸入正確姓名</p>
+                                        <p class='memo d-none'>＊請輸入正確電話</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gold-line-wrap">
+                                <hr class='gold-line-2 mx-0'>
+                            </div>
+                            <!-- 驗證碼 -->
+                            <form action="">
+                                <div class="cant_copy form-title mb-5 mt-5 flex-nowrap text-md-left pb-4 pb-md-0 js5-input-div" id="js5-form" ng-controller="enterCtrl">
+                                    <span class="js5-input-divSpan">驗證碼
+                                        <i class="fas fa-check"></i>
+                                    </span>
+
+                                    <input name='checkCode' type="text" placeholder="區分大小寫" onfocus="this.placeholder = ''" onblur="this.placeholder = '區分大小寫'" class='checkCode js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:90px" oninput="getValue();" onporpertychange="getValue();" required>
+
+                                    <input type="text" class="js5-authCode mx-2" style="width:75px;background-color:var(--red);color:var(--yellow);font-size:2rem;font-weight:bold;text-align:center;letter-spacing:.1rem;border:1px solid white;font-family:'Noto Serif TC', serif;" value="" id="js5-authCode" ng-model="showAuthCode" disabled="disabled" oncopy="return false">
+
+                                    <a class='recode' href="javascript:">
+                                        <i class="fas fa-undo-alt" style="font-size:1.6rem;margin-right:-5px;"></i>
+                                        <p class='ml-md-1 ml-0 d-md-inline-block d-none' style='letter-spacing:.25rem'>重新獲取驗證碼</p>
+                                    </a>
+                                    <p class='memo d-none'>＊驗證碼錯誤</p>
+                                </div>
+                            </form>
+                            <!-- 活動資訊 -->
+                            <div class="serve col-md-5 h-100 px-4 pr-lg-3 order-1 order-md-2">
+                                <p class='t1 text-center'>活動資訊</p>
+                                <!-- 活動時間地點 -->
+                                <div class="timelocation lh15 w-75 mx-auto">
+                                    <div class="time">
+                                        <div class="d-flex align-items-md-center align-items-start justify-content-start">
+                                            <p class='t1-i mx-0 px-0 text-nowrap'><i class="far fa-clock"></i>活動時間</p>
+                                            <div class='btn_join over calender mx-0'><a href="<?= $e['event_calender'] ?>"><i class="fas fa-calendar-plus"></i>加入行事曆</a></div>
+                                        </div>
+                                        <p class='t1-c'><?= $e['event_time'] ?></p>
+                                    </div>
+                                    <div class="location">
+                                        <p class='t1-i'><i class="fas fa-map-marker-alt"></i>活動地點</p>
+                                        <p class='t1-c'><?= $e['event_place'] ?>
+                                            <br><span><?= $e['event_address'] ?></span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- 價格 -->
+                                <div class="row align-items-start mx-auto jusitify-content-around">
+                                    <div class="block price col-8 col-lg-6 mt-0 mx-auto px-0 text-center">價格：NT$<?= $e['event_price'] ?></div>
+                                    <div class="memo mb-0 col-8 col-lg-6 text-justify px-0 px-lg-4 mx-auto">
+                                        *費用為當天當場繳交，活動前一個禮拜不開放取消</div>
+                                </div>
+                            </div>
+                            <!-- 送出 -->
+                            <div class='col-md-6 w-100 order-3 order-md-3 px-0'>
+                                <!-- 立即報名 -->
+                                <button class='btn_join w-100 over d-block mx-auto mb-2' type='submit' onclick="event_submit()">立即報名</button>
+                                <!-- 說明 -->
+                                <div class="d-flex mx-auto w-100 memo-check lh15 px-0 align-items-baseline">
+                                    <!-- <input class='d-block mr-2' id='checkbox' type="checkbox" name='checkbox' value='1'/> -->
+                                    <div class="memo mx-auto d-inline mt-2 memo_check ">按下「報名鈕」的同時，表示您已詳閱我們的《資料使用政策與使用條款》，同意使用《啤女》所提供的服務並訂閱電子報。</div>
+                                </div>
                             </div>
                         </form>
-                        <!-- 活動資訊 -->
-                        <div class="serve col-md-5 h-100 px-4 pr-lg-3 order-1 order-md-2">
-                            <p class='t1 text-center'>活動資訊</p>
-                            <!-- 活動時間地點 -->
-                            <div class="timelocation lh15 w-75 mx-auto">
-                                <div class="time">
-                                    <div class="d-flex align-items-md-center align-items-start justify-content-start">
-                                        <p class='t1-i mx-0 px-0 text-nowrap'><i class="far fa-clock"></i>活動時間</p>
-                                        <div class='btn_join over calender mx-0'><a href="<?= $e['event_calender'] ?>"><i class="fas fa-calendar-plus"></i>加入行事曆</a></div>
-                                    </div>
-                                    <p class='t1-c'><?= $e['event_time'] ?></p>
-                                </div>
-                                <div class="location">
-                                    <p class='t1-i'><i class="fas fa-map-marker-alt"></i>活動地點</p>
-                                    <p class='t1-c'><?= $e['event_place'] ?>
-                                        <br><span><?= $e['event_address'] ?></span>
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- 價格 -->
-                            <div class="row align-items-start mx-auto jusitify-content-around">
-                                <div class="block price col-8 col-lg-6 mt-0 mx-auto px-0 text-center">價格：NT$<?= $e['event_price'] ?></div>
-                                <div class="memo mb-0 col-8 col-lg-6 text-justify px-0 px-lg-4 mx-auto">
-                                    *費用為當天當場繳交，活動前一個禮拜不開放取消</div>
-                            </div>
-                        </div>
-                        <!-- 送出 -->
-                        <div class='col-md-6 w-100 order-3 order-md-3 px-0'>
-                            <!-- 立即報名 -->
-                            <button class='btn_join w-100 over d-block mx-auto mb-2' type='submit' onclick="event_submit()">立即報名</button>
-                            <!-- 說明 -->
-                            <div class="d-flex mx-auto w-100 memo-check lh15 px-0 align-items-baseline">
-                                <!-- <input class='d-block mr-2' id='checkbox' type="checkbox" name='checkbox' value='1'/> -->
-                                <div class="memo mx-auto d-inline mt-2 memo_check ">按下「報名鈕」的同時，表示您已詳閱我們的《資料使用政策與使用條款》，同意使用《啤女》所提供的服務並訂閱電子報。</div>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
+                </div>
+                <!-- 8.按鈕 -->
+                <div class="col all-button flex-nowrap px-0">
+                    <!-- 返回上頁 -->
+                    <a href="../public/event.php"><button class='btn_join return d-block mx-auto w-75 w-md-25 col-md-5'> 返回上頁</button></a>
                 </div>
             </div>
-            <!-- 8.按鈕 -->
-            <div class="col all-button flex-nowrap px-0">
-                <!-- 返回上頁 -->
-                <a href="../public/event.php"><button class='btn_join return d-block mx-auto w-75 w-md-25 col-md-5'> 返回上頁</button></a>
-            </div>
-        </div>
-        <!-- loading -->
-        <?php if (in_array($ej['member_sid'], $ej_arr)) : ?>
-            <!-- 判斷:已報名 -->
+            <!-- loading -->
+            <?php if (in_array($ej['member_sid'], $ej_arr)) : ?>
+                <!-- 判斷:已報名 -->
+            <?php else : ?>
+                <!-- 判斷:尚未報名 -->
+                <div class="log-content Loading-page">
+                    <div class="bg-black">
+                        <div class="loader"></div>
+                        <p>請稍候...</p>
+                    </div>
+                </div>
+            <?php endif ?>
+
         <?php else : ?>
-            <!-- 判斷:尚未報名 -->
-            <div class="log-content Loading-page">
-             <div class="bg-black">
-                <div class="loader"></div>
-                <p>請稍候...</p>
+            <!-- 判斷：尚未登入 -->
+            <div class="need_login animatable fadeInUp">
+                <!-- 標題：報名活動 -->
+                <div class="container event-join-sign">
+                    <div class="row mx-0 px-5">
+                        <div class="title">
+                            <p>報名活動</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 按鈕 -->
+                <div class="col all-button flex-nowrap px-0">
+                    <!-- 登入會員 -->
+                    <button class='over d-block mx-auto  w-75 w-md-25 mb-2 col-md-5' onclick="LogIn_btn()">登入會員</button>
+                    <div class="d-flex w-75 mx-auto col-md-5 memo-check lh15 px-0 align-items-baseline">
+                        <div class="memo mx-auto d-inline">*登入會員即可填寫報名表參加活動</div>
+                    </div>
+                    <!-- 返回上頁 -->
+                    <a href="../public/event.php"><button class='btn_join return d-block mx-auto w-75 w-md-25 col-md-5'> 返回上頁</button></a>
                 </div>
             </div>
         <?php endif ?>
-
-    <?php else : ?>
-        <!-- 判斷：尚未登入 -->
-        <div class="need_login animatable fadeInUp">
-            <!-- 標題：報名活動 -->
-            <div class="container event-join-sign">
-                <div class="row mx-0 px-5">
-                    <div class="title">
-                        <p>報名活動</p>
-                    </div>
-                </div>
-            </div>
-            <!-- 按鈕 -->
-            <div class="col all-button flex-nowrap px-0">
-                <!-- 登入會員 -->
-                <button class='over d-block mx-auto  w-75 w-md-25 mb-2 col-md-5' onclick="LogIn_btn()">登入會員</button>
-                <div class="d-flex w-75 mx-auto col-md-5 memo-check lh15 px-0 align-items-baseline">
-                    <div class="memo mx-auto d-inline">*登入會員即可填寫報名表參加活動</div>
-                </div>
-                <!-- 返回上頁 -->
-                <a href="../public/event.php"><button class='btn_join return d-block mx-auto w-75 w-md-25 col-md-5'> 返回上頁</button></a>
-            </div>
-        </div>
     <?php endif ?>
-            <?php endif ?>
 
 
 </section>
@@ -626,6 +640,9 @@ $left_people = $e['event_people'] - $totalp;
 <script src='../js/event/event_scroll_to_top.js'></script>
 <script src='../js/event/event_submit.js'></script>
 <script src='../js/event/event_attention.js'></script>
+<!-- demo用 -->
+<script src='../js/event/auto_input.js'></script>
+
 
 
 
