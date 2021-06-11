@@ -1025,7 +1025,7 @@ $page_title = '啤女BeerU-啤酒地圖';
                                 <p>美國</p>
                             </div>
                             <!-- 3.代理廠牌 -->
-                            <div class="row beer-brand justify-content-center col-md-12 mb-3 mb-md-5 animatable bounceIn">
+                            <div class="row beer-brand justify-content-center col-md-12 mb-2 mb-md-5 animatable bounceIn">
                                 <ul class='d-flex'>
                                     <li><a href="all-product.php?cate=12&page=1&hot=0&order=1 "><img src="../images/tagespic/12.svg" alt=""></a></li>
                                 </ul>
