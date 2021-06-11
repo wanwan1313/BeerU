@@ -1673,8 +1673,12 @@ cursor: pointer;
     font-family: 'Noto Serif TC', serif;
     font-size: 5rem;
     font-weight: bold;
-    margin-top: 70px;
+    margin-top: 80px;
     letter-spacing: .75rem;
+}
+
+.map .map-card .country-name p {
+    line-height: 1.5;
 }
 
 
@@ -1686,6 +1690,9 @@ cursor: pointer;
         font-size: 3.5rem;
         font-weight: bold;
         margin-top: 0px;
+    }
+    .map .map-card .country-name p {
+        line-height: 2;
     }
 }
 
@@ -1699,11 +1706,19 @@ cursor: pointer;
     margin-top: -10px;
 }
 
+.beer-brand img {
+    transition: .3s;
+}
+
+.beer-brand img:hover {
+    transform: scale(1.5);
+}
+
 .map li {
     width: 30px;
     height: 30px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 6px;
+    margin-right: 6px;
 }
 
 @media (max-width: 768px) {
@@ -1712,8 +1727,8 @@ cursor: pointer;
         margin-bottom: 10px;
     }
     .map li {
-        width: 20px;
-        height: 20px;
+        width: 27.5px;
+        height: 27.5px;
         margin-left: 7.5px;
         margin-right: 7.5px;
     }
