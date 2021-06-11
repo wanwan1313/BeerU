@@ -505,7 +505,7 @@ if (isset($_SESSION['cart']['fund'])) {
                                                         </svg>
                                                     </div>
                                                     <div class="ccv">
-                                                        <label>CCV</label>
+                                                        <label>CVV</label>
                                                         <div></div>
                                                     </div>
                                                 </div>
