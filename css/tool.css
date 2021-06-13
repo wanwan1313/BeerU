@@ -712,7 +712,7 @@
     
     .join .loader {
         position: fixed;
-        top: 35%;
+        top: 30%;
         left: 47%;
         margin: 80px auto 0 auto;
         border: 16px solid #f3f3f300;
