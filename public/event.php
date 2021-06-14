@@ -128,24 +128,30 @@ if (isset($_SESSION['user'])) {
             $full =  $left_people < 1;
             // 瀏覽人次
             // $e['event_visited']="SELECT FORMAT(`event_visited`, 'N0')FROM `event`";
-            
+
 
             if (isset($_SESSION['user'])) {
-            $e_sid = $e['sid'];
-            $m_sid = $_SESSION['user']['sid'];
-            $es_SQL = "SELECT COUNT(*) FROM  `event_join` WHERE `member_sid` = $m_sid AND `event_sid` = $e_sid";
-            $es = $pdo->query($es_SQL)->fetch(PDO::FETCH_NUM)[0];}
+                $e_sid = $e['sid'];
+                $m_sid = $_SESSION['user']['sid'];
+                $es_SQL = "SELECT COUNT(*) FROM  `event_join` WHERE `member_sid` = $m_sid AND `event_sid` = $e_sid";
+                $es = $pdo->query($es_SQL)->fetch(PDO::FETCH_NUM)[0];
+            }
 
 
         ?>
             <div class="row justify-content-between align-items-center event-card animatable fadeInUp">
                 <!-- 3.2.1.banner -->
                 <div class='card-banner col-12 col-lg-4 px-0'>
-                    <?php if ($es > 0) : ?>
-                        <!-- 判斷：已報名 -->
-                        <div class="crown"><i class="fas fa-crown"></i> 已報名成功</div>
+                    <?php if (isset($_SESSION['user'])) : ?>
+                    <!-- 判斷：是會員 -->
+                        <?php if ($es > 0) : ?>
+                            <!-- 判斷：已報名 -->
+                            <div class="crown"><i class="fas fa-crown"></i> 已報名成功</div>
+                        <?php else : ?>
+                            <!-- 判斷：未報名 -->
+                        <?php endif ?>
                     <?php else : ?>
-                        <!-- 判斷：未報名 -->
+                    <!-- 判斷：不是會員 -->
                     <?php endif ?>
                     <img src=" ../images/event/<?= $e['event_pic_s'] ?>" alt="">
                 </div>
@@ -183,9 +189,9 @@ if (isset($_SESSION['user'])) {
                                 /<?= $e['event_people'] ?></li>
                         <?php endif ?>
                         <li class='review'><i class="far fa-eye"></i>
-                            <?=  number_format($e['event_visited']) ?>
+                            <?= number_format($e['event_visited']) ?>
 
-                            
+
                         </li>
                     </div>
                     <!-- 3.2.2.4.加入關注+立即報名 -->
