@@ -4,7 +4,7 @@
 <!-- 需要置換的變數們 -->
 <?php
 
-$page_title = '啤女BeerU:募資計畫-方案確認頁';
+$page_title = '啤女BeerU-募資計畫-方案確認頁';
 
 //用sid號碼抓方案資料 
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
