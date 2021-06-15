@@ -5,7 +5,7 @@
 <!-- 需要置換的變數們 -->
 <?php
 
-$page_title = '啤女BeerU:餐酒搭配';
+$page_title = '啤女BeerU-餐酒搭配';
 $psid = 0;
 
 // 此頁商品
@@ -170,7 +170,7 @@ $come_cate = strpos($come_from, 'all-product.php?cate=')  ? explode('=', preg_re
             <div class="col-12">
                 <div class="beer-type mt-5">
                     <h1 class="title-line">九種經典精釀啤酒種類</h1>
-                    <h2 class="mt-5">台菜搭配哪款精釀啤酒最對味呢？</h2>
+                    <h2 class="mt-5">品嚐精釀啤酒，下酒菜怎麼選？</h2>
                     <h2 class="animate__animated animate__headShake animate__delay-5s animate__infinite mt-5">馬上點選酒滴</h2>
                 </div>
 

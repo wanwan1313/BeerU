@@ -3,7 +3,7 @@
 
 
 <?php
-$page_title = '啤女BeerU:募資計畫';
+$page_title = '啤女BeerU-募資計畫';
 
 // 現在募資計畫
 $f_SQL = "SELECT * FROM `fund`";
