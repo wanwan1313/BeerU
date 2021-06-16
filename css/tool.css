@@ -799,3 +799,36 @@
     .map .animate__backInLeft {
         animation-duration: 2s;
     }
+    /* ------------------------------ */
+    /* 表單即時驗證(未採用) */
+
+    /* 初始值 */
+    .input_origin{
+        border:unset;
+    }
+    .check_origin{
+        color:unset;
+    }
+
+    /* 錯誤 */
+    .input_wrong{
+        border:2px solid var(--pink);
+    }
+    .check_wrong{
+        font-family: 'Noto Sans TC', sans-serif;
+        font-size: 1.4rem;
+        color:var(--pink);
+        font-weight: 400;
+        line-height: 1;
+        text-align: justify;
+        margin-bottom: 20px;
+    }
+
+    /* 正確 */
+    .input_right{
+        border:2px solid var(--gold);
+    }
+    .check_right{
+        color:var(--gold);
+        display: inline-block;
+    }
