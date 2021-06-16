@@ -550,7 +550,7 @@ if (isset($_SESSION['user'])) {
                                 <!-- 驗證碼 -->
                                 <form action="">
                                     <div class="cant_copy form-title mb-5 mt-5 flex-nowrap text-md-left pb-4 pb-md-0 js5-input-div" id="js5-form" ng-controller="enterCtrl">
-                                        <span class="js5-input-divSpan">驗證碼
+                                        <span class="js5-input-divSpan auto_input_v">驗證碼
                                             <i class="fas fa-check"></i>
                                         </span>
 
