@@ -20,20 +20,24 @@ $('.auto_input1').click(function () {
     $p1_name.css('border', '2px solid var(--gold)');
     $p1_name.parent().next().removeClass('d-block').addClass('d-none').css('color', '#aaa');
     $p1_name.siblings().children().css('color', 'var(--gold)').css('display', 'inline-block');
-    $('.one .memo').addClass('d-none')
+    $('.one .memo').addClass('d-none').removeClass('d-block');
 
     $p1_mobile.val('0912345678');
     $p1_mobile.css('border', '2px solid var(--gold)');
     $p1_mobile.parent().next().next().removeClass('d-block').addClass('d-none').css('color', '#aaa');
     $p1_mobile.siblings().children().css('color', 'var(--gold)').css('display', 'inline-block');
+
     $p2_name.val('蕭花花公子帥鮭魚啊這個名字帥嗎');
     $p2_name.css('border', '2px solid var(--gold)');
     $p2_name.parent().next().removeClass('d-block').addClass('d-none').css('color', '#aaa');
     $p2_name.siblings().children().css('color', 'var(--gold)').css('display', 'inline-block');
-    $p2_mobile.val('09876543210');
-    $p2_mobile.css('border', '2px solid var(--pink)');
-    $p2_mobile.parent().next().next().addClass('d-block').removeClass('d-none').css('color', 'var(--pink)').css('padding-left', '231px');
-    $p2_mobile.siblings().children().css('display', 'none');
+    $(".two .memo:contains('姓名')").addClass('d-none').removeClass('d-block');
+    $(".two .memo:contains('電話')").css('padding-left', '231px');
+
+    $p2_mobile.val('0987654321');
+    // $p2_mobile.css('border', '2px solid var(--pink)');
+    // $p2_mobile.parent().next().next().addClass('d-block').removeClass('d-none').css('color', 'var(--pink)').css('padding-left', '231px');
+    // $p2_mobile.siblings().children().css('display', 'none');
 
 
     // $('#js5-form3-input').val(authCode)
