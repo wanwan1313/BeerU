@@ -34,10 +34,10 @@ $('.auto_input1').click(function () {
     $(".two .memo:contains('姓名')").addClass('d-none').removeClass('d-block');
     $(".two .memo:contains('電話')").css('padding-left', '231px');
 
-    $p2_mobile.val('0987654321');
-    // $p2_mobile.css('border', '2px solid var(--pink)');
-    // $p2_mobile.parent().next().next().addClass('d-block').removeClass('d-none').css('color', 'var(--pink)').css('padding-left', '231px');
-    // $p2_mobile.siblings().children().css('display', 'none');
+    $p2_mobile.val('09876543210');
+    $p2_mobile.css('border', '2px solid var(--pink)');
+    $p2_mobile.parent().next().next().addClass('d-block').removeClass('d-none').css('color', 'var(--pink)').css('padding-left', '231px');
+    $p2_mobile.siblings().children().css('display', 'none');
 
 
     // $('#js5-form3-input').val(authCode)
