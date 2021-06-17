@@ -36,8 +36,7 @@ $checkCode = isset($_POST['checkCode']) ? $_POST['checkCode'] : '';
 // 要怎麼加上驗證碼？(已在資料庫新增一欄checkCode)
 // 加上checkbox???
 
-
-if (empty($p0_name) or empty($p0_mobile) or empty($event_sid) or empty($checkCode) or strlen($p0_name) <= 1) {
+if(empty($p0_name) or empty($p0_mobile) or empty($event_sid) or empty($checkCode)){
     echo json_encode($output);
     exit;
 }
