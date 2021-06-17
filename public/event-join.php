@@ -461,16 +461,22 @@ if (isset($_SESSION['user'])) {
                                 <div class="form-title">
                                     <label for='p0_name'>
                                         姓名
-                                        <i class="fas fa-check"></i>
+                                        <!-- <i class="fas fa-check"></i> -->
                                     </label>
                                     <input type="text" class='col-10' name='p0_name' id='p0_name' placeholder="啤啤" onfocus="this.placeholder = ''" onblur="this.placeholder = '啤啤'" style='letter-spacing: 0;' oninput="getValue();" onporpertychange="getValue();" required>
                                 </div>
-                                <p class='memo d-none'>＊請輸入正確姓名，以便現場核對身份</p>
+                                <p class='d-none'>
+                                    <!-- ＊請輸入正確姓名，以便現場核對身份 -->
+                                </p>
                                 <div class="form-title">
-                                    <label for='p0_mobile'>電話 <i class="fas fa-check"></i></label>
+                                    <label for='p0_mobile'>電話 
+                                        <!-- <i class="fas fa-check"></i> -->
+                                    </label>
                                     <input class='col-10' type="tel" name='p0_mobile' id='p0_mobile' placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'" oninput="getValue();" onporpertychange="getValue();" required>
                                 </div>
-                                <p class='memo d-none pl-0'>＊請輸入正確電話，以便現場核對身份</p>
+                                <p class='d-none pl-0'>
+                                    <!-- ＊請輸入正確電話，以便現場核對身份 -->
+                                </p>
 
                                 <div class="form-title row justify-content-start">
                                     <div class='auto_input0'>攜伴人數 <span class="memo ">＊最多可攜戴<span class="number_big auto_input1">
@@ -505,20 +511,27 @@ if (isset($_SESSION['user'])) {
                                             <div class="form-title-s col-12 col-md-6">
                                                 <label for='p1_name'>
                                                     姓名
-                                                    <i class="fas fa-check"></i>
+                                                    <!-- <i class="fas fa-check"> -->
+                                                    </i>
                                                 </label>
                                                 <input type="text" placeholder="啤啤" onfocus="this.placeholder = ''" onblur="this.placeholder = '啤啤'" name='p1_name' id='p1_name' oninput="getValue();" onporpertychange="getValue();">
                                             </div>
-                                            <p class='memo ml-3 d-none'>＊請輸入正確姓名</p>
+                                            <p class='d-none pl-4'>
+                                                <!-- ＊請輸入正確姓名 -->
+                                            </p>
                                             <div class="form-title-s col-12 col-md-6">
                                                 <label for='p1_mobile'>
                                                     電話
-                                                    <i class="fas fa-check"></i>
+                                                    <!-- <i class="fas fa-check"></i> -->
                                                 </label>
                                                 <input type="tel" placeholder="0912-345-678" placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'" name='p1_mobile' id='p1_mobile' oninput="getValue();" onporpertychange="getValue();">
                                             </div>
-                                            <p class='memo ml-3 d-none'>＊請輸入正確姓名</p>
-                                            <p class='memo d-none'>＊請輸入正確電話</p>
+                                            <p class='d-none pl-3'>
+                                                <!-- ＊請輸入正確姓名 -->
+                                            </p>
+                                            <p class='d-none'>
+                                                <!-- ＊請輸入正確電話 -->
+                                            </p>
                                         </div>
                                     </div>
                                     <!--攜伴人數第2列-->
@@ -527,20 +540,26 @@ if (isset($_SESSION['user'])) {
                                             <div class="form-title-s col-12 col-md-6">
                                                 <label for='p2_name'>
                                                     姓名
-                                                    <i class="fas fa-check"></i>
+                                                    <!-- <i class="fas fa-check"></i> -->
                                                 </label>
                                                 <input type="text" placeholder="啤啤" onfocus="this.placeholder = ''" onblur="this.placeholder = '啤啤'" name='p2_name' id='p2_name' oninput="getValue();" onporpertychange="getValue();">
                                             </div>
-                                            <p class='memo ml-3 d-none'>＊請輸入正確姓名</p>
+                                            <p class='d-none pl-4'>
+                                                <!-- ＊請輸入正確姓名 -->
+                                            </p>
                                             <div class="form-title-s col-12 col-md-6">
                                                 <label for='p2_mobile'>
                                                     電話
-                                                    <i class="fas fa-check"></i>
+                                                    <!-- <i class="fas fa-check"></i> -->
                                                 </label>
                                                 <input type="tel" placeholder="0912-345-678" placeholder="0912-345-678" onfocus="this.placeholder = ''" onblur="this.placeholder = '0912-345-678'" name='p2_mobile' id='p2_mobile' oninput="getValue();" onporpertychange="getValue();">
                                             </div>
-                                            <p class='memo ml-3 d-none'>＊請輸入正確姓名</p>
-                                            <p class='memo d-none'>＊請輸入正確電話</p>
+                                            <p class='d-none pl-3'>
+                                                <!-- ＊請輸入正確姓名 -->
+                                            </p>
+                                            <p class='d-none'>
+                                                <!-- ＊請輸入正確電話 -->
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -551,7 +570,7 @@ if (isset($_SESSION['user'])) {
                                 <form action="">
                                     <div class="cant_copy form-title mb-5 mt-5 flex-nowrap text-md-left pb-4 pb-md-0 js5-input-div" id="js5-form" ng-controller="enterCtrl">
                                         <span class="js5-input-divSpan auto_input_v">驗證碼
-                                            <i class="fas fa-check"></i>
+                                            <!-- <i class="fas fa-check"></i> -->
                                         </span>
 
                                         <input name='checkCode' type="text" placeholder="區分大小寫" onfocus="this.placeholder = ''" onblur="this.placeholder = '區分大小寫'" class='checkCode js5-form3-input' id="js5-form3-input" ng-model="writeCode" maxlength="6" ng-keyup="mykey($event)" style="width:90px" oninput="getValue();" onporpertychange="getValue();" required>
@@ -562,7 +581,9 @@ if (isset($_SESSION['user'])) {
                                             <i class="fas fa-undo-alt" style="font-size:1.6rem;margin-right:-5px;"></i>
                                             <p class='ml-md-1 ml-0 d-md-inline-block d-none' style='letter-spacing:.25rem'>重新獲取驗證碼</p>
                                         </a>
-                                        <p class='memo d-none'>＊驗證碼錯誤</p>
+                                        <p class='d-none'>
+                                            <!-- ＊驗證碼錯誤 -->
+                                        </p>
                                     </div>
                                 </form>
                                 <!-- 活動資訊 -->
@@ -663,7 +684,8 @@ if (isset($_SESSION['user'])) {
 <script src='../js/event/event_vaild.js'></script>
 <script src='../js/event/event_anime_scroll_no_round.js'></script>
 <script src='../js/event/event_scroll_to_top.js'></script>
-<script src='../js/event/event_submit.js'></script>
+<!-- <script src='../js/event/event_submit.js'></script> -->
+<script src='../js/event/event_submit_v2.js'></script>
 <script src='../js/event/event_attention.js'></script>
 <!-- demo用 -->
 <script src='../js/event/auto_input.js'></script>
